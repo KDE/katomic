@@ -1,8 +1,8 @@
 [Level]
 Name=Asparagine
-atom_1=3-AB
+atom_1=3-B
 atom_2=1-d
-atom_3=1-ab
+atom_3=1-b
 atom_4=1-e
 atom_5=3-ae
 atom_6=2-acD
@@ -12,7 +12,7 @@ atom_9=2-aceg
 atom_a=2-agC
 atom_b=4-bdg
 atom_c=1-g
-atom_d=1-ef
+atom_d=1-f
 atom_e=1-h
 atom_f=3-A
 feld_00=...............
@@ -35,4 +35,4 @@ mole_1=.54.d
 mole_2=169b.
 mole_3=279ce
 mole_4=.8a..
-mole_5=3.1..
+mole_5=3.f..

@@ -1,9 +1,9 @@
 [Level]
 Name=Trans-Buthene (Trans-Buthylene)
 atom_1=1-d
-atom_2=1-ab
+atom_2=1-b
 atom_3=2-bdfh
-atom_4=2-fhAB
+atom_4=2-fhB
 atom_5=1-h
 atom_6=2-bdD
 atom_7=1-ef

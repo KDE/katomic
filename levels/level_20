@@ -1,7 +1,7 @@
 [Level]
 Name=Formaldehyde
 atom_1=1-e
-atom_2=2-aeAB
+atom_2=2-aeB
 atom_3=1-a
 atom_4=3-D
 feld_00=...............
@@ -20,5 +20,5 @@ feld_12=.#3....#....1#.
 feld_13=.#############.
 feld_14=...............
 mole_0=1
-mole_1=2
+mole_1=24
 mole_2=3

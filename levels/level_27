@@ -1,14 +1,14 @@
 [Level]
 Name=level27
 atom_1=1-d
-atom_2=1-ab
+atom_2=1-b
 atom_3=2-chC
 atom_4=2-dfA
 atom_5=A-
 atom_6=3-bh
 atom_7=2-bgC
-atom_8=1-ef
-atom_9=2-ehAB
+atom_8=1-f
+atom_9=2-ehB
 atom_a=1-a
 atom_b=3-D
 feld_00=...............
@@ -29,5 +29,5 @@ feld_14=...............
 mole_0=1...8
 mole_1=.357.
 mole_2=.4.4.
-mole_3=2.6.9
+mole_3=2.6.9b
 mole_4=....a

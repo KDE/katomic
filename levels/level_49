@@ -1,15 +1,15 @@
 [Level]
 Name=Benzyle-Ethyle Ether
 atom_1=1-d
-atom_2=1-ab
-atom_3=2-ehAB
-atom_4=2-afAB
+atom_2=1-b
+atom_3=2-ehB
+atom_4=2-afB
 atom_5=1-e
 atom_6=2-abeh
 atom_7=2-acD
 atom_8=2-ceD
 atom_9=1-a
-atom_a=1-ef
+atom_a=1-f
 atom_b=2-bgC
 atom_c=2-dgA
 atom_d=1-h

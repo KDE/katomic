@@ -1,10 +1,10 @@
 [Level]
 Name=Ethylene-Glycol
-atom_1=1-ab
+atom_1=1-b
 atom_2=1-d
-atom_3=3-bef
+atom_3=3-bf
 atom_4=2-bdfh
-atom_5=1-ef
+atom_5=1-f
 atom_6=1-h
 feld_00=...............
 feld_01=....##########.

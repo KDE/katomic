@@ -1,10 +1,10 @@
 [Level]
 Name=Ethylene
 atom_1=1-d
-atom_2=1-ab
-atom_3=3-fhAB
+atom_2=1-b
+atom_3=3-fhB
 atom_4=3-bdD
-atom_5=1-ef
+atom_5=1-f
 atom_6=1-h
 feld_00=...............
 feld_01=...............
