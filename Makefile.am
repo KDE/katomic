@@ -3,6 +3,7 @@ INCLUDES = -I$(top_srcdir)/libkdegames -I$(top_srcdir)/libkdegames/highscore $(a
 katomic_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 katomic_LDADD = $(LIB_KDEGAMES)
 METASOURCES = AUTO
+katomic_la_DEPENDENCIES = $(LIB_KDEGAMES_DEP)
 
 bin_PROGRAMS = katomic
 katomic_SOURCES = feld.cpp molek.cpp main.cpp toplevel.cpp configbox.cpp\
