@@ -1,7 +1,7 @@
 
 INCLUDES = -I$(top_srcdir)/libkdegames -I$(top_srcdir)/libkdegames/highscore $(all_includes)
-LDFLAGS = $(all_libraries) $(KDE_RPATH)
-LDADD = $(LIB_KDEGAMES)
+katomic_LDFLAGS = $(all_libraries) $(KDE_RPATH)
+katomic_LDADD = $(LIB_KDEGAMES)
 METASOURCES = AUTO
 
 bin_PROGRAMS = katomic
@@ -21,7 +21,7 @@ app_DATA = katomicui.rc
 
 messages: rc.cpp
 	: > levelnames.cpp ;\
-	for i in $(top_srcdir)/katomic/levels/level_*; do \
+	for i in levels/level_*; do \
 	egrep '^Name=' $$i | sed -e 's#^Name=\(.*\)$$#i18n(\"\1\")#' >> levelnames.cpp ;\
         done
 	$(XGETTEXT) *.cpp -o $(podir)/katomic.pot
