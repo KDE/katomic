@@ -18,7 +18,7 @@ picsdir = $(appdir)/pics
 
 KDE_ICON = katomic
 
-appsdir = $(kde_appsdir)/Games
+appsdir = $(kde_appsdir)/Games/TacticStrategy
 apps_DATA = katomic.desktop
 
 METASOURCES = AUTO
