@@ -34,3 +34,4 @@ levelnames:
 
 messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/katomic.pot
+
