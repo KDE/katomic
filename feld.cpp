@@ -194,22 +194,22 @@ void Feld::emitStatus()
   if (!chosen || moving) {}
   else {
 
-    if (feld[xpos][ypos-1] == 0) {
+    if (ypos > 0 && feld[xpos][ypos-1] == 0) {
       feld [xpos][ypos-1] = 150;
       putNonAtom(xpos, ypos-1, Feld::MoveUp);
     }
 
-    if (feld[xpos][ypos+1] == 0) {
+    if (ypos < 14 && feld[xpos][ypos+1] == 0) {
       feld [xpos][ypos+1] = 152;
       putNonAtom(xpos, ypos+1, Feld::MoveDown);
     }
 
-    if (feld[xpos-1][ypos] == 0) {
+    if (xpos > 0 && feld[xpos-1][ypos] == 0) {
       feld [xpos-1][ypos] = 151;
       putNonAtom(xpos-1, ypos, Feld::MoveLeft);
     }
 
-    if (feld[xpos+1][ypos] == 0) {
+    if (xpos < 14 && feld[xpos+1][ypos] == 0) {
       feld [xpos+1][ypos] = 153;
       putNonAtom(xpos+1, ypos, Feld::MoveRight);
     }
@@ -237,19 +237,19 @@ void Feld::startAnimation (Direction d)
 
   switch (d) {
   case MoveUp:
-	if (feld [xpos] [ypos-1] != 150)
+	if (ypos == 0 || feld [xpos] [ypos-1] != 150)
 	  return;
 	break;
   case MoveDown:
-	if (feld [xpos] [ypos+1] != 152)
+	if (ypos == 14 || feld [xpos] [ypos+1] != 152)
 	  return;
 	break;
   case MoveLeft:
-	if (feld [xpos-1] [ypos] != 151)
+	if (xpos == 0 || feld [xpos-1] [ypos] != 151)
 	  return;
 	break;
   case MoveRight:
-	if (feld [xpos+1] [ypos] != 153)
+	if (xpos == 14 || feld [xpos+1] [ypos] != 153)
 	  return;
 	break;
   default:
@@ -267,28 +267,28 @@ void Feld::startAnimation (Direction d)
 
   switch (dir) {
   case MoveUp :
-    for (x = xpos, y = ypos, anz = 0; feld [x] [--y] == 0; anz++);
+    for (x = xpos, y = ypos-1, anz = 0; y >= 0 && feld [x] [y] == 0; anz++, y--);
     if (anz != 0)
       {
 	feld [x] [++y] = feld [xpos] [ypos];
       }
     break;
   case MoveDown :
-    for (x = xpos, y = ypos, anz = 0; feld [x] [++y] == 0; anz++);
+    for (x = xpos, y = ypos+1, anz = 0; y <= 14 && feld [x] [y] == 0; anz++, y++);
     if (anz != 0)
       {
 	feld [x] [--y] = feld [xpos] [ypos];
       }
     break;
   case MoveRight :
-    for (x = xpos, y = ypos, anz = 0; feld [++x] [y] == 0; anz++);
+    for (x = xpos+1, y = ypos, anz = 0; x <= 14 && feld [x] [y] == 0; anz++, x++);
     if (anz != 0)
       {
 	feld [--x] [y] = feld [xpos] [ypos];
       }
     break;
   case MoveLeft :
-    for (x = xpos, y = ypos, anz = 0; feld [--x] [y] == 0; anz++);
+    for (x = xpos-1, y = ypos, anz = 0; x >= 0 && feld [x] [y] == 0; anz++, x--);
     if (anz != 0)
       {
 	feld [++x] [y] = feld [xpos] [ypos];
