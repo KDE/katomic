@@ -47,11 +47,14 @@ protected:
     void paintEvent( QPaintEvent * );
     void mousePressEvent (QMouseEvent *);
     void mouseMoveEvent (QMouseEvent *);
+    void keyPressEvent (QKeyEvent *);
     void emitStatus();
 
 private:
 
     const atom& getAtom(uint index) const;
+  
+    void nextAtom();
 
     Highscore *high;
     

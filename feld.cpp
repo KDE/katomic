@@ -42,6 +42,7 @@ Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) :
 
   setMouseTracking(true);
 
+  setFocusPolicy(QWidget::StrongFocus);
 }
 
 Feld::~Feld ()
@@ -115,11 +116,46 @@ void Feld::mousePressEvent (QMouseEvent *e)
   }
   emitStatus();
 }
-  
+
+void Feld::keyPressEvent (QKeyEvent *e) 
+{
+  switch (e->key())
+    {
+    case Qt::Key_Up:
+      //CT later, when we make this configurable    case Feld::UpKey:
+      if (feld [xpos] [ypos-1] == 150)
+	startAnimation(Feld::MoveUp); 
+      break;
+    case Qt::Key_Down:
+      // case Feld::DownKey:
+      if (feld [xpos] [ypos+1] == 152)
+	startAnimation(Feld::MoveDown); 
+      break;
+    case Qt::Key_Left:
+      // case Feld::LeftKey:
+      if (feld [xpos-1] [ypos] == 151)
+	startAnimation(Feld::MoveLeft); 
+      break;
+    case Qt::Key_Right:
+      // case Feld::DownKey:
+      if (feld [xpos+1] [ypos] == 153)
+	startAnimation(Feld::MoveRight); 
+      break;
+    case Qt::Key_Tab:
+      //CT this will do something in the future :-)
+      nextAtom(); break;
+    default:
+      e->ignore();
+    }
+}
+
+
 const atom& Feld::getAtom(uint index) const 
 { 
   return mol->getAtom(index);
 }
+
+void Feld::nextAtom() {}
 
 void Feld::emitStatus()
 {
@@ -248,11 +284,7 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
   int y = e->pos ().y () / 30;
 
   // verschiedene cursor je nach pos
-  if (feld [x] [y] == 150 || feld [x] [y] == 152)
-    setCursor(sizeVerCursor);
-  else if (feld [x] [y] == 151 || feld [x] [y] == 153)
-    setCursor(sizeHorCursor);
-  else if (feld[x][y] != 254 && feld [x] [y] != 0)
+  if (feld[x][y] != 254 && feld [x] [y] != 0)
     setCursor (crossCursor);
   else
     setCursor (arrowCursor);
