@@ -1,5 +1,6 @@
 [Level]
-Name=Acetylsalicylsaeure
+Name=
+Name[de]=Acetylsalicylsaeure
 feld_obje_0=000000000000000000000000000000
 feld_obje_1=00000000fefefefefefefe00000000
 feld_obje_10=00fe00000004fe00000001fefe0000

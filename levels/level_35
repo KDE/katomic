@@ -1,5 +1,6 @@
 [Level]
-Name=Blausaeure
+Name=
+Name[de]=Blausaeure
 feld_obje_0=000000000000000000000000000000
 feld_obje_1=000000000000000000000000000000
 feld_obje_10=000000fe00fe04fe00fe00fe000000

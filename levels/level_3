@@ -1,5 +1,6 @@
 [Level]
-Name=Aethylen
+Name=Ethylene
+Name[de]=Aethylen
 feld_obje_0=000000000000000000000000000000
 feld_obje_1=000000fefefefefefefefefefe0000
 feld_obje_10=0000fefefefe000001fe000000fe00

@@ -1,5 +1,6 @@
 [Level]
-Name=Alanin
+Name=
+Name[de]=Alanin
 feld_obje_0=000000000000000000000000000000
 feld_obje_1=0000000000fefefefefe0000000000
 feld_obje_10=00fefefe000000fefefe000000fe00

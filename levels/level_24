@@ -1,5 +1,6 @@
 [Level]
-Name=Propanal
+Name=
+Name[de]=Propanal
 feld_obje_0=00fefefefefefefefefefefefefe00
 feld_obje_1=00fe0001000000fe0001000000fe00
 feld_obje_10=00fe0300fe0000000000fe0000fe00

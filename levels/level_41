@@ -1,5 +1,6 @@
 [Level]
-Name=Cyclobutan
+Name=
+Name[de]=Cyclobutan
 feld_obje_0=000000000000000000000000000000
 feld_obje_1=00fefefefe0000000000fefefefe00
 feld_obje_10=00fefe00fe0001fe0000fe00fefe00

@@ -1,5 +1,6 @@
 [Level]
-Name=Maleinsaeure
+Name=
+Name[de]=Maleinsaeure
 feld_obje_0=fefefefefefefefefefefefefefefe
 feld_obje_1=fefefefefefefefefefefefefefefe
 feld_obje_10=fefe0000000000fe000000fefefefe
