@@ -23,7 +23,8 @@
 #include <ksimpleconfig.h>
 #include "molek.h"
 
-Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) : QWidget( parent, name )
+Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) : 
+  QWidget( parent, name )
 {
   mol = _mol;
   anim = false;
@@ -114,7 +115,7 @@ void Feld::mousePressEvent (QMouseEvent *e)
   
 const atom& Feld::getAtom(int index) const 
 { 
-  return mol->getAtom(index); 
+  return mol->getAtom(index);
 }
 
 void Feld::mouseReleaseEvent (QMouseEvent *)
@@ -223,42 +224,26 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
 
 bool Feld::checkDone ()
 {
-#if 0    
-
-  struct spielfeld f [15] [15];
-  unsigned char i, j; //, xx, yy;
-  //  bool done;
-  memcpy (f, feld, sizeof (feld));
-
-  // alles außer den atomen löschen 
-  for (i = 0; i < 15; i++)
-  for (j = 0; j < 15; j++)
-  if (f [i] [j].obj == '#') 
+  debug("checkDone");
+  for (int i = 0; i < 15 - mol->molecSize().width(); i++)
+  for (int j = 0; j < 15 - mol->molecSize().height(); j++)
   {
-    memset (&f [i] [j], 0, 3);
-  }  
-
-
-  // f und molek vergleichen   
-  for (i = 0; i < 15 - breite; i++)
-  for (j = 0; j < 15 - hohe; j++)
-  {
-    done = true;
-    if ((f [i] [j].obj == molek [0] [0].obj) && (f [i] [j].verb == molek [0] [0].verb))        // gleich links oben
+    bool done = true;
+    if (feld [i] [j] == mol->getAtom(0,0))        // gleich links oben
     {
-      for (xx = 0; xx < breite + 1; xx++)
-      for (yy = 0; yy < hohe + 1; yy++)
+      for (int xx = 0; xx < mol->molecSize().width(); xx++)
+      for (int yy = 0; yy < mol->molecSize().height(); yy++)
       {
         // ersten 3 bytes des strukturelements vergleichen (obj, verb)
-        if ((strncmp ((const char*)&f [i + xx] [j + yy], 
-                      (const char*)&molek [xx] [yy], 3)) != 0) 
+        if (feld [i + xx ] [j + yy] != mol->getAtom(xx, yy) && feld[i + xx ] [j + yy] != 254)
           done = false;
       }
-      if (done == true)
-        return (true);
+      if (done)
+        return true;
     }
   }
-#endif
+
+  debug("not yet ready");
   return false;
 }
 

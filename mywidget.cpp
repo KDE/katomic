@@ -257,6 +257,7 @@ void MyWidget::about()
 
 int main(int argc, char **argv)
 {
+  QApplication::setColorSpec(QApplication::ManyColor);
   KApplication a(argc, argv, "katomic" );
   MyWidget *top;
   top = new MyWidget(0, "mywidget");

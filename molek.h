@@ -30,6 +30,9 @@ public:
    const atom& getAtom(int index) const { return *atoms.at(index); }
    int atomSize() const { return atoms.count(); }
 
+   QSize molecSize() const { return _size; }
+   int getAtom(int x, int y) const { return molek[x][y]; }
+   
 protected:
    void paintEvent( QPaintEvent * );
 
@@ -39,6 +42,8 @@ private:
    int molek[10][10]; // the indexes within atoms
    QValueList<atom> atoms;
    QString mname;
+   QSize _size;
+
 
 };
 

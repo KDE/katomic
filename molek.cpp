@@ -75,25 +75,26 @@ void Molek::load (const KSimpleConfig& config)
     }
 
     mname = config.readEntry("Name", i18n("Noname"));
-    
-#if 0
-    int hohe = 0;
-    int breite = 0;
+
+    int& height = _size.rheight();
+    int& width = _size.rwidth();
+
+    height = 0;
+    width = 0;
 
     // höhe und breite des moleküls berechnen und ausgeben, checkdone 
     for (int i = 0; i < 10; i++)
 	for (int j = 0; j < 10; j++) {
-	    if (getAtom(molek [i] [j]).conn == 0)
+	    if (molek [i][j] == 0)
 		continue;
 	    // debug("%x", getAtom(molek [i] [j])).conn);
-	    if (i > breite) breite = i;
-	    if (j > hohe) hohe = j;
+	    if (i > width) width = i;
+	    if (j > height) height = j;
 	}
-    hohe++;
-    breite++;
+    height++;
+    width++;
     
-    debug("%d %d", hohe, breite);
-#endif
+    debug("size: %d %d", height, width);
 
     repaint ();
 }
