@@ -35,6 +35,7 @@
 #include <kstandarddirs.h>
 #include <kglobal.h>
 #include <ksimpleconfig.h>
+#include <kglobalsettings.h>
 
 Options settings;
 
@@ -173,9 +174,12 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 
     slay->addWidget(new QLabel(i18n("Best score:"), bg));
 
+    QFont headerFont = KGlobalSettings::generalFont();
+    headerFont.setBold(true);
+
     hs = new QLabel (highest, bg);
     hs->setAlignment(Qt::AlignRight);
-    hs->setFont(QFont("Helvetica", 18, QFont::Bold));
+    hs->setFont(headerFont);
     slay->addWidget(hs);
 
     slay->addSpacing(10);
@@ -184,7 +188,7 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 
     ys = new QLabel (current, bg);
     ys->setAlignment(Qt::AlignRight);
-    ys->setFont(QFont("Helvetica", 18, QFont::Bold));
+    ys->setFont(headerFont);
     slay->addWidget(ys);
 
     updateLevel(1);
