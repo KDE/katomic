@@ -1,33 +1,32 @@
 
+INCLUDES = -I$(top_srcdir)/libkdegames -I$(top_srcdir)/libkdegames/highscore $(all_includes)
+LDFLAGS = $(all_libraries) $(KDE_RPATH)
+LDADD = $(LIB_KDEGAMES)
+METASOURCES = AUTO
+
 bin_PROGRAMS = katomic
-INCLUDES = -I$(top_srcdir)/libkdegames $(all_includes)
-
-katomic_SOURCES = feld.cpp molek.cpp main.cpp toplevel.cpp configbox.cpp gamewidget.cpp
-katomic_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-katomic_LDADD = $(LIB_KDEGAMES) $(LIB_KDEUI)
-
-EXTRA_DIST = katomic.xpm katomic.desktop
-
-appdir = $(kde_datadir)/katomic
-app_DATA = katomicui.rc
+katomic_SOURCES = feld.cpp molek.cpp main.cpp toplevel.cpp configbox.cpp\
+	gamewidget.cpp
 
 pics_DATA = abilder.png molek.png
 picsdir = $(appdir)/pics
 
-KDE_ICON = katomic
-
 appsdir = $(kde_appsdir)/Games/TacticStrategy
 apps_DATA = katomic.desktop
 
-METASOURCES = AUTO
+EXTRA_DIST = $(apps_DATA) $(pics_DATA)
+KDE_ICON = katomic
+
+appdir = $(kde_datadir)/katomic
+app_DATA = katomicui.rc
 
 messages: rc.cpp
 	: > levelnames.cpp ;\
-	for i in levels/level_*; do \
+	for i in $(top_srcdir)/katomic/levels/level_*; do \
 	egrep '^Name=' $$i | sed -e 's#^Name=\(.*\)$$#i18n(\"\1\")#' >> levelnames.cpp ;\
-        done 
+        done
 	$(XGETTEXT) *.cpp -o $(podir)/katomic.pot
-	rm -rf levelnames.cpp
+	rm -f levelnames.cpp
 
 install-data-local:
 	$(mkinstalldirs) $(DESTDIR)$(kde_datadir)/katomic

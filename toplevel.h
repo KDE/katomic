@@ -18,8 +18,6 @@ class KConfig;
  *
  * @short Basic class for AtomTopLevel
  * @author Andreas Wüst
- * @version 0.00
- *
  */
 
 class AtomTopLevel : public KMainWindow
@@ -52,9 +50,6 @@ class AtomTopLevel : public KMainWindow
   GameWidget *main;
 
 public slots:
-
-  // Quit the application
-  void quitapp();
 
   // Shows a window for configuring the keybindings
   void configkeys();

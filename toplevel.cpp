@@ -42,7 +42,7 @@ extern Options settings;
 void AtomTopLevel::createMenu()
 {
     KStdGameAction::highscores(main, SLOT(showHighscores()), actionCollection());
-    KStdGameAction::quit(this, SLOT(quitapp()), actionCollection());
+    KStdGameAction::quit(this, SLOT(close()), actionCollection());
     KStdGameAction::restart(main, SLOT(restartLevel()), actionCollection());
 
     KStdAction::keyBindings(this, SLOT(configkeys()), actionCollection());
@@ -97,12 +97,6 @@ AtomTopLevel::AtomTopLevel()
 
 AtomTopLevel::~AtomTopLevel()
 {
-}
-
-void AtomTopLevel::quitapp()
-{
-    saveConfig();
-    kapp->quit();
 }
 
 bool AtomTopLevel::queryExit()
