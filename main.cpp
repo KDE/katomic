@@ -1,5 +1,5 @@
 /* main.cpp
- 
+
   Copyright (C) 1998   Andreas Wüst (AndreasWuest@gmx.de)
 
   This program is free software; you can redistribute it and/or modify
@@ -27,10 +27,10 @@
 #include <kaboutdata.h>
 
 
-static const char *description = 
+static const char *description =
 	I18N_NOOP("KDE Atomic Entertainment Game");
 
-static const char *version = "v0.0.1";
+static const char *version = "2.0";
 
 
 // ##########################
@@ -39,10 +39,15 @@ static const char *version = "v0.0.1";
 
 int main(int argc, char **argv)
 {
-  KAboutData aboutData( "katomic", I18N_NOOP("KAtomic"), 
-    version, description, KAboutData::License_GPL, 
+  KAboutData aboutData( "katomic", I18N_NOOP("KAtomic"),
+    version, description, KAboutData::License_GPL,
     "(c) 1998, Andreas Wüst");
-  aboutData.addAuthor("Andreas Wüst",0, "AndreasWuest@gmx.de");
+  aboutData.addAuthor("Andreas Wüst", 0, "AndreasWuest@gmx.de");
+  aboutData.addAuthor("Stephan Kulow", 0, "coolo@kde.org");
+  aboutData.addAuthor("Cristian Tibirna", 0, "tibirna@kde.org");
+  aboutData.addCredit("Carsten Pfeiffer");
+  aboutData.addCredit("Dave Corrie");
+
   KCmdLineArgs::init( argc, argv, &aboutData );
 
   QApplication::setColorSpec(QApplication::ManyColor);

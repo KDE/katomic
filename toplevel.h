@@ -25,9 +25,9 @@ class KAccel;
 
 class AtomTopLevel : public KTMainWindow
 {
-  Q_OBJECT
+    Q_OBJECT
 
-    public:
+ public:
 	
   // The constructor method for class KFortune
   //
@@ -55,14 +55,14 @@ class AtomTopLevel : public KTMainWindow
 
   // Save the current configuration to the config-file.
   void saveConfig();
-  
+
   // called before exiting -> save configuration
   virtual bool queryExit();
 
   KConfig *config;
   KAccel *accel;
 
-  QPopupMenu *file, *options;
+  KAction *game_exit, *game_highscore;
 
   GameWidget *main;
 

@@ -47,14 +47,15 @@ protected:
     void paintEvent( QPaintEvent * );
     void mousePressEvent (QMouseEvent *);
     void mouseMoveEvent (QMouseEvent *);
-    void keyPressEvent (QKeyEvent *);
     void emitStatus();
+
+public slots:
+	void nextAtom();
+    void previousAtom();
 
 private:
 
     const atom& getAtom(uint index) const;
-    void nextAtom();
-    void previousAtom();
 
     void putNonAtom(int, int, Direction, bool brick = false);
 

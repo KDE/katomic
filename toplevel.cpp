@@ -32,36 +32,30 @@
 #include "toplevel.h"
 #include "settings.h"
 #include "configbox.h"
+#include <kaction.h>
+#include <kstdaction.h>
 
 extern Options settings;
 
 void AtomTopLevel::createMenu()
 {
-    file = new QPopupMenu();
-    file->insertItem (i18n ("&Highscores"),
-		      main, SLOT (showHighscores ()));
-  		
-    file->insertSeparator(-1);
-    file->insertItem(i18n("&Quit"), this, SLOT(quitapp()) );
+	game_highscore = new KAction(i18n("S&how Highscore"), CTRL+Key_H, main,
+								 SLOT (showHighscores ()), actionCollection(), "game_highscore");
+	game_exit = KStdAction::quit(this, SLOT(quitapp()), actionCollection(), "game_exit");
 	
-    options = new QPopupMenu();
-    options->insertItem(i18n("&Configure keys"), this,
-			SLOT(configkeys()) );
-    options->insertItem(i18n("&Options"), this,
-			SLOT(configopts()) );
+	new KAction(i18n("&Configure Keys..."), 0, this, SLOT(configkeys()), actionCollection(), "config_keys");
+    new KAction(i18n("&Options..."), 0, this, SLOT(configopts()), actionCollection(), "config_options" );
+	
+	new KAction(i18n("Atom Up"), Key_Up, main, SLOT(moveUp()), actionCollection(), "atom_up");
+    new KAction(i18n("Atom Down"), Key_Down, main, SLOT(moveDown()), actionCollection(), "atom_down");
+    new KAction(i18n("Atom Left"), Key_Left, main, SLOT(moveLeft()), actionCollection(), "atom_left");
+    new KAction(i18n("Atom Right"), Key_Right, main, SLOT(moveRight()), actionCollection(), "atom_right");
 
-    KMenuBar *menu = menuBar();
-    menu->insertItem(i18n("&File"), file);
-    menu->insertItem(i18n("&Options"), options);
-    menu->insertSeparator(-1);
-    menu->insertItem(i18n("&Help"), helpMenu(
-	   i18n("Atomic 2.0 by Stephan Kulow <coolo@kde.org>\n"
-	        "and Cristian Tibirna <tibirna@kde.org>\n"
-			"with great help by Carsten Pfeiffer and\n"
-			"Dave Corrie\n"
-	        "based on Atomic 1.0.67 by Andreas Wüst (AndreasWuest@gmx.de)\n")));
+	new KAction(i18n("Next Atom"), Key_Tab, main, SLOT(nextAtom()), actionCollection(), "next_atom");
+	new KAction(i18n("Previous Atom"), SHIFT+Key_Tab, main, SLOT(previousAtom()), actionCollection(), "prev_atom");
+	createGUI();
+
 }
-
 
 void AtomTopLevel::configkeys()
 {
@@ -79,24 +73,15 @@ void AtomTopLevel::initKeys()
     // the standard Kde keybinding
     accel = new KAccel(this);
 	
-    accel->insertStdItem(KStdAccel::Quit);
-    accel->connectItem(KStdAccel::Quit, this, SLOT(quitapp()) );
-    accel->insertItem(i18n("Highscores"), "highscore", "CTRL+H");
-    accel->connectItem ("highscore", main,
-			SLOT (showHighscores ()));
-    // moving keys
-    accel->insertItem(i18n("Atom Up"), "up", "J");
-    accel->insertItem(i18n("Atom Down"), "down", "N");
-    accel->insertItem(i18n("Atom Left"), "left", "S");
-    accel->insertItem(i18n("Atom Right"), "right", "D");
-    accel->insertItem(i18n("Next Atom"), "next", "Space");
+	QValueList<KAction*> actions = actionCollection()->actions();
+	for (QValueList<KAction*>::ConstIterator it = actions.begin(); it != actions.end(); it++)
+	  (*it)->plugAccel(accel);
 
 }
 
 void AtomTopLevel::initConfig()
 {
     config = KGlobal::config();
-
     accel->readSettings(config);
 }
 
@@ -106,9 +91,9 @@ void AtomTopLevel::saveConfig()
     accel->writeSettings(config);
 
     if (settings.changed) {
-	config->setGroup("Options");
-	config->writeEntry("Animation Speed", settings.anim_speed);
-	config->setGroup("Colors");
+	  config->setGroup("Options");
+	  config->writeEntry("Animation Speed", settings.anim_speed);
+	  config->setGroup("Colors");
     }
     config->sync();
 }
@@ -127,15 +112,12 @@ AtomTopLevel::AtomTopLevel ( const char* name )
 
 AtomTopLevel::~AtomTopLevel()
 {
-    delete file;
-    delete options;
-    delete main;
 }
 
 void AtomTopLevel::quitapp()
 {
     saveConfig();
-    kapp->quit();	
+    kapp->quit();
 }
 
 bool AtomTopLevel::queryExit()

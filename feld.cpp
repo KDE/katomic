@@ -115,49 +115,6 @@ void Feld::mousePressEvent (QMouseEvent *e)
   emitStatus();
 }
 
-void Feld::keyPressEvent (QKeyEvent *e)
-{
-  // sorry to separate this from the switch-statement, but with the
-  // Shift-modifier, e->key() is not equal Key_Tab (only & Key_Tab works)
-
-  if ( e->state() & ShiftButton && e->key() & Key_Tab )
-    previousAtom();
-  else {
-
-    switch (e->key())
-      {
-      case Qt::Key_Up:
-        //CT later, when we make this configurable    case Feld::UpKey:
-        if (feld [xpos] [ypos-1] == 150)
-	  startAnimation(Feld::MoveUp);
-        break;
-      case Qt::Key_Down:
-        // case Feld::DownKey:
-        if (feld [xpos] [ypos+1] == 152)
-	  startAnimation(Feld::MoveDown);
-        break;
-      case Qt::Key_Left:
-        // case Feld::LeftKey:
-        if (feld [xpos-1] [ypos] == 151)
-	  startAnimation(Feld::MoveLeft);
-        break;
-      case Qt::Key_Right:
-        // case Feld::DownKey:
-        if (feld [xpos+1] [ypos] == 153)
-	  startAnimation(Feld::MoveRight);
-        break;
-      case Qt::Key_Tab: {
-	//CT this will do something in the future :-)
-	nextAtom();
-	break;
-      }
-      default:
-	e->ignore();
-      }
-   }
-}
-
-
 const atom& Feld::getAtom(uint index) const
 {
   return mol->getAtom(index);
@@ -271,9 +228,30 @@ void Feld::done ()
 
 void Feld::startAnimation (Direction d)
 {
-  // wenn bereits animation stattfindet, nix machen
+  // if animation is already started, return
   if (moving || !chosen)
     return;
+
+  switch (d) {
+  case MoveUp:
+	if (feld [xpos] [ypos-1] != 150)
+	  return;
+	break;
+  case MoveDown:
+	if (feld [xpos] [ypos+1] != 152)
+	  return;
+	break;
+  case MoveLeft:
+	if (feld [xpos-1] [ypos] != 151)
+	  return;
+	break;
+  case MoveRight:
+	if (feld [xpos+1] [ypos] != 153)
+	  return;
+	break;
+  default:
+	break;
+  }
 
   // reset validDirs now so that arrows don't get drawn
   resetValidDirs();
@@ -413,18 +391,18 @@ void Feld::timerEvent (QTimerEvent *)
 {
   // animation beenden
   if (frames <= 0)
-  {
-    moving = false;
-    killTimers ();
-    done();
-    dir = None;
-  }
+	{
+	  moving = false;
+	  killTimers ();
+	  done();
+	  dir = None;
+	}
   else
   {
     frames -= settings.anim_speed;
     if (frames < 0)
-	frames = 0;
-
+	  frames = 0;
+	
     repaint (false);
   }
 }

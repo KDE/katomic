@@ -16,14 +16,14 @@ class GameWidget : public QWidget
  public:
 	
     GameWidget ( QWidget *parent, const char *name=0 );
-    
+
     ~GameWidget();
 		
  protected:
- 
+
     // stellt das spielfeld dar !
-    Feld *feld;      
-  
+    Feld *feld;
+
     // stellt molekül dar
     Molek *molek;
 
@@ -35,12 +35,12 @@ class GameWidget : public QWidget
     QString highest, current;
 	
  public slots:
-    // bringt level auf neuesten stand 
+    // bringt level auf neuesten stand
     void updateLevel (int);
 
     // getbutton erhält button der gedrückt wurde
     void getButton (int);
-  
+
     void gameOver(int moves);
 
     // use this slot to update the moves continually
@@ -48,6 +48,13 @@ class GameWidget : public QWidget
 
     // Menupunkt Highscores im Pop-up Menu, der Highscore anzeigt
     void showHighscores ();
+
+	void moveUp();
+	void moveDown();
+	void moveLeft();
+	void moveRight();
+	void nextAtom();
+	void previousAtom();
 
 };
 

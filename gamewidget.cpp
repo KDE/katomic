@@ -1,5 +1,5 @@
 /* toplevel.cpp
- 
+
   Copyright (C) 1998   Andreas Wüst (AndreasWuest@gmx.de)
 
   This program is free software; you can redistribute it and/or modify
@@ -45,6 +45,36 @@ Options settings;
 
 int level;
 
+void GameWidget::moveUp()
+{
+  feld->startAnimation (Feld::MoveUp);
+}
+
+void GameWidget::moveDown()
+{
+  feld->startAnimation (Feld::MoveDown);
+}
+
+void GameWidget::moveLeft()
+{
+  feld->startAnimation (Feld::MoveLeft);
+}
+
+void GameWidget::moveRight()
+{
+  feld->startAnimation (Feld::MoveRight);
+}
+
+void GameWidget::nextAtom()
+{
+  feld->nextAtom();
+}
+
+void GameWidget::previousAtom()
+{
+  feld->previousAtom();
+}
+
 void GameWidget::getButton (int button)
 {
     feld->startAnimation ((Feld::Direction)button);
@@ -53,7 +83,7 @@ void GameWidget::getButton (int button)
 void GameWidget::gameOver(int moves) {
     QMessageBox::about (this, i18n("Congratulations"), i18n("You solved level %1 with %2 moves!").arg(level).arg(moves));
     // Messagebox öffnen, level gelöst
-  
+
     Highscore high(this, "highscore", level, moves);
     high.exec ();
     updateLevel(level+1);
@@ -100,7 +130,7 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
     molek->setGeometry (MPOSX, MPOSY, 170, 180);
     molek->setBackgroundColor (QColor (0, 0, 0));
 
-    // spielfeld    
+    // spielfeld
     feld = new Feld (molek, this, "feld");
     feld->setGeometry (XPOS, YPOS, 15 * 30 + 1, 15 * 30 + 1);
     feld->setBackgroundColor( QColor( 0, 0, 0) );
@@ -109,18 +139,18 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
     connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     connect (feld, SIGNAL (sendMoves(int)), SLOT(getMoves(int)));
 
-    // scrollbar       
+    // scrollbar
     scrl = new QScrollBar(1, 67, 1, 5, 1, QScrollBar::Horizontal, this, "scrl" );
     scrl->setGeometry( MPOSX, 50, 160, 16 );
 
     connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
-  
+
 
     // the score group
     QGroupBox *bg = new QGroupBox ("Score", this, "bg");
     bg->setGeometry (MPOSX, 300, 160, 160);
     QBoxLayout *slay = new QVBoxLayout (bg, 10);
-  
+
     slay->addSpacing(10);
 
     slay->addWidget(new QLabel(i18n("Highest score:"), bg));
@@ -133,12 +163,12 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
     slay->addSpacing(10);
 
     slay->addWidget(new QLabel(i18n("Your score so far:"), bg));
-  
+
     ys = new QLabel (current, bg);
     ys->setAlignment(Qt::AlignRight);
     ys->setFont(QFont("Helvetica", 18, QFont::Bold));
     slay->addWidget(ys);
-  
+
     updateLevel(1);
 
     KConfig *config = KGlobal::config();
@@ -149,7 +179,7 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 
     config->setGroup("level1");
     highest = config->readEntry("Moves0", "100");
-    
+
     config->setGroup("Colors");
 
     settings.changed = false;
@@ -166,4 +196,4 @@ void GameWidget::showHighscores ()
   Highscore *h = new Highscore (this, "highscore", level, -1);
   h->exec ();
   delete h;
-}    
+}

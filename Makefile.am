@@ -1,17 +1,20 @@
 
 bin_PROGRAMS = katomic
 INCLUDES = $(all_includes)
-LDFLAGS = $(all_libraries) $(KDE_RPATH)
-LDADD = $(LIB_KDEUI)
 
 SUBDIRS = . levels
 
 katomic_SOURCES = feld.cpp highscore.cpp molek.cpp main.cpp toplevel.cpp levelnames.cpp configbox.cpp gamewidget.cpp
+katomic_LDFLAGS = $(all_libraries) $(KDE_RPATH)
+katomic_LDADD = $(LIB_KDEUI)
 
 EXTRA_DIST = katomic.xpm katomic.desktop
 
-pics_DATA = abilder.png molek.png 
-picsdir = $(kde_datadir)/katomic/pics
+appdir = $(kde_datadir)/katomic
+app_DATA = katomicui.rc
+
+pics_DATA = abilder.png molek.png
+picsdir = $(appdir)/pics
 
 KDE_ICON = katomic
 
@@ -29,7 +32,5 @@ levelnames:
 	  done ;\
 	  echo "#endif" >> levelnames.cpp
 
-messages:
+messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/katomic.pot
-
-
