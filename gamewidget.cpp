@@ -20,16 +20,18 @@
 
 #include "settings.h"
 #include "gamewidget.h"
-
 #include "feld.h"
 #include "molek.h"
+
+#include <qscrollbar.h>
+#include <qgroupbox.h>
+#include <qlayout.h>
+
+#include <kmessagebox.h>
 #include <klocale.h>
 #include <kstddirs.h>
 #include <kglobal.h>
 #include <ksimpleconfig.h>
-#include <qscrollbar.h>
-#include <qgroupbox.h>
-#include <qlayout.h>
 
 Options settings;
 
@@ -81,8 +83,7 @@ void GameWidget::getButton (int button)
 }
 
 void GameWidget::gameOver(int moves) {
-    QMessageBox::about (this, i18n("Congratulations"), i18n("You solved level %1 with %2 moves!").arg(level).arg(moves));
-    // Messagebox öffnen, level gelöst
+    KMessageBox::information(this, i18n("You solved level %1 with %2 moves!").arg(level).arg(moves), i18n("Congratulations"));
 
     Highscore high(this, "highscore", level, moves);
     high.exec ();
@@ -197,3 +198,5 @@ void GameWidget::showHighscores ()
   h->exec ();
   delete h;
 }
+
+#include "gamewidget.moc"
