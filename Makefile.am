@@ -26,6 +26,6 @@ levelnames:
 	  echo "#endif" >> levelnames.cpp
 
 messages:
-	$(XGETTEXT) -ki18n -x $(includedir)/kde.pot *.cpp && mv messages.po ../po/katomic.pot
+	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot *.cpp && mv messages.po ../po/katomic.pot
 
 
