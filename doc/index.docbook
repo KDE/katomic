@@ -3,7 +3,7 @@
  <!ENTITY % English "INCLUDE">
  <!ENTITY % addindex "IGNORE">
  <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Documentation V1.0//EN">
-  %ents
+  %ents;
 ]>
 
 <book lang="&language;">
