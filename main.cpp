@@ -27,10 +27,10 @@
 #include <kaboutdata.h>
 
 
-static const char *description =
+static const char description[] =
 	I18N_NOOP("KDE Atomic Entertainment Game");
 
-static const char *version = "2.0";
+static const char version[] = "2.0";
 
 
 // ##########################
