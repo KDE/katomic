@@ -61,7 +61,6 @@ void Feld::resetValidDirs()
 
 void Feld::load (const KSimpleConfig& config)
 {
- 
   mol->load(config);
   
   QString key;
@@ -92,8 +91,6 @@ void Feld::mousePressEvent (QMouseEvent *e)
   if (moving) 
     return;
   
-  resetValidDirs();
-
   int x = e->pos ().x () / 30;
   int y = e->pos ().y () / 30;
 
@@ -110,8 +107,9 @@ void Feld::mousePressEvent (QMouseEvent *e)
     xpos = x;
     ypos = y;
     dir = None;
-    
+    resetValidDirs();
   } else {
+    resetValidDirs();
     chosen = false;
   }
   emitStatus();
@@ -210,7 +208,6 @@ void Feld::done ()
 
 void Feld::startAnimation (Direction d)
 {
- 
   // wenn bereits animation stattfindet, nix machen
   if (moving || !chosen)
     return;
