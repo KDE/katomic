@@ -11,10 +11,9 @@ katomic_SOURCES = feld.cpp molek.cpp main.cpp toplevel.cpp configbox.cpp\
 pics_DATA = abilder.png molek.png
 picsdir = $(appdir)/pics
 
-appsdir = $(kde_appsdir)/Games/TacticStrategy
-apps_DATA = katomic.desktop
+xdg_apps_DATA = katomic.desktop
 
-EXTRA_DIST = $(apps_DATA) $(pics_DATA)
+EXTRA_DIST = $(xdg_apps_DATA) $(pics_DATA)
 KDE_ICON = katomic
 
 appdir = $(kde_datadir)/katomic
@@ -33,4 +32,3 @@ install-data-local:
 	-rm -rf $(DESTDIR)$(kde_datadir)/katomic/levels
 	mkdir $(DESTDIR)$(kde_datadir)/katomic/levels	
 	cp $(srcdir)/levels/level_* $(DESTDIR)$(kde_datadir)/katomic/levels/
-	rm -f $(DESTDIR)$(kde_appsdir)/Games/katomic.desktop
