@@ -23,27 +23,28 @@
 
 extern Options settings;
 
-Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) :
-  QWidget( parent, name )
+Feld::Feld( QWidget *parent, const char *name ) :
+    QWidget( parent, name )
 {
-  mol = _mol;
-  anim = false;
-  dir = None;
-  sprite = QPixmap (30, 30);
+    anim = false;
+    dir = None;
+    sprite = QPixmap (30, 30);
 
-  cx = -1;
-  cy = -1;
+    cx = -1;
+    cy = -1;
 
-  point = new QPoint [1];
-  data = BarIcon("abilder");
+    point = new QPoint [1];
+    data = BarIcon("abilder");
 
-  moving = false;
-  chosen = false;
+    moving = false;
+    chosen = false;
 
-  setMouseTracking(true);
+    setMouseTracking(true);
 
-  setFocusPolicy(QWidget::StrongFocus);
-  setBackgroundColor( QColor( 0, 0, 0) );
+    setFocusPolicy(QWidget::StrongFocus);
+    setBackgroundColor( QColor( 0, 0, 0) );
+
+    setFixedSize(15 * 30 + 1, 15 * 30 + 1);
 }
 
 Feld::~Feld ()

@@ -64,7 +64,6 @@ i18n("Crystal 5")
 i18n("Ethylic-Formiat (Formyl-Ethyl-Esther)")
 i18n("Cyclo-Hexadyene")
 i18n("Iso-Propanol (Isopropylic alcohol, 2-Propanol)")
-i18n("Iso-Propanol (Isopropylic alcohol, 2-Propanol)")
 i18n("Ethyl-aldehyde (Ethanal)")
 i18n("Acetone")
 #endif

@@ -35,27 +35,26 @@
 #include "configbox.h"
 #include <kaction.h>
 #include <kstdaction.h>
+#include <kdebug.h>
 
 extern Options settings;
 
 void AtomTopLevel::createMenu()
 {
-	game_highscore = new KAction(i18n("Sh&ow Highscore"), CTRL+Key_H, main,
-								 SLOT (showHighscores ()), actionCollection(), "game_highscores");
-	game_exit = KStdAction::quit(this, SLOT(quitapp()), actionCollection(), "game_quit");
+    game_highscore = new KAction(i18n("Sh&ow Highscore"), CTRL+Key_H, main,
+                                 SLOT (showHighscores ()), actionCollection(), "game_highscores");
+    game_exit = KStdAction::quit(this, SLOT(quitapp()), actionCollection(), "game_quit");
 
-        KStdAction:: keyBindings(this, SLOT(configkeys()), actionCollection());
-        KStdAction::preferences(this, SLOT(configopts()), actionCollection());
+    KStdAction:: keyBindings(this, SLOT(configkeys()), actionCollection());
+    KStdAction::preferences(this, SLOT(configopts()), actionCollection());
 
-	new KAction(i18n("Atom Up"), Key_Up, main, SLOT(moveUp()), actionCollection(), "atom_up");
-        new KAction(i18n("Atom Down"), Key_Down, main, SLOT(moveDown()), actionCollection(), "atom_down");
-        new KAction(i18n("Atom Left"), Key_Left, main, SLOT(moveLeft()), actionCollection(), "atom_left");
-        new KAction(i18n("Atom Right"), Key_Right, main, SLOT(moveRight()), actionCollection(), "atom_right");
+    new KAction(i18n("Atom Up"), Key_Up, main, SLOT(moveUp()), actionCollection(), "atom_up");
+    new KAction(i18n("Atom Down"), Key_Down, main, SLOT(moveDown()), actionCollection(), "atom_down");
+    new KAction(i18n("Atom Left"), Key_Left, main, SLOT(moveLeft()), actionCollection(), "atom_left");
+    new KAction(i18n("Atom Right"), Key_Right, main, SLOT(moveRight()), actionCollection(), "atom_right");
 
-	new KAction(i18n("Next Atom"), Key_Tab, main, SLOT(nextAtom()), actionCollection(), "next_atom");
-	new KAction(i18n("Previous Atom"), SHIFT+Key_Tab, main, SLOT(previousAtom()), actionCollection(), "prev_atom");
-	createGUI();
-
+    new KAction(i18n("Next Atom"), Key_Tab, main, SLOT(nextAtom()), actionCollection(), "next_atom");
+    new KAction(i18n("Previous Atom"), SHIFT+Key_Tab, main, SLOT(previousAtom()), actionCollection(), "prev_atom");
 }
 
 void AtomTopLevel::configkeys()
@@ -74,9 +73,9 @@ void AtomTopLevel::initKeys()
     // the standard Kde keybinding
     accel = new KAccel(this);
 
-	QValueList<KAction*> actions = actionCollection()->actions();
-	for (QValueList<KAction*>::ConstIterator it = actions.begin(); it != actions.end(); it++)
-	  (*it)->plugAccel(accel);
+    QValueList<KAction*> actions = actionCollection()->actions();
+    for (QValueList<KAction*>::ConstIterator it = actions.begin(); it != actions.end(); it++)
+        (*it)->plugAccel(accel);
 
 }
 
@@ -105,13 +104,12 @@ AtomTopLevel::AtomTopLevel ( const char* name )
 {
     setCaption("");
     main = new GameWidget(this, "gamewidget");
-
     createMenu();
     initKeys();
     initConfig();
     setCentralWidget(main);
-    adjustSize();
-    setFixedSize(sizeHint());
+
+    createGUI();
 }
 
 AtomTopLevel::~AtomTopLevel()

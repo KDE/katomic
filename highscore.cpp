@@ -43,10 +43,10 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
       i--;
     }
     if (pos != 1000)
-      score [pos].moves = moves; 
+      score [pos].moves = moves;
   }
-  
- 
+
+
 
   // now draw that widget
   QGridLayout *lay = new QGridLayout (this, 1, 1, 10);
@@ -60,7 +60,7 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
     tmp += score [i].name;
     n[i] = new QLabel(tmp, this);
     lay->addWidget(n[i], i, 0);
-    
+
     // punkte ausgeben
     tmp.setNum(score [i].moves);
     sc = new QLabel(tmp, this);
@@ -70,13 +70,13 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
 
   lay->addRowSpacing(6, 20);
 
-  // pushbutton erzeugen             
+  // pushbutton erzeugen
   ok = new QPushButton(i18n("&OK"), this, "ok");
   ok->setDefault(true);
   lay->addMultiCellWidget ( ok, 6, 6, 0, 1);
-  
+
   connect(ok, SIGNAL(clicked()), SLOT(accept()) );
-  
+
   if (pos < 6 && moves > 0)
   {
     const int maxLen = 18; // not yet sure why this is 18, but...
@@ -88,24 +88,24 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
     le->setCursorPosition(maxLen);
     le->setSelection(0, maxLen);
     lay->addWidget(le, pos, 0);
-    connect (le, SIGNAL (returnPressed ()), 
+    connect (le, SIGNAL (returnPressed ()),
              this, SLOT (eingabeFertig ()));
 
     // wenn position in highscore liste erreicht, dann ok button verstecken
     ok->hide ();
 
-  } 
-  
+  }
+
 }
 
-void Highscore::getChangedText (const QString& s)
+void Highscore::getChangedText (const QString& )
 {
 }
 
 void Highscore::eingabeFertig ()
 {
 
-  // eingegebener text in s 
+  // eingegebener text in s
 
   QString s = le->text ();
   score [pos].name = s;
@@ -120,7 +120,7 @@ void Highscore::eingabeFertig ()
   l += s;
   n[pos]->setFont(QFont("Helvetica",12, QFont::Bold));
   n[pos]->setText(l);
-  
+
   // pushbutton ok anzeigen
   ok->setFocus();
   ok->show ();
@@ -163,4 +163,4 @@ Highscore::~Highscore()
   delete [] n;
 }
 
-#include "highscore.moc" 
+#include "highscore.moc"

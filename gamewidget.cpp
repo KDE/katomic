@@ -32,11 +32,9 @@
 #include <kstddirs.h>
 #include <kglobal.h>
 #include <ksimpleconfig.h>
+#include <qvbox.h>
 
 Options settings;
-
-#define XPOS 10
-#define YPOS 10
 
 #define MPOSX 480
 #define MPOSY 90
@@ -126,27 +124,32 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 {
     level = 1;
 
-  // molekül
-    molek = new Molek (this, "molek");
-    molek->setGeometry (MPOSX, MPOSY, 170, 180);
+    QHBoxLayout *top = new QHBoxLayout(this, 10);
 
     // spielfeld
-    feld = new Feld (molek, this, "feld");
-    feld->setGeometry (XPOS, YPOS, 15 * 30 + 1, 15 * 30 + 1);
+    feld = new Feld (this, "feld");
     feld->setFocus();
+
+    top->addWidget(feld);
+
+    QVBox *vb = new QVBox(this);
+    vb->setSpacing(20);
+    top->addWidget(vb);
+
+    // scrollbar
+    scrl = new QScrollBar(1, 67, 1, 5, 1, QScrollBar::Horizontal, vb, "scrl" );
+    // scrl->setGeometry( MPOSX, 50, 160, 16 );
+    connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
+
+    // molekül
+    molek = new Molek (vb, "molek");
+    feld->setMolek(molek);
 
     connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     connect (feld, SIGNAL (sendMoves(int)), SLOT(getMoves(int)));
 
-    // scrollbar
-    scrl = new QScrollBar(1, 67, 1, 5, 1, QScrollBar::Horizontal, this, "scrl" );
-    scrl->setGeometry( MPOSX, 50, 160, 16 );
-
-    connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
-
-
     // the score group
-    QGroupBox *bg = new QGroupBox (i18n("Score"), this, "bg");
+    QGroupBox *bg = new QGroupBox (i18n("Score"), vb, "bg");
     bg->setGeometry (MPOSX, 300, 160, 160);
     QBoxLayout *slay = new QVBoxLayout (bg, 10);
 
@@ -183,7 +186,7 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 
     settings.changed = false;
 
-    setFixedSize(665, 471);
+    setMinimumSize(665, 471);
 }
 
 GameWidget::~GameWidget()
@@ -192,9 +195,9 @@ GameWidget::~GameWidget()
 
 void GameWidget::showHighscores ()
 {
-  Highscore *h = new Highscore (this, "highscore", level, -1);
-  h->exec ();
-  delete h;
+    Highscore *h = new Highscore (this, "highscore", level, -1);
+    h->exec ();
+    delete h;
 }
 
 #include "gamewidget.moc"

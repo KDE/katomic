@@ -27,7 +27,7 @@ class Feld : public QWidget
     Q_OBJECT
 
 public:
-    Feld (Molek *mol, QWidget *parent=0, const char *name=0);
+    Feld (QWidget *parent=0, const char *name=0);
     ~Feld ();
 
     enum Direction { None, MoveUp, MoveDown, MoveLeft, MoveRight };
@@ -36,6 +36,8 @@ public:
     void done ();
 
     void load (const KSimpleConfig& config);
+
+    void setMolek(Molek *_mol) { mol = _mol; }
 
 signals:
     void gameOver(int moves);
@@ -51,7 +53,7 @@ protected:
 
 public slots:
 	void nextAtom();
-    void previousAtom();
+        void previousAtom();
 
 private:
 

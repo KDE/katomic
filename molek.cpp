@@ -29,6 +29,7 @@ Molek::Molek( QWidget *parent, const char *name ) : QWidget( parent, name )
 {
     data = BarIcon("molek");
     setBackgroundColor (QColor (0, 0, 0));
+    setMinimumSize(200, 200);
 }
 
 Molek::~Molek ()
@@ -109,8 +110,8 @@ void Molek::paintEvent( QPaintEvent * )
 
     QPainter paint (this);
     paint.setPen (QColor (190, 190, 190));
-    paint.drawText (7, 152, mname);
-    paint.drawText (7, 170, st);
+    paint.drawText (7, height() - 36, mname);
+    paint.drawText (7, height() - 18, st);
     // spielfeld gleich zeichnen
     for (int i = 0; i < 10; i++)
 		for (int j = 0; j < 10; j++) {
