@@ -71,7 +71,7 @@ void Feld::load (const KSimpleConfig& config)
   for (int j = 0; j < 15; j++) {
 
     key.sprintf("feld_%02d", j);
-    const QString line = config.readEntry(key);
+    QString line = config.readEntry(key);
 
     for (int i = 0; i < 15; i++)
 	feld[i][j] = atom2int(line.at(i));
