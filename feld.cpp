@@ -56,8 +56,10 @@ void Feld::resetValidDirs()
   for (int j = 0; j < 15; j++)
     for (int i = 0; i < 15; i++)
       if (feld[i][j] >= 150 && feld[i][j] <= 153)
-	feld[i][j] = 0;
-  repaint();
+	{
+	  feld[i][j] = 0;
+	  putNonAtom(i,j, Feld::None);
+	}
 }
 
 void Feld::load (const KSimpleConfig& config)
@@ -187,31 +189,27 @@ void Feld::emitStatus()
 {
   if (!chosen || moving) {}
   else {
-    bool newones = false;
 
     if (feld[xpos][ypos-1] == 0) {
       feld [xpos][ypos-1] = 150;
-      newones = true;
+      putNonAtom(xpos, ypos-1, Feld::MoveUp);
     }
     
     if (feld[xpos][ypos+1] == 0) {
       feld [xpos][ypos+1] = 152;
-      newones = true;
+      putNonAtom(xpos, ypos+1, Feld::MoveDown);
     }
     
     if (feld[xpos-1][ypos] == 0) {
       feld [xpos-1][ypos] = 151;
-      newones = true;
+      putNonAtom(xpos-1, ypos, Feld::MoveLeft);
     }
     
     if (feld[xpos+1][ypos] == 0) {
       feld [xpos+1][ypos] = 153;
-      newones = true;
+      putNonAtom(xpos+1, ypos, Feld::MoveRight);
     }
     
-    if (newones)
-      repaint();
-
   }
 }
 
@@ -352,10 +350,24 @@ void Feld::timerEvent (QTimerEvent *)
   }
 }
 
+void Feld::putNonAtom (int x, int y, Direction which, bool brick)
+{
+  int xarr, yarr;
+  switch (which)
+    {
+    case Feld::None      : xarr = 279, yarr = 31 * (brick?1:2); break;
+    case Feld::MoveUp    : xarr = 248; yarr = 62; break;
+    case Feld::MoveLeft  : xarr = 217; yarr = 93; break;
+    case Feld::MoveDown  : xarr = 248; yarr = 93; break;
+    case Feld::MoveRight : xarr = 279; yarr = 93; break;
+    }
+
+  bitBlt(this, x * 30, y * 30, &data, xarr, yarr, 30, 30, CopyROP);
+}
 
 void Feld::paintEvent( QPaintEvent * )
 {
-    int i, j, x, y;
+    int i, j, x, y, a = settings.anim_speed;
     
     QPainter paint ( this );
     
@@ -363,30 +375,27 @@ void Feld::paintEvent( QPaintEvent * )
     
     if (moving) {
 	switch (dir) {
-	case MoveUp : bitBlt (this, cx, cy - framesbak + frames, &sprite, CopyROP);
-	    if ( (framesbak - frames > 1)  )
-		{
-		  paint.eraseRect (cx, cy - framesbak + frames + 30, 30, 2);
-		}
-	    break;
-	case MoveDown : bitBlt (this, cx, cy + (framesbak - frames), &sprite, CopyROP);
-	    if ( (framesbak - frames > 1) )
-		{
-		    paint.eraseRect (cx, cy + (framesbak - frames) - 2, 30, 2);
-		}
-	    break;
-	case MoveRight : bitBlt (this, cx + (framesbak - frames), cy, &sprite, CopyROP);
-	    if ( (framesbak - frames > 1) )
-		{	 
-		    paint.eraseRect (cx + (framesbak - frames) - 2, cy, 2, 30);
-		}
-	    break;
-	case MoveLeft : bitBlt (this, cx - framesbak + frames, cy, &sprite, CopyROP);
-	    if ((framesbak - frames > 1))
-		{
-		    paint.eraseRect (cx - framesbak + frames + 30, cy, 2, 30);
-		}
-	    break;
+	case MoveUp :
+	  bitBlt (this, cx, cy - framesbak + frames, &sprite, CopyROP);
+	  if ( (framesbak - frames > 1)  )
+	    paint.eraseRect (cx, cy - framesbak + frames + 30, 30, a+1);
+	  break;
+	case MoveDown : 
+	  bitBlt (this, cx, cy + (framesbak - frames), &sprite, CopyROP);
+	  if ( (framesbak - frames > 1) )
+	    paint.eraseRect (cx, 
+			     cy + (framesbak - frames) - a-1, 30, a+1);
+	  break;
+	case MoveRight : 
+	  bitBlt (this, cx + (framesbak - frames), cy, &sprite, CopyROP);
+	  if ( (framesbak - frames > 1) )
+	    paint.eraseRect (cx + (framesbak - frames) - a - 1, cy, 2, 30);
+	  break;
+	case MoveLeft : 
+	  bitBlt (this, cx - framesbak + frames, cy, &sprite, CopyROP);
+	  if ((framesbak - frames > 1))
+	    paint.eraseRect (cx - framesbak + frames + 30, cy, a + 1, 30);
+	  break;
 	default:
 	  return;
 	    
@@ -404,27 +413,22 @@ void Feld::paintEvent( QPaintEvent * )
 		    
 		    // zeichnet Randstücke
 		    if (feld [i] [j] == 254) {
-			bitBlt (this, x, y, &data, 279, 31, 30, 30, CopyROP);
-			continue;
+		      putNonAtom(i, j, Feld::None, true); continue;
 		    }
 
 		    if (feld[i][j] == 150) {
-		      bitBlt(this, x, y, &data, 248, 62, 30, 30, CopyROP);
-		      continue;
+		      putNonAtom(i, j, Feld::MoveUp); continue;
 		    }
 
 		    if (feld[i][j] == 151) {
-		      bitBlt(this, x, y, &data, 217, 93, 30, 30, CopyROP);
-		      continue;
+		      putNonAtom(i, j, Feld::MoveLeft); continue;
 		    }
 		    if (feld[i][j] == 152) {
-		      bitBlt(this, x, y, &data, 248, 93, 30, 30, CopyROP);
-		      continue;
+		      putNonAtom(i, j, Feld::MoveDown); continue;
 		    }
 		    
 		    if (feld[i][j] == 153) {
-		      bitBlt(this, x, y, &data, 279, 93, 30, 30, CopyROP);
-		      continue;
+		      putNonAtom(i, j, Feld::MoveRight); continue;
 		    }
 
 		    // zeichnet Atome
@@ -443,22 +447,31 @@ void Feld::paintEvent( QPaintEvent * )
 
 		      
 		    // verbindungen zeichnen
-		    if (getAtom(feld [i] [j]).obj <= '9' || getAtom(feld [i] [j]).obj == 'o')
+		    if (getAtom(feld [i] [j]).obj <= '9' ||
+			getAtom(feld [i] [j]).obj == 'o')
 			for (int c = 0; c < MAX_CONNS_PER_ATOM; c++) {
 			    char conn = getAtom(feld [i] [j]).conn[c];
 			    if (!conn)
 				break;
 			    
 			    if (conn >= 'a' && conn <= 'a' + 8)
-				bitBlt (this, x, y, &data, (conn - 'a') * 31, 31, 30, 30, XorROP);
+				bitBlt (this, x, y, 
+					&data, (conn - 'a') * 31, 31, 30, 30,
+					XorROP);
 			    else
-				bitBlt (this, x, y, &data, (conn - 'A') * 31, 62, 30, 30, XorROP);
+				bitBlt (this, x, y, 
+					&data, (conn - 'A') * 31, 62, 30, 30, 
+					XorROP);
 			    
 			}
 		    
 		    // zeichnet Verbindungsstäbe 
-		    if (getAtom(feld [i] [j]).obj >= 'A' && getAtom(feld [i] [j]).obj <= 'F')
-			bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - 'A' + 2) * 31 , 93, 30, 30, 
+		    if (getAtom(feld [i] [j]).obj >= 'A' && 
+			getAtom(feld [i] [j]).obj <= 'F')
+			bitBlt (this, x, y, 
+				&data, 
+				(getAtom(feld [i] [j]).obj - 'A' + 2) * 31 , 
+				93, 30, 30, 
 				CopyROP);
 		}
     }

@@ -53,8 +53,9 @@ protected:
 private:
 
     const atom& getAtom(uint index) const;
-  
     void nextAtom();
+
+    void putNonAtom(int, int, Direction, bool brick = false);
 
     Highscore *high;
     

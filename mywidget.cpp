@@ -169,6 +169,7 @@ void MyWidget::updateLevel (int l)
   hs->setText(highest);
 
   ys->setText("");
+  feld->repaint();
 }
 
 
