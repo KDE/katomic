@@ -38,9 +38,8 @@ protected:
    void paintEvent( QPaintEvent * );
 
 private:
-  
    QPixmap data;
-   uint molek[10][10]; // the indexes within atoms
+   uint molek[15][15]; // the indexes within atoms
    QValueList<atom> atoms;
    QString mname;
    QSize _size;
