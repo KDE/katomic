@@ -12,7 +12,6 @@
 //               paintEvent wird aufgerufen, falls fenster überdeckt wird,
 //               oder auch einfach bewegt wird
 
-#include "highscore.h"
 #include <kiconloader.h>
 #include <kglobal.h>
 #include <kstandarddirs.h>

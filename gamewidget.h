@@ -6,6 +6,7 @@ class Feld;
 class Molek;
 class QScrollBar;
 class QLabel;
+class KScoreDialog;
 
 #include <qwidget.h>
 
@@ -14,27 +15,10 @@ class GameWidget : public QWidget
     Q_OBJECT
 
  public:
-	
+
     GameWidget ( QWidget *parent, const char *name=0 );
 
     ~GameWidget();
-		
- protected:
-
-    // stellt das spielfeld dar !
-    Feld *feld;
-
-    // stellt molekül dar
-    Molek *molek;
-
-    // scorllbar zur levelwahl
-    QScrollBar *scrl;
-
-    // important labels : highest and current scores
-    QLabel *hs, *ys;
-    QString highest, current;
-	
-    int nlevels;
 
  public slots:
     // bringt level auf neuesten stand
@@ -51,13 +35,30 @@ class GameWidget : public QWidget
     // Menupunkt Highscores im Pop-up Menu, der Highscore anzeigt
     void showHighscores ();
 
-	void moveUp();
-	void moveDown();
-	void moveLeft();
-	void moveRight();
-	void nextAtom();
-	void previousAtom();
+    void moveUp();
+    void moveDown();
+    void moveLeft();
+    void moveRight();
+    void nextAtom();
+    void previousAtom();
 
+ protected:
+
+    // stellt das spielfeld dar !
+    Feld *feld;
+
+    // stellt molekül dar
+    Molek *molek;
+
+    // scorllbar zur levelwahl
+    QScrollBar *scrl;
+
+    // important labels : highest and current scores
+    QLabel *hs, *ys;
+    QString highest, current;
+    KScoreDialog *high;
+    
+    int nlevels;
 };
 
 #endif

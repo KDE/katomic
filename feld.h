@@ -16,7 +16,8 @@
 #include <qpixmap.h>
 #include <qmessagebox.h>
 
-#include "highscore.h"
+#include <kscoredialog.h>
+
 #include "atom.h"
 
 class KSimpleConfig;
@@ -60,8 +61,6 @@ private:
     const atom& getAtom(uint index) const;
 
     void putNonAtom(int, int, Direction, bool brick = false);
-
-    Highscore *high;
 
     QPoint *point;
     QPixmap data;

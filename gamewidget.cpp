@@ -26,13 +26,15 @@
 #include <qscrollbar.h>
 #include <qgroupbox.h>
 #include <qlayout.h>
+#include <qvbox.h>
+#include <qlabel.h>
 
+#include <kscoredialog.h>
 #include <kmessagebox.h>
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <kglobal.h>
 #include <ksimpleconfig.h>
-#include <qvbox.h>
 
 Options settings;
 
@@ -83,10 +85,13 @@ void GameWidget::getButton (int button)
 void GameWidget::gameOver(int moves) {
     KMessageBox::information(this, i18n("You solved level %1 with %2 moves!").arg(level).arg(moves), i18n("Congratulations"));
 
-    Highscore high(this, "highscore", level, moves);
-    high.exec ();
-    updateLevel(level+1);
+    KScoreDialog::FieldInfo scoreInfo;
 
+    if (high->addScore(moves, scoreInfo, true, true))
+    {
+       high->exec();
+    }
+    updateLevel(level+1);
 }
 
 void GameWidget::getMoves(int moves)
@@ -98,23 +103,24 @@ void GameWidget::getMoves(int moves)
 void GameWidget::updateLevel (int l)
 {
     level=l;
-    QString level = locate("appdata", QString("levels/level_%1").arg(l));
-    if (level.isNull()) {
+    QString levelFile = locate("appdata", QString("levels/level_%1").arg(l));
+    if (levelFile.isNull()) {
 	return updateLevel(1);
     }
 
-    KSimpleConfig cfg(level, true);
+    KSimpleConfig cfg(levelFile, true);
     cfg.setGroup("Level");
     feld->load(cfg);
 
-    KConfig *config = kapp->config();
-    level = QString("level%1").arg(l);
-    config->setGroup(level);
-    highest = config->readEntry("Moves0", "100");
+    QString group = QString("High Scores Level %1").arg(level);
+    high->setConfigGroup(group);
+    QString caption = i18n("Level %1 High Scores").arg(level);
+    high->setCaption(caption);
+    highest.setNum(high->highScore());
 
     hs->setText(highest);
     ys->setText("0");
-    scrl->setValue(l);
+    scrl->setValue(level);
 
     feld->repaint();
 }
@@ -175,6 +181,8 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
     ys->setFont(QFont("Helvetica", 18, QFont::Bold));
     slay->addWidget(ys);
 
+    high = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
+
     updateLevel(1);
 
     KConfig *config = KGlobal::config();
@@ -199,9 +207,7 @@ GameWidget::~GameWidget()
 
 void GameWidget::showHighscores ()
 {
-    Highscore *h = new Highscore (this, "highscore", level, -1);
-    h->exec ();
-    delete h;
+    high->exec();
 }
 
 #include "gamewidget.moc"
