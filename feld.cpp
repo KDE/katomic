@@ -12,23 +12,20 @@
 //               paintEvent wird aufgerufen, falls fenster überdeckt wird,
 //               oder auch einfach bewegt wird 
 
-
-
-#include "feld.moc"
-
 #include "highscore.h"
 #include <kiconloader.h>
 #include <kglobal.h>
 #include <kstddirs.h>
 #include <ksimpleconfig.h>
 #include "molek.h"
+#include "feld.h"
 
 Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) : 
   QWidget( parent, name )
 {
   mol = _mol;
   anim = false;
-  dir = 0;
+  dir = None;
   speed = 1;
   sprite = QPixmap (30, 30);
 
@@ -39,12 +36,10 @@ Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) :
   data = ICON("abilder.png");
  
   moving = false;
-  pressed = false;
   chosen = false;
 
-  // mousemoveevent wird aufgerufen, sobald sich maus in feld befindet
-  // und pos sich verändert
-  setMouseTracking (true);
+  setMouseTracking(true);
+
 }
 
 Feld::~Feld ()
@@ -77,40 +72,24 @@ void Feld::load (const KSimpleConfig& config)
 
 void Feld::mousePressEvent (QMouseEvent *e)
 {
-  int x, y;
   debug ("chosen : %d", chosen);
-  if (moving == true) 
+
+  if (moving) 
     return;
 
-  x = e->pos ().x () / 30;
-  y = e->pos ().y () / 30;
+  int x = e->pos ().x () / 30;
+  int y = e->pos ().y () / 30;
 
-  // cursor sichtbar, feld ausgewählt
-  if (pressed == false)
-  {
-    if (feld [x] [y] != 254 && feld [x] [y] != 0)
-    {
-      debug ("x : %d, y : %d", x, y);
-      setCursor (blankCursor);
-      pressed = true;
-      chosen = true;
-      xpos = x;
-      ypos = y;
-      dir = 0;
-      // cursor in mitte von feld stellen 
-      QCursor::setPos (mapToGlobal (QPoint (550, 340)));
-      emit (showDir ());
-    }
+  if (feld [x] [y] != 254 && feld [x] [y] != 0) {
+    debug ("x : %d, y : %d", x, y);
+    chosen = true;
+    xpos = x;
+    ypos = y;
+    dir = None;
+    emit (showDir ());
+  } else {
+    chosen = false;
   }
-
-  // cursor ist unsichtbar, soll wieder sichtbar gemacht werden,
-  // um neues feld wählen zu können
-  else
-  if (pressed == true)
-  {
-
-  }
-
 }
   
 const atom& Feld::getAtom(int index) const 
@@ -118,67 +97,63 @@ const atom& Feld::getAtom(int index) const
   return mol->getAtom(index);
 }
 
-void Feld::mouseReleaseEvent (QMouseEvent *)
-{
-}
-
-
 void Feld::done ()
 {
-  if (moving == false)
+  if (!moving)
   {
-    QCursor::setPos (mapToGlobal (QPoint (xpos * 30 + 15, ypos * 30 + 15)));
- 
-    pressed = false;
-    chosen = false;
-    setCursor (crossCursor);
-    emit (hideDir ());
-    if (checkDone () == true)
+    debug("done");
+    //    chosen = false;
+    if (checkDone())
       emit gameOver(moves);
   }
 }
 
-void Feld::startAnimation (int d)
+void Feld::startAnimation (Direction d)
 {
   int x = 0, y = 0;
  
   // wenn bereits animation stattfindet, nix machen
-  if (moving == true)
+  if (moving || !chosen)
     return;
 
   moves++;
   dir = d;
   
-  switch (dir)
-  {      
-    case 1 : for (x = xpos, y = ypos, anz = 0; feld [x] [--y] == 0; anz++);
-             if (anz != 0)
-             {
-               feld [x] [++y] = feld [xpos] [ypos];
-             }
-             break;
-    case 3 : debug ("unten");
-             for (x = xpos, y = ypos, anz = 0; feld [x] [++y] == 0; anz++);
-             if (anz != 0)
-             {
-               feld [x] [--y] = feld [xpos] [ypos];
-             }
-             break;
-    case 2 : for (x = xpos, y = ypos, anz = 0; feld [++x] [y] == 0; anz++);
-             if (anz != 0)
-             {
-               feld [--x] [y] = feld [xpos] [ypos];
-             }
-             break;
-    case 4 : for (x = xpos, y = ypos, anz = 0; feld [--x] [y] == 0; anz++);
-             if (anz != 0)
-             { 
-               feld [++x] [y] = feld [xpos] [ypos];
-	     }
+  switch (dir) {
+  case MoveUp : 
+    for (x = xpos, y = ypos, anz = 0; feld [x] [--y] == 0; anz++);
+    if (anz != 0)
+      {
+	feld [x] [++y] = feld [xpos] [ypos];
+      }
+    break;
+  case MoveDown : 
+    debug ("unten");
+    for (x = xpos, y = ypos, anz = 0; feld [x] [++y] == 0; anz++);
+    if (anz != 0)
+      {
+	feld [x] [--y] = feld [xpos] [ypos];
+      }
+    break;
+  case MoveRight : 
+    for (x = xpos, y = ypos, anz = 0; feld [++x] [y] == 0; anz++);
+    if (anz != 0)
+      {
+	feld [--x] [y] = feld [xpos] [ypos];
+      }
+    break;
+  case MoveLeft : 
+    for (x = xpos, y = ypos, anz = 0; feld [--x] [y] == 0; anz++);
+    if (anz != 0)
+      { 
+	feld [++x] [y] = feld [xpos] [ypos];
+      }
+    break;
+  default:
+    return;
   }
-
-  if (anz != 0)
-  {
+  
+  if (anz != 0) {
     moving = true;
     feld [xpos] [ypos] = 0;
 
@@ -202,22 +177,14 @@ void Feld::startAnimation (int d)
 
 void Feld::mouseMoveEvent (QMouseEvent *e)
 {
-  int x, y;
- 
-  if (chosen == false)
-  {   
-    x = e->pos ().x () / 30;
-    y = e->pos ().y () / 30;
+  int x = e->pos ().x () / 30;
+  int y = e->pos ().y () / 30;
 
-    // verschiedene cursor je nach pos
-    if (feld [x] [y] != 254 && feld [x] [y] != 0)
-      setCursor (crossCursor);
-    else
-      setCursor (arrowCursor);
-    //    debug ("chosen : %d", chosen);
-    //    debug ("%d %d", e->pos (). x(), e->pos (). y ());
-  }
-
+  // verschiedene cursor je nach pos
+  if (feld[x][y] != 254 && feld [x] [y] != 0)
+    setCursor (crossCursor);
+  else
+    setCursor (arrowCursor);
   
 }
 
@@ -251,12 +218,12 @@ bool Feld::checkDone ()
 void Feld::timerEvent (QTimerEvent *)
 {
   // animation beenden 
-  if (frames < 1)
+  if (frames <= 0)
   {
     moving = false;
     killTimers ();
-    debug ("done");
-    dir = 0;
+    done();
+    dir = None;
   }
   else
   {  
@@ -276,30 +243,33 @@ void Feld::paintEvent( QPaintEvent * )
     
     if (moving == true) {
 	switch (dir) {
-	case 1 : bitBlt (this, cx, cy - framesbak + frames, &sprite, CopyROP);
+	case MoveUp : bitBlt (this, cx, cy - framesbak + frames, &sprite, CopyROP);
 	    if ( (framesbak - frames > 1)  )
 		{
 		    //  debug ("framesbak %d, frames %d", framesbak, frames);
 		    paint.eraseRect (cx, cy - framesbak + frames + 30, 30, 2);
 		}
 	    break;
-	case 3 : bitBlt (this, cx, cy + (framesbak - frames), &sprite, CopyROP);
+	case MoveDown : bitBlt (this, cx, cy + (framesbak - frames), &sprite, CopyROP);
 	    if ( (framesbak - frames > 1) )
 		{
 		    paint.eraseRect (cx, cy + (framesbak - frames) - 2, 30, 2);
 		}
 	    break;
-	case 2 : bitBlt (this, cx + (framesbak - frames), cy, &sprite, CopyROP);
+	case MoveRight : bitBlt (this, cx + (framesbak - frames), cy, &sprite, CopyROP);
 	    if ( (framesbak - frames > 1) )
 		{	 
 		    paint.eraseRect (cx + (framesbak - frames) - 2, cy, 2, 30);
 		}
 	    break;
-	case 4 : bitBlt (this, cx - framesbak + frames, cy, &sprite, CopyROP);
+	case MoveLeft : bitBlt (this, cx - framesbak + frames, cy, &sprite, CopyROP);
 	    if ((framesbak - frames > 1))
 		{
 		    paint.eraseRect (cx - framesbak + frames + 30, cy, 2, 30);
 		}
+	    break;
+	default:
+	  return;
 	    
 	}
 	
@@ -354,3 +324,5 @@ void Feld::paintEvent( QPaintEvent * )
     }  
     paint.end ();
 }
+
+#include "feld.moc"

@@ -144,7 +144,7 @@ void Highscore::loadHighscore ()
 	score[i].name = config->readEntry(key, i18n("Joe Noname"));
 	key.sprintf("Moves%d", i);
 	score[i].moves = config->readNumEntry(key, (6-i) * 100);
-	debug("read %s %d\n", score[i].name.ascii(), score[i].moves);
+	debug("read %s %d", score[i].name.ascii(), score[i].moves);
     }
 }
 

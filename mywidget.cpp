@@ -115,21 +115,18 @@ void MyWidget::showHighscores ()
 
 void MyWidget::showDir ()
 {
-  bg->show ();
+  // bg->show ();
 }
 
 void MyWidget::hideDir ()
 {
-  bg->hide ();
+  // bg->hide ();
 }
 
 void MyWidget::getButton (int button)
 {
   debug ("Button %d wurde gedrückt", button);
-  if (button != 0)
-    feld->startAnimation (button);
-  else
-    feld->done ();
+  feld->startAnimation ((Feld::Direction)button);
 }
 
 void MyWidget::gameOver(int moves) {
@@ -204,24 +201,25 @@ MyWidget::MyWidget ( QWidget *, const char* name )
 
   // buttons
 
-  done = new QPushButton ("D", bg, "done");
-  done->setGeometry (70, 70, 20, 20);
+  up = new QPushButton (i18n("Up"), this, "up");
+  bg->insert(up, Feld::MoveUp);
+  up->setGeometry (MPOSX + 60, 320, 40, 40);
 
-  up = new QPushButton ("UP", bg, "up");
-  up->setGeometry (60, 20, 40, 40);
-
-  right = new QPushButton ("RIGH", bg, "right");
-  right->setGeometry (100, 60, 40, 40);
+  right = new QPushButton (i18n("Right"), this, "right");
+  bg->insert(right, Feld::MoveRight);
+  right->setGeometry (MPOSX + 100, 360, 40, 40);
  
-  down = new QPushButton ("DOWN", bg, "down");
-  down->setGeometry (60, 100, 40, 40);
+  down = new QPushButton (i18n("Down"), this, "down");
+  bg->insert(down, Feld::MoveDown);
+  down->setGeometry (MPOSX + 60, 400, 40, 40);
 
-  left = new QPushButton ("LEFT", bg, "left");
-  left->setGeometry (20, 60, 40, 40);
+  left = new QPushButton (i18n("Left"), this, "left");
+  bg->insert(left, Feld::MoveLeft);
+  left->setGeometry (MPOSX + 20, 360, 40, 40);
 
   connect (bg, SIGNAL (clicked (int)), SLOT (getButton (int)));
   
-  hideDir ();
+  showDir ();
 
   createMenu();
   initKeys();

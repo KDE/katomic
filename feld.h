@@ -29,7 +29,10 @@ class Feld : public QWidget
 public:
     Feld (Molek *mol, QWidget *parent=0, const char *name=0);
     ~Feld ();
-    void startAnimation (int dir);
+
+    enum Direction { None, MoveUp, MoveDown, MoveLeft, MoveRight };
+
+    void startAnimation (Direction dir);
     void done ();
 
     void load (const KSimpleConfig& config);
@@ -44,7 +47,6 @@ protected:
     void timerEvent (QTimerEvent *);
     void paintEvent( QPaintEvent * );
     void mousePressEvent (QMouseEvent *);
-    void mouseReleaseEvent (QMouseEvent *);  
     void mouseMoveEvent (QMouseEvent *);
     
 private:
@@ -64,7 +66,7 @@ private:
     // number of movements
     int moves; 
     
-    int dir;
+    Direction dir;
     int cx, cy;
     int xpos, ypos;
     int anz;
@@ -72,7 +74,7 @@ private:
     int speed;
     
     bool anim;
-    bool pressed, chosen, moving;
+    bool chosen, moving;
     
 };
 
