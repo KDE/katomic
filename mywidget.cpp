@@ -113,14 +113,12 @@ void MyWidget::showHighscores ()
   delete h;
 }
 
-void MyWidget::showDir ()
+void MyWidget::showStatus(bool _up, bool _down, bool _left, bool _right) 
 {
-  // bg->show ();
-}
-
-void MyWidget::hideDir ()
-{
-  // bg->hide ();
+  up->setEnabled(_up);
+  right->setEnabled(_right);
+  down->setEnabled(_down);
+  left->setEnabled(_left);
 }
 
 void MyWidget::getButton (int button)
@@ -183,8 +181,7 @@ MyWidget::MyWidget ( QWidget *, const char* name )
   feld->setGeometry (XPOS, YPOS, 15 * 30 + 1, 15 * 30 + 1);
   feld->setBackgroundColor( QColor( 0, 0, 0) );
 
-  connect (feld, SIGNAL (showDir ()), SLOT (showDir ()));
-  connect (feld, SIGNAL (hideDir ()), SLOT (hideDir ()));
+  connect (feld, SIGNAL (dirStatus(bool, bool, bool, bool)), SLOT (showStatus(bool, bool, bool, bool)));
   connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
 
   // scrollbar       
@@ -219,8 +216,6 @@ MyWidget::MyWidget ( QWidget *, const char* name )
 
   connect (bg, SIGNAL (clicked (int)), SLOT (getButton (int)));
   
-  showDir ();
-
   createMenu();
   initKeys();
 
@@ -230,8 +225,7 @@ MyWidget::MyWidget ( QWidget *, const char* name )
 
 MyWidget::~MyWidget()
 {
-
-  delete file;
+ delete file;
   delete options;
   delete help;
   delete feld;

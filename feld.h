@@ -38,17 +38,17 @@ public:
     void load (const KSimpleConfig& config);
 
 signals: 
-    void showDir ();
-    void hideDir ();
+    void dirStatus(bool _up, bool _down, bool _left, bool _right);
     void gameOver(int moves);
 
 protected:
-    bool checkDone ();    
+    bool checkDone();
     void timerEvent (QTimerEvent *);
     void paintEvent( QPaintEvent * );
     void mousePressEvent (QMouseEvent *);
     void mouseMoveEvent (QMouseEvent *);
-    
+    void emitStatus();
+
 private:
 
     const atom& getAtom(int index) const; 

@@ -106,11 +106,7 @@ class MyWidget : public KTMainWindow
   
   void gameOver(int moves);
 
-  // showdir, zeigt richtungsfelder an, wenn feld ausgewählt
-  void showDir ();
-
-  // versteckt richtungsfelder, wenn feld wieder abgewählt
-  void hideDir ();
+  void showStatus(bool _up, bool _down, bool _left, bool _right);
 
   // Menupunkt Highscores im Pop-up Menu, der Highscore anzeigt
   void showHighscores ();

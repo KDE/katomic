@@ -72,8 +72,6 @@ void Feld::load (const KSimpleConfig& config)
 
 void Feld::mousePressEvent (QMouseEvent *e)
 {
-  debug ("chosen : %d", chosen);
-
   if (moving) 
     return;
 
@@ -81,15 +79,14 @@ void Feld::mousePressEvent (QMouseEvent *e)
   int y = e->pos ().y () / 30;
 
   if (feld [x] [y] != 254 && feld [x] [y] != 0) {
-    debug ("x : %d, y : %d", x, y);
     chosen = true;
     xpos = x;
     ypos = y;
     dir = None;
-    emit (showDir ());
   } else {
     chosen = false;
   }
+  emitStatus();
 }
   
 const atom& Feld::getAtom(int index) const 
@@ -97,15 +94,25 @@ const atom& Feld::getAtom(int index) const
   return mol->getAtom(index);
 }
 
+void Feld::emitStatus()
+{
+  if (!chosen || moving) 
+    emit dirStatus(false, false, false, false);
+  else
+    emit dirStatus(feld[xpos][ypos-1] == 0, 
+		   feld[xpos][ypos+1] == 0, 
+		   feld[xpos-1][ypos] == 0, 
+		   feld[xpos+1][ypos] == 0);
+}
+
 void Feld::done ()
 {
-  if (!moving)
-  {
-    debug("done");
-    //    chosen = false;
-    if (checkDone())
-      emit gameOver(moves);
-  }
+  if (moving)
+    return;
+
+  emitStatus();
+  if (checkDone())
+    emit gameOver(moves);
 }
 
 void Feld::startAnimation (Direction d)
@@ -191,7 +198,6 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
 
 bool Feld::checkDone ()
 {
-  debug("checkDone");
   for (int i = 0; i < 15 - mol->molecSize().width(); i++)
   for (int j = 0; j < 15 - mol->molecSize().height(); j++)
   {
@@ -210,7 +216,6 @@ bool Feld::checkDone ()
     }
   }
 
-  debug("not yet ready");
   return false;
 }
 
