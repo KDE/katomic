@@ -40,7 +40,7 @@ static const char *version = "v0.0.1";
 int main(int argc, char **argv)
 {
   KAboutData aboutData( "katomic", I18N_NOOP("KAtomic"), 
-    version, description, KAboutData::GPL, 
+    version, description, KAboutData::License_GPL, 
     "(c) 1998, Andreas Wüst");
   aboutData.addAuthor("Andreas Wüst",0, "AndreasWuest@gmx.de");
   KCmdLineArgs::init( argc, argv, &aboutData );
