@@ -26,40 +26,33 @@
 class Highscore : public QDialog
 {
 
-        Q_OBJECT
+    Q_OBJECT
 
-public:
- 	Highscore ( QWidget *, const char *name, int level, int moves);
-        ~Highscore();
+	public:
+    Highscore ( QWidget *, const char *name, int level, int moves);
+    ~Highscore();
 
-
-        // positionen + namen
-        QLabel **n;	
-        KLineEdit *le;
+    // positionen + namen
+    QLabel **n;	
+    QLineEdit *le;
    
-
-        
-public slots:
-        void getChangedText (const char *);
-        void eingabeFertig ();
-        void loadHighscore ();
-        void saveHighscore ();
+ public slots:
+    void getChangedText (const QString&);
+    void eingabeFertig ();
+    void loadHighscore ();
+    void saveHighscore ();
      
-        
+ private:
 
-private:
+    QPushButton *ok;
+    struct highscore
+    {
+	QString name;
+	int moves;
+    } score [6];
 
-   QPushButton *ok;
-   struct highscore
-   {
-     char name [20];
-     int moves;
-   } score [6];
-   int pos;
-   int level;
-
-   protected :
-     void makeNewHighscore ();
+    int pos;
+    int level;
 
 };
 

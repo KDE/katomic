@@ -8,9 +8,6 @@ SUBDIRS = . levels
 
 katomic_SOURCES = feld.cpp highscore.cpp molek.cpp mywidget.cpp levelnames.cpp
 
-data_DATA = highscore.dat
-datadir = $(kde_datadir)/katomic
-
 pics_DATA = abilder.png molek.png
 picsdir = $(datadir)/pics
 

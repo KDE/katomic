@@ -47,37 +47,34 @@ protected:
     
 private:
   
-  Highscore *high;
-
-  
-  QPoint *point;
-  QPixmap data;
-  QPixmap sprite;
-
-  struct spielfeld
-  {
-    unsigned char obj;
-    unsigned int verb;
-  } molek [10] [10], feld [15] [15];
-
-  // number of movements
-  int moves; 
-
-
-  // Höhe und breite des Mokelüls
-  int hohe, breite;
-  int level;
-  int dir;
-  int cx, cy;
-  int xpos, ypos;
-  int anz;
-  int frames, framesbak;
-  int speed;
-
-  bool anim;
-  bool pressed, chosen, moving;
-
-
+    Highscore *high;
+    
+    QPoint *point;
+    QPixmap data;
+    QPixmap sprite;
+    
+    struct spielfeld
+    {
+	unsigned char obj;
+	unsigned int verb;
+    } feld [15] [15];
+    
+    // number of movements
+    int moves; 
+    
+    // Höhe und breite des Mokelüls
+    int hohe, breite;
+    int level;
+    int dir;
+    int cx, cy;
+    int xpos, ypos;
+    int anz;
+    int frames, framesbak;
+    int speed;
+    
+    bool anim;
+    bool pressed, chosen, moving;
+    
 };
 
 #endif // FELD_H

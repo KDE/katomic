@@ -36,7 +36,7 @@ int hexValue(char ch) {
 Feld::Feld( QWidget *parent, const char *name ) : QWidget( parent, name )
 {
   level = 1;
-  anim = FALSE;
+  anim = false;
   dir = 0;
   speed = 1;
   sprite = QPixmap (30, 30);
@@ -47,13 +47,13 @@ Feld::Feld( QWidget *parent, const char *name ) : QWidget( parent, name )
   point = new QPoint [1];
   data = ICON("abilder.png");
  
-  moving = FALSE;
-  pressed = FALSE;
-  chosen = FALSE;
+  moving = false;
+  pressed = false;
+  chosen = false;
 
   // mousemoveevent wird aufgerufen, sobald sich maus in feld befindet
   // und pos sich verändert
-  setMouseTracking (TRUE);
+  setMouseTracking (true);
 }
 
 Feld::~Feld ()
@@ -91,6 +91,8 @@ void Feld::loadFeldFromDat (const KSimpleConfig& config)
 	
       }
   }
+
+#if 0
   for (int i = 0; i < 10; i++) {
     
     key = QString("mole_obje_%1").arg(i);
@@ -124,14 +126,8 @@ void Feld::loadFeldFromDat (const KSimpleConfig& config)
 
     }
 
-  // höhe und breite des moleküls berechnen und ausgeben, checkdone 
-  for (int i = 0, breite = 0, hohe = 0; i < 10; i++)
-  for (int j = 0; j < 10; j++)
-  {
-    if ((molek [i] [j].verb != 0) && (i > breite)) breite = i;
-    if ((molek [i] [j].verb != 0) && (j > hohe)) hohe = j;
-  }
-  
+#endif 
+
   moves = 0;
   repaint ();
 }
@@ -142,7 +138,7 @@ void Feld::mousePressEvent (QMouseEvent *e)
 {
   int x, y;
   debug ("chosen : %d", chosen);
-  if (moving == TRUE) 
+  if (moving == true) 
     return;
 
   x = e->pos ().x () / 30;
@@ -151,14 +147,14 @@ void Feld::mousePressEvent (QMouseEvent *e)
  
 
   // cursor sichtbar, feld ausgewählt
-  if (pressed == FALSE)
+  if (pressed == false)
   {
     if (feld [x] [y].obj != 254 && feld [x] [y].obj != 0)
     {
       debug ("x : %d, y : %d", x, y);
       setCursor (blankCursor);
-      pressed = TRUE;
-      chosen = TRUE;
+      pressed = true;
+      chosen = true;
       xpos = x;
       ypos = y;
       dir = 0;
@@ -171,7 +167,7 @@ void Feld::mousePressEvent (QMouseEvent *e)
   // cursor ist unsichtbar, soll wieder sichtbar gemacht werden,
   // um neues feld wählen zu können
   else
-  if (pressed == TRUE)
+  if (pressed == true)
   {
 
   }
@@ -186,15 +182,15 @@ void Feld::mouseReleaseEvent (QMouseEvent *)
 
 void Feld::done ()
 {
-  if (moving == FALSE)
+  if (moving == false)
   {
     QCursor::setPos (mapToGlobal (QPoint (xpos * 30 + 15, ypos * 30 + 15)));
  
-    pressed = FALSE;
-    chosen = FALSE;
+    pressed = false;
+    chosen = false;
     setCursor (crossCursor);
     emit (hideDir ());
-    if (checkDone () == TRUE)
+    if (checkDone () == true)
       emit gameOver(moves);
   }
 }
@@ -204,7 +200,7 @@ void Feld::startAnimation (int d)
   int x = 0, y = 0;
  
   // wenn bereits animation stattfindet, nix machen
-  if (moving == TRUE)
+  if (moving == true)
     return;
 
   moves++;
@@ -240,7 +236,7 @@ void Feld::startAnimation (int d)
 
   if (anz != 0)
   {
-    moving = TRUE;
+    moving = true;
     feld [xpos] [ypos].obj = 0;
     feld [xpos] [ypos].verb = 0;
 
@@ -266,7 +262,7 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
 {
   int x, y;
  
-  if (chosen == FALSE)
+  if (chosen == false)
   {   
     x = e->pos ().x () / 30;
     y = e->pos ().y () / 30;
@@ -298,12 +294,13 @@ bool Feld::checkDone ()
   {
     memset (&f [i] [j], 0, 3);
   }  
-    
+
+#if 0    
   // f und molek vergleichen   
   for (i = 0; i < 15 - breite; i++)
   for (j = 0; j < 15 - hohe; j++)
   {
-    done = TRUE;
+    done = true;
     if ((f [i] [j].obj == molek [0] [0].obj) && (f [i] [j].verb == molek [0] [0].verb))        // gleich links oben
     {
       for (xx = 0; xx < breite + 1; xx++)
@@ -312,13 +309,14 @@ bool Feld::checkDone ()
         // ersten 3 bytes des strukturelements vergleichen (obj, verb)
         if ((strncmp ((const char*)&f [i + xx] [j + yy], 
                       (const char*)&molek [xx] [yy], 3)) != 0) 
-          done = FALSE;
+          done = false;
       }
-      if (done == TRUE)
-        return (TRUE);
+      if (done == true)
+        return (true);
     }
   }
-  return (FALSE);
+#endif
+  return false;
 }
 
 
@@ -327,7 +325,7 @@ void Feld::timerEvent (QTimerEvent *)
   // animation beenden 
   if (frames < 1)
   {
-    moving = FALSE;
+    moving = false;
     killTimers ();
     debug ("done");
     dir = 0;
@@ -335,7 +333,7 @@ void Feld::timerEvent (QTimerEvent *)
   else
   {  
     frames -= speed;
-    repaint (FALSE);
+    repaint (false);
   }
 }
 
@@ -349,7 +347,7 @@ void Feld::paintEvent( QPaintEvent * )
   paint.setPen (black);
   
 
-  if (moving == TRUE)
+  if (moving == true)
   {
     switch (dir)
     {
@@ -414,7 +412,7 @@ void Feld::paintEvent( QPaintEvent * )
       {
         char anz;
         for (anz = 0; anz < 16; anz++)
-          if ((feld [i] [j].verb & (1 << anz)) == (1 << anz))
+          if ((feld [i] [j].verb & (1 << anz)) == (uint(1) << anz))
           {
             if (anz < 8)
               bitBlt (this, x, y, &data, anz * 31, 31, 30, 30, XorROP);

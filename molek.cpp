@@ -71,6 +71,13 @@ void Molek::loadFeldFromDat (const KSimpleConfig& config)
 
   mname = config.readEntry("Name", i18n("Noname"));
 
+  // höhe und breite des moleküls berechnen und ausgeben, checkdone 
+  for (int i = 0, breite = 0, hohe = 0; i < 10; i++)
+      for (int j = 0; j < 10; j++) {
+	  if ((molek [i] [j].verb != 0) && (i > breite)) breite = i;
+	  if ((molek [i] [j].verb != 0) && (j > hohe)) hohe = j;
+      }
+  
   repaint ();
 }
 
@@ -110,7 +117,7 @@ void Molek::paintEvent( QPaintEvent * )
     {
       char anz;
       for (anz = 0; anz < 16; anz++)
-        if ((molek [i] [j].verb & (1 << anz)) == (1 << anz))
+        if ((molek [i] [j].verb & (1 << anz)) == (uint(1) << anz))
         {
           if (anz < 8)
             bitBlt (this, x, y, &data, anz * 15, 16, 15, 15, XorROP);
