@@ -95,6 +95,13 @@ level.</para>
 <title>The <guimenu>Game</guimenu> Menu</title>
 
 <variablelist>
+
+<varlistentry>
+<term><menuchoice><guimenu>Game</guimenu>
+<guimenuitem>Restart Game</guimenuitem></menuchoice></term>
+<listitem><para>This will restart the current level.</para></listitem>
+</varlistentry>
+
 <varlistentry>
 <term><menuchoice><guimenu>Game</guimenu>
 <guimenuitem>Show Highscores</guimenuitem></menuchoice></term>
@@ -212,7 +219,7 @@ atomic movement can be set.</para></listitem>
 
 <para>
 <application>Atomic Entertainment</application> Copyright 1999 Stephan Kulow
-<email>coolo@kde.org</email> and Cristian Tibirna 
+<email>coolo@kde.org</email> and Cristian Tibirna
 <email>tibirna@kde.org</email>.
 </para>
 <para>
@@ -241,9 +248,9 @@ Proofreading by Michael McBride
 <para>
 <application>Atomic Entertainment</application> (&katomic;) is written for the &kde; project
 <ulink url="http://www.kde.org">http://www.kde.org</ulink> by Stephan Kulow
-<email>coolo@kde.org</email> and Cristian Tiberna 
+<email>coolo@kde.org</email> and Cristian Tiberna
 <email>tibirna@kde.org</email>.
-It is based on Atomic 1.0.67 by Andreas Wuest 
+It is based on Atomic 1.0.67 by Andreas Wuest
 <email>AndreasWuest@gmx.de</email>.
 </para>
 
@@ -257,7 +264,7 @@ It is based on Atomic 1.0.67 by Andreas Wuest
 In order to successfully compile <application>Atomic Entertainment</application>, you need &kde; 3.0 </para>
 <para>
 All required libraries as well as <application>Atomic Entertainment</application> itself can be found on
-<ulink 
+<ulink
 url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>.</para>
 </sect1>
 
