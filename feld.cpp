@@ -107,6 +107,7 @@ void Feld::mousePressEvent (QMouseEvent *e)
     xpos = x;
     ypos = y;
     dir = None;
+    resetValidDirs();
   } else {
     chosen = false;
   }
@@ -312,8 +313,7 @@ void Feld::paintEvent( QPaintEvent * )
 	case MoveUp : bitBlt (this, cx, cy - framesbak + frames, &sprite, CopyROP);
 	    if ( (framesbak - frames > 1)  )
 		{
-		    //  debug ("framesbak %d, frames %d", framesbak, frames);
-		    paint.eraseRect (cx, cy - framesbak + frames + 30, 30, 2);
+		  paint.eraseRect (cx, cy - framesbak + frames + 30, 30, 2);
 		}
 	    break;
 	case MoveDown : bitBlt (this, cx, cy + (framesbak - frames), &sprite, CopyROP);
@@ -361,16 +361,16 @@ void Feld::paintEvent( QPaintEvent * )
 		    }
 
 		    if (feld[i][j] == 151) {
-		      bitBlt(this, x, y, &data, 248, 62, 30, 30, CopyROP);
+		      bitBlt(this, x, y, &data, 217, 93, 30, 30, CopyROP);
 		      continue;
 		    }
 		    if (feld[i][j] == 152) {
-		      bitBlt(this, x, y, &data, 248, 62, 30, 30, CopyROP);
+		      bitBlt(this, x, y, &data, 248, 93, 30, 30, CopyROP);
 		      continue;
 		    }
 		    
 		    if (feld[i][j] == 153) {
-		      bitBlt(this, x, y, &data, 248, 62, 30, 30, CopyROP);
+		      bitBlt(this, x, y, &data, 279, 93, 30, 30, CopyROP);
 		      continue;
 		    }
 
