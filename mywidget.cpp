@@ -67,10 +67,11 @@ void MyWidget::createMenu()
   help->insertItem(i18n("&About..."), this, SLOT(about()) );
 	
   KMenuBar *menu = menuBar();
-  menu->insertItem(i18n("&File"), file, 5);
+  menu->insertItem(i18n("&File"), file);
   menu->insertItem(i18n("&Options"), options);
   menu->insertSeparator(-1);
   menu->insertItem(i18n("&Help"), help);
+  menuBar()->setGeometry(0, 0, width(), sizeHint().height());
 
 }
 
@@ -168,7 +169,7 @@ void MyWidget::saveConfig()
 MyWidget::MyWidget ( QWidget *, const char* name )
 	: KTMainWindow ( name )
 {
-  // setMinimumSize(665, 501);
+  // 
   // setMaximumSize(665, 501);
 
   initConfig();
@@ -226,6 +227,7 @@ MyWidget::MyWidget ( QWidget *, const char* name )
   initKeys();
 
   updateLevel(1);
+  setMinimumSize(665, 501);
 }
 
 MyWidget::~MyWidget()
