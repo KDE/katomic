@@ -4,7 +4,7 @@
 
 class Feld;
 class Molek;
-class QScrollbar;
+class QScrollBar;
 class QLabel;
 
 #include <qwidget.h>

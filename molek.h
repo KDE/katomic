@@ -14,6 +14,7 @@
 #include <qpainter.h>
 #include <qpixmap.h>
 #include <atom.h>
+#include <qvaluelist.h>
 
 class KSimpleConfig;
 
