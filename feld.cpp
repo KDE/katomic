@@ -29,7 +29,6 @@ Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) :
   mol = _mol;
   anim = false;
   dir = None;
-  speed = settings.anim_speed;
   sprite = QPixmap (30, 30);
 
   cx = -1;
@@ -326,7 +325,7 @@ void Feld::timerEvent (QTimerEvent *)
   }
   else
   {  
-    frames -= speed;
+    frames -= settings.anim_speed;
     repaint (false);
   }
 }

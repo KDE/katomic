@@ -74,7 +74,6 @@ private:
     int xpos, ypos;
     int anz;
     int frames, framesbak;
-    int speed;
     
     bool anim;
     bool chosen, moving;
