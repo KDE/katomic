@@ -119,8 +119,9 @@ void Highscore::eingabeFertig ()
   score [pos].name = s;
   saveHighscore();
 
-  delete le;
-  le = 0;
+  // at least Qt 2.1beta doesn't like this
+//  delete le;
+//  le = 0;
 
   // s als label ausgeben
   QString l; l.sprintf("%2d.   ", pos+1);
