@@ -56,7 +56,7 @@ void GameWidget::gameOver(int moves) {
   
     Highscore high(this, "highscore", level, moves);
     high.exec ();
-    updateLevel(level);
+    updateLevel(level+1);
 
 }
 
@@ -68,7 +68,7 @@ void GameWidget::getMoves(int moves)
 
 void GameWidget::updateLevel (int l)
 {
-    level = l;
+    level=l;
     QString level = QString("levels/level_%1").arg(l);
     KSimpleConfig cfg(locate("appdata", level), true);
     cfg.setGroup("Level");
