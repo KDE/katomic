@@ -48,6 +48,7 @@
 // #	class MyWidget      #
 // ##########################
 
+int level;
 
 void MyWidget::createMenu()
 {
@@ -251,18 +252,9 @@ void MyWidget::about()
   KMsgBox::message(this, kapp->getCaption(), q );
 }
 
-
-void MyWidget::notImpl()
-{
-  KMsgBox::message(this, kapp->getCaption(),
-		   i18n("Sorry, this function hasn't been implemented yet..."));
-}
-
-
 // ##########################
 // #	Main                #
 // ##########################
-
 
 int main(int argc, char **argv)
 {

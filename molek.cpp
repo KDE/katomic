@@ -21,8 +21,10 @@
 #include <kstddirs.h>
 #include <ksimpleconfig.h>
 #include <klocale.h>
+#include <ctype.h>
 
 extern int hexValue(char ch);
+extern int level;
 
 Molek::Molek( QWidget *parent, const char *name ) : QWidget( parent, name )
 {
@@ -37,38 +39,35 @@ void Molek::loadFeldFromDat (const KSimpleConfig& config)
 {
   QString key;
   for (int i = 0; i < 10; i++) {
-    
-    key = QString("mole_obje_%1").arg(i);
-    const QString obj_line = config.readEntry(key);
-    key = QString("mole_verb_%1").arg(i);
-    const QString verb_line = config.readEntry(key);
-    
-    if (verb_line.isEmpty())
-      continue;
-    if (obj_line.isEmpty())
-      continue;
+      
+      key.sprintf("mole_obje_%0d", i);
+      const QString obj_line = config.readEntry(key);
+   
+      key.sprintf("mole_verb_%0d", i);
+      const QString verb_line = config.readEntry(key);
 
-    int verb_index = 0;
-    int obj_index = 0;
+      if (verb_line.isEmpty())
+	  continue;
+      if (obj_line.isEmpty())
+	  continue;
+      
+      int verb_index = 0;
 
-    QString line1, line2;
+      for (int j = 0; j < 10; j++)
+	  { 
+	      
+	      molek [i] [j].obj = obj_line.at(j);
 
-    for (int j = 0; j < 10; j++)
-      { 
-	molek [i] [j].obj = 
-	  hexValue(obj_line.at(obj_index++)) * 16 + 
-	  hexValue(obj_line.at(obj_index++));
-	
-	molek [i][j].verb = 
-	  hexValue(verb_line.at(verb_index++)) * 4096 + 
-	  hexValue(verb_line.at(verb_index++)) * 256 + 
-	  hexValue(verb_line.at(verb_index++)) * 16 + 
-	  hexValue(verb_line.at(verb_index++));
-
-      }
-
-    }
-
+	      molek [i][j].verb = 
+		  hexValue(verb_line.at(verb_index++)) * 4096 + 
+		  hexValue(verb_line.at(verb_index++)) * 256 + 
+		  hexValue(verb_line.at(verb_index++)) * 16 + 
+		  hexValue(verb_line.at(verb_index++));
+	      
+	  }
+      
+  }
+  
   mname = config.readEntry("Name", i18n("Noname"));
 
   // höhe und breite des moleküls berechnen und ausgeben, checkdone 
@@ -83,8 +82,7 @@ void Molek::loadFeldFromDat (const KSimpleConfig& config)
 
 void Molek::paintEvent( QPaintEvent * )
 {
-  int level = 1;
-  QString st = i18n("Level : %1").arg(level);
+  QString st = i18n("Level: %1").arg(level);
 
   QPainter paint (this);
   paint.setPen (QColor (190, 190, 190));
@@ -98,22 +96,22 @@ void Molek::paintEvent( QPaintEvent * )
     int y = 10 + j * 15;
 
     // zeichnet Atome
-    if (molek [i] [j].obj < 11 && molek [i] [j].obj > 0)
+    if (molek [i] [j].obj <= '9' && molek [i] [j].obj >= '1')
     {
-      bitBlt (this, x, y, &data, (molek [i] [j].obj - 1) * 15, 0, 15, 
+      bitBlt (this, x, y, &data, (molek [i] [j].obj - '1') * 15, 0, 15, 
               15, CopyROP);
     }
 
     
     // zeichnet Kristalle
-    if (molek [i] [j].obj == 20)
+    if (molek [i] [j].obj == 'o')
     {
       bitBlt (this, x, y, &data, 10 * 15, 0, 15, 15, CopyROP);
     }
     
 
     // verbindungen zeichnen
-    if (molek [i] [j].obj < 11 || molek [i] [j].obj == 20)
+    if (isdigit(molek[i][j].obj) || molek [i] [j].obj == 'o')
     {
       char anz;
       for (anz = 0; anz < 16; anz++)
@@ -128,8 +126,8 @@ void Molek::paintEvent( QPaintEvent * )
 
     
     // zeichnet Verbindungsstäbe 
-    if (molek [i] [j].obj > 29 && molek [i] [j].obj < 34)
-      bitBlt (this, x, y, &data, (molek [i] [j].obj - 19) * 15 , 0, 15, 15, 
+    if (molek [i] [j].obj >= 'A' && molek [i] [j].obj <= 'F')
+      bitBlt (this, x, y, &data, (molek [i] [j].obj - 'A') * 15 , 0, 15, 15, 
               CopyROP);
     
   }

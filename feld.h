@@ -62,9 +62,6 @@ private:
     // number of movements
     int moves; 
     
-    // Höhe und breite des Mokelüls
-    int hohe, breite;
-    int level;
     int dir;
     int cx, cy;
     int xpos, ypos;

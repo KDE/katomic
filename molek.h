@@ -35,7 +35,7 @@ private:
   
   struct spielfeld
   {
-    unsigned char obj;
+    char obj;
     unsigned int verb;
   } molek [10] [10];
 

@@ -97,9 +97,6 @@ class MyWidget : public KTMainWindow
   // buttons
   QPushButton *up, *down, *left, *right, *done;
 	
-  // enthält akt level
-  int level;    
-
  public slots:
   // bringt level auf neuesten stand 
   void updateLevel (int);
@@ -121,10 +118,6 @@ class MyWidget : public KTMainWindow
   // Quit the application
   void quitapp();
 
-  // Shows a message telling the user that a function has
-  // not been implemented yet.
-  void notImpl();
-	
   // Shows a window for configuring the keybindings
   void configkeys();
 

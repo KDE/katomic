@@ -35,7 +35,6 @@ int hexValue(char ch) {
 
 Feld::Feld( QWidget *parent, const char *name ) : QWidget( parent, name )
 {
-  level = 1;
   anim = false;
   dir = 0;
   speed = 1;
@@ -68,18 +67,15 @@ void Feld::loadFeldFromDat (const KSimpleConfig& config)
   
   for (int i = 0; i < 15; i++) {
       
-    key.sprintf("feld_verb_%d", i);
+    key.sprintf("feld_verb_%02d", i);
     const QString verb_line = config.readEntry(key);
     key.sprintf("feld_obje_%02d", i);
     const QString obj_line = config.readEntry(key);
 
     int verb_index = 0;
-    int obj_index = 0;
-
-    QString new_line;
 
     for (int j = 0; j < 15; j++) {
-	feld[i][j].obj = obj_line.at(obj_index++);
+	feld[i][j].obj = obj_line.at(j);
 
 	feld [i][j].verb = 
 	    hexValue(verb_line.at(verb_index++)) * 4096 + 
@@ -90,42 +86,6 @@ void Feld::loadFeldFromDat (const KSimpleConfig& config)
     }
   }
   
-#if 0
-  for (int i = 0; i < 10; i++) {
-    
-    key = QString("mole_obje_%1").arg(i);
-    const QString obj_line = config.readEntry(key);
-    key = QString("mole_verb_%1").arg(i);
-    const QString verb_line = config.readEntry(key);
-
-    if (verb_line.isEmpty())
-      continue;
-    if (obj_line.isEmpty())
-      continue;
-
-    int verb_index = 0;
-    int obj_index = 0;
-
-    QString line1, line2;
-
-    for (int j = 0; j < 10; j++)
-      { 
-	molek [i] [j].obj = 
-	  hexValue(obj_line.at(obj_index++)) * 16 + 
-	  hexValue(obj_line.at(obj_index++));
-	
-	molek [i][j].verb = 
-	  hexValue(verb_line.at(verb_index++)) * 4096 + 
-	  hexValue(verb_line.at(verb_index++)) * 256 + 
-	  hexValue(verb_line.at(verb_index++)) * 16 + 
-	  hexValue(verb_line.at(verb_index++));
-
-      }
-
-    }
-
-#endif 
-
   moves = 0;
   repaint ();
 }
