@@ -8,7 +8,7 @@
 #define HIGHSCORE_H
 
 #include <kapp.h>
-#include <klined.h>
+#include <klineedit.h>
 #include <qdialog.h>
 #include <qlabel.h>
 #include <qpushbt.h>
