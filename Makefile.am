@@ -4,7 +4,7 @@ INCLUDES = -I$(top_srcdir)/libkdegames $(all_includes)
 
 katomic_SOURCES = feld.cpp molek.cpp main.cpp toplevel.cpp configbox.cpp gamewidget.cpp
 katomic_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-katomic_LDADD = $(top_builddir)/libkdegames/libkdegames.la $(LIB_KDEUI)
+katomic_LDADD = $(LIB_KDEGAMES) $(LIB_KDEUI)
 
 EXTRA_DIST = katomic.xpm katomic.desktop
 
