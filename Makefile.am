@@ -6,7 +6,7 @@ LDADD = $(LIB_KDEUI)
 
 SUBDIRS = . levels
 
-katomic_SOURCES = feld.cpp highscore.cpp molek.cpp mywidget.cpp levelnames.cpp configbox.cpp
+katomic_SOURCES = feld.cpp highscore.cpp molek.cpp main.cpp toplevel.cpp levelnames.cpp configbox.cpp gamewidget.cpp
 
 EXTRA_DIST = katomic.xpm katomic.desktop
 
