@@ -434,24 +434,23 @@ void Feld::paintEvent( QPaintEvent * )
 	switch (dir) {
 	case MoveUp :
 	  bitBlt (this, cx, cy - framesbak + frames, &sprite, CopyROP);
-	  if ( (framesbak - frames > 1)  )
-	    paint.eraseRect (cx, cy - framesbak + frames + 30, 30, a+1);
+	  if ( framesbak - frames > 0 )
+	    paint.eraseRect (cx, cy - framesbak + frames + 30, 30, a);
 	  break;
 	case MoveDown :
-	  bitBlt (this, cx, cy + (framesbak - frames), &sprite, CopyROP);
-	  if ( (framesbak - frames > 1) )
-	    paint.eraseRect (cx,
-			     cy + (framesbak - frames) - a-1, 30, a+1);
+	  bitBlt (this, cx, cy + framesbak - frames, &sprite, CopyROP);
+	  if ( framesbak - frames > 0 )
+	    paint.eraseRect (cx, cy + framesbak - frames - a, 30, a);
 	  break;
 	case MoveRight :
-	  bitBlt (this, cx + (framesbak - frames), cy, &sprite, CopyROP);
-	  if ( (framesbak - frames > 1) )
-	    paint.eraseRect (cx + (framesbak - frames) - a - 1, cy, a + 1, 30);
+	  bitBlt (this, cx + framesbak - frames, cy, &sprite, CopyROP);
+	  if ( framesbak - frames > 0 )
+	    paint.eraseRect (cx + framesbak - frames - a, cy, a, 30);
 	  break;
 	case MoveLeft :
 	  bitBlt (this, cx - framesbak + frames, cy, &sprite, CopyROP);
-	  if ((framesbak - frames > 1))
-	    paint.eraseRect (cx - framesbak + frames + 30, cy, a + 1, 30);
+	  if ( framesbak - frames > 0 )
+	    paint.eraseRect (cx - framesbak + frames + 30, cy, a, 30);
 	  break;
 	default:
 	  return;

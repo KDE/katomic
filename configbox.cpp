@@ -33,6 +33,8 @@ ConfigBox::ConfigBox ( QWidget *parent, const char *name)
   disp = new QLCDNumber(gb);
   glay->addWidget(disp,0, 2);
   
+  disp->display(1);
+
   speed = new QSlider(1, 10, 1, 1, QSlider::Horizontal, gb);
   glay->addMultiCellWidget(speed, 1, 1, 1, 3);
 

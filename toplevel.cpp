@@ -27,6 +27,7 @@
 #include <kmenubar.h>
 #include <ksimpleconfig.h>
 #include <kstddirs.h>
+#include <kapp.h>
 
 #include "gamewidget.h"
 #include "toplevel.h"
