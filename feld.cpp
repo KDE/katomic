@@ -43,7 +43,7 @@ Feld::Feld( QWidget *parent, const char *name ) :
     setFocusPolicy(QWidget::StrongFocus);
     setBackgroundColor( QColor( 0, 0, 0) );
 
-    setFixedSize(15 * 30 + 1, 15 * 30 + 1);
+    setFixedSize(15 * 30, 15 * 30);
 }
 
 Feld::~Feld ()
@@ -322,15 +322,25 @@ void Feld::startAnimation (Direction d)
 
 void Feld::mouseMoveEvent (QMouseEvent *e)
 {
-  int x = e->pos ().x () / 30;
-  int y = e->pos ().y () / 30;
+  // warning: mouseMoveEvents can report positions upto 1 pixel outside
+  //          of the field widget, so we must be sure handle this case
 
-  // verschiedene cursor je nach pos
-  if (feld[x][y] != 254 && feld [x] [y] != 0)
-    setCursor (crossCursor);
+  if( e->pos().x() < 0 || e->pos().x() >= 450 ||
+      e->pos().y() < 0 || e->pos().y() >= 450 )
+  {
+    setCursor(arrowCursor);
+  }
   else
-    setCursor (arrowCursor);
+  {
+    int x = e->pos ().x () / 30;
+    int y = e->pos ().y () / 30;
 
+    // verschiedene cursor je nach pos
+    if (feld[x][y] != 254 && feld [x] [y] != 0)
+      setCursor (crossCursor);
+    else
+      setCursor (arrowCursor);
+  }
 }
 
 
