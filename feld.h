@@ -30,7 +30,7 @@ public:
     void startAnimation (int dir);
     void done ();
 
-    void loadFeldFromDat (const KSimpleConfig& config);
+    void load (const KSimpleConfig& config);
 
 signals: 
     void showDir ();

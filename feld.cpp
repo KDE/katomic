@@ -60,7 +60,7 @@ Feld::~Feld ()
   delete [] point;
 }
 
-void Feld::loadFeldFromDat (const KSimpleConfig& config)
+void Feld::load (const KSimpleConfig& config)
 {
  
   QString key;

@@ -35,49 +35,67 @@ Molek::~Molek ()
 { 
 }
 
-void Molek::loadFeldFromDat (const KSimpleConfig& config)
+void Molek::load (const KSimpleConfig& config)
 {
-  QString key;
-  for (int i = 0; i < 10; i++) {
+    atoms.clear();
+    QString key;
+
+    atom none;
+    none.obj = 0;
+    none.conn = 0;
+    atoms.append(none);
+
+    atom current;
+    
+    int atom_index = 1;
+    QString value;
+    while (true) {
+	key.sprintf("atom_%c", int2atom(atom_index));
+	value = config.readEntry(key);
+	if (value.isEmpty())
+	    break;
+	
+	current.obj = value.at(0).latin1();
+	value = value.mid(2);
+	current.conn = value.toInt(0, 16);
+
+	atoms.append(current);
+	atom_index++;
+    }
+
+    QString line;
+
+    for (int j = 0; j < 10; j++) {
       
-      key.sprintf("mole_obje_%0d", i);
-      const QString obj_line = config.readEntry(key);
-   
-      key.sprintf("mole_verb_%0d", i);
-      const QString verb_line = config.readEntry(key);
+	key.sprintf("mole_%d", j);
+	line = config.readEntry(key);
 
-      if (verb_line.isEmpty())
-	  continue;
-      if (obj_line.isEmpty())
-	  continue;
-      
-      int verb_index = 0;
+	for (int i = 0; i < 10; i++)
+	    molek[i][j] = atom2int(line.at(i).latin1());
+    }
 
-      for (int j = 0; j < 10; j++)
-	  { 
-	      
-	      molek [i] [j].obj = obj_line.at(j);
+    mname = config.readEntry("Name", i18n("Noname"));
+    
+#if 0
+    int hohe = 0;
+    int breite = 0;
 
-	      molek [i][j].verb = 
-		  hexValue(verb_line.at(verb_index++)) * 4096 + 
-		  hexValue(verb_line.at(verb_index++)) * 256 + 
-		  hexValue(verb_line.at(verb_index++)) * 16 + 
-		  hexValue(verb_line.at(verb_index++));
-	      
-	  }
-      
-  }
-  
-  mname = config.readEntry("Name", i18n("Noname"));
+    // höhe und breite des moleküls berechnen und ausgeben, checkdone 
+    for (int i = 0; i < 10; i++)
+	for (int j = 0; j < 10; j++) {
+	    if ((*atoms.at(molek [i] [j])).conn == 0)
+		continue;
+	    // debug("%x", (*atoms.at(molek [i] [j])).conn);
+	    if (i > breite) breite = i;
+	    if (j > hohe) hohe = j;
+	}
+    hohe++;
+    breite++;
+    
+    debug("%d %d", hohe, breite);
+#endif
 
-  // höhe und breite des moleküls berechnen und ausgeben, checkdone 
-  for (int i = 0, breite = 0, hohe = 0; i < 10; i++)
-      for (int j = 0; j < 10; j++) {
-	  if ((molek [i] [j].verb != 0) && (i > breite)) breite = i;
-	  if ((molek [i] [j].verb != 0) && (j > hohe)) hohe = j;
-      }
-  
-  repaint ();
+    repaint ();
 }
 
 void Molek::paintEvent( QPaintEvent * )
@@ -96,26 +114,26 @@ void Molek::paintEvent( QPaintEvent * )
     int y = 10 + j * 15;
 
     // zeichnet Atome
-    if (molek [i] [j].obj <= '9' && molek [i] [j].obj >= '1')
+    if ((*atoms.at(molek [i] [j])).obj <= '9' && (*atoms.at(molek [i] [j])).obj >= '1')
     {
-      bitBlt (this, x, y, &data, (molek [i] [j].obj - '1') * 15, 0, 15, 
+      bitBlt (this, x, y, &data, ((*atoms.at(molek [i] [j])).obj - '1') * 15, 0, 15, 
               15, CopyROP);
     }
 
     
     // zeichnet Kristalle
-    if (molek [i] [j].obj == 'o')
+    if ((*atoms.at(molek [i] [j])).obj == 'o')
     {
       bitBlt (this, x, y, &data, 10 * 15, 0, 15, 15, CopyROP);
     }
     
 
     // verbindungen zeichnen
-    if (isdigit(molek[i][j].obj) || molek [i] [j].obj == 'o')
+    if (isdigit((*atoms.at(molek[i][j])).obj) || (*atoms.at(molek[i][j])).obj == 'o')
     {
       char anz;
       for (anz = 0; anz < 16; anz++)
-        if ((molek [i] [j].verb & (1 << anz)) == (uint(1) << anz))
+        if (((*atoms.at(molek[i][j])).conn & (1 << anz)) == (int(1) << anz))
         {
           if (anz < 8)
             bitBlt (this, x, y, &data, anz * 15, 16, 15, 15, XorROP);
@@ -126,8 +144,8 @@ void Molek::paintEvent( QPaintEvent * )
 
     
     // zeichnet Verbindungsstäbe 
-    if (molek [i] [j].obj >= 'A' && molek [i] [j].obj <= 'F')
-      bitBlt (this, x, y, &data, (molek [i] [j].obj - 'A') * 15 , 0, 15, 15, 
+    if ((*atoms.at(molek[i][j])).obj >= 'A' && (*atoms.at(molek[i][j])).obj <= 'F')
+      bitBlt (this, x, y, &data, ((*atoms.at(molek[i][j])).obj - 'A') * 15 , 0, 15, 15, 
               CopyROP);
     
   }

@@ -13,6 +13,7 @@
 #include <qpoint.h>
 #include <qpainter.h>
 #include <qpixmap.h>
+#include <atom.h>
 
 class KSimpleConfig;
 
@@ -24,22 +25,17 @@ public:
     Molek (QWidget *parent=0, const char *name=0);
    ~Molek ();
 
-   void loadFeldFromDat(const KSimpleConfig& config);
+   void load(const KSimpleConfig& config);
 
 protected:
     void paintEvent( QPaintEvent * );
 
 private:
   
-  QPixmap data;
-  
-  struct spielfeld
-  {
-    char obj;
-    unsigned int verb;
-  } molek [10] [10];
-
-  QString mname;
+    QPixmap data;
+    int molek [10] [10]; // the indexes within atoms
+    QValueList<atom> atoms;
+    QString mname;
 
 };
 
