@@ -48,7 +48,7 @@ int main(int argc, char **argv)
   aboutData.addCredit("Carsten Pfeiffer");
   aboutData.addCredit("Dave Corrie");
   aboutData.addCredit("Kai Jung", I18N_NOOP("6 new levels"), "jung@fh-fresenius.de");
-  aboutData.addAuthor("Danny Allen", 0, "danny@dannyallen.co.uk");
+  aboutData.addCredit("Danny Allen", I18N_NOOP("Game graphics and application icon"), "danny@dannyallen.co.uk");
 
   KCmdLineArgs::init( argc, argv, &aboutData );
 
