@@ -158,9 +158,17 @@ void MyWidget::updateLevel (int l)
 {
   level = l;
   QString level = QString("levels/level_%1").arg(l);
-  KSimpleConfig config(locate("appdata", level), true);
-  config.setGroup("Level");
-  feld->load(config);
+  KSimpleConfig cfg(locate("appdata", level), true);
+  cfg.setGroup("Level");
+  feld->load(cfg);
+
+  config = kapp->getConfig();
+  level = QString("level%1").arg(l);
+  config->setGroup(level);
+  highest = config->readEntry("Moves0", "100");
+  hs->setText(highest);
+
+  ys->setText("");
 }
 
 
@@ -178,7 +186,7 @@ void MyWidget::initConfig()
     settings.anim_speed = 1;
 
   config->setGroup("level1");
-  highest = config->readEntry("Score0", "100");
+  highest = config->readEntry("Moves0", "100");
 
   config->setGroup("Colors");
 
