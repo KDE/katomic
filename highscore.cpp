@@ -5,6 +5,7 @@
  */
 
 #include "highscore.h"
+#include <stdlib.h>
 #include <qlayout.h>
 #include <klocale.h>
 #include <kglobal.h>
@@ -78,9 +79,14 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
   
   if (pos < 6 && moves > 0)
   {
+    const int maxLen = 18; // not yet sure why this is 18, but...
+    QString username = getenv("LOGNAME");
     le = new QLineEdit (this, "le");
+    le->setText(username);
     le->setFocus();
-    le->setMaxLength (18);
+    le->setMaxLength(maxLen);
+    le->setCursorPosition(maxLen);
+    le->setSelection(0, maxLen);
     lay->addWidget(le, pos, 0);
     connect (le, SIGNAL (returnPressed ()), 
              this, SLOT (eingabeFertig ()));
