@@ -164,25 +164,25 @@ atomic movement can be set.</para></listitem>
 <row>
 <entry>Atom Down</entry>
 <entry>
-<keycombo action="simul">&Ctrl;<keycap>Down Arrow</keycap></keycombo>
+<keycap>Down Arrow</keycap>
 </entry>
 </row>
 <row>
 <entry>Atom Left</entry>
 <entry>
-<keycombo action="simul">&Ctrl;<keycap>Left Arrow</keycap></keycombo>
+<keycap>Left Arrow</keycap>
 </entry>
 </row>
 <row>
 <entry>Atom Right</entry>
 <entry>
-<keycombo action="simul">&Ctrl;<keycap>Right Arrow</keycap></keycombo>
+<keycap>Right Arrow</keycap>
 </entry>
 </row>
 <row>
 <entry>Atom Up</entry>
 <entry>
-<keycombo action="simul">&Ctrl;<keycap>Up Arrow</keycap></keycombo>
+<keycap>Up Arrow</keycap>
 </entry>
 </row>
 <row>
