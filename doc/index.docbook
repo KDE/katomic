@@ -1,9 +1,9 @@
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
  <!ENTITY kappname "&katomic;">
  <!ENTITY % English "INCLUDE">
  <!ENTITY % addindex "IGNORE">
- <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Documentation V1.0//EN">
-  %ents;
+ 
+  
 ]>
 
 <book lang="&language;">
@@ -143,7 +143,7 @@ atomic movement can be set.</para></listitem>
 <variablelist>
 <varlistentry>
 
-<term><anchor id="contents"><menuchoice>
+<term><anchor id="contents"/><menuchoice>
 <shortcut><keycap>F1</keycap></shortcut>
 <guimenu><accel>H</accel>elp</guimenu>
 <guimenuitem><accel>C</accel>ontents</guimenuitem></menuchoice></term>
@@ -152,7 +152,7 @@ help file.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><anchor id="whats-this"><menuchoice>
+<term><anchor id="whats-this"/><menuchoice>
 <shortcut><keycombo
 action="simul"><keycap>Shift</keycap><keycap>F1</keycap></keycombo></shortcut>
 <guimenu><accel>H</accel>elp</guimenu><guimenuitem>What's
@@ -164,7 +164,7 @@ function.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><anchor id="bug-report"><menuchoice>
+<term><anchor id="bug-report"/><menuchoice>
 <guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>R</accel>eport
 Bug.</guimenuitem></menuchoice></term>
 <listitem><para>If you find an error in the program, or you have an idea on how
@@ -173,7 +173,7 @@ report to the &kde; team.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><anchor id="about-katomic"><menuchoice>
+<term><anchor id="about-katomic"/><menuchoice>
 <guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>A</accel>bout
 KAtomic</guimenuitem></menuchoice></term>
 <listitem><para>This will display version and author
@@ -181,7 +181,7 @@ information.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><anchor id="about-kde"><menuchoice>
+<term><anchor id="about-kde"/><menuchoice>
 <guimenu><accel>H</accel>elp</guimenu><guimenuitem>About
 <accel>K</accel>DE</guimenuitem></menuchoice></term>
 <listitem><para>This displays the &kde; version and other basic
@@ -346,4 +346,5 @@ sgml-omittag: nil
 sgml-shorttag: t
 End:
 -->
+
 
