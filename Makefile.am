@@ -9,7 +9,7 @@ SUBDIRS = . levels
 katomic_SOURCES = feld.cpp highscore.cpp molek.cpp mywidget.cpp levelnames.cpp
 
 pics_DATA = abilder.png molek.png
-picsdir = $(datadir)/pics
+picsdir = $(kde_datadir)/katomic/pics
 
 METASOURCES = AUTO
 
