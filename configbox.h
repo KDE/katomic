@@ -9,7 +9,7 @@
 
 #include <qdialog.h>
 #include <qlabel.h>
-#include <qpushbt.h>
+#include <qpushbutton.h>
 #include <qslider.h>
 #include <qlcdnumber.h>
 

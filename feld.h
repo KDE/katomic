@@ -14,7 +14,7 @@
 #include <qpoint.h>
 #include <qpainter.h>
 #include <qpixmap.h>
-#include <qmsgbox.h>
+#include <qmessagebox.h>
 
 #include "highscore.h"
 #include "atom.h"

@@ -11,7 +11,7 @@
 #include <klineedit.h>
 #include <qdialog.h>
 #include <qlabel.h>
-#include <qpushbt.h>
+#include <qpushbutton.h>
 
 
 
