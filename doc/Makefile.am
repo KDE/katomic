@@ -1,0 +1,4 @@
+
+KDE_DOCS = AUTO
+KDE_LANG = en
+
