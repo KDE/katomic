@@ -57,6 +57,8 @@ void AtomTopLevel::createMenu()
     menu->insertItem(i18n("&Help"), helpMenu(
 	   i18n("Atomic 2.0 by Stephan Kulow <coolo@kde.org>\n"
 	        "and Cristian Tibirna <tibirna@kde.org>\n"
+			"with great help by Carsten Pfeiffer and\n"
+			"Dave Corrie\n"
 	        "based on Atomic 1.0.67 by Andreas Wüst (AndreasWuest@gmx.de)\n")));
 }
 
