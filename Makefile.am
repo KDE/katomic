@@ -13,7 +13,7 @@ picsdir = $(appdir)/pics
 
 xdg_apps_DATA = katomic.desktop
 
-EXTRA_DIST = $(xdg_apps_DATA) $(pics_DATA)
+EXTRA_DIST = $(pics_DATA)
 KDE_ICON = katomic
 
 appdir = $(kde_datadir)/katomic
