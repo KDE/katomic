@@ -4,7 +4,7 @@
  <![ %addindex; [ <!ENTITY docindex SYSTEM "docindex.docbook"> ]]>
 ]>
 
-<book lang="en" id="KAtomic">
+<book lang="en">
 <bookinfo>
 <title>The Atomic Entertainment Handbook</title>
 
@@ -25,7 +25,7 @@
 </authorgroup>
 
 <date>23/05/2000</date>
-<releaseinfo>2.0</releaseinfo>
+<releaseinfo>2.00.00</releaseinfo>
 
 <revhistory>
 <revision>
@@ -38,15 +38,15 @@
 </revhistory>
 
 <abstract>
-<para>This Handbook describes <application>katomic</application> Version 2.0</para>
+<para>This Handbook describes &katomic; Version 2.0</para>
 </abstract>
 
 <keywordset>
-      <keyword>KDE</keyword>
-      <keyword>kdegames</keyword>
-      <keyword>KAtomic</keyword>
-      <keyword>game</keyword>
-      <keyword>atomic entertainment</keyword>
+<keyword>KDE</keyword>
+<keyword>kdegames</keyword>
+<keyword>KAtomic</keyword>
+<keyword>game</keyword>
+<keyword>atomic entertainment</keyword>
 </keywordset>
 </bookinfo>
 
