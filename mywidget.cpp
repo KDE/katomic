@@ -39,6 +39,8 @@
 
 #include "mywidget.moc"
 
+#include <qlayout.h>
+#include <qgroupbox.h>
 #include <kkeydialog.h>
 #include <kstddirs.h>
 #include <ksimpleconfig.h>
@@ -133,14 +135,6 @@ void MyWidget::showHighscores ()
   delete h;
 }
 
-void MyWidget::showStatus(bool _up, bool _down, bool _left, bool _right) 
-{
-  up->setEnabled(_up);
-  right->setEnabled(_right);
-  down->setEnabled(_down);
-  left->setEnabled(_left);
-}
-
 void MyWidget::getButton (int button)
 {
   feld->startAnimation ((Feld::Direction)button);
@@ -152,6 +146,12 @@ void MyWidget::gameOver(int moves) {
   
   Highscore high(this, "highscore", level, moves);
   high.exec ();
+}
+
+void MyWidget::getMoves(int moves)
+{
+  current.sprintf("%d", moves);
+  ys->setText(current);
 }
 
 void MyWidget::updateLevel (int l)
@@ -166,18 +166,19 @@ void MyWidget::updateLevel (int l)
 
 void MyWidget::initConfig()
 {
-
-
   config = kapp->getConfig();	
 
   /* CT this segfaults :-(
-  accel->readSettings(config);
+     accel->readSettings(config);
   */
 
   config->setGroup("Options");
   settings.anim_speed = config->readNumEntry("Animation Speed", 1);
   if (settings.anim_speed < 1 || settings.anim_speed > MAX_SPEED)
     settings.anim_speed = 1;
+
+  config->setGroup("level1");
+  highest = config->readEntry("Score0", "100");
 
   config->setGroup("Colors");
 
@@ -187,7 +188,7 @@ void MyWidget::initConfig()
 void MyWidget::saveConfig()
 {
   /* CT would this segfault too?
-  accel->writeSettings(config);
+     accel->writeSettings(config);
   */
 
   if (settings.changed) {
@@ -201,7 +202,7 @@ void MyWidget::saveConfig()
 
 
 MyWidget::MyWidget ( QWidget *, const char* name )
-	: KTMainWindow ( name )
+  : KTMainWindow ( name )
 {
   // 
   // setMaximumSize(665, 501);
@@ -215,13 +216,13 @@ MyWidget::MyWidget ( QWidget *, const char* name )
   molek->setGeometry (MPOSX, MPOSY, 170, 180);
   molek->setBackgroundColor (QColor (0, 0, 0));
 
-   // spielfeld    
+  // spielfeld    
   feld = new Feld (molek, this, "feld");
   feld->setGeometry (XPOS, YPOS, 15 * 30 + 1, 15 * 30 + 1);
   feld->setBackgroundColor( QColor( 0, 0, 0) );
 
-  connect (feld, SIGNAL (dirStatus(bool, bool, bool, bool)), SLOT (showStatus(bool, bool, bool, bool)));
   connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
+  connect (feld, SIGNAL (sendMoves(int)), SLOT(getMoves(int)));
 
   // scrollbar       
   scrl = new QScrollBar(1, 67, 1, 5, 1, QScrollBar::Horizontal, this, "scrl" );
@@ -230,44 +231,42 @@ MyWidget::MyWidget ( QWidget *, const char* name )
   connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
   
 
-  // buttongroup
-  bg = new QButtonGroup ("Direction", this, "bg");
+  // the score group
+  QGroupBox *bg = new QGroupBox ("Score", this, "bg");
   bg->setGeometry (MPOSX, 300, 160, 160);
+  QBoxLayout *slay = new QVBoxLayout (bg, 10);
+  
+  slay->addSpacing(10);
 
+  slay->addWidget(new QLabel(i18n("Highest score:"), bg));
 
-  // buttons
+  hs = new QLabel (highest, bg);
+  hs->setAlignment(Qt::AlignRight);
+  hs->setFont(QFont("Helvetica", 18, QFont::Bold));
+  slay->addWidget(hs);
 
-  up = new QPushButton (i18n("Up"), this, "up");
-  bg->insert(up, Feld::MoveUp);
-  up->setGeometry (MPOSX + 60, 320, 40, 40);
+  slay->addSpacing(10);
 
-  right = new QPushButton (i18n("Right"), this, "right");
-  bg->insert(right, Feld::MoveRight);
-  right->setGeometry (MPOSX + 100, 360, 40, 40);
- 
-  down = new QPushButton (i18n("Down"), this, "down");
-  bg->insert(down, Feld::MoveDown);
-  down->setGeometry (MPOSX + 60, 400, 40, 40);
-
-  left = new QPushButton (i18n("Left"), this, "left");
-  bg->insert(left, Feld::MoveLeft);
-  left->setGeometry (MPOSX + 20, 360, 40, 40);
-
-  connect (bg, SIGNAL (clicked (int)), SLOT (getButton (int)));
+  slay->addWidget(new QLabel(i18n("Your score so far:"), bg));
+  
+  ys = new QLabel (current, bg);
+  ys->setAlignment(Qt::AlignRight);
+  ys->setFont(QFont("Helvetica", 18, QFont::Bold));
+  slay->addWidget(ys);
   
   createMenu();
   initKeys();
-
+  
   updateLevel(1);
   setMinimumSize(665, 501);
 }
 
 MyWidget::~MyWidget()
 {
- delete file;
-  delete options;
-  delete help;
-  delete feld;
+delete file;
+delete options;
+delete help;
+delete feld;
 }
 
 void MyWidget::quitapp()

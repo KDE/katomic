@@ -32,7 +32,7 @@ class Highscore : public QDialog
     ~Highscore();
 
     // positionen + namen
-    QLabel **n;	
+    QLabel **n, *sc;	
     QLineEdit *le;
    
  public slots:
@@ -46,9 +46,9 @@ class Highscore : public QDialog
     QPushButton *ok;
     struct highscore
     {
-	QString name;
-	int moves;
-    } score [6];
+      QString name;
+      int moves;
+    } score[6];
 
     int pos;
     int level;

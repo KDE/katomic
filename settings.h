@@ -21,7 +21,10 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
+#include <qstring.h>
+
 #define MAX_SPEED 10
+
 
 struct Options 
 {

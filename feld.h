@@ -38,8 +38,8 @@ public:
     void load (const KSimpleConfig& config);
 
 signals: 
-    void dirStatus(bool _up, bool _down, bool _left, bool _right);
     void gameOver(int moves);
+    void sendMoves(int moves);
 
 protected:
     bool checkDone();

@@ -157,8 +157,7 @@ void Feld::nextAtom() {}
 
 void Feld::emitStatus()
 {
-  if (!chosen || moving) 
-    emit dirStatus(false, false, false, false);
+  if (!chosen || moving) {}
   else {
     bool newones = false;
 
@@ -182,12 +181,6 @@ void Feld::emitStatus()
       newones = true;
     }
     
-
-    emit dirStatus(feld[xpos][ypos-1] == 150, 
-		   feld[xpos][ypos+1] == 152, 
-		   feld[xpos-1][ypos] == 151, 
-		   feld[xpos+1][ypos] == 153);
-
     if (newones)
       repaint();
 
@@ -218,6 +211,7 @@ void Feld::startAnimation (Direction d)
   int x = 0, y = 0;
 
   moves++;
+  emit sendMoves(moves);
   dir = d;
   
   switch (dir) {

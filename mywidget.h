@@ -91,11 +91,12 @@ class MyWidget : public KTMainWindow
   // scorllbar zur levelwahl
   QScrollBar *scrl;
 
-  // buttongroup
-  QButtonGroup *bg;
- 
   // buttons
   QPushButton *up, *down, *left, *right, *done;
+
+  // important labels : highest and current scores
+  QLabel *hs, *ys;
+  QString highest, current;
 	
  public slots:
   // bringt level auf neuesten stand 
@@ -106,7 +107,8 @@ class MyWidget : public KTMainWindow
   
   void gameOver(int moves);
 
-  void showStatus(bool _up, bool _down, bool _left, bool _right);
+  // use this slot to update the moves continually
+  void getMoves(int moves);
 
   // Menupunkt Highscores im Pop-up Menu, der Highscore anzeigt
   void showHighscores ();

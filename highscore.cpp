@@ -63,20 +63,21 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
     // position + name ausgeben
     tmp.sprintf("%2d.   ", i + 1);
     tmp += score [i].name;
-    lay->addMultiCellWidget(new QLabel(tmp, this), i, i, 0, 1);
+    n[i] = new QLabel(tmp, this);
+    lay->addWidget(n[i], i, 0);
     
     // punkte ausgeben
-    tmp.sprintf ("%4d", score [i].moves);
-    n[i] = new QLabel(tmp, this);
-    n[i]->setAlignment( Qt::AlignLeft );
-    lay->addMultiCellWidget(n[i], i, i, 3, 4);
+    tmp.sprintf ("%d", score [i].moves);
+    sc = new QLabel(tmp, this);
+    sc->setAlignment( Qt::AlignRight );
+    lay->addWidget(sc, i, 1);
   }
 
   lay->addRowSpacing(6, 20);
 
   // pushbutton erzeugen             
   ok = new QPushButton(i18n("OK"), this, "ok");
-  lay->addMultiCellWidget ( ok, 6, 6, 1, 3);
+  lay->addMultiCellWidget ( ok, 6, 6, 0, 1);
   
   connect(ok, SIGNAL(clicked()), SLOT(accept()) );
   
@@ -90,7 +91,7 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
     debug ("line edit erzeugen");
     le = new QLineEdit (this, "le");
     le->setMaxLength (18);
-    lay->addMultiCellWidget(le, pos-1, pos-1, 0, 1);
+    lay->addWidget(le, pos-1, 0);
     connect (le, SIGNAL (returnPressed ()), 
              this, SLOT (eingabeFertig ()));
 
@@ -139,7 +140,7 @@ void Highscore::loadHighscore ()
 	key.sprintf("Name%d", i);
 	score[i].name = config->readEntry(key, i18n("Joe Noname"));
 	key.sprintf("Moves%d", i);
-	score[i].moves = config->readNumEntry(key, i  * 100);
+	score[i].moves = config->readNumEntry(key, (i+1)  * 100);
 	debug("read %s %d", score[i].name.ascii(), score[i].moves);
     }
 }
