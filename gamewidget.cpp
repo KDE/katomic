@@ -85,11 +85,15 @@ void GameWidget::getButton (int button)
 void GameWidget::gameOver(int moves) {
     KMessageBox::information(this, i18n("You solved level %1 with %2 moves!").arg(level).arg(moves), i18n("Congratulations"));
 
+    KScoreDialog high(KScoreDialog::Name | KScoreDialog::Score, this);
+    high.setCaption(i18n("Level %1 High Scores").arg(level));
+    high.setConfigGroup(QString("High Scores Level %1").arg(level));
+
     KScoreDialog::FieldInfo scoreInfo;
 
-    if (high->addScore(moves, scoreInfo, true, true))
+    if (high.addScore(moves, scoreInfo, true, true))
     {
-       high->exec();
+       high.exec();
     }
     updateLevel(level+1);
 }
@@ -112,11 +116,9 @@ void GameWidget::updateLevel (int l)
     cfg.setGroup("Level");
     feld->load(cfg);
 
-    QString group = QString("High Scores Level %1").arg(level);
-    high->setConfigGroup(group);
-    QString caption = i18n("Level %1 High Scores").arg(level);
-    high->setCaption(caption);
-    highest.setNum(high->highScore());
+    KScoreDialog high(KScoreDialog::Name | KScoreDialog::Score, this);
+    high.setConfigGroup(QString("High Scores Level %1").arg(level));
+    highest.setNum(high.highScore());
 
     hs->setText(highest);
     ys->setText("0");
@@ -150,7 +152,7 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
     top->addWidget(vb);
 
     // scrollbar
-    scrl = new QScrollBar(1, nlevels, 1, 
+    scrl = new QScrollBar(1, nlevels, 1,
 			5, 1, QScrollBar::Horizontal, vb, "scrl" );
     // scrl->setGeometry( MPOSX, 50, 160, 16 );
     connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
@@ -185,8 +187,6 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
     ys->setFont(QFont("Helvetica", 18, QFont::Bold));
     slay->addWidget(ys);
 
-    high = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
-
     updateLevel(1);
 
     KConfig *config = KGlobal::config();
@@ -211,7 +211,10 @@ GameWidget::~GameWidget()
 
 void GameWidget::showHighscores ()
 {
-    high->exec();
+    KScoreDialog high(KScoreDialog::Name | KScoreDialog::Score, this);
+    high.setCaption(i18n("Level %1 High Scores").arg(level));
+    high.setConfigGroup(QString("High Scores Level %1").arg(level));
+    high.exec();
 }
 
 #include "gamewidget.moc"

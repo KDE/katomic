@@ -59,8 +59,7 @@ class GameWidget : public QWidget
     // important labels : highest and current scores
     QLabel *hs, *ys;
     QString highest, current;
-    KScoreDialog *high;
-    
+
     int nlevels;
 };
 
