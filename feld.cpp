@@ -90,6 +90,8 @@ void Feld::mousePressEvent (QMouseEvent *e)
 {
   if (moving) 
     return;
+  
+  resetValidDirs();
 
   int x = e->pos ().x () / 30;
   int y = e->pos ().y () / 30;
@@ -107,7 +109,7 @@ void Feld::mousePressEvent (QMouseEvent *e)
     xpos = x;
     ypos = y;
     dir = None;
-    resetValidDirs();
+    
   } else {
     chosen = false;
   }
