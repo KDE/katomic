@@ -77,8 +77,8 @@ void AtomTopLevel::initKeys()
     // the standard Kde keybinding
     accel = new KAccel(this);
 	
-    accel->insertStdItem(KAccel::Quit, i18n("Quit"));
-    accel->connectItem(KAccel::Quit, this, SLOT(quitapp()) );
+    accel->insertStdItem(KStdAccel::Quit);
+    accel->connectItem(KStdAccel::Quit, this, SLOT(quitapp()) );
     accel->insertItem(i18n("Highscores"), "highscore", "CTRL+H");
     accel->connectItem ("highscore", main, 
 			SLOT (showHighscores ()));
