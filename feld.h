@@ -23,6 +23,8 @@
 class KSimpleConfig;
 class Molek;
 
+#define FIELD_SIZE 15
+
 class Feld : public QWidget
 {
     Q_OBJECT
@@ -69,7 +71,7 @@ private:
 
     Molek *mol;
 
-    uint feld[15][15];
+    uint feld[FIELD_SIZE][FIELD_SIZE];
 
     // number of movements
     int moves;

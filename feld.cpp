@@ -20,6 +20,10 @@
 #include "feld.h"
 #include "settings.h"
 
+#if FIELD_SIZE < MOLEK_SIZE
+#error Molecule size (MOLEK_SIZE) must be <= field size (FIELD_SIZE)
+#endif
+
 extern Options settings;
 
 Feld::Feld( QWidget *parent, const char *name ) :
@@ -53,8 +57,8 @@ Feld::~Feld ()
 
 void Feld::resetValidDirs()
 {
-  for (int j = 0; j < 15; j++)
-    for (int i = 0; i < 15; i++)
+  for (int j = 0; j < FIELD_SIZE; j++)
+    for (int i = 0; i < FIELD_SIZE; i++)
       if (feld[i][j] >= 150 && feld[i][j] <= 153)
 	{
 	  feld[i][j] = 0;
@@ -71,12 +75,12 @@ void Feld::load (const KSimpleConfig& config)
 
   QString key;
 
-  for (int j = 0; j < 15; j++) {
+  for (int j = 0; j < FIELD_SIZE; j++) {
 
     key.sprintf("feld_%02d", j);
     QString line = config.readEntry(key);
 
-    for (int i = 0; i < 15; i++)
+    for (int i = 0; i < FIELD_SIZE; i++)
 	feld[i][j] = atom2int(line[i].latin1());
 
   }
@@ -133,7 +137,7 @@ void Feld::nextAtom()
 
   while(1)
     {
-      for (y = ypos; y < 15; y++)
+      for (y = ypos; y < FIELD_SIZE; y++)
 	{
 	  if ( feld [x] [y] != 0 &&
 	       feld [x] [y] != 254 &&
@@ -151,7 +155,7 @@ void Feld::nextAtom()
 	}
       ypos = 0;
       x++;
-      if (x >= 15) x = 0;
+      if (x >= FIELD_SIZE) x = 0;
     }
 
 }
@@ -162,7 +166,7 @@ void Feld::previousAtom()
   int x = xpos, y;
 
   // make sure we don't check the current atom :-)
-  if (ypos-- <= 0) ypos = 14;
+  if (ypos-- <= 0) ypos = FIELD_SIZE-1;
 
   while(1)
     {
@@ -182,9 +186,9 @@ void Feld::previousAtom()
 	      return;
 	    }
 	}
-      ypos = 14;
+      ypos = FIELD_SIZE-1;
       x--;
-      if (x <= 0) x = 14;
+      if (x <= 0) x = FIELD_SIZE-1;
     }
 }
 
@@ -194,22 +198,22 @@ void Feld::emitStatus()
   if (!chosen || moving) {}
   else {
 
-    if (feld[xpos][ypos-1] == 0) {
+    if (ypos > 0 && feld[xpos][ypos-1] == 0) {
       feld [xpos][ypos-1] = 150;
       putNonAtom(xpos, ypos-1, Feld::MoveUp);
     }
 
-    if (feld[xpos][ypos+1] == 0) {
+    if (ypos < FIELD_SIZE-1 && feld[xpos][ypos+1] == 0) {
       feld [xpos][ypos+1] = 152;
       putNonAtom(xpos, ypos+1, Feld::MoveDown);
     }
 
-    if (feld[xpos-1][ypos] == 0) {
+    if (xpos > 0 && feld[xpos-1][ypos] == 0) {
       feld [xpos-1][ypos] = 151;
       putNonAtom(xpos-1, ypos, Feld::MoveLeft);
     }
 
-    if (feld[xpos+1][ypos] == 0) {
+    if (xpos < FIELD_SIZE-1 && feld[xpos+1][ypos] == 0) {
       feld [xpos+1][ypos] = 153;
       putNonAtom(xpos+1, ypos, Feld::MoveRight);
     }
@@ -237,19 +241,19 @@ void Feld::startAnimation (Direction d)
 
   switch (d) {
   case MoveUp:
-	if (feld [xpos] [ypos-1] != 150)
+	if (ypos == 0 || feld [xpos] [ypos-1] != 150)
 	  return;
 	break;
   case MoveDown:
-	if (feld [xpos] [ypos+1] != 152)
+	if (ypos == FIELD_SIZE-1 || feld [xpos] [ypos+1] != 152)
 	  return;
 	break;
   case MoveLeft:
-	if (feld [xpos-1] [ypos] != 151)
+	if (xpos == 0 || feld [xpos-1] [ypos] != 151)
 	  return;
 	break;
   case MoveRight:
-	if (feld [xpos+1] [ypos] != 153)
+	if (xpos == FIELD_SIZE-1 || feld [xpos+1] [ypos] != 153)
 	  return;
 	break;
   default:
@@ -267,28 +271,28 @@ void Feld::startAnimation (Direction d)
 
   switch (dir) {
   case MoveUp :
-    for (x = xpos, y = ypos, anz = 0; feld [x] [--y] == 0; anz++);
+    for (x = xpos, y = ypos-1, anz = 0; y >= 0 && feld [x] [y] == 0; anz++, y--);
     if (anz != 0)
       {
 	feld [x] [++y] = feld [xpos] [ypos];
       }
     break;
   case MoveDown :
-    for (x = xpos, y = ypos, anz = 0; feld [x] [++y] == 0; anz++);
+    for (x = xpos, y = ypos+1, anz = 0; y <= FIELD_SIZE-1 && feld [x] [y] == 0; anz++, y++);
     if (anz != 0)
       {
 	feld [x] [--y] = feld [xpos] [ypos];
       }
     break;
   case MoveRight :
-    for (x = xpos, y = ypos, anz = 0; feld [++x] [y] == 0; anz++);
+    for (x = xpos+1, y = ypos, anz = 0; x <= FIELD_SIZE-1 && feld [x] [y] == 0; anz++, x++);
     if (anz != 0)
       {
 	feld [--x] [y] = feld [xpos] [ypos];
       }
     break;
   case MoveLeft :
-    for (x = xpos, y = ypos, anz = 0; feld [--x] [y] == 0; anz++);
+    for (x = xpos-1, y = ypos, anz = 0; x >= 0 && feld [x] [y] == 0; anz++, x--);
     if (anz != 0)
       {
 	feld [++x] [y] = feld [xpos] [ypos];
@@ -364,7 +368,7 @@ bool Feld::checkDone ()
 	int mx = 0;
 	int my = j - 1;
 
-	QRect extent(0, 0, 15 - molecWidth + 1, 15 - molecHeight + 1);
+	QRect extent(0, 0, FIELD_SIZE - molecWidth + 1, FIELD_SIZE - molecHeight + 1);
 	extent.moveBy(0, my);
 
 	// find first atom in playing field
@@ -478,9 +482,9 @@ void Feld::paintEvent( QPaintEvent * )
 
 	// spielfeld gleich zeichnen
 
-	for (i = 0; i < 15; i++)
+	for (i = 0; i < FIELD_SIZE; i++)
 	{
-	    for (j = 0; j < 15; j++)
+	    for (j = 0; j < FIELD_SIZE; j++)
 		{
 		    if(moving && i == xpos && j == ypos)
 		      continue;
