@@ -33,6 +33,7 @@
 #include "toplevel.h"
 #include "settings.h"
 #include "configbox.h"
+#include <kaccel.h>
 #include <kaction.h>
 #include <kstdaction.h>
 #include <kstdgameaction.h>
