@@ -17,6 +17,9 @@
 #include "feld.moc"
 
 #include "highscore.h"
+#include <kiconloader.h>
+#include <kglobal.h>
+#include <kstddirs.h>
 
 
 
@@ -32,7 +35,7 @@ Feld::Feld( QWidget *parent, const char *name ) : QWidget( parent, name )
   cy = -1;
 
   point = new QPoint [1];
-  data.load ("abilder.gif");
+  data = ICON("abilder.gif");
  
   moving = FALSE;
   pressed = FALSE;
@@ -59,7 +62,7 @@ void Feld::loadFeldFromDat (int l)
   level = l;
   debug ("level : %d", level);
   l--;
-  if ((levelfile = fopen ("fa.dat", "rb")) == NULL)
+  if ((levelfile = fopen (locate("appdata", "fa.dat").ascii(), "rb")) == NULL)
     debug ("Fehler beim Öffnen der Leveldatei (a.dat) !");
 
   fseek (levelfile, 975 * (long) l, SEEK_SET);

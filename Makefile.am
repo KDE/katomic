@@ -6,5 +6,11 @@ LDADD = $(LIB_KDEUI)
 
 katomic_SOURCES = feld.cpp highscore.cpp molek.cpp mywidget.cpp
 
+data_DATA = fa.dat fn.dat highscore.dat
+datadir = $(kde_datadir)/katomic
+
+pics_DATA = abilder.gif molek.gif
+picsdir = $(datadir)/pics
+
 METASOURCES = AUTO
 

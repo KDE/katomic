@@ -64,13 +64,12 @@ void MyWidget::createMenu()
   help->insertItem(i18n("&Help"), this, SLOT(helpmenu()) );
   help->insertItem(i18n("&About..."), this, SLOT(about()) );
 	
-  menu = new KMenuBar(this, "menu");
+  KMenuBar *menu = menuBar();
   menu->insertItem(i18n("&File"), file, 5);
   menu->insertItem(i18n("&Options"), options);
   menu->insertSeparator(-1);
   menu->insertItem(i18n("&Help"), help);
 
-  setMenu(menu);
 }
 
 
@@ -151,10 +150,10 @@ void MyWidget::saveConfig()
 
 
 MyWidget::MyWidget ( QWidget *, const char* name )
-	: KTopLevelWidget ( name )
+	: KTMainWindow ( name )
 {
-  setMinimumSize(665, 501);
-  setMaximumSize(665, 501);
+  // setMinimumSize(665, 501);
+  // setMaximumSize(665, 501);
 
   initConfig();
   
@@ -205,12 +204,9 @@ MyWidget::MyWidget ( QWidget *, const char* name )
   left = new QPushButton ("LEFT", bg, "left");
   left->setGeometry (20, 60, 40, 40);
 
-
   connect (bg, SIGNAL (clicked (int)), SLOT (getButton (int)));
-
   
-  hideDir ();  
-
+  hideDir ();
 
   createMenu();
   initKeys();
@@ -222,9 +218,6 @@ MyWidget::~MyWidget()
   delete file;
   delete options;
   delete help;
-  delete menu;
-         
- 
   delete feld;
 }
 
@@ -255,7 +248,7 @@ void MyWidget::notImpl()
 
 int main(int argc, char **argv)
 {
-  KApplication a(argc, argv, "mywidget" );
+  KApplication a(argc, argv, "katomic" );
   MyWidget *top;
   top = new MyWidget(0, "mywidget");
   a.setMainWidget(top);

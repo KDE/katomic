@@ -16,13 +16,15 @@
 
 
 #include "molek.moc"
-
+#include <kiconloader.h>
+#include <kglobal.h>
+#include <kstddirs.h>
 
 
 Molek::Molek( QWidget *parent, const char *name ) : QWidget( parent, name )
 {
   level = 1;
-  data.load ("molek.gif");
+  data = ICON("molek.gif");
 
   loadFeldFromDat (1);
 }
@@ -38,8 +40,8 @@ void Molek::loadFeldFromDat (int l)
   level = l;
 
   l--;
-  if ((levelfile = fopen ("fa.dat", "rb")) == NULL)
-    debug ("Fehler beim Öffnen der Leveldatei (a.dat) !");
+  if ((levelfile = fopen (locate("appdata", "fa.dat"), "rb")) == NULL)
+    debug ("Fehler beim Öffnen der Leveldatei (fa.dat) !");
 
   fseek (levelfile, 975 * (long) l + 675, SEEK_SET);
   
@@ -55,7 +57,7 @@ void Molek::loadFeldFromDat (int l)
 
 
   // name des moleküls auch noch lesen 
-  if ((levelfile = fopen ("fn.dat", "rt")) == NULL)
+  if ((levelfile = fopen (locate("appdata", "fn.dat"), "rt")) == NULL)
     debug ("Fehler beim Öffnen der Namensdatei (n.dat) !");
 
   i = 0;

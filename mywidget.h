@@ -43,59 +43,56 @@
  * 
  */
 
-class MyWidget : public KTopLevelWidget
+class MyWidget : public KTMainWindow
 {
-	Q_OBJECT
+  Q_OBJECT
 
-public:
+    public:
 	
-	// The constructor method for class KFortune
-	//
-	// @see MyWidget
-	// @param parent Parent widget, used for QWidget
-	// @param name	Name for QWidget
+  // The constructor method for class KFortune
+  //
+  // @see MyWidget
+  // @param parent Parent widget, used for QWidget
+  // @param name	Name for QWidget
 	 	 
-	MyWidget ( QWidget *parent=0, const char *name=0 );
+  MyWidget ( QWidget *parent=0, const char *name=0 );
 	
-	// The destrucor method for class KFortune
+  // The destrucor method for class KFortune
 	
-	~MyWidget();
+  ~MyWidget();
 		
-protected:
+ protected:
  
+  // @see KKeyConfig
+  void initKeys();
 
-     
-	// @see KKeyConfig
-	void initKeys();
+  // Creates the menubar and connects the menu-entries to the
+  // appropriate functions
+  void createMenu();
 
-	// Creates the menubar and connects the menu-entries to the
-	// appropriate functions
-	void createMenu();
+  // Get the configuration from the config-file.
+  void initConfig();
 
-        // Get the configuration from the config-file.
-	void initConfig();
-
-	// Save the current configuration to the config-file.
-	void saveConfig();
+  // Save the current configuration to the config-file.
+  void saveConfig();
 
 
-	KConfig *config;
-	KAccel *accel;
+  KConfig *config;
+  KAccel *accel;
 
-	KMenuBar *menu;
-	QPopupMenu *file, *options, *help;
+  QPopupMenu *file, *options, *help;
        
-        // stellt das spielfeld dar !
-        Feld *feld;      
+  // stellt das spielfeld dar !
+  Feld *feld;      
   
-        // stellt molekül dar
-        Molek *molek;
+  // stellt molekül dar
+  Molek *molek;
 
-        // scorllbar zur levelwahl
-        QScrollBar *scrl;
+  // scorllbar zur levelwahl
+  QScrollBar *scrl;
 
-        // buttongroup
-        QButtonGroup *bg;
+  // buttongroup
+  QButtonGroup *bg;
  
   // buttons
   QPushButton *up, *down, *left, *right, *done;
@@ -103,38 +100,37 @@ protected:
   // enthält akt level
   int level;    
 
-
-public slots:
+ public slots:
   // bringt level auf neuesten stand 
   void updateLevel (int);
 
-        // getbutton erhält button der gedrückt wurde
-        void getButton (int);
+  // getbutton erhält button der gedrückt wurde
+  void getButton (int);
   
-        // showdir, zeigt richtungsfelder an, wenn feld ausgewählt
-        void showDir ();
+  // showdir, zeigt richtungsfelder an, wenn feld ausgewählt
+  void showDir ();
 
-        // versteckt richtungsfelder, wenn feld wieder abgewählt
-        void hideDir ();
+  // versteckt richtungsfelder, wenn feld wieder abgewählt
+  void hideDir ();
 
-        // Menupunkt Highscores im Pop-up Menu, der Highscore anzeigt
-        void showHighscores ();
+  // Menupunkt Highscores im Pop-up Menu, der Highscore anzeigt
+  void showHighscores ();
 
-        // Quit the application
-	void quitapp();
+  // Quit the application
+  void quitapp();
 
-	// Shows a message telling the user that a function has
-	// not been implemented yet.
-	void notImpl();
+  // Shows a message telling the user that a function has
+  // not been implemented yet.
+  void notImpl();
 	
-	// Shows a window for configuring the keybindings
-	void configkeys();
+  // Shows a window for configuring the keybindings
+  void configkeys();
 
-	// Shows information about the program
-	void about();
+  // Shows information about the program
+  void about();
 
-	// Show the online-help
-	void helpmenu();
+  // Show the online-help
+  void helpmenu();
 };
 
 #endif
