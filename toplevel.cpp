@@ -22,7 +22,6 @@
 #include <qlayout.h>
 
 #include <kglobal.h>
-#include <kkeydialog.h>
 #include <klocale.h>
 #include <ksimpleconfig.h>
 #include <kstandarddirs.h>
@@ -46,7 +45,8 @@ void AtomTopLevel::createMenu()
     KStdGameAction::quit(this, SLOT(close()), actionCollection());
     KStdGameAction::restart(main, SLOT(restartLevel()), actionCollection());
 
-    KStdAction::keyBindings(this, SLOT(configkeys()), actionCollection());
+    KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), 
+actionCollection());
     KStdAction::preferences(this, SLOT(configopts()), actionCollection());
 
     new KAction(i18n("Atom Up"), Key_Up, main, SLOT(moveUp()), actionCollection(), "atom_up");
@@ -56,11 +56,6 @@ void AtomTopLevel::createMenu()
 
     new KAction(i18n("Next Atom"), Key_Tab, main, SLOT(nextAtom()), actionCollection(), "next_atom");
     new KAction(i18n("Previous Atom"), SHIFT+Key_Tab, main, SLOT(previousAtom()), actionCollection(), "prev_atom");
-}
-
-void AtomTopLevel::configkeys()
-{
-    KKeyDialog::configure(actionCollection(),this);
 }
 
 void AtomTopLevel::configopts()

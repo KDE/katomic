@@ -51,9 +51,6 @@ class AtomTopLevel : public KMainWindow
 
 public slots:
 
-  // Shows a window for configuring the keybindings
-  void configkeys();
-
   // Shows a dialog for options other than keys
   void configopts();
 
