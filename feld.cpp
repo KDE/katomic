@@ -365,7 +365,7 @@ bool Feld::checkDone ()
       for (int yy = 0; yy < mol->molecSize().height(); yy++)
       {
         // ersten 3 bytes des strukturelements vergleichen (obj, verb)
-        if (feld [i + xx ] [j + yy] != mol->getAtom(xx, yy) && feld[i + xx ] [j + yy] != 254)
+        if (mol->getAtom(xx, yy) != 0 && feld [i + xx ] [j + yy] != mol->getAtom(xx, yy) && feld[i + xx ] [j + yy] != 254)
           done = false;
       }
       if (done)
