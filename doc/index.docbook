@@ -75,11 +75,11 @@ in the preview window.</para>
 <para>In the higher levels, some tactical skill will be neccessary for solving
 the puzzle.</para>
 
-<para>The highscore in this game is actually a lowscore, because the goal is to
-solve a level with as few moves as possible. <guilabel>Highest score</guilabel> in
-the main-window shows the lowest number of moves used for this
-level. <emphasis>Your score so far</emphasis> shows the current number of
-moves.</para>
+<para>The highscore in this game is actually a lowscore, because the
+goal is to solve a level with as few moves as
+possible. <guilabel>Highest score:</guilabel> in the main-window shows
+the lowest number of moves used for this level. <emphasis>Your score
+so far</emphasis> shows the current number of moves.</para>
 
 <para>The scrollbar on the top right of the main window changes the game
 level.</para>
