@@ -40,9 +40,6 @@ Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) :
 
   resetValidDirs();
 
-  QObject::connect(this, SIGNAL(dirStatus(bool, bool, bool, bool)), 
-		   this, SLOT(setValidDirs(bool, bool, bool, bool)));
-
   setMouseTracking(true);
 
 }
@@ -50,6 +47,15 @@ Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) :
 Feld::~Feld ()
 { 
   delete [] point;
+}
+
+void Feld::resetValidDirs()
+{ 
+  for (int j = 0; j < 15; j++)
+    for (int i = 0; i < 15; i++)
+      if (feld[i][j] >= 150 && feld[i][j] <= 153)
+	feld[i][j] = 0;
+  repaint();
 }
 
 void Feld::load (const KSimpleConfig& config)
@@ -70,6 +76,11 @@ void Feld::load (const KSimpleConfig& config)
   }
 
   moves = 0;
+  chosen = false;
+  moving = false;
+  
+  emitStatus();
+
   repaint ();
 }
 
@@ -83,13 +94,13 @@ void Feld::mousePressEvent (QMouseEvent *e)
   int x = e->pos ().x () / 30;
   int y = e->pos ().y () / 30;
 
-  if ( feld [x] [y] == 150 && validDirs[Feld::MoveUp])
+  if ( feld [x] [y] == 150)
     startAnimation (Feld::MoveUp);
-  else if ( feld [x] [y] == 151 && validDirs[Feld::MoveLeft])
+  else if ( feld [x] [y] == 151)
     startAnimation (Feld::MoveLeft);
-  else if ( feld [x] [y] == 152 && validDirs[Feld::MoveDown])
+  else if ( feld [x] [y] == 152)
     startAnimation (Feld::MoveDown);
-  else if ( feld [x] [y] == 153 && validDirs[Feld::MoveRight])
+  else if ( feld [x] [y] == 153)
     startAnimation (Feld::MoveRight);
   else if (feld [x] [y] != 254 && feld [x] [y] != 0) {
     chosen = true;
@@ -111,33 +122,64 @@ void Feld::emitStatus()
 {
   if (!chosen || moving) 
     emit dirStatus(false, false, false, false);
-  else
-    emit dirStatus(feld[xpos][ypos-1] == 0, 
-		   feld[xpos][ypos+1] == 0, 
-		   feld[xpos-1][ypos] == 0, 
-		   feld[xpos+1][ypos] == 0);
+  else {
+    bool newones = false;
+
+    if (feld[xpos][ypos-1] == 0) {
+      feld [xpos][ypos-1] = 150;
+      newones = true;
+    }
+    
+    if (feld[xpos][ypos+1] == 0) {
+      feld [xpos][ypos+1] = 152;
+      newones = true;
+    }
+    
+    if (feld[xpos-1][ypos] == 0) {
+      feld [xpos-1][ypos] = 151;
+      newones = true;
+    }
+    
+    if (feld[xpos+1][ypos] == 0) {
+      feld [xpos+1][ypos] = 153;
+      newones = true;
+    }
+    
+
+    emit dirStatus(feld[xpos][ypos-1] == 150, 
+		   feld[xpos][ypos+1] == 152, 
+		   feld[xpos-1][ypos] == 151, 
+		   feld[xpos+1][ypos] == 153);
+
+    if (newones)
+      repaint();
+
+  }
 }
 
 void Feld::done ()
 {
   if (moving)
     return;
-
+  
   emitStatus();
+  
   if (checkDone())
     emit gameOver(moves);
+
 }
 
 void Feld::startAnimation (Direction d)
 {
-  // reset validDirs now so that arrows don't get drawn
-  resetValidDirs();
-
-  int x = 0, y = 0;
  
   // wenn bereits animation stattfindet, nix machen
   if (moving || !chosen)
     return;
+
+  // reset validDirs now so that arrows don't get drawn
+  resetValidDirs();
+
+  int x = 0, y = 0;
 
   moves++;
   dir = d;
@@ -151,7 +193,6 @@ void Feld::startAnimation (Direction d)
       }
     break;
   case MoveDown : 
-    debug ("unten");
     for (x = xpos, y = ypos, anz = 0; feld [x] [++y] == 0; anz++);
     if (anz != 0)
       {
@@ -206,7 +247,7 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
   // verschiedene cursor je nach pos
   if (feld [x] [y] == 150 || feld [x] [y] == 152)
     setCursor(sizeVerCursor);
-  else if(feld [x] [y] == 151 || feld [x] [y] == 153)
+  else if (feld [x] [y] == 151 || feld [x] [y] == 153)
     setCursor(sizeHorCursor);
   else if (feld[x][y] != 254 && feld [x] [y] != 0)
     setCursor (crossCursor);
@@ -266,7 +307,7 @@ void Feld::paintEvent( QPaintEvent * )
     
     paint.setPen (black);
     
-    if (moving == true) {
+    if (moving) {
 	switch (dir) {
 	case MoveUp : bitBlt (this, cx, cy - framesbak + frames, &sprite, CopyROP);
 	    if ( (framesbak - frames > 1)  )
@@ -313,38 +354,41 @@ void Feld::paintEvent( QPaintEvent * )
 			bitBlt (this, x, y, &data, 279, 31, 30, 30, CopyROP);
 			continue;
 		    }
+
+		    if (feld[i][j] == 150) {
+		      bitBlt(this, x, y, &data, 248, 62, 30, 30, CopyROP);
+		      continue;
+		    }
+
+		    if (feld[i][j] == 151) {
+		      bitBlt(this, x, y, &data, 248, 62, 30, 30, CopyROP);
+		      continue;
+		    }
+		    if (feld[i][j] == 152) {
+		      bitBlt(this, x, y, &data, 248, 62, 30, 30, CopyROP);
+		      continue;
+		    }
 		    
+		    if (feld[i][j] == 153) {
+		      bitBlt(this, x, y, &data, 248, 62, 30, 30, CopyROP);
+		      continue;
+		    }
+
 		    // zeichnet Atome
 		    if (getAtom(feld [i] [j]).obj <= '9' && getAtom(feld [i] [j]).obj > '0')
 			{
 			    bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - '1') * 31, 0, 30, 
 				    30, CopyROP);
 			}
-#if 0
-		    //CT now drawing corresponding arrows
-		    if (validDirs[Feld::MoveUp]) {
-		      bitBlt(this, x, y-30, &data, 268, 62, 30, 30, CopyROP);
-		      feld [i] [j-1] = 150;
-		    }
-		    if (validDirs[Feld::MoveLeft]) {
-		      bitBlt(this, x-30, y, &data, 257, 93, 30, 30, CopyROP);
-		      feld [i-1] [j] = 151;
-		    }
-		    if (validDirs[Feld::MoveDown]) {
-		      bitBlt(this, x, y+30, &data, 268, 93, 30, 30, CopyROP);
-		      feld [i] [j+1] = 152;
-		    }
-		    if (validDirs[Feld::MoveRight]) {
-		      bitBlt(this, x+30, y, &data, 279, 93, 30, 30, CopyROP);
-		      feld [i+1] [j] = 153;
-		    }
-#endif		    
+
 		    // zeichnet Kristalle
 		    if (getAtom(feld [i] [j]).obj == 'o')
 			{
 			    bitBlt (this, x, y, &data, 31, 93, 30, 30, CopyROP);
 			}
-		    
+
+
+		      
 		    // verbindungen zeichnen
 		    if (getAtom(feld [i] [j]).obj <= '9' || getAtom(feld [i] [j]).obj == 'o')
 			for (int c = 0; c < MAX_CONNS_PER_ATOM; c++) {
@@ -366,15 +410,6 @@ void Feld::paintEvent( QPaintEvent * )
 		}
     }
     paint.end ();
-}
-
-
-void Feld::setValidDirs(bool _up, bool _down, bool _left, bool _right)
-{
-  validDirs[Feld::MoveUp]    = _up;
-  validDirs[Feld::MoveDown]  = _down;
-  validDirs[Feld::MoveLeft]  = _left;
-  validDirs[Feld::MoveRight] = _right;
 }
 
 

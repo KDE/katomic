@@ -36,10 +36,10 @@ const atom& Molek::getAtom(uint index) const
 { 
   static atom none = { 0, "" };
 
-  if (index >= atoms.count() || index == 0)
+  if (index > atoms.count() || index == 0)
     return none;
 
-  return *atoms.at(index - 1); 
+  return *atoms.at(index - 1);
 }
 
 void Molek::load (const KSimpleConfig& config)

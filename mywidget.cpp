@@ -123,14 +123,12 @@ void MyWidget::showStatus(bool _up, bool _down, bool _left, bool _right)
 
 void MyWidget::getButton (int button)
 {
-  debug ("Button %d wurde gedrückt", button);
   feld->startAnimation ((Feld::Direction)button);
 }
 
 void MyWidget::gameOver(int moves) {
   QMessageBox::about (this, i18n("Congratulations"), i18n("You solved level %1 with %2 moves !").arg(level).arg(moves));
   // Messagebox öffnen, level gelöst
-  debug ("-------------- done -------------");
   
   Highscore high(this, "highscore", level, moves);
   high.exec ();
