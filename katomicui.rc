@@ -1,4 +1,3 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="katomic" version="2">
-<ToolBar name="mainToolBar" noMerge="1"/>
+<kpartgui name="katomic" version="3">
 </kpartgui>
