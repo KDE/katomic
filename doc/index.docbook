@@ -1,0 +1,318 @@
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
+ <!ENTITY katomic "<application>Atomic Entertainment</application>">
+ <!ENTITY % addindex "IGNORE">
+ <![ %addindex; [ <!ENTITY docindex SYSTEM "docindex.docbook"> ]]>
+]>
+
+<book lang="en" id="KAtomic">
+<bookinfo>
+<title>The Atomic Entertainment Handbook</title>
+
+<authorgroup>
+<author>
+<firstname>Dirk</firstname>
+<surname>Doerflinger</surname>
+</author>
+<othercredit>
+<firstname>Stephan</firstname><surname>Kulow</surname><contrib>Developer</contrib><affiliation><address><email>coolo@kde.org</email></address></affiliation></othercredit>
+<othercredit>
+<firstname>Cristian</firstname><surname>Tibirna</surname><contrib>Developer</contrib><affiliation><address><email>tibirna@kde.org</email></address></affiliation></othercredit>
+<othercredit>
+<firstname>Mike</firstname><surname>McBride</surname>
+<contrib>Reviewer</contrib>
+<affiliation><address><email>mmcbride@ematic.com</email></address></affiliation>
+</othercredit>
+</authorgroup>
+
+<date>23/05/2000</date>
+<releaseinfo>2.0</releaseinfo>
+
+<revhistory>
+<revision>
+<revnumber>0.1</revnumber>
+<date>23/05/2000</date>
+<authorinitials>D.D.</authorinitials>
+<revremark>Started from scratch
+</revremark>
+</revision>
+</revhistory>
+
+<abstract>
+<para>This Handbook describes <application>katomic</application> Version 2.0</para>
+</abstract>
+
+<keywordset>
+      <keyword>KDE</keyword>
+      <keyword>kdegames</keyword>
+      <keyword>KAtomic</keyword>
+      <keyword>game</keyword>
+      <keyword>atomic entertainment</keyword>
+</keywordset>
+</bookinfo>
+
+
+
+<chapter id="Introduction">
+<title>Introduction</title>
+<para>
+<application>Atomic Entertainment</application> is a small game which 
+resembles <application>Sokoban</application>. The object of the game is to build chemical molecules 
+on a <application>Sokoban</application> like board.</para>
+</chapter>
+
+
+<chapter id="Installation">
+<title>Installation</title>
+<sect1 id="Getting-KAtomic">
+<title>How to obtain <application>Atomic Entertainment</application></title>
+
+<para>
+<application>Atomic Entertainment</application> (katomic) is written for the KDE project
+<ulink url="http://www.kde.org">http://www.kde.org</ulink> by Stephan Kulow
+<email>coolo@kde.org</email> and Cristian Tiberna 
+<email>tibirna@kde.org</email>.
+It is based on Atomic 1.0.67 by Andreas Wuest 
+<email>AndreasWuest@gmx.de</email>.
+</para>
+<para>
+<application>Atomic Entertainment</application> can be found in the package kdegames on
+<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, 
+the main ftp site of the KDE project.</para>
+</sect1>
+
+<sect1 id="Requirements">
+<title>Requirements</title>
+<para>
+In order to successfully compile <application>Atomic Entertainment</application>, you need KDE 2.0 </para>
+<para>
+All required libraries as well as <application>Atomic Entertainment</application> itself can be found on
+<ulink 
+url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>.</para>
+</sect1>
+
+
+<sect1 id="Compilation">
+<title>Compilation and installation</title>
+
+<para>
+In order to compile and install <application>Atomic Entertainment</application> on your
+system, extract the package and type the following commands in the base directory of the
+<application>katomic</application> distribution:
+</para>
+
+<para>
+<Screen Width="40">
+<Prompt>%</Prompt> <Userinput>./configure</Userinput>
+<Prompt>%</Prompt> <Userinput>make</Userinput>
+<Prompt>%</Prompt> <Userinput>make install</Userinput>
+</Screen>
+</para>
+      
+<para>
+Since <application>Atomic Entertainment</application> uses 
+<application>autoconf</application> and <application>automake</application> 
+you should have no trouble compiling it.
+</para>
+</sect1>
+</chapter>
+
+
+<chapter id="PlayingKAtomic">
+<title>Playing <application>Atomic Entertainment</application></title>
+<sect1 id="Playing-KAtomic">
+<title>Rules</title>
+
+<para>
+The aim of <application>Atomic Entertainment</application> is to build chemical molecules using basic atoms you are given. 
+The molecule being built is shown in a frame in the main window.
+</para>
+<para>
+Clicking on an atom will cause arrows to appear beside it.  These arrows show the direction 
+the atom can be moved. After an arrow is clicked, the atom will move 
+in this direction until it reaches the next border or another atom. If two 
+atoms touch each other with the corresponding connectors, they form a 
+molecule. The atoms can only be moved one at a time. </para>
+<para>The level 
+is solved when the new molecule has the same structure as shown in the 
+preview window.</para>
+<para>In the higher levels, some tactical skill will be neccessary for solving the 
+puzzle.
+</para>
+<para>
+The highscore in this game is actually a lowscore, because the goal is to solve a 
+level with as few moves as possible. <emphasis>Highscore</emphasis> in the 
+main-window shows the lowest number of moves used for this level. <emphasis>Your score so 
+far</emphasis> shows the current number of moves.
+</para>
+<para>
+The scrollbar on the top right of the main window changes the game level.
+</para>
+</sect1>
+
+
+</chapter>
+
+
+<chapter id="Configuration">
+<title>Configuration </title>
+<sect1 id="filemenu">
+<title>The File Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice><guimenu>File</guimenu><guimenuitem>High Scores</guimenuitem></menuchoice></term>
+<listitem>
+<para>
+This will show the high scores for this level.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice><guimenu>File</guimenu><guimenuitem>Quit</guimenuitem></menuchoice></term>
+<listitem>
+<para>
+Selecting this item will end your current game, and exit the &katomic;.
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="optmenu">
+<title>The Options Menu</title>
+<para>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice><guimenu>Options</guimenu><guimenuitem>Configure 
+keys</guimenuitem></menuchoice></term>
+<listitem>
+<para>
+This item lets you change the key settings of <application>Atomic Entertainment</application>. See the section <link 
+linkend="keybindings" endterm="keybindings-title"></link> for a list of the 
+defaults.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><guimenu>Options</guimenu><guimenuitem>Options</guimenuitem></menuchoice></term>
+<listitem>
+<para>
+In the dialog box that appears, the animation-speed of the atomic movement can be 
+set.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</para>
+</sect1>
+<sect1 id="help">
+<title>The <guimenuitem>Help</guimenuitem> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><anchor id="contents"><menuchoice>
+<shortcut><keycombo><keycap>F1</keycap></keycombo></shortcut>
+<guimenu>Help</guimenu><guimenuitem>Contents</guimenuitem></menuchoice></term>
+<listitem>
+<para>This invokes the KDE help system starting at the the top of this help file.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="whats-this"><menuchoice>
+<shortcut><keycombo><keycap>Shift</keycap><keycap>F1</keycap></keycombo></shortcut>
+<guimenu>Help</guimenu><guimenuitem>What's This?</guimenuitem></menuchoice></term>
+<listitem>
+<para>This changes the mouse cursor to a combination arrow and question mark.  Clicking on items within
+&katomic; with this arrow will open a help window (if one exists for the particular item) explaining the
+item's function.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="bug-report"><menuchoice>
+<guimenu>Help</guimenu><guimenuitem>Report Bug.</guimenuitem></menuchoice></term>
+<listitem>
+<para>If you find an error in the program, or you have an idea on how to improve the game, clicking this option will let you send an official bug report to the KDE team.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="about-katomic"><menuchoice>
+<guimenu>Help</guimenu><guimenuitem>About katomic</guimenuitem></menuchoice></term>
+<listitem>
+<para>This will display version and author information.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="about-kde"><menuchoice>
+<guimenu>Help</guimenu><guimenuitem>About KDE</guimenuitem></menuchoice></term>
+<listitem>
+<para>This displays the KDE version and other basic information.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="keybindings">
+<title id="keybindings-title">Key Bindings</title>
+
+<para>Default key bindings are:
+</para>
+<simplelist>
+<member>Quit: 
+<keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo></member>
+<member>Highscores: 
+<keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo></member>
+<member>Atom Down: 
+<keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></member>
+<member>Atom Left: 
+<keycombo><keycap>Ctrl</keycap><keycap>S</keycap></keycombo></member>
+<member>Atom Right: 
+<keycombo><keycap>Ctrl</keycap><keycap>D</keycap></keycombo></member>
+<member>Atom Up: 
+<keycombo><keycap>Ctrl</keycap><keycap>J</keycap></keycombo></member>
+<member>Next Atom: <keycombo><keycap>Space</keycap></keycombo></member>
+<member>Help: <keycombo><keycap>F1</keycap></keycombo></member>
+<member>What's this?: 
+<keycombo><keycap>Shift</keycap><keycap>F1</keycap></keycombo></member>
+</simplelist>
+</sect1>
+</chapter>
+
+
+<chapter id="Credits">
+<title>Credits and License</title>
+
+<para>
+<application>Atomic Entertainment</application> Copyright 1999 Stephan Kulow
+<email>coolo@kde.org</email> and Cristian Tibirna 
+<email>tibirna@kde.org</email>.
+</para>
+<para>
+Atomic Copyright Andreas Wuest <email>Andreas Wuest@gmx.de</email>.
+</para>
+<para>
+Documentation Copyright 2000 Dirk Doerflinger
+<email>ddoerflinger@gmx.net</email>
+</para>
+<para>
+Proofreading by Michael McBride
+<email>mmcbride@ematic.com</email>
+</para>
+
+<para>
+This program is licensed under the terms of the
+<ulink URL="common/gfdl-license.html">GNU GFDL</ulink>.
+</para>
+</chapter>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+
+
