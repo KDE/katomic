@@ -45,8 +45,6 @@ void AtomTopLevel::createMenu()
     KStdGameAction::quit(this, SLOT(close()), actionCollection());
     KStdGameAction::restart(main, SLOT(restartLevel()), actionCollection());
 
-    KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), 
-actionCollection());
     KStdAction::preferences(this, SLOT(configopts()), actionCollection());
 
     new KAction(i18n("Atom Up"), Key_Up, main, SLOT(moveUp()), actionCollection(), "atom_up");
@@ -88,7 +86,7 @@ AtomTopLevel::AtomTopLevel()
     initConfig();
     setCentralWidget(main);
 
-    createGUI();
+    setupGUI( KMainWindow::Save | Keys | Create );
 }
 
 AtomTopLevel::~AtomTopLevel()
