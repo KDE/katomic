@@ -12,8 +12,6 @@
 Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
     : QDialog ( parent, name, TRUE )
 {
-  int i;
-
   level = l;
   QString tmp;
   const int width = 270;
@@ -33,7 +31,7 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
   {
     // er mitteln, an welcher position man sich mit den punkten befindet !  
     //    pos = 1000;
-    i = 5;
+    int i = 5;
     while (moves <= score [i].moves && i >= 0)
     {
       pos = i;
@@ -61,7 +59,7 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
  
   n = new QLabel *[anzahl];
 
-  for (i = 0; i < 6; i++)
+  for (int i = 0; i < 6; i++)
   {
     // position + name ausgeben
     tmp.sprintf("%2d.   ", i + 1);
@@ -137,7 +135,7 @@ void Highscore::loadHighscore ()
 {
     KConfig *config = KGlobal::config();
     QString group = QString("level%1").arg(level);
-    KConfigGroupSaver(config, group);
+    KConfigGroupSaver cs(config, group);
     QString key;
     for (int i = 0; i < 6; i++) {
 	key.sprintf("Name%d", i);
@@ -152,7 +150,7 @@ void Highscore::saveHighscore ()
 {
     KConfig *config = KGlobal::config();
     QString group = QString("level%1").arg(level);
-    KConfigGroupSaver(config, group);
+    KConfigGroupSaver cs(config, group);
     QString key;
     for (int i = 0; i < 6; i++) {
 	key.sprintf("Name%d", i);
