@@ -17,15 +17,17 @@
 #include <qmsgbox.h>
 
 #include "highscore.h"
+#include "atom.h"
 
 class KSimpleConfig;
+class Molek;
 
 class Feld : public QWidget
 {
     Q_OBJECT
 
 public:
-    Feld (QWidget *parent=0, const char *name=0);
+    Feld (Molek *mol, QWidget *parent=0, const char *name=0);
     ~Feld ();
     void startAnimation (int dir);
     void done ();
@@ -46,18 +48,18 @@ protected:
     void mouseMoveEvent (QMouseEvent *);
     
 private:
-  
+
+    const atom& getAtom(int index) const; 
+
     Highscore *high;
     
     QPoint *point;
     QPixmap data;
     QPixmap sprite;
-    
-    struct spielfeld
-    {
-	char obj;
-	unsigned int verb;
-    } feld [15] [15];
+
+    Molek *mol;
+
+    int feld[15][15];
     
     // number of movements
     int moves; 

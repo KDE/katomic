@@ -2,8 +2,8 @@
 Name=formic acid
 Name[de]=Ameisensaeure
 atom_1=1-4
-atom_2=3-0
-atom_3=2-44
+atom_2=3-400
+atom_3=2-144
 atom_4=3-44
 atom_5=1-40
 feld_obje_00=...............

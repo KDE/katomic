@@ -2,9 +2,9 @@
 Name=Formaldehyde
 Name[de]=Formaldehyd
 atom_1=1-10
-atom_2=2-11
+atom_2=2-311
 atom_3=1-1
-atom_4=3-0
+atom_4=3-800
 feld_obje_00=...............
 feld_obje_01=.#############.
 feld_obje_02=.#3.#.....#.1#.

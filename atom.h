@@ -1,8 +1,10 @@
+#ifndef _atom_h_
+#define _atom_h_
 
 class atom {
  public:
     char obj;
-    unsigned char conn;
+    unsigned int conn;
 
     bool operator==(const atom& rhs) const { return (rhs.obj == obj && rhs.conn == conn); }
     bool isEmpty() const { return (obj == 0 || obj == '.'); }
@@ -23,3 +25,5 @@ inline int atom2int(char ch) {
 	return ch - '0';
     return ch - 'a' + 10;
 }
+
+#endif

@@ -2,8 +2,8 @@
 Name=
 Name[de]=Blausaeure
 atom_1=1-10
-atom_2=2-1
-atom_3=4-0
+atom_2=2-4001
+atom_3=4-1000
 feld_obje_00=...............
 feld_obje_01=.........####..
 feld_obje_02=.........#..#..

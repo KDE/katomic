@@ -21,6 +21,7 @@
 #include <kglobal.h>
 #include <kstddirs.h>
 #include <ksimpleconfig.h>
+#include "molek.h"
 
 int hexValue(char ch) {
   if (ch >= '0' && ch <= '9')
@@ -33,8 +34,9 @@ int hexValue(char ch) {
   return 0;
 }
 
-Feld::Feld( QWidget *parent, const char *name ) : QWidget( parent, name )
+Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) : QWidget( parent, name )
 {
+  mol = _mol;
   anim = false;
   dir = 0;
   speed = 1;
@@ -63,6 +65,8 @@ Feld::~Feld ()
 void Feld::load (const KSimpleConfig& config)
 {
  
+  mol->load(config);
+  
   QString key;
   
   for (int i = 0; i < 15; i++) {
@@ -75,14 +79,40 @@ void Feld::load (const KSimpleConfig& config)
     int verb_index = 0;
 
     for (int j = 0; j < 15; j++) {
-	feld[i][j].obj = obj_line.at(j);
+      char obj = obj_line.at(j);
 
-	feld [i][j].verb = 
+      uint conn = 
 	    hexValue(verb_line.at(verb_index++)) * 4096 + 
-	    hexValue(verb_line.at(verb_index++)) * 265+ 
+	    hexValue(verb_line.at(verb_index++)) * 256+ 
 	    hexValue(verb_line.at(verb_index++)) * 16 + 
 	    hexValue(verb_line.at(verb_index++));
-	
+
+      if (obj == '#') {
+	feld[i][j] = 254;
+	continue;
+      }
+      
+      if (obj == '.') {
+	feld[i][j] = 0;
+	continue;
+      }
+
+      bool found = false;
+
+      for (int x = 0; x < mol->atomSize(); x++) {
+	if (obj == mol->getAtom(x).obj && conn == mol->getAtom(x).conn) {
+	  feld[i][j] = x;
+	  found = true;
+	  continue;
+	}
+      }
+      
+      if (found)
+	continue;
+      
+      warning("unfound atom %c %04x", obj, conn);
+      feld[i][j] = 0;
+      
     }
   }
   
@@ -107,7 +137,7 @@ void Feld::mousePressEvent (QMouseEvent *e)
   // cursor sichtbar, feld ausgewählt
   if (pressed == false)
   {
-    if (feld [x] [y].obj != '#' && feld [x] [y].obj != '.')
+    if (feld [x] [y] != 254 && feld [x] [y] != 0)
     {
       debug ("x : %d, y : %d", x, y);
       setCursor (blankCursor);
@@ -132,6 +162,10 @@ void Feld::mousePressEvent (QMouseEvent *e)
 
 }
   
+const atom& Feld::getAtom(int index) const 
+{ 
+  return mol->getAtom(index); 
+}
 
 void Feld::mouseReleaseEvent (QMouseEvent *)
 {
@@ -166,26 +200,26 @@ void Feld::startAnimation (int d)
   
   switch (dir)
   {      
-    case 1 : for (x = xpos, y = ypos, anz = 0; feld [x] [--y].obj == '.'; anz++);
+    case 1 : for (x = xpos, y = ypos, anz = 0; feld [x] [--y] == 0; anz++);
              if (anz != 0)
              {
                feld [x] [++y] = feld [xpos] [ypos];
              }
              break;
     case 3 : debug ("unten");
-             for (x = xpos, y = ypos, anz = 0; feld [x] [++y].obj == '.'; anz++);
+             for (x = xpos, y = ypos, anz = 0; feld [x] [++y] == 0; anz++);
              if (anz != 0)
              {
                feld [x] [--y] = feld [xpos] [ypos];
              }
              break;
-    case 2 : for (x = xpos, y = ypos, anz = 0; feld [++x] [y].obj == '.'; anz++);
+    case 2 : for (x = xpos, y = ypos, anz = 0; feld [++x] [y] == 0; anz++);
              if (anz != 0)
              {
                feld [--x] [y] = feld [xpos] [ypos];
              }
              break;
-    case 4 : for (x = xpos, y = ypos, anz = 0; feld [--x] [y].obj == '.'; anz++);
+    case 4 : for (x = xpos, y = ypos, anz = 0; feld [--x] [y] == 0; anz++);
              if (anz != 0)
              { 
                feld [++x] [y] = feld [xpos] [ypos];
@@ -195,8 +229,7 @@ void Feld::startAnimation (int d)
   if (anz != 0)
   {
     moving = true;
-    feld [xpos] [ypos].obj = '.';
-    feld [xpos] [ypos].verb = 0;
+    feld [xpos] [ypos] = 0;
 
     // absolutkoordinaten des zu verschiebenden bildes
     cx = xpos * 30;
@@ -226,7 +259,7 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
     y = e->pos ().y () / 30;
 
     // verschiedene cursor je nach pos
-    if (feld [x] [y].obj != '#' && feld [x] [y].obj != '.')
+    if (feld [x] [y] != 254 && feld [x] [y] != 0)
       setCursor (crossCursor);
     else
       setCursor (arrowCursor);
@@ -240,6 +273,8 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
 
 bool Feld::checkDone ()
 {
+#if 0    
+
   struct spielfeld f [15] [15];
   unsigned char i, j; //, xx, yy;
   //  bool done;
@@ -253,7 +288,7 @@ bool Feld::checkDone ()
     memset (&f [i] [j], 0, 3);
   }  
 
-#if 0    
+
   // f und molek vergleichen   
   for (i = 0; i < 15 - breite; i++)
   for (j = 0; j < 15 - hohe; j++)
@@ -348,41 +383,45 @@ void Feld::paintEvent( QPaintEvent * )
     {
       x = i * 30;
       y = j * 30;
+
       // zeichnet Randstücke
-      if (feld [i] [j].obj == '#') 
+      if (feld [i] [j] == 254) {
         bitBlt (this, x, y, &data, 279, 31, 30, 30, CopyROP);
-  
+	continue;
+      }
+
       // zeichnet Atome
-      if (feld [i] [j].obj <= '9' && feld [i] [j].obj > '0')
+      if (getAtom(feld [i] [j]).obj <= '9' && getAtom(feld [i] [j]).obj > '0')
       {
-        bitBlt (this, x, y, &data, (feld [i] [j].obj - '1') * 31, 0, 30, 
+        bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - '1') * 31, 0, 30, 
                 30, CopyROP);
       }
   
       // zeichnet Kristalle
-      if (feld [i] [j].obj == 'o')
+      if (getAtom(feld [i] [j]).obj == 'o')
       {
         bitBlt (this, x, y, &data, 31, 93, 30, 30, CopyROP);
       }
   
       // verbindungen zeichnen
-      if (feld [i] [j].obj <= '9' || feld [i] [j].obj == 'o')
+      if (getAtom(feld [i] [j]).obj <= '9' || getAtom(feld [i] [j]).obj == 'o')
       {
         char anz;
         for (anz = 0; anz < 16; anz++)
-          if ((feld [i] [j].verb & (1 << anz)) == (uint(1) << anz))
+          if ((getAtom(feld [i] [j]).conn & (1 << anz)) == (uint(1) << anz))
           {
             if (anz < 8)
               bitBlt (this, x, y, &data, anz * 31, 31, 30, 30, XorROP);
             else
               bitBlt (this, x, y, &data, (anz - 8) * 31, 62, 30, 30, XorROP);
           }
+	continue;
       }
 
   
     // zeichnet Verbindungsstäbe 
-      if (feld [i] [j].obj >= 'A' && feld [i] [j].obj <= 'F')
-        bitBlt (this, x, y, &data, (feld [i] [j].obj - 'A') * 31 , 93, 30, 30, 
+      if (getAtom(feld [i] [j]).obj >= 'A' && getAtom(feld [i] [j]).obj <= 'F')
+        bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - 'A') * 31 , 93, 30, 30, 
                 CopyROP);
     }
   }  

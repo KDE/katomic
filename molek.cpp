@@ -58,7 +58,6 @@ void Molek::load (const KSimpleConfig& config)
 	current.obj = value.at(0).latin1();
 	value = value.mid(2);
 	current.conn = value.toInt(0, 16);
-
 	atoms.append(current);
 	atom_index++;
     }
@@ -83,9 +82,9 @@ void Molek::load (const KSimpleConfig& config)
     // höhe und breite des moleküls berechnen und ausgeben, checkdone 
     for (int i = 0; i < 10; i++)
 	for (int j = 0; j < 10; j++) {
-	    if ((*atoms.at(molek [i] [j])).conn == 0)
+	    if (getAtom(molek [i] [j]).conn == 0)
 		continue;
-	    // debug("%x", (*atoms.at(molek [i] [j])).conn);
+	    // debug("%x", getAtom(molek [i] [j])).conn);
 	    if (i > breite) breite = i;
 	    if (j > hohe) hohe = j;
 	}
@@ -114,26 +113,26 @@ void Molek::paintEvent( QPaintEvent * )
     int y = 10 + j * 15;
 
     // zeichnet Atome
-    if ((*atoms.at(molek [i] [j])).obj <= '9' && (*atoms.at(molek [i] [j])).obj >= '1')
+    if (getAtom(molek [i] [j]).obj <= '9' && getAtom(molek [i] [j]).obj >= '1')
     {
-      bitBlt (this, x, y, &data, ((*atoms.at(molek [i] [j])).obj - '1') * 15, 0, 15, 
+      bitBlt (this, x, y, &data, (getAtom(molek [i] [j]).obj - '1') * 15, 0, 15, 
               15, CopyROP);
     }
 
     
     // zeichnet Kristalle
-    if ((*atoms.at(molek [i] [j])).obj == 'o')
+    if (getAtom(molek [i] [j]).obj == 'o')
     {
       bitBlt (this, x, y, &data, 10 * 15, 0, 15, 15, CopyROP);
     }
     
 
     // verbindungen zeichnen
-    if (isdigit((*atoms.at(molek[i][j])).obj) || (*atoms.at(molek[i][j])).obj == 'o')
+    if (isdigit(getAtom(molek[i][j]).obj) || getAtom(molek[i][j]).obj == 'o')
     {
       char anz;
       for (anz = 0; anz < 16; anz++)
-        if (((*atoms.at(molek[i][j])).conn & (1 << anz)) == (int(1) << anz))
+        if ((getAtom(molek[i][j]).conn & (1 << anz)) == (uint(1) << anz))
         {
           if (anz < 8)
             bitBlt (this, x, y, &data, anz * 15, 16, 15, 15, XorROP);
@@ -144,8 +143,8 @@ void Molek::paintEvent( QPaintEvent * )
 
     
     // zeichnet Verbindungsstäbe 
-    if ((*atoms.at(molek[i][j])).obj >= 'A' && (*atoms.at(molek[i][j])).obj <= 'F')
-      bitBlt (this, x, y, &data, ((*atoms.at(molek[i][j])).obj - 'A') * 15 , 0, 15, 15, 
+    if (getAtom(molek[i][j]).obj >= 'A' && getAtom(molek[i][j]).obj <= 'F')
+      bitBlt (this, x, y, &data, (getAtom(molek[i][j]).obj - 'A') * 15 , 0, 15, 15, 
               CopyROP);
     
   }

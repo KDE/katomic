@@ -148,7 +148,6 @@ void MyWidget::updateLevel (int l)
   KSimpleConfig config(locate("appdata", level));
   config.setGroup("Level");
   feld->load(config);
-  molek->load(config);
 }
 
 
@@ -177,19 +176,19 @@ MyWidget::MyWidget ( QWidget *, const char* name )
   
   level = 1;
 
-  // spielfeld    
-  feld = new Feld (this, "feld");
+  // molekül
+  molek = new Molek (this, "molek");
+  molek->setGeometry (MPOSX, MPOSY, 170, 180);
+  molek->setBackgroundColor (QColor (0, 0, 0));
+
+   // spielfeld    
+  feld = new Feld (molek, this, "feld");
   feld->setGeometry (XPOS, YPOS, 15 * 30 + 1, 15 * 30 + 1);
   feld->setBackgroundColor( QColor( 0, 0, 0) );
 
   connect (feld, SIGNAL (showDir ()), SLOT (showDir ()));
   connect (feld, SIGNAL (hideDir ()), SLOT (hideDir ()));
   connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
-
-  // molekül
-  molek = new Molek (this, "molek");
-  molek->setGeometry (MPOSX, MPOSY, 170, 180);
-  molek->setBackgroundColor (QColor (0, 0, 0));
 
   // scrollbar       
   scrl = new QScrollBar(1, 67, 1, 5, 1, QScrollBar::Horizontal, this, "scrl" );
