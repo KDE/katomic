@@ -30,7 +30,7 @@ Molek::Molek( QWidget *parent, const char *name ) : QWidget( parent, name )
 {
     data = BarIcon("molek");
     setBackgroundColor (QColor (0, 0, 0));
-    setMinimumSize(200, 200);
+    setMinimumSize(240, 200);
 }
 
 Molek::~Molek ()
@@ -68,21 +68,20 @@ void Molek::load (const KSimpleConfig& config)
            value = "";
 
 	strlcpy(current.conn, value.ascii(), sizeof(current.conn));
-	if (atoms.find(current) != atoms.end()) {
-	    kdWarning() << "OOOPS" << endl;
-	}
+	kdWarning( atoms.find(current) != atoms.end() )
+	  << "OOOPS, duplicate atom definition in " << key << endl;
 	atoms.append(current);
 	atom_index++;
     }
 
     QString line;
 
-    for (int j = 0; j < 10; j++) {
+    for (int j = 0; j < MOLEK_SIZE; j++) {
 
 	key.sprintf("mole_%d", j);
 	line = config.readEntry(key);
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < MOLEK_SIZE; i++)
 	    molek[i][j] = atom2int(line.at(i).latin1());
     }
 
@@ -94,8 +93,8 @@ void Molek::load (const KSimpleConfig& config)
     height = 0;
     width = 0;
 
-    for (int i = 0; i < 10; i++)
-		for (int j = 0; j < 10; j++) {
+    for (int i = 0; i < MOLEK_SIZE; i++)
+		for (int j = 0; j < MOLEK_SIZE; j++) {
 			if (molek [i][j] == 0)
 				continue;
 			if (i > width) width = i;
@@ -116,8 +115,8 @@ void Molek::paintEvent( QPaintEvent * )
     paint.drawText (7, height() - 36, mname);
     paint.drawText (7, height() - 18, st);
     // spielfeld gleich zeichnen
-    for (int i = 0; i < 10; i++)
-		for (int j = 0; j < 10; j++) {
+    for (int i = 0; i < MOLEK_SIZE; i++)
+		for (int j = 0; j < MOLEK_SIZE; j++) {
 			int x = 10 + i * 15;
 			int y = 10 + j * 15;
 
