@@ -20,11 +20,11 @@
 <othercredit>
 <firstname>Mike</firstname><surname>McBride</surname>
 <contrib>Reviewer</contrib>
-<affiliation><address><email>mmcbride@ematic.com</email></address></affiliation>
+<affiliation><address><email>mpmcbride7@yahoo.com</email></address></affiliation>
 </othercredit>
 </authorgroup>
 
-<date>23/05/2000</date>
+<date>21/10/2000</date>
 <releaseinfo>2.00.00</releaseinfo>
 
 <revhistory>
@@ -298,7 +298,7 @@ Documentation Copyright 2000 Dirk Doerflinger
 </para>
 <para>
 Proofreading by Michael McBride
-<email>mmcbride@ematic.com</email>
+<email>mpmcbride7@yahoo.com</email>
 </para>
 
 <para>
@@ -314,5 +314,4 @@ sgml-omittag: nil
 sgml-shorttag: t
 End:
 -->
-
 
