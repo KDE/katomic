@@ -69,53 +69,16 @@ void Feld::load (const KSimpleConfig& config)
   
   QString key;
   
-  for (int i = 0; i < 15; i++) {
+  for (int j = 0; j < 15; j++) {
       
-    key.sprintf("feld_verb_%02d", i);
-    const QString verb_line = config.readEntry(key);
-    key.sprintf("feld_obje_%02d", i);
-    const QString obj_line = config.readEntry(key);
+    key.sprintf("feld_%02d", j);
+    const QString line = config.readEntry(key);
 
-    int verb_index = 0;
-
-    for (int j = 0; j < 15; j++) {
-      char obj = obj_line.at(j);
-
-      uint conn = 
-	    hexValue(verb_line.at(verb_index++)) * 4096 + 
-	    hexValue(verb_line.at(verb_index++)) * 256+ 
-	    hexValue(verb_line.at(verb_index++)) * 16 + 
-	    hexValue(verb_line.at(verb_index++));
-
-      if (obj == '#') {
-	feld[i][j] = 254;
-	continue;
-      }
-      
-      if (obj == '.') {
-	feld[i][j] = 0;
-	continue;
-      }
-
-      bool found = false;
-
-      for (int x = 0; x < mol->atomSize(); x++) {
-	if (obj == mol->getAtom(x).obj && conn == mol->getAtom(x).conn) {
-	  feld[i][j] = x;
-	  found = true;
-	  continue;
-	}
-      }
-      
-      if (found)
-	continue;
-      
-      warning("unfound atom %c %04x", obj, conn);
-      feld[i][j] = 0;
-      
-    }
+    for (int i = 0; i < 15; i++)
+	feld[i][j] = atom2int(line.at(i));
+    
   }
-  
+
   moves = 0;
   repaint ();
 }
