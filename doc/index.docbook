@@ -28,7 +28,7 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2000-12-15</date>
+<date>2005-01-18</date>
 <releaseinfo>2.00.00</releaseinfo>
 
 <abstract>
@@ -97,19 +97,28 @@ level.</para>
 <variablelist>
 
 <varlistentry>
-<term><menuchoice><guimenu>Game</guimenu>
+<term>
+<menuchoice>
+<shortcut><keycap>F5</keycap></shortcut>
+<guimenu>Game</guimenu>
 <guimenuitem>Restart Game</guimenuitem></menuchoice></term>
 <listitem><para>This will restart the current level.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice><guimenu>Game</guimenu>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
 <guimenuitem>Show Best Scores</guimenuitem></menuchoice></term>
 <listitem><para>This will show the best scores for the current level.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice><guimenu>Game</guimenu>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
 <guimenuitem>Quit</guimenuitem></menuchoice></term>
 <listitem><para>Selecting this item will end your current game, and exit the
 &katomic;.</para></listitem>
@@ -195,6 +204,10 @@ atomic movement can be set.</para></listitem>
 <row>
 <entry>Next Atom</entry>
 <entry><keycap>Tab</keycap></entry>
+</row>
+<row>
+<entry>Previous Atom</entry>
+<entry><keycombo action="simul">&Shift;&Tab;</keycombo></entry>
 </row>
 <row>
 <entry>Help</entry>
