@@ -22,9 +22,6 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
 
   pos = 1000;
 
-  debug ("-------------------\nlevel : %d", level);
-  debug (" in highscore moves : %d" , moves);
-
   if (moves > 0)
   {
     int i = 5;
@@ -35,13 +32,11 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
       i--;
     }
 
-    debug ("pos %d", pos + 1);
 
     // nachfolgende positionen verschieben
     i = 5;
     while (i > pos && i > 0)
     {
-      debug ( "in neupos\n");
       score [i].name = score [i - 1].name;
       score [i].moves = score [i - 1].moves;
       i--;
@@ -51,7 +46,6 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
   }
   
  
-  debug ("nach neupositionierung\n");
 
   // now draw that widget
   QGridLayout *lay = new QGridLayout (this, 1, 1, 10);
@@ -81,14 +75,8 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
   
   connect(ok, SIGNAL(clicked()), SLOT(accept()) );
   
-  debug ("vor line edit\n ");
-
-  // line edit erzeugen
-  debug ("pos %d", pos);
-
   if (pos < 6 && moves > 0)
   {
-    debug ("line edit erzeugen");
     le = new QLineEdit (this, "le");
     le->setFocus();
     le->setMaxLength (18);
@@ -101,17 +89,14 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
 
   } 
   
-  debug ( "ende consturctor\n");
 }
 
 void Highscore::getChangedText (const QString& s)
 {
-  debug("%s eingabe fertig\n", s.ascii()); 
 }
 
 void Highscore::eingabeFertig ()
 {
-  debug ("\nfinished\n");
 
   // eingegebener text in s 
 
@@ -147,7 +132,6 @@ void Highscore::loadHighscore ()
 	score[i].name = config->readEntry(key, i18n("Joe Noname"));
 	key.sprintf("Moves%d", i);
 	score[i].moves = config->readNumEntry(key, (i+1)  * 100);
-	debug("read %s %d", score[i].name.ascii(), score[i].moves);
     }
 }
 
@@ -169,7 +153,6 @@ void Highscore::saveHighscore ()
 
 Highscore::~Highscore()
 {
-  debug ( "in destructor\n");
   delete [] n;
 }
 
