@@ -20,10 +20,10 @@
 
 
 #include "toplevel.h"
-#include "kapplication.h"
+
+#include <kapplication.h>
 #include <klocale.h>
 #include <kcmdlineargs.h>
-
 #include <kaboutdata.h>
 
 

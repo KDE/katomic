@@ -103,7 +103,6 @@ void AtomTopLevel::quitapp()
 {
     saveConfig();
     kapp->quit();
-    delete this;
 }
 
 bool AtomTopLevel::queryExit()
