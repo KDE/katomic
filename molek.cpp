@@ -25,7 +25,7 @@ extern int level;
 
 Molek::Molek( QWidget *parent, const char *name ) : QWidget( parent, name )
 {
-    data = ICON("molek.png");
+    data = BarIcon("molek");
 }
 
 Molek::~Molek ()

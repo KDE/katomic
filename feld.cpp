@@ -35,7 +35,7 @@ Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) :
   cy = -1;
 
   point = new QPoint [1];
-  data = ICON("abilder.png");
+  data = BarIcon("abilder");
  
   moving = false;
   chosen = false;
