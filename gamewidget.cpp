@@ -68,6 +68,9 @@ void GameWidget::getMoves(int moves)
 
 void GameWidget::updateLevel (int l)
 {
+    if(l > 67 || l < 1)
+        l = 1;
+
     level=l;
     QString level = QString("levels/level_%1").arg(l);
     KSimpleConfig cfg(locate("appdata", level), true);
@@ -78,9 +81,11 @@ void GameWidget::updateLevel (int l)
     level = QString("level%1").arg(l);
     config->setGroup(level);
     highest = config->readEntry("Moves0", "100");
-    hs->setText(highest);
 
+    hs->setText(highest);
     ys->setText("0");
+    scrl->setValue(l);
+	
     feld->repaint();
 }
 
@@ -99,6 +104,7 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
     feld = new Feld (molek, this, "feld");
     feld->setGeometry (XPOS, YPOS, 15 * 30 + 1, 15 * 30 + 1);
     feld->setBackgroundColor( QColor( 0, 0, 0) );
+    feld->setFocus();
 
     connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     connect (feld, SIGNAL (sendMoves(int)), SLOT(getMoves(int)));

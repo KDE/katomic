@@ -355,25 +355,57 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
 
 bool Feld::checkDone ()
 {
-  for (int i = 0; i < 15 - mol->molecSize().width(); i++)
-  for (int j = 0; j < 15 - mol->molecSize().height(); j++)
-  {
-    bool done = true;
-    if (feld [i] [j] == mol->getAtom(0,0))        // gleich links oben
-    {
-      for (int xx = 0; xx < mol->molecSize().width(); xx++)
-      for (int yy = 0; yy < mol->molecSize().height(); yy++)
-      {
-        // ersten 3 bytes des strukturelements vergleichen (obj, verb)
-        if (mol->getAtom(xx, yy) != 0 && feld [i + xx ] [j + yy] != mol->getAtom(xx, yy) && feld[i + xx ] [j + yy] != 254)
-          done = false;
-      }
-      if (done)
-        return true;
-    }
-  }
+	int molecWidth = mol->molecSize().width();
+	int molecHeight = mol->molecSize().height();
+	int i = 0;
+	int j = 0;
 
-  return false;
+	// find first atom in molecule
+	uint firstAtom = 0;
+	for(j = 0; j < molecHeight && !firstAtom; ++j)
+		firstAtom = mol->getAtom(0, j);
+	
+	// wot no atom?
+	if(!firstAtom)
+		return true; // true skips to next level
+	
+	// position of first atom (in molecule coordinates)
+	int mx = 0;
+	int my = j - 1;
+
+	QRect extent(0, 0, 15 - molecWidth + 1, 15 - molecHeight + 1);
+	extent.moveBy(0, my);
+	
+	// find first atom in playing field
+	for(i = extent.left(); i <= extent.right(); ++i)
+	{
+		for(j = extent.top(); j <= extent.bottom(); ++j)
+		{
+			if(feld[i][j] == firstAtom)
+			{
+				// attempt to match playing field to molecule
+				int ox = i - mx; // molecule origin (in field coordinates)
+				int oy = j - my; // molecule origin (in field coordinates)
+				++my; // no need to test first atom again
+				while(mx < molecWidth)
+				{
+					while(my < molecHeight)
+					{
+						uint nextAtom = mol->getAtom(mx, my);
+						if(nextAtom != 0 && feld[ox + mx][oy + my] != nextAtom)
+							return false;
+						++my;
+					}
+					my = 0;
+					++mx;
+				}
+				return true;
+			}
+		}
+	}
+	// if we got here, then the first atom is too low or too far right
+	// for the molecule to be assembled correctly
+	return false;
 }
 
 
