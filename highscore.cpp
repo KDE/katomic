@@ -90,6 +90,7 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
   {
     debug ("line edit erzeugen");
     le = new QLineEdit (this, "le");
+    le->setFocus();
     le->setMaxLength (18);
     lay->addWidget(le, pos, 0);
     connect (le, SIGNAL (returnPressed ()), 
