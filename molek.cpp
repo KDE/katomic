@@ -26,24 +26,15 @@ extern int hexValue(char ch);
 
 Molek::Molek( QWidget *parent, const char *name ) : QWidget( parent, name )
 {
-  level = 1;
   data = ICON("molek.png");
-  
-  loadFeldFromDat (1);
 }
 
 Molek::~Molek ()
 { 
 }
 
-void Molek::loadFeldFromDat (int l)
+void Molek::loadFeldFromDat (const KSimpleConfig& config)
 {
-  level = l;
-
-  QString level = QString("levels/level_%1").arg(l);
-  KSimpleConfig config(locate("appdata", level), true);
-  config.setGroup("Level");
-
   QString key;
   for (int i = 0; i < 10; i++) {
     
@@ -85,8 +76,7 @@ void Molek::loadFeldFromDat (int l)
 
 void Molek::paintEvent( QPaintEvent * )
 {
-  
-  int i, j, x, y;
+  int level = 1;
   QString st = i18n("Level : %1").arg(level);
 
   QPainter paint (this);
@@ -94,11 +84,11 @@ void Molek::paintEvent( QPaintEvent * )
   paint.drawText (7, 152, mname);
   paint.drawText (7, 170, st);
   // spielfeld gleich zeichnen 
-  for (i = 0; i < 10; i++)
-  for (j = 0; j < 10; j++)
+  for (int i = 0; i < 10; i++)
+  for (int j = 0; j < 10; j++)
   {
-    x = 10 + i * 15;
-    y = 10 + j * 15;
+    int x = 10 + i * 15;
+    int y = 10 + j * 15;
 
     // zeichnet Atome
     if (molek [i] [j].obj < 11 && molek [i] [j].obj > 0)

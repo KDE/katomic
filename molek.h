@@ -14,6 +14,7 @@
 #include <qpainter.h>
 #include <qpixmap.h>
 
+class KSimpleConfig;
 
 class Molek : public QWidget
 {
@@ -23,14 +24,7 @@ public:
     Molek (QWidget *parent=0, const char *name=0);
    ~Molek ();
 
-public slots:
-
-    void loadFeldFromDat (int);
-
-   
-signals: 
-
-
+   void loadFeldFromDat(const KSimpleConfig& config);
 
 protected:
     void paintEvent( QPaintEvent * );
@@ -47,7 +41,6 @@ private:
 
   QString mname;
 
-  int level;
 };
 
 #endif // MOLEK_H

@@ -107,6 +107,8 @@ class MyWidget : public KTMainWindow
   // getbutton erhält button der gedrückt wurde
   void getButton (int);
   
+  void gameOver(int moves);
+
   // showdir, zeigt richtungsfelder an, wenn feld ausgewählt
   void showDir ();
 

@@ -18,6 +18,7 @@
 
 #include "highscore.h"
 
+class KSimpleConfig;
 
 class Feld : public QWidget
 {
@@ -29,26 +30,21 @@ public:
     void startAnimation (int dir);
     void done ();
 
-public slots:
+    void loadFeldFromDat (const KSimpleConfig& config);
 
-    void loadFeldFromDat (int);
-
-   
 signals: 
-  void showDir ();
-  void hideDir ();
-
+    void showDir ();
+    void hideDir ();
+    void gameOver(int moves);
 
 protected:
-  bool checkDone ();    
-  void timerEvent (QTimerEvent *);
-  void paintEvent( QPaintEvent * );
-  void mousePressEvent (QMouseEvent *);
-  void mouseReleaseEvent (QMouseEvent *);  
-  void mouseMoveEvent (QMouseEvent *);
-  
-
-
+    bool checkDone ();    
+    void timerEvent (QTimerEvent *);
+    void paintEvent( QPaintEvent * );
+    void mousePressEvent (QMouseEvent *);
+    void mouseReleaseEvent (QMouseEvent *);  
+    void mouseMoveEvent (QMouseEvent *);
+    
 private:
   
   Highscore *high;

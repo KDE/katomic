@@ -51,8 +51,6 @@ Feld::Feld( QWidget *parent, const char *name ) : QWidget( parent, name )
   pressed = FALSE;
   chosen = FALSE;
 
-  loadFeldFromDat (1);
-
   // mousemoveevent wird aufgerufen, sobald sich maus in feld befindet
   // und pos sich verändert
   setMouseTracking (TRUE);
@@ -63,19 +61,12 @@ Feld::~Feld ()
   delete [] point;
 }
 
-void Feld::loadFeldFromDat (int l)
+void Feld::loadFeldFromDat (const KSimpleConfig& config)
 {
   debug ("in loadfeld");
  
-  level = l;
-  debug ("level : %d", level);
-      
   QString key;
   
-  QString level = QString("levels/level_%1").arg(l);
-  KSimpleConfig config(locate("appdata", level), true);
-  config.setGroup("Level");
-
   for (int i = 0; i < 15; i++) {
     
     key = QString("feld_obje_%1").arg(i);
@@ -204,24 +195,7 @@ void Feld::done ()
     setCursor (crossCursor);
     emit (hideDir ());
     if (checkDone () == TRUE)
-    {
-      char st1 [] = {"Congratulations"}, st2 [80];
-      sprintf (st2, "Sie haben den %d. Level\nmit %d Zügen gelöst !", level, moves);
-      QMessageBox::about (this, st1, st2);
-      // Messagebox öffnen, level gelöst
-      debug ("-------------- done -------------");
-   
-      debug ("moves %d, level  %d", moves, level);
-
-
-      high = new Highscore (this, "highscore", level, moves);
-      high->exec ();
-    
-      delete high;
-      
-
-      loadFeldFromDat (level);
-    }
+      emit gameOver(moves);
   }
 }
 

@@ -35,6 +35,8 @@
 #include "mywidget.moc"
 
 #include <kkeydialog.h>
+#include <kstddirs.h>
+#include <ksimpleconfig.h>
 
 #define XPOS 10
 #define YPOS 40
@@ -128,9 +130,23 @@ void MyWidget::getButton (int button)
     feld->done ();
 }
 
+void MyWidget::gameOver(int moves) {
+  QMessageBox::about (this, i18n("Congratulations"), i18n("You solved level %1 with %2 moves !").arg(level).arg(moves));
+  // Messagebox öffnen, level gelöst
+  debug ("-------------- done -------------");
+  
+  Highscore high(this, "highscore", level, moves);
+  high.exec ();
+}
+
 void MyWidget::updateLevel (int l)
 {
   level = l;
+  QString level = QString("levels/level_%1").arg(l);
+  KSimpleConfig config(locate("appdata", level), true);
+  config.setGroup("Level");
+  feld->loadFeldFromDat(config);
+  molek->loadFeldFromDat(config);
 }
 
 
@@ -164,8 +180,9 @@ MyWidget::MyWidget ( QWidget *, const char* name )
   feld->setGeometry (XPOS, YPOS, 15 * 30 + 1, 15 * 30 + 1);
   feld->setBackgroundColor( QColor( 0, 0, 0) );
 
-  connect (feld, SIGNAL (showDir ()), this, SLOT (showDir ()));
-  connect (feld, SIGNAL (hideDir ()), this, SLOT (hideDir ()));
+  connect (feld, SIGNAL (showDir ()), SLOT (showDir ()));
+  connect (feld, SIGNAL (hideDir ()), SLOT (hideDir ()));
+  connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
 
   // molekül
   molek = new Molek (this, "molek");
@@ -175,10 +192,7 @@ MyWidget::MyWidget ( QWidget *, const char* name )
   // scrollbar       
   scrl = new QScrollBar(1, 67, 1, 5, 1, QScrollBar::Horizontal, this, "scrl" );
   scrl->setGeometry( MPOSX, 50, 160, 16 );
-  connect (scrl, SIGNAL (valueChanged (int)), feld, 
-           SLOT (loadFeldFromDat (int)));
-  connect (scrl, SIGNAL (valueChanged (int)), molek, 
-           SLOT (loadFeldFromDat (int)));
+
   connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
   
 
@@ -210,6 +224,8 @@ MyWidget::MyWidget ( QWidget *, const char* name )
 
   createMenu();
   initKeys();
+
+  updateLevel(1);
 }
 
 MyWidget::~MyWidget()
