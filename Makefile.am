@@ -38,3 +38,5 @@ install-data-local:
 	-rm -rf $(DESTDIR)$(kde_datadir)/katomic/levels
 	cp -r $(srcdir)/levels $(DESTDIR)$(kde_datadir)/katomic/levels
 
+install-data-local:
+	rm -rf $(kde_appsdir)/Games/katomic.desktop
