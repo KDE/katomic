@@ -363,7 +363,7 @@ void Feld::paintEvent( QPaintEvent * )
 		    
 		    // zeichnet Verbindungsstäbe 
 		    if (getAtom(feld [i] [j]).obj >= 'A' && getAtom(feld [i] [j]).obj <= 'F')
-			bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - 'A') * 31 , 93, 30, 30, 
+			bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - 'A' + 2) * 31 , 93, 30, 30, 
 				CopyROP);
 		}
     }  
