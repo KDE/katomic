@@ -117,13 +117,13 @@ void Feld::mousePressEvent (QMouseEvent *e)
 
 void Feld::keyPressEvent (QKeyEvent *e)
 {
-  // sorry to separate this from the switch-statement, but with the 
+  // sorry to separate this from the switch-statement, but with the
   // Shift-modifier, e->key() is not equal Key_Tab (only & Key_Tab works)
 
   if ( e->state() & ShiftButton && e->key() & Key_Tab )
     previousAtom();
   else {
-    
+
     switch (e->key())
       {
       case Qt::Key_Up:
@@ -148,7 +148,7 @@ void Feld::keyPressEvent (QKeyEvent *e)
         break;
       case Qt::Key_Tab: {
 	//CT this will do something in the future :-)
-	nextAtom(); 
+	nextAtom();
 	break;
       }
       default:
@@ -222,7 +222,7 @@ void Feld::previousAtom()
 	      return;
 	    }
 	}
-      ypos = 15;
+      ypos = 14;
       x--;
       if (x <= 0) x = 14;
     }
@@ -396,7 +396,7 @@ void Feld::timerEvent (QTimerEvent *)
 
 void Feld::putNonAtom (int x, int y, Direction which, bool brick)
 {
-  int xarr, yarr;
+  int xarr=0, yarr=0;
   switch (which)
     {
     case Feld::None      : xarr = 279, yarr = 31 * (brick?1:2); break;
@@ -433,7 +433,7 @@ void Feld::paintEvent( QPaintEvent * )
 	case MoveRight :
 	  bitBlt (this, cx + (framesbak - frames), cy, &sprite, CopyROP);
 	  if ( (framesbak - frames > 1) )
-	    paint.eraseRect (cx + (framesbak - frames) - a - 1, cy, 2, 30);
+	    paint.eraseRect (cx + (framesbak - frames) - a - 1, cy, a + 1, 30);
 	  break;
 	case MoveLeft :
 	  bitBlt (this, cx - framesbak + frames, cy, &sprite, CopyROP);

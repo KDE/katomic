@@ -1,5 +1,5 @@
 /* toplevel.cpp
- 
+
   Copyright (C) 1998   Andreas Wüst (AndreasWuest@gmx.de)
 
   This program is free software; you can redistribute it and/or modify
@@ -80,7 +80,7 @@ void AtomTopLevel::initKeys()
     accel->insertStdItem(KStdAccel::Quit);
     accel->connectItem(KStdAccel::Quit, this, SLOT(quitapp()) );
     accel->insertItem(i18n("Highscores"), "highscore", "CTRL+H");
-    accel->connectItem ("highscore", main, 
+    accel->connectItem ("highscore", main,
 			SLOT (showHighscores ()));
     // moving keys
     accel->insertItem(i18n("Atom Up"), "up", "J");
@@ -95,18 +95,13 @@ void AtomTopLevel::initConfig()
 {
     config = KGlobal::config();
 
-    /* CT this segfaults :-(
-       accel->readSettings(config);
-    */
-
-
+    accel->readSettings(config);
 }
 
 void AtomTopLevel::saveConfig()
 {
-    /* CT would this segfault too?
-       accel->writeSettings(config);
-  */
+    config = KGlobal::config();
+    accel->writeSettings(config);
 
     if (settings.changed) {
 	config->setGroup("Options");
@@ -114,7 +109,6 @@ void AtomTopLevel::saveConfig()
 	config->setGroup("Colors");
     }
     config->sync();
-
 }
 
 
@@ -125,6 +119,7 @@ AtomTopLevel::AtomTopLevel ( const char* name )
 
     createMenu();
     initKeys();
+    initConfig();
     setView(main);
 }
 
@@ -139,6 +134,12 @@ void AtomTopLevel::quitapp()
 {
     saveConfig();
     kapp->quit();	
+}
+
+bool AtomTopLevel::queryExit()
+{
+    saveConfig();
+    return true;
 }
 
 #include "toplevel.moc"

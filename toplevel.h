@@ -14,13 +14,13 @@ class KAccel;
 #include <ktmainwindow.h>
 
 /**
- * This is the class AtomTopLevel. The class is used only for the program 
+ * This is the class AtomTopLevel. The class is used only for the program
  * AtomTopLevel.
- * 
+ *
  * @short Basic class for AtomTopLevel
  * @author Andreas Wüst
  * @version 0.00
- * 
+ *
  */
 
 class AtomTopLevel : public KTMainWindow
@@ -34,7 +34,7 @@ class AtomTopLevel : public KTMainWindow
   // @see AtomTopLevel
   // @param parent Parent widget, used for QWidget
   // @param name	Name for QWidget
-	 	 
+	 	
   AtomTopLevel ( const char *name=0 );
 	
   // The destrucor method for class KFortune
@@ -42,7 +42,7 @@ class AtomTopLevel : public KTMainWindow
   ~AtomTopLevel();
 		
  protected:
- 
+
   // @see KKeyConfig
   void initKeys();
 
@@ -55,14 +55,17 @@ class AtomTopLevel : public KTMainWindow
 
   // Save the current configuration to the config-file.
   void saveConfig();
+  
+  // called before exiting -> save configuration
+  virtual bool queryExit();
 
   KConfig *config;
   KAccel *accel;
 
   QPopupMenu *file, *options;
-       
+
   GameWidget *main;
-  
+
 public slots:
 
   // Quit the application
