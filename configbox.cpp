@@ -27,7 +27,7 @@ ConfigBox::ConfigBox ( QWidget *parent, const char *name)
   glay->setColStretch(0, 1);
   glay->setColStretch(4, 1);
  
-  glay->addWidget(new QLabel(i18n("Animation Speed:"),page), 2, 1);
+  glay->addWidget(new QLabel(i18n("Animation speed:"),page), 2, 1);
 
   disp = new QLCDNumber(page);
   glay->addWidget(disp, 1, 2);
