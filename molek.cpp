@@ -63,6 +63,8 @@ void Molek::load (const KSimpleConfig& config)
 
 	current.obj = value.at(0).latin1();
 	value = value.mid(2);
+	if (value.isNull())
+           value = "";
 
 	strcpy(current.conn, value.ascii());
 	if (atoms.find(current) != atoms.end()) {
