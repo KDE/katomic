@@ -17,47 +17,32 @@
 extern Options settings;
 
 ConfigBox::ConfigBox ( QWidget *parent, const char *name)
-    : QDialog ( parent, name, TRUE )
+    : KDialogBase ( parent, name, true, i18n("Configure"), Ok | Cancel, Ok, true )
 {
-  setCaption(i18n("Options"));
+  QWidget *page = makeMainWidget();  
 
-  QGridLayout *lay = new QGridLayout (this, 1, 1, 10);
-
-  QGroupBox *gb = new QGroupBox(i18n("General"), this);
-  lay->addMultiCellWidget(gb, 0, 0, 0, 2);
-
-  QGridLayout *glay = new QGridLayout (gb, 1, 1, 10);
+  QGridLayout *glay = new QGridLayout (page, 4, 5, 0, spacingHint());
+  glay->setRowStretch(0, 1);
+  glay->setRowStretch(3, 1);
+  glay->setColStretch(0, 1);
+  glay->setColStretch(4, 1);
  
-  glay->addWidget(new QLabel(i18n("Animation Speed"),gb), 1, 0);
+  glay->addWidget(new QLabel(i18n("Animation Speed:"),page), 2, 1);
 
-  disp = new QLCDNumber(gb);
-  glay->addWidget(disp,0, 2);
-  
+  disp = new QLCDNumber(page);
+  glay->addWidget(disp, 1, 2);
   disp->display(1);
 
-  speed = new QSlider(1, 10, 1, 1, QSlider::Horizontal, gb);
-  glay->addMultiCellWidget(speed, 1, 1, 1, 3);
+  speed = new QSlider(1, 10, 1, 1, QSlider::Horizontal, page);
+  glay->addMultiCellWidget(speed, 2, 2, 2, 3);
 
   connect(speed, SIGNAL(valueChanged(int)), disp, SLOT(display(int)));
 
   speed->setValue(settings.anim_speed);
-
-  ok = new QPushButton(i18n("&OK"), this);
-  ok->setDefault(true);
-  lay->addWidget(ok, 1, 1);
-
-  connect(ok, SIGNAL(clicked()), this, SLOT(quitConfig()) );
-
-  cancel = new QPushButton(i18n("&Cancel"), this);
-  lay->addWidget(cancel, 1, 2);
-
-  
-
-  connect(cancel, SIGNAL(clicked()), this, SLOT(reject()) );
-
+  incInitialSize(QSize(20,20), true);
 }
   
-void ConfigBox::quitConfig()
+void ConfigBox::slotOk()
 {
   settings.anim_speed = speed->value();
   settings.changed = true;

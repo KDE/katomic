@@ -7,13 +7,13 @@
 #ifndef CONFIGBOX_H
 #define CONFIGBOX_H
 
-#include <qdialog.h>
 #include <qlabel.h>
-#include <qpushbutton.h>
 #include <qslider.h>
 #include <qlcdnumber.h>
 
-class ConfigBox : public QDialog
+#include <kdialogbase.h>
+
+class ConfigBox : public KDialogBase
 {
   Q_OBJECT
 
@@ -22,7 +22,7 @@ public:
   ~ConfigBox();
   
 protected slots:
-  void quitConfig();
+  void slotOk();
 
 signals:
   void speedChanged();
@@ -30,7 +30,6 @@ signals:
 private:
   QSlider *speed;
   QLCDNumber *disp;
-  QPushButton *ok, *cancel;
 };
 
 #endif		
