@@ -390,6 +390,9 @@ void Feld::timerEvent (QTimerEvent *)
   else
   {
     frames -= settings.anim_speed;
+    if (frames < 0)
+	frames = 0;
+
     repaint (false);
   }
 }
