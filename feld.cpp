@@ -23,7 +23,8 @@
 extern Options settings;
 
 Feld::Feld( QWidget *parent, const char *name ) :
-    QWidget( parent, name )
+    QWidget( parent, name ),
+    data( locate( "appdata", "pics/abilder.png" ) )
 {
     anim = false;
     dir = None;
@@ -33,7 +34,6 @@ Feld::Feld( QWidget *parent, const char *name ) :
     cy = -1;
 
     point = new QPoint [1];
-    data = BarIcon("abilder");
 
     moving = false;
     chosen = false;
@@ -461,6 +461,7 @@ void Feld::putNonAtom (int x, int y, Direction which, bool brick)
     case Feld::MoveLeft  : xarr = 217; yarr = 93; break;
     case Feld::MoveDown  : xarr = 248; yarr = 93; break;
     case Feld::MoveRight : xarr = 279; yarr = 93; break;
+    case default: break;
     }
 
   bitBlt(this, x * 30, y * 30, &data, xarr, yarr, 30, 30, CopyROP);

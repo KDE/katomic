@@ -25,9 +25,9 @@
 
 extern int level;
 
-Molek::Molek( QWidget *parent, const char *name ) : QWidget( parent, name )
+Molek::Molek( QWidget *parent, const char *name ) : QWidget( parent, name ),
+                                                    data( locate( "appdata", "pics/molek.png" ) )
 {
-    data = BarIcon("molek");
     setBackgroundColor (QColor (0, 0, 0));
     setMinimumSize(240, 200);
 }
