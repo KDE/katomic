@@ -91,7 +91,7 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
     debug ("line edit erzeugen");
     le = new QLineEdit (this, "le");
     le->setMaxLength (18);
-    lay->addWidget(le, pos-1, 0);
+    lay->addWidget(le, pos, 0);
     connect (le, SIGNAL (returnPressed ()), 
              this, SLOT (eingabeFertig ()));
 
@@ -122,9 +122,13 @@ void Highscore::eingabeFertig ()
   le = 0;
 
   // s als label ausgeben
-  n[pos]->setText(s);
+  QString l; l.sprintf("%2d.   ", pos+1);
+  l += s;
+  n[pos]->setFont(QFont("Helvetica",12, QFont::Bold));
+  n[pos]->setText(l);
   
   // pushbutton ok anzeigen
+  ok->setFocus();
   ok->show ();
 
 }
