@@ -53,6 +53,7 @@ int main(int argc, char **argv)
 
   QApplication::setColorSpec(QApplication::ManyColor);
   KApplication a;
+  KGlobal::locale()->insertCatalogue("libkdegames");
   AtomTopLevel *top = new AtomTopLevel("katomic");
   a.setMainWidget(top);
   top->show();
