@@ -56,6 +56,8 @@ void GameWidget::gameOver(int moves) {
   
     Highscore high(this, "highscore", level, moves);
     high.exec ();
+    updateLevel(level);
+
 }
 
 void GameWidget::getMoves(int moves)
