@@ -12,6 +12,7 @@
 //               paintEvent wird aufgerufen, falls fenster überdeckt wird,
 //               oder auch einfach bewegt wird
 
+#include <config.h>
 
 #include "molek.moc"
 #include <kiconloader.h>
@@ -66,7 +67,7 @@ void Molek::load (const KSimpleConfig& config)
 	if (value.isNull())
            value = "";
 
-	strcpy(current.conn, value.ascii());
+	strlcpy(current.conn, value.ascii(), sizeof(current.conn));
 	if (atoms.find(current) != atoms.end()) {
 	    kdWarning() << "OOOPS" << endl;
 	}
