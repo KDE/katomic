@@ -24,7 +24,6 @@
 #include <kglobal.h>
 #include <kkeydialog.h>
 #include <klocale.h>
-#include <kmenubar.h>
 #include <ksimpleconfig.h>
 #include <kstandarddirs.h>
 #include <kapplication.h>
@@ -33,7 +32,6 @@
 #include "toplevel.h"
 #include "settings.h"
 #include "configbox.h"
-#include <kaccel.h>
 #include <kaction.h>
 #include <kstdaction.h>
 #include <kstdgameaction.h>
@@ -44,7 +42,7 @@ extern Options settings;
 void AtomTopLevel::createMenu()
 {
     KStdGameAction::highscores(main, SLOT(showHighscores()), actionCollection());
-    game_exit = KStdAction::quit(this, SLOT(quitapp()), actionCollection(), "game_quit");
+    game_exit = KStdGameAction::quit(this, SLOT(quitapp()), actionCollection());
 
     new KAction(i18n("&Restart Level"), "reload", Key_Escape, main, SLOT(restartLevel()), actionCollection(), "game_new");
 
@@ -62,7 +60,7 @@ void AtomTopLevel::createMenu()
 
 void AtomTopLevel::configkeys()
 {
-    KKeyDialog::configureKeys(accel,true,this);
+    KKeyDialog::configure(actionCollection(),this);
 }
 
 void AtomTopLevel::configopts()
@@ -70,28 +68,14 @@ void AtomTopLevel::configopts()
     (new ConfigBox(this, "Options"))->show();
 }
 
-void AtomTopLevel::initKeys()
-{
-    // here we create to shortcuts according to
-    // the standard Kde keybinding
-    accel = new KAccel(this);
-
-    QValueList<KAction*> actions = actionCollection()->actions();
-    for (QValueList<KAction*>::ConstIterator it = actions.begin(); it != actions.end(); it++)
-        (*it)->plugAccel(accel);
-
-}
-
 void AtomTopLevel::initConfig()
 {
     config = KGlobal::config();
-    accel->readSettings(config);
 }
 
 void AtomTopLevel::saveConfig()
 {
     config = KGlobal::config();
-    accel->writeSettings(config);
 
     if (settings.changed) {
 	  config->setGroup("Options");
@@ -108,7 +92,6 @@ AtomTopLevel::AtomTopLevel ( const char* name )
     setCaption("");
     main = new GameWidget(this, "gamewidget");
     createMenu();
-    initKeys();
     initConfig();
     setCentralWidget(main);
 

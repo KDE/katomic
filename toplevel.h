@@ -9,7 +9,6 @@
 
 class GameWidget;
 class KConfig;
-class KAccel;
 
 #include <kmainwindow.h>
 
@@ -43,9 +42,6 @@ class AtomTopLevel : public KMainWindow
 		
  protected:
 
-  // @see KKeyConfig
-  void initKeys();
-
   // Creates the menubar and connects the menu-entries to the
   // appropriate functions
   void createMenu();
@@ -60,7 +56,6 @@ class AtomTopLevel : public KMainWindow
   virtual bool queryExit();
 
   KConfig *config;
-  KAccel *accel;
 
   KAction *game_exit;
 
