@@ -48,7 +48,7 @@ ConfigBox::ConfigBox ( QWidget *parent, const char *name)
   cancel = new QPushButton(i18n("Cancel"), this);
   lay->addWidget(cancel, 1, 2);
 
-  connect(cancel, SIGNAL(clicked()), this, SLOT(quit()) );
+  connect(cancel, SIGNAL(clicked()), this, SLOT(reject()) );
 
 }
   
@@ -59,12 +59,7 @@ void ConfigBox::quitConfig()
 
   emit speedChanged();
 
-  quit();
-}
-
-void ConfigBox::quit()
-{
-  delete this;
+  accept();
 }
 
 ConfigBox::~ConfigBox()

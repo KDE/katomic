@@ -23,7 +23,6 @@ public:
   
 protected slots:
   void quitConfig();
-  void quit();
 
 signals:
   void speedChanged();

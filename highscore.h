@@ -12,7 +12,6 @@
 #include <qdialog.h>
 #include <qlabel.h>
 #include <qpushbt.h>
-#include <stdio.h>
 
 
 
