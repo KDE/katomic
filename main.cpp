@@ -24,9 +24,11 @@
 #include <klocale.h>
 #include <kcmdlineargs.h>
 
+#include <kaboutdata.h>
+
 
 static const char *description = 
-	I18N_NOOP("KDE Game");
+	I18N_NOOP("KDE Atomic Entertainment Game");
 
 static const char *version = "v0.0.1";
 
@@ -37,7 +39,11 @@ static const char *version = "v0.0.1";
 
 int main(int argc, char **argv)
 {
-  KCmdLineArgs::init(argc, argv, "katomic", description, version);
+  KAboutData aboutData( "katomic", I18N_NOOP("KAtomic"), 
+    version, description, KAboutData::GPL, 
+    "(c) 1998, Andreas Wüst");
+  aboutData.addAuthor("Andreas Wüst",0, "AndreasWuest@gmx.de");
+  KCmdLineArgs::init( argc, argv, &aboutData );
 
   QApplication::setColorSpec(QApplication::ManyColor);
   KApplication a;
