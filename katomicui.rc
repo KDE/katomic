@@ -1,14 +1,4 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="katomic" version="1">
-<MenuBar>
-	<Menu name="game"><text>&amp;Game</text>
-	    <Action name="game_highscore"/>
-		<Action name="game_exit"/>
-	</Menu>
-  <Menu name="settings"><text>&amp;Settings</text>
-	<Action name="config_keys"/>
-	<Action name="config_options"/>
-  </Menu>	
-</MenuBar>
+<kpartgui name="katomic" version="2">
 <ToolBar name="mainToolBar" noMerge="1"/>
 </kpartgui>

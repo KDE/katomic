@@ -41,16 +41,16 @@ extern Options settings;
 void AtomTopLevel::createMenu()
 {
 	game_highscore = new KAction(i18n("S&how Highscore"), CTRL+Key_H, main,
-								 SLOT (showHighscores ()), actionCollection(), "game_highscore");
-	game_exit = KStdAction::quit(this, SLOT(quitapp()), actionCollection(), "game_exit");
-	
-	new KAction(i18n("&Configure Keys..."), 0, this, SLOT(configkeys()), actionCollection(), "config_keys");
-    new KAction(i18n("&Options..."), 0, this, SLOT(configopts()), actionCollection(), "config_options" );
+								 SLOT (showHighscores ()), actionCollection(), "game_highscores");
+	game_exit = KStdAction::quit(this, SLOT(quitapp()), actionCollection(), "game_quit");
+
+        KStdAction:: keyBindings(this, SLOT(configkeys()), actionCollection());
+        KStdAction::preferences(this, SLOT(configopts()), actionCollection());
 	
 	new KAction(i18n("Atom Up"), Key_Up, main, SLOT(moveUp()), actionCollection(), "atom_up");
-    new KAction(i18n("Atom Down"), Key_Down, main, SLOT(moveDown()), actionCollection(), "atom_down");
-    new KAction(i18n("Atom Left"), Key_Left, main, SLOT(moveLeft()), actionCollection(), "atom_left");
-    new KAction(i18n("Atom Right"), Key_Right, main, SLOT(moveRight()), actionCollection(), "atom_right");
+        new KAction(i18n("Atom Down"), Key_Down, main, SLOT(moveDown()), actionCollection(), "atom_down");
+        new KAction(i18n("Atom Left"), Key_Left, main, SLOT(moveLeft()), actionCollection(), "atom_left");
+        new KAction(i18n("Atom Right"), Key_Right, main, SLOT(moveRight()), actionCollection(), "atom_right");
 
 	new KAction(i18n("Next Atom"), Key_Tab, main, SLOT(nextAtom()), actionCollection(), "next_atom");
 	new KAction(i18n("Previous Atom"), SHIFT+Key_Tab, main, SLOT(previousAtom()), actionCollection(), "prev_atom");
@@ -60,7 +60,7 @@ void AtomTopLevel::createMenu()
 
 void AtomTopLevel::configkeys()
 {
-    KKeyDialog::configureKeys(accel);
+    KKeyDialog::configureKeys(accel,true,this);
 }
 
 void AtomTopLevel::configopts()
@@ -103,6 +103,7 @@ void AtomTopLevel::saveConfig()
 AtomTopLevel::AtomTopLevel ( const char* name )
     : KMainWindow ( 0, name )
 {
+    setCaption("");
     main = new GameWidget(this, "gamewidget");
 
     createMenu();

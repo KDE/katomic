@@ -42,13 +42,16 @@ ConfigBox::ConfigBox ( QWidget *parent, const char *name)
 
   speed->setValue(settings.anim_speed);
 
-  ok = new QPushButton(i18n("OK"), this);
+  ok = new QPushButton(i18n("&OK"), this);
+  ok->setDefault(true);
   lay->addWidget(ok, 1, 1);
 
   connect(ok, SIGNAL(clicked()), this, SLOT(quitConfig()) );
 
-  cancel = new QPushButton(i18n("Cancel"), this);
+  cancel = new QPushButton(i18n("&Cancel"), this);
   lay->addWidget(cancel, 1, 2);
+
+  
 
   connect(cancel, SIGNAL(clicked()), this, SLOT(reject()) );
 

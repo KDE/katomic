@@ -70,7 +70,8 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
   lay->addRowSpacing(6, 20);
 
   // pushbutton erzeugen             
-  ok = new QPushButton(i18n("OK"), this, "ok");
+  ok = new QPushButton(i18n("&OK"), this, "ok");
+  ok->setDefault(true);
   lay->addMultiCellWidget ( ok, 6, 6, 0, 1);
   
   connect(ok, SIGNAL(clicked()), SLOT(accept()) );
