@@ -64,6 +64,12 @@ void Feld::resetValidDirs()
 
 void Feld::load (const KSimpleConfig& config)
 {
+  if(moving)
+  {
+    moving = false;
+    killTimers();
+  }
+
   mol->load(config);
 
   QString key;
