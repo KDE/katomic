@@ -67,7 +67,7 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
     lay->addWidget(n[i], i, 0);
     
     // punkte ausgeben
-    tmp.sprintf ("%d", score [i].moves);
+    tmp.setNum(score [i].moves);
     sc = new QLabel(tmp, this);
     sc->setAlignment( Qt::AlignRight );
     lay->addWidget(sc, i, 1);

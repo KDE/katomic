@@ -1,6 +1,6 @@
 
-#ifndef _GAME_WIDGET_H
-#define _GAME_WIDGET_H
+#ifndef GAMEWIDGET_H
+#define GAMEWIDGET_H
 
 class Feld;
 class Molek;

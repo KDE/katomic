@@ -1,5 +1,5 @@
-#ifndef _atom_h_
-#define _atom_h_
+#ifndef ATOM_H
+#define ATOM_H
 
 #define MAX_CONNS_PER_ATOM 8
 

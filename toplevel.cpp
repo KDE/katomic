@@ -18,20 +18,20 @@
 
   */
 
+#include <qgroupbox.h>
+#include <qlayout.h>
+
+#include <kglobal.h>
+#include <kkeydialog.h>
+#include <klocale.h>
+#include <kmenubar.h>
+#include <ksimpleconfig.h>
+#include <kstddirs.h>
 
 #include "gamewidget.h"
-
-#include <qlayout.h>
-#include <qgroupbox.h>
-#include <kkeydialog.h>
-#include <kstddirs.h>
-#include <ksimpleconfig.h>
-#include <kglobal.h>
 #include "toplevel.h"
-#include <klocale.h>
 #include "settings.h"
 #include "configbox.h"
-#include <kmenubar.h>
 
 extern Options settings;
 

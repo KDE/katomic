@@ -40,7 +40,7 @@ Options settings;
 #define MPOSY 100
 
 // ##########################
-// #	class MyWidget      #
+// #	class GameWidget    #
 // ##########################
 
 int level;
@@ -51,7 +51,7 @@ void GameWidget::getButton (int button)
 }
 
 void GameWidget::gameOver(int moves) {
-    QMessageBox::about (this, i18n("Congratulations"), i18n("You solved level %1 with %2 moves !").arg(level).arg(moves));
+    QMessageBox::about (this, i18n("Congratulations"), i18n("You solved level %1 with %2 moves!").arg(level).arg(moves));
     // Messagebox öffnen, level gelöst
   
     Highscore high(this, "highscore", level, moves);
@@ -60,7 +60,7 @@ void GameWidget::gameOver(int moves) {
 
 void GameWidget::getMoves(int moves)
 {
-    current.sprintf("%d", moves);
+    current.setNum(moves);
     ys->setText(current);
 }
 

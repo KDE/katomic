@@ -1,11 +1,11 @@
-/* MyWidget.h
+/* toplevel.h
  *
  * Andreas Wüst
  *
  */
 
-#ifndef _TOPLEVEL_WIDGET_H
-#define _TOPLEVEL_WIDGET_H
+#ifndef TOPLEVEL_H
+#define TOPLEVEL_H
 
 class GameWidget;
 class KConfig;
