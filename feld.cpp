@@ -20,8 +20,18 @@
 #include <kiconloader.h>
 #include <kglobal.h>
 #include <kstddirs.h>
+#include <ksimpleconfig.h>
 
-
+int hexValue(char ch) {
+  if (ch >= '0' && ch <= '9')
+    return ch - '0';
+  if (ch >= 'a' && ch <= 'f')
+    return ch - 'a' + 10;
+  if (ch >= 'A' && ch <= 'F')
+    return ch - 'A' + 10;
+  // fatal("found %c", ch);
+  return 0;
+}
 
 Feld::Feld( QWidget *parent, const char *name ) : QWidget( parent, name )
 {
@@ -57,35 +67,75 @@ void Feld::loadFeldFromDat (int l)
 {
   debug ("in loadfeld");
   int i, j;
-  FILE *levelfile = stdin;
  
   level = l;
   debug ("level : %d", level);
-  l--;
-  if ((levelfile = fopen (locate("appdata", "fa.dat").ascii(), "rb")) == NULL)
-    debug ("Fehler beim Öffnen der Leveldatei (a.dat) !");
 
-  fseek (levelfile, 975 * (long) l, SEEK_SET);
+    
+  QString key;
+  
 
-  for (i = 0; i < 15; i++)
-  for (j = 0; j < 15; j++)
-  {
-    feld [i] [j].obj = fgetc (levelfile);
-    feld [i] [j].verb = fgetc (levelfile);
-    feld [i] [j].verb += (fgetc (levelfile) << 8);
+
+  QString level = QString("level_%1").arg(l);
+  KSimpleConfig config(locateLocal("appdata", level), true);
+  config.setGroup("Level");
+
+  for (i = 0; i < 15; i++) {
+    
+    key = QString("feld_obje_%1").arg(i);
+    const QString obj_line = config.readEntry(key);
+    key = QString("feld_verb_%1").arg(i);
+    const QString verb_line = config.readEntry(key);
+
+    int verb_index = 0;
+    int obj_index = 0;
+
+    for (j = 0; j < 15; j++)
+      {
+	feld [i] [j].obj = 
+	  hexValue(obj_line.at(obj_index++)) * 16 + 
+	  hexValue(obj_line.at(obj_index++));
+
+	feld [i][j].verb = 
+	  hexValue(verb_line.at(verb_index++)) * 4096 + 
+	  hexValue(verb_line.at(verb_index++)) * 265+ 
+	  hexValue(verb_line.at(verb_index++)) * 16 + 
+	  hexValue(verb_line.at(verb_index++));
+	
+      }
   }
-  
-  //  fread doesn't work again, why ?
-  //  fread (&molek [0] [0], sizeof (molek), 1, levelfile);
-  
-  for (i = 0; i < 10; i++)
-  for (j = 0; j < 10; j++)
-  { 
-    molek [i] [j].obj = fgetc (levelfile);
-    molek [i] [j].verb = fgetc (levelfile);
-    molek [i] [j].verb += (fgetc (levelfile) << 8);
-  }
-  fclose (levelfile);
+  for (i = 0; i < 10; i++) {
+    
+    key = QString("mole_obje_%1").arg(i);
+    const QString obj_line = config.readEntry(key);
+    key = QString("mole_verb_%1").arg(i);
+    const QString verb_line = config.readEntry(key);
+
+    if (verb_line.isEmpty())
+      continue;
+    if (obj_line.isEmpty())
+      continue;
+
+    int verb_index = 0;
+    int obj_index = 0;
+
+    QString line1, line2;
+
+    for (j = 0; j < 10; j++)
+      { 
+	molek [i] [j].obj = 
+	  hexValue(obj_line.at(obj_index++)) * 16 + 
+	  hexValue(obj_line.at(obj_index++));
+	
+	molek [i][j].verb = 
+	  hexValue(verb_line.at(verb_index++)) * 4096 + 
+	  hexValue(verb_line.at(verb_index++)) * 256 + 
+	  hexValue(verb_line.at(verb_index++)) * 16 + 
+	  hexValue(verb_line.at(verb_index++));
+
+      }
+
+    }
 
   // höhe und breite des moleküls berechnen und ausgeben, checkdone 
   for (i = 0, breite = 0, hohe = 0; i < 10; i++)
