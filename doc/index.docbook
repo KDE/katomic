@@ -1,10 +1,9 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
  <!ENTITY kappname "&katomic;">
+ <!ENTITY package "kdegames">
  <!ENTITY % English "INCLUDE">
  <!ENTITY % addindex "IGNORE">
- 
-  
 ]>
 
 <book lang="&language;">
@@ -44,8 +43,6 @@
 <keyword>atomic entertainment</keyword>
 </keywordset>
 </bookinfo>
-
-
 
 <chapter id="introduction">
 <title>Introduction</title>
@@ -91,7 +88,6 @@ level.</para>
 
 </chapter>
 
-
 <chapter id="configuration">
 <title>Configuration </title>
 
@@ -100,14 +96,14 @@ level.</para>
 
 <variablelist>
 <varlistentry>
-<term><menuchoice><guimenu><accel>G</accel>ame</guimenu>
-<guimenuitem>Sh<accel>o</accel>w High Scores</guimenuitem></menuchoice></term>
+<term><menuchoice><guimenu>Game</guimenu>
+<guimenuitem>Show High Scores</guimenuitem></menuchoice></term>
 <listitem><para>This will show the high scores for this level.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice><guimenu><accel>G</accel>ame</guimenu>
-<guimenuitem><accel>Q</accel>uit</guimenuitem></menuchoice></term>
+<term><menuchoice><guimenu>Game</guimenu>
+<guimenuitem>Quit</guimenuitem></menuchoice></term>
 <listitem><para>Selecting this item will end your current game, and exit the
 &katomic;.</para></listitem>
 </varlistentry>
@@ -119,8 +115,8 @@ level.</para>
 
 <variablelist>
 <varlistentry>
-<term><menuchoice><guimenu><accel>S</accel>ettings</guimenu><guimenuitem>Configure
-<accel>K</accel>ey Bindings...</guimenuitem></menuchoice></term>
+<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure
+Key Bindings...</guimenuitem></menuchoice></term>
 <listitem><para>This item lets you change the key settings of
 <application>Atomic Entertainment</application>. See the section <link
 linkend="keybindings" endterm="keybindings-title"></link> for a list of the
@@ -128,8 +124,8 @@ defaults.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice><guimenu><accel>S</accel>ettings</guimenu>
-<guimenuitem><accel>C</accel>onfigure
+<term><menuchoice><guimenu>Settings</guimenu>
+<guimenuitem>Configure
 KAtomic...</guimenuitem></menuchoice></term>
 <listitem><para>In the dialog box that appears, the animation-speed of the
 atomic movement can be set.</para></listitem>
@@ -141,54 +137,8 @@ atomic movement can be set.</para></listitem>
 <sect1 id="help">
 <title>The <guimenu>Help</guimenu> Menu</title>
 
-<variablelist>
-<varlistentry>
+&help.menu.documentation;
 
-<term><anchor id="contents"/><menuchoice>
-<shortcut><keycap>F1</keycap></shortcut>
-<guimenu><accel>H</accel>elp</guimenu>
-<guimenuitem><accel>C</accel>ontents</guimenuitem></menuchoice></term>
-<listitem><para>This invokes the KDE help system starting at the the top of this
-help file.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><anchor id="whats-this"/><menuchoice>
-<shortcut><keycombo
-action="simul"><keycap>Shift</keycap><keycap>F1</keycap></keycombo></shortcut>
-<guimenu><accel>H</accel>elp</guimenu><guimenuitem>What's
-<accel>T</accel>his?</guimenuitem></menuchoice></term>
-<listitem><para>This changes the mouse cursor to a combination arrow and
-question mark.  Clicking on items within &katomic; with this arrow will open a
-help window (if one exists for the particular item) explaining the item's
-function.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><anchor id="bug-report"/><menuchoice>
-<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>R</accel>eport
-Bug.</guimenuitem></menuchoice></term>
-<listitem><para>If you find an error in the program, or you have an idea on how
-to improve the game, clicking this option will let you send an official bug
-report to the &kde; team.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><anchor id="about-katomic"/><menuchoice>
-<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>A</accel>bout
-KAtomic</guimenuitem></menuchoice></term>
-<listitem><para>This will display version and author
-information.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><anchor id="about-kde"/><menuchoice>
-<guimenu><accel>H</accel>elp</guimenu><guimenuitem>About
-<accel>K</accel>DE</guimenuitem></menuchoice></term>
-<listitem><para>This displays the &kde; version and other basic
-information.</para></listitem>
-</varlistentry>
-</variablelist>
 </sect1>
 
 <sect1 id="keybindings">
@@ -203,37 +153,37 @@ information.</para></listitem>
 <row>
 <entry>Quit</entry>
 <entry>
-<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo>
+<keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
 </entry>
 </row>
 <row>
 <entry>Highscores</entry>
 <entry>
-<keycombo action="simul"><keycap>Ctrl</keycap><keycap>H</keycap></keycombo>
+<keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
 </entry>
 </row>
 <row>
 <entry>Atom Down</entry>
 <entry>
-<keycombo action="simul"><keycap>Ctrl</keycap><keycap>N</keycap></keycombo>
+<keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
 </entry>
 </row>
 <row>
 <entry>Atom Left</entry>
 <entry>
-<keycombo action="simul"><keycap>Ctrl</keycap><keycap>S</keycap></keycombo>
+<keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo>
 </entry>
 </row>
 <row>
 <entry>Atom Right</entry>
 <entry>
-<keycombo action="simul"><keycap>Ctrl</keycap><keycap>D</keycap></keycombo>
+<keycombo action="simul">&Ctrl;<keycap>D</keycap></keycombo>
 </entry>
 </row>
 <row>
 <entry>Atom Up</entry>
 <entry>
-<keycombo action="simul"><keycap>Ctrl</keycap><keycap>J</keycap></keycombo>
+<keycombo action="simul">&Ctrl;<keycap>J</keycap></keycombo>
 </entry>
 </row>
 <row>
@@ -247,7 +197,7 @@ information.</para></listitem>
 <row>
 <entry>What's this?</entry>
 <entry>
-<keycombo action="simul"><keycap>Shift</keycap><keycap>F1</keycap></keycombo>
+<keycombo action="simul">&Shift;<keycap>F1</keycap></keycombo>
 </entry>
 </row>
 </tbody>
@@ -290,23 +240,22 @@ Proofreading by Michael McBride
 <title>How to obtain <application>Atomic Entertainment</application></title>
 
 <para>
-<application>Atomic Entertainment</application> (katomic) is written for the KDE project
+<application>Atomic Entertainment</application> (&katomic;) is written for the &kde; project
 <ulink url="http://www.kde.org">http://www.kde.org</ulink> by Stephan Kulow
 <email>coolo@kde.org</email> and Cristian Tiberna 
 <email>tibirna@kde.org</email>.
 It is based on Atomic 1.0.67 by Andreas Wuest 
 <email>AndreasWuest@gmx.de</email>.
 </para>
-<para>
-<application>Atomic Entertainment</application> can be found in the package kdegames on
-<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, 
-the main ftp site of the KDE project.</para>
+
+&install.intro.documentation;
+
 </sect1>
 
 <sect1 id="requirements">
 <title>Requirements</title>
 <para>
-In order to successfully compile <application>Atomic Entertainment</application>, you need KDE 2.0 </para>
+In order to successfully compile <application>Atomic Entertainment</application>, you need &kde; 3.0 </para>
 <para>
 All required libraries as well as <application>Atomic Entertainment</application> itself can be found on
 <ulink 
@@ -317,25 +266,8 @@ url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>.</para>
 <sect1 id="compilation">
 <title>Compilation and Installation</title>
 
-<para>
-In order to compile and install <application>Atomic Entertainment</application> on your
-system, extract the package and type the following commands in the base directory of the
-<application>katomic</application> distribution:
-</para>
+&install.compile.documentation;
 
-<para>
-<screen width="40">
-<prompt>%</prompt> <userinput>./configure</userinput>
-<prompt>%</prompt> <userinput>make</userinput>
-<prompt>%</prompt> <userinput>make install</userinput>
-</screen>
-</para>
-      
-<para>
-Since <application>Atomic Entertainment</application> uses 
-<application>autoconf</application> and <application>automake</application> 
-you should have no trouble compiling it.
-</para>
 </sect1>
 </appendix>
 
