@@ -461,7 +461,7 @@ void Feld::putNonAtom (int x, int y, Direction which, bool brick)
     case Feld::MoveLeft  : xarr = 217; yarr = 93; break;
     case Feld::MoveDown  : xarr = 248; yarr = 93; break;
     case Feld::MoveRight : xarr = 279; yarr = 93; break;
-    case default: break;
+    default: break;
     }
 
   bitBlt(this, x * 30, y * 30, &data, xarr, yarr, 30, 30, CopyROP);
