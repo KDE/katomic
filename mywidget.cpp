@@ -144,7 +144,7 @@ void MyWidget::updateLevel (int l)
 {
   level = l;
   QString level = QString("levels/level_%1").arg(l);
-  KSimpleConfig config(locate("appdata", level), true);
+  KSimpleConfig config(locate("appdata", level));
   config.setGroup("Level");
   feld->loadFeldFromDat(config);
   molek->loadFeldFromDat(config);

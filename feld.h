@@ -55,7 +55,7 @@ private:
     
     struct spielfeld
     {
-	unsigned char obj;
+	char obj;
 	unsigned int verb;
     } feld [15] [15];
     

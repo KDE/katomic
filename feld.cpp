@@ -63,35 +63,33 @@ Feld::~Feld ()
 
 void Feld::loadFeldFromDat (const KSimpleConfig& config)
 {
-  debug ("in loadfeld");
  
   QString key;
   
   for (int i = 0; i < 15; i++) {
-    
-    key = QString("feld_obje_%1").arg(i);
-    const QString obj_line = config.readEntry(key);
-    key = QString("feld_verb_%1").arg(i);
+      
+    key.sprintf("feld_verb_%d", i);
     const QString verb_line = config.readEntry(key);
+    key.sprintf("feld_obje_%02d", i);
+    const QString obj_line = config.readEntry(key);
 
     int verb_index = 0;
     int obj_index = 0;
 
-    for (int j = 0; j < 15; j++)
-      {
-	feld [i] [j].obj = 
-	  hexValue(obj_line.at(obj_index++)) * 16 + 
-	  hexValue(obj_line.at(obj_index++));
+    QString new_line;
+
+    for (int j = 0; j < 15; j++) {
+	feld[i][j].obj = obj_line.at(obj_index++);
 
 	feld [i][j].verb = 
-	  hexValue(verb_line.at(verb_index++)) * 4096 + 
-	  hexValue(verb_line.at(verb_index++)) * 265+ 
-	  hexValue(verb_line.at(verb_index++)) * 16 + 
-	  hexValue(verb_line.at(verb_index++));
+	    hexValue(verb_line.at(verb_index++)) * 4096 + 
+	    hexValue(verb_line.at(verb_index++)) * 265+ 
+	    hexValue(verb_line.at(verb_index++)) * 16 + 
+	    hexValue(verb_line.at(verb_index++));
 	
-      }
+    }
   }
-
+  
 #if 0
   for (int i = 0; i < 10; i++) {
     
@@ -149,7 +147,7 @@ void Feld::mousePressEvent (QMouseEvent *e)
   // cursor sichtbar, feld ausgewählt
   if (pressed == false)
   {
-    if (feld [x] [y].obj != 254 && feld [x] [y].obj != 0)
+    if (feld [x] [y].obj != '#' && feld [x] [y].obj != '.')
     {
       debug ("x : %d, y : %d", x, y);
       setCursor (blankCursor);
@@ -208,26 +206,26 @@ void Feld::startAnimation (int d)
   
   switch (dir)
   {      
-    case 1 : for (x = xpos, y = ypos, anz = 0; feld [x] [--y].obj == 0; anz++);
+    case 1 : for (x = xpos, y = ypos, anz = 0; feld [x] [--y].obj == '.'; anz++);
              if (anz != 0)
              {
                feld [x] [++y] = feld [xpos] [ypos];
              }
              break;
     case 3 : debug ("unten");
-             for (x = xpos, y = ypos, anz = 0; feld [x] [++y].obj == 0; anz++);
+             for (x = xpos, y = ypos, anz = 0; feld [x] [++y].obj == '.'; anz++);
              if (anz != 0)
              {
                feld [x] [--y] = feld [xpos] [ypos];
              }
              break;
-    case 2 : for (x = xpos, y = ypos, anz = 0; feld [++x] [y].obj == 0; anz++);
+    case 2 : for (x = xpos, y = ypos, anz = 0; feld [++x] [y].obj == '.'; anz++);
              if (anz != 0)
              {
                feld [--x] [y] = feld [xpos] [ypos];
              }
              break;
-    case 4 : for (x = xpos, y = ypos, anz = 0; feld [--x] [y].obj == 0; anz++);
+    case 4 : for (x = xpos, y = ypos, anz = 0; feld [--x] [y].obj == '.'; anz++);
              if (anz != 0)
              { 
                feld [++x] [y] = feld [xpos] [ypos];
@@ -237,7 +235,7 @@ void Feld::startAnimation (int d)
   if (anz != 0)
   {
     moving = true;
-    feld [xpos] [ypos].obj = 0;
+    feld [xpos] [ypos].obj = '.';
     feld [xpos] [ypos].verb = 0;
 
     // absolutkoordinaten des zu verschiebenden bildes
@@ -268,7 +266,7 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
     y = e->pos ().y () / 30;
 
     // verschiedene cursor je nach pos
-    if (feld [x] [y].obj != 254 && feld [x] [y].obj != 0)
+    if (feld [x] [y].obj != '#' && feld [x] [y].obj != '.')
       setCursor (crossCursor);
     else
       setCursor (arrowCursor);
@@ -283,14 +281,14 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
 bool Feld::checkDone ()
 {
   struct spielfeld f [15] [15];
-  unsigned char i, j, xx, yy;
-  bool done;
+  unsigned char i, j; //, xx, yy;
+  //  bool done;
   memcpy (f, feld, sizeof (feld));
 
   // alles außer den atomen löschen 
   for (i = 0; i < 15; i++)
   for (j = 0; j < 15; j++)
-  if (f [i] [j].obj == 254) 
+  if (f [i] [j].obj == '#') 
   {
     memset (&f [i] [j], 0, 3);
   }  
@@ -391,24 +389,24 @@ void Feld::paintEvent( QPaintEvent * )
       x = i * 30;
       y = j * 30;
       // zeichnet Randstücke
-      if (feld [i] [j].obj == 254) 
+      if (feld [i] [j].obj == '#') 
         bitBlt (this, x, y, &data, 279, 31, 30, 30, CopyROP);
   
       // zeichnet Atome
-      if (feld [i] [j].obj < 11 && feld [i] [j].obj > 0)
+      if (feld [i] [j].obj <= '9' && feld [i] [j].obj > '0')
       {
-        bitBlt (this, x, y, &data, (feld [i] [j].obj - 1) * 31, 0, 30, 
+        bitBlt (this, x, y, &data, (feld [i] [j].obj - '1') * 31, 0, 30, 
                 30, CopyROP);
       }
   
       // zeichnet Kristalle
-      if (feld [i] [j].obj == 20)
+      if (feld [i] [j].obj == 'o')
       {
         bitBlt (this, x, y, &data, 31, 93, 30, 30, CopyROP);
       }
   
       // verbindungen zeichnen
-      if (feld [i] [j].obj < 11 || feld [i] [j].obj == 20)
+      if (feld [i] [j].obj <= '9' || feld [i] [j].obj == 'o')
       {
         char anz;
         for (anz = 0; anz < 16; anz++)
@@ -423,8 +421,8 @@ void Feld::paintEvent( QPaintEvent * )
 
   
     // zeichnet Verbindungsstäbe 
-      if (feld [i] [j].obj > 29 && feld [i] [j].obj < 34)
-        bitBlt (this, x, y, &data, (feld [i] [j].obj - 28) * 31 , 93, 30, 30, 
+      if (feld [i] [j].obj >= 'A' && feld [i] [j].obj <= 'F')
+        bitBlt (this, x, y, &data, (feld [i] [j].obj - 'A') * 31 , 93, 30, 30, 
                 CopyROP);
     }
   }  
