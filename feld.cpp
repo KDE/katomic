@@ -15,7 +15,7 @@
 #include "highscore.h"
 #include <kiconloader.h>
 #include <kglobal.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <ksimpleconfig.h>
 #include "molek.h"
 #include "feld.h"

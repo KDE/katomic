@@ -20,7 +20,7 @@
 
 
 #include "toplevel.h"
-#include "kapp.h"
+#include "kapplication.h"
 #include <klocale.h>
 #include <kcmdlineargs.h>
 
