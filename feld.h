@@ -49,6 +49,9 @@ protected:
     void mouseMoveEvent (QMouseEvent *);
     void emitStatus();
 
+protected slots:
+    void setValidDirs(bool, bool, bool, bool);
+
 private:
 
     const atom& getAtom(int index) const; 
@@ -75,6 +78,10 @@ private:
     
     bool anim;
     bool chosen, moving;
+
+    bool validDirs[4];
+
+    void resetValidDirs() { for (int i = 0; i < 4; i++) validDirs[i] = false;}
     
 };
 
