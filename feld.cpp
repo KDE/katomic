@@ -35,7 +35,7 @@ Feld::Feld( QWidget *parent, const char *name ) : QWidget( parent, name )
   cy = -1;
 
   point = new QPoint [1];
-  data = ICON("abilder.gif");
+  data = ICON("abilder.png");
  
   moving = FALSE;
   pressed = FALSE;

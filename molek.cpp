@@ -24,7 +24,7 @@
 Molek::Molek( QWidget *parent, const char *name ) : QWidget( parent, name )
 {
   level = 1;
-  data = ICON("molek.gif");
+  data = ICON("molek.png");
 
   loadFeldFromDat (1);
 }
