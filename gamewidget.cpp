@@ -116,9 +116,8 @@ void GameWidget::updateLevel (int l)
     cfg.setGroup("Level");
     feld->load(cfg);
 
-    KScoreDialog high(KScoreDialog::Name | KScoreDialog::Score, this);
-    high.setConfigGroup(QString("High Scores Level %1").arg(level));
-    highest.setNum(high.highScore());
+    highScore->setConfigGroup(QString("High Scores Level %1").arg(level));
+    highest.setNum(highScore->highScore());
 
     hs->setText(highest);
     ys->setText("0");
@@ -163,6 +162,8 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 
     connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     connect (feld, SIGNAL (sendMoves(int)), SLOT(getMoves(int)));
+
+    highScore = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
 
     // the score group
     QGroupBox *bg = new QGroupBox (i18n("Score"), vb, "bg");

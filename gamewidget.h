@@ -61,6 +61,8 @@ class GameWidget : public QWidget
     QString highest, current;
 
     int nlevels;
+
+    KScoreDialog *highScore;
 };
 
 #endif
