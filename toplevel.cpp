@@ -41,7 +41,7 @@ extern Options settings;
 void AtomTopLevel::createMenu()
 {
     KAction *act = KStdGameAction::highscores(main, SLOT(showHighscores()), actionCollection());
-    act->setText(i18n("Show &Best Scores"));
+    act->setText(i18n("Show &Highscores"));
     KStdGameAction::quit(this, SLOT(close()), actionCollection());
     KStdGameAction::restart(main, SLOT(restartLevel()), actionCollection());
 
