@@ -75,9 +75,9 @@ in the preview window.</para>
 <para>In the higher levels, some tactical skill will be necessary for solving
 the puzzle.</para>
 
-<para>The highscore in this game is actually a lowscore, because the
+<para>The best score in this game is actually the lower score, because the
 goal is to solve a level with as few moves as
-possible. <guilabel>Highest score:</guilabel> in the main-window shows
+possible. <guilabel>Best score:</guilabel> in the main-window shows
 the lowest number of moves used for this level. <guilabel>Your score
 so far</guilabel> shows the current number of moves.</para>
 
@@ -104,8 +104,8 @@ level.</para>
 
 <varlistentry>
 <term><menuchoice><guimenu>Game</guimenu>
-<guimenuitem>Show Highscores</guimenuitem></menuchoice></term>
-<listitem><para>This will show the high scores for this level.</para></listitem>
+<guimenuitem>Show Best Scores</guimenuitem></menuchoice></term>
+<listitem><para>This will show the best scores for the current level.</para></listitem>
 </varlistentry>
 
 <varlistentry>
@@ -163,7 +163,7 @@ atomic movement can be set.</para></listitem>
 </entry>
 </row>
 <row>
-<entry>Highscores</entry>
+<entry>Best Scores</entry>
 <entry>
 <keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
 </entry>
