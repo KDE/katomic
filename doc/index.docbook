@@ -97,7 +97,7 @@ level.</para>
 <variablelist>
 <varlistentry>
 <term><menuchoice><guimenu>Game</guimenu>
-<guimenuitem>Show High Scores</guimenuitem></menuchoice></term>
+<guimenuitem>Show Highscores</guimenuitem></menuchoice></term>
 <listitem><para>This will show the high scores for this level.</para></listitem>
 </varlistentry>
 
@@ -116,7 +116,7 @@ level.</para>
 <variablelist>
 <varlistentry>
 <term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure
-Key Bindings...</guimenuitem></menuchoice></term>
+Shortcuts...</guimenuitem></menuchoice></term>
 <listitem><para>This item lets you change the key settings of
 <application>Atomic Entertainment</application>. See the section <link
 linkend="keybindings" endterm="keybindings-title"></link> for a list of the
@@ -125,8 +125,7 @@ defaults.</para></listitem>
 
 <varlistentry>
 <term><menuchoice><guimenu>Settings</guimenu>
-<guimenuitem>Configure
-KAtomic...</guimenuitem></menuchoice></term>
+<guimenuitem>Configure &katomic;...</guimenuitem></menuchoice></term>
 <listitem><para>In the dialog box that appears, the animation-speed of the
 atomic movement can be set.</para></listitem>
 </varlistentry>
@@ -165,30 +164,30 @@ atomic movement can be set.</para></listitem>
 <row>
 <entry>Atom Down</entry>
 <entry>
-<keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
+<keycombo action="simul">&Ctrl;<keycap>Down Arrow</keycap></keycombo>
 </entry>
 </row>
 <row>
 <entry>Atom Left</entry>
 <entry>
-<keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo>
+<keycombo action="simul">&Ctrl;<keycap>Left Arrow</keycap></keycombo>
 </entry>
 </row>
 <row>
 <entry>Atom Right</entry>
 <entry>
-<keycombo action="simul">&Ctrl;<keycap>D</keycap></keycombo>
+<keycombo action="simul">&Ctrl;<keycap>Right Arrow</keycap></keycombo>
 </entry>
 </row>
 <row>
 <entry>Atom Up</entry>
 <entry>
-<keycombo action="simul">&Ctrl;<keycap>J</keycap></keycombo>
+<keycombo action="simul">&Ctrl;<keycap>Up Arrow</keycap></keycombo>
 </entry>
 </row>
 <row>
 <entry>Next Atom</entry>
-<entry><keysym>Space</keysym></entry>
+<entry><keycap>Tab</keycap></entry>
 </row>
 <row>
 <entry>Help</entry>
