@@ -74,7 +74,7 @@ void GameWidget::updateLevel (int l)
     cfg.setGroup("Level");
     feld->load(cfg);
 
-    KConfig *config = kapp->getConfig();
+    KConfig *config = kapp->config();
     level = QString("level%1").arg(l);
     config->setGroup(level);
     highest = config->readEntry("Moves0", "100");
