@@ -8,14 +8,16 @@ SUBDIRS = . levels
 
 katomic_SOURCES = feld.cpp highscore.cpp molek.cpp mywidget.cpp levelnames.cpp configbox.cpp
 
+EXTRA_DIST = katomic.xpm katomic.desktop
+
 pics_DATA = abilder.png molek.png 
 picsdir = $(kde_datadir)/katomic/pics
 
 icondir = $(kde_icondir)
 icon_DATA = katomic.xpm
 
-appsdir = $(kde_appsdir)/Games 
-apps_DATA = katomic.desktop 
+appsdir = $(kde_appsdir)/Games
+apps_DATA = katomic.desktop
 
 METASOURCES = AUTO
 
