@@ -146,7 +146,7 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 
 
     // the score group
-    QGroupBox *bg = new QGroupBox ("Score", this, "bg");
+    QGroupBox *bg = new QGroupBox (i18n("Score"), this, "bg");
     bg->setGeometry (MPOSX, 300, 160, 160);
     QBoxLayout *slay = new QVBoxLayout (bg, 10);
 
