@@ -2,6 +2,7 @@
 INCLUDES = -I$(top_srcdir)/libkdegames -I$(top_srcdir)/libkdegames/highscore $(all_includes)
 katomic_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 katomic_LDADD = $(LIB_KDEGAMES)
+katomic_DEPENDENCIES = $(LIB_KDEGAMES_DEP)
 METASOURCES = AUTO
 
 bin_PROGRAMS = katomic
