@@ -1,0 +1,69 @@
+[Level]
+Name=Capsaicin
+atom_1=1-d
+atom_2=1-e
+atom_3=1-f
+atom_4=2-abeh
+atom_5=3-ae
+atom_6=2-acC
+atom_7=2-agC
+atom_8=3-C
+atom_9=2-Acf
+atom_a=2-aceg
+atom_b=2-Beg
+atom_c=2-acD
+atom_d=1-g
+atom_e=1-c
+atom_f=3-cg
+atom_g=2-Aeg
+atom_h=2-Ace
+atom_i=4-bdg
+atom_j=1-a
+atom_k=2-adef
+atom_l=2-aBf
+atom_m=2-aeD
+atom_n=1-h
+atom_o=1-b
+feld_00=#...###########
+feld_01=o.............#
+feld_02=k2.....#.#.....
+feld_03=6o2.....#.#...#
+feld_04=.aj2...........
+feld_05=..gjn.........#
+feld_06=..a7j2n........
+feld_07=...hbj221.....#
+feld_08=#...caj3j21....
+feld_09=....#4a92j2d...
+feld_10=#....#.alj3i...
+feld_11=......#.ma4ef..
+feld_12=#....#.#.....85
+feld_13=...............
+feld_14=###############
+mole_0=.123...........
+mole_1=..4.........123
+mole_2=..52..82222.24.
+mole_3=..672.9aaaabcad
+mole_4=efghai.jjjjj.k.
+mole_5=..lmj.n.....ojn
+mole_6=.o.j...........
+# 1 - H
+# 2 - C (atoms)
+# 3 - O
+# 4 - N
+# 6 - F
+# o - crystal
+# A - - (single bond)
+#
+#  hab
+#  g*c (bounds)
+#  fed
+#
+#   A
+#  D*B (double bounds)
+#   C
+#
+#   E
+#  H*F (triple bounds)
+#   G
+#
+#atom_num=<atom>-<bounds>
