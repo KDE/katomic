@@ -11,7 +11,7 @@ class GameWidget;
 class KConfig;
 class KAccel;
 
-#include <ktmainwindow.h>
+#include <kmainwindow.h>
 
 /**
  * This is the class AtomTopLevel. The class is used only for the program
@@ -23,7 +23,7 @@ class KAccel;
  *
  */
 
-class AtomTopLevel : public KTMainWindow
+class AtomTopLevel : public KMainWindow
 {
     Q_OBJECT
 

@@ -101,14 +101,14 @@ void AtomTopLevel::saveConfig()
 
 
 AtomTopLevel::AtomTopLevel ( const char* name )
-    : KTMainWindow ( name )
+    : KMainWindow ( 0, name )
 {
     main = new GameWidget(this, "gamewidget");
 
     createMenu();
     initKeys();
     initConfig();
-    setView(main);
+    setCentralWidget(main);
 }
 
 AtomTopLevel::~AtomTopLevel()
