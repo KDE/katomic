@@ -36,7 +36,7 @@ protected:
 private:
   
    QPixmap data;
-   int molek [10] [10]; // the indexes within atoms
+   int molek[10][10]; // the indexes within atoms
    QValueList<atom> atoms;
    QString mname;
 

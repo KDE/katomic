@@ -1,15 +1,14 @@
 [Level]
-Name=
-Name[de]=tertiaeres Isobutanol
-atom_1=1-4
-atom_2=1-8
-atom_3=1-10
-atom_4=2-55
-atom_5=1-1
-atom_6=2-93
-atom_7=3-11
-atom_8=1-30
-atom_9=1-40
+Name=level16
+atom_1=1-c
+atom_2=1-d
+atom_3=1-e
+atom_4=2-aceg
+atom_5=1-a
+atom_6=2-abeh
+atom_7=3-ae
+atom_8=1-ef
+atom_9=1-g
 feld_00=...............
 feld_01=.#####...#####.
 feld_02=.#9.6#...#5.2#.

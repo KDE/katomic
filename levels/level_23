@@ -1,10 +1,9 @@
 [Level]
 Name=Ammoniac
-Name[de]=Ammoniak
-atom_1=1-4
-atom_2=4-4a
-atom_3=1-30
-atom_4=1-80
+atom_1=1-c
+atom_2=4-bdg
+atom_3=1-ef
+atom_4=1-h
 feld_00=...............
 feld_01=.#############.
 feld_02=.##..3#..#..##.

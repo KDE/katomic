@@ -1,15 +1,14 @@
 [Level]
 Name=Crystal 1
-Name[de]=Kristall 1
-atom_1=o-14
-atom_2=o-15
-atom_3=o-5
-atom_4=o-54
-atom_5=o-55
-atom_6=o-45
-atom_7=o-50
-atom_8=o-51
-atom_9=o-41
+atom_1=o-ce
+atom_2=o-ace
+atom_3=o-ac
+atom_4=o-ceg
+atom_5=o-aceg
+atom_6=o-acg
+atom_7=o-eg
+atom_8=o-aeg
+atom_9=o-ag
 feld_00=...............
 feld_01=......##.......
 feld_02=.....####......

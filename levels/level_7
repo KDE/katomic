@@ -1,12 +1,11 @@
 [Level]
 Name=Iso-Propanol (2-Propanol, Propan-2-ol)
-Name[de]=Iso-Propanol
-atom_1=1-4
-atom_2=1-10
-atom_3=2-55
-atom_4=1-1
-atom_5=3-11
-atom_6=1-40
+atom_1=1-c
+atom_2=1-e
+atom_3=2-aceg
+atom_4=1-a
+atom_5=3-ae
+atom_6=1-g
 feld_00=###############
 feld_01=###############
 feld_02=#####1###.#####

@@ -1,10 +1,12 @@
 #ifndef _atom_h_
 #define _atom_h_
 
+#define MAX_CONNS_PER_ATOM 5
+
 class atom {
  public:
     char obj;
-    unsigned int conn;
+    char conn[MAX_CONNS_PER_ATOM + 1];
 
     bool operator==(const atom& rhs) const { return (rhs.obj == obj && rhs.conn == conn); }
     bool isEmpty() const { return (obj == 0 || obj == '.'); }

@@ -1,9 +1,8 @@
 [Level]
-Name=
-Name[de]=Blausaeure
-atom_1=1-10
-atom_2=2-4001
-atom_3=4-1000
+Name=prussic acid
+atom_1=1-e
+atom_2=2-aG
+atom_3=4-E
 feld_00=...............
 feld_01=...............
 feld_02=...####........

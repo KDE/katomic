@@ -13,8 +13,6 @@
 //               oder auch einfach bewegt wird 
 
 
-
-
 #include "molek.moc"
 #include <kiconloader.h>
 #include <kglobal.h>
@@ -23,12 +21,11 @@
 #include <klocale.h>
 #include <ctype.h>
 
-extern int hexValue(char ch);
 extern int level;
 
 Molek::Molek( QWidget *parent, const char *name ) : QWidget( parent, name )
 {
-  data = ICON("molek.png");
+    data = ICON("molek.png");
 }
 
 Molek::~Molek ()
@@ -42,7 +39,7 @@ void Molek::load (const KSimpleConfig& config)
 
     atom none;
     none.obj = 0;
-    none.conn = 0;
+    none.conn[0] = 0;
     atoms.append(none);
 
     atom current;
@@ -57,7 +54,25 @@ void Molek::load (const KSimpleConfig& config)
 	
 	current.obj = value.at(0).latin1();
 	value = value.mid(2);
-	current.conn = value.toInt(0, 16);
+
+	/*
+	uint conn = value.toInt(0, 16);
+	
+	QString line;
+	
+	for (char anz = 0; anz < 16; anz++)
+	    if ((conn & (1 << anz)) == (uint(1) << anz)) {
+		if (anz < 8)
+		    line += 'a' + anz;
+		else
+		    line += 'A' + anz - 8;
+	    }
+	
+	   
+	value.sprintf("%c-%s", current.obj, line.ascii());
+	const_cast<KSimpleConfig&>(config).writeEntry(key, value);
+	*/
+	strcpy(current.conn, value.ascii());
 	atoms.append(current);
 	atom_index++;
     }
@@ -112,40 +127,43 @@ void Molek::paintEvent( QPaintEvent * )
     int x = 10 + i * 15;
     int y = 10 + j * 15;
 
+    if (molek[i][j] == 0)
+	continue;
+    
     // zeichnet Atome
     if (getAtom(molek [i] [j]).obj <= '9' && getAtom(molek [i] [j]).obj >= '1')
     {
-      bitBlt (this, x, y, &data, (getAtom(molek [i] [j]).obj - '1') * 15, 0, 15, 
-              15, CopyROP);
+	bitBlt (this, x, y, &data, (getAtom(molek [i] [j]).obj - '1') * 15, 0, 15, 
+		15, CopyROP);
     }
 
     
     // zeichnet Kristalle
     if (getAtom(molek [i] [j]).obj == 'o')
     {
-      bitBlt (this, x, y, &data, 10 * 15, 0, 15, 15, CopyROP);
+	bitBlt (this, x, y, &data, 10 * 15, 0, 15, 15, CopyROP);
     }
     
 
     // verbindungen zeichnen
     if (isdigit(getAtom(molek[i][j]).obj) || getAtom(molek[i][j]).obj == 'o')
-    {
-      char anz;
-      for (anz = 0; anz < 16; anz++)
-        if ((getAtom(molek[i][j]).conn & (1 << anz)) == (uint(1) << anz))
-        {
-          if (anz < 8)
-            bitBlt (this, x, y, &data, anz * 15, 16, 15, 15, XorROP);
-          else
-            bitBlt (this, x, y, &data, (anz - 8) * 15, 34, 15, 15, XorROP);
-        }
-    }
-
+	for (int c = 0; c < MAX_CONNS_PER_ATOM; c++) {
+	    char conn = getAtom(molek [i] [j]).conn[c];
+	    if (!conn)
+		break;
+	    
+	    if (conn >= 'a' && conn <= 'a' + 8)
+		bitBlt (this, x, y, &data, (conn - 'a') * 15, 16, 15, 15, XorROP);
+	    else
+		bitBlt (this, x, y, &data, (conn - 'A') * 15, 34, 15, 15, XorROP);
+	    
+	}
+    
     
     // zeichnet Verbindungsstäbe 
     if (getAtom(molek[i][j]).obj >= 'A' && getAtom(molek[i][j]).obj <= 'F')
-      bitBlt (this, x, y, &data, (getAtom(molek[i][j]).obj - 'A') * 15 , 0, 15, 15, 
-              CopyROP);
+	bitBlt (this, x, y, &data, (getAtom(molek[i][j]).obj - 'A') * 15 , 0, 15, 15, 
+		CopyROP);
     
   }
   

@@ -1,11 +1,10 @@
 [Level]
 Name=Chloroform
-Name[de]=Chloroform
-atom_1=7-8
-atom_2=7-3
-atom_3=2-aa
-atom_4=1-30
-atom_5=7-80
+atom_1=7-d
+atom_2=7-ab
+atom_3=2-bdfh
+atom_4=1-ef
+atom_5=7-h
 feld_00=...............
 feld_01=......#######..
 feld_02=......#...#.#..

@@ -1,10 +1,9 @@
 [Level]
 Name=Formaldehyde
-Name[de]=Formaldehyd
-atom_1=1-10
-atom_2=2-311
-atom_3=1-1
-atom_4=3-800
+atom_1=1-e
+atom_2=2-aeAB
+atom_3=1-a
+atom_4=3-D
 feld_00=...............
 feld_01=.#############.
 feld_02=.#4....#....2#.

@@ -1,15 +1,14 @@
 [Level]
 Name=Crystal 2
-Name[de]=Kristall 2
-atom_1=o-a
-atom_2=o-3a
-atom_3=o-8a
-atom_4=o-38
-atom_5=o-aa
-atom_6=o-82
-atom_7=o-a8
-atom_8=o-a2
-atom_9=o-a0
+atom_1=o-bd
+atom_2=o-bdef
+atom_3=o-bdh
+atom_4=o-def
+atom_5=o-bdfh
+atom_6=o-bh
+atom_7=o-dfh
+atom_8=o-bfh
+atom_9=o-fh
 feld_00=...............
 feld_01=...............
 feld_02=...............

@@ -1,15 +1,14 @@
 [Level]
 Name=Crystal 3
-Name[de]=Kristall 3
-atom_1=o-6
-atom_2=o-36
-atom_3=o-46
-atom_4=o-66
-atom_5=o-34
-atom_6=o-42
-atom_7=o-64
-atom_8=o-62
-atom_9=o-60
+atom_1=o-bc
+atom_2=o-bcef
+atom_3=o-bcg
+atom_4=o-bcfg
+atom_5=o-cef
+atom_6=o-bg
+atom_7=o-cfg
+atom_8=o-bfg
+atom_9=o-fg
 feld_00=...............
 feld_01=...............
 feld_02=...............

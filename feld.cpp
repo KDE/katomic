@@ -23,17 +23,6 @@
 #include <ksimpleconfig.h>
 #include "molek.h"
 
-int hexValue(char ch) {
-  if (ch >= '0' && ch <= '9')
-    return ch - '0';
-  if (ch >= 'a' && ch <= 'f')
-    return ch - 'a' + 10;
-  if (ch >= 'A' && ch <= 'F')
-    return ch - 'A' + 10;
-  // fatal("found %c", ch);
-  return 0;
-}
-
 Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) : QWidget( parent, name )
 {
   mol = _mol;
@@ -94,8 +83,6 @@ void Feld::mousePressEvent (QMouseEvent *e)
 
   x = e->pos ().x () / 30;
   y = e->pos ().y () / 30;
-
- 
 
   // cursor sichtbar, feld ausgewählt
   if (pressed == false)
@@ -296,97 +283,89 @@ void Feld::timerEvent (QTimerEvent *)
 
 void Feld::paintEvent( QPaintEvent * )
 {
-  int i, j, x, y;
-
-  QPainter paint (this);
-
-  paint.setPen (black);
-  
-
-  if (moving == true)
-  {
-    switch (dir)
-    {
-      case 1 : bitBlt (this, cx, cy - framesbak + frames, &sprite, CopyROP);
-               if ( (framesbak - frames > 1)  )
-	       {
-		 //  debug ("framesbak %d, frames %d", framesbak, frames);
-                 paint.eraseRect (cx, cy - framesbak + frames + 30, 30, 2);
-	       }
-               break;
-      case 3 : bitBlt (this, cx, cy + (framesbak - frames), &sprite, CopyROP);
-               if ( (framesbak - frames > 1) )
-	       {
-                 paint.eraseRect (cx, cy + (framesbak - frames) - 2, 30, 2);
-	       }
-               break;
-      case 2 : bitBlt (this, cx + (framesbak - frames), cy, &sprite, CopyROP);
-               if ( (framesbak - frames > 1) )
-	       {	 
-                 paint.eraseRect (cx + (framesbak - frames) - 2, cy, 2, 30);
-	       }
-               break;
-      case 4 : bitBlt (this, cx - framesbak + frames, cy, &sprite, CopyROP);
-               if ((framesbak - frames > 1))
-	       {
-                 paint.eraseRect (cx - framesbak + frames + 30, cy, 2, 30);
-	       }
-
-    }
-
-  }
-
- 
-  else 
-  {
-    // spielfeld gleich zeichnen 
-
-    for (i = 0; i < 15; i++)
-    for (j = 0; j < 15; j++)
-    {
-      x = i * 30;
-      y = j * 30;
-
-      // zeichnet Randstücke
-      if (feld [i] [j] == 254) {
-        bitBlt (this, x, y, &data, 279, 31, 30, 30, CopyROP);
-	continue;
-      }
-
-      // zeichnet Atome
-      if (getAtom(feld [i] [j]).obj <= '9' && getAtom(feld [i] [j]).obj > '0')
-      {
-        bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - '1') * 31, 0, 30, 
-                30, CopyROP);
-      }
-  
-      // zeichnet Kristalle
-      if (getAtom(feld [i] [j]).obj == 'o')
-      {
-        bitBlt (this, x, y, &data, 31, 93, 30, 30, CopyROP);
-      }
-  
-      // verbindungen zeichnen
-      if (getAtom(feld [i] [j]).obj <= '9' || getAtom(feld [i] [j]).obj == 'o')
-      {
-        char anz;
-        for (anz = 0; anz < 16; anz++)
-          if ((getAtom(feld [i] [j]).conn & (1 << anz)) == (uint(1) << anz))
-          {
-            if (anz < 8)
-              bitBlt (this, x, y, &data, anz * 31, 31, 30, 30, XorROP);
-            else
-              bitBlt (this, x, y, &data, (anz - 8) * 31, 62, 30, 30, XorROP);
-          }
-	continue;
-      }
-
-  
-    // zeichnet Verbindungsstäbe 
-      if (getAtom(feld [i] [j]).obj >= 'A' && getAtom(feld [i] [j]).obj <= 'F')
-        bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - 'A') * 31 , 93, 30, 30, 
-                CopyROP);
-    }
-  }  
-  paint.end ();
+    int i, j, x, y;
+    
+    QPainter paint (this);
+    
+    paint.setPen (black);
+    
+    if (moving == true) {
+	switch (dir) {
+	case 1 : bitBlt (this, cx, cy - framesbak + frames, &sprite, CopyROP);
+	    if ( (framesbak - frames > 1)  )
+		{
+		    //  debug ("framesbak %d, frames %d", framesbak, frames);
+		    paint.eraseRect (cx, cy - framesbak + frames + 30, 30, 2);
+		}
+	    break;
+	case 3 : bitBlt (this, cx, cy + (framesbak - frames), &sprite, CopyROP);
+	    if ( (framesbak - frames > 1) )
+		{
+		    paint.eraseRect (cx, cy + (framesbak - frames) - 2, 30, 2);
+		}
+	    break;
+	case 2 : bitBlt (this, cx + (framesbak - frames), cy, &sprite, CopyROP);
+	    if ( (framesbak - frames > 1) )
+		{	 
+		    paint.eraseRect (cx + (framesbak - frames) - 2, cy, 2, 30);
+		}
+	    break;
+	case 4 : bitBlt (this, cx - framesbak + frames, cy, &sprite, CopyROP);
+	    if ((framesbak - frames > 1))
+		{
+		    paint.eraseRect (cx - framesbak + frames + 30, cy, 2, 30);
+		}
+	    
+	}
+	
+    } else {
+	
+	// spielfeld gleich zeichnen 
+	
+	for (i = 0; i < 15; i++)
+	    for (j = 0; j < 15; j++)
+		{
+		    x = i * 30;
+		    y = j * 30;
+		    
+		    // zeichnet Randstücke
+		    if (feld [i] [j] == 254) {
+			bitBlt (this, x, y, &data, 279, 31, 30, 30, CopyROP);
+			continue;
+		    }
+		    
+		    // zeichnet Atome
+		    if (getAtom(feld [i] [j]).obj <= '9' && getAtom(feld [i] [j]).obj > '0')
+			{
+			    bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - '1') * 31, 0, 30, 
+				    30, CopyROP);
+			}
+		    
+		    // zeichnet Kristalle
+		    if (getAtom(feld [i] [j]).obj == 'o')
+			{
+			    bitBlt (this, x, y, &data, 31, 93, 30, 30, CopyROP);
+			}
+		    
+		    // verbindungen zeichnen
+		    if (getAtom(feld [i] [j]).obj <= '9' || getAtom(feld [i] [j]).obj == 'o')
+			for (int c = 0; c < MAX_CONNS_PER_ATOM; c++) {
+			    char conn = getAtom(feld [i] [j]).conn[c];
+			    if (!conn)
+				break;
+			    
+			    if (conn >= 'a' && conn <= 'a' + 8)
+				bitBlt (this, x, y, &data, (conn - 'a') * 31, 31, 30, 30, XorROP);
+			    else
+				bitBlt (this, x, y, &data, (conn - 'A') * 31, 62, 30, 30, XorROP);
+			    
+			}
+		    
+		    // zeichnet Verbindungsstäbe 
+		    if (getAtom(feld [i] [j]).obj >= 'A' && getAtom(feld [i] [j]).obj <= 'F')
+			bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - 'A') * 31 , 93, 30, 30, 
+				CopyROP);
+		}
+    }  
+    paint.end ();
 }
