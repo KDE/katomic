@@ -1,5 +1,5 @@
 [Level]
-Name=Acetylene
+Name= Propyne (Methyl-acetylene)
 atom_1=1-c
 atom_2=2-gF
 atom_3=1-e
@@ -19,9 +19,9 @@ feld_08=.####.####...#.
 feld_09=.#.#....#....#.
 feld_10=.#...#.....#.#.
 feld_11=.#..###.1.##5#.
-feld_12=.#.7#...3##4.#.
+feld_12=.#.7#....##4.#.
 feld_13=.#############.
 feld_14=...............
-mole_0=..33.
+mole_0=...3.
 mole_1=12457
 mole_2=...6.
