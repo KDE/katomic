@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=KAtomic
-Name[af]=katomic
+Name[af]=Katomic
 Name[eo]=Atomoj
 Name[pl]=Atomy
 Name[sv]=Katomic
@@ -14,7 +14,7 @@ Type=Application
 Exec=katomic %i %m -caption "%c"
 DocPath=katomic/index.html
 GenericName=Logic Game
-GenericName[af]=logika speletjie
+GenericName[af]=Logika Speletjie
 GenericName[ar]=لعبة تكتيكية
 GenericName[be]=Лягічная гульня
 GenericName[bg]=Логическа Игра
