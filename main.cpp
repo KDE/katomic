@@ -21,6 +21,15 @@
 
 #include "toplevel.h"
 #include "kapp.h"
+#include <klocale.h>
+#include <kcmdlineargs.h>
+
+
+static const char *description = 
+	I18N_NOOP("KDE Game");
+
+static const char *version = "v0.0.1";
+
 
 // ##########################
 // #	Main                #
@@ -28,8 +37,10 @@
 
 int main(int argc, char **argv)
 {
+  KCmdLineArgs::init(argc, argv, "katomic", description, version);
+
   QApplication::setColorSpec(QApplication::ManyColor);
-  KApplication a(argc, argv, "katomic" );
+  KApplication a;
   AtomTopLevel *top = new AtomTopLevel("katomic");
   a.setMainWidget(top);
   top->show();
