@@ -19,6 +19,9 @@
 #include <ksimpleconfig.h>
 #include "molek.h"
 #include "feld.h"
+#include "settings.h"
+
+extern Options settings;
 
 Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) : 
   QWidget( parent, name )
@@ -26,7 +29,7 @@ Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) :
   mol = _mol;
   anim = false;
   dir = None;
-  speed = 1;
+  speed = settings.anim_speed;
   sprite = QPixmap (30, 30);
 
   cx = -1;
@@ -78,13 +81,11 @@ void Feld::load (const KSimpleConfig& config)
   moves = 0;
   chosen = false;
   moving = false;
-  
+
   emitStatus();
 
   repaint ();
 }
-
-
 
 void Feld::mousePressEvent (QMouseEvent *e)
 {
@@ -335,7 +336,7 @@ void Feld::paintEvent( QPaintEvent * )
 {
     int i, j, x, y;
     
-    QPainter paint (this);
+    QPainter paint ( this );
     
     paint.setPen (black);
     

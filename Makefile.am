@@ -6,7 +6,7 @@ LDADD = $(LIB_KDEUI)
 
 SUBDIRS = . levels
 
-katomic_SOURCES = feld.cpp highscore.cpp molek.cpp mywidget.cpp levelnames.cpp
+katomic_SOURCES = feld.cpp highscore.cpp molek.cpp mywidget.cpp levelnames.cpp configbox.cpp
 
 pics_DATA = abilder.png molek.png
 picsdir = $(kde_datadir)/katomic/pics

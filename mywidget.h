@@ -117,6 +117,9 @@ class MyWidget : public KTMainWindow
   // Shows a window for configuring the keybindings
   void configkeys();
 
+  // Shows a dialog for options other than keys
+  void configopts();
+
   // Shows information about the program
   void about();
 

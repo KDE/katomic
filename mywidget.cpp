@@ -31,6 +31,11 @@
 // enhält highscores
 #include "highscore.h"
 
+// include options
+#include "settings.h"
+
+// include configbox
+#include "configbox.h"
 
 #include "mywidget.moc"
 
@@ -43,6 +48,8 @@
 
 #define MPOSX 480
 #define MPOSY 100
+
+Options settings;
 
 // ##########################
 // #	class MyWidget      #
@@ -62,6 +69,8 @@ void MyWidget::createMenu()
   options = new QPopupMenu();
   options->insertItem(i18n("&Configure keys"), this,
                       SLOT(configkeys()) );
+  options->insertItem(i18n("&Options"), this,
+		      SLOT(configopts()) );
 
   help = new QPopupMenu();
   help->insertItem(i18n("&Help"), this, SLOT(helpmenu()) );
@@ -79,7 +88,7 @@ void MyWidget::createMenu()
 
 void MyWidget::helpmenu()
 {
-	KApplication::getKApplication()->invokeHTMLHelp("","");
+  KApplication::getKApplication()->invokeHTMLHelp("","");
 }
 
 void MyWidget::configkeys()
@@ -87,6 +96,10 @@ void MyWidget::configkeys()
   KKeyDialog::configureKeys(accel);
 }
 
+void MyWidget::configopts()
+{
+  (new ConfigBox(this, "Options"))->show();
+}
 
 void MyWidget::initKeys()
 {
@@ -103,6 +116,13 @@ void MyWidget::initKeys()
   accel->insertItem(i18n("Highscores"), "highscore", "CTRL+H");
   accel->connectItem ("highscore", this, 
 		      SLOT (showHighscores ()));
+  // moving keys
+  accel->insertItem(i18n("Atom Up"), "up", "J");
+  accel->insertItem(i18n("Atom Down"), "down", "N");
+  accel->insertItem(i18n("Atom Left"), "left", "S");
+  accel->insertItem(i18n("Atom Right"), "right", "D");
+  accel->insertItem(i18n("Next Atom"), "down", "Space");
+
 }
 
 
@@ -146,16 +166,37 @@ void MyWidget::updateLevel (int l)
 
 void MyWidget::initConfig()
 {
+
+
   config = kapp->getConfig();	
+
+  /* CT this segfaults :-(
+  accel->readSettings(config);
+  */
+
   config->setGroup("Options");
+  settings.anim_speed = config->readNumEntry("Animation Speed", 1);
+  if (settings.anim_speed < 1 || settings.anim_speed > MAX_SPEED)
+    settings.anim_speed = 1;
+
   config->setGroup("Colors");
+
+  settings.changed = false;
 }
 
 void MyWidget::saveConfig()
 {
-  config->setGroup("Options");
-  config->setGroup("Colors");
+  /* CT would this segfault too?
+  accel->writeSettings(config);
+  */
+
+  if (settings.changed) {
+    config->setGroup("Options");
+    config->writeEntry("Animation Speed", settings.anim_speed);
+    config->setGroup("Colors");
+  }
   config->sync();
+
 }
 
 
