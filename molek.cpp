@@ -19,13 +19,16 @@
 #include <kiconloader.h>
 #include <kglobal.h>
 #include <kstddirs.h>
+#include <ksimpleconfig.h>
+#include <klocale.h>
 
+extern int hexValue(char ch);
 
 Molek::Molek( QWidget *parent, const char *name ) : QWidget( parent, name )
 {
   level = 1;
   data = ICON("molek.png");
-
+  
   loadFeldFromDat (1);
 }
 
@@ -35,48 +38,61 @@ Molek::~Molek ()
 
 void Molek::loadFeldFromDat (int l)
 {
-  int i, j;
-  FILE *levelfile = stdin;
   level = l;
 
-  l--;
-  if ((levelfile = fopen (locate("appdata", "fa.dat"), "rb")) == NULL)
-    debug ("Fehler beim Öffnen der Leveldatei (fa.dat) !");
+  QString level = QString("levels/level_%1").arg(l);
+  KSimpleConfig config(locate("appdata", level), true);
+  config.setGroup("Level");
 
-  fseek (levelfile, 975 * (long) l + 675, SEEK_SET);
-  
-  // moleküle einlesen  
-  for (i = 0; i < 10; i++)
-  for (j = 0; j < 10; j++)
-  { 
-    molek [i] [j].obj = fgetc (levelfile);
-    molek [i] [j].verb = fgetc (levelfile);
-    molek [i] [j].verb += (fgetc (levelfile) << 8);
-  }
-  fclose (levelfile);
+  QString key;
+  for (int i = 0; i < 10; i++) {
+    
+    key = QString("mole_obje_%1").arg(i);
+    const QString obj_line = config.readEntry(key);
+    key = QString("mole_verb_%1").arg(i);
+    const QString verb_line = config.readEntry(key);
+    
+    if (verb_line.isEmpty())
+      continue;
+    if (obj_line.isEmpty())
+      continue;
 
+    int verb_index = 0;
+    int obj_index = 0;
 
-  // name des moleküls auch noch lesen 
-  if ((levelfile = fopen (locate("appdata", "fn.dat"), "rt")) == NULL)
-    debug ("Fehler beim Öffnen der Namensdatei (n.dat) !");
+    QString line1, line2;
 
-  i = 0;
-  while (i++ < l + 1)
-    fgets (mname, 30, levelfile);
-  fclose (levelfile);
+    for (int j = 0; j < 10; j++)
+      { 
+	molek [i] [j].obj = 
+	  hexValue(obj_line.at(obj_index++)) * 16 + 
+	  hexValue(obj_line.at(obj_index++));
+	
+	molek [i][j].verb = 
+	  hexValue(verb_line.at(verb_index++)) * 4096 + 
+	  hexValue(verb_line.at(verb_index++)) * 256 + 
+	  hexValue(verb_line.at(verb_index++)) * 16 + 
+	  hexValue(verb_line.at(verb_index++));
+
+      }
+
+    }
+
+  mname = config.readEntry("Name", i18n("Noname"));
 
   repaint ();
 }
 
 void Molek::paintEvent( QPaintEvent * )
 {
-  char st [15];
+  
   int i, j, x, y;
-  sprintf (st, "Level : %3d", level);
+  QString st = i18n("Level : %1").arg(level);
+
   QPainter paint (this);
   paint.setPen (QColor (190, 190, 190));
-  paint.drawText (7, 152, mname, strlen (mname));
-  paint.drawText (7, 170, st, strlen (st));
+  paint.drawText (7, 152, mname);
+  paint.drawText (7, 170, st);
   // spielfeld gleich zeichnen 
   for (i = 0; i < 10; i++)
   for (j = 0; j < 10; j++)

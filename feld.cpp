@@ -66,21 +66,17 @@ Feld::~Feld ()
 void Feld::loadFeldFromDat (int l)
 {
   debug ("in loadfeld");
-  int i, j;
  
   level = l;
   debug ("level : %d", level);
-
-    
+      
   QString key;
   
-
-
-  QString level = QString("level_%1").arg(l);
-  KSimpleConfig config(locateLocal("appdata", level), true);
+  QString level = QString("levels/level_%1").arg(l);
+  KSimpleConfig config(locate("appdata", level), true);
   config.setGroup("Level");
 
-  for (i = 0; i < 15; i++) {
+  for (int i = 0; i < 15; i++) {
     
     key = QString("feld_obje_%1").arg(i);
     const QString obj_line = config.readEntry(key);
@@ -90,7 +86,7 @@ void Feld::loadFeldFromDat (int l)
     int verb_index = 0;
     int obj_index = 0;
 
-    for (j = 0; j < 15; j++)
+    for (int j = 0; j < 15; j++)
       {
 	feld [i] [j].obj = 
 	  hexValue(obj_line.at(obj_index++)) * 16 + 
@@ -104,7 +100,7 @@ void Feld::loadFeldFromDat (int l)
 	
       }
   }
-  for (i = 0; i < 10; i++) {
+  for (int i = 0; i < 10; i++) {
     
     key = QString("mole_obje_%1").arg(i);
     const QString obj_line = config.readEntry(key);
@@ -121,7 +117,7 @@ void Feld::loadFeldFromDat (int l)
 
     QString line1, line2;
 
-    for (j = 0; j < 10; j++)
+    for (int j = 0; j < 10; j++)
       { 
 	molek [i] [j].obj = 
 	  hexValue(obj_line.at(obj_index++)) * 16 + 
@@ -138,8 +134,8 @@ void Feld::loadFeldFromDat (int l)
     }
 
   // höhe und breite des moleküls berechnen und ausgeben, checkdone 
-  for (i = 0, breite = 0, hohe = 0; i < 10; i++)
-  for (j = 0; j < 10; j++)
+  for (int i = 0, breite = 0, hohe = 0; i < 10; i++)
+  for (int j = 0; j < 10; j++)
   {
     if ((molek [i] [j].verb != 0) && (i > breite)) breite = i;
     if ((molek [i] [j].verb != 0) && (j > hohe)) hohe = j;

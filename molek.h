@@ -45,8 +45,7 @@ private:
     unsigned int verb;
   } molek [10] [10];
 
-  // name of molekul
-  char mname [30];
+  QString mname;
 
   int level;
 };
