@@ -59,7 +59,7 @@ class AtomTopLevel : public KTMainWindow
   KConfig *config;
   KAccel *accel;
 
-  QPopupMenu *file, *options, *help;
+  QPopupMenu *file, *options;
        
   GameWidget *main;
   
@@ -74,11 +74,6 @@ public slots:
   // Shows a dialog for options other than keys
   void configopts();
 
-  // Shows information about the program
-  void about();
-
-  // Show the online-help
-  void helpmenu();
 };
 
 #endif

@@ -31,7 +31,6 @@
 #include <klocale.h>
 #include "settings.h"
 #include "configbox.h"
-#include <kmsgbox.h>
 
 extern Options settings;
 
@@ -50,22 +49,16 @@ void AtomTopLevel::createMenu()
     options->insertItem(i18n("&Options"), this,
 			SLOT(configopts()) );
 
-    help = new QPopupMenu();
-    help->insertItem(i18n("&Help"), this, SLOT(helpmenu()) );
-    help->insertItem(i18n("&About..."), this, SLOT(about()) );
-	
     KMenuBar *menu = menuBar();
     menu->insertItem(i18n("&File"), file);
     menu->insertItem(i18n("&Options"), options);
     menu->insertSeparator(-1);
-    menu->insertItem(i18n("&Help"), help);
+    menu->insertItem(i18n("&Help"), kapp->getHelpMenu(false, 
+		    i18n("Atomic 2.0 by Stephan Kulow <coolo@kde.org>\n"
+			 "and Cristian Tibirna <tibirna@kde.org>\n"
+			 "based on Atomic 1.0.67 by Andreas Wüst (if0626@pc4.fh-isny.de)\n")));
 }
 
-
-void AtomTopLevel::helpmenu()
-{
-    KApplication::getKApplication()->invokeHTMLHelp("","");
-}
 
 void AtomTopLevel::configkeys()
 {
@@ -85,8 +78,6 @@ void AtomTopLevel::initKeys()
 	
     accel->insertItem(i18n("About"), "about", "CTRL+A");
     accel->connectItem("about", this, SLOT(about()) );
-    accel->insertStdItem(KAccel::Help, i18n("Help"));
-    accel->connectItem(KAccel::Help, this, SLOT(helpmenu()) );
     accel->insertStdItem(KAccel::Quit, i18n("Quit"));
     accel->connectItem(KAccel::Quit, this, SLOT(quitapp()) );
     accel->insertItem(i18n("Highscores"), "highscore", "CTRL+H");
@@ -142,7 +133,6 @@ AtomTopLevel::~AtomTopLevel()
 {
     delete file;
     delete options;
-    delete help;
     delete main;
 }
 
@@ -150,14 +140,6 @@ void AtomTopLevel::quitapp()
 {
     saveConfig();
     kapp->quit();	
-}
-
-void AtomTopLevel::about()
-{
-    QString q = i18n("Atomic 2.0 by Stephan Kulow <coolo@kde.org>\n"
-		     "and Cristian Tibirna <tibirna@kde.org>\n"
-		     "based on Atomic 1.0.67 by Andreas Wüst (if0626@pc4.fh-isny.de)\n");
-    KMsgBox::message(this, kapp->getCaption(), q );
 }
 
 #include "toplevel.moc"
