@@ -35,14 +35,14 @@
 #include "configbox.h"
 #include <kaction.h>
 #include <kstdaction.h>
+#include <kstdgameaction.h>
 #include <kdebug.h>
 
 extern Options settings;
 
 void AtomTopLevel::createMenu()
 {
-    game_highscore = new KAction(i18n("Sh&ow Highscore"), CTRL+Key_H, main,
-                                 SLOT (showHighscores ()), actionCollection(), "game_highscores");
+    KStdGameAction::highscores(main, SLOT(showHighscores()), actionCollection());
     game_exit = KStdAction::quit(this, SLOT(quitapp()), actionCollection(), "game_quit");
 
     KStdAction:: keyBindings(this, SLOT(configkeys()), actionCollection());

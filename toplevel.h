@@ -62,7 +62,7 @@ class AtomTopLevel : public KMainWindow
   KConfig *config;
   KAccel *accel;
 
-  KAction *game_exit, *game_highscore;
+  KAction *game_exit;
 
   GameWidget *main;
 
