@@ -81,7 +81,7 @@ void Molek::load (const KSimpleConfig& config)
 	    molek[i][j] = atom2int(line.at(i).latin1());
     }
 
-    mname = i18n(config.readEntry("Name", I18N_NOOP("Noname")));
+    mname = i18n(config.readEntry("Name", I18N_NOOP("Noname")).latin1());
 
     int& height = _size.rheight();
     int& width = _size.rwidth();
