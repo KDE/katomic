@@ -1,6 +1,6 @@
 /* toplevel.cpp
  
-  Copyright (C) 1998   Andreas Wüst (if0626@pc4.fh-isny.de)
+  Copyright (C) 1998   Andreas Wüst (AndreasWuest@gmx.de)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by

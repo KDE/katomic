@@ -1,6 +1,6 @@
 /* toplevel.cpp
  
-  Copyright (C) 1998   Andreas Wüst (if0626@pc4.fh-isny.de)
+  Copyright (C) 1998   Andreas Wüst (AndreasWuest@gmx.de)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -57,7 +57,7 @@ void AtomTopLevel::createMenu()
     menu->insertItem(i18n("&Help"), kapp->getHelpMenu(false, 
 		    i18n("Atomic 2.0 by Stephan Kulow <coolo@kde.org>\n"
 			 "and Cristian Tibirna <tibirna@kde.org>\n"
-			 "based on Atomic 1.0.67 by Andreas Wüst (if0626@pc4.fh-isny.de)\n")));
+			 "based on Atomic 1.0.67 by Andreas Wüst (AndreasWuest@gmx.de)\n")));
 }
 
 
