@@ -19,6 +19,8 @@
 #include <kstddirs.h>
 #include <ksimpleconfig.h>
 #include <klocale.h>
+#include <kdebug.h>
+
 #include <ctype.h>
 
 extern int level;
@@ -62,7 +64,7 @@ void Molek::load (const KSimpleConfig& config)
 
 	strcpy(current.conn, value.ascii());
 	if (atoms.find(current) != atoms.end()) {
-	    warning("OOOPS");
+	    kdWarning() << "OOOPS" << endl;
 	}
 	atoms.append(current);
 	atom_index++;
