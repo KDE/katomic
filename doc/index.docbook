@@ -25,6 +25,7 @@
 <contrib>Reviewer</contrib>
 <affiliation><address><email>mpmcbride7@yahoo.com</email></address></affiliation>
 </othercredit>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
 <date>15/12/2000</date>
@@ -275,6 +276,7 @@ Documentation Copyright 2000 Dirk Doerflinger
 Proofreading by Michael McBride
 <email>mpmcbride7@yahoo.com</email>
 </para>
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
 &underFDL;
 &underGPL;
