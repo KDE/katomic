@@ -14,6 +14,9 @@ picsdir = $(kde_datadir)/katomic/pics
 icondir = $(kde_icondir)
 icon_DATA = katomic.xpm
 
+appsdir = $(kde_appsdir)/Games 
+apps_DATA = katomic.desktop 
+
 METASOURCES = AUTO
 
 levelnames:

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Atomic Entertainment
+Type=Application
+Exec=katomic -caption "%c"
+DocPath=katomic/index.html
+Comment=Build molecules in fewer moves possible
+Comment[de]=Molekules gebauen
+Comment[fr]=Construizes des molecules dans le moindre nombre de mouvements possible
+Comment[ro]=Construieste molecule in cat mai putine mutari
