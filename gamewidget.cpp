@@ -97,12 +97,13 @@ void GameWidget::getMoves(int moves)
 
 void GameWidget::updateLevel (int l)
 {
-    if(l > 67 || l < 1)
-        l = 1;
-
     level=l;
-    QString level = QString("levels/level_%1").arg(l);
-    KSimpleConfig cfg(locate("appdata", level), true);
+    QString level = locate("appdata", QString("levels/level_%1").arg(l));
+    if (level.isNull()) {
+	return updateLevel(1);
+    }
+
+    KSimpleConfig cfg(level, true);
     cfg.setGroup("Level");
     feld->load(cfg);
 
@@ -123,6 +124,8 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
     : QWidget( parent, name )
 {
     level = 1;
+    nlevels = KGlobal::dirs()->findAllResources("appdata", "levels/level_*",
+				false, true).count();
 
     QHBoxLayout *top = new QHBoxLayout(this, 10);
 
@@ -137,7 +140,8 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
     top->addWidget(vb);
 
     // scrollbar
-    scrl = new QScrollBar(1, 67, 1, 5, 1, QScrollBar::Horizontal, vb, "scrl" );
+    scrl = new QScrollBar(1, nlevels, 1, 
+			5, 1, QScrollBar::Horizontal, vb, "scrl" );
     // scrl->setGeometry( MPOSX, 50, 160, 16 );
     connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
 

@@ -42,11 +42,12 @@ int main(int argc, char **argv)
   KAboutData aboutData( "katomic", I18N_NOOP("KAtomic"),
     version, description, KAboutData::License_GPL,
     "(c) 1998, Andreas Wüst");
-  aboutData.addAuthor("Andreas Wüst", 0, "AndreasWuest@gmx.de");
+  aboutData.addAuthor("Andreas Wuest", 0, "AndreasWuest@gmx.de");
   aboutData.addAuthor("Stephan Kulow", 0, "coolo@kde.org");
   aboutData.addAuthor("Cristian Tibirna", 0, "tibirna@kde.org");
   aboutData.addCredit("Carsten Pfeiffer");
   aboutData.addCredit("Dave Corrie");
+  aboutData.addCredit("Kai Jung", I18N_NOOP("6 new levels"), "jung@fh-fresenius.de");
 
   KCmdLineArgs::init( argc, argv, &aboutData );
 

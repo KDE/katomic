@@ -35,3 +35,8 @@ levelnames:
 messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/katomic.pot
 
+install-data-local:
+	$(mkinstalldirs) $(DESTDIR)$(kde_datadir)/katomic
+	-rm -rf $(DESTDIR)$(kde_datadir)/katomic/levels
+	cp -r $(srcdir)/levels $(DESTDIR)$(kde_datadir)/katomic/levels
+

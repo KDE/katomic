@@ -34,6 +34,8 @@ class GameWidget : public QWidget
     QLabel *hs, *ys;
     QString highest, current;
 	
+    int nlevels;
+
  public slots:
     // bringt level auf neuesten stand
     void updateLevel (int);
