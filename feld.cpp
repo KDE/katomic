@@ -448,7 +448,9 @@ void Feld::paintMovingAtom()
 		if(framesbak - frames > 0)
 			paint.eraseRect(cx - framesbak + frames + 30, cy, a, 30);
 		break;
-	}
+    case None:
+        break;
+    }
 }
 
 void Feld::putNonAtom (int x, int y, Direction which, bool brick)
@@ -456,11 +458,11 @@ void Feld::putNonAtom (int x, int y, Direction which, bool brick)
   int xarr=0, yarr=0;
   switch (which)
     {
-    case Feld::None      : xarr = 279, yarr = 31 * (brick?1:2); break;
-    case Feld::MoveUp    : xarr = 248; yarr = 62; break;
-    case Feld::MoveLeft  : xarr = 217; yarr = 93; break;
-    case Feld::MoveDown  : xarr = 248; yarr = 93; break;
-    case Feld::MoveRight : xarr = 279; yarr = 93; break;
+    case None      : xarr = 279, yarr = 31 * (brick?1:2); break;
+    case MoveUp    : xarr = 248; yarr = 62; break;
+    case MoveLeft  : xarr = 217; yarr = 93; break;
+    case MoveDown  : xarr = 248; yarr = 93; break;
+    case MoveRight : xarr = 279; yarr = 93; break;
     }
 
   bitBlt(this, x * 30, y * 30, &data, xarr, yarr, 30, 30, CopyROP);

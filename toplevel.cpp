@@ -42,11 +42,10 @@ extern Options settings;
 void AtomTopLevel::createMenu()
 {
     KStdGameAction::highscores(main, SLOT(showHighscores()), actionCollection());
-    game_exit = KStdGameAction::quit(this, SLOT(quitapp()), actionCollection());
+    KStdGameAction::quit(this, SLOT(quitapp()), actionCollection());
+    KStdGameAction::restart(main, SLOT(restartLevel()), actionCollection());
 
-    new KAction(i18n("&Restart Level"), "reload", Key_Escape, main, SLOT(restartLevel()), actionCollection(), "game_new");
-
-    KStdAction:: keyBindings(this, SLOT(configkeys()), actionCollection());
+    KStdAction::keyBindings(this, SLOT(configkeys()), actionCollection());
     KStdAction::preferences(this, SLOT(configopts()), actionCollection());
 
     new KAction(i18n("Atom Up"), Key_Up, main, SLOT(moveUp()), actionCollection(), "atom_up");
@@ -86,10 +85,8 @@ void AtomTopLevel::saveConfig()
 }
 
 
-AtomTopLevel::AtomTopLevel ( const char* name )
-    : KMainWindow ( 0, name )
+AtomTopLevel::AtomTopLevel()
 {
-    setCaption("");
     main = new GameWidget(this, "gamewidget");
     createMenu();
     initConfig();

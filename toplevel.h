@@ -27,19 +27,11 @@ class AtomTopLevel : public KMainWindow
     Q_OBJECT
 
  public:
-	
-  // The constructor method for class KFortune
-  //
-  // @see AtomTopLevel
-  // @param parent Parent widget, used for QWidget
-  // @param name	Name for QWidget
-	 	
-  AtomTopLevel ( const char *name=0 );
-	
-  // The destrucor method for class KFortune
-	
+
+  AtomTopLevel();
+
   ~AtomTopLevel();
-		
+
  protected:
 
   // Creates the menubar and connects the menu-entries to the
@@ -56,8 +48,6 @@ class AtomTopLevel : public KMainWindow
   virtual bool queryExit();
 
   KConfig *config;
-
-  KAction *game_exit;
 
   GameWidget *main;
 
