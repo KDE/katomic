@@ -403,8 +403,39 @@ void Feld::timerEvent (QTimerEvent *)
     if (frames < 0)
 	  frames = 0;
 
-    repaint (false);
+    paintMovingAtom();
   }
+}
+
+void Feld::paintMovingAtom()
+{
+	int a = settings.anim_speed;
+
+	QPainter paint(this);
+
+	switch(dir)
+	{
+	case MoveUp:
+		bitBlt(this, cx, cy - framesbak + frames, &sprite, CopyROP);
+		if(framesbak - frames > 0)
+			paint.eraseRect(cx, cy - framesbak + frames + 30, 30, a);
+		break;
+	case MoveDown:
+		bitBlt(this, cx, cy + framesbak - frames, &sprite, CopyROP);
+		if(framesbak - frames > 0)
+			paint.eraseRect(cx, cy + framesbak - frames - a, 30, a);
+		break;
+	case MoveRight:
+		bitBlt(this, cx + framesbak - frames, cy, &sprite, CopyROP);
+		if(framesbak - frames > 0)
+			paint.eraseRect(cx + framesbak - frames - a, cy, a, 30);
+		break;
+	case MoveLeft:
+		bitBlt(this, cx - framesbak + frames, cy, &sprite, CopyROP);
+		if(framesbak - frames > 0)
+			paint.eraseRect(cx - framesbak + frames + 30, cy, a, 30);
+		break;
+	}
 }
 
 void Feld::putNonAtom (int x, int y, Direction which, bool brick)
@@ -424,46 +455,21 @@ void Feld::putNonAtom (int x, int y, Direction which, bool brick)
 
 void Feld::paintEvent( QPaintEvent * )
 {
-    int i, j, x, y, a = settings.anim_speed;
+    int i, j, x, y;
 
     QPainter paint ( this );
 
     paint.setPen (black);
 
-    if (moving) {
-	switch (dir) {
-	case MoveUp :
-	  bitBlt (this, cx, cy - framesbak + frames, &sprite, CopyROP);
-	  if ( framesbak - frames > 0 )
-	    paint.eraseRect (cx, cy - framesbak + frames + 30, 30, a);
-	  break;
-	case MoveDown :
-	  bitBlt (this, cx, cy + framesbak - frames, &sprite, CopyROP);
-	  if ( framesbak - frames > 0 )
-	    paint.eraseRect (cx, cy + framesbak - frames - a, 30, a);
-	  break;
-	case MoveRight :
-	  bitBlt (this, cx + framesbak - frames, cy, &sprite, CopyROP);
-	  if ( framesbak - frames > 0 )
-	    paint.eraseRect (cx + framesbak - frames - a, cy, a, 30);
-	  break;
-	case MoveLeft :
-	  bitBlt (this, cx - framesbak + frames, cy, &sprite, CopyROP);
-	  if ( framesbak - frames > 0 )
-	    paint.eraseRect (cx - framesbak + frames + 30, cy, a, 30);
-	  break;
-	default:
-	  return;
-
-	}
-
-    } else {
-
 	// spielfeld gleich zeichnen
 
 	for (i = 0; i < 15; i++)
+	{
 	    for (j = 0; j < 15; j++)
 		{
+		    if(moving && i == xpos && j == ypos)
+		      continue;
+
 		    x = i * 30;
 		    y = j * 30;
 
@@ -531,7 +537,6 @@ void Feld::paintEvent( QPaintEvent * )
 				CopyROP);
 		}
     }
-    paint.end ();
 }
 
 

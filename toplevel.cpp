@@ -46,6 +46,8 @@ void AtomTopLevel::createMenu()
     KStdGameAction::highscores(main, SLOT(showHighscores()), actionCollection());
     game_exit = KStdAction::quit(this, SLOT(quitapp()), actionCollection(), "game_quit");
 
+    new KAction(i18n("&Restart Level"), "reload", Key_Escape, main, SLOT(restartLevel()), actionCollection(), "game_new");
+
     KStdAction:: keyBindings(this, SLOT(configkeys()), actionCollection());
     KStdAction::preferences(this, SLOT(configopts()), actionCollection());
 

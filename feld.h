@@ -48,6 +48,7 @@ protected:
     bool checkDone();
     void timerEvent (QTimerEvent *);
     void paintEvent( QPaintEvent * );
+    void paintMovingAtom();
     void mousePressEvent (QMouseEvent *);
     void mouseMoveEvent (QMouseEvent *);
     void emitStatus();

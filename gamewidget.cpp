@@ -125,6 +125,10 @@ void GameWidget::updateLevel (int l)
     feld->repaint();
 }
 
+void GameWidget::restartLevel()
+{
+    updateLevel(level);
+}
 
 GameWidget::GameWidget ( QWidget *parent, const char* name )
     : QWidget( parent, name )

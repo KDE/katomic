@@ -24,6 +24,9 @@ class GameWidget : public QWidget
     // bringt level auf neuesten stand
     void updateLevel (int);
 
+    // restart current level
+    void restartLevel();
+
     // getbutton erhält button der gedrückt wurde
     void getButton (int);
 
