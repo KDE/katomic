@@ -7,7 +7,7 @@
 #ifndef HIGHSCORE_H
 #define HIGHSCORE_H
 
-#include <kapp.h>
+#include <kapplication.h>
 #include <klineedit.h>
 #include <qdialog.h>
 #include <qlabel.h>
