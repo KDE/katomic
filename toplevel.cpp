@@ -77,8 +77,6 @@ void AtomTopLevel::initKeys()
     // the standard Kde keybinding
     accel = new KAccel(this);
 	
-    accel->insertItem(i18n("About"), "about", "CTRL+A");
-    accel->connectItem("about", this, SLOT(about()) );
     accel->insertStdItem(KAccel::Quit, i18n("Quit"));
     accel->connectItem(KAccel::Quit, this, SLOT(quitapp()) );
     accel->insertItem(i18n("Highscores"), "highscore", "CTRL+H");
@@ -89,7 +87,7 @@ void AtomTopLevel::initKeys()
     accel->insertItem(i18n("Atom Down"), "down", "N");
     accel->insertItem(i18n("Atom Left"), "left", "S");
     accel->insertItem(i18n("Atom Right"), "right", "D");
-    accel->insertItem(i18n("Next Atom"), "down", "Space");
+    accel->insertItem(i18n("Next Atom"), "next", "Space");
 
 }
 
