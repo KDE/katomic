@@ -322,19 +322,19 @@ void Feld::paintEvent( QPaintEvent * )
 			}
 		    //CT now drawing corresponding arrows
 		    if (validDirs[Feld::MoveUp]) {
-		      bitBlt(this, x, y-30, &data, 268, 31, 30, 30, CopyROP);
+		      bitBlt(this, x, y-30, &data, 268, 62, 30, 30, CopyROP);
 		      feld [i] [j-1] = 150;
 		    }
 		    if (validDirs[Feld::MoveLeft]) {
-		      bitBlt(this, x-30, y, &data, 257, 62, 30, 30, CopyROP);
+		      bitBlt(this, x-30, y, &data, 257, 93, 30, 30, CopyROP);
 		      feld [i-1] [j] = 151;
 		    }
 		    if (validDirs[Feld::MoveDown]) {
-		      bitBlt(this, x, y+30, &data, 268, 62, 30, 30, CopyROP);
+		      bitBlt(this, x, y+30, &data, 268, 93, 30, 30, CopyROP);
 		      feld [i] [j+1] = 152;
 		    }
 		    if (validDirs[Feld::MoveRight]) {
-		      bitBlt(this, x+30, y, &data, 279, 62, 30, 30, CopyROP);
+		      bitBlt(this, x+30, y, &data, 279, 93, 30, 30, CopyROP);
 		      feld [i+1] [j] = 153;
 		    }
 		    
