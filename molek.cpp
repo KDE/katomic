@@ -28,6 +28,7 @@ extern int level;
 Molek::Molek( QWidget *parent, const char *name ) : QWidget( parent, name )
 {
     data = BarIcon("molek");
+    setBackgroundColor (QColor (0, 0, 0));
 }
 
 Molek::~Molek ()
@@ -58,7 +59,7 @@ void Molek::load (const KSimpleConfig& config)
 	value = config.readEntry(key);
 	if (value.isEmpty())
 	    break;
-	
+
 	current.obj = value.at(0).latin1();
 	value = value.mid(2);
 
@@ -115,39 +116,39 @@ void Molek::paintEvent( QPaintEvent * )
 		for (int j = 0; j < 10; j++) {
 			int x = 10 + i * 15;
 			int y = 10 + j * 15;
-			
+
 			if (molek[i][j] == 0)
 				continue;
-			
+
 			// paints atoms
 			if (getAtom(molek [i] [j]).obj <= '9' && getAtom(molek [i] [j]).obj >= '1')
 				bitBlt (this, x, y, &data, (getAtom(molek [i] [j]).obj - '1') * 15, 0, 15,
 						15, CopyROP);
-			
+
 			// paints cristals
 			if (getAtom(molek [i] [j]).obj == 'o')
 				bitBlt (this, x, y, &data, 10 * 15, 0, 15, 15, CopyROP);
-			
+
 			// paints connections
 			if (isdigit(getAtom(molek[i][j]).obj) || getAtom(molek[i][j]).obj == 'o')
 				for (int c = 0; c < MAX_CONNS_PER_ATOM; c++) {
 					char conn = getAtom(molek [i] [j]).conn[c];
 					if (!conn)
 						break;
-					
+
 					if (conn >= 'a' && conn <= 'a' + 8)
 						bitBlt (this, x, y, &data, (conn - 'a') * 15, 16, 15, 15, XorROP);
 					else
 						bitBlt (this, x, y, &data, (conn - 'A') * 15, 34, 15, 15, XorROP);
-					
+
 				}
-			
-			
+
+
 			// paints connections
 			if (getAtom(molek[i][j]).obj >= 'A' && getAtom(molek[i][j]).obj <= 'F')
 				bitBlt (this, x, y, &data, (getAtom(molek[i][j]).obj - 'A' + 11) * 15 , 0, 15, 15,
 						CopyROP);
-			
+
 		}
 
     paint.end ();

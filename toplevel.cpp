@@ -40,13 +40,13 @@ extern Options settings;
 
 void AtomTopLevel::createMenu()
 {
-	game_highscore = new KAction(i18n("S&how Highscore"), CTRL+Key_H, main,
+	game_highscore = new KAction(i18n("Sh&ow Highscore"), CTRL+Key_H, main,
 								 SLOT (showHighscores ()), actionCollection(), "game_highscores");
 	game_exit = KStdAction::quit(this, SLOT(quitapp()), actionCollection(), "game_quit");
 
         KStdAction:: keyBindings(this, SLOT(configkeys()), actionCollection());
         KStdAction::preferences(this, SLOT(configopts()), actionCollection());
-	
+
 	new KAction(i18n("Atom Up"), Key_Up, main, SLOT(moveUp()), actionCollection(), "atom_up");
         new KAction(i18n("Atom Down"), Key_Down, main, SLOT(moveDown()), actionCollection(), "atom_down");
         new KAction(i18n("Atom Left"), Key_Left, main, SLOT(moveLeft()), actionCollection(), "atom_left");
@@ -73,7 +73,7 @@ void AtomTopLevel::initKeys()
     // here we create to shortcuts according to
     // the standard Kde keybinding
     accel = new KAccel(this);
-	
+
 	QValueList<KAction*> actions = actionCollection()->actions();
 	for (QValueList<KAction*>::ConstIterator it = actions.begin(); it != actions.end(); it++)
 	  (*it)->plugAccel(accel);
@@ -110,6 +110,8 @@ AtomTopLevel::AtomTopLevel ( const char* name )
     initKeys();
     initConfig();
     setCentralWidget(main);
+    adjustSize();
+    setFixedSize(sizeHint());
 }
 
 AtomTopLevel::~AtomTopLevel()

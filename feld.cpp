@@ -43,7 +43,7 @@ Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) :
   setMouseTracking(true);
 
   setFocusPolicy(QWidget::StrongFocus);
-
+  setBackgroundColor( QColor( 0, 0, 0) );
 }
 
 Feld::~Feld ()
@@ -342,18 +342,18 @@ bool Feld::checkDone ()
 	uint firstAtom = 0;
 	for(j = 0; j < molecHeight && !firstAtom; ++j)
 		firstAtom = mol->getAtom(0, j);
-	
+
 	// wot no atom?
 	if(!firstAtom)
 		return true; // true skips to next level
-	
+
 	// position of first atom (in molecule coordinates)
 	int mx = 0;
 	int my = j - 1;
 
 	QRect extent(0, 0, 15 - molecWidth + 1, 15 - molecHeight + 1);
 	extent.moveBy(0, my);
-	
+
 	// find first atom in playing field
 	for(i = extent.left(); i <= extent.right(); ++i)
 	{
@@ -402,7 +402,7 @@ void Feld::timerEvent (QTimerEvent *)
     frames -= settings.anim_speed;
     if (frames < 0)
 	  frames = 0;
-	
+
     repaint (false);
   }
 }
@@ -454,19 +454,19 @@ void Feld::paintEvent( QPaintEvent * )
 	  break;
 	default:
 	  return;
-	
+
 	}
-	
+
     } else {
-	
+
 	// spielfeld gleich zeichnen
-	
+
 	for (i = 0; i < 15; i++)
 	    for (j = 0; j < 15; j++)
 		{
 		    x = i * 30;
 		    y = j * 30;
-		
+
 		    // zeichnet Randstücke
 		    if (feld [i] [j] == 254) {
 		      putNonAtom(i, j, Feld::None, true); continue;
@@ -482,7 +482,7 @@ void Feld::paintEvent( QPaintEvent * )
 		    if (feld[i][j] == 152) {
 		      putNonAtom(i, j, Feld::MoveDown); continue;
 		    }
-		
+
 		    if (feld[i][j] == 153) {
 		      putNonAtom(i, j, Feld::MoveRight); continue;
 		    }
@@ -501,7 +501,7 @@ void Feld::paintEvent( QPaintEvent * )
 			}
 
 
-		
+
 		    // verbindungen zeichnen
 		    if (getAtom(feld [i] [j]).obj <= '9' ||
 			getAtom(feld [i] [j]).obj == 'o')
@@ -509,7 +509,7 @@ void Feld::paintEvent( QPaintEvent * )
 			    char conn = getAtom(feld [i] [j]).conn[c];
 			    if (!conn)
 				break;
-			
+
 			    if (conn >= 'a' && conn <= 'a' + 8)
 				bitBlt (this, x, y,
 					&data, (conn - 'a') * 31, 31, 30, 30,
@@ -518,9 +518,9 @@ void Feld::paintEvent( QPaintEvent * )
 				bitBlt (this, x, y,
 					&data, (conn - 'A') * 31, 62, 30, 30,
 					XorROP);
-			
+
 			}
-		
+
 		    // zeichnet Verbindungsstäbe
 		    if (getAtom(feld [i] [j]).obj >= 'A' &&
 			getAtom(feld [i] [j]).obj <= 'F')

@@ -36,10 +36,10 @@
 Options settings;
 
 #define XPOS 10
-#define YPOS 40
+#define YPOS 10
 
 #define MPOSX 480
-#define MPOSY 100
+#define MPOSY 90
 
 // ##########################
 // #	class GameWidget    #
@@ -116,7 +116,7 @@ void GameWidget::updateLevel (int l)
     hs->setText(highest);
     ys->setText("0");
     scrl->setValue(l);
-	
+
     feld->repaint();
 }
 
@@ -129,12 +129,10 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
   // molekül
     molek = new Molek (this, "molek");
     molek->setGeometry (MPOSX, MPOSY, 170, 180);
-    molek->setBackgroundColor (QColor (0, 0, 0));
 
     // spielfeld
     feld = new Feld (molek, this, "feld");
     feld->setGeometry (XPOS, YPOS, 15 * 30 + 1, 15 * 30 + 1);
-    feld->setBackgroundColor( QColor( 0, 0, 0) );
     feld->setFocus();
 
     connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
@@ -185,7 +183,7 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 
     settings.changed = false;
 
-    setFixedSize(665, 501);
+    setFixedSize(665, 471);
 }
 
 GameWidget::~GameWidget()
