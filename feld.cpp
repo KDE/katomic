@@ -40,11 +40,10 @@ Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) :
   moving = false;
   chosen = false;
 
-  resetValidDirs();
-
   setMouseTracking(true);
 
   setFocusPolicy(QWidget::StrongFocus);
+
 }
 
 Feld::~Feld ()
@@ -81,9 +80,8 @@ void Feld::load (const KSimpleConfig& config)
   chosen = false;
   moving = false;
 
-  emitStatus();
-
-  repaint ();
+  xpos = ypos = 0;
+  nextAtom();
 }
 
 void Feld::mousePressEvent (QMouseEvent *e)
@@ -153,7 +151,37 @@ const atom& Feld::getAtom(uint index) const
   return mol->getAtom(index);
 }
 
-void Feld::nextAtom() {}
+void Feld::nextAtom() 
+{
+  int x = xpos, y;
+
+  // make sure we don't check the current atom :-)
+  if (ypos++ >= 15) ypos = 0; 
+
+  while(1)
+    {
+      for (y = ypos; y < 15; y++) 
+	{
+	  if ( feld [x] [y] != 0 &&
+	       feld [x] [y] != 254 &&
+	       feld [x] [y] != 150 &&
+	       feld [x] [y] != 151 &&
+	       feld [x] [y] != 152 &&
+	       feld [x] [y] != 153 )
+	    {
+	      xpos = x; ypos = y;
+	      chosen = true;
+	      resetValidDirs();
+	      emitStatus();
+	      return;
+	    }
+	}
+      ypos = 0;
+      x++;
+      if (x >= 15) x = 0;
+    }
+  
+}
 
 void Feld::emitStatus()
 {
