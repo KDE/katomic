@@ -22,10 +22,6 @@
 // bugs : no known bugs
 
 
-#include "includes.h"
-
-#include "defines.h"
-
 // enthält spielfeld
 #include "feld.h"
 
@@ -38,17 +34,13 @@
 
 #include "mywidget.moc"
 
-
+#include <kkeydialog.h>
 
 #define XPOS 10
 #define YPOS 40
 
 #define MPOSX 480
 #define MPOSY 100
-
-KApplication *mywidget;
-
-
 
 // ##########################
 // #	class MyWidget      #
@@ -58,25 +50,25 @@ KApplication *mywidget;
 void MyWidget::createMenu()
 {
   file = new QPopupMenu();
-  file->insertItem (klocale->translate ("&Highscores"),
+  file->insertItem (i18n ("&Highscores"),
                     this, SLOT (showHighscores ()));
   		
   file->insertSeparator(-1);
-  file->insertItem(klocale->translate("&Quit"), this, SLOT(quitapp()) );
+  file->insertItem(i18n("&Quit"), this, SLOT(quitapp()) );
 	
   options = new QPopupMenu();
-  options->insertItem(klocale->translate("&Configure keys"), this,
+  options->insertItem(i18n("&Configure keys"), this,
                       SLOT(configkeys()) );
 
   help = new QPopupMenu();
-  help->insertItem(klocale->translate("&Help"), this, SLOT(helpmenu()) );
-  help->insertItem(klocale->translate("&About..."), this, SLOT(about()) );
+  help->insertItem(i18n("&Help"), this, SLOT(helpmenu()) );
+  help->insertItem(i18n("&About..."), this, SLOT(about()) );
 	
   menu = new KMenuBar(this, "menu");
-  menu->insertItem(klocale->translate("&File"), file, 5);
-  menu->insertItem(klocale->translate("&Options"), options);
+  menu->insertItem(i18n("&File"), file, 5);
+  menu->insertItem(i18n("&Options"), options);
   menu->insertSeparator(-1);
-  menu->insertItem(klocale->translate("&Help"), help);
+  menu->insertItem(i18n("&Help"), help);
 
   setMenu(menu);
 }
@@ -89,7 +81,7 @@ void MyWidget::helpmenu()
 
 void MyWidget::configkeys()
 {
-  kKeys->configureKeys(this);
+  KKeyDialog::configureKeys(accel);
 }
 
 
@@ -97,19 +89,17 @@ void MyWidget::initKeys()
 {
   // here we create to shortcuts according to
   // the standard Kde keybinding
-  accel = new KStdAccel(config);
+  accel = new KAccel(this);
 	
-  kKeys->addKey("About", "CTRL+A");
-  kKeys->addKey("Help", accel->help() );
-  kKeys->addKey("Quit", accel->quit() );
-  kKeys->addKey("Highscores", "CTRL+H");
-
-  kKeys->registerWidget("top", this);
-  kKeys->connectFunction ("top", "Help", this, SLOT(helpmenu()) );
-  kKeys->connectFunction("top", "Quit", this, SLOT(quitapp()) );
-  kKeys->connectFunction("top", "About", this, SLOT(about()) );
-  kKeys->connectFunction ("top", "Highscores", this, 
-                          SLOT (showHighscores ()));
+  accel->insertItem(i18n("About"), "about", "CTRL+A");
+  accel->connectItem("about", this, SLOT(about()) );
+  accel->insertStdItem(KAccel::Help, i18n("Help"));
+  accel->connectItem(KAccel::Help, this, SLOT(helpmenu()) );
+  accel->insertStdItem(KAccel::Quit, i18n("Quit"));
+  accel->connectItem(KAccel::Quit, this, SLOT(quitapp()) );
+  accel->insertItem(i18n("Highscores"), "highscore", "CTRL+H");
+  accel->connectItem ("highscore", this, 
+		      SLOT (showHighscores ()));
 }
 
 
@@ -163,8 +153,6 @@ void MyWidget::saveConfig()
 MyWidget::MyWidget ( QWidget *, const char* name )
 	: KTopLevelWidget ( name )
 {
-  setCaption(CAPTION);
-
   setMinimumSize(665, 501);
   setMaximumSize(665, 501);
 
@@ -243,23 +231,20 @@ MyWidget::~MyWidget()
 void MyWidget::quitapp()
 {
   saveConfig();
-  mywidget->quit();	
+  kapp->quit();	
 }
 
 void MyWidget::about()
 {
-  QString q;
-  const char *msg = klocale->translate("\nAtomic 1.0.67\n\n");
-
-  q.sprintf("%sby Andreas Wüst (if0626@pc4.fh-isny.de)\n", msg);
-  KMsgBox::message(this, CAPTION, q );
+  QString q = i18n("Atomic 1.0.67 by Andreas Wüst (if0626@pc4.fh-isny.de)\n");
+  KMsgBox::message(this, kapp->getCaption(), q );
 }
 
 
 void MyWidget::notImpl()
 {
-  KMsgBox::message(this, CAPTION,
-  klocale->translate("Sorry, this function hasn't been implemented yet..."));
+  KMsgBox::message(this, kapp->getCaption(),
+		   i18n("Sorry, this function hasn't been implemented yet..."));
 }
 
 
@@ -270,11 +255,11 @@ void MyWidget::notImpl()
 
 int main(int argc, char **argv)
 {
-  mywidget = new KApplication(argc, argv, "mywidget" );
+  KApplication a(argc, argv, "mywidget" );
   MyWidget *top;
   top = new MyWidget(0, "mywidget");
-  mywidget->setMainWidget(top);
+  a.setMainWidget(top);
   top->show();
-  return mywidget->exec();
+  return a.exec();
 }
 

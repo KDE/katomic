@@ -4,13 +4,8 @@
  *
  */
 
-
-
-#include "defines.h"
-
-
-
 #include "highscore.moc" 
+#include <klocale.h>
 
 Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
                 : QDialog ( parent, name, TRUE )
@@ -24,7 +19,7 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
   const int anzahl = 10;
 
   setFixedSize(width, height); 
-  setCaption(CAPTION2);
+  setCaption(i18n("Highscore"));
 
   loadHighscore ();
 
@@ -79,7 +74,7 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
   }
 
   // pushbutton erzeugen             
-  ok = new QPushButton(klocale->translate("Ok"), this, "ok");
+  ok = new QPushButton(i18n("OK"), this, "ok");
   connect(ok, SIGNAL(clicked()), this, SLOT(accept()) );
   ok->setGeometry(width / 2 - 30, height - 40 , 60, 30);
 
@@ -92,7 +87,7 @@ Highscore::Highscore ( QWidget *parent, const char *name, int l, int moves)
   if (pos < 6 && moves > 0)
   {
     fprintf (stderr, "line edit erzeugen");
-    le = new KLined (this, "le");
+    le = new KLineEdit (this, "le");
     le->setFixedHeight (le->sizeHint ().height ());
     le->setGeometry (50, 20 + pos * 30, 130, 25);
     le->setMaxLength (18);

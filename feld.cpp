@@ -26,7 +26,7 @@ Feld::Feld( QWidget *parent, const char *name ) : QWidget( parent, name )
   anim = FALSE;
   dir = 0;
   speed = 1;
-  sprite.QPixmap (30, 30);
+  sprite = QPixmap (30, 30);
 
   cx = -1;
   cy = -1;
@@ -287,8 +287,8 @@ bool Feld::checkDone ()
       for (yy = 0; yy < hohe + 1; yy++)
       {
         // ersten 3 bytes des strukturelements vergleichen (obj, verb)
-        if ((strncmp ((unsigned char *) &f [i + xx] [j + yy], 
-                      (unsigned char *) &molek [xx] [yy], 3)) != 0) 
+        if ((strncmp ((const char*)&f [i + xx] [j + yy], 
+                      (const char*)&molek [xx] [yy], 3)) != 0) 
           done = FALSE;
       }
       if (done == TRUE)

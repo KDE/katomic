@@ -35,7 +35,7 @@ public:
 
         // positionen + namen
         QLabel **n;	
-        KLined *le;
+        KLineEdit *le;
    
 
         

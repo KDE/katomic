@@ -29,7 +29,6 @@
 #include <ktopwidget.h>
 #include <kmsgbox.h>
 #include <kconfig.h>
-#include <kkeyconf.h>
 #include <kstdaccel.h>
 #include <klocale.h>
 #include <kdebug.h>
@@ -81,7 +80,7 @@ protected:
 
 
 	KConfig *config;
-	KStdAccel *accel;
+	KAccel *accel;
 
 	KMenuBar *menu;
 	QPopupMenu *file, *options, *help;
