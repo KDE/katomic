@@ -54,7 +54,7 @@ protected slots:
 
 private:
 
-    const atom& getAtom(int index) const; 
+    const atom& getAtom(uint index) const; 
 
     Highscore *high;
     
@@ -64,7 +64,7 @@ private:
 
     Molek *mol;
 
-    int feld[15][15];
+    uint feld[15][15];
     
     // number of movements
     int moves; 

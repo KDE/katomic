@@ -32,15 +32,20 @@ Molek::~Molek ()
 { 
 }
 
+const atom& Molek::getAtom(uint index) const
+{ 
+  static atom none = { 0, "" };
+
+  if (index >= atoms.count() || index == 0)
+    return none;
+
+  return *atoms.at(index - 1); 
+}
+
 void Molek::load (const KSimpleConfig& config)
 {
     atoms.clear();
     QString key;
-
-    atom none;
-    none.obj = 0;
-    none.conn[0] = 0;
-    atoms.append(none);
 
     atom current;
     
@@ -87,15 +92,12 @@ void Molek::load (const KSimpleConfig& config)
 	for (int j = 0; j < 10; j++) {
 	    if (molek [i][j] == 0)
 		continue;
-	    // debug("%x", getAtom(molek [i] [j])).conn);
 	    if (i > width) width = i;
 	    if (j > height) height = j;
 	}
     height++;
     width++;
     
-    debug("size: %d %d", height, width);
-
     repaint ();
 }
 

@@ -27,11 +27,11 @@ public:
 
    void load(const KSimpleConfig& config);
 
-   const atom& getAtom(int index) const { return *atoms.at(index); }
+   const atom& getAtom(uint index) const;
    int atomSize() const { return atoms.count(); }
 
    QSize molecSize() const { return _size; }
-   int getAtom(int x, int y) const { return molek[x][y]; }
+   uint getAtom(int x, int y) const { return molek[x][y]; }
    
 protected:
    void paintEvent( QPaintEvent * );
@@ -39,7 +39,7 @@ protected:
 private:
   
    QPixmap data;
-   int molek[10][10]; // the indexes within atoms
+   uint molek[10][10]; // the indexes within atoms
    QValueList<atom> atoms;
    QString mname;
    QSize _size;

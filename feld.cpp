@@ -102,7 +102,7 @@ void Feld::mousePressEvent (QMouseEvent *e)
   emitStatus();
 }
   
-const atom& Feld::getAtom(int index) const 
+const atom& Feld::getAtom(uint index) const 
 { 
   return mol->getAtom(index);
 }
@@ -320,6 +320,7 @@ void Feld::paintEvent( QPaintEvent * )
 			    bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - '1') * 31, 0, 30, 
 				    30, CopyROP);
 			}
+#if 0
 		    //CT now drawing corresponding arrows
 		    if (validDirs[Feld::MoveUp]) {
 		      bitBlt(this, x, y-30, &data, 268, 62, 30, 30, CopyROP);
@@ -337,7 +338,7 @@ void Feld::paintEvent( QPaintEvent * )
 		      bitBlt(this, x+30, y, &data, 279, 93, 30, 30, CopyROP);
 		      feld [i+1] [j] = 153;
 		    }
-		    
+#endif		    
 		    // zeichnet Kristalle
 		    if (getAtom(feld [i] [j]).obj == 'o')
 			{
@@ -363,7 +364,7 @@ void Feld::paintEvent( QPaintEvent * )
 			bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - 'A' + 2) * 31 , 93, 30, 30, 
 				CopyROP);
 		}
-    }  
+    }
     paint.end ();
 }
 
