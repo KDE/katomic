@@ -31,6 +31,7 @@
 #include <klocale.h>
 #include "settings.h"
 #include "configbox.h"
+#include <kmenubar.h>
 
 extern Options settings;
 
