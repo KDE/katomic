@@ -5,12 +5,12 @@
 ****************************************************************/
 
 // bemerkungen : wenn paintEvent aufgerufen wird, wird das komplette
-//               widget gelöscht und nur die sachen gezeichnet, die in 
+//               widget gelöscht und nur die sachen gezeichnet, die in
 //               paintEvent stehen ! sollen dinge z.b nur bei maustasten-
-//               druck gezeichnet werden, so muß dies in mousePressEvent 
-//               stehen !  
+//               druck gezeichnet werden, so muß dies in mousePressEvent
+//               stehen !
 //               paintEvent wird aufgerufen, falls fenster überdeckt wird,
-//               oder auch einfach bewegt wird 
+//               oder auch einfach bewegt wird
 
 #include "highscore.h"
 #include <kiconloader.h>
@@ -23,7 +23,7 @@
 
 extern Options settings;
 
-Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) : 
+Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) :
   QWidget( parent, name )
 {
   mol = _mol;
@@ -36,7 +36,7 @@ Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) :
 
   point = new QPoint [1];
   data = BarIcon("abilder");
- 
+
   moving = false;
   chosen = false;
 
@@ -47,12 +47,12 @@ Feld::Feld( Molek *_mol, QWidget *parent, const char *name ) :
 }
 
 Feld::~Feld ()
-{ 
+{
   delete [] point;
 }
 
 void Feld::resetValidDirs()
-{ 
+{
   for (int j = 0; j < 15; j++)
     for (int i = 0; i < 15; i++)
       if (feld[i][j] >= 150 && feld[i][j] <= 153)
@@ -65,17 +65,17 @@ void Feld::resetValidDirs()
 void Feld::load (const KSimpleConfig& config)
 {
   mol->load(config);
-  
+
   QString key;
-  
+
   for (int j = 0; j < 15; j++) {
-      
+
     key.sprintf("feld_%02d", j);
     const QString line = config.readEntry(key);
 
     for (int i = 0; i < 15; i++)
 	feld[i][j] = atom2int(line.at(i));
-    
+
   }
 
   moves = 0;
@@ -88,9 +88,9 @@ void Feld::load (const KSimpleConfig& config)
 
 void Feld::mousePressEvent (QMouseEvent *e)
 {
-  if (moving) 
+  if (moving)
     return;
-  
+
   int x = e->pos ().x () / 30;
   int y = e->pos ().y () / 30;
 
@@ -115,54 +115,65 @@ void Feld::mousePressEvent (QMouseEvent *e)
   emitStatus();
 }
 
-void Feld::keyPressEvent (QKeyEvent *e) 
+void Feld::keyPressEvent (QKeyEvent *e)
 {
-  switch (e->key())
-    {
-    case Qt::Key_Up:
-      //CT later, when we make this configurable    case Feld::UpKey:
-      if (feld [xpos] [ypos-1] == 150)
-	startAnimation(Feld::MoveUp); 
-      break;
-    case Qt::Key_Down:
-      // case Feld::DownKey:
-      if (feld [xpos] [ypos+1] == 152)
-	startAnimation(Feld::MoveDown); 
-      break;
-    case Qt::Key_Left:
-      // case Feld::LeftKey:
-      if (feld [xpos-1] [ypos] == 151)
-	startAnimation(Feld::MoveLeft); 
-      break;
-    case Qt::Key_Right:
-      // case Feld::DownKey:
-      if (feld [xpos+1] [ypos] == 153)
-	startAnimation(Feld::MoveRight); 
-      break;
-    case Qt::Key_Tab:
-      //CT this will do something in the future :-)
-      nextAtom(); break;
-    default:
-      e->ignore();
-    }
+  // sorry to separate this from the switch-statement, but with the 
+  // Shift-modifier, e->key() is not equal Key_Tab (only & Key_Tab works)
+
+  if ( e->state() & ShiftButton && e->key() & Key_Tab )
+    previousAtom();
+  else {
+    
+    switch (e->key())
+      {
+      case Qt::Key_Up:
+        //CT later, when we make this configurable    case Feld::UpKey:
+        if (feld [xpos] [ypos-1] == 150)
+	  startAnimation(Feld::MoveUp);
+        break;
+      case Qt::Key_Down:
+        // case Feld::DownKey:
+        if (feld [xpos] [ypos+1] == 152)
+	  startAnimation(Feld::MoveDown);
+        break;
+      case Qt::Key_Left:
+        // case Feld::LeftKey:
+        if (feld [xpos-1] [ypos] == 151)
+	  startAnimation(Feld::MoveLeft);
+        break;
+      case Qt::Key_Right:
+        // case Feld::DownKey:
+        if (feld [xpos+1] [ypos] == 153)
+	  startAnimation(Feld::MoveRight);
+        break;
+      case Qt::Key_Tab: {
+	//CT this will do something in the future :-)
+	nextAtom(); 
+	break;
+      }
+      default:
+	e->ignore();
+      }
+   }
 }
 
 
-const atom& Feld::getAtom(uint index) const 
-{ 
+const atom& Feld::getAtom(uint index) const
+{
   return mol->getAtom(index);
 }
 
-void Feld::nextAtom() 
+
+void Feld::nextAtom()
 {
   int x = xpos, y;
 
   // make sure we don't check the current atom :-)
-  if (ypos++ >= 15) ypos = 0; 
+  if (ypos++ >= 15) ypos = 0;
 
   while(1)
     {
-      for (y = ypos; y < 15; y++) 
+      for (y = ypos; y < 15; y++)
 	{
 	  if ( feld [x] [y] != 0 &&
 	       feld [x] [y] != 254 &&
@@ -182,8 +193,41 @@ void Feld::nextAtom()
       x++;
       if (x >= 15) x = 0;
     }
-  
+
 }
+
+
+void Feld::previousAtom()
+{
+  int x = xpos, y;
+
+  // make sure we don't check the current atom :-)
+  if (ypos-- <= 0) ypos = 14;
+
+  while(1)
+    {
+      for (y = ypos; y >= 0; y--)
+	{
+	  if ( feld [x] [y] != 0 &&
+	       feld [x] [y] != 254 &&
+	       feld [x] [y] != 150 &&
+	       feld [x] [y] != 151 &&
+	       feld [x] [y] != 152 &&
+	       feld [x] [y] != 153 )
+	    {
+	      xpos = x; ypos = y;
+	      chosen = true;
+	      resetValidDirs();
+	      emitStatus();
+	      return;
+	    }
+	}
+      ypos = 15;
+      x--;
+      if (x <= 0) x = 14;
+    }
+}
+
 
 void Feld::emitStatus()
 {
@@ -194,22 +238,22 @@ void Feld::emitStatus()
       feld [xpos][ypos-1] = 150;
       putNonAtom(xpos, ypos-1, Feld::MoveUp);
     }
-    
+
     if (feld[xpos][ypos+1] == 0) {
       feld [xpos][ypos+1] = 152;
       putNonAtom(xpos, ypos+1, Feld::MoveDown);
     }
-    
+
     if (feld[xpos-1][ypos] == 0) {
       feld [xpos-1][ypos] = 151;
       putNonAtom(xpos-1, ypos, Feld::MoveLeft);
     }
-    
+
     if (feld[xpos+1][ypos] == 0) {
       feld [xpos+1][ypos] = 153;
       putNonAtom(xpos+1, ypos, Feld::MoveRight);
     }
-    
+
   }
 }
 
@@ -217,9 +261,9 @@ void Feld::done ()
 {
   if (moving)
     return;
-  
+
   emitStatus();
-  
+
   if (checkDone())
     emit gameOver(moves);
 
@@ -239,52 +283,52 @@ void Feld::startAnimation (Direction d)
   moves++;
   emit sendMoves(moves);
   dir = d;
-  
+
   switch (dir) {
-  case MoveUp : 
+  case MoveUp :
     for (x = xpos, y = ypos, anz = 0; feld [x] [--y] == 0; anz++);
     if (anz != 0)
       {
 	feld [x] [++y] = feld [xpos] [ypos];
       }
     break;
-  case MoveDown : 
+  case MoveDown :
     for (x = xpos, y = ypos, anz = 0; feld [x] [++y] == 0; anz++);
     if (anz != 0)
       {
 	feld [x] [--y] = feld [xpos] [ypos];
       }
     break;
-  case MoveRight : 
+  case MoveRight :
     for (x = xpos, y = ypos, anz = 0; feld [++x] [y] == 0; anz++);
     if (anz != 0)
       {
 	feld [--x] [y] = feld [xpos] [ypos];
       }
     break;
-  case MoveLeft : 
+  case MoveLeft :
     for (x = xpos, y = ypos, anz = 0; feld [--x] [y] == 0; anz++);
     if (anz != 0)
-      { 
+      {
 	feld [++x] [y] = feld [xpos] [ypos];
       }
     break;
   default:
     return;
   }
-  
+
   if (anz != 0) {
     moving = true;
     feld [xpos] [ypos] = 0;
 
     // absolutkoordinaten des zu verschiebenden bildes
     cx = xpos * 30;
-    cy = ypos * 30;   
-    xpos = x; 
+    cy = ypos * 30;
+    xpos = x;
     ypos = y;
     // 30 animationsstufen
     framesbak = frames = anz * 30;
-                                                                   
+
     // 10 mal pro sek
     startTimer (10);
 
@@ -305,7 +349,7 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
     setCursor (crossCursor);
   else
     setCursor (arrowCursor);
-  
+
 }
 
 
@@ -335,7 +379,7 @@ bool Feld::checkDone ()
 
 void Feld::timerEvent (QTimerEvent *)
 {
-  // animation beenden 
+  // animation beenden
   if (frames <= 0)
   {
     moving = false;
@@ -344,7 +388,7 @@ void Feld::timerEvent (QTimerEvent *)
     dir = None;
   }
   else
-  {  
+  {
     frames -= settings.anim_speed;
     repaint (false);
   }
@@ -368,11 +412,11 @@ void Feld::putNonAtom (int x, int y, Direction which, bool brick)
 void Feld::paintEvent( QPaintEvent * )
 {
     int i, j, x, y, a = settings.anim_speed;
-    
+
     QPainter paint ( this );
-    
+
     paint.setPen (black);
-    
+
     if (moving) {
 	switch (dir) {
 	case MoveUp :
@@ -380,37 +424,37 @@ void Feld::paintEvent( QPaintEvent * )
 	  if ( (framesbak - frames > 1)  )
 	    paint.eraseRect (cx, cy - framesbak + frames + 30, 30, a+1);
 	  break;
-	case MoveDown : 
+	case MoveDown :
 	  bitBlt (this, cx, cy + (framesbak - frames), &sprite, CopyROP);
 	  if ( (framesbak - frames > 1) )
-	    paint.eraseRect (cx, 
+	    paint.eraseRect (cx,
 			     cy + (framesbak - frames) - a-1, 30, a+1);
 	  break;
-	case MoveRight : 
+	case MoveRight :
 	  bitBlt (this, cx + (framesbak - frames), cy, &sprite, CopyROP);
 	  if ( (framesbak - frames > 1) )
 	    paint.eraseRect (cx + (framesbak - frames) - a - 1, cy, 2, 30);
 	  break;
-	case MoveLeft : 
+	case MoveLeft :
 	  bitBlt (this, cx - framesbak + frames, cy, &sprite, CopyROP);
 	  if ((framesbak - frames > 1))
 	    paint.eraseRect (cx - framesbak + frames + 30, cy, a + 1, 30);
 	  break;
 	default:
 	  return;
-	    
+	
 	}
 	
     } else {
 	
-	// spielfeld gleich zeichnen 
+	// spielfeld gleich zeichnen
 	
 	for (i = 0; i < 15; i++)
 	    for (j = 0; j < 15; j++)
 		{
 		    x = i * 30;
 		    y = j * 30;
-		    
+		
 		    // zeichnet Randstücke
 		    if (feld [i] [j] == 254) {
 		      putNonAtom(i, j, Feld::None, true); continue;
@@ -426,7 +470,7 @@ void Feld::paintEvent( QPaintEvent * )
 		    if (feld[i][j] == 152) {
 		      putNonAtom(i, j, Feld::MoveDown); continue;
 		    }
-		    
+		
 		    if (feld[i][j] == 153) {
 		      putNonAtom(i, j, Feld::MoveRight); continue;
 		    }
@@ -434,7 +478,7 @@ void Feld::paintEvent( QPaintEvent * )
 		    // zeichnet Atome
 		    if (getAtom(feld [i] [j]).obj <= '9' && getAtom(feld [i] [j]).obj > '0')
 			{
-			    bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - '1') * 31, 0, 30, 
+			    bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - '1') * 31, 0, 30,
 				    30, CopyROP);
 			}
 
@@ -445,7 +489,7 @@ void Feld::paintEvent( QPaintEvent * )
 			}
 
 
-		      
+		
 		    // verbindungen zeichnen
 		    if (getAtom(feld [i] [j]).obj <= '9' ||
 			getAtom(feld [i] [j]).obj == 'o')
@@ -453,25 +497,25 @@ void Feld::paintEvent( QPaintEvent * )
 			    char conn = getAtom(feld [i] [j]).conn[c];
 			    if (!conn)
 				break;
-			    
+			
 			    if (conn >= 'a' && conn <= 'a' + 8)
-				bitBlt (this, x, y, 
+				bitBlt (this, x, y,
 					&data, (conn - 'a') * 31, 31, 30, 30,
 					XorROP);
 			    else
-				bitBlt (this, x, y, 
-					&data, (conn - 'A') * 31, 62, 30, 30, 
+				bitBlt (this, x, y,
+					&data, (conn - 'A') * 31, 62, 30, 30,
 					XorROP);
-			    
+			
 			}
-		    
-		    // zeichnet Verbindungsstäbe 
-		    if (getAtom(feld [i] [j]).obj >= 'A' && 
+		
+		    // zeichnet Verbindungsstäbe
+		    if (getAtom(feld [i] [j]).obj >= 'A' &&
 			getAtom(feld [i] [j]).obj <= 'F')
-			bitBlt (this, x, y, 
-				&data, 
-				(getAtom(feld [i] [j]).obj - 'A' + 2) * 31 , 
-				93, 30, 30, 
+			bitBlt (this, x, y,
+				&data,
+				(getAtom(feld [i] [j]).obj - 'A' + 2) * 31 ,
+				93, 30, 30,
 				CopyROP);
 		}
     }

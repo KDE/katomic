@@ -37,7 +37,7 @@ public:
 
     void load (const KSimpleConfig& config);
 
-signals: 
+signals:
     void gameOver(int moves);
     void sendMoves(int moves);
 
@@ -54,11 +54,12 @@ private:
 
     const atom& getAtom(uint index) const;
     void nextAtom();
+    void previousAtom();
 
     void putNonAtom(int, int, Direction, bool brick = false);
 
     Highscore *high;
-    
+
     QPoint *point;
     QPixmap data;
     QPixmap sprite;
@@ -66,21 +67,21 @@ private:
     Molek *mol;
 
     uint feld[15][15];
-    
+
     // number of movements
-    int moves; 
-    
+    int moves;
+
     Direction dir;
     int cx, cy;
     int xpos, ypos;
     int anz;
     int frames, framesbak;
-    
+
     bool anim;
     bool chosen, moving;
 
     void resetValidDirs();
-    
+
 };
 
 #endif // FELD_H
