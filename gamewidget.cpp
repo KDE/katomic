@@ -86,7 +86,7 @@ void GameWidget::gameOver(int moves) {
     KMessageBox::information(this, i18n("You solved level %1 with %2 moves!").arg(level).arg(moves), i18n("Congratulations"));
 
     KScoreDialog high(KScoreDialog::Name | KScoreDialog::Score, this);
-    high.setCaption(i18n("Level %1 High Scores").arg(level));
+    high.setCaption(i18n("Level %1 Best Scores").arg(level));
     high.setConfigGroup(QString("High Scores Level %1").arg(level));
 
     KScoreDialog::FieldInfo scoreInfo;
@@ -119,7 +119,8 @@ void GameWidget::updateLevel (int l)
     highScore->setConfigGroup(QString("High Scores Level %1").arg(level));
     highest.setNum(highScore->highScore());
 
-    hs->setText(highest);
+    if (highest != "0" ) hs->setText(highest);
+    else hs->setText("-");
     ys->setText("0");
     scrl->setValue(level);
 
@@ -153,7 +154,6 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
     // scrollbar
     scrl = new QScrollBar(1, nlevels, 1,
 			5, 1, QScrollBar::Horizontal, vb, "scrl" );
-    // scrl->setGeometry( MPOSX, 50, 160, 16 );
     connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
 
     // molekül
@@ -167,12 +167,11 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 
     // the score group
     QGroupBox *bg = new QGroupBox (i18n("Score"), vb, "bg");
-    bg->setGeometry (MPOSX, 300, 160, 160);
     QBoxLayout *slay = new QVBoxLayout (bg, 10);
 
     slay->addSpacing(10);
 
-    slay->addWidget(new QLabel(i18n("Highest score:"), bg));
+    slay->addWidget(new QLabel(i18n("Best score:"), bg));
 
     hs = new QLabel (highest, bg);
     hs->setAlignment(Qt::AlignRight);
@@ -196,14 +195,7 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
     if (settings.anim_speed < 1 || settings.anim_speed > MAX_SPEED)
 	settings.anim_speed = 1;
 
-    config->setGroup("level1");
-    highest = config->readEntry("Moves0", "100");
-
-    config->setGroup("Colors");
-
     settings.changed = false;
-
-    setMinimumSize(665, 471);
 }
 
 GameWidget::~GameWidget()
@@ -213,8 +205,8 @@ GameWidget::~GameWidget()
 void GameWidget::showHighscores ()
 {
     KScoreDialog high(KScoreDialog::Name | KScoreDialog::Score, this);
-    high.setCaption(i18n("Level %1 High Scores").arg(level));
-    high.setConfigGroup(QString("High Scores Level %1").arg(level));
+    high.setCaption(i18n("Level %1 Best Scores").arg(level));
+    high.setConfigGroup(QString("Best Scores Level %1").arg(level));
     high.exec();
 }
 
