@@ -16,6 +16,12 @@
 #include <kglobal.h>
 #include <kstandarddirs.h>
 #include <ksimpleconfig.h>
+#include <QAbstractEventDispatcher>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QMouseEvent>
+#include <QTimerEvent>
+#include <QPaintEvent>
 #include "molek.h"
 #include "feld.h"
 #include "settings.h"
@@ -44,7 +50,7 @@ Feld::Feld( QWidget *parent, const char *name ) :
 
     setMouseTracking(true);
 
-    setFocusPolicy(QWidget::StrongFocus);
+    setFocusPolicy(Qt::StrongFocus);
     setBackgroundColor( QColor( 0, 0, 0) );
 
     setFixedSize(15 * 30, 15 * 30);
@@ -69,7 +75,7 @@ void Feld::resetValidDirs()
 void Feld::load (const KSimpleConfig& config)
 {
   if(moving)
-    killTimers();
+    QAbstractEventDispatcher::instance()->unregisterTimers(this);
 
   mol->load(config);
 
@@ -332,7 +338,7 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
   if( e->pos().x() < 0 || e->pos().x() >= 450 ||
       e->pos().y() < 0 || e->pos().y() >= 450 )
   {
-    setCursor(arrowCursor);
+    setCursor(Qt::arrowCursor);
   }
   else
   {
@@ -341,9 +347,9 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
 
     // verschiedene cursor je nach pos
     if (feld[x][y] != 254 && feld [x] [y] != 0)
-      setCursor (crossCursor);
+      setCursor (Qt::crossCursor);
     else
-      setCursor (arrowCursor);
+      setCursor (Qt::arrowCursor);
   }
 }
 
@@ -410,7 +416,7 @@ void Feld::timerEvent (QTimerEvent *)
   if (frames <= 0)
 	{
 	  moving = false;
-	  killTimers ();
+	  QAbstractEventDispatcher::instance()->unregisterTimers(this);
 	  done();
 	  dir = None;
 	}
@@ -478,7 +484,7 @@ void Feld::paintEvent( QPaintEvent * )
 
     QPainter paint ( this );
 
-    paint.setPen (black);
+    paint.setPen (Qt::black);
 
 	// spielfeld gleich zeichnen
 

@@ -15,6 +15,10 @@
 #include <qpainter.h>
 #include <qpixmap.h>
 #include <qmessagebox.h>
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QTimerEvent>
+#include <QPaintEvent>
 
 #include <kscoredialog.h>
 

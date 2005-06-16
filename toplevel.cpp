@@ -18,7 +18,7 @@
 
   */
 
-#include <qgroupbox.h>
+#include <q3groupbox.h>
 #include <qlayout.h>
 
 #include <kglobal.h>
@@ -47,13 +47,13 @@ void AtomTopLevel::createMenu()
 
     KStdAction::preferences(this, SLOT(configopts()), actionCollection());
 
-    new KAction(i18n("Atom Up"), Key_Up, main, SLOT(moveUp()), actionCollection(), "atom_up");
-    new KAction(i18n("Atom Down"), Key_Down, main, SLOT(moveDown()), actionCollection(), "atom_down");
-    new KAction(i18n("Atom Left"), Key_Left, main, SLOT(moveLeft()), actionCollection(), "atom_left");
-    new KAction(i18n("Atom Right"), Key_Right, main, SLOT(moveRight()), actionCollection(), "atom_right");
+    new KAction(i18n("Atom Up"), Qt::Key_Up, main, SLOT(moveUp()), actionCollection(), "atom_up");
+    new KAction(i18n("Atom Down"), Qt::Key_Down, main, SLOT(moveDown()), actionCollection(), "atom_down");
+    new KAction(i18n("Atom Left"), Qt::Key_Left, main, SLOT(moveLeft()), actionCollection(), "atom_left");
+    new KAction(i18n("Atom Right"), Qt::Key_Right, main, SLOT(moveRight()), actionCollection(), "atom_right");
 
-    new KAction(i18n("Next Atom"), Key_Tab, main, SLOT(nextAtom()), actionCollection(), "next_atom");
-    new KAction(i18n("Previous Atom"), SHIFT+Key_Tab, main, SLOT(previousAtom()), actionCollection(), "prev_atom");
+    new KAction(i18n("Next Atom"), Qt::Key_Tab, main, SLOT(nextAtom()), actionCollection(), "next_atom");
+    new KAction(i18n("Previous Atom"), Qt::SHIFT+Qt::Key_Tab, main, SLOT(previousAtom()), actionCollection(), "prev_atom");
 }
 
 void AtomTopLevel::configopts()

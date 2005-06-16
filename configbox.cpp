@@ -9,8 +9,11 @@
 #include <kglobal.h>
 #include <kconfig.h>
 #include <qlayout.h>
-#include <qgroupbox.h>
+#include <q3groupbox.h>
 #include <qslider.h>
+//Added by qt3to4:
+#include <QLabel>
+#include <QGridLayout>
 
 #include "settings.h"
 
