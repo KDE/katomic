@@ -47,6 +47,13 @@ void AtomTopLevel::createMenu()
 
     KStdAction::preferences(this, SLOT(configopts()), actionCollection());
 
+    undoAction = KStdGameAction::undo (main, SLOT(doUndo()), actionCollection());
+    redoAction = KStdGameAction::redo (main, SLOT(doRedo()), actionCollection());
+    undoAction->setEnabled(false);
+    redoAction->setEnabled(false);
+    connect (main, SIGNAL (enableRedo(bool)), SLOT(enableRedo(bool)));
+    connect (main, SIGNAL (enableUndo(bool)), SLOT(enableUndo(bool)));
+
     new KAction(i18n("Atom Up"), Key_Up, main, SLOT(moveUp()), actionCollection(), "atom_up");
     new KAction(i18n("Atom Down"), Key_Down, main, SLOT(moveDown()), actionCollection(), "atom_down");
     new KAction(i18n("Atom Left"), Key_Left, main, SLOT(moveLeft()), actionCollection(), "atom_left");
@@ -97,6 +104,16 @@ bool AtomTopLevel::queryExit()
 {
     saveConfig();
     return true;
+}
+
+void AtomTopLevel::enableRedo(bool enable)
+{
+    redoAction->setEnabled(enable);
+}
+
+void AtomTopLevel::enableUndo(bool enable)
+{
+    undoAction->setEnabled(enable);
 }
 
 #include "toplevel.moc"

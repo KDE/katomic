@@ -8,6 +8,7 @@
 #define TOPLEVEL_H
 
 class GameWidget;
+class KAction;
 class KConfig;
 
 #include <kmainwindow.h>
@@ -48,6 +49,12 @@ class AtomTopLevel : public KMainWindow
   KConfig *config;
 
   GameWidget *main;
+
+  KAction *redoAction, *undoAction;
+
+  protected slots:
+  void enableRedo(bool enable);
+  void enableUndo(bool enable);
 
 public slots:
 

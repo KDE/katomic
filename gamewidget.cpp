@@ -83,6 +83,16 @@ void GameWidget::getButton (int button)
     feld->startAnimation ((Feld::Direction)button);
 }
 
+void GameWidget::doUndo ()
+{
+  feld->doUndo ();
+}
+
+void GameWidget::doRedo ()
+{
+  feld->doRedo ();
+}
+
 void GameWidget::gameOver(int moves) {
     KMessageBox::information(this, i18n("You solved level %1 with %2 moves!").arg(level).arg(moves), i18n("Congratulations"));
 
@@ -163,6 +173,8 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 
     connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     connect (feld, SIGNAL (sendMoves(int)), SLOT(getMoves(int)));
+    connect (feld, SIGNAL (enableRedo(bool)), SIGNAL(enableRedo(bool)));
+    connect (feld, SIGNAL (enableUndo(bool)), SIGNAL(enableUndo(bool)));
 
     highScore = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
 
