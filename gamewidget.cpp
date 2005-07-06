@@ -14,7 +14,7 @@
 
   You should have received a copy of the GNU General Public License
   along with this program; if not, write to the Free Software
-  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+  Foundation, Inc., 51 Franklin Steet, Fifth Floor, Boston, MA  02110-1301, USA.
 
   */
 
@@ -85,6 +85,16 @@ void GameWidget::previousAtom()
 void GameWidget::getButton (int button)
 {
     feld->startAnimation ((Feld::Direction)button);
+}
+
+void GameWidget::doUndo ()
+{
+  feld->doUndo ();
+}
+
+void GameWidget::doRedo ()
+{
+  feld->doRedo ();
 }
 
 void GameWidget::gameOver(int moves) {
@@ -167,6 +177,8 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 
     connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     connect (feld, SIGNAL (sendMoves(int)), SLOT(getMoves(int)));
+    connect (feld, SIGNAL (enableRedo(bool)), SIGNAL(enableRedo(bool)));
+    connect (feld, SIGNAL (enableUndo(bool)), SIGNAL(enableUndo(bool)));
 
     highScore = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
 

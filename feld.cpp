@@ -34,7 +34,8 @@ extern Options settings;
 
 Feld::Feld( QWidget *parent, const char *name ) :
     QWidget( parent, name ),
-    data(locate("appdata", "pics/abilder.png"))
+    data(locate("appdata", "pics/abilder.png")),
+    undoBegin (0), undoSize (0), redoSize (0)
 {
     anim = false;
     dir = None;
@@ -94,6 +95,10 @@ void Feld::load (const KSimpleConfig& config)
   moves = 0;
   chosen = false;
   moving = false;
+
+  undoSize = redoSize = undoBegin = 0;
+  emit enableUndo(false);
+  emit enableRedo(false);
 
   xpos = ypos = 0;
   nextAtom();
@@ -310,6 +315,24 @@ void Feld::startAnimation (Direction d)
 
   if (anz != 0) {
     moving = true;
+
+    // BEGIN: Insert undo informations
+    uint undoChunk = (undoBegin + undoSize) % MAX_UNDO;
+    undo[undoChunk].atom = feld[xpos][ypos];
+    undo[undoChunk].oldxpos = xpos;
+    undo[undoChunk].oldypos = ypos;
+    undo[undoChunk].xpos = x;
+    undo[undoChunk].ypos = y;
+    undo[undoChunk].dir = dir;
+    if (undoSize == MAX_UNDO)
+      undoBegin = (undoBegin + 1) % MAX_UNDO;
+    else
+      ++undoSize;
+    redoSize = undoSize;
+    emit enableUndo(true);
+    emit enableRedo(false);
+    // END: Insert undo informations
+
     feld [xpos] [ypos] = 0;
 
     // absolutkoordinaten des zu verschiebenden bildes
@@ -328,7 +351,66 @@ void Feld::startAnimation (Direction d)
 
 }
 
+void Feld::doUndo ()
+{
+  if (moving || !chosen || undoSize == 0)
+    return;
 
+  UndoInfo &undo_info = undo[(undoBegin + --undoSize) % MAX_UNDO];
+  emit enableUndo(undoSize != 0);
+  emit enableRedo(true);
+
+  --moves;
+  emit sendMoves(moves);
+
+  moving = true;
+  resetValidDirs ();
+
+  cx = undo_info.xpos;
+  cy = undo_info.ypos;
+  xpos = undo_info.oldxpos;
+  ypos = undo_info.oldypos;
+  feld[cx][cy] = 0;
+  feld[xpos][ypos] = undo_info.atom;
+  cx *= 30; cy *= 30;
+  framesbak = frames =
+    30 * (abs (undo_info.xpos - undo_info.oldxpos) +
+          abs (undo_info.ypos - undo_info.oldypos) );
+  startTimer (10);
+  dir = (Direction) -((int) undo_info.dir);
+  bitBlt (&sprite, 0, 0, this, cx, cy, 30, 30, CopyROP);
+}
+
+void Feld::doRedo ()
+{
+  if (moving || !chosen || undoSize == redoSize)
+    return;
+
+  UndoInfo &undo_info = undo[(undoBegin + undoSize++) % MAX_UNDO];
+
+  emit enableUndo(true);
+  emit enableRedo(undoSize != redoSize);
+
+  ++moves;
+  emit sendMoves(moves);
+
+  moving = true;
+  resetValidDirs ();
+
+  cx = undo_info.oldxpos;
+  cy = undo_info.oldypos;
+  xpos = undo_info.xpos;
+  ypos = undo_info.ypos;
+  feld[cx][cy] = 0;
+  feld[xpos][ypos] = undo_info.atom;
+  cx *= 30; cy *= 30;
+  framesbak = frames =
+    30 * (abs (undo_info.xpos - undo_info.oldxpos) +
+          abs (undo_info.ypos - undo_info.oldypos) );
+  startTimer (10);
+  dir = undo_info.dir;
+  bitBlt (&sprite, 0, 0, this, cx, cy, 30, 30, CopyROP);
+}
 
 void Feld::mouseMoveEvent (QMouseEvent *e)
 {

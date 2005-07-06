@@ -14,7 +14,7 @@
 
   You should have received a copy of the GNU General Public License
   along with this program; if not, write to the Free Software
-  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+  Foundation, Inc., 51 Franklin Steet, Fifth Floor, Boston, MA  02110-1301, USA.
 
   */
 
@@ -46,6 +46,13 @@ void AtomTopLevel::createMenu()
     KStdGameAction::restart(main, SLOT(restartLevel()), actionCollection());
 
     KStdAction::preferences(this, SLOT(configopts()), actionCollection());
+
+    undoAction = KStdGameAction::undo (main, SLOT(doUndo()), actionCollection());
+    redoAction = KStdGameAction::redo (main, SLOT(doRedo()), actionCollection());
+    undoAction->setEnabled(false);
+    redoAction->setEnabled(false);
+    connect (main, SIGNAL (enableRedo(bool)), SLOT(enableRedo(bool)));
+    connect (main, SIGNAL (enableUndo(bool)), SLOT(enableUndo(bool)));
 
     new KAction(i18n("Atom Up"), Qt::Key_Up, main, SLOT(moveUp()), actionCollection(), "atom_up");
     new KAction(i18n("Atom Down"), Qt::Key_Down, main, SLOT(moveDown()), actionCollection(), "atom_down");
@@ -97,6 +104,16 @@ bool AtomTopLevel::queryExit()
 {
     saveConfig();
     return true;
+}
+
+void AtomTopLevel::enableRedo(bool enable)
+{
+    redoAction->setEnabled(enable);
+}
+
+void AtomTopLevel::enableUndo(bool enable)
+{
+    undoAction->setEnabled(enable);
 }
 
 #include "toplevel.moc"

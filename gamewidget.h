@@ -22,6 +22,10 @@ class GameWidget : public QWidget
 
     ~GameWidget();
 
+ signals:
+    void enableRedo(bool enable);
+    void enableUndo(bool enable);
+
  public slots:
     // bringt level auf neuesten stand
     void updateLevel (int);
@@ -46,6 +50,8 @@ class GameWidget : public QWidget
     void moveRight();
     void nextAtom();
     void previousAtom();
+    void doUndo ();
+    void doRedo ();
 
  protected:
 

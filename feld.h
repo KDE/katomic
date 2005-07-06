@@ -24,6 +24,8 @@
 
 #include "atom.h"
 
+#define MAX_UNDO (100)
+
 class KSimpleConfig;
 class Molek;
 
@@ -37,7 +39,11 @@ public:
     Feld (QWidget *parent=0, const char *name=0);
     ~Feld ();
 
-    enum Direction { None, MoveUp, MoveDown, MoveLeft, MoveRight };
+    enum Direction { None      = 0,
+                     MoveUp    = 1,
+                     MoveDown  = (-1),
+                     MoveLeft  = 2,
+                     MoveRight = (-2) };
 
     void startAnimation (Direction dir);
     void done ();
@@ -46,9 +52,14 @@ public:
 
     void setMolek(Molek *_mol) { mol = _mol; }
 
+    void doUndo ();
+    void doRedo ();
+
 signals:
     void gameOver(int moves);
     void sendMoves(int moves);
+    void enableRedo(bool enable);
+    void enableUndo(bool enable);
 
 protected:
     bool checkDone();
@@ -58,6 +69,14 @@ protected:
     void mousePressEvent (QMouseEvent *);
     void mouseMoveEvent (QMouseEvent *);
     void emitStatus();
+
+protected:
+    struct UndoInfo {
+      uint atom;
+      int  oldxpos, oldypos;
+      int  xpos, ypos;
+      Direction dir;
+    };
 
 public slots:
 	void nextAtom();
@@ -88,6 +107,11 @@ private:
 
     bool anim;
     bool chosen, moving;
+
+    uint undoBegin;
+    uint undoSize;
+    uint redoSize;
+    UndoInfo undo[MAX_UNDO];
 
     void resetValidDirs();
 
