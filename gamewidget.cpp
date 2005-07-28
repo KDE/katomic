@@ -24,10 +24,14 @@
 #include "molek.h"
 
 #include <qscrollbar.h>
-#include <qgroupbox.h>
+#include <q3groupbox.h>
 #include <qlayout.h>
-#include <qvbox.h>
+#include <q3vbox.h>
 #include <qlabel.h>
+//Added by qt3to4:
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QBoxLayout>
 
 #include <kscoredialog.h>
 #include <kmessagebox.h>
@@ -158,7 +162,7 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 
     top->addWidget(feld);
 
-    QVBox *vb = new QVBox(this);
+    Q3VBox *vb = new Q3VBox(this);
     vb->setSpacing(20);
     top->addWidget(vb);
 
@@ -179,7 +183,7 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
     highScore = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
 
     // the score group
-    QGroupBox *bg = new QGroupBox (i18n("Score"), vb, "bg");
+    Q3GroupBox *bg = new Q3GroupBox (i18n("Score"), vb, "bg");
     QBoxLayout *slay = new QVBoxLayout (bg, 10);
 
     slay->addSpacing(10);

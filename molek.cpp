@@ -23,6 +23,8 @@
 #include <kdebug.h>
 
 #include <ctype.h>
+//Added by qt3to4:
+#include <QPaintEvent>
 
 extern int level;
 
@@ -126,11 +128,11 @@ void Molek::paintEvent( QPaintEvent * )
 			// paints atoms
 			if (getAtom(molek [i] [j]).obj <= '9' && getAtom(molek [i] [j]).obj >= '1')
 				bitBlt (this, x, y, &data, (getAtom(molek [i] [j]).obj - '1') * 15, 0, 15,
-						15, CopyROP);
+						15/*, CopyROP*/);
 
 			// paints cristals
 			if (getAtom(molek [i] [j]).obj == 'o')
-				bitBlt (this, x, y, &data, 10 * 15, 0, 15, 15, CopyROP);
+				bitBlt (this, x, y, &data, 10 * 15, 0, 15, 15/*, CopyROP*/);
 
 			// paints connections
 			if (isdigit(getAtom(molek[i][j]).obj) || getAtom(molek[i][j]).obj == 'o')
@@ -140,10 +142,14 @@ void Molek::paintEvent( QPaintEvent * )
 						break;
 
 					if (conn >= 'a' && conn <= 'a' + 8)
-						bitBlt (this, x, y, &data, (conn - 'a') * 15, 16, 15, 15, XorROP);
+					{
+#warning "port qt4 correct ????	"
+						bitBlt (this, x, y, &data, (conn - 'a') * 15, 16, 15, 15/*, XorROP*/);
+					}
 					else
-						bitBlt (this, x, y, &data, (conn - 'A') * 15, 34, 15, 15, XorROP);
-
+					{
+						bitBlt (this, x, y, &data, (conn - 'A') * 15, 34, 15, 15/*, XorROP*/);
+					}
 				}
 
 

@@ -1,3 +1,5 @@
+//Added by qt3to4:
+#include <QLabel>
 
 #ifndef GAMEWIDGET_H
 #define GAMEWIDGET_H
