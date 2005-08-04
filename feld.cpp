@@ -55,6 +55,7 @@ Feld::Feld( QWidget *parent, const char *name ) :
     setBackgroundColor( QColor( 0, 0, 0) );
 
     setFixedSize(15 * 30, 15 * 30);
+    copy = QPixmap(15 * 30, 15 * 30);
 }
 
 Feld::~Feld ()
@@ -64,13 +65,15 @@ Feld::~Feld ()
 
 void Feld::resetValidDirs()
 {
+  bool up = false;
   for (int j = 0; j < FIELD_SIZE; j++)
     for (int i = 0; i < FIELD_SIZE; i++)
       if (feld[i][j] >= 150 && feld[i][j] <= 153)
 	{
 	  feld[i][j] = 0;
-	  putNonAtom(i,j, Feld::None);
+	  up = true;
 	}
+  if (up) update();
 }
 
 void Feld::load (const KSimpleConfig& config)
@@ -211,22 +214,22 @@ void Feld::emitStatus()
 
     if (ypos > 0 && feld[xpos][ypos-1] == 0) {
       feld [xpos][ypos-1] = 150;
-      putNonAtom(xpos, ypos-1, Feld::MoveUp);
+      update();
     }
 
     if (ypos < FIELD_SIZE-1 && feld[xpos][ypos+1] == 0) {
       feld [xpos][ypos+1] = 152;
-      putNonAtom(xpos, ypos+1, Feld::MoveDown);
+      update();
     }
 
     if (xpos > 0 && feld[xpos-1][ypos] == 0) {
       feld [xpos-1][ypos] = 151;
-      putNonAtom(xpos-1, ypos, Feld::MoveLeft);
+      update();
     }
 
     if (xpos < FIELD_SIZE-1 && feld[xpos+1][ypos] == 0) {
       feld [xpos+1][ypos] = 153;
-      putNonAtom(xpos+1, ypos, Feld::MoveRight);
+      update();
     }
 
   }
@@ -346,7 +349,7 @@ void Feld::startAnimation (Direction d)
     // 10 mal pro sek
     startTimer (10);
 
-    bitBlt (&sprite, 0, 0, this, cx, cy, 30, 30);
+    bitBlt (&sprite, 0, 0, &copy, cx, cy, 30, 30);
   }
 
 }
@@ -378,7 +381,7 @@ void Feld::doUndo ()
           abs (undo_info.ypos - undo_info.oldypos) );
   startTimer (10);
   dir = (Direction) -((int) undo_info.dir);
-  bitBlt (&sprite, 0, 0, this, cx, cy, 30, 30);
+  bitBlt (&sprite, 0, 0, &copy, cx, cy, 30, 30);
 }
 
 void Feld::doRedo ()
@@ -409,7 +412,7 @@ void Feld::doRedo ()
           abs (undo_info.ypos - undo_info.oldypos) );
   startTimer (10);
   dir = undo_info.dir;
-  bitBlt (&sprite, 0, 0, this, cx, cy, 30, 30);
+  bitBlt (&sprite, 0, 0, &copy, cx, cy, 30, 30);
 }
 
 void Feld::mouseMoveEvent (QMouseEvent *e)
@@ -508,44 +511,42 @@ void Feld::timerEvent (QTimerEvent *)
     if (frames < 0)
 	  frames = 0;
 
-    paintMovingAtom();
+    update();
   }
 }
 
-void Feld::paintMovingAtom()
+void Feld::paintMovingAtom(QPainter &paint)
 {
 	int a = settings.anim_speed;
-
-	QPainter paint(this);
 
 	switch(dir)
 	{
 	case MoveUp:
-		bitBlt(this, cx, cy - framesbak + frames, &sprite);
+		paint.drawPixmap(cx, cy - framesbak + frames, sprite);
 		if(framesbak - frames > 0)
-			paint.eraseRect(cx, cy - framesbak + frames + 30, 30, a);
+			paint.fillRect(cx, cy - framesbak + frames + 30, 30, a, Qt::black);
 		break;
 	case MoveDown:
-		bitBlt(this, cx, cy + framesbak - frames, &sprite);
+		paint.drawPixmap(cx, cy + framesbak - frames, sprite);
 		if(framesbak - frames > 0)
-			paint.eraseRect(cx, cy + framesbak - frames - a, 30, a);
+			paint.fillRect(cx, cy + framesbak - frames - a, 30, a, Qt::black);
 		break;
 	case MoveRight:
-		bitBlt(this, cx + framesbak - frames, cy, &sprite);
+		paint.drawPixmap(cx + framesbak - frames, cy, sprite);
 		if(framesbak - frames > 0)
-			paint.eraseRect(cx + framesbak - frames - a, cy, a, 30);
+			paint.fillRect(cx + framesbak - frames - a, cy, a, 30, Qt::black);
 		break;
 	case MoveLeft:
-		bitBlt(this, cx - framesbak + frames, cy, &sprite);
+		paint.drawPixmap(cx - framesbak + frames, cy, sprite);
 		if(framesbak - frames > 0)
-			paint.eraseRect(cx - framesbak + frames + 30, cy, a, 30);
+			paint.fillRect(cx - framesbak + frames + 30, cy, a, 30, Qt::black);
 		break;
     case None:
         break;
     }
 }
 
-void Feld::putNonAtom (int x, int y, Direction which, bool brick)
+void Feld::putNonAtom (int x, int y, Direction which, QPainter &p, bool brick)
 {
   int xarr=0, yarr=0;
   switch (which)
@@ -557,16 +558,17 @@ void Feld::putNonAtom (int x, int y, Direction which, bool brick)
     case MoveRight : xarr = 279; yarr = 93; break;
     }
 
-  bitBlt(this, x * 30, y * 30, &data, xarr, yarr, 30, 30);
+  p.drawPixmap(x * 30, y * 30, data, xarr, yarr, 30, 30);
 }
 
 void Feld::paintEvent( QPaintEvent * )
 {
     int i, j, x, y;
 
-    QPainter paint ( this );
+    QPainter paint ( &copy );
+    paint.fillRect(0, 0, 15 * 30, 15 * 30, Qt::black);
 
-    paint.setPen (Qt::black);
+    if (moving) paintMovingAtom(paint);
 
 	// spielfeld gleich zeichnen
 
@@ -582,35 +584,35 @@ void Feld::paintEvent( QPaintEvent * )
 
 		    // zeichnet Randstücke
 		    if (feld [i] [j] == 254) {
-		      putNonAtom(i, j, Feld::None, true); continue;
+		      putNonAtom(i, j, Feld::None, paint, true); continue;
 		    }
 
 		    if (feld[i][j] == 150) {
-		      putNonAtom(i, j, Feld::MoveUp); continue;
+		      putNonAtom(i, j, Feld::MoveUp, paint); continue;
 		    }
 
 		    if (feld[i][j] == 151) {
-		      putNonAtom(i, j, Feld::MoveLeft); continue;
+		      putNonAtom(i, j, Feld::MoveLeft, paint); continue;
 		    }
 		    if (feld[i][j] == 152) {
-		      putNonAtom(i, j, Feld::MoveDown); continue;
+		      putNonAtom(i, j, Feld::MoveDown, paint); continue;
 		    }
 
 		    if (feld[i][j] == 153) {
-		      putNonAtom(i, j, Feld::MoveRight); continue;
+		      putNonAtom(i, j, Feld::MoveRight, paint); continue;
 		    }
 
 		    // zeichnet Atome
 		    if (getAtom(feld [i] [j]).obj <= '9' && getAtom(feld [i] [j]).obj > '0')
 			{
-			    bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - '1') * 31, 0, 30,
+			    paint.drawPixmap(x, y, data, (getAtom(feld [i] [j]).obj - '1') * 31, 0, 30,
 				    30);
 			}
 
 		    // zeichnet Kristalle
 		    if (getAtom(feld [i] [j]).obj == 'o')
 			{
-			    bitBlt (this, x, y, &data, 31, 93, 30, 30);
+			    paint.drawPixmap(x, y, data, 31, 93, 30, 30);
 			}
 
 
@@ -624,23 +626,24 @@ void Feld::paintEvent( QPaintEvent * )
 				break;
 
 			    if (conn >= 'a' && conn <= 'a' + 8)
-				bitBlt (this, x, y,
-					&data, (conn - 'a') * 31, 31, 30, 30);
+				paint.drawPixmap(x, y,
+					data, (conn - 'a') * 31, 31, 30, 30);
 			    else
-				bitBlt (this, x, y,
-					&data, (conn - 'A') * 31, 62, 30, 30);
+				paint.drawPixmap(x, y,
+					data, (conn - 'A') * 31, 62, 30, 30);
 
 			}
 
 		    // zeichnet Verbindungsstäbe
 		    if (getAtom(feld [i] [j]).obj >= 'A' &&
 			getAtom(feld [i] [j]).obj <= 'F')
-			bitBlt (this, x, y,
-				&data,
+			paint.drawPixmap(x, y,
+				data,
 				(getAtom(feld [i] [j]).obj - 'A' + 2) * 31 ,
 				93, 30, 30);
 		}
     }
+    bitBlt(this, 0, 0, &copy);
 }
 
 

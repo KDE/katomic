@@ -65,7 +65,7 @@ protected:
     bool checkDone();
     void timerEvent (QTimerEvent *);
     void paintEvent( QPaintEvent * );
-    void paintMovingAtom();
+    void paintMovingAtom(QPainter &paint);
     void mousePressEvent (QMouseEvent *);
     void mouseMoveEvent (QMouseEvent *);
     void emitStatus();
@@ -86,11 +86,12 @@ private:
 
     const atom& getAtom(uint index) const;
 
-    void putNonAtom(int, int, Direction, bool brick = false);
+    void putNonAtom(int, int, Direction, QPainter &p, bool brick = false);
 
     QPoint *point;
     QPixmap data;
     QPixmap sprite;
+    QPixmap copy;
 
     Molek *mol;
 
