@@ -168,7 +168,7 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 
     // scrollbar
     scrl = new QScrollBar(1, nlevels, 1,
-			5, 1, QScrollBar::Horizontal, vb, "scrl" );
+			5, 1, Qt::Horizontal, vb, "scrl" );
     connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
 
     // molekül
