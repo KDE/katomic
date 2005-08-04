@@ -276,6 +276,7 @@ void Feld::startAnimation (Direction d)
 
   // reset validDirs now so that arrows don't get drawn
   resetValidDirs();
+  repaint();
 
   int x = 0, y = 0;
 
@@ -566,10 +567,15 @@ void Feld::paintEvent( QPaintEvent * )
     int i, j, x, y;
 
     QPainter paint ( &copy );
+
+    if (moving)
+    {
+        paintMovingAtom(paint);
+        bitBlt(this, 0, 0, &copy);
+        return;
+    }
+
     paint.fillRect(0, 0, 15 * 30, 15 * 30, Qt::black);
-
-    if (moving) paintMovingAtom(paint);
-
 	// spielfeld gleich zeichnen
 
 	for (i = 0; i < FIELD_SIZE; i++)
