@@ -346,7 +346,7 @@ void Feld::startAnimation (Direction d)
     // 10 mal pro sek
     startTimer (10);
 
-    bitBlt (&sprite, 0, 0, this, cx, cy, 30, 30, CopyROP);
+    bitBlt (&sprite, 0, 0, this, cx, cy, 30, 30);
   }
 
 }
@@ -378,7 +378,7 @@ void Feld::doUndo ()
           abs (undo_info.ypos - undo_info.oldypos) );
   startTimer (10);
   dir = (Direction) -((int) undo_info.dir);
-  bitBlt (&sprite, 0, 0, this, cx, cy, 30, 30, CopyROP);
+  bitBlt (&sprite, 0, 0, this, cx, cy, 30, 30);
 }
 
 void Feld::doRedo ()
@@ -409,7 +409,7 @@ void Feld::doRedo ()
           abs (undo_info.ypos - undo_info.oldypos) );
   startTimer (10);
   dir = undo_info.dir;
-  bitBlt (&sprite, 0, 0, this, cx, cy, 30, 30, CopyROP);
+  bitBlt (&sprite, 0, 0, this, cx, cy, 30, 30);
 }
 
 void Feld::mouseMoveEvent (QMouseEvent *e)
@@ -521,22 +521,22 @@ void Feld::paintMovingAtom()
 	switch(dir)
 	{
 	case MoveUp:
-		bitBlt(this, cx, cy - framesbak + frames, &sprite, CopyROP);
+		bitBlt(this, cx, cy - framesbak + frames, &sprite);
 		if(framesbak - frames > 0)
 			paint.eraseRect(cx, cy - framesbak + frames + 30, 30, a);
 		break;
 	case MoveDown:
-		bitBlt(this, cx, cy + framesbak - frames, &sprite, CopyROP);
+		bitBlt(this, cx, cy + framesbak - frames, &sprite);
 		if(framesbak - frames > 0)
 			paint.eraseRect(cx, cy + framesbak - frames - a, 30, a);
 		break;
 	case MoveRight:
-		bitBlt(this, cx + framesbak - frames, cy, &sprite, CopyROP);
+		bitBlt(this, cx + framesbak - frames, cy, &sprite);
 		if(framesbak - frames > 0)
 			paint.eraseRect(cx + framesbak - frames - a, cy, a, 30);
 		break;
 	case MoveLeft:
-		bitBlt(this, cx - framesbak + frames, cy, &sprite, CopyROP);
+		bitBlt(this, cx - framesbak + frames, cy, &sprite);
 		if(framesbak - frames > 0)
 			paint.eraseRect(cx - framesbak + frames + 30, cy, a, 30);
 		break;
@@ -557,7 +557,7 @@ void Feld::putNonAtom (int x, int y, Direction which, bool brick)
     case MoveRight : xarr = 279; yarr = 93; break;
     }
 
-  bitBlt(this, x * 30, y * 30, &data, xarr, yarr, 30, 30, CopyROP);
+  bitBlt(this, x * 30, y * 30, &data, xarr, yarr, 30, 30);
 }
 
 void Feld::paintEvent( QPaintEvent * )
@@ -604,13 +604,13 @@ void Feld::paintEvent( QPaintEvent * )
 		    if (getAtom(feld [i] [j]).obj <= '9' && getAtom(feld [i] [j]).obj > '0')
 			{
 			    bitBlt (this, x, y, &data, (getAtom(feld [i] [j]).obj - '1') * 31, 0, 30,
-				    30, CopyROP);
+				    30);
 			}
 
 		    // zeichnet Kristalle
 		    if (getAtom(feld [i] [j]).obj == 'o')
 			{
-			    bitBlt (this, x, y, &data, 31, 93, 30, 30, CopyROP);
+			    bitBlt (this, x, y, &data, 31, 93, 30, 30);
 			}
 
 
@@ -625,12 +625,10 @@ void Feld::paintEvent( QPaintEvent * )
 
 			    if (conn >= 'a' && conn <= 'a' + 8)
 				bitBlt (this, x, y,
-					&data, (conn - 'a') * 31, 31, 30, 30,
-					XorROP);
+					&data, (conn - 'a') * 31, 31, 30, 30);
 			    else
 				bitBlt (this, x, y,
-					&data, (conn - 'A') * 31, 62, 30, 30,
-					XorROP);
+					&data, (conn - 'A') * 31, 62, 30, 30);
 
 			}
 
@@ -640,8 +638,7 @@ void Feld::paintEvent( QPaintEvent * )
 			bitBlt (this, x, y,
 				&data,
 				(getAtom(feld [i] [j]).obj - 'A' + 2) * 31 ,
-				93, 30, 30,
-				CopyROP);
+				93, 30, 30);
 		}
     }
 }

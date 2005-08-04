@@ -32,7 +32,7 @@ public:
 
    void load(const KSimpleConfig& config);
 
-   const atom& getAtom(uint index) const;
+   const atom& getAtom(int index) const;
    int atomSize() const { return atoms.count(); }
 
    QSize molecSize() const { return _size; }
