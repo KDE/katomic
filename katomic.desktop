@@ -45,6 +45,7 @@ GenericName[sr]=Логичка игра налик на Sokoban
 GenericName[sr@Latn]=Logička igra nalik na Sokoban
 GenericName[sv]=Sokoban-liknande logiskt spel
 GenericName[ta]=சோகோபான் போன்ற லாஜிக் விளையாட்டு
+GenericName[uk]=Гра на логіку подібна до Sokoban
 X-KDE-StartupNotify=true
 X-DCOP-ServiceType=Multi
 Categories=Qt;KDE;Game;StrategyGame;
