@@ -17,6 +17,7 @@
 #include <QPaintEvent>
 #include "atom.h"
 #include <q3valuelist.h>
+#include <QList>
 
 class KSimpleConfig;
 
@@ -44,7 +45,7 @@ protected:
 private:
    QPixmap data;
    uint molek[MOLEK_SIZE][MOLEK_SIZE]; // the indexes within atoms
-   Q3ValueList<atom> atoms;
+   QList<atom> atoms;
    QString mname;
    QSize _size;
 
