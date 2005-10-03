@@ -25,6 +25,7 @@
 #include <klocale.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
+#include <kglobal.h>
 
 
 static const char description[] =
