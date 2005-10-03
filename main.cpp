@@ -54,7 +54,7 @@ int main(int argc, char **argv)
 
   QApplication::setColorSpec(QApplication::ManyColor);
   KApplication a;
-  KGlobal::locale()->insertCatalogue("libkdegames");
+  KGlobal::locale()->insertCatalog("libkdegames");
 
   if ( a.isRestored() )
         RESTORE(AtomTopLevel)
