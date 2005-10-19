@@ -60,8 +60,8 @@ int main(int argc, char **argv)
   if ( a.isSessionRestored() )
         RESTORE(AtomTopLevel)
   else {
-      AtomTopLevel top;
-      top.show();
+      AtomTopLevel *top = new AtomTopLevel;
+      top->show();
   }
   return a.exec();
 }
