@@ -57,12 +57,11 @@ int main(int argc, char **argv)
   KApplication a;
   KGlobal::locale()->insertCatalog("libkdegames");
 
-  if ( a.isRestored() )
+  if ( a.isSessionRestored() )
         RESTORE(AtomTopLevel)
   else {
-      AtomTopLevel *top = new AtomTopLevel;
-      top->show();
-      a.setMainWidget(top);
+      AtomTopLevel top;
+      top.show();
   }
   return a.exec();
 }
