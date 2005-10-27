@@ -424,7 +424,7 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
   if( e->pos().x() < 0 || e->pos().x() >= 450 ||
       e->pos().y() < 0 || e->pos().y() >= 450 )
   {
-    setCursor(Qt::arrowCursor);
+    setCursor(Qt::ArrowCursor);
   }
   else
   {
@@ -433,9 +433,9 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
 
     // verschiedene cursor je nach pos
     if (feld[x][y] != 254 && feld [x] [y] != 0)
-      setCursor (Qt::crossCursor);
+      setCursor (Qt::CrossCursor);
     else
-      setCursor (Qt::arrowCursor);
+      setCursor (Qt::ArrowCursor);
   }
 }
 
