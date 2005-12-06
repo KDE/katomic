@@ -33,7 +33,7 @@ class GameWidget : public QWidget
     // restart current level
     void restartLevel();
 
-    // getbutton erhält button der gedrückt wurde
+    // getbutton erhÃ¤lt button der gedrÃ¼ckt wurde
     void getButton (int);
 
     void gameOver(int moves);
@@ -58,7 +58,7 @@ class GameWidget : public QWidget
     // stellt das spielfeld dar !
     Feld *feld;
 
-    // stellt molekül dar
+    // stellt molekÃ¼l dar
     Molek *molek;
 
     // scorllbar zur levelwahl

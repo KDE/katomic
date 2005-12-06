@@ -1,6 +1,6 @@
 /* toplevel.cpp
 
-  Copyright (C) 1998   Andreas Wüst (AndreasWuest@gmx.de)
+  Copyright (C) 1998   Andreas WÃ¼st (AndreasWuest@gmx.de)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -171,7 +171,7 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 			5, 1, Qt::Horizontal, vb, "scrl" );
     connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
 
-    // molekül
+    // molekÃ¼l
     molek = new Molek (vb, "molek");
     feld->setMolek(molek);
 

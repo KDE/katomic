@@ -5,11 +5,11 @@
 ****************************************************************/
 
 // bemerkungen : wenn paintEvent aufgerufen wird, wird das komplette
-//               widget gelöscht und nur die sachen gezeichnet, die in
+//               widget gelÃ¶scht und nur die sachen gezeichnet, die in
 //               paintEvent stehen ! sollen dinge z.b nur bei maustasten-
-//               druck gezeichnet werden, so muß dies in mousePressEvent
+//               druck gezeichnet werden, so muÃŸ dies in mousePressEvent
 //               stehen !
-//               paintEvent wird aufgerufen, falls fenster überdeckt wird,
+//               paintEvent wird aufgerufen, falls fenster Ã¼berdeckt wird,
 //               oder auch einfach bewegt wird
 
 #include <config.h>

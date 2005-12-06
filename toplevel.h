@@ -1,6 +1,6 @@
 /* toplevel.h
  *
- * Andreas Wüst
+ * Andreas WÃ¼st
  *
  */
 
@@ -18,7 +18,7 @@ class KConfig;
  * AtomTopLevel.
  *
  * @short Basic class for AtomTopLevel
- * @author Andreas Wüst
+ * @author Andreas WÃ¼st
  */
 
 class AtomTopLevel : public KMainWindow

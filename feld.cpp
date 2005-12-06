@@ -5,11 +5,11 @@
 ****************************************************************/
 
 // bemerkungen : wenn paintEvent aufgerufen wird, wird das komplette
-//               widget gelöscht und nur die sachen gezeichnet, die in
+//               widget gelÃ¶scht und nur die sachen gezeichnet, die in
 //               paintEvent stehen ! sollen dinge z.b nur bei maustasten-
-//               druck gezeichnet werden, so muß dies in mousePressEvent
+//               druck gezeichnet werden, so muÃŸ dies in mousePressEvent
 //               stehen !
-//               paintEvent wird aufgerufen, falls fenster überdeckt wird,
+//               paintEvent wird aufgerufen, falls fenster Ã¼berdeckt wird,
 //               oder auch einfach bewegt wird
 
 #include <kiconloader.h>
@@ -588,7 +588,7 @@ void Feld::paintEvent( QPaintEvent * )
 		    x = i * 30;
 		    y = j * 30;
 
-		    // zeichnet Randstücke
+		    // zeichnet RandstÃ¼cke
 		    if (feld [i] [j] == 254) {
 		      putNonAtom(i, j, Feld::None, paint, true); continue;
 		    }
@@ -640,7 +640,7 @@ void Feld::paintEvent( QPaintEvent * )
 
 			}
 
-		    // zeichnet Verbindungsstäbe
+		    // zeichnet VerbindungsstÃ¤be
 		    if (getAtom(feld [i] [j]).obj >= 'A' &&
 			getAtom(feld [i] [j]).obj <= 'F')
 			paint.drawPixmap(x, y,
