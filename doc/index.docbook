@@ -17,19 +17,21 @@
 </author>
 
 <othercredit role="developer">
-<firstname>Stephan</firstname><surname>Kulow</surname><contrib>Developer</contrib><affiliation><address><email>coolo@kde.org</email></address></affiliation></othercredit>
+<firstname>Stephan</firstname><surname>Kulow</surname><contrib>Developer</contrib><affiliation><address>&Stephan.Kulow.mail;</address>
+</affiliation></othercredit>
 <othercredit role="developer">
-<firstname>Cristian</firstname><surname>Tibirna</surname><contrib>Developer</contrib><affiliation><address><email>tibirna@kde.org</email></address></affiliation></othercredit>
+<firstname>Cristian</firstname><surname>Tibirna</surname><contrib>Developer</contrib><affiliation><address>&Cristian.Tibirna.mail;</address>
+</affiliation></othercredit>
 <othercredit role="reviewer">
 <firstname>Mike</firstname><surname>McBride</surname>
 <contrib>Reviewer</contrib>
-<affiliation><address><email>mpmcbride7@yahoo.com</email></address></affiliation>
+<affiliation><address>&Mike.McBride.mail;</address></affiliation>
 </othercredit>
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2005-01-18</date>
-<releaseinfo>2.00.00</releaseinfo>
+<date>2005-12-14</date>
+<releaseinfo>2.0</releaseinfo>
 
 <abstract>
 <para>This Handbook describes &katomic; Version 2.0</para>
@@ -77,9 +79,9 @@ the puzzle.</para>
 
 <para>The best score in this game is actually the lower score, because the
 goal is to solve a level with as few moves as
-possible. <guilabel>Best score:</guilabel> in the main-window shows
+possible. <guilabel>Highscore:</guilabel> in the main-window shows
 the lowest number of moves used for this level. <guilabel>Your score
-so far</guilabel> shows the current number of moves.</para>
+so far:</guilabel> shows the current number of moves.</para>
 
 <para>The scrollbar on the top right of the main window changes the game
 level.</para>
@@ -89,7 +91,7 @@ level.</para>
 </chapter>
 
 <chapter id="configuration">
-<title>Configuration </title>
+<title>Menu Reference</title>
 
 <sect1 id="game-menu">
 <title>The <guimenu>Game</guimenu> Menu</title>
@@ -110,7 +112,7 @@ level.</para>
 <shortcut><keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
-<guimenuitem>Show Best Scores</guimenuitem></menuchoice></term>
+<guimenuitem>Show Highscores</guimenuitem></menuchoice></term>
 <listitem><para>This will show the best scores for the current level.</para></listitem>
 </varlistentry>
 
@@ -123,6 +125,43 @@ level.</para>
 <listitem><para>Selecting this item will end your current game, and exit the
 &katomic;.</para></listitem>
 </varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="move-menu">
+<title>The <guimenu>Move</guimenu> Menu</title>
+
+<variablelist>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>Z</keycap>
+</keycombo>
+</shortcut>
+<guimenu>Move</guimenu>
+<guimenuitem>Undo</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para><action>Undo the last move you made.</action></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;&Shift;<keycap>Z</keycap></keycombo>
+</shortcut>
+<guimenu>Move</guimenu>
+<guimenuitem>Redo</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>If you have previously undone a move, you can redo it
+here.</action></para>
+</listitem>
+</varlistentry>
+
 </variablelist>
 </sect1>
 
@@ -157,14 +196,20 @@ atomic movement can be set.</para></listitem>
 </sect1>
 
 <sect1 id="keybindings">
-<title id="keybindings-title">Key Bindings</title>
+<title id="keybindings-title">Shortcuts</title>
 
-<para>Default key bindings are:</para>
+<para>Default shortcuts are:</para>
 
 <table>
-<title>Key bindings</title>
+<title>Shortcuts</title>
 <tgroup cols="2">
 <tbody>
+<row>
+<entry>Restart Game</entry>
+<entry>
+<keycap>F5</keycap>
+</entry>
+</row>
 <row>
 <entry>Quit</entry>
 <entry>
@@ -172,9 +217,21 @@ atomic movement can be set.</para></listitem>
 </entry>
 </row>
 <row>
-<entry>Best Scores</entry>
+<entry>Show Highscores</entry>
 <entry>
 <keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
+</entry>
+</row>
+<row>
+<entry>Undo</entry>
+<entry>
+<keycombo action="simul">&Ctrl;<keycap>Z</keycap></keycombo>
+</entry>
+</row>
+<row>
+<entry>Redo</entry>
+<entry>
+<keycombo action="simul">&Ctrl;&Shift;<keycap>Z</keycap></keycombo>
 </entry>
 </row>
 <row>
@@ -231,20 +288,20 @@ atomic movement can be set.</para></listitem>
 <title>Credits and License</title>
 
 <para>
-<application>Atomic Entertainment</application> Copyright 1999 Stephan Kulow
-<email>coolo@kde.org</email> and Cristian Tibirna
-<email>tibirna@kde.org</email>.
+<application>Atomic Entertainment</application> Copyright 1999 &Stephan.Kulow;
+&Stephan.Kulow.mail; and Cristian Tibirna
+&Cristian.Tibirna.mail;.
 </para>
 <para>
 Atomic Copyright Andreas Wuest <email>Andreas Wuest@gmx.de</email>.
 </para>
 <para>
-Documentation Copyright 2000 Dirk Doerflinger
+Documentation Copyright 2000 &Dirk.Doerflinger;
 <email>ddoerflinger@gmx.net</email>
 </para>
 <para>
 Proofreading by Michael McBride
-<email>mpmcbride7@yahoo.com</email>
+&Mike.McBride.mail;
 </para>
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
@@ -260,9 +317,9 @@ Proofreading by Michael McBride
 
 <para>
 <application>Atomic Entertainment</application> (&katomic;) is written for the &kde; project
-<ulink url="http://www.kde.org">http://www.kde.org</ulink> by Stephan Kulow
-<email>coolo@kde.org</email> and Cristian Tiberna
-<email>tibirna@kde.org</email>.
+<ulink url="http://www.kde.org">http://www.kde.org</ulink> by &Stephan.Kulow;
+&Stephan.Kulow.mail; and Cristian Tiberna
+&Cristian.Tibirna.mail;.
 It is based on Atomic 1.0.67 by Andreas Wuest
 <email>AndreasWuest@gmx.de</email>.
 </para>
@@ -277,8 +334,7 @@ It is based on Atomic 1.0.67 by Andreas Wuest
 In order to successfully compile <application>Atomic Entertainment</application>, you need &kde; 3.0 </para>
 <para>
 All required libraries as well as <application>Atomic Entertainment</application> itself can be found on
-<ulink
-url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>.</para>
+&kde-ftp;.</para>
 </sect1>
 
 
