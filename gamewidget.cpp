@@ -26,7 +26,7 @@
 #include <qscrollbar.h>
 #include <q3groupbox.h>
 #include <qlayout.h>
-#include <q3vbox.h>
+#include <kvbox.h>
 #include <qlabel.h>
 //Added by qt3to4:
 #include <QVBoxLayout>
@@ -162,7 +162,8 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 
     top->addWidget(feld);
 
-    Q3VBox *vb = new Q3VBox(this);
+    
+	KVBox *vb = new KVBox(this);
     vb->setSpacing(20);
     top->addWidget(vb);
 
