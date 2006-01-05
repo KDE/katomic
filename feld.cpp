@@ -88,7 +88,7 @@ void Feld::load (const KSimpleConfig& config)
   for (int j = 0; j < FIELD_SIZE; j++) {
 
     key.sprintf("feld_%02d", j);
-    QString line = config.readEntry(key);
+    QString line = config.readEntry(key,QString());
 
     for (int i = 0; i < FIELD_SIZE; i++)
 	feld[i][j] = atom2int(line[i].latin1());

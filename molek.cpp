@@ -60,7 +60,7 @@ void Molek::load (const KSimpleConfig& config)
     QString value;
     while (true) {
 	key.sprintf("atom_%c", int2atom(atom_index));
-	value = config.readEntry(key);
+	value = config.readEntry(key,QString());
 	if (value.isEmpty())
 	    break;
 
@@ -81,7 +81,7 @@ void Molek::load (const KSimpleConfig& config)
     for (int j = 0; j < MOLEK_SIZE; j++) {
 
 	key.sprintf("mole_%d", j);
-	line = config.readEntry(key);
+	line = config.readEntry(key,QString());
 
 	for (int i = 0; i < MOLEK_SIZE; i++)
 	{
