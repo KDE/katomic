@@ -42,7 +42,7 @@ ConfigBox::ConfigBox ( QWidget *parent, const char *name)
   connect(speed, SIGNAL(valueChanged(int)), disp, SLOT(display(int)));
 
   speed->setValue(settings.anim_speed);
-  incInitialSize(QSize(20,20), true);
+  incInitialSize(QSize(20,20));
 }
   
 void ConfigBox::slotOk()
