@@ -212,7 +212,7 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 
     KConfig *config = KGlobal::config();
     config->setGroup("Options");
-    settings.anim_speed = config->readNumEntry("Animation Speed", 1);
+    settings.anim_speed = config->readEntry("Animation Speed", 1);
     if (settings.anim_speed < 1 || settings.anim_speed > MAX_SPEED)
 	settings.anim_speed = 1;
 
