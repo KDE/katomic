@@ -70,7 +70,7 @@ void Molek::load (const KSimpleConfig& config)
            value = "";
 
 	strlcpy(current.conn, value.ascii(), sizeof(current.conn));
-	kdWarning( atoms.find(current) != atoms.end() )
+	kWarning( atoms.find(current) != atoms.end() )
 	  << "OOOPS, duplicate atom definition in " << key << endl;
 	atoms.append(current);
 	atom_index++;
