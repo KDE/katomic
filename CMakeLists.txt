@@ -26,7 +26,7 @@ install_targets(/bin katomic )
 
 install_files( ${XDG_APPS_DIR} FILES katomic.desktop )
 install_files( ${DATA_INSTALL_DIR}/katomic FILES katomicui.rc )
-install_files(  FILES abilder.png molek.png )
+install_files( ${DATA_INSTALL_DIR}/katomic/pics/ FILES abilder.png molek.png )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 
