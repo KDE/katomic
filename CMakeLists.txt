@@ -17,7 +17,7 @@ kde4_automoc(${katomic_SRCS})
 
 kde4_add_executable(katomic ${katomic_SRCS})
 
-target_link_libraries(katomic  ${LIB_KDEUI} kdegames )
+target_link_libraries(katomic  ${KDE4_KDEUI_LIBRARIES} kdegames )
 
 install_targets(/bin katomic )
 
