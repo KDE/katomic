@@ -98,10 +98,10 @@ void GameWidget::doRedo ()
 }
 
 void GameWidget::gameOver(int moves) {
-    KMessageBox::information(this, i18n("You solved level %1 with %2 moves!").arg(level).arg(moves), i18n("Congratulations"));
+    KMessageBox::information(this, i18n("You solved level %1 with %2 moves!", level, moves), i18n("Congratulations"));
 
     KScoreDialog high(KScoreDialog::Name | KScoreDialog::Score, this);
-    high.setCaption(i18n("Level %1 Highscores").arg(level));
+    high.setCaption(i18n("Level %1 Highscores", level));
     high.setConfigGroup(QString("Highscores Level %1").arg(level));
 
     KScoreDialog::FieldInfo scoreInfo;
@@ -226,7 +226,7 @@ GameWidget::~GameWidget()
 void GameWidget::showHighscores ()
 {
     KScoreDialog high(KScoreDialog::Name | KScoreDialog::Score, this);
-    high.setCaption(i18n("Level %1 Highscores").arg(level));
+    high.setCaption(i18n("Level %1 Highscores", level));
     high.setConfigGroup(QString("Highscores Level %1").arg(level));
     high.exec();
 }

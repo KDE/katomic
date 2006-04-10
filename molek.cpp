@@ -113,7 +113,7 @@ void Molek::load (const KSimpleConfig& config)
 
 void Molek::paintEvent( QPaintEvent * )
 {
-    QString st = i18n("Level: %1").arg(level);
+    QString st = i18n("Level: %1", level);
 
     QPainter paint (this);
     paint.setPen (QColor (190, 190, 190));
