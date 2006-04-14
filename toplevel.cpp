@@ -88,7 +88,8 @@ void AtomTopLevel::saveConfig()
 
 AtomTopLevel::AtomTopLevel()
 {
-    main = new GameWidget(this, "gamewidget");
+    main = new GameWidget(this);
+    main->setObjectName("gamewidget");
     createMenu();
     initConfig();
     setCentralWidget(main);

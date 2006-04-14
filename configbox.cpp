@@ -36,7 +36,10 @@ ConfigBox::ConfigBox ( QWidget *parent, const char *name)
   glay->addWidget(disp, 1, 2);
   disp->display(1);
 
-  speed = new QSlider(1, 10, 1, 1, Qt::Horizontal, page);
+  speed = new QSlider(Qt::Horizontal, page);
+  speed->setRange(1, 10);
+  speed->setPageStep(1);
+  speed->setValue(1);
   glay->addMultiCellWidget(speed, 2, 2, 2, 3);
 
   connect(speed, SIGNAL(valueChanged(int)), disp, SLOT(display(int)));

@@ -28,7 +28,7 @@ class Molek : public QWidget
     Q_OBJECT
 
 public:
-    Molek (QWidget *parent=0, const char *name=0);
+    Molek (QWidget *parent=0);
    ~Molek ();
 
    void load(const KSimpleConfig& config);

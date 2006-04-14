@@ -18,7 +18,7 @@ class GameWidget : public QWidget
 
  public:
 
-    GameWidget ( QWidget *parent, const char *name=0 );
+    GameWidget ( QWidget *parent );
 
     ~GameWidget();
 

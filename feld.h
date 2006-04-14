@@ -36,7 +36,7 @@ class Feld : public QWidget
     Q_OBJECT
 
 public:
-    Feld (QWidget *parent=0, const char *name=0);
+    Feld (QWidget *parent=0);
     ~Feld ();
 
     enum Direction { None      = 0,

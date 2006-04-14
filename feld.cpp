@@ -32,8 +32,8 @@
 
 extern Options settings;
 
-Feld::Feld( QWidget *parent, const char *name ) :
-    QWidget( parent, name ),
+Feld::Feld( QWidget *parent ) :
+    QWidget( parent ),
     data(locate("appdata", "pics/abilder.png")),
     undoBegin (0), undoSize (0), redoSize (0)
 {
@@ -461,7 +461,7 @@ bool Feld::checkDone ()
 	int my = j - 1;
 
 	QRect extent(0, 0, FIELD_SIZE - molecWidth + 1, FIELD_SIZE - molecHeight + 1);
-	extent.moveBy(0, my);
+	extent.translate(0, my);
 
 	// find first atom in playing field
 	for(i = extent.left(); i <= extent.right(); ++i)

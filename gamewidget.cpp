@@ -147,17 +147,19 @@ void GameWidget::restartLevel()
     updateLevel(level);
 }
 
-GameWidget::GameWidget ( QWidget *parent, const char* name )
-    : QWidget( parent, name )
+GameWidget::GameWidget ( QWidget *parent )
+    : QWidget( parent )
 {
     level = 1;
     nlevels = KGlobal::dirs()->findAllResources("appdata", "levels/level_*",
 				false, true).count();
 
-    QHBoxLayout *top = new QHBoxLayout(this, 10);
+    QHBoxLayout *top = new QHBoxLayout(this);
+    top->setMargin(10);
 
     // spielfeld
-    feld = new Feld (this, "feld");
+    feld = new Feld (this);
+    feld->setObjectName("feld");
     feld->setFocus();
 
     top->addWidget(feld);
@@ -168,12 +170,17 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
     top->addWidget(vb);
 
     // scrollbar
-    scrl = new QScrollBar(1, nlevels, 1,
-			5, 1, Qt::Horizontal, vb, "scrl" );
+    scrl = new QScrollBar( Qt::Horizontal, vb );
+    scrl->setRange(1, nlevels);
+    scrl->setSingleStep(1);
+    scrl->setPageStep(5);
+    scrl->setValue(1);
+    scrl->setObjectName("scrl");
     connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
 
     // molekül
-    molek = new Molek (vb, "molek");
+    molek = new Molek (vb);
+    molek->setObjectName("molek");
     feld->setMolek(molek);
 
     connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
@@ -185,7 +192,8 @@ GameWidget::GameWidget ( QWidget *parent, const char* name )
 
     // the score group
     Q3GroupBox *bg = new Q3GroupBox (i18n("Score"), vb, "bg");
-    QBoxLayout *slay = new QVBoxLayout (bg, 10);
+    QBoxLayout *slay = new QVBoxLayout (bg);
+    slay->setMargin(10);
 
     slay->addSpacing(10);
 
