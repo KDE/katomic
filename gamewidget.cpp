@@ -164,7 +164,7 @@ GameWidget::GameWidget ( QWidget *parent )
 
     top->addWidget(feld);
 
-    
+
 	KVBox *vb = new KVBox(this);
     vb->setSpacing(20);
     top->addWidget(vb);
