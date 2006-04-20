@@ -24,11 +24,13 @@ ConfigBox::ConfigBox ( QWidget *parent, const char *name)
 {
   QWidget *page = makeMainWidget();  
 
-  QGridLayout *glay = new QGridLayout (page, 4, 5, 0, spacingHint());
+  QGridLayout *glay = new QGridLayout (page);
+  glay->setMargin(0);
+  glay->setSpacing(spacingHint());
   glay->setRowStretch(0, 1);
   glay->setRowStretch(3, 1);
-  glay->setColStretch(0, 1);
-  glay->setColStretch(4, 1);
+  glay->setColumnStretch(0, 1);
+  glay->setColumnStretch(4, 1);
  
   glay->addWidget(new QLabel(i18n("Animation speed:"),page), 2, 1);
 
@@ -40,7 +42,7 @@ ConfigBox::ConfigBox ( QWidget *parent, const char *name)
   speed->setRange(1, 10);
   speed->setPageStep(1);
   speed->setValue(1);
-  glay->addMultiCellWidget(speed, 2, 2, 2, 3);
+  glay->addWidget(speed, 2, 2, 1, 2);
 
   connect(speed, SIGNAL(valueChanged(int)), disp, SLOT(display(int)));
 

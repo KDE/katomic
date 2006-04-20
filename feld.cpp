@@ -19,6 +19,7 @@
 #include <QAbstractEventDispatcher>
 //Added by qt3to4:
 #include <QPixmap>
+#include <QPainter>
 #include <QMouseEvent>
 #include <QTimerEvent>
 #include <QPaintEvent>
@@ -52,7 +53,9 @@ Feld::Feld( QWidget *parent ) :
     setMouseTracking(true);
 
     setFocusPolicy(Qt::StrongFocus);
-    setBackgroundColor( QColor( 0, 0, 0) );
+    QPalette palette;
+    palette.setColor( backgroundRole(), Qt::black );
+    setPalette(palette);
 
     setFixedSize(15 * 30, 15 * 30);
     copy = QPixmap(15 * 30, 15 * 30);
@@ -350,7 +353,8 @@ void Feld::startAnimation (Direction d)
     // 10 mal pro sek
     startTimer (10);
 
-    bitBlt (&sprite, 0, 0, &copy, cx, cy, 30, 30);
+    QPainter p(&sprite);
+    p.drawPixmap(0, 0, copy, cx, cy, 30, 30);
   }
 
 }
@@ -382,7 +386,8 @@ void Feld::doUndo ()
           abs (undo_info.ypos - undo_info.oldypos) );
   startTimer (10);
   dir = (Direction) -((int) undo_info.dir);
-  bitBlt (&sprite, 0, 0, &copy, cx, cy, 30, 30);
+  QPainter p(&sprite);
+  p.drawPixmap(0, 0, copy, cx, cy, 30, 30);
 }
 
 void Feld::doRedo ()
@@ -413,7 +418,8 @@ void Feld::doRedo ()
           abs (undo_info.ypos - undo_info.oldypos) );
   startTimer (10);
   dir = undo_info.dir;
-  bitBlt (&sprite, 0, 0, &copy, cx, cy, 30, 30);
+  QPainter p(&sprite);
+  p.drawPixmap(0, 0, copy, cx, cy, 30, 30);
 }
 
 void Feld::mouseMoveEvent (QMouseEvent *e)
@@ -571,7 +577,8 @@ void Feld::paintEvent( QPaintEvent * )
     if (moving)
     {
         paintMovingAtom(paint);
-        bitBlt(this, 0, 0, &copy);
+        QPainter p(this);
+        p.drawPixmap(0, 0, copy);
         return;
     }
 
@@ -649,7 +656,8 @@ void Feld::paintEvent( QPaintEvent * )
 				93, 30, 30);
 		}
     }
-    bitBlt(this, 0, 0, &copy);
+    QPainter p(this);
+    p.drawPixmap(0, 0, copy);
 }
 
 
