@@ -131,14 +131,13 @@ void Molek::paintEvent( QPaintEvent * )
 			if (molek[i][j] == 0)
 				continue;
 
-                        QPainter p(this);
 			// paints atoms
 			if (getAtom(molek [i] [j]).obj <= '9' && getAtom(molek [i] [j]).obj >= '1')
-				p.drawPixmap(x, y, data, (getAtom(molek[i][j]).obj - '1') * 15, 0, 15 , 15);
+				paint.drawPixmap(x, y, data, (getAtom(molek[i][j]).obj - '1') * 15, 0, 15 , 15);
 
 			// paints cristals
 			if (getAtom(molek [i] [j]).obj == 'o')
-				p.drawPixmap(x, y, data, 10*15, 0, 15, 15);
+				paint.drawPixmap(x, y, data, 10*15, 0, 15, 15);
 
 			// paints connections
 			if (isdigit(getAtom(molek[i][j]).obj) || getAtom(molek[i][j]).obj == 'o')
@@ -149,18 +148,18 @@ void Molek::paintEvent( QPaintEvent * )
 
 					if (conn >= 'a' && conn <= 'a' + 8)
 					{
-						p.drawPixmap (x, y, data, (conn - 'a') * 15, 16, 15, 15);
+						paint.drawPixmap (x, y, data, (conn - 'a') * 15, 16, 15, 15);
 					}
 					else
 					{
-						p.drawPixmap (x, y, data, (conn - 'A') * 15, 34, 15, 15);
+						paint.drawPixmap (x, y, data, (conn - 'A') * 15, 34, 15, 15);
 					}
 				}
 
 
 			// paints connections
 			if (getAtom(molek[i][j]).obj >= 'A' && getAtom(molek[i][j]).obj <= 'F')
-				p.drawPixmap (x, y, data, (getAtom(molek[i][j]).obj - 'A' + 11) * 15 , 0, 15, 15);
+				paint.drawPixmap (x, y, data, (getAtom(molek[i][j]).obj - 'A' + 11) * 15 , 0, 15, 15);
 
 		}
 

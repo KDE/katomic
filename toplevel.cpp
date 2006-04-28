@@ -54,13 +54,29 @@ void AtomTopLevel::createMenu()
     connect (main, SIGNAL (enableRedo(bool)), SLOT(enableRedo(bool)));
     connect (main, SIGNAL (enableUndo(bool)), SLOT(enableUndo(bool)));
 
-    new KAction(i18n("Atom Up"), Qt::Key_Up, main, SLOT(moveUp()), actionCollection(), "atom_up");
-    new KAction(i18n("Atom Down"), Qt::Key_Down, main, SLOT(moveDown()), actionCollection(), "atom_down");
-    new KAction(i18n("Atom Left"), Qt::Key_Left, main, SLOT(moveLeft()), actionCollection(), "atom_left");
-    new KAction(i18n("Atom Right"), Qt::Key_Right, main, SLOT(moveRight()), actionCollection(), "atom_right");
+    KAction* atomUpAct = new KAction(i18n("Atom Up"), actionCollection(), "atom_up");
+    atomUpAct->setShortcut(Qt::Key_Up);
+    connect(atomUpAct, SIGNAL(triggered(bool)), main, SLOT(moveUp()));
 
-    new KAction(i18n("Next Atom"), Qt::Key_Tab, main, SLOT(nextAtom()), actionCollection(), "next_atom");
-    new KAction(i18n("Previous Atom"), Qt::SHIFT+Qt::Key_Tab, main, SLOT(previousAtom()), actionCollection(), "prev_atom");
+    KAction* atomDownAct = new KAction(i18n("Atom Down"), actionCollection(), "atom_down");
+    atomDownAct->setShortcut(Qt::Key_Down);
+    connect(atomDownAct, SIGNAL(triggered(bool)), main, SLOT(moveDown()));
+
+    KAction* atomLeftAct = new KAction(i18n("Atom Left"), actionCollection(), "atom_left");
+    atomLeftAct->setShortcut(Qt::Key_Left);
+    connect(atomLeftAct, SIGNAL(triggered(bool)), main, SLOT(moveLeft()));
+
+    KAction* atomRightAct = new KAction(i18n("Atom Right"), actionCollection(), "atom_right");
+    atomRightAct->setShortcut(Qt::Key_Right);
+    connect(atomRightAct, SIGNAL(triggered(bool)), main, SLOT(moveRight()));
+
+    KAction* nextAtomAct = new KAction(i18n("Next Atom"), actionCollection(), "next_atom");
+    nextAtomAct->setShortcut(Qt::Key_Tab);
+    connect(nextAtomAct, SIGNAL(triggered(bool)), main, SLOT(nextAtom()));
+
+    KAction* prevAtomAct = new KAction(i18n("Previous Atom"), actionCollection(), "prev_atom");
+    prevAtomAct->setShortcut(Qt::SHIFT+Qt::Key_Tab);
+    connect(prevAtomAct, SIGNAL(triggered(bool)), main, SLOT(previousAtom()));
 }
 
 void AtomTopLevel::configopts()
