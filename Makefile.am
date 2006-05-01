@@ -20,13 +20,6 @@ KDE_ICON = katomic
 appdir = $(kde_datadir)/katomic
 app_DATA = katomicui.rc
 
-messages: rc.cpp
-	: > levelnames.cpp ;\
-	for i in levels/level_*; do \
-	egrep '^Name=' $$i | sed -e 's#^Name=\(.*\)$$#i18n(\"\1\")#' >> levelnames.cpp ;\
-        done
-	$(XGETTEXT) *.cpp -o $(podir)/katomic.pot
-	rm -f levelnames.cpp
 
 install-data-local:
 	$(mkinstalldirs) $(DESTDIR)$(kde_datadir)/katomic
