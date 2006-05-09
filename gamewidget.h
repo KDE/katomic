@@ -10,7 +10,7 @@ class QScrollBar;
 class QLabel;
 class KScoreDialog;
 
-#include <qwidget.h>
+#include <QWidget>
 
 class GameWidget : public QWidget
 {

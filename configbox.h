@@ -7,7 +7,7 @@
 #ifndef CONFIGBOX_H
 #define CONFIGBOX_H
 
-#include <qlabel.h>
+#include <QLabel>
 #include <qslider.h>
 #include <qlcdnumber.h>
 

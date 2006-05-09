@@ -10,8 +10,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <qwidget.h>
-#include <qpoint.h>
+#include <QWidget>
+#include <QPoint>
 #include <qpainter.h>
 #include <qpixmap.h>
 #include <qmessagebox.h>

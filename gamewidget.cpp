@@ -25,9 +25,9 @@
 
 #include <qscrollbar.h>
 #include <q3groupbox.h>
-#include <qlayout.h>
+#include <QLayout>
 #include <kvbox.h>
-#include <qlabel.h>
+#include <QLabel>
 //Added by qt3to4:
 #include <QVBoxLayout>
 #include <QHBoxLayout>

@@ -8,7 +8,7 @@
 #include <klocale.h>
 #include <kglobal.h>
 #include <kconfig.h>
-#include <qlayout.h>
+#include <QLayout>
 #include <q3groupbox.h>
 #include <qslider.h>
 //Added by qt3to4:

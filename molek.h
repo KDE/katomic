@@ -9,8 +9,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <qwidget.h>
-#include <qpoint.h>
+#include <QWidget>
+#include <QPoint>
 #include <qpainter.h>
 #include <qpixmap.h>
 //Added by qt3to4:

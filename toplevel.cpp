@@ -19,7 +19,7 @@
   */
 
 #include <q3groupbox.h>
-#include <qlayout.h>
+#include <QLayout>
 
 #include <kglobal.h>
 #include <klocale.h>
