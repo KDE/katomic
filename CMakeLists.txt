@@ -1,4 +1,3 @@
-kde4_header()
 project(katomic)
 
 add_subdirectory( levels )
@@ -33,7 +32,6 @@ install_files( ${DATA_INSTALL_DIR}/katomic/pics/ FILES abilder.png molek.png )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 
-kde4_footer()
 
 
 

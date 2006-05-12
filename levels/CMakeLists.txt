@@ -1,4 +1,3 @@
-kde4_header()
 
 
 
@@ -89,4 +88,3 @@ level_81
 level_82
 level_84 )
 
-kde4_footer()
