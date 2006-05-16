@@ -56,26 +56,32 @@ void AtomTopLevel::createMenu()
 
     KAction* atomUpAct = new KAction(i18n("Atom Up"), actionCollection(), "atom_up");
     atomUpAct->setShortcut(Qt::Key_Up);
+    addAction(atomUpAct);
     connect(atomUpAct, SIGNAL(triggered(bool)), main, SLOT(moveUp()));
 
     KAction* atomDownAct = new KAction(i18n("Atom Down"), actionCollection(), "atom_down");
     atomDownAct->setShortcut(Qt::Key_Down);
+    addAction(atomDownAct);
     connect(atomDownAct, SIGNAL(triggered(bool)), main, SLOT(moveDown()));
 
     KAction* atomLeftAct = new KAction(i18n("Atom Left"), actionCollection(), "atom_left");
     atomLeftAct->setShortcut(Qt::Key_Left);
+    addAction(atomLeftAct);
     connect(atomLeftAct, SIGNAL(triggered(bool)), main, SLOT(moveLeft()));
 
     KAction* atomRightAct = new KAction(i18n("Atom Right"), actionCollection(), "atom_right");
     atomRightAct->setShortcut(Qt::Key_Right);
+    addAction(atomRightAct);
     connect(atomRightAct, SIGNAL(triggered(bool)), main, SLOT(moveRight()));
 
     KAction* nextAtomAct = new KAction(i18n("Next Atom"), actionCollection(), "next_atom");
     nextAtomAct->setShortcut(Qt::Key_Tab);
+    addAction(nextAtomAct);
     connect(nextAtomAct, SIGNAL(triggered(bool)), main, SLOT(nextAtom()));
 
     KAction* prevAtomAct = new KAction(i18n("Previous Atom"), actionCollection(), "prev_atom");
     prevAtomAct->setShortcut(Qt::SHIFT+Qt::Key_Tab);
+    addAction(prevAtomAct);
     connect(prevAtomAct, SIGNAL(triggered(bool)), main, SLOT(previousAtom()));
 }
 
