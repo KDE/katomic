@@ -1,4 +1,4 @@
-/* toplevel.cpp
+/*
 
   Copyright (C) 1998   Andreas Wüst (AndreasWuest@gmx.de)
 

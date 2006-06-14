@@ -1,6 +1,6 @@
 /* configbox.h
  *
- * 1999 (c) Cristian Tibirna (tibirna@kde.org)
+ * Copyright 1999 Cristian Tibirna (tibirna@kde.org)
  *
  */
 
