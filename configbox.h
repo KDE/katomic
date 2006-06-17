@@ -11,9 +11,9 @@
 #include <qslider.h>
 #include <qlcdnumber.h>
 
-#include <kdialogbase.h>
+#include <kdialog.h>
 
-class ConfigBox : public KDialogBase
+class ConfigBox : public KDialog
 {
   Q_OBJECT
 

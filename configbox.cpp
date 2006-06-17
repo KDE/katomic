@@ -20,9 +20,15 @@
 extern Options settings;
 
 ConfigBox::ConfigBox ( QWidget *parent, const char *name)
-    : KDialogBase ( parent, name, true, i18n("Configure"), Ok | Cancel, Ok, true )
+    : KDialog ( parent)
 {
-  QWidget *page = makeMainWidget();  
+  setCaption(i18n("Configure"));
+  setButtons(Ok | Cancel);
+  setDefaultButton(Ok);
+  setModal(true);
+  enableButtonSeparator(true);
+  QWidget *page = new QWidget(this);
+  setMainWidget(page);
 
   QGridLayout *glay = new QGridLayout (page);
   glay->setMargin(0);
@@ -47,7 +53,7 @@ ConfigBox::ConfigBox ( QWidget *parent, const char *name)
   connect(speed, SIGNAL(valueChanged(int)), disp, SLOT(display(int)));
 
   speed->setValue(settings.anim_speed);
-  incInitialSize(QSize(20,20));
+  setInitialSize(QSize(20,20));
 }
   
 void ConfigBox::slotOk()
