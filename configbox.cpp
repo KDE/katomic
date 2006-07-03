@@ -26,7 +26,7 @@ ConfigBox::ConfigBox ( QWidget *parent, const char *name)
   setButtons(Ok | Cancel);
   setDefaultButton(Ok);
   setModal(true);
-  enableButtonSeparator(true);
+  showButtonSeparator(true);
   QWidget *page = new QWidget(this);
   setMainWidget(page);
 
