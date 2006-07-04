@@ -35,7 +35,7 @@ extern Options settings;
 
 Feld::Feld( QWidget *parent ) :
     QWidget( parent ),
-    data(locate("appdata", "pics/abilder.png")),
+    data(KStandardDirs::locate("appdata", "pics/abilder.png")),
     undoBegin (0), undoSize (0), redoSize (0)
 {
     anim = false;

@@ -30,7 +30,7 @@ extern int level;
 
 Molek::Molek( QWidget *parent ) 
    : QWidget( parent ),
-   data(locate("appdata", "pics/molek.png"))
+   data(KStandardDirs::locate("appdata", "pics/molek.png"))
 {
     QPalette palette;
     palette.setColor( backgroundRole(), Qt::black );
