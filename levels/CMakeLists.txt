@@ -3,7 +3,7 @@
 
 ########### install files ###############
 
-install_files( ${DATA_INSTALL_DIR}/katomic/levels FILES
+install( FILES
 level_1
 level_2
 level_3
@@ -86,5 +86,5 @@ level_79
 level_80
 level_81
 level_82
-level_84 )
+level_84 DESTINATION ${DATA_INSTALL_DIR}/katomic/levels)
 
