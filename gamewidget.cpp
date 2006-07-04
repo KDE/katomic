@@ -122,7 +122,7 @@ void GameWidget::getMoves(int moves)
 void GameWidget::updateLevel (int l)
 {
     level=l;
-    QString levelFile = locate("appdata", QString("levels/level_%1").arg(l));
+    QString levelFile = KStandardDirs::locate("appdata", QString("levels/level_%1").arg(l));
     if (levelFile.isNull()) {
 	return updateLevel(1);
     }
