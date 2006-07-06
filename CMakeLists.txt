@@ -21,7 +21,7 @@ kde4_add_executable(katomic ${katomic_SRCS})
 
 target_link_libraries(katomic  ${KDE4_KDEUI_LIBS} kdegames )
 
-install_targets(/bin katomic )
+install(TARGETS katomic  DESTINATION ${BIN_INSTALL_DIR} )
 
 
 ########### install files ###############
