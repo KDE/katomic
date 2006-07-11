@@ -127,7 +127,7 @@ void GameWidget::updateLevel (int l)
     cfg.setGroup("Level");
     feld->load(cfg);
 
-    highScore->setConfigGroup(QString("High Scores Level %1").arg(level));
+    highScore->setConfigGroup(QString("Highscores Level %1").arg(level));
     highest.setNum(highScore->highScore());
 
     if (highest != "0" ) hs->setText(highest);
