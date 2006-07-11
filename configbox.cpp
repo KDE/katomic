@@ -9,17 +9,14 @@
 #include <kglobal.h>
 #include <kconfig.h>
 #include <QLayout>
-#include <q3groupbox.h>
-#include <qslider.h>
-//Added by qt3to4:
+#include <QSlider>
 #include <QLabel>
-#include <QGridLayout>
 
 #include "settings.h"
 
 extern Options settings;
 
-ConfigBox::ConfigBox ( QWidget *parent, const char *name)
+ConfigBox::ConfigBox ( QWidget *parent )
     : KDialog ( parent)
 {
   setCaption(i18n("Configure"));
@@ -56,14 +53,19 @@ ConfigBox::ConfigBox ( QWidget *parent, const char *name)
   setInitialSize(QSize(20,20));
 }
   
-void ConfigBox::slotOk()
+void ConfigBox::slotButtonClicked(int button)
 {
-  settings.anim_speed = speed->value();
-  settings.changed = true;
+  if( button == Ok )
+  {
+     settings.anim_speed = speed->value();
+     settings.changed = true;
 
-  emit speedChanged();
+     emit speedChanged();
 
-  accept();
+     accept();
+  }
+  else
+     reject();
 }
 
 ConfigBox::~ConfigBox()

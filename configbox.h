@@ -18,11 +18,11 @@ class ConfigBox : public KDialog
   Q_OBJECT
 
 public:
-  ConfigBox ( QWidget *, const char* name );
+  ConfigBox ( QWidget * );
   ~ConfigBox();
   
 protected slots:
-  void slotOk();
+  virtual void slotButtonClicked(int);
 
 signals:
   void speedChanged();

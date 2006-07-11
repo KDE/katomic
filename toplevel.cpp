@@ -18,7 +18,6 @@
 
   */
 
-#include <q3groupbox.h>
 #include <QLayout>
 
 #include <kglobal.h>
@@ -87,7 +86,7 @@ void AtomTopLevel::createMenu()
 
 void AtomTopLevel::configopts()
 {
-    (new ConfigBox(this, "Options"))->show();
+    (new ConfigBox(this))->show();
 }
 
 void AtomTopLevel::initConfig()
