@@ -35,6 +35,7 @@ Molek::Molek( QWidget *parent )
     QPalette palette;
     palette.setColor( backgroundRole(), Qt::black );
     setPalette(palette);
+    setAutoFillBackground( true );
     setMinimumSize(240, 200);
 }
 
@@ -111,7 +112,7 @@ void Molek::load (const KSimpleConfig& config)
     height++;
     width++;
 
-    repaint ();
+    update();
 }
 
 void Molek::paintEvent( QPaintEvent * )

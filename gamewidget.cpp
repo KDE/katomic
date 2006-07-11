@@ -28,10 +28,6 @@
 #include <QLayout>
 #include <kvbox.h>
 #include <QLabel>
-//Added by qt3to4:
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QBoxLayout>
 
 #include <kscoredialog.h>
 #include <kmessagebox.h>
@@ -165,7 +161,7 @@ GameWidget::GameWidget ( QWidget *parent )
     top->addWidget(feld);
 
 
-	KVBox *vb = new KVBox(this);
+    KVBox *vb = new KVBox(this);
     vb->setSpacing(20);
     top->addWidget(vb);
 
@@ -191,10 +187,9 @@ GameWidget::GameWidget ( QWidget *parent )
     highScore = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
 
     // the score group
-    Q3GroupBox *bg = new Q3GroupBox (i18n("Score"), vb, "bg");
-    QBoxLayout *slay = new QVBoxLayout (bg);
+    QGroupBox *bg = new QGroupBox (i18n("Score"), vb);
+    QVBoxLayout *slay = new QVBoxLayout (bg);
     slay->setMargin(10);
-
     slay->addSpacing(10);
 
     slay->addWidget(new QLabel(i18n("Highscore:"), bg));

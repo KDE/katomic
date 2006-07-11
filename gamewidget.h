@@ -17,9 +17,6 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
   */
-//Added by qt3to4:
-#include <QLabel>
-
 #ifndef GAMEWIDGET_H
 #define GAMEWIDGET_H
 
