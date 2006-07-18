@@ -11,6 +11,7 @@
 #include <QLayout>
 #include <QSlider>
 #include <QLabel>
+#include <QLCDNumber>
 
 #include "settings.h"
 

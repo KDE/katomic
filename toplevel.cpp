@@ -20,20 +20,18 @@
 
 #include <QLayout>
 
-#include <kglobal.h>
 #include <klocale.h>
 #include <ksimpleconfig.h>
 #include <kstandarddirs.h>
 #include <kapplication.h>
+#include <kstdaction.h>
+#include <kstdgameaction.h>
+#include <kdebug.h>
 
 #include "gamewidget.h"
 #include "toplevel.h"
 #include "settings.h"
 #include "configbox.h"
-#include <kaction.h>
-#include <kstdaction.h>
-#include <kstdgameaction.h>
-#include <kdebug.h>
 
 extern Options settings;
 

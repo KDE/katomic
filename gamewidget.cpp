@@ -23,8 +23,8 @@
 #include "feld.h"
 #include "molek.h"
 
-#include <qscrollbar.h>
-#include <q3groupbox.h>
+#include <QScrollBar>
+#include <QGroupBox>
 #include <QLayout>
 #include <kvbox.h>
 #include <QLabel>
@@ -33,7 +33,6 @@
 #include <kmessagebox.h>
 #include <klocale.h>
 #include <kstandarddirs.h>
-#include <kglobal.h>
 #include <ksimpleconfig.h>
 #include <kglobalsettings.h>
 

@@ -22,9 +22,10 @@
 #include <klocale.h>
 #include <kdebug.h>
 
-#include <ctype.h>
-//Added by qt3to4:
+#include <QPainter>
 #include <QPaintEvent>
+
+#include <ctype.h> // for isdigit
 
 extern int level;
 

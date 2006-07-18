@@ -13,12 +13,9 @@
 //               oder auch einfach bewegt wird
 
 #include <kiconloader.h>
-#include <kglobal.h>
 #include <kstandarddirs.h>
 #include <ksimpleconfig.h>
 #include <QAbstractEventDispatcher>
-//Added by qt3to4:
-#include <QPixmap>
 #include <QPainter>
 #include <QMouseEvent>
 #include <QTimerEvent>
@@ -323,7 +320,7 @@ void Feld::startAnimation (Direction d)
   if (anz != 0) {
     moving = true;
 
-    // BEGIN: Insert undo informations
+    // BEGIN: Insert undo information
     uint undoChunk = (undoBegin + undoSize) % MAX_UNDO;
     undo[undoChunk].atom = feld[xpos][ypos];
     undo[undoChunk].oldxpos = xpos;
@@ -338,7 +335,7 @@ void Feld::startAnimation (Direction d)
     redoSize = undoSize;
     emit enableUndo(true);
     emit enableRedo(false);
-    // END: Insert undo informations
+    // END: Insert undo information
 
     feld [xpos] [ypos] = 0;
 

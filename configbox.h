@@ -7,11 +7,10 @@
 #ifndef CONFIGBOX_H
 #define CONFIGBOX_H
 
-#include <QLabel>
-#include <qslider.h>
-#include <qlcdnumber.h>
-
 #include <kdialog.h>
+
+class QSlider;
+class QLCDNumber;
 
 class ConfigBox : public KDialog
 {

@@ -7,20 +7,8 @@
 #ifndef FELD_H
 #define FELD_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <QWidget>
-#include <QPoint>
-#include <qpainter.h>
-#include <qpixmap.h>
-#include <qmessagebox.h>
-//Added by qt3to4:
-#include <QMouseEvent>
-#include <QTimerEvent>
-#include <QPaintEvent>
-
-#include <kscoredialog.h>
+#include <QPixmap>
 
 #include "atom.h"
 

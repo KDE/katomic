@@ -7,17 +7,10 @@
 #ifndef MOLEK_H
 #define MOLEK_H
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <QWidget>
-#include <QPoint>
-#include <qpainter.h>
-#include <qpixmap.h>
-//Added by qt3to4:
-#include <QPaintEvent>
-#include "atom.h"
-#include <q3valuelist.h>
+#include <QPixmap>
 #include <QList>
+#include "atom.h"
 
 class KSimpleConfig;
 
