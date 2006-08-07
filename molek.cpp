@@ -13,7 +13,7 @@
 //               oder auch einfach bewegt wird
 
 #include <config.h>
-
+#include <kdefakes.h>
 #include "molek.moc"
 #include <kiconloader.h>
 #include <kglobal.h>
