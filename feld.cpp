@@ -654,5 +654,4 @@ void Feld::paintEvent( QPaintEvent * )
     p.drawPixmap(0, 0, copy);
 }
 
-
 #include "feld.moc"

@@ -19,6 +19,7 @@ class Molek;
 
 #define FIELD_SIZE 15
 
+
 class Feld : public QWidget
 {
     Q_OBJECT
@@ -43,13 +44,17 @@ public:
     void doUndo ();
     void doRedo ();
 
+public slots:
+    void nextAtom();
+    void previousAtom();
+
 signals:
     void gameOver(int moves);
     void sendMoves(int moves);
     void enableRedo(bool enable);
     void enableUndo(bool enable);
 
-protected:
+private:
     bool checkDone();
     void timerEvent (QTimerEvent *);
     void paintEvent( QPaintEvent * );
@@ -58,7 +63,6 @@ protected:
     void mouseMoveEvent (QMouseEvent *);
     void emitStatus();
 
-protected:
     struct UndoInfo {
       uint atom;
       int  oldxpos, oldypos;
@@ -66,15 +70,11 @@ protected:
       Direction dir;
     };
 
-public slots:
-	void nextAtom();
-        void previousAtom();
-
-private:
-
     const atom& getAtom(uint index) const;
 
     void putNonAtom(int, int, Direction, QPainter &p, bool brick = false);
+
+    void resetValidDirs();
 
     QPoint *point;
     QPixmap data;
@@ -101,9 +101,6 @@ private:
     uint undoSize;
     uint redoSize;
     UndoInfo undo[MAX_UNDO];
-
-    void resetValidDirs();
-
 };
 
 #endif // FELD_H
