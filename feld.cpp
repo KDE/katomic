@@ -50,9 +50,6 @@ Feld::Feld( QWidget *parent ) :
     setMouseTracking(true);
 
     setFocusPolicy(Qt::StrongFocus);
-    QPalette palette;
-    palette.setColor( backgroundRole(), Qt::black );
-    setPalette(palette);
 
     setFixedSize(15 * 30, 15 * 30);
     copy = QPixmap(15 * 30, 15 * 30);

@@ -1,0 +1,42 @@
+In level config files there are entries like:
+
+atom_1=2-bdD
+
+Here's how to decode that.
+Atoms are the chars that go before dash,
+Bonds are the chars that go after dash.
+
+Atoms:
+1=H
+2=C
+3=O
+4=N
+5=S
+6=F
+7=Cl
+8=Br
+9=P
+0=J
+o=Crystal
+A=horizontal connector
+B=slash-like connector
+C=vertical connector
+D=backslash-like connector
+
+Bonds:
+a=single top
+b=single top-right
+c=single right
+d=single bot-right
+e=single bottom
+f=single bot-left
+g=single left
+h=single top-left
+A=double top
+B=double right
+C=double bottom
+D=double left
+E=triple top
+F=triple right
+G=triple bottom
+H=triple left

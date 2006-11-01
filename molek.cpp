@@ -159,7 +159,7 @@ void Molek::paintEvent( QPaintEvent * )
                 }
 
 
-            // paints connections
+            // paints "long" connections
             if (getAtom(molek[i][j]).obj >= 'A' && getAtom(molek[i][j]).obj <= 'F')
                 paint.drawPixmap (x, y, data, (getAtom(molek[i][j]).obj - 'A' + 11) * 15 , 0, 15, 15);
 
