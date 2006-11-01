@@ -32,17 +32,15 @@ class GameWidget : public QWidget
 {
     Q_OBJECT
 
- public:
+public:
 
     GameWidget ( QWidget *parent );
-
     ~GameWidget();
-
- signals:
+signals:
     void enableRedo(bool enable);
     void enableUndo(bool enable);
 
- public slots:
+public slots:
     // bringt level auf neuesten stand
     void updateLevel (int);
 

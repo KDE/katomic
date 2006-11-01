@@ -49,32 +49,32 @@ int level;
 
 void GameWidget::moveUp()
 {
-  feld->startAnimation (Feld::MoveUp);
+    feld->startAnimation (Feld::MoveUp);
 }
 
 void GameWidget::moveDown()
 {
-  feld->startAnimation (Feld::MoveDown);
+    feld->startAnimation (Feld::MoveDown);
 }
 
 void GameWidget::moveLeft()
 {
-  feld->startAnimation (Feld::MoveLeft);
+    feld->startAnimation (Feld::MoveLeft);
 }
 
 void GameWidget::moveRight()
 {
-  feld->startAnimation (Feld::MoveRight);
+    feld->startAnimation (Feld::MoveRight);
 }
 
 void GameWidget::nextAtom()
 {
-  feld->nextAtom();
+    feld->nextAtom();
 }
 
 void GameWidget::previousAtom()
 {
-  feld->previousAtom();
+    feld->previousAtom();
 }
 
 void GameWidget::getButton (int button)
@@ -84,12 +84,12 @@ void GameWidget::getButton (int button)
 
 void GameWidget::doUndo ()
 {
-  feld->doUndo ();
+    feld->doUndo ();
 }
 
 void GameWidget::doRedo ()
 {
-  feld->doRedo ();
+    feld->doRedo ();
 }
 
 void GameWidget::gameOver(int moves) {
@@ -103,7 +103,7 @@ void GameWidget::gameOver(int moves) {
 
     if (high.addScore(moves, scoreInfo, true, true))
     {
-       high.exec();
+        high.exec();
     }
     updateLevel(level+1);
 }
@@ -119,7 +119,7 @@ void GameWidget::updateLevel (int l)
     level=l;
     QString levelFile = KStandardDirs::locate("appdata", QString("levels/level_%1").arg(l));
     if (levelFile.isNull()) {
-	return updateLevel(1);
+        return updateLevel(1);
     }
 
     KSimpleConfig cfg(levelFile, true);
@@ -147,7 +147,7 @@ GameWidget::GameWidget ( QWidget *parent )
 {
     level = 1;
     nlevels = KGlobal::dirs()->findAllResources("appdata", "levels/level_*",
-				false, true).count();
+            false, true).count();
 
     QHBoxLayout *top = new QHBoxLayout(this);
     top->setMargin(10);
@@ -216,7 +216,7 @@ GameWidget::GameWidget ( QWidget *parent )
     config->setGroup("Options");
     settings.anim_speed = config->readEntry("Animation Speed", 1);
     if (settings.anim_speed < 1 || settings.anim_speed > MAX_SPEED)
-	settings.anim_speed = 1;
+        settings.anim_speed = 1;
 
     settings.changed = false;
 }
