@@ -23,7 +23,7 @@
 #include "molek.h"
 #include "feld.h"
 #include "settings.h"
-#include "atomrenderer.h"
+#include "katomicrenderer.h"
 
 #if FIELD_SIZE < MOLEK_SIZE
 #error Molecule size (MOLEK_SIZE) must be <= field size (FIELD_SIZE)

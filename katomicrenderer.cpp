@@ -25,7 +25,7 @@
 #include <QPixmap>
 #include <QPainter>
 
-#include "atomrenderer.h"
+#include "katomicrenderer.h"
 #include "atom.h"
 
 KAtomicRenderer::KAtomicRenderer( const QString& pathToSvg, QObject *parent )

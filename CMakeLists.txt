@@ -8,7 +8,7 @@ include_directories( ${CMAKE_SOURCE_DIR}/libkdegames ${CMAKE_SOURCE_DIR}/libkdeg
 ########### next target ###############
 
 set(katomic_SRCS 
-   atomrenderer.cpp
+   katomicrenderer.cpp
    feld.cpp 
    molek.cpp 
    main.cpp 
