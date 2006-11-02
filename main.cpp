@@ -46,6 +46,7 @@ int main(int argc, char **argv)
   aboutData.addAuthor("Andreas Wuest", 0, "AndreasWuest@gmx.de");
   aboutData.addAuthor("Stephan Kulow", 0, "coolo@kde.org");
   aboutData.addAuthor("Cristian Tibirna", 0, "tibirna@kde.org");
+  aboutData.addAuthor("Dmitry Suzdalev", I18N_NOOP("Porting to KDE4. Current maintainer"), "dimsuz@gmail.com");
   aboutData.addCredit("Carsten Pfeiffer");
   aboutData.addCredit("Dave Corrie");
   aboutData.addCredit("Kai Jung", I18N_NOOP("6 new levels"), "jung@fh-fresenius.de");
