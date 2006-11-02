@@ -14,7 +14,6 @@
 
 #include <config.h>
 #include <kdefakes.h>
-#include "molek.moc"
 #include <kiconloader.h>
 #include <kglobal.h>
 #include <kstandarddirs.h>
@@ -25,19 +24,24 @@
 #include <QPainter>
 #include <QPaintEvent>
 
-#include <ctype.h> // for isdigit
+#include "molek.h"
+#include "katomicrenderer.h"
 
 extern int level;
 
 Molek::Molek( QWidget *parent ) 
-   : QWidget( parent ),
-   data(KStandardDirs::locate("appdata", "pics/molek.png"))
+   : QWidget( parent )
 {
     QPalette palette;
     palette.setColor( backgroundRole(), Qt::black );
     setPalette(palette);
     setAutoFillBackground( true );
     setMinimumSize(240, 200);
+
+    m_elemSize = 20;
+
+    m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/abilder.svgz"), this );
+    m_renderer->setElementSize( m_elemSize );
 }
 
 Molek::~Molek ()
@@ -127,43 +131,17 @@ void Molek::paintEvent( QPaintEvent * )
     // spielfeld gleich zeichnen
     for (int i = 0; i < MOLEK_SIZE; i++)
         for (int j = 0; j < MOLEK_SIZE; j++) {
-            int x = 10 + i * 15;
-            int y = 10 + j * 15;
+            int x = 10 + i * m_elemSize;
+            int y = 10 + j * m_elemSize;
 
             if (molek[i][j] == 0)
                 continue;
 
-            // paints atoms
-            if (getAtom(molek [i] [j]).obj <= '9' && getAtom(molek [i] [j]).obj >= '1')
-                paint.drawPixmap(x, y, data, (getAtom(molek[i][j]).obj - '1') * 15, 0, 15 , 15);
-
-            // paints cristals
-            if (getAtom(molek [i] [j]).obj == 'o')
-                paint.drawPixmap(x, y, data, 10*15, 0, 15, 15);
-
-            // paints connections
-            if (isdigit(getAtom(molek[i][j]).obj) || getAtom(molek[i][j]).obj == 'o')
-                for (int c = 0; c < MAX_CONNS_PER_ATOM; c++) {
-                    char conn = getAtom(molek [i] [j]).conn[c];
-                    if (!conn)
-                        break;
-
-                    if (conn >= 'a' && conn <= 'a' + 8)
-                    {
-                        paint.drawPixmap (x, y, data, (conn - 'a') * 15, 16, 15, 15);
-                    }
-                    else
-                    {
-                        paint.drawPixmap (x, y, data, (conn - 'A') * 15, 34, 15, 15);
-                    }
-                }
-
-
-            // paints "long" connections
-            if (getAtom(molek[i][j]).obj >= 'A' && getAtom(molek[i][j]).obj <= 'F')
-                paint.drawPixmap (x, y, data, (getAtom(molek[i][j]).obj - 'A' + 11) * 15 , 0, 15, 15);
-
+            QPixmap aPix = m_renderer->renderAtom(getAtom(molek[i][j]));
+            paint.drawPixmap(x, y, aPix);
         }
 
     paint.end ();
 }
+
+#include "molek.moc"

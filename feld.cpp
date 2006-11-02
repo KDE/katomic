@@ -31,19 +31,16 @@
 
 extern Options settings;
 
-Feld::Feld( QWidget *parent ) :
-    QWidget( parent ),
-    data(KStandardDirs::locate("appdata", "pics/abilder.png")),
-    undoBegin (0), undoSize (0), redoSize (0)
+Feld::Feld( QWidget *parent )
+    : QWidget( parent ), undoBegin (0), undoSize (0), redoSize (0)
 {
+    m_elemSize = 30;
     anim = false;
     dir = None;
-    sprite = QPixmap (30, 30);
+    sprite = QPixmap(m_elemSize, m_elemSize);
 
     cx = -1;
     cy = -1;
-
-    point = new QPoint [1];
 
     moving = false;
     chosen = false;
@@ -53,13 +50,13 @@ Feld::Feld( QWidget *parent ) :
     setFocusPolicy(Qt::StrongFocus);
 
     m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/abilder.svgz"), this );
-    setFixedSize(15 * 30, 15 * 30);
-    copy = QPixmap(15 * 30, 15 * 30);
+    m_renderer->setElementSize( m_elemSize );
+    resize(FIELD_SIZE * m_elemSize, FIELD_SIZE * m_elemSize);
+    copy = QPixmap(FIELD_SIZE * m_elemSize, FIELD_SIZE * m_elemSize);
 }
 
 Feld::~Feld ()
 {
-    delete [] point;
 }
 
 void Feld::resetValidDirs()
@@ -111,8 +108,8 @@ void Feld::mousePressEvent (QMouseEvent *e)
     if (moving)
         return;
 
-    int x = e->pos ().x () / 30;
-    int y = e->pos ().y () / 30;
+    int x = e->pos ().x () / m_elemSize;
+    int y = e->pos ().y () / m_elemSize;
 
     if ( feld [x] [y] == 150)
         startAnimation (Feld::MoveUp);
@@ -146,7 +143,7 @@ void Feld::nextAtom()
     int x = xpos, y;
 
     // make sure we don't check the current atom :-)
-    if (ypos++ >= 15) ypos = 0;
+    if (ypos++ >= FIELD_SIZE) ypos = 0;
 
     while(1)
     {
@@ -275,7 +272,7 @@ void Feld::startAnimation (Direction d)
 
     // reset validDirs now so that arrows don't get drawn
     resetValidDirs();
-    repaint();
+    update();
 
     int x = 0, y = 0;
 
@@ -339,18 +336,18 @@ void Feld::startAnimation (Direction d)
         feld [xpos] [ypos] = 0;
 
         // absolutkoordinaten des zu verschiebenden bildes
-        cx = xpos * 30;
-        cy = ypos * 30;
+        cx = xpos * m_elemSize;
+        cy = ypos * m_elemSize;
         xpos = x;
         ypos = y;
-        // 30 animationsstufen
-        framesbak = frames = anz * 30;
+        // m_elemSize animationsstufen
+        framesbak = frames = anz * m_elemSize;
 
         // 10 mal pro sek
         startTimer (10);
 
         QPainter p(&sprite);
-        p.drawPixmap(0, 0, copy, cx, cy, 30, 30);
+        p.drawPixmap(0, 0, copy, cx, cy, m_elemSize, m_elemSize);
     }
 
 }
@@ -376,14 +373,14 @@ void Feld::doUndo ()
     ypos = undo_info.oldypos;
     feld[cx][cy] = 0;
     feld[xpos][ypos] = undo_info.atom;
-    cx *= 30; cy *= 30;
+    cx *= m_elemSize; cy *= m_elemSize;
     framesbak = frames =
-        30 * (abs (undo_info.xpos - undo_info.oldxpos) +
+        m_elemSize * (abs (undo_info.xpos - undo_info.oldxpos) +
                 abs (undo_info.ypos - undo_info.oldypos) );
     startTimer (10);
     dir = (Direction) -((int) undo_info.dir);
     QPainter p(&sprite);
-    p.drawPixmap(0, 0, copy, cx, cy, 30, 30);
+    p.drawPixmap(0, 0, copy, cx, cy, m_elemSize, m_elemSize);
 }
 
 void Feld::doRedo ()
@@ -408,14 +405,14 @@ void Feld::doRedo ()
     ypos = undo_info.ypos;
     feld[cx][cy] = 0;
     feld[xpos][ypos] = undo_info.atom;
-    cx *= 30; cy *= 30;
+    cx *= m_elemSize; cy *= m_elemSize;
     framesbak = frames =
-        30 * (abs (undo_info.xpos - undo_info.oldxpos) +
+        m_elemSize * (abs (undo_info.xpos - undo_info.oldxpos) +
                 abs (undo_info.ypos - undo_info.oldypos) );
     startTimer (10);
     dir = undo_info.dir;
     QPainter p(&sprite);
-    p.drawPixmap(0, 0, copy, cx, cy, 30, 30);
+    p.drawPixmap(0, 0, copy, cx, cy, m_elemSize, m_elemSize);
 }
 
 void Feld::mouseMoveEvent (QMouseEvent *e)
@@ -430,8 +427,8 @@ void Feld::mouseMoveEvent (QMouseEvent *e)
     }
     else
     {
-        int x = e->pos ().x () / 30;
-        int y = e->pos ().y () / 30;
+        int x = e->pos ().x () / m_elemSize;
+        int y = e->pos ().y () / m_elemSize;
 
         // verschiedene cursor je nach pos
         if (feld[x][y] != 254 && feld [x] [y] != 0)
@@ -527,26 +524,35 @@ void Feld::paintMovingAtom(QPainter &paint)
         case MoveUp:
             paint.drawPixmap(cx, cy - framesbak + frames, sprite);
             if(framesbak - frames > 0)
-                paint.fillRect(cx, cy - framesbak + frames + 30, 30, a, Qt::black);
+                paint.fillRect(cx, cy - framesbak + frames + m_elemSize, m_elemSize, a, Qt::black);
             break;
         case MoveDown:
             paint.drawPixmap(cx, cy + framesbak - frames, sprite);
             if(framesbak - frames > 0)
-                paint.fillRect(cx, cy + framesbak - frames - a, 30, a, Qt::black);
+                paint.fillRect(cx, cy + framesbak - frames - a, m_elemSize, a, Qt::black);
             break;
         case MoveRight:
             paint.drawPixmap(cx + framesbak - frames, cy, sprite);
             if(framesbak - frames > 0)
-                paint.fillRect(cx + framesbak - frames - a, cy, a, 30, Qt::black);
+                paint.fillRect(cx + framesbak - frames - a, cy, a, m_elemSize, Qt::black);
             break;
         case MoveLeft:
             paint.drawPixmap(cx - framesbak + frames, cy, sprite);
             if(framesbak - frames > 0)
-                paint.fillRect(cx - framesbak + frames + 30, cy, a, 30, Qt::black);
+                paint.fillRect(cx - framesbak + frames + m_elemSize, cy, a, m_elemSize, Qt::black);
             break;
         case None:
             break;
     }
+}
+
+void Feld::resizeEvent( QResizeEvent *ev)
+{
+    copy = QPixmap(ev->size());
+    copy.fill(Qt::black);
+    m_elemSize = qMin( ev->size().width(), ev->size().height() ) / FIELD_SIZE;
+    m_renderer->setElementSize( m_elemSize );
+    update();
 }
 
 void Feld::paintEvent( QPaintEvent * )
@@ -563,7 +569,7 @@ void Feld::paintEvent( QPaintEvent * )
         return;
     }
 
-    paint.fillRect(0, 0, 15 * 30, 15 * 30, Qt::black);
+    paint.fillRect(0, 0, FIELD_SIZE * m_elemSize, FIELD_SIZE * m_elemSize, Qt::black);
 
     kDebug() << " -= begin paint event =- " << endl;
     for (i = 0; i < FIELD_SIZE; i++)
@@ -573,8 +579,8 @@ void Feld::paintEvent( QPaintEvent * )
             if(moving && i == xpos && j == ypos)
                 continue;
 
-            x = i * 30;
-            y = j * 30;
+            x = i * m_elemSize;
+            y = j * m_elemSize;
 
             QPixmap aPix;
             // FIXME dimsuz: move away from all this digits! :)

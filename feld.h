@@ -42,7 +42,6 @@ public:
 
     void doUndo ();
     void doRedo ();
-
 public slots:
     void nextAtom();
     void previousAtom();
@@ -54,12 +53,14 @@ signals:
     void enableUndo(bool enable);
 
 private:
-    bool checkDone();
     void timerEvent (QTimerEvent *);
     void paintEvent( QPaintEvent * );
-    void paintMovingAtom(QPainter &paint);
+    void resizeEvent( QResizeEvent * );
     void mousePressEvent (QMouseEvent *);
     void mouseMoveEvent (QMouseEvent *);
+
+    bool checkDone();
+    void paintMovingAtom(QPainter &paint);
     void emitStatus();
 
     struct UndoInfo {
@@ -73,8 +74,6 @@ private:
 
     void resetValidDirs();
 
-    QPoint *point;
-    QPixmap data;
     QPixmap sprite;
     QPixmap copy;
 
@@ -100,6 +99,7 @@ private:
     UndoInfo undo[MAX_UNDO];
 
     KAtomicRenderer *m_renderer;
+    int m_elemSize;
 };
 
 #endif // FELD_H

@@ -38,7 +38,8 @@ KAtomicRenderer::KAtomicRenderer( const QString& pathToSvg, QObject *parent )
 void KAtomicRenderer::setElementSize( int size )
 {
     m_elemSize = size;
-    // TODO re-render cache contents. Or clear?
+    m_cache.clear();
+    m_bondCache.clear();
 }
 
 QPixmap KAtomicRenderer::renderAtom( const atom& at )
@@ -48,7 +49,7 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at )
     QImage baseImg;
     if(!m_cache.contains(at.obj))
     {
-        kDebug() << "putting atom to cache" << endl;
+        //kDebug() << "putting atom to cache" << endl;
         //Construct an image object to render the contents of the .svgz file
         baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
         //Fill the buffer, it is unitialised by default
@@ -58,8 +59,8 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at )
         QPixmap atomPix = QPixmap::fromImage(baseImg);
         m_cache[at.obj] = atomPix;
     }
-    else
-        kDebug() << "reusing atom from cache" << endl;
+    //else
+        //kDebug() << "reusing atom from cache" << endl;
 
     for (int c = 0; c < MAX_CONNS_PER_ATOM; c++)
     {
@@ -68,7 +69,7 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at )
             break;
         if(!m_bondCache.contains(conn))
         {
-            kDebug() << "putting bond to cache" << endl;
+            //kDebug() << "putting bond to cache" << endl;
             //Construct an image object to render the contents of the .svgz file
             baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
             //Fill the buffer, it is unitialised by default
@@ -78,8 +79,8 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at )
             QPixmap bondPix = QPixmap::fromImage(baseImg);
             m_bondCache[conn] = bondPix;
         }
-        else
-            kDebug() << "reusing bond from cache" << endl;
+        //else
+            //kDebug() << "reusing bond from cache" << endl;
     }
 
     QPixmap res(m_elemSize, m_elemSize);
@@ -106,7 +107,7 @@ QPixmap KAtomicRenderer::renderNonAtom( char element )
     QImage baseImg;
     if(!m_cache.contains(element))
     {
-        kDebug() << "putting element to cache" << endl;
+        //kDebug() << "putting element to cache" << endl;
         //Construct an image object to render the contents of the .svgz file
         baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
         //Fill the buffer, it is unitialised by default
@@ -116,8 +117,8 @@ QPixmap KAtomicRenderer::renderNonAtom( char element )
         QPixmap pix = QPixmap::fromImage(baseImg);
         m_cache[element] = pix;
     }
-    else
-        kDebug() << "reusing element from cache" << endl;
+    //else
+        //kDebug() << "reusing element from cache" << endl;
 
     return m_cache.value(element);
 }

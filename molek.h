@@ -16,6 +16,8 @@ class KSimpleConfig;
 
 #define MOLEK_SIZE 15
 
+class KAtomicRenderer;
+
 class Molek : public QWidget
 {
     Q_OBJECT
@@ -36,13 +38,13 @@ protected:
    void paintEvent( QPaintEvent * );
 
 private:
-   QPixmap data;
    uint molek[MOLEK_SIZE][MOLEK_SIZE]; // the indexes within atoms
    QList<atom> atoms;
    QString mname;
    QSize _size;
 
-
+   KAtomicRenderer* m_renderer;
+   int m_elemSize;
 };
 
 #endif // MOLEK_H
