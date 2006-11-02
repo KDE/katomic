@@ -13,12 +13,11 @@
 #include "atom.h"
 
 #define MAX_UNDO (100)
+#define FIELD_SIZE 15
 
 class KSimpleConfig;
 class Molek;
-
-#define FIELD_SIZE 15
-
+class AtomRenderer;
 
 class Feld : public QWidget
 {
@@ -101,6 +100,8 @@ private:
     uint undoSize;
     uint redoSize;
     UndoInfo undo[MAX_UNDO];
+
+    AtomRenderer *m_renderer;
 };
 
 #endif // FELD_H

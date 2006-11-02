@@ -23,6 +23,7 @@
 #include "molek.h"
 #include "feld.h"
 #include "settings.h"
+#include "atomrenderer.h"
 
 #if FIELD_SIZE < MOLEK_SIZE
 #error Molecule size (MOLEK_SIZE) must be <= field size (FIELD_SIZE)
@@ -51,6 +52,7 @@ Feld::Feld( QWidget *parent ) :
 
     setFocusPolicy(Qt::StrongFocus);
 
+    m_renderer = new AtomRenderer( KStandardDirs::locate("appdata", "pics/abilder.svgz"), this );
     setFixedSize(15 * 30, 15 * 30);
     copy = QPixmap(15 * 30, 15 * 30);
 }
@@ -579,6 +581,7 @@ void Feld::paintEvent( QPaintEvent * )
     paint.fillRect(0, 0, 15 * 30, 15 * 30, Qt::black);
     // spielfeld gleich zeichnen
 
+    kDebug() << " -= begin paint event =- " << endl;
     for (i = 0; i < FIELD_SIZE; i++)
     {
         for (j = 0; j < FIELD_SIZE; j++)
@@ -609,47 +612,14 @@ void Feld::paintEvent( QPaintEvent * )
                 putNonAtom(i, j, Feld::MoveRight, paint); continue;
             }
 
-            // zeichnet Atome
-            if (getAtom(feld[i][j]).obj <= '9' && getAtom(feld[i][j]).obj > '0')
+            if( getAtom(feld[i][j]).obj != 0 )
             {
-                paint.drawPixmap(x, y, data, (getAtom(feld[i][j]).obj - '1') * 31, 0, 30,
-                        30);
+                QPixmap aPix = m_renderer->renderAtom( getAtom(feld[i][j]) );
+                paint.drawPixmap(x,y, aPix);
             }
-
-            // zeichnet Kristalle
-            if (getAtom(feld[i][j]).obj == 'o')
-            {
-                paint.drawPixmap(x, y, data, 31, 93, 30, 30);
-            }
-
-
-
-            // verbindungen zeichnen
-            if (getAtom(feld [i] [j]).obj <= '9' ||
-                    getAtom(feld [i] [j]).obj == 'o')
-                for (int c = 0; c < MAX_CONNS_PER_ATOM; c++) {
-                    char conn = getAtom(feld [i] [j]).conn[c];
-                    if (!conn)
-                        break;
-
-                    if (conn >= 'a' && conn <= 'a' + 8)
-                        paint.drawPixmap(x, y,
-                                data, (conn - 'a') * 31, 31, 30, 30);
-                    else
-                        paint.drawPixmap(x, y,
-                                data, (conn - 'A') * 31, 62, 30, 30);
-
-                }
-
-            // zeichnet Verbindungsstäbe
-            if (getAtom(feld [i] [j]).obj >= 'A' &&
-                    getAtom(feld [i] [j]).obj <= 'F')
-                paint.drawPixmap(x, y,
-                        data,
-                        (getAtom(feld [i] [j]).obj - 'A' + 2) * 31 ,
-                        93, 30, 30);
         }
     }
+    kDebug() << "-= end paint event =-" << endl;
     QPainter p(this);
     p.drawPixmap(0, 0, copy);
 }
