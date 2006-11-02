@@ -61,6 +61,11 @@ private:
      *  Fills hashes atom[bond]_name->SVG_element_name
      */
     void fillNameHashes();
+    /**
+     *  Renders this atom pixmaps and puts them in cache in case they arent there yet
+     */
+    void ensureAtomIsInCache(const atom&);
+
     KSvgRenderer *m_renderer;
     // I'd use a two hashes (for Cache and for names) instead of four,
     // but currently both bond and atom chars can be

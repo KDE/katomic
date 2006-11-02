@@ -35,94 +35,6 @@ KAtomicRenderer::KAtomicRenderer( const QString& pathToSvg, QObject *parent )
     setElementSize(30);
 }
 
-void KAtomicRenderer::setElementSize( int size )
-{
-    m_elemSize = size;
-    m_cache.clear();
-    m_bondCache.clear();
-}
-
-QPixmap KAtomicRenderer::renderAtom( const atom& at )
-{
-    if (!m_renderer->isValid()) return QPixmap();
-    // FIXME dimsuz: move this to function. smth like ensureInCache(at)
-    QImage baseImg;
-    if(!m_cache.contains(at.obj))
-    {
-        //kDebug() << "putting atom to cache" << endl;
-        //Construct an image object to render the contents of the .svgz file
-        baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
-        //Fill the buffer, it is unitialised by default
-        baseImg.fill(0);
-        QPainter p(&baseImg);
-        m_renderer->render(&p, m_names.value(at.obj), QRectF(0,0, m_elemSize, m_elemSize) );
-        QPixmap atomPix = QPixmap::fromImage(baseImg);
-        m_cache[at.obj] = atomPix;
-    }
-    //else
-        //kDebug() << "reusing atom from cache" << endl;
-
-    for (int c = 0; c < MAX_CONNS_PER_ATOM; c++)
-    {
-        char conn = at.conn[c];
-        if (!conn)
-            break;
-        if(!m_bondCache.contains(conn))
-        {
-            //kDebug() << "putting bond to cache" << endl;
-            //Construct an image object to render the contents of the .svgz file
-            baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
-            //Fill the buffer, it is unitialised by default
-            baseImg.fill(0);
-            QPainter p(&baseImg);
-            m_renderer->render(&p, m_bondNames.value(conn), QRectF(0,0, m_elemSize, m_elemSize) );
-            QPixmap bondPix = QPixmap::fromImage(baseImg);
-            m_bondCache[conn] = bondPix;
-        }
-        //else
-            //kDebug() << "reusing bond from cache" << endl;
-    }
-
-    QPixmap res(m_elemSize, m_elemSize);
-    res.fill( Qt::transparent );
-    QPainter p(&res);
-    // paint connections first
-    for (int c = 0; c < MAX_CONNS_PER_ATOM; c++)
-    {
-        char conn = at.conn[c];
-        if (!conn)
-            break;
-        p.drawPixmap( 0, 0, m_bondCache.value( conn ) );
-    }
-    // and now the atom
-    p.drawPixmap( 0, 0, m_cache.value( at.obj ) );
-    p.end();
-    return res;
-}
-
-QPixmap KAtomicRenderer::renderNonAtom( char element )
-{
-    if (!m_renderer->isValid()) return QPixmap();
-
-    QImage baseImg;
-    if(!m_cache.contains(element))
-    {
-        //kDebug() << "putting element to cache" << endl;
-        //Construct an image object to render the contents of the .svgz file
-        baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
-        //Fill the buffer, it is unitialised by default
-        baseImg.fill(0);
-        QPainter p(&baseImg);
-        m_renderer->render(&p, m_names.value(element), QRectF(0,0, m_elemSize, m_elemSize) );
-        QPixmap pix = QPixmap::fromImage(baseImg);
-        m_cache[element] = pix;
-    }
-    //else
-        //kDebug() << "reusing element from cache" << endl;
-
-    return m_cache.value(element);
-}
-
 void KAtomicRenderer::fillNameHashes()
 {
     m_names['1'] = "atom_H";
@@ -164,4 +76,89 @@ void KAtomicRenderer::fillNameHashes()
     m_bondNames['F'] = "bond_III_Right";
     m_bondNames['G'] = "bond_III_Bottom";
     m_bondNames['H'] = "bond_III_Left";
+}
+
+void KAtomicRenderer::setElementSize( int size )
+{
+    m_elemSize = size;
+    m_cache.clear();
+    m_bondCache.clear();
+}
+
+QPixmap KAtomicRenderer::renderAtom( const atom& at )
+{
+    if (!m_renderer->isValid()) return QPixmap();
+
+    ensureAtomIsInCache(at);
+
+    QPixmap res(m_elemSize, m_elemSize);
+    res.fill( Qt::transparent );
+    QPainter p(&res);
+    // paint connections first
+    for (int c = 0; c < MAX_CONNS_PER_ATOM; c++)
+    {
+        char conn = at.conn[c];
+        if (!conn)
+            break;
+        p.drawPixmap( 0, 0, m_bondCache.value( conn ) );
+    }
+    // and now the atom
+    p.drawPixmap( 0, 0, m_cache.value( at.obj ) );
+    p.end();
+    return res;
+}
+
+QPixmap KAtomicRenderer::renderNonAtom( char element )
+{
+    if (!m_renderer->isValid()) return QPixmap();
+
+    QImage baseImg;
+    if(!m_cache.contains(element))
+    {
+        //Construct an image object to render the contents of the .svgz file
+        baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
+        //Fill the buffer, it is unitialised by default
+        baseImg.fill(0);
+        QPainter p(&baseImg);
+        m_renderer->render(&p, m_names.value(element), QRectF(0,0, m_elemSize, m_elemSize) );
+        QPixmap pix = QPixmap::fromImage(baseImg);
+        m_cache[element] = pix;
+    }
+
+    return m_cache.value(element);
+}
+
+void KAtomicRenderer::ensureAtomIsInCache(const atom& at)
+{
+    // FIXME dimsuz: move this to function. smth like ensureInCache(at)
+    QImage baseImg;
+    if(!m_cache.contains(at.obj))
+    {
+        //Construct an image object to render the contents of the .svgz file
+        baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
+        //Fill the buffer, it is unitialised by default
+        baseImg.fill(0);
+        QPainter p(&baseImg);
+        m_renderer->render(&p, m_names.value(at.obj), QRectF(0,0, m_elemSize, m_elemSize) );
+        QPixmap atomPix = QPixmap::fromImage(baseImg);
+        m_cache[at.obj] = atomPix;
+    }
+
+    for (int c = 0; c < MAX_CONNS_PER_ATOM; c++)
+    {
+        char conn = at.conn[c];
+        if (!conn)
+            break;
+        if(!m_bondCache.contains(conn))
+        {
+            //Construct an image object to render the contents of the .svgz file
+            baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
+            //Fill the buffer, it is unitialised by default
+            baseImg.fill(0);
+            QPainter p(&baseImg);
+            m_renderer->render(&p, m_bondNames.value(conn), QRectF(0,0, m_elemSize, m_elemSize) );
+            QPixmap bondPix = QPixmap::fromImage(baseImg);
+            m_bondCache[conn] = bondPix;
+        }
+    }
 }

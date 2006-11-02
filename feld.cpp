@@ -51,6 +51,8 @@ Feld::Feld( QWidget *parent )
 
     m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz"), this );
     m_renderer->setElementSize( m_elemSize );
+
+    setMinimumSize( FIELD_SIZE * 15, FIELD_SIZE * 15 );
     resize(FIELD_SIZE * m_elemSize, FIELD_SIZE * m_elemSize);
     copy = QPixmap(FIELD_SIZE * m_elemSize, FIELD_SIZE * m_elemSize);
 }
