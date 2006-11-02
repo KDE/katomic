@@ -2,7 +2,7 @@
  *
  * Copyright 2006 Dmitry Suzdalev <dimsuz@gmail.com>
  *
- * This file is part of the KDE project "KReversi"
+ * This file is part of the KDE project "KAtomic"
  *
  * KReversi is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with KReversi; see the file COPYING.  If not, write to
+ * along with KAtomic; see the file COPYING.  If not, write to
  * the Free Software Foundation, 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  *
