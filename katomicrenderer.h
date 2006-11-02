@@ -29,7 +29,7 @@ class atom;
 class KSvgRenderer;
 
 /**
- *  Class for rendering atoms to QPixmap
+ *  Class for rendering elements of game SVG to QPixmap
  */
 class KAtomicRenderer
 {
@@ -40,14 +40,21 @@ public:
      */
     KAtomicRenderer( const QString& pathToSvg, QObject *parent=0 );
     /**
-     *  Sets atom size
+     *  Sets rendered element size.
+     *  I.e. render* functions will return QPixmap of (size,size) dimentions
      */
-    void setAtomSize(int size);
+    void setElementSize(int size);
     /**
      *  Renders atom to pixmap.
-     *  If setAtomSize() wasn't called it assumes size of 30 px
+     *  If setElementSize() wasn't called it assumes size of 30 px
      */
     QPixmap renderAtom( const atom& );
+    /**
+     *  Renders non-atom elements (wall and arrows) to pixmap.
+     *  @param element if == '#' will render a wall, if '<','>','^','_' will render
+     *  arrow-left,arrow-right,arrow-up or arrow-down
+     */
+    QPixmap renderNonAtom( char element );
 private:
     /**
      * FIXME dimsuz: describe better
@@ -55,17 +62,17 @@ private:
      */
     void fillNameHashes();
     KSvgRenderer *m_renderer;
-    // I'd use a two hashes (for Cache and for names)
-    // instead of four, but currently both bond and atom chars can be
+    // I'd use a two hashes (for Cache and for names) instead of four,
+    // but currently both bond and atom chars can be
     // "A-D", i.e. they overlap, so I need to separate
     // If level format changes somehow, then corresponding atom and bond hashes 
     // can be merged
     // FIXME dimsuz: document them
-    QHash<char, QPixmap> m_atomCache;
+    QHash<char, QPixmap> m_cache;
     QHash<char, QPixmap> m_bondCache;
-    QHash<char, QString> m_atomNames; // cryptic_char -> elemName
+    QHash<char, QString> m_names; // cryptic_char -> elemName
     QHash<char, QString> m_bondNames; // cryptic_char -> bondName
-    int m_atomSize;
+    int m_elemSize;
 };
 
 #endif

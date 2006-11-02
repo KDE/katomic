@@ -71,8 +71,6 @@ private:
 
     const atom& getAtom(uint index) const;
 
-    void putNonAtom(int, int, Direction, QPainter &p, bool brick = false);
-
     void resetValidDirs();
 
     QPoint *point;

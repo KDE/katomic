@@ -32,12 +32,12 @@ KAtomicRenderer::KAtomicRenderer( const QString& pathToSvg, QObject *parent )
 {
     m_renderer = new KSvgRenderer( pathToSvg, parent);
     fillNameHashes();
-    setAtomSize(30);
+    setElementSize(30);
 }
 
-void KAtomicRenderer::setAtomSize( int size )
+void KAtomicRenderer::setElementSize( int size )
 {
-    m_atomSize = size;
+    m_elemSize = size;
     // TODO re-render cache contents. Or clear?
 }
 
@@ -46,17 +46,17 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at )
     if (!m_renderer->isValid()) return QPixmap();
     // FIXME dimsuz: move this to function. smth like ensureInCache(at)
     QImage baseImg;
-    if(!m_atomCache.contains(at.obj))
+    if(!m_cache.contains(at.obj))
     {
         kDebug() << "putting atom to cache" << endl;
         //Construct an image object to render the contents of the .svgz file
-        baseImg = QImage(m_atomSize, m_atomSize, QImage::Format_ARGB32_Premultiplied);
+        baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
         //Fill the buffer, it is unitialised by default
         baseImg.fill(0);
         QPainter p(&baseImg);
-        m_renderer->render(&p, m_atomNames.value(at.obj), QRectF(0,0, m_atomSize, m_atomSize) );
+        m_renderer->render(&p, m_names.value(at.obj), QRectF(0,0, m_elemSize, m_elemSize) );
         QPixmap atomPix = QPixmap::fromImage(baseImg);
-        m_atomCache[at.obj] = atomPix;
+        m_cache[at.obj] = atomPix;
     }
     else
         kDebug() << "reusing atom from cache" << endl;
@@ -70,11 +70,11 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at )
         {
             kDebug() << "putting bond to cache" << endl;
             //Construct an image object to render the contents of the .svgz file
-            baseImg = QImage(m_atomSize, m_atomSize, QImage::Format_ARGB32_Premultiplied);
+            baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
             //Fill the buffer, it is unitialised by default
             baseImg.fill(0);
             QPainter p(&baseImg);
-            m_renderer->render(&p, m_bondNames.value(conn), QRectF(0,0, m_atomSize, m_atomSize) );
+            m_renderer->render(&p, m_bondNames.value(conn), QRectF(0,0, m_elemSize, m_elemSize) );
             QPixmap bondPix = QPixmap::fromImage(baseImg);
             m_bondCache[conn] = bondPix;
         }
@@ -82,7 +82,7 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at )
             kDebug() << "reusing bond from cache" << endl;
     }
 
-    QPixmap res(m_atomSize, m_atomSize);
+    QPixmap res(m_elemSize, m_elemSize);
     res.fill( Qt::transparent );
     QPainter p(&res);
     // paint connections first
@@ -94,28 +94,56 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at )
         p.drawPixmap( 0, 0, m_bondCache.value( conn ) );
     }
     // and now the atom
-    p.drawPixmap( 0, 0, m_atomCache.value( at.obj ) );
+    p.drawPixmap( 0, 0, m_cache.value( at.obj ) );
     p.end();
     return res;
 }
 
+QPixmap KAtomicRenderer::renderNonAtom( char element )
+{
+    if (!m_renderer->isValid()) return QPixmap();
+
+    QImage baseImg;
+    if(!m_cache.contains(element))
+    {
+        kDebug() << "putting element to cache" << endl;
+        //Construct an image object to render the contents of the .svgz file
+        baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
+        //Fill the buffer, it is unitialised by default
+        baseImg.fill(0);
+        QPainter p(&baseImg);
+        m_renderer->render(&p, m_names.value(element), QRectF(0,0, m_elemSize, m_elemSize) );
+        QPixmap pix = QPixmap::fromImage(baseImg);
+        m_cache[element] = pix;
+    }
+    else
+        kDebug() << "reusing element from cache" << endl;
+
+    return m_cache.value(element);
+}
+
 void KAtomicRenderer::fillNameHashes()
 {
-    m_atomNames['1'] = "atom_H";
-    m_atomNames['2'] = "atom_C";
-    m_atomNames['3'] = "atom_O";
-    m_atomNames['4'] = "atom_N";
-    m_atomNames['5'] = "atom_S";
-    m_atomNames['6'] = "atom_F";
-    m_atomNames['7'] = "atom_Cl";
-    m_atomNames['8'] = "atom_Br";
-    m_atomNames['9'] = "atom_P";
-    m_atomNames['0'] = "atom_J";
-    m_atomNames['o'] = "atom_Crystal";
-    m_atomNames['A'] = "connector_Hor";
-    m_atomNames['B'] = "connector_Slash";
-    m_atomNames['C'] = "connector_Ver";
-    m_atomNames['D'] = "connector_Backslash";
+    m_names['1'] = "atom_H";
+    m_names['2'] = "atom_C";
+    m_names['3'] = "atom_O";
+    m_names['4'] = "atom_N";
+    m_names['5'] = "atom_S";
+    m_names['6'] = "atom_F";
+    m_names['7'] = "atom_Cl";
+    m_names['8'] = "atom_Br";
+    m_names['9'] = "atom_P";
+    m_names['0'] = "atom_J";
+    m_names['o'] = "atom_Crystal";
+    m_names['A'] = "connector_Hor";
+    m_names['B'] = "connector_Slash";
+    m_names['C'] = "connector_Ver";
+    m_names['D'] = "connector_Backslash";
+    m_names['#'] = "wall";
+    m_names['<'] = "arrow_Left";
+    m_names['>'] = "arrow_Right";
+    m_names['^'] = "arrow_Up";
+    m_names['_'] = "arrow_Down";
 
     m_bondNames['a'] = "bond_I_Top";
     m_bondNames['b'] = "bond_I_TopRight";

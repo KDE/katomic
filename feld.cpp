@@ -549,21 +549,6 @@ void Feld::paintMovingAtom(QPainter &paint)
     }
 }
 
-void Feld::putNonAtom (int x, int y, Direction which, QPainter &p, bool brick)
-{
-    int xarr=0, yarr=0;
-    switch (which)
-    {
-        case None      : xarr = 279, yarr = 31 * (brick?1:2); break;
-        case MoveUp    : xarr = 248; yarr = 62; break;
-        case MoveLeft  : xarr = 217; yarr = 93; break;
-        case MoveDown  : xarr = 248; yarr = 93; break;
-        case MoveRight : xarr = 279; yarr = 93; break;
-    }
-
-    p.drawPixmap(x * 30, y * 30, data, xarr, yarr, 30, 30);
-}
-
 void Feld::paintEvent( QPaintEvent * )
 {
     int i, j, x, y;
@@ -579,7 +564,6 @@ void Feld::paintEvent( QPaintEvent * )
     }
 
     paint.fillRect(0, 0, 15 * 30, 15 * 30, Qt::black);
-    // spielfeld gleich zeichnen
 
     kDebug() << " -= begin paint event =- " << endl;
     for (i = 0; i < FIELD_SIZE; i++)
@@ -592,31 +576,29 @@ void Feld::paintEvent( QPaintEvent * )
             x = i * 30;
             y = j * 30;
 
-            // zeichnet Randstücke
+            QPixmap aPix;
+            // FIXME dimsuz: move away from all this digits! :)
+            // wall
             if (feld[i][j] == 254) {
-                putNonAtom(i, j, Feld::None, paint, true); continue;
+                aPix = m_renderer->renderNonAtom('#');
+            } 
+            else if (feld[i][j] == 150) {
+                aPix = m_renderer->renderNonAtom('^');
             }
-
-            if (feld[i][j] == 150) {
-                putNonAtom(i, j, Feld::MoveUp, paint); continue;
+            else if (feld[i][j] == 151) {
+                aPix = m_renderer->renderNonAtom('<');
             }
-
-            if (feld[i][j] == 151) {
-                putNonAtom(i, j, Feld::MoveLeft, paint); continue;
+            else if (feld[i][j] == 152) {
+                aPix = m_renderer->renderNonAtom('_');
             }
-            if (feld[i][j] == 152) {
-                putNonAtom(i, j, Feld::MoveDown, paint); continue;
+            else if (feld[i][j] == 153) {
+                aPix = m_renderer->renderNonAtom('>');
             }
-
-            if (feld[i][j] == 153) {
-                putNonAtom(i, j, Feld::MoveRight, paint); continue;
-            }
-
-            if( getAtom(feld[i][j]).obj != 0 )
+            else if( getAtom(feld[i][j]).obj != 0 )
             {
-                QPixmap aPix = m_renderer->renderAtom( getAtom(feld[i][j]) );
-                paint.drawPixmap(x,y, aPix);
+                aPix = m_renderer->renderAtom( getAtom(feld[i][j]) );
             }
+            paint.drawPixmap(x,y, aPix);
         }
     }
     kDebug() << "-= end paint event =-" << endl;
