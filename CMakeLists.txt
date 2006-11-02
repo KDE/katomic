@@ -29,7 +29,7 @@ install(TARGETS katomic  DESTINATION ${BIN_INSTALL_DIR} )
 
 install( FILES katomic.desktop  DESTINATION  ${XDG_APPS_DIR} )
 install( FILES katomicui.rc  DESTINATION  ${DATA_INSTALL_DIR}/katomic )
-install( FILES abilder.svgz abilder.png molek.png  DESTINATION  ${DATA_INSTALL_DIR}/katomic/pics/ )
+install( FILES default_theme.svgz  DESTINATION  ${DATA_INSTALL_DIR}/katomic/pics/ )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}   )
 

@@ -40,7 +40,7 @@ Molek::Molek( QWidget *parent )
 
     m_elemSize = 20;
 
-    m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/abilder.svgz"), this );
+    m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz"), this );
     m_renderer->setElementSize( m_elemSize );
 }
 

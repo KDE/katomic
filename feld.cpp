@@ -49,7 +49,7 @@ Feld::Feld( QWidget *parent )
 
     setFocusPolicy(Qt::StrongFocus);
 
-    m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/abilder.svgz"), this );
+    m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz"), this );
     m_renderer->setElementSize( m_elemSize );
     resize(FIELD_SIZE * m_elemSize, FIELD_SIZE * m_elemSize);
     copy = QPixmap(FIELD_SIZE * m_elemSize, FIELD_SIZE * m_elemSize);

@@ -26,7 +26,6 @@
 #include <QScrollBar>
 #include <QGroupBox>
 #include <QLayout>
-#include <kvbox.h>
 #include <QLabel>
 
 #include <kscoredialog.h>
@@ -152,30 +151,31 @@ GameWidget::GameWidget ( QWidget *parent )
     QHBoxLayout *top = new QHBoxLayout(this);
     top->setMargin(10);
 
-    // spielfeld
+    // playfield
     feld = new Feld (this);
     feld->setObjectName("feld");
-    feld->setFocus();
 
-    top->addWidget(feld);
+    top->addWidget(feld, 1);
 
-
-    KVBox *vb = new KVBox(this);
-    vb->setSpacing(20);
-    top->addWidget(vb);
+    QVBoxLayout *vblay = new QVBoxLayout;
+    vblay->setSpacing(10);
+    top->addLayout(vblay);
 
     // scrollbar
-    scrl = new QScrollBar( Qt::Horizontal, vb );
+    scrl = new QScrollBar( Qt::Horizontal );
     scrl->setRange(1, nlevels);
     scrl->setSingleStep(1);
     scrl->setPageStep(5);
     scrl->setValue(1);
     scrl->setObjectName("scrl");
+    vblay->addWidget(scrl);
     connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
 
-    // molekül
-    molek = new Molek (vb);
-    molek->setObjectName("molek");
+    // molecule
+    molek = new Molek(this);
+    vblay->addWidget(molek);
+    vblay->addStretch(1);
+
     feld->setMolek(molek);
 
     connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
@@ -186,12 +186,12 @@ GameWidget::GameWidget ( QWidget *parent )
     highScore = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
 
     // the score group
-    QGroupBox *bg = new QGroupBox (i18n("Score"), vb);
-    QVBoxLayout *slay = new QVBoxLayout (bg);
+    QGroupBox *bg = new QGroupBox (i18n("Score"));
+    QGridLayout *slay = new QGridLayout(bg);
     slay->setMargin(10);
-    slay->addSpacing(10);
+    slay->addWidget(new QLabel(i18n("Highscore:"), bg), 0, 0);
 
-    slay->addWidget(new QLabel(i18n("Highscore:"), bg));
+    vblay->addWidget(bg);
 
     QFont headerFont = KGlobalSettings::generalFont();
     headerFont.setBold(true);
@@ -199,16 +199,13 @@ GameWidget::GameWidget ( QWidget *parent )
     hs = new QLabel (highest, bg);
     hs->setAlignment(Qt::AlignRight);
     hs->setFont(headerFont);
-    slay->addWidget(hs);
-
-    slay->addSpacing(10);
-
-    slay->addWidget(new QLabel(i18n("Your score so far:"), bg));
+    slay->addWidget(hs, 0, 1);
+    slay->addWidget(new QLabel(i18n("Your score so far:"), bg), 1, 0);
 
     ys = new QLabel (current, bg);
     ys->setAlignment(Qt::AlignRight);
     ys->setFont(headerFont);
-    slay->addWidget(ys);
+    slay->addWidget(ys, 1, 1);
 
     updateLevel(1);
 
