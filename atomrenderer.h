@@ -20,8 +20,8 @@
  * Boston, MA 02110-1301, USA.
  *
  ********************************************************************/
-#ifndef ATOM_RENDERER_H
-#define ATOM_RENDERER_H
+#ifndef KATOMIC_RENDERER_H
+#define KATOMIC_RENDERER_H
 
 #include <QHash>
 
@@ -31,14 +31,14 @@ class KSvgRenderer;
 /**
  *  Class for rendering atoms to QPixmap
  */
-class AtomRenderer
+class KAtomicRenderer
 {
 public:
     /**
      *  Constructor.
      *  @param pathToSvg path to svg containing atom, bonds etc pictures
      */
-    AtomRenderer( const QString& pathToSvg, QObject *parent=0 );
+    KAtomicRenderer( const QString& pathToSvg, QObject *parent=0 );
     /**
      *  Sets atom size
      */

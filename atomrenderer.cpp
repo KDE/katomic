@@ -28,20 +28,20 @@
 #include "atomrenderer.h"
 #include "atom.h"
 
-AtomRenderer::AtomRenderer( const QString& pathToSvg, QObject *parent )
+KAtomicRenderer::KAtomicRenderer( const QString& pathToSvg, QObject *parent )
 {
     m_renderer = new KSvgRenderer( pathToSvg, parent);
     fillNameHashes();
     setAtomSize(30);
 }
 
-void AtomRenderer::setAtomSize( int size )
+void KAtomicRenderer::setAtomSize( int size )
 {
     m_atomSize = size;
     // TODO re-render cache contents. Or clear?
 }
 
-QPixmap AtomRenderer::renderAtom( const atom& at )
+QPixmap KAtomicRenderer::renderAtom( const atom& at )
 {
     if (!m_renderer->isValid()) return QPixmap();
     // FIXME dimsuz: move this to function. smth like ensureInCache(at)
@@ -99,7 +99,7 @@ QPixmap AtomRenderer::renderAtom( const atom& at )
     return res;
 }
 
-void AtomRenderer::fillNameHashes()
+void KAtomicRenderer::fillNameHashes()
 {
     m_atomNames['1'] = "atom_H";
     m_atomNames['2'] = "atom_C";

@@ -17,7 +17,7 @@
 
 class KSimpleConfig;
 class Molek;
-class AtomRenderer;
+class KAtomicRenderer;
 
 class Feld : public QWidget
 {
@@ -101,7 +101,7 @@ private:
     uint redoSize;
     UndoInfo undo[MAX_UNDO];
 
-    AtomRenderer *m_renderer;
+    KAtomicRenderer *m_renderer;
 };
 
 #endif // FELD_H

@@ -52,7 +52,7 @@ Feld::Feld( QWidget *parent ) :
 
     setFocusPolicy(Qt::StrongFocus);
 
-    m_renderer = new AtomRenderer( KStandardDirs::locate("appdata", "pics/abilder.svgz"), this );
+    m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/abilder.svgz"), this );
     setFixedSize(15 * 30, 15 * 30);
     copy = QPixmap(15 * 30, 15 * 30);
 }
