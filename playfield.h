@@ -2,10 +2,6 @@
  *
  * Copyright 2006 Dmitry Suzdalev <dimsuz@gmail.com>
  *
- * Parts of the code taken from 
- * feld.cpp, feld.h
- * Copyright Andreas Wuest <AndreasWuest@gmx.de>, Stephan Kulow <coolo@kde.org>
- *
  * This file is part of the KDE project "KAtomic"
  *
  * KReversi is free software; you can redistribute it and/or modify
@@ -69,10 +65,16 @@ public:
     void moveSelectedAtom( Direction dir );
 private slots:
     void animFrameChanged(int frame);
+signals:
+    void gameOver(int numMoves);
 
 private:
     virtual void drawBackground( QPainter*, const QRectF& );
     virtual void mousePressEvent( QGraphicsSceneMouseEvent* ev );
+    /**
+     *  Checks if molecule is finished
+     */
+    bool checkDone() const;
     /**
      *  Re-renders atoms&arrows Pixmaps, updates their positions
      */
@@ -89,6 +91,10 @@ private:
      *  Molecule to be done
      */
     Molek *m_mol;
+    /**
+     *  Number of moves made for current level
+     */
+    int m_numMoves;
     /**
      *  Represents level.
      *  True means there's a wall, false means no wall

@@ -174,9 +174,9 @@ GameWidget::GameWidget ( QWidget *parent )
 
     m_playField->setMolecule(molek);
 
+    connect (m_playField, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     // FIXME dimsuz: fix these
     /* 
-    connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     connect (feld, SIGNAL (sendMoves(int)), SLOT(getMoves(int)));
     connect (feld, SIGNAL (enableRedo(bool)), SIGNAL(enableRedo(bool)));
     connect (feld, SIGNAL (enableUndo(bool)), SIGNAL(enableUndo(bool)));

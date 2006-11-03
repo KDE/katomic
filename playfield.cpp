@@ -2,10 +2,6 @@
  *
  * Copyright 2006 Dmitry Suzdalev <dimsuz@gmail.com>
  *
- * Parts of the code taken from 
- * feld.cpp, feld.h
- * Copyright Andreas Wuest <AndreasWuest@gmx.de>, Stephan Kulow <coolo@kde.org>
- *
  * This file is part of the KDE project "KAtomic"
  *
  * KReversi is free software; you can redistribute it and/or modify
@@ -78,7 +74,7 @@ void PlayFieldView::resizeEvent( QResizeEvent* ev )
 // =============== Play Field ========================
 
 PlayField::PlayField( QObject* parent )
-    : QGraphicsScene(parent), m_mol(0), m_elemSize(30), m_selAtom(0)
+    : QGraphicsScene(parent), m_mol(0), m_numMoves(0), m_elemSize(30), m_selAtom(0)
 {
     m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz"), this );
     m_renderer->setElementSize( m_elemSize );
@@ -99,6 +95,7 @@ void PlayField::loadLevel(const KSimpleConfig& config)
 {
     qDeleteAll(m_atoms);
     m_atoms.clear();
+    m_numMoves = 0;
 
     m_mol->load(config);
 
@@ -271,12 +268,44 @@ void PlayField::animFrameChanged(int frame)
             m_selAtom->setPos( pos, m_selAtom->y() );
             break;
     }
-    if(frame == m_timeLine->endFrame())
+    if(frame == m_timeLine->endFrame()) // that is: move finished
     {
         m_selAtom->setFieldX( static_cast<int>(m_selAtom->pos().x()/m_elemSize) );
         m_selAtom->setFieldY( static_cast<int>(m_selAtom->pos().y()/m_elemSize) );
         updateArrows();
+        m_numMoves++;
+        if(checkDone())
+            emit gameOver(m_numMoves);
     }
+}
+
+// most complicated algorithm ;-)
+bool PlayField::checkDone() const
+{
+    // let's assume that molecule is done
+    // first we find molecule origin in field coords
+    // by finding minimum fieldX, fieldY through all atoms
+    int minX = FIELD_SIZE+1;
+    int minY = FIELD_SIZE+1;
+    foreach( FieldGraphicsItem* atom, m_atoms )
+    {
+        if(atom->fieldX() < minX)
+            minX = atom->fieldX();
+        if(atom->fieldY() < minY)
+            minY = atom->fieldY();
+    }
+    // so origin is (minX,minY)
+    // we'll substract this origin from each atom's coords and check
+    // if the resulting position is the same as this atom has in molecule
+    foreach( FieldGraphicsItem* atom, m_atoms )
+    {
+        uint atomNum = atom->atomNum();
+        int molecCoordX = atom->fieldX() - minX;
+        int molecCoordY = atom->fieldY() - minY;
+        if( m_mol->getAtom( molecCoordX, molecCoordY ) != atomNum )
+            return false; // nope. not there
+    }
+    return true;
 }
 
 bool PlayField::cellIsEmpty(int x, int y) const
