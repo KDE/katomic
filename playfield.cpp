@@ -37,7 +37,7 @@ class FieldGraphicsItem : public QGraphicsPixmapItem
 {
 public:
     FieldGraphicsItem( QGraphicsScene* scene )
-        : QGraphicsPixmapItem( 0, scene ), m_fieldX(0), m_fieldY(0), m_atomNum(0)
+        : QGraphicsPixmapItem( 0, scene ), m_fieldX(0), m_fieldY(0), m_atomNum(-1)
     { }
     void setFieldX(int x) { m_fieldX = x; }
     void setFieldY(int y) { m_fieldY = y; }
@@ -56,7 +56,7 @@ private:
     int m_fieldX;
     int m_fieldY;
     // from molecule
-    // not meaningful for arrows
+    // -1 for arrows
     int m_atomNum; 
 };
 
@@ -165,28 +165,74 @@ void PlayField::resize( int width, int height)
 
 void PlayField::nextAtom()
 {
-    int curIdx = 0;
-    if(m_selAtom != 0)
+    if(!m_selAtom)
     {
-        curIdx = m_atoms.indexOf(m_selAtom) + 1;
-        if(curIdx == m_atoms.count() )
-            curIdx = 0;
+        m_selAtom = m_atoms.at(0);
+        updateArrows();
+        return;
     }
-    m_selAtom = m_atoms.at(curIdx);
-    updateArrows();
+
+    int xs = m_selAtom->fieldX();
+    int ys = m_selAtom->fieldY()+1;
+
+    int x = xs;
+
+    while(1)
+    {
+        FieldGraphicsItem* item = 0;
+        for(int y=ys; y<FIELD_SIZE; ++y )
+        {
+            int px = x*m_elemSize+m_elemSize/2;
+            int py = y*m_elemSize+m_elemSize/2;
+            item = qgraphicsitem_cast<FieldGraphicsItem*>( itemAt(px, py) );
+            if( item != 0 && item->atomNum() != -1 )
+            {
+                m_selAtom = item;
+                updateArrows();
+                return;
+            }
+        }
+        x++;
+        if(x==FIELD_SIZE)
+            x = 0;
+        ys=0;
+    }
 }
 
 void PlayField::previousAtom()
 {
-    int curIdx = 0;
-    if(m_selAtom != 0)
+    if(!m_selAtom)
     {
-        curIdx = m_atoms.indexOf(m_selAtom) - 1;
-        if(curIdx == -1 )
-            curIdx = m_atoms.count()-1;
+        m_selAtom = m_atoms.at(0);
+        updateArrows();
+        return;
     }
-    m_selAtom = m_atoms.at(curIdx);
-    updateArrows();
+
+    int xs = m_selAtom->fieldX();
+    int ys = m_selAtom->fieldY()-1;
+
+    int x = xs;
+
+    while(1)
+    {
+        FieldGraphicsItem* item = 0;
+        for(int y=ys; y>=0; --y )
+        {
+            int px = x*m_elemSize+m_elemSize/2;
+            int py = y*m_elemSize+m_elemSize/2;
+            item = qgraphicsitem_cast<FieldGraphicsItem*>( itemAt(px, py) );
+            if( item != 0 && item->atomNum() != -1 )
+            {
+                m_selAtom = item;
+                updateArrows();
+                return;
+            }
+        }
+        x--;
+        if(x==0)
+            x = FIELD_SIZE-1;
+        ys=FIELD_SIZE-1;
+    }
 }
 
 void PlayField::mousePressEvent( QGraphicsSceneMouseEvent* ev )
