@@ -125,7 +125,7 @@ void GameWidget::updateLevel (int l)
     KSimpleConfig cfg(levelFile, true);
     cfg.setGroup("Level");
     feld->load(cfg);
-    m_playField->load(cfg);
+    m_playField->loadLevel(cfg);
     m_view->resetCachedContent();
     m_view->update();
 

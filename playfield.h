@@ -36,26 +36,74 @@ class KSimpleConfig;
 class KAtomicRenderer;
 class QResizeEvent;
 class Molek;
-class AtomGraphicsItem;
+class FieldGraphicsItem;
 
+/**
+ *  KAtomic level playfield
+ */
 class PlayField : public QGraphicsScene
 {
 public:
-    PlayField( QObject *parent );
+    /**
+     *  Constructor
+     */
+    explicit PlayField( QObject *parent );
+    /**
+     *  Resizes playfield to width,height
+     */
     void resize( int width, int height );
-
-    void load (const KSimpleConfig& config);
+    /**
+     *  Loads level from config file
+     */
+    void loadLevel(const KSimpleConfig& config);
+    /**
+     *  Sets current molecule
+     */
     void setMolecule(Molek *mol) { m_mol = mol; }
 private:
     virtual void drawBackground( QPainter*, const QRectF& );
-    void renderAtoms();
-
+    virtual void mousePressEvent( QGraphicsSceneMouseEvent* ev );
+    /**
+     *  Re-renders atoms&arrows Pixmaps, updates their positions
+     */
+    void updateFieldItems();
+    /**
+     *  Updates arrows around selected atom
+     */
+    void updateArrows();
+    /**
+     *  Molecule to be done
+     */
     Molek *m_mol;
-    char m_field[FIELD_SIZE][FIELD_SIZE];
+    /**
+     *  Represents level.
+     *  True means there's a wall, false means no wall
+     */
+    bool m_field[FIELD_SIZE][FIELD_SIZE];
+    /**
+     *  Element (i.e. atom, wall, arrow) size
+     */
     int m_elemSize;
+    /**
+     *  Renderer which is used to render elements from svg
+     */
     KAtomicRenderer *m_renderer;
-
-    QList<AtomGraphicsItem*> m_atoms;
+    /**
+     *  List of atom QGraphicsItems
+     */
+    QList<FieldGraphicsItem*> m_atoms;
+    /**
+     *  Arrow items
+     */
+    FieldGraphicsItem *m_upArrow, *m_leftArrow, *m_downArrow, *m_rightArrow;
+    /**
+     *  Field x-coord of selected atom
+     */
+    int m_selX;
+    /**
+     *  Field y-coord of selected atom
+     */
+    int m_selY;
 };
 
 class PlayFieldView : public QGraphicsView
