@@ -46,6 +46,7 @@ class PlayField : public QGraphicsScene
 {
     Q_OBJECT
 public:
+    enum Direction { Up, Down, Left, Right };
     /**
      *  Constructor
      */
@@ -62,7 +63,10 @@ public:
      *  Sets current molecule
      */
     void setMolecule(Molek *mol) { m_mol = mol; }
-
+    /**
+     *  Animates currently selected atom movement in direction dir
+     */
+    void moveSelectedAtom( Direction dir );
 private slots:
     void animFrameChanged(int frame);
 
@@ -111,7 +115,6 @@ private:
      */
     FieldGraphicsItem *m_selAtom;
 
-    enum Direction { Up, Down, Left, Right };
     /**
      *  Direction in which current atom animation moves
      */

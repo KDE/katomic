@@ -20,7 +20,6 @@
 #ifndef GAMEWIDGET_H
 #define GAMEWIDGET_H
 
-class Feld;
 class PlayField;
 class PlayFieldView;
 class Molek;
@@ -49,9 +48,6 @@ public slots:
     // restart current level
     void restartLevel();
 
-    // getbutton erhält button der gedrückt wurde
-    void getButton (int);
-
     void gameOver(int moves);
 
     // use this slot to update the moves continually
@@ -70,9 +66,6 @@ public slots:
     void doRedo ();
 
  protected:
-
-    // stellt das spielfeld dar !
-    Feld *feld;
     PlayFieldView *m_view;
     PlayField *m_playField;
 

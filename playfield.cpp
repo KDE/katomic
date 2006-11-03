@@ -159,15 +159,18 @@ void PlayField::updateFieldItems()
 
 void PlayField::resize( int width, int height)
 {
+    kDebug() << "resize:" << width << "," << height << endl;
     setSceneRect( 0, 0, width, height );
     m_elemSize = qMin(width, height) / FIELD_SIZE;
     m_renderer->setElementSize( m_elemSize );
-    kDebug() << "elemSize:" << m_elemSize << endl;
     updateFieldItems();
 }
 
 void PlayField::mousePressEvent( QGraphicsSceneMouseEvent* ev )
 {
+    if( m_timeLine->state() == QTimeLine::Running )
+        return;
+
     FieldGraphicsItem *clickedItem = qgraphicsitem_cast<FieldGraphicsItem*>(itemAt(ev->scenePos()));
     if(!clickedItem)
         return;
@@ -176,54 +179,69 @@ void PlayField::mousePressEvent( QGraphicsSceneMouseEvent* ev )
     {
         m_selAtom = clickedItem;
         updateArrows();
-        return;
     }
+    else if( clickedItem == m_upArrow )
+    {
+        moveSelectedAtom( Up );
+    }
+    else if( clickedItem == m_downArrow )
+    {
+        moveSelectedAtom( Down );
+    }
+    else if( clickedItem == m_rightArrow )
+    {
+        moveSelectedAtom( Right );
+    }
+    else if( clickedItem == m_leftArrow )
+    {
+        moveSelectedAtom( Left );
+    }
+}
 
-    // FIXME dimsuz: move this to function arrowClicked(*arrow);
-    
+void PlayField::moveSelectedAtom( Direction dir )
+{
+    if( m_timeLine->state() == QTimeLine::Running )
+        return;
+
     // helpers
     int x = 0, y = 0;
     int selX = m_selAtom->fieldX();
     int selY = m_selAtom->fieldY();
     int numEmptyCells=0;
 
-    if( clickedItem == m_upArrow )
+    switch( dir )
     {
-        y = selY;
-        m_dir = Up;
-        while( cellIsEmpty(selX, --y) )
-            numEmptyCells++;
+        case Up:
+            y = selY;
+            m_dir = Up;
+            while( cellIsEmpty(selX, --y) )
+                numEmptyCells++;
+            break;
+        case Down:
+            y = selY;
+            m_dir = Down;
+            while( cellIsEmpty(selX, ++y) )
+                numEmptyCells++;
+            break;
+        case Left:
+            x = selX;
+            m_dir = Left;
+            while( cellIsEmpty(--x, selY) )
+                numEmptyCells++;
+            break;
+        case Right:
+            x = selX;
+            m_dir = Right;
+            while( cellIsEmpty(++x, selY) )
+                numEmptyCells++;
+            break;
+    }
 
-        kDebug() << "up arrow clicked: " << endl;
-    }
-    else if( clickedItem == m_downArrow )
-    {
-        y = selY;
-        m_dir = Down;
-        while( cellIsEmpty(selX, ++y) )
-            numEmptyCells++;
-        kDebug() << "down arrow clicked" << endl;
-    }
-    else if( clickedItem == m_rightArrow )
-    {
-        x = selX;
-        m_dir = Right;
-        while( cellIsEmpty(++x, selY) )
-            numEmptyCells++;
-        kDebug() << "right arrow clicked" << endl;
+    if( numEmptyCells == 0)
+        return;
 
-    }
-    else if( clickedItem == m_leftArrow )
-    {
-        x = selX;
-        m_dir = Left;
-        while( cellIsEmpty(--x, selY) )
-            numEmptyCells++;
-        kDebug() << "left arrow clicked" << endl;
-    }
-    kDebug() << "cells to move:" << numEmptyCells << endl;
-
-    m_timeLine->setDuration( numEmptyCells * 100 ); // 1cell/100msec speed
+    m_timeLine->setCurrentTime(0); // reset
+    m_timeLine->setDuration( numEmptyCells * 150 ); // 1cell/150msec speed
     m_timeLine->setFrameRange( 0, numEmptyCells*m_elemSize ); // 1frame=1pixel
     updateArrows(true); // hide them
     m_timeLine->start();
@@ -255,10 +273,8 @@ void PlayField::animFrameChanged(int frame)
     }
     if(frame == m_timeLine->endFrame())
     {
-        m_selAtom->setFieldX( m_selAtom->pos().x()/m_elemSize );
-        m_selAtom->setFieldY( m_selAtom->pos().y()/m_elemSize );
-        kDebug() << "setting X:" << m_selAtom->pos().x()/m_elemSize  << endl;
-        kDebug() << "setting Y:" << m_selAtom->pos().y()/m_elemSize  << endl;
+        m_selAtom->setFieldX( static_cast<int>(m_selAtom->pos().x()/m_elemSize) );
+        m_selAtom->setFieldY( static_cast<int>(m_selAtom->pos().y()/m_elemSize) );
         updateArrows();
     }
 }
@@ -319,14 +335,12 @@ void PlayField::drawBackground( QPainter *p, const QRectF& r)
 {
     p->fillRect(r, Qt::black);
 
-    kDebug() << " -= begin paint event 1=- " << endl;
     QPixmap aPix = m_renderer->renderNonAtom('#');
     for (int i = 0; i < FIELD_SIZE; i++)
         for (int j = 0; j < FIELD_SIZE; j++)
             // FIXME dimsuz: move away from all this digits! :)
             if (m_field[i][j])
                 p->drawPixmap(i*m_elemSize, j*m_elemSize, aPix);
-    kDebug() << "-= end paint event =-" << endl;
 }
 
 #include "playfield.moc"

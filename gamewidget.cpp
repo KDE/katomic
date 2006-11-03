@@ -21,7 +21,6 @@
 #include "settings.h"
 #include "gamewidget.h"
 #include "playfield.h"
-#include "feld.h"
 #include "molek.h"
 
 #include <QScrollBar>
@@ -49,47 +48,43 @@ int level;
 
 void GameWidget::moveUp()
 {
-    feld->startAnimation (Feld::MoveUp);
+    m_playField->moveSelectedAtom( PlayField::Up );
 }
 
 void GameWidget::moveDown()
 {
-    feld->startAnimation (Feld::MoveDown);
+    m_playField->moveSelectedAtom( PlayField::Down );
 }
 
 void GameWidget::moveLeft()
 {
-    feld->startAnimation (Feld::MoveLeft);
+    m_playField->moveSelectedAtom( PlayField::Left );
 }
 
 void GameWidget::moveRight()
 {
-    feld->startAnimation (Feld::MoveRight);
+    m_playField->moveSelectedAtom( PlayField::Right );
 }
 
+// FIXME dimsuz: fix these
 void GameWidget::nextAtom()
 {
-    feld->nextAtom();
+    //feld->nextAtom();
 }
 
 void GameWidget::previousAtom()
 {
-    feld->previousAtom();
-}
-
-void GameWidget::getButton (int button)
-{
-    feld->startAnimation ((Feld::Direction)button);
+    //feld->previousAtom();
 }
 
 void GameWidget::doUndo ()
 {
-    feld->doUndo ();
+//    feld->doUndo ();
 }
 
 void GameWidget::doRedo ()
 {
-    feld->doRedo ();
+//    feld->doRedo ();
 }
 
 void GameWidget::gameOver(int moves) {
@@ -124,7 +119,6 @@ void GameWidget::updateLevel (int l)
 
     KSimpleConfig cfg(levelFile, true);
     cfg.setGroup("Level");
-    feld->load(cfg);
     m_playField->loadLevel(cfg);
     m_view->resetCachedContent();
     m_view->update();
@@ -136,8 +130,6 @@ void GameWidget::updateLevel (int l)
     else hs->setText("-");
     ys->setText("0");
     scrl->setValue(level);
-
-    feld->repaint();
 }
 
 void GameWidget::restartLevel()
@@ -156,17 +148,10 @@ GameWidget::GameWidget ( QWidget *parent )
     top->setMargin(10);
 
     // playfield
-    feld = new Feld (this);
-    feld->setObjectName("feld");
-    feld->hide();
-
-    /* 
-    top->addWidget(feld, 1);
-     */
     m_playField = new PlayField(this);
     m_view = new PlayFieldView(m_playField, this);
     m_view->setCacheMode( QGraphicsView::CacheBackground );
-    top->addWidget(m_view);
+    top->addWidget(m_view, 1);
 
     QVBoxLayout *vblay = new QVBoxLayout;
     vblay->setSpacing(10);
@@ -187,13 +172,15 @@ GameWidget::GameWidget ( QWidget *parent )
     vblay->addWidget(molek);
     vblay->addStretch(1);
 
-    feld->setMolek(molek);
     m_playField->setMolecule(molek);
 
+    // FIXME dimsuz: fix these
+    /* 
     connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     connect (feld, SIGNAL (sendMoves(int)), SLOT(getMoves(int)));
     connect (feld, SIGNAL (enableRedo(bool)), SIGNAL(enableRedo(bool)));
     connect (feld, SIGNAL (enableUndo(bool)), SIGNAL(enableUndo(bool)));
+     */
 
     highScore = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
 
