@@ -21,6 +21,8 @@
 #define GAMEWIDGET_H
 
 class Feld;
+class PlayField;
+class PlayFieldView;
 class Molek;
 class QScrollBar;
 class QLabel;
@@ -71,6 +73,8 @@ public slots:
 
     // stellt das spielfeld dar !
     Feld *feld;
+    PlayFieldView *m_view;
+    PlayField *m_playField;
 
     // stellt molekül dar
     Molek *molek;

@@ -20,6 +20,7 @@
 
 #include "settings.h"
 #include "gamewidget.h"
+#include "playfield.h"
 #include "feld.h"
 #include "molek.h"
 
@@ -124,6 +125,9 @@ void GameWidget::updateLevel (int l)
     KSimpleConfig cfg(levelFile, true);
     cfg.setGroup("Level");
     feld->load(cfg);
+    m_playField->load(cfg);
+    m_view->resetCachedContent();
+    m_view->update();
 
     highScore->setConfigGroup(QString("Highscores Level %1").arg(level));
     highest.setNum(highScore->highScore());
@@ -154,8 +158,15 @@ GameWidget::GameWidget ( QWidget *parent )
     // playfield
     feld = new Feld (this);
     feld->setObjectName("feld");
+    feld->hide();
 
+    /* 
     top->addWidget(feld, 1);
+     */
+    m_playField = new PlayField(this);
+    m_view = new PlayFieldView(m_playField, this);
+    m_view->setCacheMode( QGraphicsView::CacheBackground );
+    top->addWidget(m_view);
 
     QVBoxLayout *vblay = new QVBoxLayout;
     vblay->setSpacing(10);
@@ -177,6 +188,7 @@ GameWidget::GameWidget ( QWidget *parent )
     vblay->addStretch(1);
 
     feld->setMolek(molek);
+    m_playField->setMolecule(molek);
 
     connect (feld, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     connect (feld, SIGNAL (sendMoves(int)), SLOT(getMoves(int)));

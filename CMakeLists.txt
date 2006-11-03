@@ -10,6 +10,7 @@ include_directories( ${CMAKE_SOURCE_DIR}/libkdegames ${CMAKE_SOURCE_DIR}/libkdeg
 set(katomic_SRCS 
    katomicrenderer.cpp
    feld.cpp 
+   playfield.cpp
    molek.cpp 
    main.cpp 
    toplevel.cpp 
