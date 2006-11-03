@@ -128,6 +128,11 @@ QPixmap KAtomicRenderer::renderNonAtom( char element )
     return m_cache.value(element);
 }
 
+void KAtomicRenderer::renderBackground( QPainter *p, const QRectF& bounds )
+{
+    m_renderer->render(p, "background", bounds);
+}
+
 void KAtomicRenderer::ensureAtomIsInCache(const atom& at)
 {
     // FIXME dimsuz: move this to function. smth like ensureInCache(at)

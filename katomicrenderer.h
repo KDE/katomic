@@ -55,6 +55,12 @@ public:
      *  arrow-left,arrow-right,arrow-up or arrow-down
      */
     QPixmap renderNonAtom( char element );
+    /**
+     *  Renders backgound
+     *  @param paint QPainter to use for rendering
+     *  @param bounds bounds to render to
+     */
+    void renderBackground( QPainter *p, const QRectF& bounds );
 private:
     /**
      * FIXME dimsuz: describe better

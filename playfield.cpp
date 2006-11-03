@@ -362,12 +362,11 @@ void PlayField::updateArrows(bool justHide)
 
 void PlayField::drawBackground( QPainter *p, const QRectF& r)
 {
-    p->fillRect(r, Qt::black);
+    m_renderer->renderBackground(p, r);
 
     QPixmap aPix = m_renderer->renderNonAtom('#');
     for (int i = 0; i < FIELD_SIZE; i++)
         for (int j = 0; j < FIELD_SIZE; j++)
-            // FIXME dimsuz: move away from all this digits! :)
             if (m_field[i][j])
                 p->drawPixmap(i*m_elemSize, j*m_elemSize, aPix);
 }
