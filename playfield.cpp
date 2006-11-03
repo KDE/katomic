@@ -129,7 +129,7 @@ void PlayField::loadLevel(const KSimpleConfig& config)
     m_selAtom = 0;
     updateArrows(true); // this will hide them (no atom selected)
     updateFieldItems();
-    //nextAtom();
+    nextAtom();
 }
 
 void PlayField::updateFieldItems()
@@ -161,6 +161,32 @@ void PlayField::resize( int width, int height)
     m_elemSize = qMin(width, height) / FIELD_SIZE;
     m_renderer->setElementSize( m_elemSize );
     updateFieldItems();
+}
+
+void PlayField::nextAtom()
+{
+    int curIdx = 0;
+    if(m_selAtom != 0)
+    {
+        curIdx = m_atoms.indexOf(m_selAtom) + 1;
+        if(curIdx == m_atoms.count() )
+            curIdx = 0;
+    }
+    m_selAtom = m_atoms.at(curIdx);
+    updateArrows();
+}
+
+void PlayField::previousAtom()
+{
+    int curIdx = 0;
+    if(m_selAtom != 0)
+    {
+        curIdx = m_atoms.indexOf(m_selAtom) - 1;
+        if(curIdx == -1 )
+            curIdx = m_atoms.count()-1;
+    }
+    m_selAtom = m_atoms.at(curIdx);
+    updateArrows();
 }
 
 void PlayField::mousePressEvent( QGraphicsSceneMouseEvent* ev )

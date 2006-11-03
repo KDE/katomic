@@ -60,6 +60,14 @@ public:
      */
     void setMolecule(Molek *mol) { m_mol = mol; }
     /**
+     *  Selects next atom
+     */
+    void nextAtom();
+    /**
+     *  Selects previous atom
+     */
+    void previousAtom();
+    /**
      *  Animates currently selected atom movement in direction dir
      */
     void moveSelectedAtom( Direction dir );

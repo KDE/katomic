@@ -66,17 +66,17 @@ void GameWidget::moveRight()
     m_playField->moveSelectedAtom( PlayField::Right );
 }
 
-// FIXME dimsuz: fix these
 void GameWidget::nextAtom()
 {
-    //feld->nextAtom();
+    m_playField->nextAtom();
 }
 
 void GameWidget::previousAtom()
 {
-    //feld->previousAtom();
+    m_playField->previousAtom();
 }
 
+// FIXME dimsuz: fix these
 void GameWidget::doUndo ()
 {
 //    feld->doUndo ();
