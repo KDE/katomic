@@ -37,12 +37,14 @@ class KAtomicRenderer;
 class QResizeEvent;
 class Molek;
 class FieldGraphicsItem;
+class QTimeLine;
 
 /**
  *  KAtomic level playfield
  */
 class PlayField : public QGraphicsScene
 {
+    Q_OBJECT
 public:
     /**
      *  Constructor
@@ -60,6 +62,10 @@ public:
      *  Sets current molecule
      */
     void setMolecule(Molek *mol) { m_mol = mol; }
+
+private slots:
+    void animFrameChanged(int frame);
+
 private:
     virtual void drawBackground( QPainter*, const QRectF& );
     virtual void mousePressEvent( QGraphicsSceneMouseEvent* ev );
@@ -70,7 +76,11 @@ private:
     /**
      *  Updates arrows around selected atom
      */
-    void updateArrows();
+    void updateArrows(bool justHide=false);
+    /**
+     *  Returns true if Field cell (x,y) is empty, i.e. it isn't a wall and has no atom
+     */
+    bool cellIsEmpty(int x, int y) const;
     /**
      *  Molecule to be done
      */
@@ -97,13 +107,19 @@ private:
      */
     FieldGraphicsItem *m_upArrow, *m_leftArrow, *m_downArrow, *m_rightArrow;
     /**
-     *  Field x-coord of selected atom
+     *  Currently selected atom
      */
-    int m_selX;
+    FieldGraphicsItem *m_selAtom;
+
+    enum Direction { Up, Down, Left, Right };
     /**
-     *  Field y-coord of selected atom
+     *  Direction in which current atom animation moves
      */
-    int m_selY;
+    Direction m_dir;
+    /**
+     *  Timeline object to control animation
+     */
+    QTimeLine *m_timeLine;
 };
 
 class PlayFieldView : public QGraphicsView
