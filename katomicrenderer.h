@@ -40,27 +40,32 @@ public:
      */
     KAtomicRenderer( const QString& pathToSvg, QObject *parent=0 );
     /**
-     *  Sets rendered element size.
+     *  Sets rendered element size and invalidates element cache.
      *  I.e. render* functions will return QPixmap of (size,size) dimentions
      */
     void setElementSize(int size);
     /**
+     *  Sets Background size and invalidates background cache
+     */
+    void setBackgroundSize( const QSize& );
+    /**
      *  Renders atom to pixmap.
      *  If setElementSize() wasn't called it assumes size of 30 px
+     *  Atom pixmaps are cached (setElementsSize() invalidates the cache)
      */
     QPixmap renderAtom( const atom& );
     /**
      *  Renders non-atom elements (wall and arrows) to pixmap.
      *  @param element if == '#' will render a wall, if '<','>','^','_' will render
      *  arrow-left,arrow-right,arrow-up or arrow-down
+     *  Elements pixmaps are cached (setElementsSize() invalidates the cache)
      */
     QPixmap renderNonAtom( char element );
     /**
-     *  Renders backgound
-     *  @param paint QPainter to use for rendering
-     *  @param bounds bounds to render to
+     *  Renders backgound to QPixmap of size set by setBackgroundSize
+     *  Background pixmap is cached (setBackgroundSize() invalidates the cache)
      */
-    void renderBackground( QPainter *p, const QRectF& bounds );
+    QPixmap renderBackground();
 private:
     /**
      * FIXME dimsuz: describe better
@@ -83,7 +88,10 @@ private:
     QHash<char, QPixmap> m_bondCache;
     QHash<char, QString> m_names; // cryptic_char -> elemName
     QHash<char, QString> m_bondNames; // cryptic_char -> bondName
+
+    QPixmap m_bkgnd;
     int m_elemSize;
+    QSize m_bkgndSize;
 };
 
 #endif

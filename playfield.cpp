@@ -166,6 +166,7 @@ void PlayField::resize( int width, int height)
     setSceneRect( 0, 0, width, height );
     m_elemSize = qMin(width, height) / FIELD_SIZE;
     m_renderer->setElementSize( m_elemSize );
+    m_renderer->setBackgroundSize( QSize(width, height) );
     updateFieldItems();
 }
 
@@ -519,9 +520,9 @@ void PlayField::updateArrows(bool justHide)
     }
 }
 
-void PlayField::drawBackground( QPainter *p, const QRectF& r)
+void PlayField::drawBackground( QPainter *p, const QRectF&)
 {
-    m_renderer->renderBackground(p, r);
+    p->drawPixmap(0, 0, m_renderer->renderBackground());
 
     QPixmap aPix = m_renderer->renderNonAtom('#');
     for (int i = 0; i < FIELD_SIZE; i++)

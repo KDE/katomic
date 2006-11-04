@@ -85,6 +85,12 @@ void KAtomicRenderer::setElementSize( int size )
     m_bondCache.clear();
 }
 
+void KAtomicRenderer::setBackgroundSize( const QSize& size )
+{
+    m_bkgndSize = size;
+    m_bkgnd = QPixmap();
+}
+
 QPixmap KAtomicRenderer::renderAtom( const atom& at )
 {
     if (!m_renderer->isValid()) return QPixmap();
@@ -128,9 +134,15 @@ QPixmap KAtomicRenderer::renderNonAtom( char element )
     return m_cache.value(element);
 }
 
-void KAtomicRenderer::renderBackground( QPainter *p, const QRectF& bounds )
+QPixmap KAtomicRenderer::renderBackground()
 {
-    m_renderer->render(p, "background", bounds);
+    if( m_bkgnd.isNull() )
+    {
+        m_bkgnd = QPixmap(m_bkgndSize);
+        QPainter p(&m_bkgnd);
+        m_renderer->render(&p, "background");
+    }
+    return m_bkgnd;
 }
 
 void KAtomicRenderer::ensureAtomIsInCache(const atom& at)
