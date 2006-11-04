@@ -31,7 +31,7 @@
 static const char description[] =
 	I18N_NOOP("KDE Atomic Entertainment Game");
 
-static const char version[] = "2.0";
+static const char version[] = "2.1";
 
 
 // ##########################
@@ -51,6 +51,7 @@ int main(int argc, char **argv)
   aboutData.addCredit("Dave Corrie");
   aboutData.addCredit("Kai Jung", I18N_NOOP("6 new levels"), "jung@fh-fresenius.de");
   aboutData.addCredit("Danny Allen", I18N_NOOP("Game graphics and application icon"), "danny@dannyallen.co.uk");
+  aboutData.addCredit("Johann Ollivier Lapeyre", I18N_NOOP("New great SVG artwork for KDE4"), "johann.ollivierlapeyre@gmail.com");
 
   KCmdLineArgs::init( argc, argv, &aboutData );
 
