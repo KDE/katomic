@@ -70,8 +70,9 @@ public:
     void previousAtom();
     /**
      *  Animates currently selected atom movement in direction dir
+     *  @param numCells used on undos/redos
      */
-    void moveSelectedAtom( Direction dir );
+    void moveSelectedAtom( Direction dir, int numCells=0 );
     /**
      *  Undoes one movement
      */
@@ -154,7 +155,14 @@ private:
      */
     QTimeLine *m_timeLine;
 
-    typedef QPair<FieldGraphicsItem*, Direction> AtomMove;
+    struct AtomMove
+    {
+        FieldGraphicsItem* atom;
+        Direction dir;
+        int numCells;
+        AtomMove( FieldGraphicsItem* at=0, Direction d=Up, int nc=0 )
+            : atom(at), dir(d), numCells(nc) { }
+    };
     QStack<AtomMove> m_undoStack;
     QStack<AtomMove> m_redoStack;
 };

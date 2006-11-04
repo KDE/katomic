@@ -243,7 +243,7 @@ void PlayField::previousAtom()
 
 void PlayField::undo()
 {
-    if(m_undoStack.isEmpty()) // shouldn't happen here
+    if(m_timeLine->state() == QTimeLine::Running || m_undoStack.isEmpty())
         return;
 
     AtomMove am = m_undoStack.pop();
@@ -255,29 +255,27 @@ void PlayField::undo()
     if(m_undoStack.isEmpty())
         emit enableUndo(false);
 
-    kDebug() << "undo: " << m_undoStack.count() << endl;
-    kDebug() << "redo: " << m_redoStack.count() << endl;
-    m_selAtom = am.first;
-    switch( am.second )
+    m_selAtom = am.atom;
+    switch( am.dir )
     {
         case Up:
-            moveSelectedAtom(Down);
+            moveSelectedAtom(Down, am.numCells);
             break;
         case Down:
-            moveSelectedAtom(Up);
+            moveSelectedAtom(Up, am.numCells);
             break;
         case Left:
-            moveSelectedAtom(Right);
+            moveSelectedAtom(Right, am.numCells);
             break;
         case Right:
-            moveSelectedAtom(Left);
+            moveSelectedAtom(Left, am.numCells);
             break;
     }
 }
 
 void PlayField::redo()
 {
-    if(m_redoStack.isEmpty()) // shouldn't happen here
+    if(m_timeLine->state() == QTimeLine::Running || m_redoStack.isEmpty())
         return;
 
     AtomMove am = m_redoStack.pop();
@@ -290,11 +288,8 @@ void PlayField::redo()
     if(m_redoStack.isEmpty())
         emit enableRedo(false);
 
-    kDebug() << "undo: " << m_undoStack.count() << endl;
-    kDebug() << "redo: " << m_redoStack.count() << endl;
-
-    m_selAtom = am.first;
-    moveSelectedAtom(am.second);
+    m_selAtom = am.atom;
+    moveSelectedAtom(am.dir, am.numCells);
 }
 
 void PlayField::mousePressEvent( QGraphicsSceneMouseEvent* ev )
@@ -329,47 +324,66 @@ void PlayField::mousePressEvent( QGraphicsSceneMouseEvent* ev )
     }
 }
 
-void PlayField::moveSelectedAtom( Direction dir )
+void PlayField::moveSelectedAtom( Direction dir, int numCells )
 {
     if( m_timeLine->state() == QTimeLine::Running )
         return;
 
-    // helpers
-    int x = 0, y = 0;
-    int selX = m_selAtom->fieldX();
-    int selY = m_selAtom->fieldY();
-    int numEmptyCells=0;
 
-    switch( dir )
+    int numEmptyCells=0;
+    m_dir = dir;
+
+    if(numCells == 0) // then we'll calculate
     {
-        case Up:
-            y = selY;
-            m_dir = Up;
-            while( cellIsEmpty(selX, --y) )
-                numEmptyCells++;
-            break;
-        case Down:
-            y = selY;
-            m_dir = Down;
-            while( cellIsEmpty(selX, ++y) )
-                numEmptyCells++;
-            break;
-        case Left:
-            x = selX;
-            m_dir = Left;
-            while( cellIsEmpty(--x, selY) )
-                numEmptyCells++;
-            break;
-        case Right:
-            x = selX;
-            m_dir = Right;
-            while( cellIsEmpty(++x, selY) )
-                numEmptyCells++;
-            break;
+        // helpers
+        int x = 0, y = 0;
+        int selX = m_selAtom->fieldX();
+        int selY = m_selAtom->fieldY();
+        switch( dir )
+        {
+            case Up:
+                y = selY;
+                while( cellIsEmpty(selX, --y) )
+                    numEmptyCells++;
+                break;
+            case Down:
+                y = selY;
+                while( cellIsEmpty(selX, ++y) )
+                    numEmptyCells++;
+                break;
+            case Left:
+                x = selX;
+                while( cellIsEmpty(--x, selY) )
+                    numEmptyCells++;
+                break;
+            case Right:
+                x = selX;
+                while( cellIsEmpty(++x, selY) )
+                    numEmptyCells++;
+                break;
+        }
+        // and clear the redo stack. we do it here
+        // because if this function is called with numCells=0
+        // this indicates it is called not from undo()/redo(),
+        // but as a result of mouse/keyb input from player
+        // so this is just a place to drop redo history :-)
+        m_redoStack.clear();
+        emit enableRedo(false);
     }
+    else
+        numEmptyCells = numCells;
 
     if( numEmptyCells == 0)
         return;
+
+    // put undo info
+    // don't put if we in the middle of series of undos
+    if(m_redoStack.isEmpty())
+    {
+        if(m_undoStack.isEmpty())
+            emit enableUndo(true);
+        m_undoStack.push( AtomMove(m_selAtom, m_dir, numEmptyCells) );
+    }
 
     m_timeLine->setCurrentTime(0); // reset
     m_timeLine->setDuration( numEmptyCells * 150 ); // 1cell/150msec speed
@@ -408,14 +422,6 @@ void PlayField::animFrameChanged(int frame)
         m_selAtom->setFieldY( toFieldY((int)m_selAtom->pos().y()) );
         updateArrows();
         m_numMoves++;
-
-        // don't put if we in the middle of series of undos
-        if(m_redoStack.isEmpty())
-        {
-            if(m_undoStack.isEmpty())
-                emit enableUndo(true);
-            m_undoStack.push( qMakePair(m_selAtom, m_dir) );
-        }
 
         if(checkDone())
             emit gameOver(m_numMoves);
