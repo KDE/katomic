@@ -30,7 +30,7 @@
 
 #include "katomicrenderer.h"
 #include "playfield.h"
-#include "molek.h"
+#include "molecule.h"
 #include "atom.h"
 
 class FieldGraphicsItem : public QGraphicsPixmapItem

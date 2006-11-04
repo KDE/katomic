@@ -20,13 +20,13 @@
 #include <QMouseEvent>
 #include <QTimerEvent>
 #include <QPaintEvent>
-#include "molek.h"
+#include "molecule.h"
 #include "feld.h"
 #include "settings.h"
 #include "katomicrenderer.h"
 
-#if FIELD_SIZE < MOLEK_SIZE
-#error Molecule size (MOLEK_SIZE) must be <= field size (FIELD_SIZE)
+#if FIELD_SIZE < MOLECULE_SIZE
+#error Molecule size (MOLECULE_SIZE) must be <= field size (FIELD_SIZE)
 #endif
 
 extern Options settings;

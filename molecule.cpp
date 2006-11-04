@@ -24,7 +24,7 @@
 #include <QPainter>
 #include <QPaintEvent>
 
-#include "molek.h"
+#include "molecule.h"
 #include "katomicrenderer.h"
 
 extern int level;
@@ -87,12 +87,12 @@ void Molecule::load (const KSimpleConfig& config)
 
     QString line;
 
-    for (int j = 0; j < MOLEK_SIZE; j++) {
+    for (int j = 0; j < MOLECULE_SIZE; j++) {
 
         key.sprintf("mole_%d", j);
         line = config.readEntry(key,QString());
 
-        for (int i = 0; i < MOLEK_SIZE; i++)
+        for (int i = 0; i < MOLECULE_SIZE; i++)
         {
             if (i >= line.size()) molek[i][j] = 0;
             else molek[i][j] = atom2int(line.at(i).toLatin1());
@@ -107,8 +107,8 @@ void Molecule::load (const KSimpleConfig& config)
     height = 0;
     width = 0;
 
-    for (int i = 0; i < MOLEK_SIZE; i++)
-        for (int j = 0; j < MOLEK_SIZE; j++) {
+    for (int i = 0; i < MOLECULE_SIZE; i++)
+        for (int j = 0; j < MOLECULE_SIZE; j++) {
             if (molek [i][j] == 0)
                 continue;
             if (i > width) width = i;
@@ -130,8 +130,8 @@ void Molecule::paintEvent( QPaintEvent * )
     painter.drawText (7, height() - 18, st);
 
     // Paint the playing field 
-    for (int i = 0; i < MOLEK_SIZE; i++)
-        for (int j = 0; j < MOLEK_SIZE; j++) {
+    for (int i = 0; i < MOLECULE_SIZE; i++)
+        for (int j = 0; j < MOLECULE_SIZE; j++) {
             int x = 10 + i * m_elemSize;
             int y = 10 + j * m_elemSize;
 
@@ -145,4 +145,4 @@ void Molecule::paintEvent( QPaintEvent * )
     painter.end ();
 }
 
-#include "molek.moc"
+#include "molecule.moc"

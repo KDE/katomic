@@ -21,7 +21,7 @@
 #include "settings.h"
 #include "gamewidget.h"
 #include "playfield.h"
-#include "molek.h"
+#include "molecule.h"
 
 #include <QScrollBar>
 #include <QGroupBox>

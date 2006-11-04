@@ -11,7 +11,7 @@ set(katomic_SRCS
    katomicrenderer.cpp
    feld.cpp 
    playfield.cpp
-   molek.cpp 
+   molecule.cpp 
    main.cpp 
    toplevel.cpp 
    configbox.cpp 
