@@ -1,6 +1,6 @@
 /****************************************************************
 **
-** Implementation Molek class, derieved from Qt tutorial 8
+** Implementation Molecule class, derieved from Qt tutorial 8
 **
 ****************************************************************/
 
@@ -29,7 +29,7 @@
 
 extern int level;
 
-Molek::Molek( QWidget *parent ) 
+Molecule::Molecule( QWidget *parent ) 
    : QWidget( parent )
 {
     QPalette palette;
@@ -44,11 +44,11 @@ Molek::Molek( QWidget *parent )
     m_renderer->setElementSize( m_elemSize );
 }
 
-Molek::~Molek ()
+Molecule::~Molecule ()
 {
 }
 
-const atom& Molek::getAtom(int index) const
+const atom& Molecule::getAtom(int index) const
 {
     static atom none = { 0, "" };
 
@@ -58,7 +58,7 @@ const atom& Molek::getAtom(int index) const
     return atoms.at(index - 1);
 }
 
-void Molek::load (const KSimpleConfig& config)
+void Molecule::load (const KSimpleConfig& config)
 {
     atoms.clear();
     QString key;
@@ -120,15 +120,16 @@ void Molek::load (const KSimpleConfig& config)
     update();
 }
 
-void Molek::paintEvent( QPaintEvent * )
+void Molecule::paintEvent( QPaintEvent * )
 {
-    QString st = i18n("Level: %1", level);
+    QString  st = i18n("Level: %1", level);
 
-    QPainter paint (this);
-    paint.setPen (QColor (190, 190, 190));
-    paint.drawText (7, height() - 36, mname);
-    paint.drawText (7, height() - 18, st);
-    // spielfeld gleich zeichnen
+    QPainter  painter(this);
+    painter.setPen (QColor (190, 190, 190));
+    painter.drawText (7, height() - 36, mname);
+    painter.drawText (7, height() - 18, st);
+
+    // Paint the playing field 
     for (int i = 0; i < MOLEK_SIZE; i++)
         for (int j = 0; j < MOLEK_SIZE; j++) {
             int x = 10 + i * m_elemSize;
@@ -138,10 +139,10 @@ void Molek::paintEvent( QPaintEvent * )
                 continue;
 
             QPixmap aPix = m_renderer->renderAtom(getAtom(molek[i][j]));
-            paint.drawPixmap(x, y, aPix);
+            painter.drawPixmap(x, y, aPix);
         }
 
-    paint.end ();
+    painter.end ();
 }
 
 #include "molek.moc"

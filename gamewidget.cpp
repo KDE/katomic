@@ -168,11 +168,11 @@ GameWidget::GameWidget ( QWidget *parent )
     connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
 
     // molecule
-    molek = new Molek(this);
-    vblay->addWidget(molek);
+    molecule = new Molecule(this);
+    vblay->addWidget(molecule);
     vblay->addStretch(1);
 
-    m_playField->setMolecule(molek);
+    m_playField->setMolecule(molecule);
 
     connect (m_playField, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     // FIXME dimsuz: fix these

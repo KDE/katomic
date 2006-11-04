@@ -1,6 +1,6 @@
 /****************************************************************
 **
-** Definition of Molek class,
+** Definition of Molecule class,
 **
 ****************************************************************/
 
@@ -18,13 +18,13 @@ class KSimpleConfig;
 
 class KAtomicRenderer;
 
-class Molek : public QWidget
+class Molecule : public QWidget
 {
     Q_OBJECT
 
 public:
-    Molek (QWidget *parent=0);
-   ~Molek ();
+    Molecule (QWidget *parent=0);
+   ~Molecule ();
 
    void load(const KSimpleConfig& config);
 

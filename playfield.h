@@ -31,7 +31,7 @@
 class KSimpleConfig;
 class KAtomicRenderer;
 class QResizeEvent;
-class Molek;
+class Molecule;
 class FieldGraphicsItem;
 class QTimeLine;
 
@@ -58,7 +58,7 @@ public:
     /**
      *  Sets current molecule
      */
-    void setMolecule(Molek *mol) { m_mol = mol; }
+    void setMolecule(Molecule *mol) { m_mol = mol; }
     /**
      *  Selects next atom
      */
@@ -98,7 +98,7 @@ private:
     /**
      *  Molecule to be done
      */
-    Molek *m_mol;
+    Molecule *m_mol;
     /**
      *  Number of moves made for current level
      */

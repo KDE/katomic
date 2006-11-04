@@ -16,7 +16,7 @@
 #define FIELD_SIZE 15
 
 class KSimpleConfig;
-class Molek;
+class Molecule;
 class KAtomicRenderer;
 
 class Feld : public QWidget
@@ -38,7 +38,7 @@ public:
 
     void load (const KSimpleConfig& config);
 
-    void setMolek(Molek *_mol) { mol = _mol; }
+    void setMolecule(Molecule *_mol) { mol = _mol; }
 
     void doUndo ();
     void doRedo ();
@@ -77,7 +77,7 @@ private:
     QPixmap sprite;
     QPixmap copy;
 
-    Molek *mol;
+    Molecule *mol;
 
     uint feld[FIELD_SIZE][FIELD_SIZE];
 

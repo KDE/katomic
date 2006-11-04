@@ -22,7 +22,7 @@
 
 class PlayField;
 class PlayFieldView;
-class Molek;
+class Molecule;
 class QScrollBar;
 class QLabel;
 class KScoreDialog;
@@ -70,7 +70,7 @@ public slots:
     PlayField *m_playField;
 
     // stellt molekül dar
-    Molek *molek;
+    Molecule *molecule;
 
     // scorllbar zur levelwahl
     QScrollBar *scrl;
