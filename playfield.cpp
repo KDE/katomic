@@ -38,7 +38,7 @@ class FieldGraphicsItem : public QGraphicsPixmapItem
 public:
     FieldGraphicsItem( QGraphicsScene* scene )
         : QGraphicsPixmapItem( 0, scene ), m_fieldX(0), m_fieldY(0), m_atomNum(-1)
-    { }
+    { setShapeMode( BoundingRectShape ); }
     void setFieldX(int x) { m_fieldX = x; }
     void setFieldY(int y) { m_fieldY = y; }
     void setFieldXY(int x, int y) { m_fieldX = x; m_fieldY = y; }
