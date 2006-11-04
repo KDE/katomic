@@ -143,21 +143,21 @@ void PlayField::updateFieldItems()
     foreach( FieldGraphicsItem *item, m_atoms )
     {
         item->setPixmap( m_renderer->renderAtom( m_mol->getAtom(item->atomNum()) ) );
-        item->setPos( item->fieldX()*m_elemSize, item->fieldY()*m_elemSize );
+        item->setPos( toPixX( item->fieldX() ), toPixY( item->fieldY() ) );
         item->show();
     }
 
     m_upArrow->setPixmap( m_renderer->renderNonAtom('^') );
-    m_upArrow->setPos( m_upArrow->fieldX()*m_elemSize, m_upArrow->fieldY()*m_elemSize );
+    m_upArrow->setPos( toPixX(m_upArrow->fieldX()), toPixY(m_upArrow->fieldY()) );
 
     m_downArrow->setPixmap( m_renderer->renderNonAtom('_') );
-    m_downArrow->setPos( m_downArrow->fieldX()*m_elemSize, m_downArrow->fieldY()*m_elemSize );
+    m_downArrow->setPos( toPixX(m_downArrow->fieldX()), toPixY(m_downArrow->fieldY()) );
 
     m_leftArrow->setPixmap( m_renderer->renderNonAtom('<') );
-    m_leftArrow->setPos( m_leftArrow->fieldX()*m_elemSize, m_leftArrow->fieldY()*m_elemSize );
+    m_leftArrow->setPos( toPixX(m_leftArrow->fieldX()), toPixY(m_leftArrow->fieldY()) );
 
     m_rightArrow->setPixmap( m_renderer->renderNonAtom('>') );
-    m_rightArrow->setPos( m_rightArrow->fieldX()*m_elemSize, m_rightArrow->fieldY()*m_elemSize );
+    m_rightArrow->setPos( toPixX(m_rightArrow->fieldX()), toPixY(m_rightArrow->fieldY()) );
 }
 
 void PlayField::resize( int width, int height)
@@ -188,8 +188,8 @@ void PlayField::nextAtom()
         FieldGraphicsItem* item = 0;
         for(int y=ys; y<FIELD_SIZE; ++y )
         {
-            int px = x*m_elemSize+m_elemSize/2;
-            int py = y*m_elemSize+m_elemSize/2;
+            int px = toPixX(x)+m_elemSize/2;
+            int py = toPixY(y)+m_elemSize/2;
             item = qgraphicsitem_cast<FieldGraphicsItem*>( itemAt(px, py) );
             if( item != 0 && item->atomNum() != -1 )
             {
@@ -224,8 +224,8 @@ void PlayField::previousAtom()
         FieldGraphicsItem* item = 0;
         for(int y=ys; y>=0; --y )
         {
-            int px = x*m_elemSize+m_elemSize/2;
-            int py = y*m_elemSize+m_elemSize/2;
+            int px = toPixX(x)+m_elemSize/2;
+            int py = toPixY(y)+m_elemSize/2;
             item = qgraphicsitem_cast<FieldGraphicsItem*>( itemAt(px, py) );
             if( item != 0 && item->atomNum() != -1 )
             {
@@ -239,6 +239,62 @@ void PlayField::previousAtom()
             x = FIELD_SIZE-1;
         ys=FIELD_SIZE-1;
     }
+}
+
+void PlayField::undo()
+{
+    if(m_undoStack.isEmpty()) // shouldn't happen here
+        return;
+
+    AtomMove am = m_undoStack.pop();
+    if(m_redoStack.isEmpty())
+        emit enableRedo(true);
+
+    m_redoStack.push(am);
+
+    if(m_undoStack.isEmpty())
+        emit enableUndo(false);
+
+    kDebug() << "undo: " << m_undoStack.count() << endl;
+    kDebug() << "redo: " << m_redoStack.count() << endl;
+    m_selAtom = am.first;
+    switch( am.second )
+    {
+        case Up:
+            moveSelectedAtom(Down);
+            break;
+        case Down:
+            moveSelectedAtom(Up);
+            break;
+        case Left:
+            moveSelectedAtom(Right);
+            break;
+        case Right:
+            moveSelectedAtom(Left);
+            break;
+    }
+}
+
+void PlayField::redo()
+{
+    if(m_redoStack.isEmpty()) // shouldn't happen here
+        return;
+
+    AtomMove am = m_redoStack.pop();
+    if(m_undoStack.isEmpty())
+        emit enableUndo(true);
+
+    if(!m_redoStack.isEmpty()) //otherwise it will be pushed at the end of the move
+        m_undoStack.push(am);
+
+    if(m_redoStack.isEmpty())
+        emit enableRedo(false);
+
+    kDebug() << "undo: " << m_undoStack.count() << endl;
+    kDebug() << "redo: " << m_redoStack.count() << endl;
+
+    m_selAtom = am.first;
+    moveSelectedAtom(am.second);
 }
 
 void PlayField::mousePressEvent( QGraphicsSceneMouseEvent* ev )
@@ -322,36 +378,45 @@ void PlayField::moveSelectedAtom( Direction dir )
     m_timeLine->start();
 }
 
-// FIXME dimsuz: write fieldtoPix and pixtofield helpers and use them everywhere
-// in this case if i change location of the field there will be one place to change
 void PlayField::animFrameChanged(int frame)
 {
     int pos=0;
     switch( m_dir )
     {
         case Up:
-            pos = m_selAtom->fieldY()*m_elemSize - frame;
+            pos = toPixY(m_selAtom->fieldY()) - frame;
             m_selAtom->setPos( m_selAtom->x(), pos );
             break;
         case Down:
-            pos = m_selAtom->fieldY()*m_elemSize + frame;
+            pos = toPixY(m_selAtom->fieldY()) + frame;
             m_selAtom->setPos( m_selAtom->x(), pos );
             break;
         case Left:
-            pos = m_selAtom->fieldX()*m_elemSize - frame;
+            pos = toPixX(m_selAtom->fieldX()) - frame;
             m_selAtom->setPos( pos, m_selAtom->y() );
             break;
         case Right:
-            pos = m_selAtom->fieldX()*m_elemSize + frame;
+            pos = toPixX(m_selAtom->fieldX()) + frame;
             m_selAtom->setPos( pos, m_selAtom->y() );
             break;
     }
     if(frame == m_timeLine->endFrame()) // that is: move finished
     {
-        m_selAtom->setFieldX( static_cast<int>(m_selAtom->pos().x()/m_elemSize) );
-        m_selAtom->setFieldY( static_cast<int>(m_selAtom->pos().y()/m_elemSize) );
+        // FIXME dimsuz: consider moving this to separate function
+        // to improve code readablility
+        m_selAtom->setFieldX( toFieldX((int)m_selAtom->pos().x()) );
+        m_selAtom->setFieldY( toFieldY((int)m_selAtom->pos().y()) );
         updateArrows();
         m_numMoves++;
+
+        // don't put if we in the middle of series of undos
+        if(m_redoStack.isEmpty())
+        {
+            if(m_undoStack.isEmpty())
+                emit enableUndo(true);
+            m_undoStack.push( qMakePair(m_selAtom, m_dir) );
+        }
+
         if(checkDone())
             emit gameOver(m_numMoves);
     }
@@ -416,25 +481,25 @@ void PlayField::updateArrows(bool justHide)
     {
         m_leftArrow->show();
         m_leftArrow->setFieldXY( selX-1, selY );
-        m_leftArrow->setPos( (selX-1)*m_elemSize, selY*m_elemSize );
+        m_leftArrow->setPos( toPixX(selX-1), toPixY(selY) );
     }
     if(cellIsEmpty(selX+1, selY))
     {
         m_rightArrow->show();
         m_rightArrow->setFieldXY( selX+1, selY );
-        m_rightArrow->setPos( (selX+1)*m_elemSize, selY*m_elemSize );
+        m_rightArrow->setPos( toPixX(selX+1), toPixY(selY) );
     }
     if(cellIsEmpty(selX, selY-1))
     {
         m_upArrow->show();
         m_upArrow->setFieldXY( selX, selY-1 );
-        m_upArrow->setPos( selX*m_elemSize, (selY-1)*m_elemSize );
+        m_upArrow->setPos( toPixX(selX), toPixY(selY-1) );
     }
     if(cellIsEmpty(selX, selY+1))
     {
         m_downArrow->show();
         m_downArrow->setFieldXY( selX, selY+1 );
-        m_downArrow->setPos( selX*m_elemSize, (selY+1)*m_elemSize );
+        m_downArrow->setPos( toPixX(selX), toPixY(selY+1) );
     }
 }
 
@@ -446,7 +511,7 @@ void PlayField::drawBackground( QPainter *p, const QRectF& r)
     for (int i = 0; i < FIELD_SIZE; i++)
         for (int j = 0; j < FIELD_SIZE; j++)
             if (m_field[i][j])
-                p->drawPixmap(i*m_elemSize, j*m_elemSize, aPix);
+                p->drawPixmap(toPixX(i), toPixY(j), aPix);
 }
 
 #include "playfield.moc"

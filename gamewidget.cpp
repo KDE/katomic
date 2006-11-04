@@ -76,15 +76,14 @@ void GameWidget::previousAtom()
     m_playField->previousAtom();
 }
 
-// FIXME dimsuz: fix these
 void GameWidget::doUndo ()
 {
-//    feld->doUndo ();
+    m_playField->undo();
 }
 
 void GameWidget::doRedo ()
 {
-//    feld->doRedo ();
+    m_playField->redo();
 }
 
 void GameWidget::gameOver(int moves) {
@@ -175,11 +174,11 @@ GameWidget::GameWidget ( QWidget *parent )
     m_playField->setMolecule(molecule);
 
     connect (m_playField, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
+    connect (m_playField, SIGNAL (enableUndo(bool)), SIGNAL(enableUndo(bool)));
+    connect (m_playField, SIGNAL (enableRedo(bool)), SIGNAL(enableRedo(bool)));
     // FIXME dimsuz: fix these
     /* 
     connect (feld, SIGNAL (sendMoves(int)), SLOT(getMoves(int)));
-    connect (feld, SIGNAL (enableRedo(bool)), SIGNAL(enableRedo(bool)));
-    connect (feld, SIGNAL (enableUndo(bool)), SIGNAL(enableUndo(bool)));
      */
 
     highScore = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);

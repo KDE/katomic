@@ -25,6 +25,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QList>
+#include <QStack>
 
 #define FIELD_SIZE 15
 
@@ -71,11 +72,20 @@ public:
      *  Animates currently selected atom movement in direction dir
      */
     void moveSelectedAtom( Direction dir );
+    /**
+     *  Undoes one movement
+     */
+    void undo();
+    /**
+     *  Redoes one movement
+     */
+    void redo();
 private slots:
     void animFrameChanged(int frame);
 signals:
     void gameOver(int numMoves);
-
+    void enableUndo(bool);
+    void enableRedo(bool);
 private:
     virtual void drawBackground( QPainter*, const QRectF& );
     virtual void mousePressEvent( QGraphicsSceneMouseEvent* ev );
@@ -95,6 +105,12 @@ private:
      *  Returns true if Field cell (x,y) is empty, i.e. it isn't a wall and has no atom
      */
     bool cellIsEmpty(int x, int y) const;
+
+    inline int toPixX( int fieldX ) { return fieldX*m_elemSize; }
+    inline int toPixY( int fieldY ) { return fieldY*m_elemSize; }
+    inline int toFieldX( int pixX ) { return pixX/m_elemSize; }
+    inline int toFieldY( int pixY ) { return pixY/m_elemSize; }
+
     /**
      *  Molecule to be done
      */
@@ -137,6 +153,10 @@ private:
      *  Timeline object to control animation
      */
     QTimeLine *m_timeLine;
+
+    typedef QPair<FieldGraphicsItem*, Direction> AtomMove;
+    QStack<AtomMove> m_undoStack;
+    QStack<AtomMove> m_redoStack;
 };
 
 class PlayFieldView : public QGraphicsView
