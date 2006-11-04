@@ -110,17 +110,23 @@ void PlayField::loadLevel(const KSimpleConfig& config)
         {
             QChar c = line.at(i);
             bool wall = false;
-            if(c.isDigit())
+            if(c == '.')
+            {
+                wall = false;
+            }
+            else if( c == '#' )
+            {
+                wall = true;
+            }
+            else //atom
             {
                 FieldGraphicsItem* atom = new FieldGraphicsItem(this);
                 atom->setFieldXY(i, j);
-                atom->setAtomNum(QString(c).toInt());
+                atom->setAtomNum(atom2int(c.toLatin1()));
 
                 m_atoms.append(atom);
-                //pixmaps will be set in resize
+                //pixmaps will be set in updateFieldItems
             }
-            else if( c == '#' )
-                wall = true;
 
             m_field[i][j] = wall;
         }
