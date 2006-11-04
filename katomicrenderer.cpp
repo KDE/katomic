@@ -135,7 +135,6 @@ void KAtomicRenderer::renderBackground( QPainter *p, const QRectF& bounds )
 
 void KAtomicRenderer::ensureAtomIsInCache(const atom& at)
 {
-    // FIXME dimsuz: move this to function. smth like ensureInCache(at)
     QImage baseImg;
     if(!m_cache.contains(at.obj))
     {

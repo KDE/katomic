@@ -255,6 +255,9 @@ void PlayField::undo()
     if(m_undoStack.isEmpty())
         emit enableUndo(false);
 
+    m_numMoves--;
+    emit updateMoves(m_numMoves);
+
     m_selAtom = am.atom;
     switch( am.dir )
     {
@@ -287,6 +290,9 @@ void PlayField::redo()
 
     if(m_redoStack.isEmpty())
         emit enableRedo(false);
+
+    m_numMoves++;
+    emit updateMoves(m_numMoves);
 
     m_selAtom = am.atom;
     moveSelectedAtom(am.dir, am.numCells);
@@ -333,6 +339,8 @@ void PlayField::moveSelectedAtom( Direction dir, int numCells )
     int numEmptyCells=0;
     m_dir = dir;
 
+    // numCells is also a kind of indicator whether this
+    // function was called interactively (=0) or from  undo/redo functions(!=0)
     if(numCells == 0) // then we'll calculate
     {
         // helpers
@@ -369,6 +377,7 @@ void PlayField::moveSelectedAtom( Direction dir, int numCells )
         // so this is just a place to drop redo history :-)
         m_redoStack.clear();
         emit enableRedo(false);
+        m_numMoves++;
     }
     else
         numEmptyCells = numCells;
@@ -421,7 +430,8 @@ void PlayField::animFrameChanged(int frame)
         m_selAtom->setFieldX( toFieldX((int)m_selAtom->pos().x()) );
         m_selAtom->setFieldY( toFieldY((int)m_selAtom->pos().y()) );
         updateArrows();
-        m_numMoves++;
+
+        emit updateMoves(m_numMoves);
 
         if(checkDone())
             emit gameOver(m_numMoves);

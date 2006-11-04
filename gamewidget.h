@@ -51,7 +51,7 @@ public slots:
     void gameOver(int moves);
 
     // use this slot to update the moves continually
-    void getMoves(int moves);
+    void updateMoves(int moves);
 
     // Menupunkt Highscores im Pop-up Menu, der Highscore anzeigt
     void showHighscores ();

@@ -585,7 +585,6 @@ void Feld::paintEvent( QPaintEvent * )
             y = j * m_elemSize;
 
             QPixmap aPix;
-            // FIXME dimsuz: move away from all this digits! :)
             // wall
             if (feld[i][j] == 254) {
                 aPix = m_renderer->renderNonAtom('#');

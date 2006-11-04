@@ -85,6 +85,10 @@ private slots:
     void animFrameChanged(int frame);
 signals:
     void gameOver(int numMoves);
+    // FIXME dimsuz: redesign this:
+    // Provide a single moveFinished() signal and a couple
+    // of getters like canUndo(), canRedo(), numMoves()
+    void updateMoves(int);
     void enableUndo(bool);
     void enableRedo(bool);
 private:
@@ -145,7 +149,6 @@ private:
      *  Currently selected atom
      */
     FieldGraphicsItem *m_selAtom;
-
     /**
      *  Direction in which current atom animation moves
      */

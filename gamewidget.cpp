@@ -102,7 +102,7 @@ void GameWidget::gameOver(int moves) {
     updateLevel(level+1);
 }
 
-void GameWidget::getMoves(int moves)
+void GameWidget::updateMoves(int moves)
 {
     current.setNum(moves);
     ys->setText(current);
@@ -176,10 +176,7 @@ GameWidget::GameWidget ( QWidget *parent )
     connect (m_playField, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     connect (m_playField, SIGNAL (enableUndo(bool)), SIGNAL(enableUndo(bool)));
     connect (m_playField, SIGNAL (enableRedo(bool)), SIGNAL(enableRedo(bool)));
-    // FIXME dimsuz: fix these
-    /* 
-    connect (feld, SIGNAL (sendMoves(int)), SLOT(getMoves(int)));
-     */
+    connect (m_playField, SIGNAL (updateMoves(int)), SLOT(updateMoves(int)));
 
     highScore = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
 
