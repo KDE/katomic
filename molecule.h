@@ -29,9 +29,7 @@ public:
    void load(const KSimpleConfig& config);
 
    const atom& getAtom(int index) const;
-   int atomSize() const { return atoms.count(); }
 
-   QSize molecSize() const { return _size; }
    uint getAtom(int x, int y) const { return molek[x][y]; }
    
 protected:
@@ -41,7 +39,6 @@ private:
    uint molek[MOLECULE_SIZE][MOLECULE_SIZE]; // the indexes within atoms
    QList<atom> atoms;
    QString mname;
-   QSize _size;
 
    KAtomicRenderer* m_renderer;
    int m_elemSize;

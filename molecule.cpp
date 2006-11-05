@@ -12,10 +12,7 @@
 //               paintEvent wird aufgerufen, falls fenster überdeckt wird,
 //               oder auch einfach bewegt wird
 
-#include <config.h>
 #include <kdefakes.h>
-#include <kiconloader.h>
-#include <kglobal.h>
 #include <kstandarddirs.h>
 #include <ksimpleconfig.h>
 #include <klocale.h>
@@ -100,22 +97,6 @@ void Molecule::load (const KSimpleConfig& config)
     }
 
     mname = i18n(config.readEntry("Name", I18N_NOOP("Noname")).toLatin1());
-
-    int& height = _size.rheight();
-    int& width = _size.rwidth();
-
-    height = 0;
-    width = 0;
-
-    for (int i = 0; i < MOLECULE_SIZE; i++)
-        for (int j = 0; j < MOLECULE_SIZE; j++) {
-            if (molek [i][j] == 0)
-                continue;
-            if (i > width) width = i;
-            if (j > height) height = j;
-        }
-    height++;
-    width++;
 
     update();
 }
