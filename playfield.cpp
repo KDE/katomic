@@ -97,6 +97,11 @@ void PlayField::loadLevel(const KSimpleConfig& config)
     m_atoms.clear();
     m_numMoves = 0;
 
+    m_undoStack.clear();
+    m_redoStack.clear();
+    emit enableUndo(false);
+    emit enableRedo(false);
+
     m_mol->load(config);
 
     QString key;
