@@ -26,114 +26,92 @@
 #include <kapplication.h>
 #include <kstdaction.h>
 #include <kstdgameaction.h>
+#include <kselectaction.h>
 #include <kdebug.h>
 
 #include "gamewidget.h"
 #include "toplevel.h"
-#include "settings.h"
-#include "configbox.h"
+#include "prefs.h"
 
-extern Options settings;
+// FIXME dimsuz: MERGE GameWidget to AtomTopLevel. No need to separate them.
 
 void AtomTopLevel::createMenu()
 {
-    KAction *act = KStdGameAction::highscores(main, SLOT(showHighscores()), actionCollection());
+    KAction *act = KStdGameAction::highscores(m_gameWid, SLOT(showHighscores()), actionCollection());
     act->setText(i18n("Show &Highscores"));
     KStdGameAction::quit(this, SLOT(close()), actionCollection());
-    KStdGameAction::restart(main, SLOT(restartLevel()), actionCollection());
+    KStdGameAction::restart(m_gameWid, SLOT(restartLevel()), actionCollection());
 
-    KStdAction::preferences(this, SLOT(configopts()), actionCollection());
+    m_animSpeedAct = new KSelectAction(i18n("Animation speed"), actionCollection(), "anim_speed");
+    QStringList acts;
+    acts << i18n("Slow") << i18n("Normal") << i18n("Fast");
+    m_animSpeedAct->setItems(acts);
+    connect( m_animSpeedAct, SIGNAL(triggered(int)), SLOT(slotAnimSpeedChanged(int)) );
 
-    undoAction = KStdGameAction::undo (main, SLOT(doUndo()), actionCollection());
-    redoAction = KStdGameAction::redo (main, SLOT(doRedo()), actionCollection());
-    undoAction->setEnabled(false);
-    redoAction->setEnabled(false);
-    connect (main, SIGNAL (enableRedo(bool)), SLOT(enableRedo(bool)));
-    connect (main, SIGNAL (enableUndo(bool)), SLOT(enableUndo(bool)));
+    m_undoAct = KStdGameAction::undo (m_gameWid, SLOT(doUndo()), actionCollection());
+    m_redoAct = KStdGameAction::redo (m_gameWid, SLOT(doRedo()), actionCollection());
+    m_undoAct->setEnabled(false);
+    m_redoAct->setEnabled(false);
+    connect (m_gameWid, SIGNAL (enableRedo(bool)), m_redoAct, SLOT(setEnabled(bool)));
+    connect (m_gameWid, SIGNAL (enableUndo(bool)), m_undoAct, SLOT(setEnabled(bool)));
 
     KAction* atomUpAct = new KAction(i18n("Atom Up"), actionCollection(), "atom_up");
     atomUpAct->setShortcut(Qt::Key_Up);
     addAction(atomUpAct);
-    connect(atomUpAct, SIGNAL(triggered(bool)), main, SLOT(moveUp()));
+    connect(atomUpAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveUp()));
 
     KAction* atomDownAct = new KAction(i18n("Atom Down"), actionCollection(), "atom_down");
     atomDownAct->setShortcut(Qt::Key_Down);
     addAction(atomDownAct);
-    connect(atomDownAct, SIGNAL(triggered(bool)), main, SLOT(moveDown()));
+    connect(atomDownAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveDown()));
 
     KAction* atomLeftAct = new KAction(i18n("Atom Left"), actionCollection(), "atom_left");
     atomLeftAct->setShortcut(Qt::Key_Left);
     addAction(atomLeftAct);
-    connect(atomLeftAct, SIGNAL(triggered(bool)), main, SLOT(moveLeft()));
+    connect(atomLeftAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveLeft()));
 
     KAction* atomRightAct = new KAction(i18n("Atom Right"), actionCollection(), "atom_right");
     atomRightAct->setShortcut(Qt::Key_Right);
     addAction(atomRightAct);
-    connect(atomRightAct, SIGNAL(triggered(bool)), main, SLOT(moveRight()));
+    connect(atomRightAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveRight()));
 
     KAction* nextAtomAct = new KAction(i18n("Next Atom"), actionCollection(), "next_atom");
     nextAtomAct->setShortcut(Qt::Key_Tab);
     addAction(nextAtomAct);
-    connect(nextAtomAct, SIGNAL(triggered(bool)), main, SLOT(nextAtom()));
+    connect(nextAtomAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(nextAtom()));
 
     KAction* prevAtomAct = new KAction(i18n("Previous Atom"), actionCollection(), "prev_atom");
     prevAtomAct->setShortcut(Qt::SHIFT+Qt::Key_Tab);
     addAction(prevAtomAct);
-    connect(prevAtomAct, SIGNAL(triggered(bool)), main, SLOT(previousAtom()));
+    connect(prevAtomAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(previousAtom()));
 }
 
-void AtomTopLevel::configopts()
+void AtomTopLevel::loadSettings()
 {
-    (new ConfigBox(this))->show();
+    m_animSpeedAct->setCurrentItem( Preferences::animationSpeed() );
+    m_gameWid->setAnimationSpeed( Preferences::animationSpeed() );
 }
 
-void AtomTopLevel::initConfig()
+void AtomTopLevel::slotAnimSpeedChanged(int speed)
 {
-    config = KGlobal::config();
+    m_gameWid->setAnimationSpeed(speed);
+    Preferences::setAnimationSpeed(speed);
+    Preferences::writeConfig();
 }
-
-void AtomTopLevel::saveConfig()
-{
-    config = KGlobal::config();
-
-    if (settings.changed) {
-	  config->setGroup("Options");
-	  config->writeEntry("Animation Speed", settings.anim_speed);
-	  config->setGroup("Colors");
-    }
-    config->sync();
-}
-
 
 AtomTopLevel::AtomTopLevel()
 {
-    main = new GameWidget(this);
-    main->setObjectName("gamewidget");
+    m_gameWid = new GameWidget(this);
+    m_gameWid->setObjectName("gamewidget");
     createMenu();
-    initConfig();
-    setCentralWidget(main);
+    loadSettings();
+    setCentralWidget(m_gameWid);
 
     setupGUI( KMainWindow::Save | Keys | Create );
 }
 
 AtomTopLevel::~AtomTopLevel()
 {
-}
-
-bool AtomTopLevel::queryExit()
-{
-    saveConfig();
-    return true;
-}
-
-void AtomTopLevel::enableRedo(bool enable)
-{
-    redoAction->setEnabled(enable);
-}
-
-void AtomTopLevel::enableUndo(bool enable)
-{
-    undoAction->setEnabled(enable);
 }
 
 #include "toplevel.moc"

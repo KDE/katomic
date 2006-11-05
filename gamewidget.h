@@ -37,6 +37,7 @@ public:
 
     GameWidget ( QWidget *parent );
     ~GameWidget();
+    void setAnimationSpeed(int);
 signals:
     void enableRedo(bool enable);
     void enableUndo(bool enable);

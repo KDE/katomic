@@ -18,7 +18,6 @@
 
   */
 
-#include "settings.h"
 #include "gamewidget.h"
 #include "playfield.h"
 #include "molecule.h"
@@ -35,7 +34,6 @@
 #include <ksimpleconfig.h>
 #include <kglobalsettings.h>
 
-Options settings;
 
 #define MPOSX 480
 #define MPOSY 90
@@ -84,6 +82,11 @@ void GameWidget::doUndo ()
 void GameWidget::doRedo ()
 {
     m_playField->redo();
+}
+
+void GameWidget::setAnimationSpeed(int speed)
+{
+    m_playField->setAnimationSpeed(speed);
 }
 
 void GameWidget::gameOver(int moves) {
@@ -203,14 +206,6 @@ GameWidget::GameWidget ( QWidget *parent )
     slay->addWidget(ys, 1, 1);
 
     updateLevel(1);
-
-    KConfig *config = KGlobal::config();
-    config->setGroup("Options");
-    settings.anim_speed = config->readEntry("Animation Speed", 1);
-    if (settings.anim_speed < 1 || settings.anim_speed > MAX_SPEED)
-        settings.anim_speed = 1;
-
-    settings.changed = false;
 }
 
 GameWidget::~GameWidget()

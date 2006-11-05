@@ -74,7 +74,7 @@ void PlayFieldView::resizeEvent( QResizeEvent* ev )
 // =============== Play Field ========================
 
 PlayField::PlayField( QObject* parent )
-    : QGraphicsScene(parent), m_mol(0), m_numMoves(0), m_elemSize(30), m_selAtom(0)
+    : QGraphicsScene(parent), m_mol(0), m_numMoves(0), m_elemSize(30), m_selAtom(0), m_animSpeed(120)
 {
     m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz"), this );
     m_renderer->setElementSize( m_elemSize );
@@ -401,7 +401,7 @@ void PlayField::moveSelectedAtom( Direction dir, int numCells )
     }
 
     m_timeLine->setCurrentTime(0); // reset
-    m_timeLine->setDuration( numEmptyCells * 150 ); // 1cell/150msec speed
+    m_timeLine->setDuration( numEmptyCells * m_animSpeed ); // 1cell/m_animSpeed speed
     m_timeLine->setFrameRange( 0, numEmptyCells*m_elemSize ); // 1frame=1pixel
     updateArrows(true); // hide them
     m_timeLine->start();
@@ -484,6 +484,16 @@ bool PlayField::cellIsEmpty(int x, int y) const
             return false;
     }
     return true;
+}
+
+void PlayField::setAnimationSpeed(int speed)
+{
+    if(speed == 0) // slow
+        m_animSpeed = 300;
+    else if (speed == 1) //normal
+        m_animSpeed = 120;
+    else
+        m_animSpeed = 60;
 }
 
 void PlayField::updateArrows(bool justHide)

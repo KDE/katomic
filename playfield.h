@@ -61,6 +61,10 @@ public:
      */
     void setMolecule(Molecule *mol) { m_mol = mol; }
     /**
+     *  Sets animation speed (0-slow, 1-normal, 2-fast)
+     */
+    void setAnimationSpeed(int speed);
+    /**
      *  Selects next atom
      */
     void nextAtom();
@@ -153,6 +157,10 @@ private:
      *  Direction in which current atom animation moves
      */
     Direction m_dir;
+    /**
+     *  Animation speed. Atom will move at 1cell in m_animSpeed msec speed
+     */
+    int m_animSpeed;
     /**
      *  Timeline object to control animation
      */

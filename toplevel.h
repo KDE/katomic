@@ -22,8 +22,8 @@
 #define TOPLEVEL_H
 
 class GameWidget;
+class KSelectAction;
 class KAction;
-class KConfig;
 
 #include <kmainwindow.h>
 
@@ -39,42 +39,26 @@ class AtomTopLevel : public KMainWindow
 {
     Q_OBJECT
 
- public:
-
-  AtomTopLevel();
+public:
+   AtomTopLevel();
 
   ~AtomTopLevel();
 
- protected:
+private slots:
+    void slotAnimSpeedChanged(int);
 
+private:
   // Creates the menubar and connects the menu-entries to the
   // appropriate functions
   void createMenu();
 
   // Get the configuration from the config-file.
-  void initConfig();
+  void loadSettings();
 
-  // Save the current configuration to the config-file.
-  void saveConfig();
+  GameWidget *m_gameWid;
 
-  // called before exiting -> save configuration
-  virtual bool queryExit();
-
-  KConfig *config;
-
-  GameWidget *main;
-
-  KAction *redoAction, *undoAction;
-
-  protected slots:
-  void enableRedo(bool enable);
-  void enableUndo(bool enable);
-
-public slots:
-
-  // Shows a dialog for options other than keys
-  void configopts();
-
+  KAction *m_redoAct, *m_undoAct;
+  KSelectAction* m_animSpeedAct;
 };
 
 #endif
