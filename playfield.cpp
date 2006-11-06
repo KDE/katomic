@@ -148,6 +148,11 @@ void PlayField::updateFieldItems()
     foreach( FieldGraphicsItem *item, m_atoms )
     {
         item->setPixmap( m_renderer->renderAtom( m_mol->getAtom(item->atomNum()) ) );
+
+        // this may be true if resize happens during animation
+        if(m_timeLine->state() == QTimeLine::Running && item == m_selAtom )
+            continue; // its position will be taken care of in animFrameChanged()
+
         item->setPos( toPixX( item->fieldX() ), toPixY( item->fieldY() ) );
         item->show();
     }
@@ -169,9 +174,24 @@ void PlayField::resize( int width, int height)
 {
     kDebug() << "resize:" << width << "," << height << endl;
     setSceneRect( 0, 0, width, height );
+    int oldSize = m_elemSize;
     m_elemSize = qMin(width, height) / FIELD_SIZE;
     m_renderer->setElementSize( m_elemSize );
     m_renderer->setBackgroundSize( QSize(width, height) );
+
+    // if animation is running we need to rescale timeline
+    if( m_timeLine->state() == QTimeLine::Running )
+    {
+        kDebug() << "restarting animation" << endl;
+        int curTime = m_timeLine->currentTime();
+        // calculate numCells to move using oldSize
+        int numCells = m_timeLine->endFrame()/oldSize;
+        m_timeLine->stop();
+        // recalculate this with new m_elemSize
+        m_timeLine->setFrameRange( 0, numCells*m_elemSize );
+        m_timeLine->setCurrentTime(curTime);
+        m_timeLine->start();
+    }
     updateFieldItems();
 }
 
@@ -409,26 +429,28 @@ void PlayField::moveSelectedAtom( Direction dir, int numCells )
 
 void PlayField::animFrameChanged(int frame)
 {
-    int pos=0;
+    int posx= toPixX(m_selAtom->fieldX());
+    int posy= toPixY(m_selAtom->fieldY());
+
     switch( m_dir )
     {
         case Up:
-            pos = toPixY(m_selAtom->fieldY()) - frame;
-            m_selAtom->setPos( m_selAtom->x(), pos );
+            posy = toPixY(m_selAtom->fieldY()) - frame;
+            m_selAtom->setPos( posx, posy );
             break;
         case Down:
-            pos = toPixY(m_selAtom->fieldY()) + frame;
-            m_selAtom->setPos( m_selAtom->x(), pos );
+            posy = toPixY(m_selAtom->fieldY()) + frame;
             break;
         case Left:
-            pos = toPixX(m_selAtom->fieldX()) - frame;
-            m_selAtom->setPos( pos, m_selAtom->y() );
+            posx = toPixX(m_selAtom->fieldX()) - frame;
             break;
         case Right:
-            pos = toPixX(m_selAtom->fieldX()) + frame;
-            m_selAtom->setPos( pos, m_selAtom->y() );
+            posx = toPixX(m_selAtom->fieldX()) + frame;
             break;
     }
+
+    m_selAtom->setPos(posx, posy);
+
     if(frame == m_timeLine->endFrame()) // that is: move finished
     {
         // FIXME dimsuz: consider moving this to separate function
