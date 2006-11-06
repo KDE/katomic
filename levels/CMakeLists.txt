@@ -86,5 +86,5 @@ level_79
 level_80
 level_81
 level_82
-level_84 DESTINATION ${DATA_INSTALL_DIR}/katomic/levels)
+level_83 DESTINATION ${DATA_INSTALL_DIR}/katomic/levels)
 
