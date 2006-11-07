@@ -43,7 +43,7 @@ class PlayField : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    enum Direction { Up, Down, Left, Right };
+    enum Direction { Up=0, Down, Left, Right };
     /**
      *  Constructor
      */
@@ -85,6 +85,14 @@ public:
      *  Redoes one movement
      */
     void redo();
+    /**
+     *  Saves the current game to config object
+     */
+    void saveGame(KSimpleConfig& config) const;
+    /**
+     *  Loads game from config object
+     */
+    void loadGame(const KSimpleConfig& config);
 private slots:
     void animFrameChanged(int frame);
 signals:
@@ -114,6 +122,10 @@ private:
      *  Returns true if Field cell (x,y) is empty, i.e. it isn't a wall and has no atom
      */
     bool cellIsEmpty(int x, int y) const;
+    /**
+     *  Returns true if atom animation is running
+     */
+    bool isAnimating() const;
 
     inline int toPixX( int fieldX ) { return fieldX*m_elemSize; }
     inline int toPixY( int fieldY ) { return fieldY*m_elemSize; }
@@ -150,9 +162,9 @@ private:
      */
     FieldGraphicsItem *m_upArrow, *m_leftArrow, *m_downArrow, *m_rightArrow;
     /**
-     *  Currently selected atom
+     *  Index of currently selected atom
      */
-    FieldGraphicsItem *m_selAtom;
+    int m_selIdx;
     /**
      *  Direction in which current atom animation moves
      */
@@ -168,11 +180,11 @@ private:
 
     struct AtomMove
     {
-        FieldGraphicsItem* atom;
+        int atomIdx; // atom index in m_atoms
         Direction dir;
         int numCells;
-        AtomMove( FieldGraphicsItem* at=0, Direction d=Up, int nc=0 )
-            : atom(at), dir(d), numCells(nc) { }
+        AtomMove( int idx=-1, Direction d=Up, int nc=0 )
+            : atomIdx(idx), dir(d), numCells(nc) { }
     };
     QStack<AtomMove> m_undoStack;
     QStack<AtomMove> m_redoStack;

@@ -39,6 +39,8 @@ void AtomTopLevel::createMenu()
 {
     KAction *act = KStdGameAction::highscores(m_gameWid, SLOT(showHighscores()), actionCollection());
     act->setText(i18n("Show &Highscores"));
+    KStdGameAction::load( m_gameWid, SLOT(loadGame()), actionCollection() );
+    KStdGameAction::save( m_gameWid, SLOT(saveGame()), actionCollection() );
     KStdGameAction::quit(this, SLOT(close()), actionCollection());
     KStdGameAction::restart(m_gameWid, SLOT(restartLevel()), actionCollection());
 

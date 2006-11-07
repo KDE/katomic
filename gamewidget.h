@@ -46,6 +46,9 @@ public slots:
     // bringt level auf neuesten stand
     void updateLevel (int);
 
+    void saveGame();
+    void loadGame();
+
     // restart current level
     void restartLevel();
 

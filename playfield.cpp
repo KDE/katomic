@@ -74,7 +74,7 @@ void PlayFieldView::resizeEvent( QResizeEvent* ev )
 // =============== Play Field ========================
 
 PlayField::PlayField( QObject* parent )
-    : QGraphicsScene(parent), m_mol(0), m_numMoves(0), m_elemSize(30), m_selAtom(0), m_animSpeed(120)
+    : QGraphicsScene(parent), m_mol(0), m_numMoves(0), m_elemSize(30), m_selIdx(-1), m_animSpeed(120)
 {
     m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz"), this );
     m_renderer->setElementSize( m_elemSize );
@@ -137,7 +137,7 @@ void PlayField::loadLevel(const KSimpleConfig& config)
         }
     }
 
-    m_selAtom = 0;
+    m_selIdx = -1;
     updateArrows(true); // this will hide them (no atom selected)
     updateFieldItems();
     nextAtom();
@@ -150,7 +150,7 @@ void PlayField::updateFieldItems()
         item->setPixmap( m_renderer->renderAtom( m_mol->getAtom(item->atomNum()) ) );
 
         // this may be true if resize happens during animation
-        if(m_timeLine->state() == QTimeLine::Running && item == m_selAtom )
+        if( isAnimating() && m_selIdx != -1 && item == m_atoms.at(m_selIdx) )
             continue; // its position will be taken care of in animFrameChanged()
 
         item->setPos( toPixX( item->fieldX() ), toPixY( item->fieldY() ) );
@@ -180,7 +180,7 @@ void PlayField::resize( int width, int height)
     m_renderer->setBackgroundSize( QSize(width, height) );
 
     // if animation is running we need to rescale timeline
-    if( m_timeLine->state() == QTimeLine::Running )
+    if( isAnimating() )
     {
         kDebug() << "restarting animation" << endl;
         int curTime = m_timeLine->currentTime();
@@ -197,15 +197,15 @@ void PlayField::resize( int width, int height)
 
 void PlayField::nextAtom()
 {
-    if(!m_selAtom)
+    if(m_selIdx == -1)
     {
-        m_selAtom = m_atoms.at(0);
+        m_selIdx = 0;
         updateArrows();
         return;
     }
 
-    int xs = m_selAtom->fieldX();
-    int ys = m_selAtom->fieldY()+1;
+    int xs = m_atoms.at(m_selIdx)->fieldX();
+    int ys = m_atoms.at(m_selIdx)->fieldY()+1;
 
     int x = xs;
 
@@ -219,7 +219,7 @@ void PlayField::nextAtom()
             item = qgraphicsitem_cast<FieldGraphicsItem*>( itemAt(px, py) );
             if( item != 0 && item->atomNum() != -1 )
             {
-                m_selAtom = item;
+                m_selIdx = m_atoms.indexOf(item);
                 updateArrows();
                 return;
             }
@@ -233,15 +233,15 @@ void PlayField::nextAtom()
 
 void PlayField::previousAtom()
 {
-    if(!m_selAtom)
+    if(m_selIdx == -1)
     {
-        m_selAtom = m_atoms.at(0);
+        m_selIdx = 0;
         updateArrows();
         return;
     }
 
-    int xs = m_selAtom->fieldX();
-    int ys = m_selAtom->fieldY()-1;
+    int xs = m_atoms.at(m_selIdx)->fieldX();
+    int ys = m_atoms.at(m_selIdx)->fieldY()-1;
 
     int x = xs;
 
@@ -255,7 +255,7 @@ void PlayField::previousAtom()
             item = qgraphicsitem_cast<FieldGraphicsItem*>( itemAt(px, py) );
             if( item != 0 && item->atomNum() != -1 )
             {
-                m_selAtom = item;
+                m_selIdx = m_atoms.indexOf(item);
                 updateArrows();
                 return;
             }
@@ -269,7 +269,7 @@ void PlayField::previousAtom()
 
 void PlayField::undo()
 {
-    if(m_timeLine->state() == QTimeLine::Running || m_undoStack.isEmpty())
+    if( isAnimating() || m_undoStack.isEmpty())
         return;
 
     AtomMove am = m_undoStack.pop();
@@ -284,7 +284,7 @@ void PlayField::undo()
     m_numMoves--;
     emit updateMoves(m_numMoves);
 
-    m_selAtom = am.atom;
+    m_selIdx = am.atomIdx;
     switch( am.dir )
     {
         case Up:
@@ -304,7 +304,7 @@ void PlayField::undo()
 
 void PlayField::redo()
 {
-    if(m_timeLine->state() == QTimeLine::Running || m_redoStack.isEmpty())
+    if( isAnimating() || m_redoStack.isEmpty() )
         return;
 
     AtomMove am = m_redoStack.pop();
@@ -320,22 +320,23 @@ void PlayField::redo()
     m_numMoves++;
     emit updateMoves(m_numMoves);
 
-    m_selAtom = am.atom;
+    m_selIdx = am.atomIdx;
     moveSelectedAtom(am.dir, am.numCells);
 }
 
 void PlayField::mousePressEvent( QGraphicsSceneMouseEvent* ev )
 {
-    if( m_timeLine->state() == QTimeLine::Running )
+    if( isAnimating() )
         return;
 
     FieldGraphicsItem *clickedItem = qgraphicsitem_cast<FieldGraphicsItem*>(itemAt(ev->scenePos()));
     if(!clickedItem)
         return;
 
-    if( m_atoms.indexOf( clickedItem ) != -1 ) // that is: atom selected
+    int idx = m_atoms.indexOf( clickedItem );
+    if( idx != -1 ) // that is: atom selected
     {
-        m_selAtom = clickedItem;
+        m_selIdx = idx;
         updateArrows();
     }
     else if( clickedItem == m_upArrow )
@@ -358,7 +359,7 @@ void PlayField::mousePressEvent( QGraphicsSceneMouseEvent* ev )
 
 void PlayField::moveSelectedAtom( Direction dir, int numCells )
 {
-    if( m_timeLine->state() == QTimeLine::Running )
+    if( isAnimating() )
         return;
 
 
@@ -371,8 +372,8 @@ void PlayField::moveSelectedAtom( Direction dir, int numCells )
     {
         // helpers
         int x = 0, y = 0;
-        int selX = m_selAtom->fieldX();
-        int selY = m_selAtom->fieldY();
+        int selX = m_atoms.at(m_selIdx)->fieldX();
+        int selY = m_atoms.at(m_selIdx)->fieldY();
         switch( dir )
         {
             case Up:
@@ -417,7 +418,7 @@ void PlayField::moveSelectedAtom( Direction dir, int numCells )
     {
         if(m_undoStack.isEmpty())
             emit enableUndo(true);
-        m_undoStack.push( AtomMove(m_selAtom, m_dir, numEmptyCells) );
+        m_undoStack.push( AtomMove(m_selIdx, m_dir, numEmptyCells) );
     }
 
     m_timeLine->setCurrentTime(0); // reset
@@ -429,34 +430,34 @@ void PlayField::moveSelectedAtom( Direction dir, int numCells )
 
 void PlayField::animFrameChanged(int frame)
 {
-    int posx= toPixX(m_selAtom->fieldX());
-    int posy= toPixY(m_selAtom->fieldY());
+    FieldGraphicsItem *selAtom = m_atoms.at(m_selIdx);
+    int posx= toPixX(selAtom->fieldX());
+    int posy= toPixY(selAtom->fieldY());
 
     switch( m_dir )
     {
         case Up:
-            posy = toPixY(m_selAtom->fieldY()) - frame;
-            m_selAtom->setPos( posx, posy );
+            posy = toPixY(selAtom->fieldY()) - frame;
             break;
         case Down:
-            posy = toPixY(m_selAtom->fieldY()) + frame;
+            posy = toPixY(selAtom->fieldY()) + frame;
             break;
         case Left:
-            posx = toPixX(m_selAtom->fieldX()) - frame;
+            posx = toPixX(selAtom->fieldX()) - frame;
             break;
         case Right:
-            posx = toPixX(m_selAtom->fieldX()) + frame;
+            posx = toPixX(selAtom->fieldX()) + frame;
             break;
     }
 
-    m_selAtom->setPos(posx, posy);
+    selAtom->setPos(posx, posy);
 
     if(frame == m_timeLine->endFrame()) // that is: move finished
     {
         // FIXME dimsuz: consider moving this to separate function
         // to improve code readablility
-        m_selAtom->setFieldX( toFieldX((int)m_selAtom->pos().x()) );
-        m_selAtom->setFieldY( toFieldY((int)m_selAtom->pos().y()) );
+        selAtom->setFieldX( toFieldX((int)selAtom->pos().x()) );
+        selAtom->setFieldY( toFieldY((int)selAtom->pos().y()) );
         updateArrows();
 
         emit updateMoves(m_numMoves);
@@ -525,11 +526,11 @@ void PlayField::updateArrows(bool justHide)
     m_leftArrow->hide();
     m_rightArrow->hide();
 
-    if(justHide || !m_selAtom)
+    if(justHide || m_selIdx == -1)
         return;
 
-    int selX = m_selAtom->fieldX();
-    int selY = m_selAtom->fieldY();
+    int selX = m_atoms.at(m_selIdx)->fieldX();
+    int selY = m_atoms.at(m_selIdx)->fieldY();
 
     if(cellIsEmpty(selX-1, selY))
     {
@@ -566,6 +567,74 @@ void PlayField::drawBackground( QPainter *p, const QRectF&)
         for (int j = 0; j < FIELD_SIZE; j++)
             if (m_field[i][j])
                 p->drawPixmap(toPixX(i), toPixY(j), aPix);
+}
+
+bool PlayField::isAnimating() const
+{
+    return (m_timeLine->state() == QTimeLine::Running);
+}
+
+void PlayField::saveGame( KSimpleConfig& config ) const
+{
+    // REMEMBER: while saving use atom indexes within m_atoms, not atom's atomNum()'s.
+    // atomNum()'s arent unique, there can be several atoms
+    // in molecule which represent same atomNum
+    
+    for(int idx=0; idx<m_atoms.count(); ++idx)
+    {
+        // we'll write pos through using QPoint
+        // I'd use QPair but it isn't supported by QVariant
+        QPoint pos(m_atoms.at(idx)->fieldX(), m_atoms.at(idx)->fieldY()); 
+        config.writeEntry( QString("Atom_%1").arg(idx), pos);
+    }
+
+    // save undo history
+    int moveCount = m_undoStack.count();
+    config.writeEntry( "MoveCount", moveCount );
+    AtomMove mv;
+    for(int i=0;i<moveCount;++i)
+    {
+        mv = m_undoStack.at(i);
+        // atomIdx, direction, numCells
+        QList<int> move;
+        move << mv.atomIdx << static_cast<int>(mv.dir) << mv.numCells;
+        config.writeEntry( QString("Move_%1").arg(i), move );
+    }
+    config.writeEntry("SelectedAtom", m_selIdx);
+}
+
+void PlayField::loadGame( const KSimpleConfig& config )
+{
+    // it is assumed that this method is called right after loadLevel() so
+    // level itself is already loaded at this point
+    
+    // read atom positions
+    for(int idx=0; idx<m_atoms.count(); ++idx)
+    {
+        QPoint pos = config.readEntry( QString("Atom_%1").arg(idx), QPoint() );
+        m_atoms.at(idx)->setFieldXY(pos.x(), pos.y());
+        m_atoms.at(idx)->setPos( toPixX(pos.x()), toPixY(pos.y()) );
+    }
+    // fill undo history
+    m_numMoves = config.readEntry("MoveCount", 0);
+
+    AtomMove mv;
+    for(int i=0;i<m_numMoves;++i)
+    {
+        QList<int> move = config.readEntry( QString("Move_%1").arg(i), QList<int>() );
+        mv.atomIdx = move.at(0);
+        mv.dir = static_cast<Direction>(move.at(1));
+        mv.numCells = move.at(2);
+        m_undoStack.push(mv);
+    }
+    if(m_numMoves)
+    {
+        emit enableUndo(true);
+        emit updateMoves(m_numMoves);
+    }
+
+    m_selIdx = config.readEntry("SelectedAtom", 0);
+    updateArrows();
 }
 
 #include "playfield.moc"

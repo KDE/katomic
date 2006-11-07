@@ -33,6 +33,7 @@
 #include <kstandarddirs.h>
 #include <ksimpleconfig.h>
 #include <kglobalsettings.h>
+#include <kfiledialog.h>
 
 
 #define MPOSX 480
@@ -42,6 +43,7 @@
 // #	class GameWidget    #
 // ##########################
 
+// FIXME dimsuz: get rid of it
 int level;
 
 void GameWidget::moveUp()
@@ -102,7 +104,6 @@ void GameWidget::gameOver(int moves) {
     {
         high.exec();
     }
-    updateLevel(level+1);
 }
 
 void GameWidget::updateMoves(int moves)
@@ -210,6 +211,30 @@ GameWidget::GameWidget ( QWidget *parent )
 
 GameWidget::~GameWidget()
 {
+}
+
+void GameWidget::saveGame()
+{
+    QString fileName = KFileDialog::getSaveFileName( KUrl(), "*.katomic", this );
+    if(fileName.isEmpty())
+        return;
+    KSimpleConfig config(fileName);
+    config.setGroup("Savegame");
+    config.writeEntry( "Level", level );
+    m_playField->saveGame( config );
+}
+
+void GameWidget::loadGame()
+{
+    QString fileName = KFileDialog::getOpenFileName( KUrl(), "*.katomic", this );
+    if(fileName.isEmpty())
+        return;
+    KSimpleConfig config(fileName);
+    config.setGroup("Savegame");
+    int l = config.readEntry( "Level", 1 );
+    level = l;
+    updateLevel(level);
+    m_playField->loadGame( config );
 }
 
 void GameWidget::showHighscores ()
