@@ -33,6 +33,8 @@
 #include "molecule.h"
 #include "atom.h"
 
+const int MIN_ELEM_SIZE=30;
+
 class FieldGraphicsItem : public QGraphicsPixmapItem
 {
 public:
@@ -63,7 +65,7 @@ private:
 PlayFieldView::PlayFieldView( PlayField* field, QWidget* parent )
     : QGraphicsView(field, parent), m_playField(field)
 {
-
+    setMinimumSize( FIELD_SIZE*MIN_ELEM_SIZE, FIELD_SIZE*MIN_ELEM_SIZE );
 }
 
 void PlayFieldView::resizeEvent( QResizeEvent* ev )
@@ -74,7 +76,7 @@ void PlayFieldView::resizeEvent( QResizeEvent* ev )
 // =============== Play Field ========================
 
 PlayField::PlayField( QObject* parent )
-    : QGraphicsScene(parent), m_mol(0), m_numMoves(0), m_elemSize(30), m_selIdx(-1), m_animSpeed(120)
+    : QGraphicsScene(parent), m_mol(0), m_numMoves(0), m_elemSize(MIN_ELEM_SIZE), m_selIdx(-1), m_animSpeed(120)
 {
     m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz"), this );
     m_renderer->setElementSize( m_elemSize );
@@ -322,6 +324,84 @@ void PlayField::redo()
 
     m_selIdx = am.atomIdx;
     moveSelectedAtom(am.dir, am.numCells);
+}
+
+void PlayField::undoAll()
+{
+    while( !m_undoStack.isEmpty() )
+    {
+        AtomMove am = m_undoStack.pop();
+        m_redoStack.push( am );
+
+        // adjust atom pos
+        FieldGraphicsItem *atom = m_atoms.at(am.atomIdx);
+        int xdelta = 0, ydelta = 0;
+        switch(am.dir)
+        {
+            case Up:
+                ydelta = am.numCells;
+                break;
+            case Down:
+                ydelta = -am.numCells;
+                break;
+            case Right:
+                xdelta = -am.numCells;
+                break;
+            case Left:
+                xdelta = am.numCells;
+                break;
+        }
+        atom->setFieldXY( atom->fieldX()+xdelta, atom->fieldY()+ydelta );
+    }
+    // update pixel positions
+    foreach( FieldGraphicsItem* atom, m_atoms )
+        atom->setPos( toPixX(atom->fieldX()), toPixY(atom->fieldY()));
+
+    m_numMoves = 0;
+    emit updateMoves(m_numMoves);
+    emit enableUndo(false);
+    emit enableRedo(!m_redoStack.isEmpty());
+    m_selIdx = m_redoStack.last().atomIdx;
+    updateArrows();
+}
+
+void PlayField::redoAll()
+{
+    while( !m_redoStack.isEmpty() )
+    {
+        AtomMove am = m_redoStack.pop();
+        m_undoStack.push( am );
+
+        // adjust atom pos
+        FieldGraphicsItem *atom = m_atoms.at(am.atomIdx);
+        int xdelta = 0, ydelta = 0;
+        switch(am.dir)
+        {
+            case Up:
+                ydelta = -am.numCells;
+                break;
+            case Down:
+                ydelta = am.numCells;
+                break;
+            case Right:
+                xdelta = am.numCells;
+                break;
+            case Left:
+                xdelta = -am.numCells;
+                break;
+        }
+        atom->setFieldXY( atom->fieldX()+xdelta, atom->fieldY()+ydelta );
+    }
+    // update pixel positions
+    foreach( FieldGraphicsItem* atom, m_atoms )
+        atom->setPos( toPixX(atom->fieldX()), toPixY(atom->fieldY()));
+
+    m_numMoves = m_undoStack.count();
+    emit updateMoves(m_numMoves);
+    emit enableUndo(!m_undoStack.isEmpty());
+    emit enableRedo(false);
+    m_selIdx = m_undoStack.last().atomIdx;
+    updateArrows();
 }
 
 void PlayField::mousePressEvent( QGraphicsSceneMouseEvent* ev )

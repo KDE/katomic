@@ -68,7 +68,8 @@ public slots:
     void previousAtom();
     void doUndo ();
     void doRedo ();
-
+    void undoAll();
+    void redoAll();
  protected:
     PlayFieldView *m_view;
     PlayField *m_playField;

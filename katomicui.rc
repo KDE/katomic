@@ -5,6 +5,19 @@
   <Menu name="settings"><text>&amp;Settings</text>
     <Action name="anim_speed" />
   </Menu>
+  <Menu name="move"><text>&amp;Move</text>
+    <Action name="undo_all" />
+    <Action name="undo" />
+    <Action name="redo" />
+    <Action name="redo_all" />
+  </Menu>
 </MenuBar>
+
+<ToolBar name="mainToolBar"><text>Main Toolbar</text>
+  <Action name="undo_all" />
+  <Action name="undo" />
+  <Action name="redo" />
+  <Action name="redo_all" />
+</ToolBar>
 
 </kpartgui>

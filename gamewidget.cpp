@@ -86,6 +86,16 @@ void GameWidget::doRedo ()
     m_playField->redo();
 }
 
+void GameWidget::undoAll()
+{
+    m_playField->undoAll();
+}
+
+void GameWidget::redoAll()
+{
+    m_playField->redoAll();
+}
+
 void GameWidget::setAnimationSpeed(int speed)
 {
     m_playField->setAnimationSpeed(speed);

@@ -85,7 +85,14 @@ public:
      *  Redoes one movement
      */
     void redo();
+      /**
+     *  Undoes all movements
+     */
+    void undoAll();
     /**
+     *  Redoes all movements
+     */
+    void redoAll();   /**
      *  Saves the current game to config object
      */
     void saveGame(KSimpleConfig& config) const;

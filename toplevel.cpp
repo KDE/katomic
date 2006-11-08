@@ -28,12 +28,11 @@
 #include <kstdgameaction.h>
 #include <kselectaction.h>
 #include <kdebug.h>
+#include <kicon.h>
 
 #include "gamewidget.h"
 #include "toplevel.h"
 #include "prefs.h"
-
-// FIXME dimsuz: MERGE GameWidget to AtomTopLevel. No need to separate them.
 
 void AtomTopLevel::createMenu()
 {
@@ -50,12 +49,27 @@ void AtomTopLevel::createMenu()
     m_animSpeedAct->setItems(acts);
     connect( m_animSpeedAct, SIGNAL(triggered(int)), SLOT(slotAnimSpeedChanged(int)) );
 
-    m_undoAct = KStdGameAction::undo (m_gameWid, SLOT(doUndo()), actionCollection());
-    m_redoAct = KStdGameAction::redo (m_gameWid, SLOT(doRedo()), actionCollection());
+    KAction *undoAll = new KAction( KIcon("player_start"), i18n("Undo All"), actionCollection(), "undo_all" );
+    connect( undoAll, SIGNAL(triggered(bool)), m_gameWid, SLOT(undoAll()) );
+
+    KAction *redoAll = new KAction( KIcon("player_end"), i18n("Redo All"), actionCollection(), "redo_all" );
+    connect( redoAll, SIGNAL(triggered(bool)), m_gameWid, SLOT(redoAll()) );
+
+    m_undoAct = new KAction( KIcon("undo"), i18n("Undo"), actionCollection(), "undo" );
+    connect( m_undoAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(doUndo()) );
+
+    m_redoAct = new KAction( KIcon("redo"), i18n("Redo"), actionCollection(), "redo" );
+    connect( m_redoAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(doRedo()) );
+
     m_undoAct->setEnabled(false);
     m_redoAct->setEnabled(false);
+    undoAll->setEnabled(false);
+    redoAll->setEnabled(false);
+    
     connect (m_gameWid, SIGNAL (enableRedo(bool)), m_redoAct, SLOT(setEnabled(bool)));
     connect (m_gameWid, SIGNAL (enableUndo(bool)), m_undoAct, SLOT(setEnabled(bool)));
+    connect (m_gameWid, SIGNAL (enableUndo(bool)), undoAll, SLOT(setEnabled(bool)));
+    connect (m_gameWid, SIGNAL (enableRedo(bool)), redoAll, SLOT(setEnabled(bool)));
 
     KAction* atomUpAct = new KAction(i18n("Atom Up"), actionCollection(), "atom_up");
     atomUpAct->setShortcut(Qt::Key_Up);
