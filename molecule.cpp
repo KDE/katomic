@@ -120,9 +120,10 @@ void Molecule::load (const KSimpleConfig& config)
 
 void Molecule::paintEvent( QPaintEvent * )
 {
-    QString  st = i18n("Level: %1", level);
-
+    QString   st = i18n("Level: %1", level);
     QPainter  painter(this);
+
+    // Paint the name and level of the molecule at the bottom of the widget.
     painter.setPen (QColor (190, 190, 190));
     painter.drawText (7, height() - 36, mname);
     painter.drawText (7, height() - 18, st);
