@@ -38,7 +38,7 @@ public:
      *  Constructor.
      *  @param pathToSvg path to svg containing atom, bonds etc pictures
      */
-    KAtomicRenderer( const QString& pathToSvg, QObject *parent=0 );
+    explicit KAtomicRenderer( const QString& pathToSvg, QObject *parent=0 );
     /**
      *  Sets rendered element size and invalidates element cache.
      *  I.e. render* functions will return QPixmap of (size,size) dimentions
