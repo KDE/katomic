@@ -10,5 +10,5 @@ GenericName=Sokoban-like Logic Game
 GenericName[fr]=Jeu de logique dans le style de Sokoban
 GenericName[x-test]=xxSokoban-like Logic Gamexx
 X-KDE-StartupNotify=true
-X-DCOP-ServiceType=Multi
+X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Game;StrategyGame;
