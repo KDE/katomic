@@ -83,17 +83,32 @@ void Molecule::load (const KSimpleConfig& config)
 
     QString line;
 
+    m_width = 0;
+    m_height = 0;
+
+    int max_i = -1;
     for (int j = 0; j < MOLECULE_SIZE; j++) {
 
         key.sprintf("mole_%d", j);
         line = config.readEntry(key,QString());
 
+        int max_non_null_i = -1;
         for (int i = 0; i < MOLECULE_SIZE; i++)
         {
-            if (i >= line.size()) molek[i][j] = 0;
-            else molek[i][j] = atom2int(line.at(i).toLatin1());
+            if (i >= line.size())
+                molek[i][j] = 0;
+            else 
+            {
+                molek[i][j] = atom2int(line.at(i).toLatin1());
+                max_non_null_i = i;
+            }
         }
+        if( max_non_null_i != -1 )
+            m_height++;
+        max_i = qMax( max_i, max_non_null_i );
     }
+
+    m_width = max_i+1;
 
     mname = i18n(config.readEntry("Name", I18N_NOOP("Noname")).toLatin1());
 }
@@ -116,7 +131,7 @@ void MoleculeRenderer::setAtomSize( int size )
     m_renderer->setElementSize( size );
 }
 
-void MoleculeRenderer::render( QPainter *painter ) const
+void MoleculeRenderer::render( QPainter *painter, const QPoint& o) const
 {
     /* 
     QString   st = i18n("Level: %1", level);
@@ -127,12 +142,15 @@ void MoleculeRenderer::render( QPainter *painter ) const
     painter->drawText (7, height() - 18, st);
      */
 
+    int originX = o.x() - m_atomSize*m_mol->width()/2;
+    int originY = o.y() - m_atomSize*m_mol->height()/2;
+
     // Paint the playing field 
     for (int i = 0; i < MOLECULE_SIZE; i++)
         for (int j = 0; j < MOLECULE_SIZE; j++)
         {
-            int x = i * m_atomSize;
-            int y = j * m_atomSize;
+            int x = originX + i * m_atomSize;
+            int y = originY + j * m_atomSize;
 
             if (m_mol->getAtom(i,j) == 0)
                 continue;

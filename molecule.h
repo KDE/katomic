@@ -38,17 +38,29 @@ class KAtomicRenderer;
 class Molecule
 {
 public:
-    Molecule() { };
+    Molecule() : m_width(0), m_height(0) { };
 
     void load(const KSimpleConfig& config);
 
     const atom& getAtom(int index) const;
 
     uint getAtom(int x, int y) const { return molek[x][y]; }
+
+    /**
+     *  Width of molecule measured in atoms
+     */
+    int width() const { return m_width; }
+    /**
+     *  Height of molecule measured in atoms
+     */
+    int height() const { return m_height; }
 private:
     uint molek[MOLECULE_SIZE][MOLECULE_SIZE]; // the indexes within atoms
     QList<atom> atoms;
     QString mname;
+
+    int m_width;
+    int m_height;
 };
 
 /**
@@ -62,7 +74,13 @@ public:
 
     void setMolecule( const Molecule* mol ) { m_mol = mol; }
     void setAtomSize(int size);
-    void render( QPainter *painter ) const;
+    /**
+     *  Renders molecule using painter.
+     *  Molecule will be centered around a point specified in parameter 'o'
+     */
+    void render( QPainter *painter, const QPoint& o ) const;
+
+    const Molecule* const molecule() const { return m_mol; }
 private:
    KAtomicRenderer* m_renderer;
    int m_atomSize;

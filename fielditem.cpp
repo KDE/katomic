@@ -79,14 +79,15 @@ MoleculePreviewItem::~MoleculePreviewItem()
 void MoleculePreviewItem::setMolecule( const Molecule* mol )
 {
     m_molRenderer->setMolecule(mol);
-    update();
+    setWidth( m_width ); // trigger atom size update
 }
 
 void MoleculePreviewItem::setWidth(int width)
 {
     m_width = width;
-    // FIXME dimsuz: use qMin(molecWidth,molecHeight) instead of MOLECULE_SIZE
-    m_molRenderer->setAtomSize( width / MOLECULE_SIZE );
+    int w = m_molRenderer->molecule()->width();
+    int h = m_molRenderer->molecule()->height();
+    m_molRenderer->setAtomSize( width / qMax(w,h) );
     update();
 }
 
@@ -96,7 +97,7 @@ void MoleculePreviewItem::paint( QPainter * painter, const QStyleOptionGraphicsI
     painter->setOpacity(0.5);
     painter->drawRect(boundingRect());
     painter->setOpacity(1.0);
-    m_molRenderer->render(painter);
+    m_molRenderer->render(painter, QPoint(m_width/2, m_width/2) );
 }
 
 #include "fielditem.moc"
