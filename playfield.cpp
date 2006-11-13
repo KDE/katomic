@@ -173,6 +173,7 @@ void PlayField::resize( int width, int height)
     int oldSize = m_elemSize;
     m_elemSize = qMin(width, height) / FIELD_SIZE;
     m_renderer->setElementSize( m_elemSize );
+    m_preview->setMaxAtomSize( m_elemSize );
 
     // if animation is running we need to rescale timeline
     if( isAnimating() )

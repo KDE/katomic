@@ -66,7 +66,7 @@ QVariant ArrowFieldItem::itemChange( GraphicsItemChange change, const QVariant& 
 }
 
 MoleculePreviewItem::MoleculePreviewItem( QGraphicsScene* scene )
-    : QGraphicsItem( 0, scene ), m_width(0)
+    : QGraphicsItem( 0, scene ), m_width(0), m_maxAtomSize(30)
 {
     m_molRenderer = new MoleculeRenderer();
 }
@@ -82,12 +82,20 @@ void MoleculePreviewItem::setMolecule( const Molecule* mol )
     setWidth( m_width ); // trigger atom size update
 }
 
+void MoleculePreviewItem::setMaxAtomSize(int maxSize)
+{
+    m_maxAtomSize = maxSize;
+    setWidth( m_width ); // trigger atom size update
+}
+
 void MoleculePreviewItem::setWidth(int width)
 {
     m_width = width;
+
     int w = m_molRenderer->molecule()->width();
     int h = m_molRenderer->molecule()->height();
-    m_molRenderer->setAtomSize( width / qMax(w,h) );
+    int atomSize = width / qMax(w,h);
+    m_molRenderer->setAtomSize( qMin(atomSize, m_maxAtomSize) );
     update();
 }
 

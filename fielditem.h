@@ -97,11 +97,14 @@ public:
     void setMolecule( const Molecule* mol );
 
     void setWidth( int width );
+
+    void setMaxAtomSize( int maxSize );
     QRectF boundingRect() const { return QRectF(0,0, m_width, m_width); }
 
     void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 );
 private:
     int m_width;
+    int m_maxAtomSize;
     MoleculeRenderer *m_molRenderer;
 };
 
