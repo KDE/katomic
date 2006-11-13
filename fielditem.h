@@ -85,31 +85,24 @@ private:
     QTimeLine *m_timeLine;
 };
 
-#include "molecule.h"
+class MoleculeRenderer;
+class Molecule;
+
 class MoleculePreviewItem : public QGraphicsItem
 {
 public:
-    MoleculePreviewItem( QGraphicsScene* scene )
-        : QGraphicsItem( 0, scene ), m_width(0), m_mol(0) { }
+    MoleculePreviewItem( QGraphicsScene* scene );
+    ~MoleculePreviewItem();
 
-    void setMolecule( const Molecule* mol ) { m_mol = mol; }
+    void setMolecule( const Molecule* mol );
 
-    void setWidth( int width ) { m_mol->setAtomSize( width / MOLECULE_SIZE ); m_width = width; }
+    void setWidth( int width );
     QRectF boundingRect() const { return QRectF(0,0, m_width, m_width); }
 
-    void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 )
-    {
-        painter->setBrush(Qt::black);
-        painter->setOpacity(0.5);
-        painter->drawRect(boundingRect());
-        painter->setOpacity(1.0);
-        if(!m_mol)
-            return;
-        m_mol->renderMolecule(painter);
-    }
+    void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 );
 private:
     int m_width;
-    const Molecule *m_mol;
+    MoleculeRenderer *m_molRenderer;
 };
 
 #endif

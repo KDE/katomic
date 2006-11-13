@@ -20,7 +20,6 @@
 
 #include "gamewidget.h"
 #include "playfield.h"
-#include "molecule.h"
 
 #include <QScrollBar>
 #include <QGroupBox>
@@ -34,14 +33,6 @@
 #include <ksimpleconfig.h>
 #include <kglobalsettings.h>
 #include <kfiledialog.h>
-
-
-#define MPOSX 480
-#define MPOSY 90
-
-// ##########################
-// #	class GameWidget    #
-// ##########################
 
 // FIXME dimsuz: get rid of it
 int level;
@@ -180,12 +171,7 @@ GameWidget::GameWidget ( QWidget *parent )
     vblay->addWidget(scrl);
     connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
 
-    // molecule
-    molecule = new Molecule(this);
-    vblay->addWidget(molecule);
     vblay->addStretch(1);
-
-    m_playField->setMolecule(molecule);
 
     connect (m_playField, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     connect (m_playField, SIGNAL (enableUndo(bool)), SIGNAL(enableUndo(bool)));

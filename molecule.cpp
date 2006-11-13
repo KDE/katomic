@@ -2,6 +2,7 @@
  *
  * Copyright (C) Andreas Wüst <AndreasWuest@gmx.de>
  * Copyright (C) Stephan Kulow <coolo@kde.org>
+ * Copyright (C) 2006 Dmitry Suzdalev <dimsuz@gmail.com>
  *
  * This file is part of the KDE project "KAtomic"
  *
@@ -42,31 +43,6 @@
 #include "katomicrenderer.h"
 
 extern int level;
-
-Molecule::Molecule( QWidget *parent ) 
-   : QWidget( parent )
-{
-    QPalette palette;
-    palette.setColor( backgroundRole(), Qt::black );
-    setPalette(palette);
-    setAutoFillBackground( true );
-    setMinimumSize(240, 200);
-
-
-    m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz") );
-    setAtomSize(20);
-}
-
-void Molecule::setAtomSize( int size ) const
-{
-    m_atomSize = size;
-    m_renderer->setElementSize( size );
-}
-
-Molecule::~Molecule ()
-{
-    delete m_renderer;
-}
 
 const atom& Molecule::getAtom(int index) const
 {
@@ -120,17 +96,27 @@ void Molecule::load (const KSimpleConfig& config)
     }
 
     mname = i18n(config.readEntry("Name", I18N_NOOP("Noname")).toLatin1());
-
-    update();
 }
 
-void Molecule::paintEvent( QPaintEvent * )
+MoleculeRenderer::MoleculeRenderer()
+    : m_mol(0)
 {
-    QPainter  painter(this);
-    renderMolecule(&painter);
+    m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz") );
+    setAtomSize(20);
 }
 
-void Molecule::renderMolecule( QPainter *painter ) const
+MoleculeRenderer::~MoleculeRenderer ()
+{
+    delete m_renderer;
+}
+
+void MoleculeRenderer::setAtomSize( int size )
+{
+    m_atomSize = size;
+    m_renderer->setElementSize( size );
+}
+
+void MoleculeRenderer::render( QPainter *painter ) const
 {
     /* 
     QString   st = i18n("Level: %1", level);
@@ -143,14 +129,16 @@ void Molecule::renderMolecule( QPainter *painter ) const
 
     // Paint the playing field 
     for (int i = 0; i < MOLECULE_SIZE; i++)
-        for (int j = 0; j < MOLECULE_SIZE; j++) {
+        for (int j = 0; j < MOLECULE_SIZE; j++)
+        {
             int x = i * m_atomSize;
             int y = j * m_atomSize;
 
-            if (molek[i][j] == 0)
+            if (m_mol->getAtom(i,j) == 0)
                 continue;
 
-            QPixmap aPix = m_renderer->renderAtom(getAtom(molek[i][j]));
+            int atomIdx = m_mol->getAtom(i,j);
+            QPixmap aPix = m_renderer->renderAtom(m_mol->getAtom(atomIdx));
             painter->drawPixmap(x, y, aPix);
         }
 }

@@ -73,9 +73,6 @@ public slots:
     PlayFieldView *m_view;
     PlayField *m_playField;
 
-    // stellt molekül dar
-    Molecule *molecule;
-
     // scorllbar zur levelwahl
     QScrollBar *scrl;
 

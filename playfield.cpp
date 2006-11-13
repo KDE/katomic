@@ -53,6 +53,9 @@ void PlayFieldView::resizeEvent( QResizeEvent* ev )
 PlayField::PlayField( QObject* parent )
     : QGraphicsScene(parent), m_mol(0), m_numMoves(0), m_elemSize(MIN_ELEM_SIZE), m_selIdx(-1), m_animSpeed(120)
 {
+    // this object will hold the current molecule
+    m_mol = new Molecule();
+
     m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz") );
     m_renderer->setElementSize( m_elemSize );
 

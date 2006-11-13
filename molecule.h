@@ -2,6 +2,7 @@
  *
  * Copyright (C) Andreas Wüst <AndreasWuest@gmx.de>
  * Copyright (C) Stephan Kulow <coolo@kde.org>
+ * Copyright (C) 2006 Dmitry Suzdalev <dimsuz@gmail.com>
  *
  * This file is part of the KDE project "KAtomic"
  *
@@ -30,39 +31,41 @@
 #include "atom.h"
 
 class KSimpleConfig;
+class KAtomicRenderer;
 
 #define MOLECULE_SIZE 15
 
-class KAtomicRenderer;
-
-class Molecule : public QWidget
+class Molecule
 {
-    Q_OBJECT
-
 public:
-    Molecule (QWidget *parent=0);
-   ~Molecule ();
+    Molecule() { };
 
-   void load(const KSimpleConfig& config);
+    void load(const KSimpleConfig& config);
 
-   const atom& getAtom(int index) const;
+    const atom& getAtom(int index) const;
 
-   uint getAtom(int x, int y) const { return molek[x][y]; }
-   
-   // FIXME dimsuz: move all this stuff to MoleculeRenderer, no need to mutable and weird const then
-   // used during rendering
-   void setAtomSize(int size) const;
-   void renderMolecule( QPainter *painter ) const;
-protected:
-   void paintEvent( QPaintEvent * );
-
+    uint getAtom(int x, int y) const { return molek[x][y]; }
 private:
-   uint molek[MOLECULE_SIZE][MOLECULE_SIZE]; // the indexes within atoms
-   QList<atom> atoms;
-   QString mname;
-
-   KAtomicRenderer* m_renderer;
-   mutable int m_atomSize;
+    uint molek[MOLECULE_SIZE][MOLECULE_SIZE]; // the indexes within atoms
+    QList<atom> atoms;
+    QString mname;
 };
 
+/**
+ *  Uses KAtomicRenderer to render molecules
+ */
+class MoleculeRenderer
+{
+public:
+    MoleculeRenderer();
+    ~MoleculeRenderer();
+
+    void setMolecule( const Molecule* mol ) { m_mol = mol; }
+    void setAtomSize(int size);
+    void render( QPainter *painter ) const;
+private:
+   KAtomicRenderer* m_renderer;
+   int m_atomSize;
+   const Molecule* m_mol;
+};
 #endif // MOLECULE_H

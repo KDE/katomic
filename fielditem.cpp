@@ -24,6 +24,7 @@
 #include <QTimeLine>
 #include <kdebug.h>
 #include "fielditem.h"
+#include "molecule.h"
 
 ArrowFieldItem::ArrowFieldItem( QGraphicsScene* scene )
     : FieldItem(scene), m_opacity(0.0)
@@ -62,6 +63,40 @@ QVariant ArrowFieldItem::itemChange( GraphicsItemChange change, const QVariant& 
         }
     }
     return value;
+}
+
+MoleculePreviewItem::MoleculePreviewItem( QGraphicsScene* scene )
+    : QGraphicsItem( 0, scene ), m_width(0)
+{
+    m_molRenderer = new MoleculeRenderer();
+}
+
+MoleculePreviewItem::~MoleculePreviewItem()
+{
+    delete m_molRenderer;
+}
+
+void MoleculePreviewItem::setMolecule( const Molecule* mol )
+{
+    m_molRenderer->setMolecule(mol);
+    update();
+}
+
+void MoleculePreviewItem::setWidth(int width)
+{
+    m_width = width;
+    // FIXME dimsuz: use qMin(molecWidth,molecHeight) instead of MOLECULE_SIZE
+    m_molRenderer->setAtomSize( width / MOLECULE_SIZE );
+    update();
+}
+
+void MoleculePreviewItem::paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget *)
+{
+    painter->setBrush(Qt::black);
+    painter->setOpacity(0.5);
+    painter->drawRect(boundingRect());
+    painter->setOpacity(1.0);
+    m_molRenderer->render(painter);
 }
 
 #include "fielditem.moc"
