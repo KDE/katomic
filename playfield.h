@@ -35,6 +35,7 @@ class QResizeEvent;
 class Molecule;
 class AtomFieldItem;
 class ArrowFieldItem;
+class MoleculePreviewItem;
 class QTimeLine;
 
 /**
@@ -200,6 +201,8 @@ private:
     };
     QStack<AtomMove> m_undoStack;
     QStack<AtomMove> m_redoStack;
+
+    MoleculePreviewItem *m_preview;
 };
 
 class PlayFieldView : public QGraphicsView

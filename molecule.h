@@ -49,6 +49,10 @@ public:
 
    uint getAtom(int x, int y) const { return molek[x][y]; }
    
+   // FIXME dimsuz: move all this stuff to MoleculeRenderer, no need to mutable and weird const then
+   // used during rendering
+   void setAtomSize(int size) const;
+   void renderMolecule( QPainter *painter ) const;
 protected:
    void paintEvent( QPaintEvent * );
 
@@ -58,7 +62,7 @@ private:
    QString mname;
 
    KAtomicRenderer* m_renderer;
-   int m_elemSize;
+   mutable int m_atomSize;
 };
 
 #endif // MOLECULE_H

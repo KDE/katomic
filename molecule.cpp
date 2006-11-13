@@ -52,10 +52,15 @@ Molecule::Molecule( QWidget *parent )
     setAutoFillBackground( true );
     setMinimumSize(240, 200);
 
-    m_elemSize = 20;
 
     m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz") );
-    m_renderer->setElementSize( m_elemSize );
+    setAtomSize(20);
+}
+
+void Molecule::setAtomSize( int size ) const
+{
+    m_atomSize = size;
+    m_renderer->setElementSize( size );
 }
 
 Molecule::~Molecule ()
@@ -121,28 +126,33 @@ void Molecule::load (const KSimpleConfig& config)
 
 void Molecule::paintEvent( QPaintEvent * )
 {
-    QString   st = i18n("Level: %1", level);
     QPainter  painter(this);
+    renderMolecule(&painter);
+}
+
+void Molecule::renderMolecule( QPainter *painter ) const
+{
+    /* 
+    QString   st = i18n("Level: %1", level);
 
     // Paint the name and level of the molecule at the bottom of the widget.
-    painter.setPen (QColor (190, 190, 190));
-    painter.drawText (7, height() - 36, mname);
-    painter.drawText (7, height() - 18, st);
+    painter->setPen (QColor (190, 190, 190));
+    painter->drawText (7, height() - 36, mname);
+    painter->drawText (7, height() - 18, st);
+     */
 
     // Paint the playing field 
     for (int i = 0; i < MOLECULE_SIZE; i++)
         for (int j = 0; j < MOLECULE_SIZE; j++) {
-            int x = 10 + i * m_elemSize;
-            int y = 10 + j * m_elemSize;
+            int x = i * m_atomSize;
+            int y = j * m_atomSize;
 
             if (molek[i][j] == 0)
                 continue;
 
             QPixmap aPix = m_renderer->renderAtom(getAtom(molek[i][j]));
-            painter.drawPixmap(x, y, aPix);
+            painter->drawPixmap(x, y, aPix);
         }
-
-    painter.end ();
 }
 
 #include "molecule.moc"

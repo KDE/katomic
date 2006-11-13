@@ -39,6 +39,7 @@ const int MIN_ELEM_SIZE=30;
 PlayFieldView::PlayFieldView( PlayField* field, QWidget* parent )
     : QGraphicsView(field, parent), m_playField(field)
 {
+    // FIXME dimsuz: fix this to honor 1/4
     setMinimumSize( FIELD_SIZE*MIN_ELEM_SIZE, FIELD_SIZE*MIN_ELEM_SIZE );
 }
 
@@ -62,9 +63,11 @@ PlayField::PlayField( QObject* parent )
     m_downArrow = new ArrowFieldItem(this);
     m_leftArrow = new ArrowFieldItem(this);
     m_rightArrow = new ArrowFieldItem(this);
+
+    m_preview = new MoleculePreviewItem(this);
     updateArrows(true); // this will hide them
 
-    resize( FIELD_SIZE*m_elemSize, FIELD_SIZE*m_elemSize );
+    //resize( FIELD_SIZE*m_elemSize, FIELD_SIZE*m_elemSize );
 }
 
 PlayField::~PlayField()
@@ -84,6 +87,7 @@ void PlayField::loadLevel(const KSimpleConfig& config)
     emit enableRedo(false);
 
     m_mol->load(config);
+    m_preview->setMolecule(m_mol);
 
     QString key;
 
@@ -155,10 +159,17 @@ void PlayField::resize( int width, int height)
 {
     kDebug() << "resize:" << width << "," << height << endl;
     setSceneRect( 0, 0, width, height );
+    m_renderer->setBackgroundSize( QSize(width, height) );
+
+    // we take 1/4 of width for displaying preview
+    int previewWidth = width/4;
+    width -= previewWidth;
+    m_preview->setPos( width+2, 2 );
+    m_preview->setWidth( previewWidth-4 );
+
     int oldSize = m_elemSize;
     m_elemSize = qMin(width, height) / FIELD_SIZE;
     m_renderer->setElementSize( m_elemSize );
-    m_renderer->setBackgroundSize( QSize(width, height) );
 
     // if animation is running we need to rescale timeline
     if( isAnimating() )
