@@ -54,12 +54,13 @@ Molecule::Molecule( QWidget *parent )
 
     m_elemSize = 20;
 
-    m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz"), this );
+    m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz") );
     m_renderer->setElementSize( m_elemSize );
 }
 
 Molecule::~Molecule ()
 {
+    delete m_renderer;
 }
 
 const atom& Molecule::getAtom(int index) const

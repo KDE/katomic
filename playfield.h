@@ -33,7 +33,8 @@ class KSimpleConfig;
 class KAtomicRenderer;
 class QResizeEvent;
 class Molecule;
-class FieldGraphicsItem;
+class AtomFieldItem;
+class ArrowFieldItem;
 class QTimeLine;
 
 /**
@@ -48,6 +49,10 @@ public:
      *  Constructor
      */
     explicit PlayField( QObject *parent );
+    /**
+     *  Destructor
+     */
+    virtual ~PlayField();
     /**
      *  Resizes playfield to width,height
      */
@@ -163,11 +168,11 @@ private:
     /**
      *  List of atom QGraphicsItems
      */
-    QList<FieldGraphicsItem*> m_atoms;
+    QList<AtomFieldItem*> m_atoms;
     /**
      *  Arrow items
      */
-    FieldGraphicsItem *m_upArrow, *m_leftArrow, *m_downArrow, *m_rightArrow;
+    ArrowFieldItem *m_upArrow, *m_leftArrow, *m_downArrow, *m_rightArrow;
     /**
      *  Index of currently selected atom
      */

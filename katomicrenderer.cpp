@@ -28,11 +28,16 @@
 #include "katomicrenderer.h"
 #include "atom.h"
 
-KAtomicRenderer::KAtomicRenderer( const QString& pathToSvg, QObject *parent )
+KAtomicRenderer::KAtomicRenderer( const QString& pathToSvg )
 {
-    m_renderer = new KSvgRenderer( pathToSvg, parent);
+    m_renderer = new KSvgRenderer( pathToSvg );
     fillNameHashes();
     setElementSize(30);
+}
+
+KAtomicRenderer::~KAtomicRenderer()
+{
+    delete m_renderer;
 }
 
 void KAtomicRenderer::fillNameHashes()

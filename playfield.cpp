@@ -20,7 +20,6 @@
  * Boston, MA 02110-1301, USA.
  *
  ********************************************************************/
-#include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
 #include <QResizeEvent>
 #include <QTimeLine>
@@ -31,36 +30,11 @@
 #include "katomicrenderer.h"
 #include "playfield.h"
 #include "molecule.h"
+#include "fielditem.h"
 #include "atom.h"
 
 const int MIN_ELEM_SIZE=30;
 
-class FieldGraphicsItem : public QGraphicsPixmapItem
-{
-public:
-    FieldGraphicsItem( QGraphicsScene* scene )
-        : QGraphicsPixmapItem( 0, scene ), m_fieldX(0), m_fieldY(0), m_atomNum(-1)
-    { setShapeMode( BoundingRectShape ); }
-    void setFieldX(int x) { m_fieldX = x; }
-    void setFieldY(int y) { m_fieldY = y; }
-    void setFieldXY(int x, int y) { m_fieldX = x; m_fieldY = y; }
-
-    void setAtomNum(int n) { m_atomNum = n; }
-
-    int fieldX() const { return m_fieldX; }
-    int fieldY() const { return m_fieldY; }
-    int atomNum() const { return m_atomNum; }
-
-    // enable use of qgraphicsitem_cast
-    enum { Type = UserType + 1 };
-    virtual int type() const { return Type; }
-private:
-    int m_fieldX;
-    int m_fieldY;
-    // from molecule
-    // -1 for arrows
-    int m_atomNum; 
-};
 
 PlayFieldView::PlayFieldView( PlayField* field, QWidget* parent )
     : QGraphicsView(field, parent), m_playField(field)
@@ -78,19 +52,24 @@ void PlayFieldView::resizeEvent( QResizeEvent* ev )
 PlayField::PlayField( QObject* parent )
     : QGraphicsScene(parent), m_mol(0), m_numMoves(0), m_elemSize(MIN_ELEM_SIZE), m_selIdx(-1), m_animSpeed(120)
 {
-    m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz"), this );
+    m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz") );
     m_renderer->setElementSize( m_elemSize );
 
     m_timeLine = new QTimeLine(300, this);
     connect(m_timeLine, SIGNAL(frameChanged(int)), SLOT(animFrameChanged(int)) );
 
-    m_upArrow = new FieldGraphicsItem(this);
-    m_downArrow = new FieldGraphicsItem(this);
-    m_leftArrow = new FieldGraphicsItem(this);
-    m_rightArrow = new FieldGraphicsItem(this);
+    m_upArrow = new ArrowFieldItem(this);
+    m_downArrow = new ArrowFieldItem(this);
+    m_leftArrow = new ArrowFieldItem(this);
+    m_rightArrow = new ArrowFieldItem(this);
     updateArrows(true); // this will hide them
 
     resize( FIELD_SIZE*m_elemSize, FIELD_SIZE*m_elemSize );
+}
+
+PlayField::~PlayField()
+{
+    delete m_renderer;
 }
 
 void PlayField::loadLevel(const KSimpleConfig& config)
@@ -127,7 +106,7 @@ void PlayField::loadLevel(const KSimpleConfig& config)
             }
             else //atom
             {
-                FieldGraphicsItem* atom = new FieldGraphicsItem(this);
+                AtomFieldItem* atom = new AtomFieldItem(this);
                 atom->setFieldXY(i, j);
                 atom->setAtomNum(atom2int(c.toLatin1()));
 
@@ -147,7 +126,7 @@ void PlayField::loadLevel(const KSimpleConfig& config)
 
 void PlayField::updateFieldItems()
 {
-    foreach( FieldGraphicsItem *item, m_atoms )
+    foreach( AtomFieldItem *item, m_atoms )
     {
         item->setPixmap( m_renderer->renderAtom( m_mol->getAtom(item->atomNum()) ) );
 
@@ -213,13 +192,13 @@ void PlayField::nextAtom()
 
     while(1)
     {
-        FieldGraphicsItem* item = 0;
+        AtomFieldItem* item = 0;
         for(int y=ys; y<FIELD_SIZE; ++y )
         {
             int px = toPixX(x)+m_elemSize/2;
             int py = toPixY(y)+m_elemSize/2;
-            item = qgraphicsitem_cast<FieldGraphicsItem*>( itemAt(px, py) );
-            if( item != 0 && item->atomNum() != -1 )
+            item = qgraphicsitem_cast<AtomFieldItem*>( itemAt(px, py) );
+            if( item != 0 )
             {
                 m_selIdx = m_atoms.indexOf(item);
                 updateArrows();
@@ -249,12 +228,12 @@ void PlayField::previousAtom()
 
     while(1)
     {
-        FieldGraphicsItem* item = 0;
+        AtomFieldItem* item = 0;
         for(int y=ys; y>=0; --y )
         {
             int px = toPixX(x)+m_elemSize/2;
             int py = toPixY(y)+m_elemSize/2;
-            item = qgraphicsitem_cast<FieldGraphicsItem*>( itemAt(px, py) );
+            item = qgraphicsitem_cast<AtomFieldItem*>( itemAt(px, py) );
             if( item != 0 && item->atomNum() != -1 )
             {
                 m_selIdx = m_atoms.indexOf(item);
@@ -334,7 +313,7 @@ void PlayField::undoAll()
         m_redoStack.push( am );
 
         // adjust atom pos
-        FieldGraphicsItem *atom = m_atoms.at(am.atomIdx);
+        AtomFieldItem *atom = m_atoms.at(am.atomIdx);
         int xdelta = 0, ydelta = 0;
         switch(am.dir)
         {
@@ -354,7 +333,7 @@ void PlayField::undoAll()
         atom->setFieldXY( atom->fieldX()+xdelta, atom->fieldY()+ydelta );
     }
     // update pixel positions
-    foreach( FieldGraphicsItem* atom, m_atoms )
+    foreach( AtomFieldItem* atom, m_atoms )
         atom->setPos( toPixX(atom->fieldX()), toPixY(atom->fieldY()));
 
     m_numMoves = 0;
@@ -373,7 +352,7 @@ void PlayField::redoAll()
         m_undoStack.push( am );
 
         // adjust atom pos
-        FieldGraphicsItem *atom = m_atoms.at(am.atomIdx);
+        AtomFieldItem *atom = m_atoms.at(am.atomIdx);
         int xdelta = 0, ydelta = 0;
         switch(am.dir)
         {
@@ -393,7 +372,7 @@ void PlayField::redoAll()
         atom->setFieldXY( atom->fieldX()+xdelta, atom->fieldY()+ydelta );
     }
     // update pixel positions
-    foreach( FieldGraphicsItem* atom, m_atoms )
+    foreach( AtomFieldItem * atom, m_atoms )
         atom->setPos( toPixX(atom->fieldX()), toPixY(atom->fieldY()));
 
     m_numMoves = m_undoStack.count();
@@ -409,29 +388,32 @@ void PlayField::mousePressEvent( QGraphicsSceneMouseEvent* ev )
     if( isAnimating() )
         return;
 
-    FieldGraphicsItem *clickedItem = qgraphicsitem_cast<FieldGraphicsItem*>(itemAt(ev->scenePos()));
+    QGraphicsItem* clickedItem = itemAt(ev->scenePos());
     if(!clickedItem)
         return;
 
-    int idx = m_atoms.indexOf( clickedItem );
-    if( idx != -1 ) // that is: atom selected
+    AtomFieldItem *atomItem = qgraphicsitem_cast<AtomFieldItem*>(clickedItem);
+    if( atomItem ) // that is: atom selected
     {
-        m_selIdx = idx;
+        m_selIdx = m_atoms.indexOf( atomItem );
         updateArrows();
+        return;
     }
-    else if( clickedItem == m_upArrow )
+
+    ArrowFieldItem *arrowItem = qgraphicsitem_cast<ArrowFieldItem*>(clickedItem);
+    if( arrowItem == m_upArrow )
     {
         moveSelectedAtom( Up );
     }
-    else if( clickedItem == m_downArrow )
+    else if( arrowItem == m_downArrow )
     {
         moveSelectedAtom( Down );
     }
-    else if( clickedItem == m_rightArrow )
+    else if( arrowItem == m_rightArrow )
     {
         moveSelectedAtom( Right );
     }
-    else if( clickedItem == m_leftArrow )
+    else if( arrowItem == m_leftArrow )
     {
         moveSelectedAtom( Left );
     }
@@ -510,7 +492,7 @@ void PlayField::moveSelectedAtom( Direction dir, int numCells )
 
 void PlayField::animFrameChanged(int frame)
 {
-    FieldGraphicsItem *selAtom = m_atoms.at(m_selIdx);
+    AtomFieldItem *selAtom = m_atoms.at(m_selIdx);
     int posx= toPixX(selAtom->fieldX());
     int posy= toPixY(selAtom->fieldY());
 
@@ -555,7 +537,7 @@ bool PlayField::checkDone() const
     // by finding minimum fieldX, fieldY through all atoms
     int minX = FIELD_SIZE+1;
     int minY = FIELD_SIZE+1;
-    foreach( FieldGraphicsItem* atom, m_atoms )
+    foreach( AtomFieldItem* atom, m_atoms )
     {
         if(atom->fieldX() < minX)
             minX = atom->fieldX();
@@ -565,7 +547,7 @@ bool PlayField::checkDone() const
     // so origin is (minX,minY)
     // we'll substract this origin from each atom's coords and check
     // if the resulting position is the same as this atom has in molecule
-    foreach( FieldGraphicsItem* atom, m_atoms )
+    foreach( AtomFieldItem* atom, m_atoms )
     {
         uint atomNum = atom->atomNum();
         int molecCoordX = atom->fieldX() - minX;
@@ -581,7 +563,7 @@ bool PlayField::cellIsEmpty(int x, int y) const
     if(m_field[x][y] == true)
         return false; // it is a wall
 
-    foreach( FieldGraphicsItem *atom, m_atoms )
+    foreach( AtomFieldItem *atom, m_atoms )
     {
         if( atom->fieldX() == x && atom->fieldY() == y )
             return false;
