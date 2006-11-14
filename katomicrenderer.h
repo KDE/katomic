@@ -24,7 +24,6 @@
 #define KATOMIC_RENDERER_H
 
 #include <QHash>
-#include <QPixmap>
 
 class atom;
 class KSvgRenderer;
@@ -83,18 +82,9 @@ private:
     void ensureAtomIsInCache(const atom&);
 
     KSvgRenderer *m_renderer;
-    // I'd use a two hashes (for Cache and for names) instead of four,
-    // but currently both bond and atom chars can be
-    // "A-D", i.e. they overlap, so I need to separate
-    // If level format changes somehow, then corresponding atom and bond hashes 
-    // can be merged
-    // FIXME dimsuz: document them
-    QHash<char, QPixmap> m_cache;
-    QHash<char, QPixmap> m_bondCache;
     QHash<char, QString> m_names; // cryptic_char -> elemName
     QHash<char, QString> m_bondNames; // cryptic_char -> bondName
 
-    QPixmap m_bkgnd;
     int m_elemSize;
     QSize m_bkgndSize;
 };

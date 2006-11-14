@@ -186,6 +186,10 @@ private:
      *  Timeline object to control animation
      */
     QTimeLine *m_timeLine;
+    /**
+     *  True if current level is finished and thus all player input should be disabled
+     */
+    bool m_levelFinished;
 
     struct AtomMove
     {

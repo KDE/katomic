@@ -148,30 +148,28 @@ GameWidget::GameWidget ( QWidget *parent )
     nlevels = KGlobal::dirs()->findAllResources("appdata", "levels/level_*",
             false, true).count();
 
-    QHBoxLayout *top = new QHBoxLayout(this);
+    QVBoxLayout *top = new QVBoxLayout(this);
     top->setMargin(10);
 
-    // playfield
-    m_playField = new PlayField(this);
-    m_view = new PlayFieldView(m_playField, this);
-    m_view->setCacheMode( QGraphicsView::CacheBackground );
-    top->addWidget(m_view, 1);
-
-    QVBoxLayout *vblay = new QVBoxLayout;
-    vblay->setSpacing(10);
-    top->addLayout(vblay);
-
+    QHBoxLayout *hlay = new QHBoxLayout;
+    hlay->addWidget( new QLabel(i18n("Level:"),this) );
     // scrollbar
     scrl = new QScrollBar( Qt::Horizontal );
     scrl->setRange(1, nlevels);
     scrl->setSingleStep(1);
     scrl->setPageStep(5);
     scrl->setValue(1);
-    scrl->setObjectName("scrl");
-    vblay->addWidget(scrl);
     connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
 
-    vblay->addStretch(1);
+    hlay->addWidget(scrl,1);
+
+    top->addLayout(hlay);
+
+    // playfield
+    m_playField = new PlayField(this);
+    m_view = new PlayFieldView(m_playField, this);
+    m_view->setCacheMode( QGraphicsView::CacheBackground );
+    top->addWidget(m_view, 1);
 
     connect (m_playField, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     connect (m_playField, SIGNAL (enableUndo(bool)), SIGNAL(enableUndo(bool)));
@@ -186,8 +184,6 @@ GameWidget::GameWidget ( QWidget *parent )
     slay->setMargin(10);
     slay->addWidget(new QLabel(i18n("Highscore:"), bg), 0, 0);
 
-    vblay->addWidget(bg);
-
     QFont headerFont = KGlobalSettings::generalFont();
     headerFont.setBold(true);
 
@@ -201,6 +197,9 @@ GameWidget::GameWidget ( QWidget *parent )
     ys->setAlignment(Qt::AlignRight);
     ys->setFont(headerFont);
     slay->addWidget(ys, 1, 1);
+
+    // FIXME dimsuz: decide where to put this stuff
+    bg->hide();
 
     updateLevel(1);
 }

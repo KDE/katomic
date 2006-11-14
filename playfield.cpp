@@ -51,7 +51,9 @@ void PlayFieldView::resizeEvent( QResizeEvent* ev )
 // =============== Play Field ========================
 
 PlayField::PlayField( QObject* parent )
-    : QGraphicsScene(parent), m_mol(0), m_numMoves(0), m_elemSize(MIN_ELEM_SIZE), m_selIdx(-1), m_animSpeed(120)
+    : QGraphicsScene(parent), m_mol(0), m_numMoves(0), 
+    m_elemSize(MIN_ELEM_SIZE), m_selIdx(-1), m_animSpeed(120),
+    m_levelFinished(false)
 {
     // this object will hold the current molecule
     m_mol = new Molecule();
@@ -83,6 +85,8 @@ void PlayField::loadLevel(const KSimpleConfig& config)
     qDeleteAll(m_atoms);
     m_atoms.clear();
     m_numMoves = 0;
+    m_levelFinished = false;
+    m_timeLine->stop();
 
     m_undoStack.clear();
     m_redoStack.clear();
@@ -166,9 +170,10 @@ void PlayField::resize( int width, int height)
 
     // we take 1/4 of width for displaying preview
     int previewWidth = width/4;
-    width -= previewWidth;
-    m_preview->setPos( width+2, 2 );
+    m_preview->setPos( width-previewWidth+2, 2 );
     m_preview->setWidth( previewWidth-4 );
+
+    width -= previewWidth;
 
     int oldSize = m_elemSize;
     m_elemSize = qMin(width, height) / FIELD_SIZE;
@@ -400,7 +405,7 @@ void PlayField::redoAll()
 
 void PlayField::mousePressEvent( QGraphicsSceneMouseEvent* ev )
 {
-    if( isAnimating() )
+    if( isAnimating() || m_levelFinished )
         return;
 
     QGraphicsItem* clickedItem = itemAt(ev->scenePos());
@@ -539,8 +544,14 @@ void PlayField::animFrameChanged(int frame)
 
         emit updateMoves(m_numMoves);
 
-        if(checkDone())
+        if(checkDone() && !m_levelFinished)
+        {
+            m_levelFinished = true;
+            // hide arrows
+            updateArrows(true);
+            m_selIdx = -1;
             emit gameOver(m_numMoves);
+        }
     }
 }
 
@@ -603,7 +614,7 @@ void PlayField::updateArrows(bool justHide)
     m_leftArrow->hide();
     m_rightArrow->hide();
 
-    if(justHide || m_selIdx == -1)
+    if(justHide || m_selIdx == -1 || m_levelFinished)
         return;
 
     int selX = m_atoms.at(m_selIdx)->fieldX();

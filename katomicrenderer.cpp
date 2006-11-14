@@ -23,6 +23,7 @@
 #include <ksvgrenderer.h>
 #include <kdebug.h>
 #include <QPixmap>
+#include <QPixmapCache>
 #include <QPainter>
 
 #include "katomicrenderer.h"
@@ -30,6 +31,7 @@
 
 KAtomicRenderer::KAtomicRenderer( const QString& pathToSvg )
 {
+    QPixmapCache::setCacheLimit( 5000 ); // around 5 Mb
     m_renderer = new KSvgRenderer( pathToSvg );
     fillNameHashes();
     setElementSize(30);
@@ -86,14 +88,11 @@ void KAtomicRenderer::fillNameHashes()
 void KAtomicRenderer::setElementSize( int size )
 {
     m_elemSize = size;
-    m_cache.clear();
-    m_bondCache.clear();
 }
 
 void KAtomicRenderer::setBackgroundSize( const QSize& size )
 {
     m_bkgndSize = size;
-    m_bkgnd = QPixmap();
 }
 
 QPixmap KAtomicRenderer::renderAtom( const atom& at )
@@ -102,19 +101,26 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at )
 
     ensureAtomIsInCache(at);
 
+    QString cacheName;
     QPixmap res(m_elemSize, m_elemSize);
     res.fill( Qt::transparent );
     QPainter p(&res);
+    QPixmap bond_pix;
     // paint connections first
     for (int c = 0; c < MAX_CONNS_PER_ATOM; c++)
     {
         char conn = at.conn[c];
         if (!conn)
             break;
-        p.drawPixmap( 0, 0, m_bondCache.value( conn ) );
+        cacheName = QString("bond_%1_%2").arg(conn).arg(m_elemSize);
+        if(QPixmapCache::find(cacheName, bond_pix))
+            p.drawPixmap( 0, 0, bond_pix );
     }
     // and now the atom
-    p.drawPixmap( 0, 0, m_cache.value( at.obj ) );
+    QPixmap atom_pix;
+    cacheName = QString("atom_%1_%2").arg(at.obj).arg(m_elemSize);
+    if(QPixmapCache::find(cacheName, atom_pix))
+        p.drawPixmap( 0, 0, atom_pix );
     p.end();
     return res;
 }
@@ -123,38 +129,50 @@ QPixmap KAtomicRenderer::renderNonAtom( char element )
 {
     if (!m_renderer->isValid()) return QPixmap();
 
+    QString cacheName = QString("nonAtom_%1_%2").arg(element).arg(m_elemSize);
+    QPixmap pix;
     QImage baseImg;
-    if(!m_cache.contains(element))
+    if(!QPixmapCache::find(cacheName,pix))
     {
+        kDebug() << "putting to cache: " << cacheName << endl;
         //Construct an image object to render the contents of the .svgz file
         baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
         //Fill the buffer, it is unitialised by default
         baseImg.fill(0);
         QPainter p(&baseImg);
         m_renderer->render(&p, m_names.value(element), QRectF(0,0, m_elemSize, m_elemSize) );
-        QPixmap pix = QPixmap::fromImage(baseImg);
-        m_cache[element] = pix;
+        pix = QPixmap::fromImage(baseImg);
+        QPixmapCache::insert(cacheName, pix);
     }
 
-    return m_cache.value(element);
+    return pix;
 }
 
 QPixmap KAtomicRenderer::renderBackground()
 {
-    if( m_bkgnd.isNull() )
+    QString cacheName = QString("bkgnd_%1_%2").arg(m_bkgndSize.width()).arg(m_bkgndSize.height());
+    QPixmap bkgnd;
+    if( !QPixmapCache::find(cacheName, bkgnd)  )
     {
-        m_bkgnd = QPixmap(m_bkgndSize);
-        QPainter p(&m_bkgnd);
+        kDebug() << "putting to cache: " << cacheName << endl;
+        bkgnd = QPixmap(m_bkgndSize);
+        QPainter p(&bkgnd);
         m_renderer->render(&p, "background");
+
+        QPixmapCache::insert( cacheName, bkgnd );
     }
-    return m_bkgnd;
+    else
+        kDebug() << "found in cache: " << cacheName << endl;
+    return bkgnd;
 }
 
 void KAtomicRenderer::ensureAtomIsInCache(const atom& at)
 {
     QImage baseImg;
-    if(!m_cache.contains(at.obj))
+    QString cacheName = QString("atom_%1_%2").arg(at.obj).arg(m_elemSize);
+    if(!QPixmapCache::find(cacheName))
     {
+        kDebug() << "putting to cache: " << cacheName << endl;
         //Construct an image object to render the contents of the .svgz file
         baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
         //Fill the buffer, it is unitialised by default
@@ -162,7 +180,7 @@ void KAtomicRenderer::ensureAtomIsInCache(const atom& at)
         QPainter p(&baseImg);
         m_renderer->render(&p, m_names.value(at.obj), QRectF(0,0, m_elemSize, m_elemSize) );
         QPixmap atomPix = QPixmap::fromImage(baseImg);
-        m_cache[at.obj] = atomPix;
+        QPixmapCache::insert(cacheName, atomPix);
     }
 
     for (int c = 0; c < MAX_CONNS_PER_ATOM; c++)
@@ -170,8 +188,10 @@ void KAtomicRenderer::ensureAtomIsInCache(const atom& at)
         char conn = at.conn[c];
         if (!conn)
             break;
-        if(!m_bondCache.contains(conn))
+        cacheName = QString("bond_%1_%2").arg(conn).arg(m_elemSize);
+        if(!QPixmapCache::find(cacheName))
         {
+            kDebug() << "putting to cache: " << cacheName << endl;
             //Construct an image object to render the contents of the .svgz file
             baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
             //Fill the buffer, it is unitialised by default
@@ -179,7 +199,7 @@ void KAtomicRenderer::ensureAtomIsInCache(const atom& at)
             QPainter p(&baseImg);
             m_renderer->render(&p, m_bondNames.value(conn), QRectF(0,0, m_elemSize, m_elemSize) );
             QPixmap bondPix = QPixmap::fromImage(baseImg);
-            m_bondCache[conn] = bondPix;
+            QPixmapCache::insert(cacheName, bondPix);
         }
     }
 }

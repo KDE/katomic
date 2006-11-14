@@ -101,10 +101,11 @@ void MoleculePreviewItem::setWidth(int width)
 
 void MoleculePreviewItem::paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget *)
 {
-    painter->setBrush(Qt::black);
-    painter->setOpacity(0.5);
+    painter->setBrush(Qt::gray);
+    // commented out. This is cute, but makes a rect painting waaay slower ATM
+    //painter->setOpacity(0.5);
     painter->drawRect(boundingRect());
-    painter->setOpacity(1.0);
+    //painter->setOpacity(1.0);
     m_molRenderer->render(painter, QPoint(m_width/2, m_width/2) );
 }
 
