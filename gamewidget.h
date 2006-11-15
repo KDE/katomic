@@ -37,10 +37,14 @@ public:
     explicit GameWidget ( QWidget *parent );
     ~GameWidget();
     void setAnimationSpeed(int);
+
+    int currentLevel() const { return m_level; }
+    int currentScore() const { return m_moves; }
+    int currentHighScore() const;
 signals:
     void enableRedo(bool enable);
     void enableUndo(bool enable);
-
+    void statsChanged(int level,int score,int highscore);
 public slots:
     // bringt level auf neuesten stand
     void updateLevel (int);
@@ -72,15 +76,12 @@ public slots:
  protected:
     PlayFieldView *m_view;
     PlayField *m_playField;
+    
+    int m_level;
+    int m_moves;
 
     // scorllbar zur levelwahl
     QScrollBar *scrl;
-
-    // important labels : highest and current scores
-    QLabel *hs, *ys;
-    QString highest, current;
-
-    int nlevels;
 
     KScoreDialog *highScore;
 };

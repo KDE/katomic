@@ -34,9 +34,6 @@
 #include <kglobalsettings.h>
 #include <kfiledialog.h>
 
-// FIXME dimsuz: get rid of it
-int level;
-
 void GameWidget::moveUp()
 {
     m_playField->moveSelectedAtom( PlayField::Up );
@@ -93,11 +90,11 @@ void GameWidget::setAnimationSpeed(int speed)
 }
 
 void GameWidget::gameOver(int moves) {
-    KMessageBox::information(this, i18n("You solved level %1 with %2 moves!", level, moves), i18n("Congratulations"));
+    KMessageBox::information(this, i18n("You solved level %1 with %2 moves!", m_level, moves), i18n("Congratulations"));
 
     KScoreDialog high(KScoreDialog::Name | KScoreDialog::Score, this);
-    high.setCaption(i18n("Level %1 Highscores", level));
-    high.setConfigGroup(QString("Highscores Level %1").arg(level));
+    high.setCaption(i18n("Level %1 Highscores", m_level));
+    high.setConfigGroup(QString("Highscores Level %1").arg(m_level));
 
     KScoreDialog::FieldInfo scoreInfo;
 
@@ -109,13 +106,13 @@ void GameWidget::gameOver(int moves) {
 
 void GameWidget::updateMoves(int moves)
 {
-    current.setNum(moves);
-    ys->setText(current);
+    m_moves = moves;
+    emit statsChanged(m_level, moves, highScore->highScore());
 }
 
 void GameWidget::updateLevel (int l)
 {
-    level=l;
+    m_level=l;
     QString levelFile = KStandardDirs::locate("appdata", QString("levels/level_%1").arg(l));
     if (levelFile.isNull()) {
         return updateLevel(1);
@@ -127,25 +124,21 @@ void GameWidget::updateLevel (int l)
     m_view->resetCachedContent();
     m_view->update();
 
-    highScore->setConfigGroup(QString("Highscores Level %1").arg(level));
-    highest.setNum(highScore->highScore());
+    highScore->setConfigGroup(QString("Highscores Level %1").arg(m_level));
 
-    if (highest != "0" ) hs->setText(highest);
-    else hs->setText("-");
-    ys->setText("0");
-    scrl->setValue(level);
+    scrl->setValue(m_level);
+    emit statsChanged(m_level, 0, highScore->highScore());
 }
 
 void GameWidget::restartLevel()
 {
-    updateLevel(level);
+    updateLevel(m_level);
 }
 
 GameWidget::GameWidget ( QWidget *parent )
-    : QWidget( parent )
+    : QWidget( parent ), m_level(1), m_moves(0)
 {
-    level = 1;
-    nlevels = KGlobal::dirs()->findAllResources("appdata", "levels/level_*",
+    int nlevels = KGlobal::dirs()->findAllResources("appdata", "levels/level_*",
             false, true).count();
 
     QVBoxLayout *top = new QVBoxLayout(this);
@@ -178,29 +171,6 @@ GameWidget::GameWidget ( QWidget *parent )
 
     highScore = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
 
-    // the score group
-    QGroupBox *bg = new QGroupBox (i18n("Score"));
-    QGridLayout *slay = new QGridLayout(bg);
-    slay->setMargin(10);
-    slay->addWidget(new QLabel(i18n("Highscore:"), bg), 0, 0);
-
-    QFont headerFont = KGlobalSettings::generalFont();
-    headerFont.setBold(true);
-
-    hs = new QLabel (highest, bg);
-    hs->setAlignment(Qt::AlignRight);
-    hs->setFont(headerFont);
-    slay->addWidget(hs, 0, 1);
-    slay->addWidget(new QLabel(i18n("Your score so far:"), bg), 1, 0);
-
-    ys = new QLabel (current, bg);
-    ys->setAlignment(Qt::AlignRight);
-    ys->setFont(headerFont);
-    slay->addWidget(ys, 1, 1);
-
-    // FIXME dimsuz: decide where to put this stuff
-    bg->hide();
-
     updateLevel(1);
 }
 
@@ -215,7 +185,7 @@ void GameWidget::saveGame()
         return;
     KSimpleConfig config(fileName);
     config.setGroup("Savegame");
-    config.writeEntry( "Level", level );
+    config.writeEntry( "Level", m_level );
     m_playField->saveGame( config );
 }
 
@@ -227,17 +197,22 @@ void GameWidget::loadGame()
     KSimpleConfig config(fileName);
     config.setGroup("Savegame");
     int l = config.readEntry( "Level", 1 );
-    level = l;
-    updateLevel(level);
+    m_level = l;
+    updateLevel(m_level);
     m_playField->loadGame( config );
 }
 
 void GameWidget::showHighscores ()
 {
     KScoreDialog high(KScoreDialog::Name | KScoreDialog::Score, this);
-    high.setCaption(i18n("Level %1 Highscores", level));
-    high.setConfigGroup(QString("Highscores Level %1").arg(level));
+    high.setCaption(i18n("Level %1 Highscores", m_level));
+    high.setConfigGroup(QString("Highscores Level %1").arg(m_level));
     high.exec();
+}
+
+int GameWidget::currentHighScore() const
+{
+    return highScore->highScore();
 }
 
 #include "gamewidget.moc"

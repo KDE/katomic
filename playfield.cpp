@@ -689,6 +689,7 @@ void PlayField::saveGame( KSimpleConfig& config ) const
         config.writeEntry( QString("Move_%1").arg(i), move );
     }
     config.writeEntry("SelectedAtom", m_selIdx);
+    config.writeEntry("LevelFinished", m_levelFinished );
 }
 
 void PlayField::loadGame( const KSimpleConfig& config )
@@ -722,6 +723,7 @@ void PlayField::loadGame( const KSimpleConfig& config )
     }
 
     m_selIdx = config.readEntry("SelectedAtom", 0);
+    m_levelFinished = config.readEntry("LevelFinished", false);
     updateArrows();
 }
 

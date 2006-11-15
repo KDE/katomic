@@ -29,10 +29,33 @@
 #include <kselectaction.h>
 #include <kdebug.h>
 #include <kicon.h>
+#include <kstatusbar.h>
 
 #include "gamewidget.h"
 #include "toplevel.h"
 #include "prefs.h"
+
+AtomTopLevel::AtomTopLevel()
+{
+    m_gameWid = new GameWidget(this);
+    m_gameWid->setObjectName("gamewidget");
+    createMenu();
+    loadSettings();
+    setCentralWidget(m_gameWid);
+
+    statusBar()->insertItem( i18n("Level:"), 0 );
+    statusBar()->insertItem( i18n("Current score:"), 1 );
+    statusBar()->insertItem( i18n("Highscore:"), 2 );
+    updateStatusBar( m_gameWid->currentLevel(), m_gameWid->currentScore(), m_gameWid->currentHighScore() );
+
+    connect(m_gameWid, SIGNAL(statsChanged(int,int,int)), SLOT(updateStatusBar(int,int,int)));
+
+    setupGUI();
+}
+
+AtomTopLevel::~AtomTopLevel()
+{
+}
 
 void AtomTopLevel::createMenu()
 {
@@ -115,19 +138,16 @@ void AtomTopLevel::slotAnimSpeedChanged(int speed)
     Preferences::writeConfig();
 }
 
-AtomTopLevel::AtomTopLevel()
+void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
 {
-    m_gameWid = new GameWidget(this);
-    m_gameWid->setObjectName("gamewidget");
-    createMenu();
-    loadSettings();
-    setCentralWidget(m_gameWid);
-
-    setupGUI( KMainWindow::Save | Keys | Create );
-}
-
-AtomTopLevel::~AtomTopLevel()
-{
+    statusBar()->changeItem( i18n("Level: %1", level), 0 );
+    statusBar()->changeItem( i18n("Current score: %1", score), 1 );
+    QString str;
+    if(highscore == 0) 
+        str = "-";
+    else
+        str.setNum(highscore);
+    statusBar()->changeItem( i18n("Highscore: ")+str, 2 );
 }
 
 #include "toplevel.moc"
