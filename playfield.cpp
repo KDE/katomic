@@ -40,7 +40,9 @@ PlayFieldView::PlayFieldView( PlayField* field, QWidget* parent )
     : QGraphicsView(field, parent), m_playField(field)
 {
     // FIXME dimsuz: fix this to honor 1/4
-    setMinimumSize( FIELD_SIZE*MIN_ELEM_SIZE, FIELD_SIZE*MIN_ELEM_SIZE );
+    int defaultFieldSize = FIELD_SIZE*MIN_ELEM_SIZE;
+    // reserve some room for molecule preview
+    setMinimumSize( defaultFieldSize+defaultFieldSize/4, defaultFieldSize );
 }
 
 void PlayFieldView::resizeEvent( QResizeEvent* ev )

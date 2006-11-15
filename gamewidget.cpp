@@ -98,16 +98,15 @@ void GameWidget::setAnimationSpeed(int speed)
 void GameWidget::gameOver(int moves) {
     KMessageBox::information(this, i18n("You solved level %1 with %2 moves!", m_level, moves), i18n("Congratulations"));
 
-    KScoreDialog high(KScoreDialog::Name | KScoreDialog::Score, this);
-    high.setCaption(i18n("Level %1 Highscores", m_level));
-    high.setConfigGroup(QString("Highscores Level %1").arg(m_level));
+    highScore->setCaption(i18n("Level %1 Highscores", m_level));
+    highScore->setConfigGroup(QString("Highscores Level %1").arg(m_level));
 
     KScoreDialog::FieldInfo scoreInfo;
 
-    if (high.addScore(moves, scoreInfo, true, true))
-    {
-        high.exec();
-    }
+    if (highScore->addScore(moves, scoreInfo, true, true))
+        highScore->exec();
+
+    emit statsChanged(m_level, moves, highScore->highScore());
 }
 
 void GameWidget::updateMoves(int moves)
@@ -210,10 +209,9 @@ void GameWidget::loadGame()
 
 void GameWidget::showHighscores ()
 {
-    KScoreDialog high(KScoreDialog::Name | KScoreDialog::Score, this);
-    high.setCaption(i18n("Level %1 Highscores", m_level));
-    high.setConfigGroup(QString("Highscores Level %1").arg(m_level));
-    high.exec();
+    highScore->setCaption(i18n("Level %1 Highscores", m_level));
+    highScore->setConfigGroup(QString("Highscores Level %1").arg(m_level));
+    highScore->exec();
 }
 
 int GameWidget::currentHighScore() const
