@@ -102,6 +102,10 @@ public:
      *  Loads game from config object
      */
     void loadGame(const KSimpleConfig& config);
+    /**
+     *  Returns whether level is finished already
+     */
+    bool isLevelFinished() const { return m_levelFinished; }
 private slots:
     void animFrameChanged(int frame);
 signals:

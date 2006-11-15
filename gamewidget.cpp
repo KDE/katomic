@@ -36,32 +36,38 @@
 
 void GameWidget::moveUp()
 {
-    m_playField->moveSelectedAtom( PlayField::Up );
+    if(!m_playField->isLevelFinished())
+        m_playField->moveSelectedAtom( PlayField::Up );
 }
 
 void GameWidget::moveDown()
 {
-    m_playField->moveSelectedAtom( PlayField::Down );
+    if(!m_playField->isLevelFinished())
+        m_playField->moveSelectedAtom( PlayField::Down );
 }
 
 void GameWidget::moveLeft()
 {
-    m_playField->moveSelectedAtom( PlayField::Left );
+    if(!m_playField->isLevelFinished())
+        m_playField->moveSelectedAtom( PlayField::Left );
 }
 
 void GameWidget::moveRight()
 {
-    m_playField->moveSelectedAtom( PlayField::Right );
+    if(!m_playField->isLevelFinished())
+        m_playField->moveSelectedAtom( PlayField::Right );
 }
 
 void GameWidget::nextAtom()
 {
-    m_playField->nextAtom();
+    if(!m_playField->isLevelFinished())
+        m_playField->nextAtom();
 }
 
 void GameWidget::previousAtom()
 {
-    m_playField->previousAtom();
+    if(!m_playField->isLevelFinished())
+        m_playField->previousAtom();
 }
 
 void GameWidget::doUndo ()
