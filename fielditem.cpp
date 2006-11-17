@@ -103,7 +103,9 @@ void MoleculePreviewItem::setMaxAtomSize(int maxSize)
 void MoleculePreviewItem::setWidth(int width)
 {
     m_width = width;
-    m_butRect = QRect( 2, m_width-22, 20, 20 );
+
+    const int butSz = 20;
+    m_butRect = QRect( 2, m_width, butSz, butSz );
 
     int w = m_molRenderer->molecule()->width();
     int h = m_molRenderer->molecule()->height();
@@ -155,12 +157,12 @@ MoleculeInfoItem::MoleculeInfoItem( const Molecule* mol, QGraphicsScene* scene )
     : QGraphicsRectItem( 0, scene ), m_mol(mol)
 {
     setRect(0,0, 200,200);
-    setBrush( QColor(240,255,78) );
+    setBrush( Qt::gray );
 }
 
 void MoleculeInfoItem::paint( QPainter * painter, const QStyleOptionGraphicsItem* opt, QWidget *w)
 {
-    painter->setOpacity(0.8);
+    painter->setOpacity(0.9);
     QGraphicsRectItem::paint(painter, opt, w);
     painter->drawText(rect(), Qt::AlignHCenter | Qt::AlignTop, m_mol->moleculeName());
 }

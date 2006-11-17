@@ -738,7 +738,7 @@ void PlayField::setShowTrivia(bool enabled)
         m_infoItem = new MoleculeInfoItem(m_mol, this);
         m_infoItem->setZValue(5);
     }
-    int size = m_elemSize*FIELD_SIZE-50;
+    int size = m_elemSize*(FIELD_SIZE-1);
     m_infoItem->setRect( 0, 0, size, size );
     // FIXME dimsuz: fieldWidth/2-m_infoItem->width()/2, same with height
     m_infoItem->setPos( m_elemSize*FIELD_SIZE/2 - size/2, m_elemSize*FIELD_SIZE/2 - size/2 );

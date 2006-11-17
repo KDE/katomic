@@ -103,7 +103,7 @@ public:
     void setWidth( int width );
 
     void setMaxAtomSize( int maxSize );
-    QRectF boundingRect() const { return QRectF(0,0, m_width, m_width); }
+    inline QRectF boundingRect() const { return QRectF(0,0, m_width, m_width+m_butRect.height()+2); }
 
 private:
     void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 );
