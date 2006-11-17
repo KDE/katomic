@@ -22,9 +22,17 @@
  ********************************************************************/
 #include <QPainter>
 #include <QTimeLine>
+
+// these are used by MoleculePreviewItem to draw a button
+#include <QStyle>
+#include <QStyleOptionButton>
+#include <QApplication>
+#include <QGraphicsSceneHoverEvent>
+
 #include <kdebug.h>
 #include "fielditem.h"
 #include "molecule.h"
+#include "playfield.h"
 
 ArrowFieldItem::ArrowFieldItem( QGraphicsScene* scene )
     : FieldItem(scene), m_opacity(0.0)
@@ -65,10 +73,14 @@ QVariant ArrowFieldItem::itemChange( GraphicsItemChange change, const QVariant& 
     return value;
 }
 
-MoleculePreviewItem::MoleculePreviewItem( QGraphicsScene* scene )
-    : QGraphicsItem( 0, scene ), m_width(0), m_maxAtomSize(30)
+// ----------------- MoleculePreviewItem ----------------------------
+
+MoleculePreviewItem::MoleculePreviewItem( PlayField* scene )
+    : QGraphicsItem( 0, scene ), m_width(0), m_maxAtomSize(30),
+    m_hovered(false), m_pressed(false)
 {
     m_molRenderer = new MoleculeRenderer();
+    setAcceptsHoverEvents(true);
 }
 
 MoleculePreviewItem::~MoleculePreviewItem()
@@ -91,6 +103,7 @@ void MoleculePreviewItem::setMaxAtomSize(int maxSize)
 void MoleculePreviewItem::setWidth(int width)
 {
     m_width = width;
+    m_butRect = QRect( 2, m_width-22, 20, 20 );
 
     int w = m_molRenderer->molecule()->width();
     int h = m_molRenderer->molecule()->height();
@@ -107,6 +120,49 @@ void MoleculePreviewItem::paint( QPainter * painter, const QStyleOptionGraphicsI
     painter->drawRect(boundingRect());
     //painter->setOpacity(1.0);
     m_molRenderer->render(painter, QPoint(m_width/2, m_width/2) );
+
+    // draw a button with QStyle functions
+    QStyle *style = qApp->style();
+    QStyleOptionButton sopt;
+    sopt.rect = m_butRect;
+    if(m_hovered)
+        sopt.state = QStyle::State_Enabled | QStyle::State_MouseOver;
+    if(m_pressed)
+        sopt.state |= QStyle::State_On;
+
+    style->drawControl( QStyle::CE_PushButton, &sopt, painter);
+}
+
+void MoleculePreviewItem::hoverMoveEvent( QGraphicsSceneHoverEvent* ev )
+{
+    m_hovered = m_butRect.contains(ev->pos().toPoint());
+    update();
+}
+
+void MoleculePreviewItem::mousePressEvent( QGraphicsSceneMouseEvent* ev )
+{
+    if( m_butRect.contains(ev->pos().toPoint()) )
+        m_pressed = !m_pressed;
+
+    update();
+
+    dynamic_cast<PlayField*>(scene())->setShowTrivia(m_pressed);
+}
+
+// ----------------- MoleculeInfoItem ----------------------------
+
+MoleculeInfoItem::MoleculeInfoItem( const Molecule* mol, QGraphicsScene* scene )
+    : QGraphicsRectItem( 0, scene ), m_mol(mol)
+{
+    setRect(0,0, 200,200);
+    setBrush( QColor(240,255,78) );
+}
+
+void MoleculeInfoItem::paint( QPainter * painter, const QStyleOptionGraphicsItem* opt, QWidget *w)
+{
+    painter->setOpacity(0.8);
+    QGraphicsRectItem::paint(painter, opt, w);
+    painter->drawText(rect(), Qt::AlignHCenter | Qt::AlignTop, m_mol->moleculeName());
 }
 
 #include "fielditem.moc"

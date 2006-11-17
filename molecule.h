@@ -54,6 +54,7 @@ public:
      *  Height of molecule measured in atoms
      */
     int height() const { return m_height; }
+    QString moleculeName() const { return mname; }
 private:
     uint molek[MOLECULE_SIZE][MOLECULE_SIZE]; // the indexes within atoms
     QList<atom> atoms;

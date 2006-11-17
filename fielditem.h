@@ -24,6 +24,9 @@
 #define FIELD_ITEM_H
 
 #include <QGraphicsPixmapItem>
+#include <QGraphicsRectItem>
+
+// FIXME dimsuz: document all classes here!
 
 class FieldItem : public QGraphicsPixmapItem
 {
@@ -87,11 +90,12 @@ private:
 
 class MoleculeRenderer;
 class Molecule;
+class PlayField;
 
 class MoleculePreviewItem : public QGraphicsItem
 {
 public:
-    MoleculePreviewItem( QGraphicsScene* scene );
+    MoleculePreviewItem( PlayField* scene );
     ~MoleculePreviewItem();
 
     void setMolecule( const Molecule* mol );
@@ -101,11 +105,28 @@ public:
     void setMaxAtomSize( int maxSize );
     QRectF boundingRect() const { return QRectF(0,0, m_width, m_width); }
 
-    void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 );
 private:
+    void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 );
+    void hoverMoveEvent( QGraphicsSceneHoverEvent* ev );
+    void mousePressEvent( QGraphicsSceneMouseEvent* ev );
+
     int m_width;
     int m_maxAtomSize;
     MoleculeRenderer *m_molRenderer;
+
+    QRect m_butRect;
+    bool m_hovered;
+    bool m_pressed;
+};
+
+class MoleculeInfoItem : public QGraphicsRectItem
+{
+public:
+    MoleculeInfoItem( const Molecule* mol, QGraphicsScene* scene );
+private:
+    void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 );
+
+    const Molecule *m_mol;
 };
 
 #endif

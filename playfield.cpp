@@ -55,7 +55,7 @@ void PlayFieldView::resizeEvent( QResizeEvent* ev )
 PlayField::PlayField( QObject* parent )
     : QGraphicsScene(parent), m_mol(0), m_numMoves(0), 
     m_elemSize(MIN_ELEM_SIZE), m_selIdx(-1), m_animSpeed(120),
-    m_levelFinished(false)
+    m_levelFinished(false), m_infoItem(0)
 {
     // this object will hold the current molecule
     m_mol = new Molecule();
@@ -71,7 +71,7 @@ PlayField::PlayField( QObject* parent )
     m_leftArrow = new ArrowFieldItem(this);
     m_rightArrow = new ArrowFieldItem(this);
 
-    m_preview = new MoleculePreviewItem(this);
+    m_previewItem = new MoleculePreviewItem(this);
     updateArrows(true); // this will hide them
 
     //resize( FIELD_SIZE*m_elemSize, FIELD_SIZE*m_elemSize );
@@ -96,7 +96,7 @@ void PlayField::loadLevel(const KSimpleConfig& config)
     emit enableRedo(false);
 
     m_mol->load(config);
-    m_preview->setMolecule(m_mol);
+    m_previewItem->setMolecule(m_mol);
 
     QString key;
 
@@ -172,15 +172,15 @@ void PlayField::resize( int width, int height)
 
     // we take 1/4 of width for displaying preview
     int previewWidth = width/4;
-    m_preview->setPos( width-previewWidth+2, 2 );
-    m_preview->setWidth( previewWidth-4 );
+    m_previewItem->setPos( width-previewWidth+2, 2 );
+    m_previewItem->setWidth( previewWidth-4 );
 
     width -= previewWidth;
 
     int oldSize = m_elemSize;
     m_elemSize = qMin(width, height) / FIELD_SIZE;
     m_renderer->setElementSize( m_elemSize );
-    m_preview->setMaxAtomSize( m_elemSize );
+    m_previewItem->setMaxAtomSize( m_elemSize );
 
     // if animation is running we need to rescale timeline
     if( isAnimating() )
@@ -407,6 +407,8 @@ void PlayField::redoAll()
 
 void PlayField::mousePressEvent( QGraphicsSceneMouseEvent* ev )
 {
+    QGraphicsScene::mousePressEvent(ev);
+
     if( isAnimating() || m_levelFinished )
         return;
 
@@ -727,6 +729,20 @@ void PlayField::loadGame( const KSimpleConfig& config )
     m_selIdx = config.readEntry("SelectedAtom", 0);
     m_levelFinished = config.readEntry("LevelFinished", false);
     updateArrows();
+}
+
+void PlayField::setShowTrivia(bool enabled)
+{
+    if(!m_infoItem) // lazy creating
+    {
+        m_infoItem = new MoleculeInfoItem(m_mol, this);
+        m_infoItem->setZValue(5);
+    }
+    int size = m_elemSize*FIELD_SIZE-50;
+    m_infoItem->setRect( 0, 0, size, size );
+    // FIXME dimsuz: fieldWidth/2-m_infoItem->width()/2, same with height
+    m_infoItem->setPos( m_elemSize*FIELD_SIZE/2 - size/2, m_elemSize*FIELD_SIZE/2 - size/2 );
+    m_infoItem->setVisible(enabled);
 }
 
 #include "playfield.moc"

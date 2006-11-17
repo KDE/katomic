@@ -36,6 +36,7 @@ class Molecule;
 class AtomFieldItem;
 class ArrowFieldItem;
 class MoleculePreviewItem;
+class MoleculeInfoItem;
 class QTimeLine;
 
 /**
@@ -106,6 +107,11 @@ public:
      *  Returns whether level is finished already
      */
     bool isLevelFinished() const { return m_levelFinished; }
+    /**
+     *  Shows or hides various interesting additional 
+     *  information about current molecule
+     */
+    void setShowTrivia(bool enable);
 private slots:
     void animFrameChanged(int frame);
 signals:
@@ -206,7 +212,8 @@ private:
     QStack<AtomMove> m_undoStack;
     QStack<AtomMove> m_redoStack;
 
-    MoleculePreviewItem *m_preview;
+    MoleculePreviewItem *m_previewItem;
+    MoleculeInfoItem *m_infoItem;
 };
 
 class PlayFieldView : public QGraphicsView
