@@ -66,7 +66,7 @@ void AtomTopLevel::createMenu()
     KStdGameAction::quit(this, SLOT(close()), actionCollection());
     KStdGameAction::restart(m_gameWid, SLOT(restartLevel()), actionCollection());
 
-    m_animSpeedAct = new KSelectAction(i18n("Animation speed"), actionCollection(), "anim_speed");
+    m_animSpeedAct = new KSelectAction(i18n("Animation Speed"), actionCollection(), "anim_speed");
     QStringList acts;
     acts << i18n("Slow") << i18n("Normal") << i18n("Fast");
     m_animSpeedAct->setItems(acts);
@@ -88,7 +88,7 @@ void AtomTopLevel::createMenu()
     m_redoAct->setEnabled(false);
     undoAll->setEnabled(false);
     redoAll->setEnabled(false);
-    
+
     connect (m_gameWid, SIGNAL (enableRedo(bool)), m_redoAct, SLOT(setEnabled(bool)));
     connect (m_gameWid, SIGNAL (enableUndo(bool)), m_undoAct, SLOT(setEnabled(bool)));
     connect (m_gameWid, SIGNAL (enableUndo(bool)), undoAll, SLOT(setEnabled(bool)));
@@ -143,7 +143,7 @@ void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
     statusBar()->changeItem( i18n("Level: %1", level), 0 );
     statusBar()->changeItem( i18n("Current score: %1", score), 1 );
     QString str;
-    if(highscore == 0) 
+    if(highscore == 0)
         str = "-";
     else
         str.setNum(highscore);
