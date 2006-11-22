@@ -41,13 +41,14 @@ class AtomTopLevel : public KMainWindow
 
 public:
    AtomTopLevel();
-
   ~AtomTopLevel();
 
 private slots:
     void slotAnimSpeedChanged(int);
     void updateStatusBar(int level, int score, int highscore);
 private:
+  virtual bool queryClose(); // reimp
+
   // Creates the menubar and connects the menu-entries to the
   // appropriate functions
   void createMenu();

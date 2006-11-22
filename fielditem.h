@@ -24,7 +24,7 @@
 #define FIELD_ITEM_H
 
 #include <QGraphicsPixmapItem>
-#include <QGraphicsRectItem>
+#include <QGraphicsTextItem>
 
 // FIXME dimsuz: document all classes here!
 
@@ -119,14 +119,21 @@ private:
     bool m_pressed;
 };
 
-class MoleculeInfoItem : public QGraphicsRectItem
+class MoleculeInfoItem : public QGraphicsTextItem
 {
 public:
-    MoleculeInfoItem( const Molecule* mol, QGraphicsScene* scene );
+    MoleculeInfoItem( QGraphicsScene* scene );
+    void setMolecule( const Molecule& mol );
+    void setSize( int width, int height );
+    // used in playfield to optimize animation -> disables text rendering (only bounding rect)
+    void setShowInfo(bool show) { m_showInfo = show; update(); }
+    inline QRectF boundingRect() const { return QRectF(0,0, m_width, m_height); }
 private:
     void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 );
 
-    const Molecule *m_mol;
+    int m_width;
+    int m_height;
+    bool m_showInfo;
 };
 
 #endif

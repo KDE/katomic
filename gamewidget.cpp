@@ -140,8 +140,8 @@ void GameWidget::restartLevel()
     updateLevel(m_level);
 }
 
-GameWidget::GameWidget ( QWidget *parent )
-    : QWidget( parent ), m_level(1), m_moves(0)
+GameWidget::GameWidget ( int startingLevel, QWidget *parent )
+    : QWidget( parent ), m_moves(0)
 {
     int nlevels = KGlobal::dirs()->findAllResources("appdata", "levels/level_*",
             false, true).count();
@@ -176,7 +176,7 @@ GameWidget::GameWidget ( QWidget *parent )
 
     highScore = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
 
-    updateLevel(1);
+    updateLevel(startingLevel);
 }
 
 GameWidget::~GameWidget()

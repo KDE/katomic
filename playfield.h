@@ -113,7 +113,8 @@ public:
      */
     void setShowTrivia(bool enable);
 private slots:
-    void animFrameChanged(int frame);
+    void atomAnimFrameChanged(int frame);
+    void infoItemAnimFrameChanged(int frame);
 signals:
     void gameOver(int numMoves);
     // FIXME dimsuz: redesign this:
@@ -146,10 +147,12 @@ private:
      */
     bool isAnimating() const;
 
-    inline int toPixX( int fieldX ) { return fieldX*m_elemSize; }
-    inline int toPixY( int fieldY ) { return fieldY*m_elemSize; }
-    inline int toFieldX( int pixX ) { return pixX/m_elemSize; }
-    inline int toFieldY( int pixY ) { return pixY/m_elemSize; }
+    inline int toPixX( int fieldX ) const { return fieldX*m_elemSize; }
+    inline int toPixY( int fieldY ) const { return fieldY*m_elemSize; }
+    inline int toFieldX( int pixX ) const { return pixX/m_elemSize; }
+    inline int toFieldY( int pixY ) const { return pixY/m_elemSize; }
+    inline int fieldCenterX() const { return toPixX(0) + m_elemSize*FIELD_SIZE/2; }
+    inline int fieldCenterY() const { return toPixY(0) + m_elemSize*FIELD_SIZE/2; }
 
     /**
      *  Molecule to be done
@@ -193,9 +196,13 @@ private:
      */
     int m_animSpeed;
     /**
-     *  Timeline object to control animation
+     *  Timeline object to control atom movement animation
      */
-    QTimeLine *m_timeLine;
+    QTimeLine *m_atomTimeLine;
+    /**
+     *  Timeline object to control showing trivia animation
+     */
+    QTimeLine *m_infoTimeLine;
     /**
      *  True if current level is finished and thus all player input should be disabled
      */

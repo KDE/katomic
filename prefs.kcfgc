@@ -3,4 +3,4 @@ File=katomic.kcfg
 ClassName=Preferences
 Singleton=true
 CustomAdditions=false
-Mutators=AnimationSpeed
+Mutators=AnimationSpeed,LastPlayedLevel

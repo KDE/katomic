@@ -34,7 +34,7 @@ class GameWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit GameWidget ( QWidget *parent );
+    GameWidget ( int startingLevel, QWidget *parent );
     ~GameWidget();
     void setAnimationSpeed(int);
 

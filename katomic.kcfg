@@ -14,5 +14,9 @@
       </choices>
       <default>Normal</default>
     </entry>
+    <entry name="LastPlayedLevel" type="Int">
+        <label>Last Played Level</label>
+        <default>1</default>
+    </entry>
   </group>
 </kcfg>
