@@ -31,7 +31,7 @@
 class FieldItem : public QGraphicsPixmapItem
 {
 public:
-    FieldItem( QGraphicsScene* scene )
+    explicit FieldItem( QGraphicsScene* scene )
         : QGraphicsPixmapItem( 0, scene ), m_fieldX(0), m_fieldY(0)
     { setShapeMode( BoundingRectShape ); }
 
@@ -53,7 +53,7 @@ private:
 class AtomFieldItem : public FieldItem
 {
 public:
-    AtomFieldItem( QGraphicsScene* scene )
+    explicit AtomFieldItem( QGraphicsScene* scene )
         : FieldItem(scene), m_atomNum(-1) { }
 
     void setAtomNum(int n) { m_atomNum = n; }
@@ -72,7 +72,7 @@ class ArrowFieldItem : public QObject, public FieldItem
 {
     Q_OBJECT
 public:
-    ArrowFieldItem( QGraphicsScene* scene );
+    explicit ArrowFieldItem( QGraphicsScene* scene );
     virtual ~ArrowFieldItem();
 
     // enable use of qgraphicsitem_cast
@@ -95,7 +95,7 @@ class PlayField;
 class MoleculePreviewItem : public QGraphicsItem
 {
 public:
-    MoleculePreviewItem( PlayField* scene );
+    explicit MoleculePreviewItem( PlayField* scene );
     ~MoleculePreviewItem();
 
     void setMolecule( const Molecule* mol );
@@ -122,7 +122,7 @@ private:
 class MoleculeInfoItem : public QGraphicsTextItem
 {
 public:
-    MoleculeInfoItem( QGraphicsScene* scene );
+    explicit MoleculeInfoItem( QGraphicsScene* scene );
     void setMolecule( const Molecule& mol );
     void setSize( int width, int height );
     // used in playfield to optimize animation -> disables text rendering (only bounding rect)
