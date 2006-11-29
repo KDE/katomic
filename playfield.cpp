@@ -75,8 +75,6 @@ PlayField::PlayField( QObject* parent )
 
     m_previewItem = new MoleculePreviewItem(this);
     updateArrows(true); // this will hide them
-
-    //resize( FIELD_SIZE*m_elemSize, FIELD_SIZE*m_elemSize );
 }
 
 PlayField::~PlayField()
@@ -217,7 +215,7 @@ void PlayField::resize( int width, int height)
         m_infoItem->setPos( fieldCenterX()-size/2, fieldCenterY()-size/2 );
     }
 
-    // if animation is running we need to rescale timeline
+    // if atom animation is running we need to rescale timeline
     if( isAnimating() )
     {
         kDebug() << "restarting animation" << endl;
@@ -613,6 +611,8 @@ void PlayField::infoItemAnimFrameChanged(int frame)
 bool PlayField::checkDone() const
 {
     // let's assume that molecule is done
+    // and see if we can break assumtion
+    //
     // first we find molecule origin in field coords
     // by finding minimum fieldX, fieldY through all atoms
     int minX = FIELD_SIZE+1;

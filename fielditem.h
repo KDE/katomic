@@ -26,8 +26,11 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsTextItem>
 
-// FIXME dimsuz: document all classes here!
-
+/**
+ *  Represents item that can be placed in the PlayField.
+ *  Basically it just extends QGraphicsPixmapItem by understanding
+ *  field's cellbased coords.
+ */
 class FieldItem : public QGraphicsPixmapItem
 {
 public:
@@ -50,6 +53,10 @@ private:
     int m_fieldY;
 };
 
+/**
+ *  FieldItem that knows what atom number it holds
+ *  @see Molecule
+ */
 class AtomFieldItem : public FieldItem
 {
 public:
@@ -68,6 +75,10 @@ private:
 };
 
 class QTimeLine;
+/**
+ *  FieldItem that represents clickable arrow.
+ *  While showing plays nice fade-in effect
+ */
 class ArrowFieldItem : public QObject, public FieldItem
 {
     Q_OBJECT
@@ -84,7 +95,13 @@ private:
     void paint( QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget = 0 );
     QVariant itemChange( GraphicsItemChange change, const QVariant& value );
 
+    /**
+     *  Current opacity of an item (changes during fade-in effect)
+     */
     qreal m_opacity;
+    /**
+     *  Timeline object to control fade-in animation
+     */
     QTimeLine *m_timeLine;
 };
 
@@ -92,21 +109,39 @@ class MoleculeRenderer;
 class Molecule;
 class PlayField;
 
+/**
+ *  QGraphicsItem which displays molecule preview.
+ */
 class MoleculePreviewItem : public QGraphicsItem
 {
 public:
     explicit MoleculePreviewItem( PlayField* scene );
     ~MoleculePreviewItem();
 
+    /**
+     *  Sets molecule to display
+     */
     void setMolecule( const Molecule* mol );
 
+    /**
+     *  Sets item width. Height will be calculated autmatically
+     */
     void setWidth( int width );
-
+    /**
+     *  Sets maximum atom size in rendered molecule preview.
+     *  Usually atom size is calculated so the whole molecule can fit
+     *  in the item.
+     *  In some cases - when item width is big and the molecule is small this
+     *  can lead to preview having a huge molecule with atom size larger than
+     *  in playfield :). That looks not very good, hence this function.
+     */
     void setMaxAtomSize( int maxSize );
-    inline QRectF boundingRect() const { return QRectF(0,0, m_width, m_width+m_butRect.height()+2); }
 
+    inline QRectF boundingRect() const { return QRectF(0,0, m_width, m_width+m_butRect.height()+2); } // reimp
 private:
     void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 );
+
+    // these are for fake-pushbutton
     void hoverMoveEvent( QGraphicsSceneHoverEvent* ev );
     void mousePressEvent( QGraphicsSceneMouseEvent* ev );
 
@@ -114,11 +149,14 @@ private:
     int m_maxAtomSize;
     MoleculeRenderer *m_molRenderer;
 
+    // these are for fake-pushbutton
     QRect m_butRect;
     bool m_hovered;
     bool m_pressed;
 };
 
+// FIXME dimsuz: if it'll stay - document it
+// /me playing
 class MoleculeInfoItem : public QGraphicsTextItem
 {
 public:
