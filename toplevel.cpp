@@ -51,7 +51,7 @@ AtomTopLevel::AtomTopLevel()
 
     connect(m_gameWid, SIGNAL(statsChanged(int,int,int)), SLOT(updateStatusBar(int,int,int)));
 
-    setupGUI();
+    setupGUI( static_cast<StandardWindowOptions>( Default & ~ToolBar ) );
 }
 
 AtomTopLevel::~AtomTopLevel()
@@ -67,8 +67,7 @@ bool AtomTopLevel::queryClose()
 
 void AtomTopLevel::createMenu()
 {
-    KAction *act = KStdGameAction::highscores(m_gameWid, SLOT(showHighscores()), actionCollection());
-    act->setText(i18n("Show &Highscores"));
+    KStdGameAction::highscores(m_gameWid, SLOT(showHighscores()), actionCollection());
     KStdGameAction::load( m_gameWid, SLOT(loadGame()), actionCollection() );
     KStdGameAction::save( m_gameWid, SLOT(saveGame()), actionCollection() );
     KStdGameAction::quit(this, SLOT(close()), actionCollection());
