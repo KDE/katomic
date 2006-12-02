@@ -51,7 +51,7 @@ AtomTopLevel::AtomTopLevel()
 
     connect(m_gameWid, SIGNAL(statsChanged(int,int,int)), SLOT(updateStatusBar(int,int,int)));
 
-    setupGUI( static_cast<StandardWindowOptions>( Default & ~ToolBar ) );
+    setupGUI();
 }
 
 AtomTopLevel::~AtomTopLevel()
