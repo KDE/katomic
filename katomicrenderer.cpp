@@ -172,7 +172,6 @@ void KAtomicRenderer::ensureAtomIsInCache(const atom& at)
     QString cacheName = QString("atom_%1_%2").arg(at.obj).arg(m_elemSize);
     if(!QPixmapCache::find(cacheName))
     {
-        kDebug() << "putting to cache: " << cacheName << endl;
         //Construct an image object to render the contents of the .svgz file
         baseImg = QImage(m_elemSize, m_elemSize, QImage::Format_ARGB32_Premultiplied);
         //Fill the buffer, it is unitialised by default

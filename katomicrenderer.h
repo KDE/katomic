@@ -72,8 +72,8 @@ public:
     QPixmap renderBackground();
 private:
     /**
-     * FIXME dimsuz: describe better
-     *  Fills hashes atom[bond]_name->SVG_element_name
+     * Creates hashes for translating atom and bond signatures found in
+     * level files to corresponding SVG-element names
      */
     void fillNameHashes();
     /**
