@@ -257,7 +257,11 @@ void PlayField::nextAtom()
             {
                 m_selIdx = m_atoms.indexOf(item);
                 updateArrows();
-                return;
+                // if this atom can't move, we won't return - we'll search further
+                // until we found moveable one
+                if( m_upArrow->isVisible() || m_rightArrow->isVisible() 
+                        || m_downArrow->isVisible() || m_leftArrow->isVisible() )
+                    return;
             }
         }
         x++;
@@ -293,7 +297,11 @@ void PlayField::previousAtom()
             {
                 m_selIdx = m_atoms.indexOf(item);
                 updateArrows();
-                return;
+                // if this atom can't move, we won't return - we'll search further
+                // until we found moveable one
+                if( m_upArrow->isVisible() || m_rightArrow->isVisible() 
+                        || m_downArrow->isVisible() || m_leftArrow->isVisible() )
+                    return;
             }
         }
         x--;
