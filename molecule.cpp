@@ -160,5 +160,3 @@ void MoleculeRenderer::render( QPainter *painter, const QPoint& o) const
             painter->drawPixmap(x, y, aPix);
         }
 }
-
-#include "molecule.moc"
