@@ -25,7 +25,7 @@
 #include <ksimpleconfig.h>
 #include <kstandarddirs.h>
 #include <kapplication.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <kstdgameaction.h>
 #include <kselectaction.h>
 #include <kdebug.h>
