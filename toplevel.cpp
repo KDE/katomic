@@ -26,7 +26,7 @@
 #include <kstandarddirs.h>
 #include <kapplication.h>
 #include <kstandardaction.h>
-#include <kstdgameaction.h>
+#include <kstandardgameaction.h>
 #include <kselectaction.h>
 #include <kdebug.h>
 #include <kicon.h>
@@ -67,11 +67,11 @@ bool AtomTopLevel::queryClose()
 
 void AtomTopLevel::createMenu()
 {
-    KStdGameAction::highscores(m_gameWid, SLOT(showHighscores()), actionCollection());
-    KStdGameAction::load( m_gameWid, SLOT(loadGame()), actionCollection() );
-    KStdGameAction::save( m_gameWid, SLOT(saveGame()), actionCollection() );
-    KStdGameAction::quit(this, SLOT(close()), actionCollection());
-    KStdGameAction::restart(m_gameWid, SLOT(restartLevel()), actionCollection());
+    KStandardGameAction::highscores(m_gameWid, SLOT(showHighscores()), actionCollection());
+    KStandardGameAction::load( m_gameWid, SLOT(loadGame()), actionCollection() );
+    KStandardGameAction::save( m_gameWid, SLOT(saveGame()), actionCollection() );
+    KStandardGameAction::quit(this, SLOT(close()), actionCollection());
+    KStandardGameAction::restart(m_gameWid, SLOT(restartLevel()), actionCollection());
 
     m_animSpeedAct = new KSelectAction(i18n("Animation Speed"), actionCollection(), "anim_speed");
     QStringList acts;
