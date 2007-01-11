@@ -24,7 +24,6 @@
 #include <klocale.h>
 #include <ksimpleconfig.h>
 #include <kstandarddirs.h>
-#include <kapplication.h>
 #include <kstandardaction.h>
 #include <kstandardgameaction.h>
 #include <kselectaction.h>
