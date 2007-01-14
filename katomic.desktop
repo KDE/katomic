@@ -8,6 +8,7 @@ Exec=katomic -caption "%c"
 DocPath=katomic/index.html
 GenericName=Sokoban-like Logic Game
 GenericName[fr]=Jeu de logique dans le style de Sokoban
+GenericName[ja]=倉庫番のような論理ゲーム
 GenericName[x-test]=xxSokoban-like Logic Gamexx
 X-KDE-StartupNotify=true
 X-DBUS-StartupType=Multi
