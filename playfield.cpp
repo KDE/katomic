@@ -80,6 +80,7 @@ PlayField::PlayField( QObject* parent )
 PlayField::~PlayField()
 {
     delete m_renderer;
+    delete m_mol;
 }
 
 void PlayField::loadLevel(const KSimpleConfig& config)
