@@ -144,7 +144,7 @@ GameWidget::GameWidget ( int startingLevel, QWidget *parent )
     : QWidget( parent ), m_moves(0)
 {
     int nlevels = KGlobal::dirs()->findAllResources("appdata", "levels/level_*",
-            false, true).count();
+                                                    KStandardDirs::NoDuplicates).count();
 
     QVBoxLayout *top = new QVBoxLayout(this);
     top->setMargin(10);
