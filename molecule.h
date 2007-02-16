@@ -40,7 +40,7 @@ class Molecule
 public:
     Molecule() : m_width(0), m_height(0) { };
 
-    void load(const KSimpleConfig& config);
+    void load(const KConfig& config);
 
     const atom& getAtom(int index) const;
 

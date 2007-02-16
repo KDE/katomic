@@ -62,7 +62,7 @@ public:
     /**
      *  Loads level from config file
      */
-    void loadLevel(const KSimpleConfig& config);
+    void loadLevel(const KConfig& config);
     /**
      *  Sets animation speed (0-slow, 1-normal, 2-fast)
      */
@@ -98,11 +98,11 @@ public:
     void redoAll();   /**
      *  Saves the current game to config object
      */
-    void saveGame(KSimpleConfig& config) const;
+    void saveGame(KConfig& config) const;
     /**
      *  Loads game from config object
      */
-    void loadGame(const KSimpleConfig& config);
+    void loadGame(const KConfig& config);
     /**
      *  Returns whether level is finished already
      */
