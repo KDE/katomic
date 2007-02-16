@@ -25,7 +25,7 @@
 #include <QTimeLine>
 
 #include <kstandarddirs.h>
-#include <ksimpleconfig.h>
+#include <kconfig.h>
 
 #include "katomicrenderer.h"
 #include "playfield.h"

@@ -30,7 +30,7 @@
 #include <kmessagebox.h>
 #include <klocale.h>
 #include <kstandarddirs.h>
-#include <ksimpleconfig.h>
+#include <kconfig.h>
 #include <kglobalsettings.h>
 #include <kfiledialog.h>
 

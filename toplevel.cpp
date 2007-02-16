@@ -22,7 +22,7 @@
 #include <QLayout>
 
 #include <klocale.h>
-#include <ksimpleconfig.h>
+#include <kconfig.h>
 #include <kstandarddirs.h>
 #include <kstandardaction.h>
 #include <kstandardgameaction.h>

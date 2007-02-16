@@ -32,7 +32,7 @@
 
 #include <kdefakes.h>
 #include <kstandarddirs.h>
-#include <ksimpleconfig.h>
+#include <kconfig.h>
 #include <klocale.h>
 #include <kdebug.h>
 
