@@ -123,7 +123,7 @@ void GameWidget::updateLevel (int l)
         return updateLevel(1);
     }
 
-    KSimpleConfig cfg(levelFile, true);
+    KSimpleConfig cfg( levelFile );
     cfg.setGroup("Level");
     m_playField->loadLevel(cfg);
     m_view->resetCachedContent();
