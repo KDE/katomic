@@ -123,7 +123,7 @@ void GameWidget::updateLevel (int l)
         return updateLevel(1);
     }
 
-    KSimpleConfig cfg( levelFile );
+    KConfig cfg( levelFile, KConfig::OnlyLocal);
     cfg.setGroup("Level");
     m_playField->loadLevel(cfg);
     m_view->resetCachedContent();
@@ -188,7 +188,7 @@ void GameWidget::saveGame()
     QString fileName = KFileDialog::getSaveFileName( KUrl(), "*.katomic", this );
     if(fileName.isEmpty())
         return;
-    KSimpleConfig config(fileName);
+    KConfig config(fileName, KConfig::OnlyLocal);
     config.setGroup("Savegame");
     config.writeEntry( "Level", m_level );
     m_playField->saveGame( config );
@@ -199,7 +199,7 @@ void GameWidget::loadGame()
     QString fileName = KFileDialog::getOpenFileName( KUrl(), "*.katomic", this );
     if(fileName.isEmpty())
         return;
-    KSimpleConfig config(fileName);
+    KConfig config(fileName, KConfig::OnlyLocal);
     config.setGroup("Savegame");
     int l = config.readEntry( "Level", 1 );
     m_level = l;

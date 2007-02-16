@@ -30,7 +30,7 @@
 #include <QList>
 #include "atom.h"
 
-class KSimpleConfig;
+class KConfig;
 class KAtomicRenderer;
 
 #define MOLECULE_SIZE 15

@@ -29,7 +29,7 @@
 
 #define FIELD_SIZE 15
 
-class KSimpleConfig;
+class KConfig;
 class KAtomicRenderer;
 class QResizeEvent;
 class Molecule;
