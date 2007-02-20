@@ -32,7 +32,7 @@
 
 #include <kdefakes.h>
 #include <kstandarddirs.h>
-#include <ksimpleconfig.h>
+#include <kconfig.h>
 #include <klocale.h>
 #include <kdebug.h>
 
@@ -54,7 +54,7 @@ const atom& Molecule::getAtom(int index) const
     return atoms.at(index - 1);
 }
 
-void Molecule::load (const KSimpleConfig& config)
+void Molecule::load (const KConfig& config)
 {
     atoms.clear();
     QString key;
