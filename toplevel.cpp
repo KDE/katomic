@@ -88,22 +88,22 @@ void AtomTopLevel::createMenu()
     connect( m_animSpeedAct, SIGNAL(triggered(int)), SLOT(slotAnimSpeedChanged(int)) );
 
     QAction *undoAll = actionCollection()->addAction( "undo_all" );
-    undoAll->setIcon( KIcon("player_start") );
+    undoAll->setIcon( KIcon("media-skip-backward") );
     undoAll->setText( i18n("Undo All") );
     connect( undoAll, SIGNAL(triggered(bool)), m_gameWid, SLOT(undoAll()) );
 
     QAction *redoAll = actionCollection()->addAction( "redo_all" );
-    redoAll->setIcon( KIcon("player_end") );
+    redoAll->setIcon( KIcon("media-skip-forward") );
     redoAll->setText( i18n("Redo All") );
     connect( redoAll, SIGNAL(triggered(bool)), m_gameWid, SLOT(redoAll()) );
 
     m_undoAct = actionCollection()->addAction( "undo" );
-    m_undoAct->setIcon( KIcon("undo") );
+    m_undoAct->setIcon( KIcon("edit-undo") );
     m_undoAct->setText( i18n("Undo") );
     connect( m_undoAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(doUndo()) );
 
     m_redoAct = actionCollection()->addAction( "redo" );
-    m_redoAct->setIcon( KIcon("redo") );
+    m_redoAct->setIcon( KIcon("edit-redo") );
     m_redoAct->setText( i18n("Redo") );
     connect( m_redoAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(doRedo()) );
 
