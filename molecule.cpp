@@ -63,6 +63,7 @@ void Molecule::load (const KConfig& config)
 
     int atom_index = 1;
     QString value;
+    m_weight = 0.0;
     while (true) {
         key.sprintf("atom_%c", int2atom(atom_index));
         value = config.readEntry(key,QString());
@@ -79,6 +80,7 @@ void Molecule::load (const KConfig& config)
             << "OOOPS, duplicate atom definition in " << key << endl;
         atoms.append(current);
         atom_index++;
+	m_weight += current.weight();
     }
 
     QString line;
@@ -111,7 +113,6 @@ void Molecule::load (const KConfig& config)
     m_width = max_i+1;
 
     mname = i18n(config.readEntry("Name", I18N_NOOP("Noname")).toLatin1());
-    m_weight = config.readEntry("Weight", 0.0);
 }
 
 MoleculeRenderer::MoleculeRenderer()
