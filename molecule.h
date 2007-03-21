@@ -35,6 +35,9 @@ class KAtomicRenderer;
 
 #define MOLECULE_SIZE 15
 
+/**
+  this class represents one molecule
+*/
 class Molecule
 {
 public:
@@ -54,11 +57,24 @@ public:
      *  Height of molecule measured in atoms
      */
     int height() const { return m_height; }
+
+    /**
+      * @return the name of the molecule
+      */
     QString moleculeName() const { return mname; }
+
+    /**
+    * @return the molecule weight of the molecule
+    */
+    double molecularWeight() const { return m_weight; }
+
 private:
     uint molek[MOLECULE_SIZE][MOLECULE_SIZE]; // the indexes within atoms
     QList<atom> atoms;
     QString mname;
+
+    ///the molecule weight of the Molecule
+    double m_weight;
 
     int m_width;
     int m_height;

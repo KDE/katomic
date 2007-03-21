@@ -111,6 +111,7 @@ void Molecule::load (const KConfig& config)
     m_width = max_i+1;
 
     mname = i18n(config.readEntry("Name", I18N_NOOP("Noname")).toLatin1());
+    m_weight = config.readEntry("Weight", 0.0);
 }
 
 MoleculeRenderer::MoleculeRenderer()
