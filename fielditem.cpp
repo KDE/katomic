@@ -1,6 +1,7 @@
 /*******************************************************************
  *
  * Copyright 2006 Dmitry Suzdalev <dimsuz@gmail.com>
+ * Copyright 2007 Carsten Niehaus <cniehaus@kde.org>
  *
  * This file is part of the KDE project "KAtomic"
  *
@@ -176,12 +177,15 @@ void MoleculeInfoItem::setMolecule( const Molecule& mol )
     QString str = "<h3 align=\"center\"><u>";
     str.append(mol.moleculeName());
     str.append("</u></h3><br>");
-    str.append("<table border=\"1\" width=\"100%\"><tr><td><b>Molecular weight</b></td><td>");
+    str.append("<table border=\"1\" width=\"100%\"><tr><td><b>");
+    str.append(i18n("Molecular weight"));
+    str.append("</b></td><td>");
     str.append(weightString);
     str.append("</td></tr>");
-    str.append("<tr><td><b>Some other property</b></td>"
-            "<td>Some description of <i>");
-    str.append(mol.moleculeName());
+    str.append("<tr><td><b>");
+    str.append(i18n("Some other property"));
+    str.append("</b></td><td>");
+    str.append(i18n("Some description of <i>%1</i>", mol.moleculeName()));
     str.append("</i></td></tr></table>");
     setHtml(str);
 }
