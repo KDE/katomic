@@ -83,7 +83,7 @@ PlayField::~PlayField()
     delete m_mol;
 }
 
-void PlayField::loadLevel(const KConfig& config)
+void PlayField::loadLevel(const KConfigGroup& config)
 {
     qDeleteAll(m_atoms);
     m_atoms.clear();
@@ -725,7 +725,7 @@ bool PlayField::isAnimating() const
     return (m_atomTimeLine->state() == QTimeLine::Running);
 }
 
-void PlayField::saveGame( KConfig& config ) const
+void PlayField::saveGame( KConfigGroup& config ) const
 {
     // REMEMBER: while saving use atom indexes within m_atoms, not atom's atomNum()'s.
     // atomNum()'s arent unique, there can be several atoms
@@ -755,7 +755,7 @@ void PlayField::saveGame( KConfig& config ) const
     config.writeEntry("LevelFinished", m_levelFinished );
 }
 
-void PlayField::loadGame( const KConfig& config )
+void PlayField::loadGame( const KConfigGroup& config )
 {
     // it is assumed that this method is called right after loadLevel() so
     // level itself is already loaded at this point

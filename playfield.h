@@ -29,7 +29,7 @@
 
 #define FIELD_SIZE 15
 
-class KConfig;
+class KConfigGroup;
 class KAtomicRenderer;
 class QResizeEvent;
 class Molecule;
@@ -62,7 +62,7 @@ public:
     /**
      *  Loads level from config file
      */
-    void loadLevel(const KConfig& config);
+    void loadLevel(const KConfigGroup& config);
     /**
      *  Sets animation speed (0-slow, 1-normal, 2-fast)
      */
@@ -98,11 +98,11 @@ public:
     void redoAll();   /**
      *  Saves the current game to config object
      */
-    void saveGame(KConfig& config) const;
+    void saveGame(KConfigGroup& config) const;
     /**
      *  Loads game from config object
      */
-    void loadGame(const KConfig& config);
+    void loadGame(const KConfigGroup& config);
     /**
      *  Returns whether level is finished already
      */

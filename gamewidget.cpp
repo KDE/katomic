@@ -124,8 +124,8 @@ void GameWidget::updateLevel (int l)
     }
 
     KConfig cfg( levelFile, KConfig::OnlyLocal);
-    cfg.setGroup("Level");
-    m_playField->loadLevel(cfg);
+    KConfigGroup gr = cfg.group("Level");
+    m_playField->loadLevel(gr);
     m_view->resetCachedContent();
     m_view->update();
 
@@ -189,9 +189,9 @@ void GameWidget::saveGame()
     if(fileName.isEmpty())
         return;
     KConfig config(fileName, KConfig::OnlyLocal);
-    config.setGroup("Savegame");
-    config.writeEntry( "Level", m_level );
-    m_playField->saveGame( config );
+    KConfigGroup gr = config.group("Savegame");
+    gr.writeEntry( "Level", m_level );
+    m_playField->saveGame( gr );
 }
 
 void GameWidget::loadGame()
@@ -200,11 +200,11 @@ void GameWidget::loadGame()
     if(fileName.isEmpty())
         return;
     KConfig config(fileName, KConfig::OnlyLocal);
-    config.setGroup("Savegame");
-    int l = config.readEntry( "Level", 1 );
+    KConfigGroup gr = config.group("Savegame");
+    int l = gr.readEntry( "Level", 1 );
     m_level = l;
     updateLevel(m_level);
-    m_playField->loadGame( config );
+    m_playField->loadGame( gr );
 }
 
 void GameWidget::showHighscores ()

@@ -54,7 +54,7 @@ const atom& Molecule::getAtom(int index) const
     return atoms.at(index - 1);
 }
 
-void Molecule::load (const KConfig& config)
+void Molecule::load (const KConfigGroup& config)
 {
     atoms.clear();
     QString key;
