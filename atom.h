@@ -32,7 +32,7 @@ class atom {
 
     bool operator==(const atom& rhs) const { return (rhs.obj == obj && !strcmp(rhs.conn,conn)); }
     bool isEmpty() const { return (obj == 0 || obj == '.'); }
-    double weight() {
+    double weight() const {
 	    switch (obj) {
 	    case '1':	return   1.00797;	// H
 	    case '2':	return  12.0107;	// C
