@@ -41,7 +41,7 @@ class KAtomicRenderer;
 class Molecule
 {
 public:
-    Molecule() : m_width(0), m_height(0) { };
+    Molecule() : m_width(0), m_height(0) { }
 
     void load(const KConfigGroup& config);
 
