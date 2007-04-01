@@ -42,6 +42,8 @@ PlayFieldView::PlayFieldView( PlayField* field, QWidget* parent )
     int defaultFieldSize = FIELD_SIZE*MIN_ELEM_SIZE;
     // reserve some room for molecule preview
     setMinimumSize( defaultFieldSize+defaultFieldSize/4, defaultFieldSize );
+    setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
+    setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
 }
 
 void PlayFieldView::resizeEvent( QResizeEvent* ev )
