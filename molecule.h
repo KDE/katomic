@@ -32,6 +32,7 @@
 
 class KConfig;
 class KAtomicRenderer;
+class KConfigGroup;
 
 #define MOLECULE_SIZE 15
 

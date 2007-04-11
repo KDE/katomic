@@ -19,6 +19,8 @@
 
   */
 
+#include "toplevel.h"
+
 #include <QLayout>
 
 #include <klocale.h>
@@ -33,7 +35,6 @@
 #include <kstatusbar.h>
 
 #include "gamewidget.h"
-#include "toplevel.h"
 #include "prefs.h"
 
 AtomTopLevel::AtomTopLevel()

@@ -21,6 +21,9 @@
  * Boston, MA 02110-1301, USA.
  *
  ********************************************************************/
+
+#include "fielditem.h"
+
 #include <QPainter>
 #include <QTimeLine>
 
@@ -32,8 +35,6 @@
 
 #include <kdebug.h>
 #include <klocale.h>
-
-#include "fielditem.h"
 #include "molecule.h"
 #include "playfield.h"
 

@@ -30,6 +30,8 @@
 //               paintEvent wird aufgerufen, falls fenster überdeckt wird,
 //               oder auch einfach bewegt wird
 
+#include "molecule.h"
+
 #include <kdefakes.h>
 #include <kstandarddirs.h>
 #include <kconfig.h>
@@ -39,7 +41,6 @@
 #include <QPainter>
 #include <QPaintEvent>
 
-#include "molecule.h"
 #include "katomicrenderer.h"
 
 extern int level;

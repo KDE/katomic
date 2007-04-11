@@ -20,6 +20,9 @@
  * Boston, MA 02110-1301, USA.
  *
  ********************************************************************/
+
+#include "playfield.h"
+
 #include <QGraphicsSceneMouseEvent>
 #include <QResizeEvent>
 #include <QTimeLine>
@@ -28,7 +31,6 @@
 #include <kconfig.h>
 
 #include "katomicrenderer.h"
-#include "playfield.h"
 #include "molecule.h"
 #include "fielditem.h"
 #include "atom.h"
