@@ -103,7 +103,7 @@ void GameWidget::gameOver(int moves) {
 
     KScoreDialog::FieldInfo scoreInfo;
 
-    if (highScore->addScore(moves, scoreInfo, true, true))
+    if (highScore->addScore(moves, scoreInfo, KScoreDialog::AskName | KScoreDialog::LessIsMore))
         highScore->exec();
 
     emit statsChanged(m_level, moves, highScore->highScore());
