@@ -80,11 +80,9 @@ QVariant ArrowFieldItem::itemChange( GraphicsItemChange change, const QVariant& 
 // ----------------- MoleculePreviewItem ----------------------------
 
 MoleculePreviewItem::MoleculePreviewItem( PlayField* scene )
-    : QGraphicsItem( 0, scene ), m_width(0), m_maxAtomSize(30),
-    m_hovered(false), m_pressed(false)
+    : QGraphicsItem( 0, scene ), m_width(0), m_maxAtomSize(30)
 {
     m_molRenderer = new MoleculeRenderer();
-    setAcceptsHoverEvents(true);
 }
 
 MoleculePreviewItem::~MoleculePreviewItem()
@@ -108,9 +106,6 @@ void MoleculePreviewItem::setWidth(int width)
 {
     m_width = width;
 
-    const int butSz = 20;
-    m_butRect = QRect( 2, m_width, butSz, butSz );
-
     int w = m_molRenderer->molecule()->width();
     int h = m_molRenderer->molecule()->height();
     int atomSize = width / qMax(w,h);
@@ -121,42 +116,13 @@ void MoleculePreviewItem::setWidth(int width)
 void MoleculePreviewItem::paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget *)
 {
     painter->setBrush(Qt::gray);
-    // commented out. This is cute, but makes a rect painting waaay slower ATM
-    //painter->setOpacity(0.5);
+    painter->setOpacity(0.5);
     painter->drawRect(boundingRect());
-    //painter->setOpacity(1.0);
+    painter->setOpacity(1.0);
     m_molRenderer->render(painter, QPoint(m_width/2, m_width/2) );
-
-    // draw a button with QStyle functions
-    QStyle *style = qApp->style();
-    QStyleOptionButton sopt;
-    sopt.rect = m_butRect;
-    if(m_hovered)
-        sopt.state = QStyle::State_Enabled | QStyle::State_MouseOver;
-    if(m_pressed)
-        sopt.state |= QStyle::State_On;
-
-    style->drawControl( QStyle::CE_PushButton, &sopt, painter);
-}
-
-void MoleculePreviewItem::hoverMoveEvent( QGraphicsSceneHoverEvent* ev )
-{
-    m_hovered = m_butRect.contains(ev->pos().toPoint());
-    update();
-}
-
-void MoleculePreviewItem::mousePressEvent( QGraphicsSceneMouseEvent* ev )
-{
-    if( m_butRect.contains(ev->pos().toPoint()) )
-        m_pressed = !m_pressed;
-
-    update();
-
-    dynamic_cast<PlayField*>(scene())->setShowTrivia(m_pressed);
 }
 
 // ----------------- MoleculeInfoItem ----------------------------
-
 MoleculeInfoItem::MoleculeInfoItem( QGraphicsScene* scene )
     : QGraphicsTextItem( 0, scene ), m_width(10), m_height(10),
     m_showInfo(true)
@@ -174,7 +140,7 @@ void MoleculeInfoItem::setMolecule( const Molecule& mol )
 {
     double weight = mol.molecularWeight();
     QString weightString = weight == 0 ?  i18n("Unknown weight") : QString::number( weight );
-    
+
     QString str = "<h3 align=\"center\"><u>";
     str.append(mol.moleculeName());
     str.append("</u></h3><br>");

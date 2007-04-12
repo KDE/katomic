@@ -153,15 +153,15 @@ QPixmap KAtomicRenderer::renderBackground()
     QPixmap bkgnd;
     if( !QPixmapCache::find(cacheName, bkgnd)  )
     {
-        kDebug() << "putting to cache: " << cacheName << endl;
+//        kDebug() << "putting to cache: " << cacheName << endl;
         bkgnd = QPixmap(m_bkgndSize);
         QPainter p(&bkgnd);
         m_renderer->render(&p, "background");
 
         QPixmapCache::insert( cacheName, bkgnd );
     }
-    else
-        kDebug() << "found in cache: " << cacheName << endl;
+//     else
+//         kDebug() << "found in cache: " << cacheName << endl;
     return bkgnd;
 }
 

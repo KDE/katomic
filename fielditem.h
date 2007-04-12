@@ -71,7 +71,7 @@ public:
     virtual int type() const { return Type; }
 private:
     // from molecule
-    int m_atomNum; 
+    int m_atomNum;
 };
 
 class QTimeLine;
@@ -137,22 +137,13 @@ public:
      */
     void setMaxAtomSize( int maxSize );
 
-    inline QRectF boundingRect() const { return QRectF(0,0, m_width, m_width+m_butRect.height()+2); } // reimp
+    inline QRectF boundingRect() const { return QRectF(0,0, m_width, m_width); } // reimp
 private:
     void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 );
-
-    // these are for fake-pushbutton
-    void hoverMoveEvent( QGraphicsSceneHoverEvent* ev );
-    void mousePressEvent( QGraphicsSceneMouseEvent* ev );
 
     int m_width;
     int m_maxAtomSize;
     MoleculeRenderer *m_molRenderer;
-
-    // these are for fake-pushbutton
-    QRect m_butRect;
-    bool m_hovered;
-    bool m_pressed;
 };
 
 // FIXME dimsuz: if it'll stay - document it
