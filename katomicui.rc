@@ -18,6 +18,9 @@
 </MenuBar>
 
 <ToolBar name="mainToolBar"><text>Main Toolbar</text>
+  <Action name="prev_level" />
+  <Action name="next_level" />
+  <Separator />
   <Action name="undo_all" />
   <Action name="undo" />
   <Action name="redo" />

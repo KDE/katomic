@@ -26,6 +26,7 @@
 #include <QGroupBox>
 #include <QLayout>
 #include <QLabel>
+#include <QApplication> // for qApp->quit()
 
 #include <kscoredialog.h>
 #include <kmessagebox.h>
@@ -130,7 +131,18 @@ void GameWidget::switchToLevel (int l)
     m_level=l;
     QString levelFile = KStandardDirs::locate("appdata", QString("levels/level_%1").arg(l));
     if (levelFile.isNull()) {
-        return switchToLevel(1);
+        if ( m_level != 1 )
+        {
+            KMessageBox::sorry( this,  i18n( "Level %1 can not be found. Please check your installation. Now switching to Level 1" ,  m_level ), "Broken installation?" );
+            switchToLevel(1);
+            return;
+        }
+        else if ( m_level == 1 )
+        {
+            KMessageBox::error( this,  i18n( "Level 1 data can not be found. Please check your installation. KAtomic will quit now." ) );
+            qApp->quit();
+            return;
+        }
     }
 
     KConfig cfg( levelFile, KConfig::OnlyLocal);
