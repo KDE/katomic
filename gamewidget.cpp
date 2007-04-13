@@ -20,6 +20,7 @@
 
 #include "gamewidget.h"
 #include "playfield.h"
+#include "prefs.h"
 
 #include <QScrollBar>
 #include <QGroupBox>
@@ -96,7 +97,13 @@ void GameWidget::setAnimationSpeed(int speed)
 }
 
 void GameWidget::gameOver(int moves) {
-    KMessageBox::information(this, i18n("You solved level %1 with %2 moves!", m_level, moves), i18n("Congratulations"));
+    int answer = KMessageBox::questionYesNo(this, i18n("Congratulations! You solved level %1 with %2 moves!\n Advance to the next one?", m_level, moves), i18n("Congratulations"));
+    // writing this info only in normal mode
+    if ( !m_allowAnyLevelSwitch )
+    {
+        Preferences::setMaxAccessibleLevel( m_level+1 );
+        Preferences::writeConfig();
+    }
 
     highScore->setCaption(i18n("Level %1 Highscores", m_level));
     highScore->setConfigGroup(QString("Highscores Level %1").arg(m_level));
@@ -107,6 +114,9 @@ void GameWidget::gameOver(int moves) {
         highScore->exec();
 
     emit statsChanged(m_level, moves, highScore->highScore());
+
+    if ( answer == KMessageBox::Yes )
+        switchToLevel(m_level+1);
 }
 
 void GameWidget::updateMoves(int moves)
@@ -115,12 +125,12 @@ void GameWidget::updateMoves(int moves)
     emit statsChanged(m_level, moves, highScore->highScore());
 }
 
-void GameWidget::updateLevel (int l)
+void GameWidget::switchToLevel (int l)
 {
     m_level=l;
     QString levelFile = KStandardDirs::locate("appdata", QString("levels/level_%1").arg(l));
     if (levelFile.isNull()) {
-        return updateLevel(1);
+        return switchToLevel(1);
     }
 
     KConfig cfg( levelFile, KConfig::OnlyLocal);
@@ -131,37 +141,19 @@ void GameWidget::updateLevel (int l)
 
     highScore->setConfigGroup(QString("Highscores Level %1").arg(m_level));
 
-    scrl->setValue(m_level);
     emit statsChanged(m_level, 0, highScore->highScore());
 }
 
 void GameWidget::restartLevel()
 {
-    updateLevel(m_level);
+    switchToLevel(m_level);
 }
 
 GameWidget::GameWidget ( int startingLevel, QWidget *parent )
-    : QWidget( parent ), m_moves(0)
+    : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0)
 {
-    int nlevels = KGlobal::dirs()->findAllResources("appdata", "levels/level_*",
-                                                    KStandardDirs::NoDuplicates).count();
-
     QVBoxLayout *top = new QVBoxLayout(this);
     top->setMargin(10);
-
-    QHBoxLayout *hlay = new QHBoxLayout;
-    hlay->addWidget( new QLabel(i18n("Level:"),this) );
-    // scrollbar
-    scrl = new QScrollBar( Qt::Horizontal );
-    scrl->setRange(1, nlevels);
-    scrl->setSingleStep(1);
-    scrl->setPageStep(5);
-    scrl->setValue(1);
-    connect (scrl, SIGNAL (valueChanged (int)), SLOT (updateLevel (int)));
-
-    hlay->addWidget(scrl,1);
-
-    top->addLayout(hlay);
 
     // playfield
     m_playField = new PlayField(this);
@@ -176,7 +168,7 @@ GameWidget::GameWidget ( int startingLevel, QWidget *parent )
 
     highScore = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
 
-    updateLevel(startingLevel);
+    switchToLevel(startingLevel);
 }
 
 GameWidget::~GameWidget()
@@ -203,7 +195,7 @@ void GameWidget::loadGame()
     KConfigGroup gr = config.group("Savegame");
     int l = gr.readEntry( "Level", 1 );
     m_level = l;
-    updateLevel(m_level);
+    switchToLevel(m_level);
     m_playField->loadGame( gr );
 }
 
@@ -217,6 +209,26 @@ void GameWidget::showHighscores ()
 int GameWidget::currentHighScore() const
 {
     return highScore->highScore();
+}
+
+void GameWidget::prevLevel()
+{
+    if ( m_level == 1 )
+        return;
+    m_level--;
+    switchToLevel(m_level);
+}
+
+void GameWidget::nextLevel()
+{
+    if ( !m_allowAnyLevelSwitch && m_level >= Preferences::maxAccessibleLevel() )
+    {
+        KMessageBox::information(this, i18n("You must solve level %1 before advancing to the next one!",
+                                            Preferences::maxAccessibleLevel()), i18n("Warning"));
+        return;
+    }
+    m_level++;
+    switchToLevel(m_level);
 }
 
 #include "gamewidget.moc"

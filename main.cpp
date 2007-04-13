@@ -33,6 +33,10 @@ static const char description[] =
 
 static const char version[] = "2.1";
 
+static const KCmdLineOptions options[] =
+{
+    { "hackmode",  I18N_NOOP( "Enable access to all levels" ),  0 }
+};
 
 // ##########################
 // #	Main                #
@@ -54,8 +58,8 @@ int main(int argc, char **argv)
   aboutData.addCredit("Johann Ollivier Lapeyre", I18N_NOOP("New great SVG artwork for KDE4"), "johann.ollivierlapeyre@gmail.com");
 
   KCmdLineArgs::init( argc, argv, &aboutData );
+  KCmdLineArgs::addCmdLineOptions( options );
 
-  QApplication::setColorSpec(QApplication::ManyColor);
   KApplication a;
   KGlobal::locale()->insertCatalog("libkdegames");
 
@@ -63,6 +67,9 @@ int main(int argc, char **argv)
         RESTORE(AtomTopLevel)
   else {
       AtomTopLevel *top = new AtomTopLevel;
+      KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+      if ( args->isSet( "hackmode" ) )
+          top->enableHackMode();
       top->show();
   }
   return a.exec();

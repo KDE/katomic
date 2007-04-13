@@ -40,26 +40,31 @@ class AtomTopLevel : public KMainWindow
     Q_OBJECT
 
 public:
-   AtomTopLevel();
-  ~AtomTopLevel();
-
+    AtomTopLevel();
+    ~AtomTopLevel();
+    /**
+     * If called, katomic will allow user to switch to any
+     * level even if he didn't solved it yet.
+     * May enable some other "hacks" in future (if any will emerge)
+     */
+    void enableHackMode();
 private slots:
     void slotAnimSpeedChanged(int);
     void updateStatusBar(int level, int score, int highscore);
 private:
-  virtual bool queryClose(); // reimp
+    virtual bool queryClose(); // reimp
 
-  // Creates the menubar and connects the menu-entries to the
-  // appropriate functions
-  void createMenu();
+    // Creates the menubar and connects the menu-entries to the
+    // appropriate functions
+    void createMenu();
 
-  // Get the configuration from the config-file.
-  void loadSettings();
+    // Get the configuration from the config-file.
+    void loadSettings();
 
-  GameWidget *m_gameWid;
+    GameWidget *m_gameWid;
 
-  QAction *m_redoAct, *m_undoAct;
-  KSelectAction* m_animSpeedAct;
+    QAction *m_redoAct, *m_undoAct;
+    KSelectAction* m_animSpeedAct;
 };
 
 #endif

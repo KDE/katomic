@@ -18,5 +18,9 @@
         <label>Last Played Level</label>
         <default>1</default>
     </entry>
+    <entry name="MaxAccessibleLevel" type="Int">
+        <label>Maximum level number that player allowed to play on</label>
+        <default>1</default>
+    </entry>
   </group>
 </kcfg>

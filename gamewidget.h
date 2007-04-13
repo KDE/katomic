@@ -38,6 +38,8 @@ public:
     ~GameWidget();
     void setAnimationSpeed(int);
 
+    void enableSwitchToAnyLevel() { m_allowAnyLevelSwitch = true; }
+
     int currentLevel() const { return m_level; }
     int currentScore() const { return m_moves; }
     int currentHighScore() const;
@@ -46,8 +48,8 @@ signals:
     void enableUndo(bool enable);
     void statsChanged(int level,int score,int highscore);
 public slots:
-    // bringt level auf neuesten stand
-    void updateLevel (int);
+    void prevLevel();
+    void nextLevel();
 
     void saveGame();
     void loadGame();
@@ -73,15 +75,19 @@ public slots:
     void doRedo ();
     void undoAll();
     void redoAll();
- protected:
+private:
+    void switchToLevel (int);
+    /**
+     * If on, katomic will allow user to switch to any
+     * level even if she didn't solved it yet.
+     */
+    bool m_allowAnyLevelSwitch;
+
     PlayFieldView *m_view;
     PlayField *m_playField;
-    
+
     int m_level;
     int m_moves;
-
-    // scorllbar zur levelwahl
-    QScrollBar *scrl;
 
     KScoreDialog *highScore;
 };
