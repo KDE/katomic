@@ -20,14 +20,14 @@
  * Boston, MA 02110-1301, USA.
  *
  ********************************************************************/
+#include "katomicrenderer.h"
+#include "atom.h"
+
 #include <ksvgrenderer.h>
 #include <kdebug.h>
 #include <QPixmap>
 #include <QPixmapCache>
 #include <QPainter>
-
-#include "katomicrenderer.h"
-#include "atom.h"
 
 KAtomicRenderer::KAtomicRenderer( const QString& pathToSvg )
 {

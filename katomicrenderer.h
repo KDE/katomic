@@ -24,9 +24,11 @@
 #define KATOMIC_RENDERER_H
 
 #include <QHash>
+#include <QSize>
 
 class atom;
 class KSvgRenderer;
+class QPixmap;
 
 /**
  *  Class for rendering elements of game SVG to QPixmap
