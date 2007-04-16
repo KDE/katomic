@@ -35,7 +35,8 @@ static const char version[] = "2.1";
 
 static const KCmdLineOptions options[] =
 {
-    { "hackmode",  I18N_NOOP( "Enable access to all levels" ),  0 }
+    { "hackmode",  I18N_NOOP( "Enable access to all levels" ),  0 },
+    KCmdLineLastOption
 };
 
 // ##########################
