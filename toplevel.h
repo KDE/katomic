@@ -25,7 +25,7 @@ class GameWidget;
 class KSelectAction;
 class QAction;
 
-#include <kmainwindow.h>
+#include <kxmlguiwindow.h>
 
 /**
  * This is the class AtomTopLevel. The class is used only for the program
@@ -35,7 +35,7 @@ class QAction;
  * @author Andreas Wüst
  */
 
-class AtomTopLevel : public KMainWindow
+class AtomTopLevel : public KXmlGuiWindow
 {
     Q_OBJECT
 
