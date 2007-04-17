@@ -30,7 +30,6 @@
 #define FIELD_SIZE 15
 
 class KConfigGroup;
-class KAtomicRenderer;
 class QResizeEvent;
 class Molecule;
 class AtomFieldItem;
@@ -176,10 +175,6 @@ private:
      *  Element (i.e. atom, wall, arrow) size
      */
     int m_elemSize;
-    /**
-     *  Renderer which is used to render elements from svg
-     */
-    KAtomicRenderer *m_renderer;
     /**
      *  List of atom QGraphicsItems
      */

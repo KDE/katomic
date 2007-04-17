@@ -142,8 +142,9 @@ private:
     void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 );
 
     int m_width;
+    int m_atomSize;
     int m_maxAtomSize;
-    MoleculeRenderer *m_molRenderer;
+    const Molecule* m_mol;
 };
 
 // FIXME dimsuz: if it'll stay - document it

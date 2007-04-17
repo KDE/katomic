@@ -63,9 +63,7 @@ PlayField::PlayField( QObject* parent )
     // this object will hold the current molecule
     m_mol = new Molecule();
 
-    m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz") );
-    m_renderer->setElementSize( m_elemSize );
-    m_renderer->restoreSavedBackground();
+    KAtomicRenderer::self()->restoreSavedBackground();
 
     m_atomTimeLine = new QTimeLine(300, this);
     connect(m_atomTimeLine, SIGNAL(frameChanged(int)), SLOT(atomAnimFrameChanged(int)) );
@@ -84,7 +82,6 @@ PlayField::PlayField( QObject* parent )
 
 PlayField::~PlayField()
 {
-    delete m_renderer;
     delete m_mol;
 }
 
@@ -149,7 +146,7 @@ void PlayField::updateFieldItems()
 {
     foreach( AtomFieldItem *item, m_atoms )
     {
-        item->setPixmap( m_renderer->renderAtom( m_mol->getAtom(item->atomNum()) ) );
+        item->setPixmap( KAtomicRenderer::self()->renderAtom( m_mol->getAtom(item->atomNum()), m_elemSize ) );
 
         // this may be true if resize happens during animation
         if( isAnimating() && m_selIdx != -1 && item == m_atoms.at(m_selIdx) )
@@ -159,16 +156,16 @@ void PlayField::updateFieldItems()
         item->show();
     }
 
-    m_upArrow->setPixmap( m_renderer->renderNonAtom('^') );
+    m_upArrow->setPixmap( KAtomicRenderer::self()->renderNonAtom('^', m_elemSize) );
     m_upArrow->setPos( toPixX(m_upArrow->fieldX()), toPixY(m_upArrow->fieldY()) );
 
-    m_downArrow->setPixmap( m_renderer->renderNonAtom('_') );
+    m_downArrow->setPixmap( KAtomicRenderer::self()->renderNonAtom('_', m_elemSize ) );
     m_downArrow->setPos( toPixX(m_downArrow->fieldX()), toPixY(m_downArrow->fieldY()) );
 
-    m_leftArrow->setPixmap( m_renderer->renderNonAtom('<') );
+    m_leftArrow->setPixmap( KAtomicRenderer::self()->renderNonAtom('<', m_elemSize ) );
     m_leftArrow->setPos( toPixX(m_leftArrow->fieldX()), toPixY(m_leftArrow->fieldY()) );
 
-    m_rightArrow->setPixmap( m_renderer->renderNonAtom('>') );
+    m_rightArrow->setPixmap( KAtomicRenderer::self()->renderNonAtom('>', m_elemSize ) );
     m_rightArrow->setPos( toPixX(m_rightArrow->fieldX()), toPixY(m_rightArrow->fieldY()) );
 }
 
@@ -176,7 +173,6 @@ void PlayField::resize( int width, int height)
 {
     kDebug() << "resize:" << width << "," << height << endl;
     setSceneRect( 0, 0, width, height );
-    m_renderer->setBackgroundSize( QSize(width, height) );
 
     // we take 1/4 of width for displaying preview
     int previewWidth = width/4;
@@ -187,7 +183,6 @@ void PlayField::resize( int width, int height)
 
     int oldSize = m_elemSize;
     m_elemSize = qMin(width, height) / FIELD_SIZE;
-    m_renderer->setElementSize( m_elemSize );
     m_previewItem->setMaxAtomSize( m_elemSize );
 
     if(m_infoItem)
@@ -722,9 +717,9 @@ void PlayField::updateArrows(bool justHide)
 
 void PlayField::drawBackground( QPainter *p, const QRectF&)
 {
-    p->drawPixmap(0, 0, m_renderer->renderBackground());
+    p->drawPixmap(0, 0, KAtomicRenderer::self()->renderBackground( sceneRect().size().toSize() ));
 
-    QPixmap aPix = m_renderer->renderNonAtom('#');
+    QPixmap aPix = KAtomicRenderer::self()->renderNonAtom('#', m_elemSize);
     for (int i = 0; i < FIELD_SIZE; i++)
         for (int j = 0; j < FIELD_SIZE; j++)
             if (m_field[i][j])
@@ -825,7 +820,7 @@ void PlayField::setShowTrivia(bool enabled)
 
 void PlayField::saveLastBackground()
 {
-    m_renderer->saveBackground();
+    KAtomicRenderer::self()->saveBackground(sceneRect().size().toSize());
 }
 
 #include "playfield.moc"

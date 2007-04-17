@@ -36,54 +36,45 @@ class QPixmap;
 class KAtomicRenderer
 {
 public:
-    /**
-     *  Constructor.
-     *  @param pathToSvg path to svg containing atom, bonds etc pictures
-     */
-    explicit KAtomicRenderer( const QString& pathToSvg );
-    /**
-     *  Destructor
-     */
-    ~KAtomicRenderer();
-    /**
-     *  Sets rendered element size and invalidates element cache.
-     *  I.e. render* functions will return QPixmap of (size,size) dimentions
-     */
-    void setElementSize(int size);
-    /**
-     *  Sets Background size and invalidates background cache
-     */
-    void setBackgroundSize( const QSize& );
+    static KAtomicRenderer* self();
+
     /**
      *  Renders atom to pixmap.
      *  If setElementSize() wasn't called it assumes size of 30 px
-     *  Atom pixmaps are cached (setElementsSize() invalidates the cache)
+     *  Atom pixmaps are cached
      */
-    QPixmap renderAtom( const atom& ) const;
+    QPixmap renderAtom( const atom&, int size ) const;
     /**
      *  Renders non-atom elements (wall and arrows) to pixmap.
      *  @param element if == '#' will render a wall, if '<','>','^','_' will render
      *  arrow-left,arrow-right,arrow-up or arrow-down
-     *  Elements pixmaps are cached (setElementsSize() invalidates the cache)
+     *  Elements pixmaps are cached
      */
-    QPixmap renderNonAtom( char element ) const;
+    QPixmap renderNonAtom( char element, int size ) const;
     /**
      *  Renders backgound to QPixmap of size set by setBackgroundSize
-     *  Background pixmap is cached (setBackgroundSize() invalidates the cache)
+     *  Background pixmap is cached
      */
-    QPixmap renderBackground() const;
+    QPixmap renderBackground(const QSize& size) const;
     /**
      * Renders background from SVG and saves it to $appdata/savedBkgnd.png
      * Background can be restored (put to cache) later with restoreSavedBackground().
      * Used to speed up startup
      */
-    void saveBackground() const;
+    void saveBackground(const QSize&) const;
     /**
      * Reads pixmap which was saved by saveBackground() and puts it to cache.
      * If no pixmap is found - nothing is done
      */
     void restoreSavedBackground();
 private:
+    KAtomicRenderer();
+    ~KAtomicRenderer();
+
+    // disable copy - it's singleton
+    KAtomicRenderer( const KAtomicRenderer& );
+    KAtomicRenderer& operator=( const KAtomicRenderer& );
+
     /**
      * Creates hashes for translating atom and bond signatures found in
      * level files to corresponding SVG-element names
@@ -92,14 +83,11 @@ private:
     /**
      *  Renders this atom pixmaps and puts them in cache in case they arent there yet
      */
-    void ensureAtomIsInCache(const atom&) const;
+    void ensureAtomIsInCache(const atom&, int size) const;
 
     KSvgRenderer *m_renderer;
     QHash<char, QString> m_names; // cryptic_char -> elemName
     QHash<char, QString> m_bondNames; // cryptic_char -> bondName
-
-    int m_elemSize;
-    QSize m_bkgndSize;
 };
 
 #endif

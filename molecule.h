@@ -31,7 +31,6 @@
 #include "atom.h"
 
 class KConfig;
-class KAtomicRenderer;
 class KConfigGroup;
 
 #define MOLECULE_SIZE 15
@@ -81,27 +80,4 @@ private:
     int m_height;
 };
 
-/**
- *  Uses KAtomicRenderer to render molecules
- */
-class MoleculeRenderer
-{
-public:
-    MoleculeRenderer();
-    ~MoleculeRenderer();
-
-    void setMolecule( const Molecule* mol ) { m_mol = mol; }
-    void setAtomSize(int size);
-    /**
-     *  Renders molecule using painter.
-     *  Molecule will be centered around a point specified in parameter 'o'
-     */
-    void render( QPainter *painter, const QPoint& o ) const;
-
-    const Molecule* const molecule() const { return m_mol; }
-private:
-   KAtomicRenderer* m_renderer;
-   int m_atomSize;
-   const Molecule* m_mol;
-};
 #endif // MOLECULE_H

@@ -1,6 +1,6 @@
 /*******************************************************************
  *
- * Copyright (C) Andreas Wüst <AndreasWuest@gmx.de>
+ * Copyright (C) Andreas Wuest <AndreasWuest@gmx.de>
  * Copyright (C) Stephan Kulow <coolo@kde.org>
  * Copyright (C) 2006 Dmitry Suzdalev <dimsuz@gmail.com>
  *
@@ -22,13 +22,6 @@
  * Boston, MA 02110-1301, USA.
  *
  ********************************************************************/
-// bemerkungen : wenn paintEvent aufgerufen wird, wird das komplette
-//               widget gelöscht und nur die sachen gezeichnet, die in
-//               paintEvent stehen ! sollen dinge z.b nur bei maustasten-
-//               druck gezeichnet werden, so muß dies in mousePressEvent
-//               stehen !
-//               paintEvent wird aufgerufen, falls fenster überdeckt wird,
-//               oder auch einfach bewegt wird
 
 #include "molecule.h"
 
@@ -99,7 +92,7 @@ void Molecule::load (const KConfigGroup& config)
         {
             if (i >= line.size())
                 molek[i][j] = 0;
-            else 
+            else
             {
                 molek[i][j] = atom2int(line.at(i).toLatin1());
 		m_weight += getAtom(molek[i][j]).weight();
@@ -114,52 +107,4 @@ void Molecule::load (const KConfigGroup& config)
     m_width = max_i+1;
 
     mname = i18n(config.readEntry("Name", I18N_NOOP("Noname")).toLatin1());
-}
-
-MoleculeRenderer::MoleculeRenderer()
-    : m_mol(0)
-{
-    m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz") );
-    setAtomSize(20);
-}
-
-MoleculeRenderer::~MoleculeRenderer ()
-{
-    delete m_renderer;
-}
-
-void MoleculeRenderer::setAtomSize( int size )
-{
-    m_atomSize = size;
-    m_renderer->setElementSize( size );
-}
-
-void MoleculeRenderer::render( QPainter *painter, const QPoint& o) const
-{
-    /* 
-    QString   st = i18n("Level: %1", level);
-
-    // Paint the name and level of the molecule at the bottom of the widget.
-    painter->setPen (QColor (190, 190, 190));
-    painter->drawText (7, height() - 36, mname);
-    painter->drawText (7, height() - 18, st);
-     */
-
-    int originX = o.x() - m_atomSize*m_mol->width()/2;
-    int originY = o.y() - m_atomSize*m_mol->height()/2;
-
-    // Paint the playing field 
-    for (int i = 0; i < MOLECULE_SIZE; i++)
-        for (int j = 0; j < MOLECULE_SIZE; j++)
-        {
-            int x = originX + i * m_atomSize;
-            int y = originY + j * m_atomSize;
-
-            if (m_mol->getAtom(i,j) == 0)
-                continue;
-
-            int atomIdx = m_mol->getAtom(i,j);
-            QPixmap aPix = m_renderer->renderAtom(m_mol->getAtom(atomIdx));
-            painter->drawPixmap(x, y, aPix);
-        }
 }

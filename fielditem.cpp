@@ -36,6 +36,7 @@
 #include <kdebug.h>
 #include <klocale.h>
 #include "molecule.h"
+#include "katomicrenderer.h"
 #include "playfield.h"
 
 ArrowFieldItem::ArrowFieldItem( QGraphicsScene* scene )
@@ -80,19 +81,18 @@ QVariant ArrowFieldItem::itemChange( GraphicsItemChange change, const QVariant& 
 // ----------------- MoleculePreviewItem ----------------------------
 
 MoleculePreviewItem::MoleculePreviewItem( PlayField* scene )
-    : QGraphicsItem( 0, scene ), m_width(0), m_maxAtomSize(30)
+    : QGraphicsItem( 0, scene ), m_width(0),
+      m_atomSize(20), m_maxAtomSize(30), m_mol( 0 )
 {
-    m_molRenderer = new MoleculeRenderer();
 }
 
 MoleculePreviewItem::~MoleculePreviewItem()
 {
-    delete m_molRenderer;
 }
 
 void MoleculePreviewItem::setMolecule( const Molecule* mol )
 {
-    m_molRenderer->setMolecule(mol);
+    m_mol = mol;
     setWidth( m_width ); // trigger atom size update
 }
 
@@ -106,10 +106,10 @@ void MoleculePreviewItem::setWidth(int width)
 {
     m_width = width;
 
-    int w = m_molRenderer->molecule()->width();
-    int h = m_molRenderer->molecule()->height();
+    int w = m_mol->width();
+    int h = m_mol->height();
     int atomSize = width / qMax(w,h);
-    m_molRenderer->setAtomSize( qMin(atomSize, m_maxAtomSize) );
+    m_atomSize = qMin(atomSize, m_maxAtomSize);
     update();
 }
 
@@ -119,7 +119,24 @@ void MoleculePreviewItem::paint( QPainter * painter, const QStyleOptionGraphicsI
     painter->setOpacity(0.5);
     painter->drawRect(boundingRect());
     painter->setOpacity(1.0);
-    m_molRenderer->render(painter, QPoint(m_width/2, m_width/2) );
+
+    int originX = m_width/2 - m_atomSize*m_mol->width()/2;
+    int originY = m_width/2 - m_atomSize*m_mol->height()/2;
+
+    // Paint the playing field
+    for (int i = 0; i < MOLECULE_SIZE; i++)
+        for (int j = 0; j < MOLECULE_SIZE; j++)
+        {
+            int x = originX + i * m_atomSize;
+            int y = originY + j * m_atomSize;
+
+            if (m_mol->getAtom(i,j) == 0)
+                continue;
+
+            int atomIdx = m_mol->getAtom(i,j);
+            QPixmap aPix = KAtomicRenderer::self()->renderAtom(m_mol->getAtom(atomIdx), m_atomSize);
+            painter->drawPixmap(x, y, aPix);
+        }
 }
 
 // ----------------- MoleculeInfoItem ----------------------------
