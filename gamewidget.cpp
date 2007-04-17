@@ -96,9 +96,7 @@ void GameWidget::gameOver(int moves) {
     highScore->setCaption(i18n("Level %1 Highscores", m_level));
     highScore->setConfigGroup(QString("Highscores Level %1").arg(m_level));
 
-    KScoreDialog::FieldInfo scoreInfo;
-
-    if (highScore->addScore(moves, scoreInfo, KScoreDialog::AskName | KScoreDialog::LessIsMore))
+    if (highScore->addScore(moves, KScoreDialog::AskName | KScoreDialog::LessIsMore))
         highScore->exec();
 
     emit statsChanged(m_level, moves, highScore->highScore());
