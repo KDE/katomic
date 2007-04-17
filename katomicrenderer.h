@@ -72,6 +72,17 @@ public:
      *  Background pixmap is cached (setBackgroundSize() invalidates the cache)
      */
     QPixmap renderBackground();
+    /**
+     * Renders background from SVG and saves it to $appdata/savedBkgnd.png
+     * Background can be restored (put to cache) later with restoreSavedBackground().
+     * Used to speed up startup
+     */
+    void saveBackground();
+    /**
+     * Reads pixmap which was saved by saveBackground() and puts it to cache.
+     * If no pixmap is found - nothing is done
+     */
+    void restoreSavedBackground();
 private:
     /**
      * Creates hashes for translating atom and bond signatures found in

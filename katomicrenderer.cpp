@@ -23,8 +23,10 @@
 #include "katomicrenderer.h"
 #include "atom.h"
 
-#include <ksvgrenderer.h>
-#include <kdebug.h>
+#include <KSvgRenderer>
+#include <KDebug>
+#include <KStandardDirs>
+
 #include <QPixmap>
 #include <QPixmapCache>
 #include <QPainter>
@@ -35,6 +37,7 @@ KAtomicRenderer::KAtomicRenderer( const QString& pathToSvg )
     m_renderer = new KSvgRenderer( pathToSvg );
     fillNameHashes();
     setElementSize(30);
+
 }
 
 KAtomicRenderer::~KAtomicRenderer()
@@ -153,15 +156,12 @@ QPixmap KAtomicRenderer::renderBackground()
     QPixmap bkgnd;
     if( !QPixmapCache::find(cacheName, bkgnd)  )
     {
-//        kDebug() << "putting to cache: " << cacheName << endl;
         bkgnd = QPixmap(m_bkgndSize);
         QPainter p(&bkgnd);
         m_renderer->render(&p, "background");
 
         QPixmapCache::insert( cacheName, bkgnd );
     }
-//     else
-//         kDebug() << "found in cache: " << cacheName << endl;
     return bkgnd;
 }
 
@@ -199,4 +199,26 @@ void KAtomicRenderer::ensureAtomIsInCache(const atom& at)
             QPixmapCache::insert(cacheName, bondPix);
         }
     }
+}
+
+void KAtomicRenderer::saveBackground()
+{
+    QPixmap bkgnd = renderBackground();
+    bkgnd.save( KStandardDirs::locateLocal( "appdata", "savedBkgnd.png" ) );
+}
+
+void KAtomicRenderer::restoreSavedBackground()
+{
+    // put last saved background (if any) to cache immediately :-)
+    QString fname = KStandardDirs::locate( "appdata", "savedBkgnd.png" );
+    if ( !fname.isEmpty() )
+    {
+        QPixmap pix( fname );
+        QString cacheName = QString("bkgnd_%1_%2").arg(pix.width()).arg(pix.height());
+        kDebug() << "inserting " << cacheName << endl;
+        QPixmapCache::insert( cacheName, pix );
+    }
+    else
+        kDebug() << "no last saved pixmap found" << endl;
+
 }

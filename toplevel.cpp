@@ -35,6 +35,7 @@
 #include <kstatusbar.h>
 
 #include "gamewidget.h"
+#include "playfield.h"
 #include "prefs.h"
 
 AtomTopLevel::AtomTopLevel()
@@ -66,6 +67,7 @@ bool AtomTopLevel::queryClose()
 {
     Preferences::setLastPlayedLevel(m_gameWid->currentLevel());
     Preferences::writeConfig();
+    m_gameWid->playfield()->saveLastBackground();
     return true;
 }
 

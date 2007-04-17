@@ -108,10 +108,15 @@ public:
      */
     bool isLevelFinished() const { return m_levelFinished; }
     /**
-     *  Shows or hides various interesting additional 
+     *  Shows or hides various interesting additional
      *  information about current molecule
      */
     void setShowTrivia(bool enable);
+    /**
+     * Saves current background to png file to quickly restore it
+     * at startup. Should be called when katomic is about to quit
+     */
+    void saveLastBackground();
 private slots:
     void atomAnimFrameChanged(int frame);
     void infoItemAnimFrameChanged(int frame);
@@ -126,6 +131,7 @@ signals:
 private:
     virtual void drawBackground( QPainter*, const QRectF& );
     virtual void mousePressEvent( QGraphicsSceneMouseEvent* ev );
+
     /**
      *  Checks if molecule is finished
      */

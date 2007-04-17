@@ -40,6 +40,10 @@ public:
 
     void enableSwitchToAnyLevel() { m_allowAnyLevelSwitch = true; }
 
+    // TODO: remove most of wrapper functions (signals,slots) and
+    // by using this function in toplevel.cpp do connects directly to playfield
+    PlayField* playfield() { return m_playField; }
+
     int currentLevel() const { return m_level; }
     int currentScore() const { return m_moves; }
     int currentHighScore() const;

@@ -56,7 +56,7 @@ void PlayFieldView::resizeEvent( QResizeEvent* ev )
 // =============== Play Field ========================
 
 PlayField::PlayField( QObject* parent )
-    : QGraphicsScene(parent), m_mol(0), m_numMoves(0), 
+    : QGraphicsScene(parent), m_mol(0), m_numMoves(0),
     m_elemSize(MIN_ELEM_SIZE), m_selIdx(-1), m_animSpeed(120),
     m_levelFinished(false), m_infoItem(0)
 {
@@ -65,6 +65,7 @@ PlayField::PlayField( QObject* parent )
 
     m_renderer = new KAtomicRenderer( KStandardDirs::locate("appdata", "pics/default_theme.svgz") );
     m_renderer->setElementSize( m_elemSize );
+    m_renderer->restoreSavedBackground();
 
     m_atomTimeLine = new QTimeLine(300, this);
     connect(m_atomTimeLine, SIGNAL(frameChanged(int)), SLOT(atomAnimFrameChanged(int)) );
@@ -264,7 +265,7 @@ void PlayField::nextAtom()
                 updateArrows();
                 // if this atom can't move, we won't return - we'll search further
                 // until we found moveable one
-                if( m_upArrow->isVisible() || m_rightArrow->isVisible() 
+                if( m_upArrow->isVisible() || m_rightArrow->isVisible()
                         || m_downArrow->isVisible() || m_leftArrow->isVisible() )
                     return;
             }
@@ -304,7 +305,7 @@ void PlayField::previousAtom()
                 updateArrows();
                 // if this atom can't move, we won't return - we'll search further
                 // until we found moveable one
-                if( m_upArrow->isVisible() || m_rightArrow->isVisible() 
+                if( m_upArrow->isVisible() || m_rightArrow->isVisible()
                         || m_downArrow->isVisible() || m_leftArrow->isVisible() )
                     return;
             }
@@ -611,7 +612,7 @@ void PlayField::infoItemAnimFrameChanged(int frame)
     m_infoItem->setSize(frame, frame);
     m_infoItem->setPos( fieldCenterX()-frame/2, fieldCenterY()-frame/2 );
 
-    if(frame == m_infoTimeLine->startFrame() 
+    if(frame == m_infoTimeLine->startFrame()
             && m_infoTimeLine->direction() == QTimeLine::Backward)
         m_infoItem->hide();
 
@@ -734,12 +735,12 @@ void PlayField::saveGame( KConfigGroup& config ) const
     // REMEMBER: while saving use atom indexes within m_atoms, not atom's atomNum()'s.
     // atomNum()'s arent unique, there can be several atoms
     // in molecule which represent same atomNum
-    
+
     for(int idx=0; idx<m_atoms.count(); ++idx)
     {
         // we'll write pos through using QPoint
         // I'd use QPair but it isn't supported by QVariant
-        QPoint pos(m_atoms.at(idx)->fieldX(), m_atoms.at(idx)->fieldY()); 
+        QPoint pos(m_atoms.at(idx)->fieldX(), m_atoms.at(idx)->fieldY());
         config.writeEntry( QString("Atom_%1").arg(idx), pos);
     }
 
@@ -763,7 +764,7 @@ void PlayField::loadGame( const KConfigGroup& config )
 {
     // it is assumed that this method is called right after loadLevel() so
     // level itself is already loaded at this point
-    
+
     // read atom positions
     for(int idx=0; idx<m_atoms.count(); ++idx)
     {
@@ -814,6 +815,11 @@ void PlayField::setShowTrivia(bool enabled)
     m_infoTimeLine->setFrameRange( MIN_INFO_SIZE, maxSize );
     m_infoTimeLine->setDirection(enabled ? QTimeLine::Forward : QTimeLine::Backward );
     m_infoTimeLine->start();
+}
+
+void PlayField::saveLastBackground()
+{
+    m_renderer->saveBackground();
 }
 
 #include "playfield.moc"
