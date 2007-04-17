@@ -112,32 +112,32 @@ void AtomTopLevel::createMenu()
     QAction *undoAll = actionCollection()->addAction( "undo_all" );
     undoAll->setIcon( KIcon("media-skip-backward") );
     undoAll->setText( i18n("Undo All") );
-    connect( undoAll, SIGNAL(triggered(bool)), m_gameWid, SLOT(undoAll()) );
+    connect( undoAll, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(undoAll()) );
 
     QAction *redoAll = actionCollection()->addAction( "redo_all" );
     redoAll->setIcon( KIcon("media-skip-forward") );
     redoAll->setText( i18n("Redo All") );
-    connect( redoAll, SIGNAL(triggered(bool)), m_gameWid, SLOT(redoAll()) );
+    connect( redoAll, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(redoAll()) );
 
     m_undoAct = actionCollection()->addAction( "undo" );
     m_undoAct->setIcon( KIcon("edit-undo") );
     m_undoAct->setText( i18n("Undo") );
-    connect( m_undoAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(doUndo()) );
+    connect( m_undoAct, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(undo()) );
 
     m_redoAct = actionCollection()->addAction( "redo" );
     m_redoAct->setIcon( KIcon("edit-redo") );
     m_redoAct->setText( i18n("Redo") );
-    connect( m_redoAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(doRedo()) );
+    connect( m_redoAct, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(redo()) );
 
     m_undoAct->setEnabled(false);
     m_redoAct->setEnabled(false);
     undoAll->setEnabled(false);
     redoAll->setEnabled(false);
 
-    connect (m_gameWid, SIGNAL (enableRedo(bool)), m_redoAct, SLOT(setEnabled(bool)));
-    connect (m_gameWid, SIGNAL (enableUndo(bool)), m_undoAct, SLOT(setEnabled(bool)));
-    connect (m_gameWid, SIGNAL (enableUndo(bool)), undoAll, SLOT(setEnabled(bool)));
-    connect (m_gameWid, SIGNAL (enableRedo(bool)), redoAll, SLOT(setEnabled(bool)));
+    connect (m_gameWid->playfield(), SIGNAL (enableRedo(bool)), m_redoAct, SLOT(setEnabled(bool)));
+    connect (m_gameWid->playfield(), SIGNAL (enableUndo(bool)), m_undoAct, SLOT(setEnabled(bool)));
+    connect (m_gameWid->playfield(), SIGNAL (enableUndo(bool)), undoAll, SLOT(setEnabled(bool)));
+    connect (m_gameWid->playfield(), SIGNAL (enableRedo(bool)), redoAll, SLOT(setEnabled(bool)));
 
     QAction* atomUpAct = actionCollection()->addAction("atom_up");
     atomUpAct->setText(i18n("Atom Up"));
@@ -167,24 +167,24 @@ void AtomTopLevel::createMenu()
     nextAtomAct->setText(i18n("Next Atom"));
     nextAtomAct->setShortcut(Qt::Key_Tab);
     addAction(nextAtomAct);
-    connect(nextAtomAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(nextAtom()));
+    connect(nextAtomAct, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(nextAtom()));
 
     QAction* prevAtomAct = actionCollection()->addAction("prev_atom");
     prevAtomAct->setText(i18n("Previous Atom"));
     prevAtomAct->setShortcut(Qt::SHIFT+Qt::Key_Tab);
     addAction(prevAtomAct);
-    connect(prevAtomAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(previousAtom()));
+    connect(prevAtomAct, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(previousAtom()));
 }
 
 void AtomTopLevel::loadSettings()
 {
     m_animSpeedAct->setCurrentItem( Preferences::animationSpeed() );
-    m_gameWid->setAnimationSpeed( Preferences::animationSpeed() );
+    m_gameWid->playfield()->setAnimationSpeed( Preferences::animationSpeed() );
 }
 
 void AtomTopLevel::slotAnimSpeedChanged(int speed)
 {
-    m_gameWid->setAnimationSpeed(speed);
+    m_gameWid->playfield()->setAnimationSpeed(speed);
     Preferences::setAnimationSpeed(speed);
     Preferences::writeConfig();
 }

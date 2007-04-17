@@ -36,20 +36,15 @@ class GameWidget : public QWidget
 public:
     GameWidget ( int startingLevel, QWidget *parent );
     ~GameWidget();
-    void setAnimationSpeed(int);
 
     void enableSwitchToAnyLevel() { m_allowAnyLevelSwitch = true; }
 
-    // TODO: remove most of wrapper functions (signals,slots) and
-    // by using this function in toplevel.cpp do connects directly to playfield
     PlayField* playfield() { return m_playField; }
 
     int currentLevel() const { return m_level; }
     int currentScore() const { return m_moves; }
     int currentHighScore() const;
 signals:
-    void enableRedo(bool enable);
-    void enableUndo(bool enable);
     void statsChanged(int level,int score,int highscore);
 public slots:
     void prevLevel();
@@ -73,12 +68,6 @@ public slots:
     void moveDown();
     void moveLeft();
     void moveRight();
-    void nextAtom();
-    void previousAtom();
-    void doUndo ();
-    void doRedo ();
-    void undoAll();
-    void redoAll();
 private:
     void switchToLevel (int);
     /**

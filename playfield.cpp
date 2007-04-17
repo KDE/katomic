@@ -239,6 +239,9 @@ void PlayField::resize( int width, int height)
 
 void PlayField::nextAtom()
 {
+    if ( m_levelFinished )
+        return;
+
     if(m_selIdx == -1)
     {
         m_selIdx = 0;
@@ -279,6 +282,9 @@ void PlayField::nextAtom()
 
 void PlayField::previousAtom()
 {
+    if ( m_levelFinished )
+        return;
+
     if(m_selIdx == -1)
     {
         m_selIdx = 0;

@@ -59,25 +59,25 @@ public:
      *  If setElementSize() wasn't called it assumes size of 30 px
      *  Atom pixmaps are cached (setElementsSize() invalidates the cache)
      */
-    QPixmap renderAtom( const atom& );
+    QPixmap renderAtom( const atom& ) const;
     /**
      *  Renders non-atom elements (wall and arrows) to pixmap.
      *  @param element if == '#' will render a wall, if '<','>','^','_' will render
      *  arrow-left,arrow-right,arrow-up or arrow-down
      *  Elements pixmaps are cached (setElementsSize() invalidates the cache)
      */
-    QPixmap renderNonAtom( char element );
+    QPixmap renderNonAtom( char element ) const;
     /**
      *  Renders backgound to QPixmap of size set by setBackgroundSize
      *  Background pixmap is cached (setBackgroundSize() invalidates the cache)
      */
-    QPixmap renderBackground();
+    QPixmap renderBackground() const;
     /**
      * Renders background from SVG and saves it to $appdata/savedBkgnd.png
      * Background can be restored (put to cache) later with restoreSavedBackground().
      * Used to speed up startup
      */
-    void saveBackground();
+    void saveBackground() const;
     /**
      * Reads pixmap which was saved by saveBackground() and puts it to cache.
      * If no pixmap is found - nothing is done
@@ -92,7 +92,7 @@ private:
     /**
      *  Renders this atom pixmaps and puts them in cache in case they arent there yet
      */
-    void ensureAtomIsInCache(const atom&);
+    void ensureAtomIsInCache(const atom&) const;
 
     KSvgRenderer *m_renderer;
     QHash<char, QString> m_names; // cryptic_char -> elemName

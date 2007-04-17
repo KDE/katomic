@@ -98,7 +98,7 @@ void KAtomicRenderer::setBackgroundSize( const QSize& size )
     m_bkgndSize = size;
 }
 
-QPixmap KAtomicRenderer::renderAtom( const atom& at )
+QPixmap KAtomicRenderer::renderAtom( const atom& at ) const
 {
     if (!m_renderer->isValid()) return QPixmap();
 
@@ -128,7 +128,7 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at )
     return res;
 }
 
-QPixmap KAtomicRenderer::renderNonAtom( char element )
+QPixmap KAtomicRenderer::renderNonAtom( char element ) const
 {
     if (!m_renderer->isValid()) return QPixmap();
 
@@ -150,7 +150,7 @@ QPixmap KAtomicRenderer::renderNonAtom( char element )
     return pix;
 }
 
-QPixmap KAtomicRenderer::renderBackground()
+QPixmap KAtomicRenderer::renderBackground() const
 {
     QString cacheName = QString("bkgnd_%1_%2").arg(m_bkgndSize.width()).arg(m_bkgndSize.height());
     QPixmap bkgnd;
@@ -165,7 +165,7 @@ QPixmap KAtomicRenderer::renderBackground()
     return bkgnd;
 }
 
-void KAtomicRenderer::ensureAtomIsInCache(const atom& at)
+void KAtomicRenderer::ensureAtomIsInCache(const atom& at) const
 {
     QImage baseImg;
     QString cacheName = QString("atom_%1_%2").arg(at.obj).arg(m_elemSize);
@@ -201,7 +201,7 @@ void KAtomicRenderer::ensureAtomIsInCache(const atom& at)
     }
 }
 
-void KAtomicRenderer::saveBackground()
+void KAtomicRenderer::saveBackground() const
 {
     QPixmap bkgnd = renderBackground();
     bkgnd.save( KStandardDirs::locateLocal( "appdata", "savedBkgnd.png" ) );

@@ -36,6 +36,30 @@
 #include <kglobalsettings.h>
 #include <kfiledialog.h>
 
+GameWidget::GameWidget ( int startingLevel, QWidget *parent )
+    : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0)
+{
+    QVBoxLayout *top = new QVBoxLayout(this);
+    top->setMargin(10);
+
+    // playfield
+    m_playField = new PlayField(this);
+    m_view = new PlayFieldView(m_playField, this);
+    m_view->setCacheMode( QGraphicsView::CacheBackground );
+    top->addWidget(m_view, 1);
+
+    connect (m_playField, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
+    connect (m_playField, SIGNAL (updateMoves(int)), SLOT(updateMoves(int)));
+
+    highScore = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
+
+    switchToLevel(startingLevel);
+}
+
+GameWidget::~GameWidget()
+{
+}
+
 void GameWidget::moveUp()
 {
     if(!m_playField->isLevelFinished())
@@ -58,43 +82,6 @@ void GameWidget::moveRight()
 {
     if(!m_playField->isLevelFinished())
         m_playField->moveSelectedAtom( PlayField::Right );
-}
-
-void GameWidget::nextAtom()
-{
-    if(!m_playField->isLevelFinished())
-        m_playField->nextAtom();
-}
-
-void GameWidget::previousAtom()
-{
-    if(!m_playField->isLevelFinished())
-        m_playField->previousAtom();
-}
-
-void GameWidget::doUndo ()
-{
-    m_playField->undo();
-}
-
-void GameWidget::doRedo ()
-{
-    m_playField->redo();
-}
-
-void GameWidget::undoAll()
-{
-    m_playField->undoAll();
-}
-
-void GameWidget::redoAll()
-{
-    m_playField->redoAll();
-}
-
-void GameWidget::setAnimationSpeed(int speed)
-{
-    m_playField->setAnimationSpeed(speed);
 }
 
 void GameWidget::gameOver(int moves) {
@@ -159,32 +146,6 @@ void GameWidget::switchToLevel (int l)
 void GameWidget::restartLevel()
 {
     switchToLevel(m_level);
-}
-
-GameWidget::GameWidget ( int startingLevel, QWidget *parent )
-    : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0)
-{
-    QVBoxLayout *top = new QVBoxLayout(this);
-    top->setMargin(10);
-
-    // playfield
-    m_playField = new PlayField(this);
-    m_view = new PlayFieldView(m_playField, this);
-    m_view->setCacheMode( QGraphicsView::CacheBackground );
-    top->addWidget(m_view, 1);
-
-    connect (m_playField, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
-    connect (m_playField, SIGNAL (enableUndo(bool)), SIGNAL(enableUndo(bool)));
-    connect (m_playField, SIGNAL (enableRedo(bool)), SIGNAL(enableRedo(bool)));
-    connect (m_playField, SIGNAL (updateMoves(int)), SLOT(updateMoves(int)));
-
-    highScore = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
-
-    switchToLevel(startingLevel);
-}
-
-GameWidget::~GameWidget()
-{
 }
 
 void GameWidget::saveGame()

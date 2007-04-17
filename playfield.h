@@ -68,34 +68,11 @@ public:
      */
     void setAnimationSpeed(int speed);
     /**
-     *  Selects next atom
-     */
-    void nextAtom();
-    /**
-     *  Selects previous atom
-     */
-    void previousAtom();
-    /**
      *  Animates currently selected atom movement in direction dir
      *  @param numCells used on undos/redos
      */
     void moveSelectedAtom( Direction dir, int numCells=0 );
     /**
-     *  Undoes one movement
-     */
-    void undo();
-    /**
-     *  Redoes one movement
-     */
-    void redo();
-      /**
-     *  Undoes all movements
-     */
-    void undoAll();
-    /**
-     *  Redoes all movements
-     */
-    void redoAll();   /**
      *  Saves the current game to config object
      */
     void saveGame(KConfigGroup& config) const;
@@ -117,17 +94,39 @@ public:
      * at startup. Should be called when katomic is about to quit
      */
     void saveLastBackground();
-private slots:
-    void atomAnimFrameChanged(int frame);
-    void infoItemAnimFrameChanged(int frame);
+public slots:
+    /**
+     *  Selects next atom
+     */
+    void nextAtom();
+    /**
+     *  Selects previous atom
+     */
+    void previousAtom();
+    /**
+     *  Undoes one movement
+     */
+    void undo();
+    /**
+     *  Redoes one movement
+     */
+    void redo();
+      /**
+     *  Undoes all movements
+     */
+    void undoAll();
+    /**
+     *  Redoes all movements
+     */
+    void redoAll();
 signals:
     void gameOver(int numMoves);
-    // FIXME dimsuz: redesign this:
-    // Provide a single moveFinished() signal and a couple
-    // of getters like canUndo(), canRedo(), numMoves()
     void updateMoves(int);
     void enableUndo(bool);
     void enableRedo(bool);
+private slots:
+    void atomAnimFrameChanged(int frame);
+    void infoItemAnimFrameChanged(int frame);
 private:
     virtual void drawBackground( QPainter*, const QRectF& );
     virtual void mousePressEvent( QGraphicsSceneMouseEvent* ev );
