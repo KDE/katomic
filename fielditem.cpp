@@ -106,6 +106,8 @@ void MoleculePreviewItem::setWidth(int width)
 {
     m_width = width;
 
+    if(!m_mol)
+        return;
     int w = m_mol->width();
     int h = m_mol->height();
     int atomSize = width / qMax(w,h);
