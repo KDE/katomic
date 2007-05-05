@@ -46,6 +46,7 @@ PlayFieldView::PlayFieldView( PlayField* field, QWidget* parent )
     setMinimumSize( defaultFieldSize+defaultFieldSize/4, defaultFieldSize );
     setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
     setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
+    setFrameStyle( QFrame::NoFrame );
 }
 
 void PlayFieldView::resizeEvent( QResizeEvent* ev )

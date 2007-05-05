@@ -40,7 +40,7 @@ GameWidget::GameWidget ( int startingLevel, QWidget *parent )
     : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0)
 {
     QVBoxLayout *top = new QVBoxLayout(this);
-    top->setMargin(10);
+    top->setMargin(0);
 
     // playfield
     m_playField = new PlayField(this);
@@ -137,7 +137,6 @@ void GameWidget::switchToLevel (int l)
     m_view->update();
 
     highScore->setConfigGroup(QString("Highscores Level %1").arg(m_level));
-
     emit statsChanged(m_level, 0, highScore->highScore());
 }
 
