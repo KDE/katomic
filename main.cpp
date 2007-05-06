@@ -52,8 +52,8 @@ int main(int argc, char **argv)
   aboutData.addAuthor("Stephan Kulow", 0, "coolo@kde.org");
   aboutData.addAuthor("Cristian Tibirna", 0, "tibirna@kde.org");
   aboutData.addAuthor("Dmitry Suzdalev", I18N_NOOP("Porting to KDE4. Current maintainer"), "dimsuz@gmail.com");
-  aboutData.addCredit("Carsten Pfeiffer");
-  aboutData.addCredit("Dave Corrie");
+  aboutData.addCredit("Carsten Pfeiffer", 0, "pfeiffer@kde.org");
+  aboutData.addCredit("Dave Corrie", 0, "kde@davecorrie.com");
   aboutData.addCredit("Kai Jung", I18N_NOOP("6 new levels"), "jung@fh-fresenius.de");
   aboutData.addCredit("Danny Allen", I18N_NOOP("Game graphics and application icon"), "danny@dannyallen.co.uk");
   aboutData.addCredit("Johann Ollivier Lapeyre", I18N_NOOP("New great SVG artwork for KDE4"), "johann.ollivierlapeyre@gmail.com");
