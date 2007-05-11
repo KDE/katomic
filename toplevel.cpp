@@ -1,7 +1,8 @@
 /* toplevel.cpp
 
-  Copyright (C) 1998   Andreas Wüst (AndreasWuest@gmx.de)
+  Copyright (C) 1998   Andreas Wüst <AndreasWuest@gmx.de>
   Copyright (C) 2006   Dmitry Suzdalev <dimsuz@gmail.com>
+  Copyright (C) 2007   Simon Hürlimann <simon.huerlimann@huerlisi.ch>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -73,19 +74,21 @@ bool AtomTopLevel::queryClose()
 
 void AtomTopLevel::createMenu()
 {
+    // Game
+    KStandardGameAction::gameNew(m_gameWid, SLOT(restartLevel()), actionCollection());
+    KStandardGameAction::restart(m_gameWid, SLOT(restartLevel()), actionCollection());
+    KStandardGameAction::highscores(m_gameWid, SLOT(showHighscores()), actionCollection());
+    KStandardGameAction::load(m_gameWid, SLOT(loadGame()), actionCollection());
+    KStandardGameAction::save(m_gameWid, SLOT(saveGame()), actionCollection());
+    KStandardGameAction::quit(this, SLOT(close()), actionCollection());
+  
+    // Move
+    m_undoAct = KStandardGameAction::undo(m_gameWid->playfield(), SLOT(undo()), actionCollection());
+    m_redoAct = KStandardGameAction::redo(m_gameWid->playfield(), SLOT(redo()), actionCollection());
+  
+    
     QAction *act;
-
-    act = KStandardGameAction::highscores(m_gameWid, SLOT(showHighscores()), this);
-    actionCollection()->addAction( act->objectName(), act );
-    act = KStandardGameAction::load( m_gameWid, SLOT(loadGame()), this );
-    actionCollection()->addAction( act->objectName(), act );
-    act = KStandardGameAction::save( m_gameWid, SLOT(saveGame()), this );
-    actionCollection()->addAction( act->objectName(), act );
-    act = KStandardGameAction::quit(this, SLOT(close()), this);
-    actionCollection()->addAction( act->objectName(), act );
-    act = KStandardGameAction::restart(m_gameWid, SLOT(restartLevel()), this);
-    actionCollection()->addAction( act->objectName(), act );
-
+    
     // TODO: gray out corresponding actions if we are at first or at last level
     act = actionCollection()->addAction( "prev_level" );
     act->setIcon( KIcon( "arrow-left" ) );
@@ -118,16 +121,6 @@ void AtomTopLevel::createMenu()
     redoAll->setIcon( KIcon("media-skip-forward") );
     redoAll->setText( i18n("Redo All") );
     connect( redoAll, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(redoAll()) );
-
-    m_undoAct = actionCollection()->addAction( "undo" );
-    m_undoAct->setIcon( KIcon("edit-undo") );
-    m_undoAct->setText( i18n("Undo") );
-    connect( m_undoAct, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(undo()) );
-
-    m_redoAct = actionCollection()->addAction( "redo" );
-    m_redoAct->setIcon( KIcon("edit-redo") );
-    m_redoAct->setText( i18n("Redo") );
-    connect( m_redoAct, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(redo()) );
 
     m_undoAct->setEnabled(false);
     m_redoAct->setEnabled(false);
