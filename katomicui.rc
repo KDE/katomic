@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<gui name="katomic" version="9">
+<gui name="katomic" version="10">
 
 <MenuBar>
   <Menu name="game">
@@ -16,6 +16,8 @@
 </MenuBar>
 
 <ToolBar name="mainToolBar"><text>Main Toolbar</text>
+  <Action name="game_new" />
+  <Separator />
   <Action name="prev_level" />
   <Action name="next_level" />
   <Separator />
