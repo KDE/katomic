@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<gui name="katomic" version="10">
+<gui name="katomic" version="11">
 
 <MenuBar>
   <Menu name="game">
@@ -10,8 +10,8 @@
     <Action name="anim_speed" />
   </Menu>
   <Menu name="move">
-    <Action name="undo_all" />
-    <Action name="redo_all" />
+    <Action name="move_undo_all" />
+    <Action name="move_redo_all" />
   </Menu>
 </MenuBar>
 
@@ -21,10 +21,10 @@
   <Action name="prev_level" />
   <Action name="next_level" />
   <Separator />
-  <Action name="undo_all" />
+  <Action name="move_undo_all" />
   <Action name="move_undo" />
   <Action name="move_redo" />
-  <Action name="redo_all" />
+  <Action name="move_redo_all" />
 </ToolBar>
 
 </gui>

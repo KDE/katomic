@@ -112,12 +112,12 @@ void AtomTopLevel::createMenu()
     m_animSpeedAct->setItems(acts);
     connect( m_animSpeedAct, SIGNAL(triggered(int)), SLOT(slotAnimSpeedChanged(int)) );
 
-    QAction *undoAll = actionCollection()->addAction( "undo_all" );
+    QAction *undoAll = actionCollection()->addAction( "move_undo_all" );
     undoAll->setIcon( KIcon("media-skip-backward") );
     undoAll->setText( i18n("Undo All") );
     connect( undoAll, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(undoAll()) );
 
-    QAction *redoAll = actionCollection()->addAction( "redo_all" );
+    QAction *redoAll = actionCollection()->addAction( "move_redo_all" );
     redoAll->setIcon( KIcon("media-skip-forward") );
     redoAll->setText( i18n("Redo All") );
     connect( redoAll, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(redoAll()) );
