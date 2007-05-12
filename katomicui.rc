@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="katomic" version="8">
+<gui name="katomic" version="9">
 
 <MenuBar>
   <Menu name="game">
@@ -25,4 +25,4 @@
   <Action name="redo_all" />
 </ToolBar>
 
-</kpartgui>
+</gui>
