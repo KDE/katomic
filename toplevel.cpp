@@ -191,7 +191,7 @@ void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
         str = "-";
     else
         str.setNum(highscore);
-    statusBar()->changeItem( i18n("Highscore: ")+str, 2 );
+    statusBar()->changeItem( i18n("Highscore: %1", str), 2 );
 }
 
 void AtomTopLevel::enableHackMode()
