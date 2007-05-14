@@ -1,4 +1,5 @@
-<!DOCTYPE kpartgui>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
 <gui name="katomic" version="11">
 
 <MenuBar>
