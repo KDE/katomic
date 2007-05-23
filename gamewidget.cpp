@@ -90,7 +90,7 @@ void GameWidget::gameOver(int moves) {
     if ( !m_allowAnyLevelSwitch )
     {
         Preferences::setMaxAccessibleLevel( m_level+1 );
-        Preferences::writeConfig();
+        Preferences::self()->writeConfig();
     }
 
     highScore->setCaption(i18n("Level %1 Highscores", m_level));

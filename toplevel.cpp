@@ -67,7 +67,7 @@ AtomTopLevel::~AtomTopLevel()
 bool AtomTopLevel::queryClose()
 {
     Preferences::setLastPlayedLevel(m_gameWid->currentLevel());
-    Preferences::writeConfig();
+    Preferences::self()->writeConfig();
     m_gameWid->playfield()->saveLastBackground();
     return true;
 }
@@ -179,7 +179,7 @@ void AtomTopLevel::slotAnimSpeedChanged(int speed)
 {
     m_gameWid->playfield()->setAnimationSpeed(speed);
     Preferences::setAnimationSpeed(speed);
-    Preferences::writeConfig();
+    Preferences::self()->writeConfig();
 }
 
 void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
