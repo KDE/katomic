@@ -1,0 +1,63 @@
+This file describes how to create a new KAtomic theme.
+
+(Last update: 29.05.2007 by dimsuz)
+
+KAtomic theme consists of single svgz file which contains game elements
+with predefined svg ID's. Required elements and their corresponding ID's
+are listed below in "FORMAL DESCRIPTION: ID" format (note that ID's
+are case sensitive).
+
+-= Atoms =-
+       
+H-atom:   atom_H
+C-atom:   atom_C
+O-atom:   atom_O
+N-atom:   atom_N
+S-atom:   atom_S
+F-atom:   atom_F
+Cl-atom:  atom_Cl
+Br-atom:  atom_Br
+P-atom:   atom_P
+J-atom:   atom_J
+Crystal:  atom_Crystal
+
+-= Bonds =-
+
+Single bond at top:         bond_I_top
+Single bond at right:       bond_I_Right
+Single bond at bottom:      bond_I_Bottom
+Single bond at left:        bond_I_Left
+Single bond at upper-right: bond_I_TopRight
+Single bond at lower-right: bond_I_BotRight
+Single bond at upper-left:  bond_I_TopLeft
+Single bond at lower-left:  bond_I_BotLeft
+
+Double bond at top:    bond_II_Top
+Double bond at right:  bond_II_Right
+Double bond at bottom: bond_II_Bottom
+Double bond at left:   bond_II_Left
+
+Triple bond at top:    bond_III_Top
+Triple bond at right:  bond_III_Right
+Triple bond at bottom: bond_III_Bottom
+Triple bond at left:   bond_III_Left
+
+-= Movement arrows =-
+
+Left arrow:  arrow_Left
+Right arrow: arrow_Right
+Up arrow:    arrow_Up
+Down arrow:  arrow_Down
+
+-= Other elements =-
+
+Wall: wall
+Horizontal connector: connectorHor
+Vertical connector:   connectorVer
+Diagonal connector 1: connectorSlash
+Diagonal connector 2: connectorBackslash
+Background image:     background
+
+You may want to take a look at
+/path/to/kdedir/share/apps/katomic/pics/default_theme.svgz 
+for visual reference
