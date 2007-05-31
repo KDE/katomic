@@ -35,26 +35,7 @@
 #include "fielditem.h"
 #include "atom.h"
 
-static const int MIN_ELEM_SIZE=30;
 static const int MIN_INFO_SIZE=10;
-
-PlayFieldView::PlayFieldView( PlayField* field, QWidget* parent )
-    : QGraphicsView(field, parent), m_playField(field)
-{
-    int defaultFieldSize = FIELD_SIZE*MIN_ELEM_SIZE;
-    // reserve some room for molecule preview
-    setMinimumSize( defaultFieldSize+defaultFieldSize/4, defaultFieldSize );
-    setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
-    setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
-    setFrameStyle( QFrame::NoFrame );
-}
-
-void PlayFieldView::resizeEvent( QResizeEvent* ev )
-{
-    m_playField->resize( ev->size().width(), ev->size().height() );
-}
-
-// =============== Play Field ========================
 
 PlayField::PlayField( QObject* parent )
     : QGraphicsScene(parent), m_mol(0), m_numMoves(0),

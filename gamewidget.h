@@ -21,9 +21,9 @@
 #define GAMEWIDGET_H
 
 class PlayField;
-class PlayFieldView;
 class Molecule;
 class QScrollBar;
+class QGraphicsView;
 class QLabel;
 class KScoreDialog;
 
@@ -69,6 +69,7 @@ public slots:
     void moveLeft();
     void moveRight();
 private:
+    virtual void resizeEvent( QResizeEvent* );
     void switchToLevel (int);
     /**
      * If on, katomic will allow user to switch to any
@@ -76,7 +77,7 @@ private:
      */
     bool m_allowAnyLevelSwitch;
 
-    PlayFieldView *m_view;
+    QGraphicsView *m_view;
     PlayField *m_playField;
 
     int m_level;

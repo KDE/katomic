@@ -1,6 +1,6 @@
 /*******************************************************************
  *
- * Copyright 2006 Dmitry Suzdalev <dimsuz@gmail.com>
+ * Copyright 2006-2007 Dmitry Suzdalev <dimsuz@gmail.com>
  *
  * This file is part of the KDE project "KAtomic"
  *
@@ -28,6 +28,7 @@
 #include <QStack>
 
 #define FIELD_SIZE 15
+#define MIN_ELEM_SIZE 30
 
 class KConfigGroup;
 class QResizeEvent;
@@ -221,16 +222,6 @@ private:
 
     MoleculePreviewItem *m_previewItem;
     MoleculeInfoItem *m_infoItem;
-};
-
-class PlayFieldView : public QGraphicsView
-{
-public:
-    PlayFieldView( PlayField* field, QWidget *parent );
-private:
-    void resizeEvent(QResizeEvent *);
-
-    PlayField *m_playField;
 };
 
 #endif

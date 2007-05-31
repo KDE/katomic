@@ -144,6 +144,7 @@ QPixmap KAtomicRenderer::renderNonAtom( char element, int size ) const
 
 QPixmap KAtomicRenderer::renderBackground(const QSize& size) const
 {
+//    kDebug() << "renderBackground" << size << endl;
     QString cacheName = QString("bkgnd_%1_%2").arg(size.width()).arg(size.height());
     QPixmap bkgnd;
     if( !QPixmapCache::find(cacheName, bkgnd)  )

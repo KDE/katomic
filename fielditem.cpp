@@ -117,6 +117,9 @@ void MoleculePreviewItem::setWidth(int width)
 
 void MoleculePreviewItem::paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget *)
 {
+    if ( m_width == 0 )
+        return;
+
     painter->setBrush(Qt::gray);
     painter->setOpacity(0.5);
     painter->drawRect(boundingRect());

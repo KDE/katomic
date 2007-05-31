@@ -1,6 +1,7 @@
 /*
 
   Copyright (C) 1998   Andreas Wüst (AndreasWuest@gmx.de)
+  Copyright (C) 2006-2007   Dmitry Suzdalev (dimsuz@gmail.com)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -24,8 +25,10 @@
 
 #include <QScrollBar>
 #include <QGroupBox>
+#include <QGraphicsView>
 #include <QLayout>
 #include <QLabel>
+#include <QResizeEvent>
 #include <QApplication> // for qApp->quit()
 
 #include <kscoredialog.h>
@@ -44,8 +47,16 @@ GameWidget::GameWidget ( int startingLevel, QWidget *parent )
 
     // playfield
     m_playField = new PlayField(this);
-    m_view = new PlayFieldView(m_playField, this);
+
+    m_view = new QGraphicsView(m_playField, this);
+    int defaultFieldSize = FIELD_SIZE*MIN_ELEM_SIZE;
+    // reserve some room for molecule preview
+    m_view->setMinimumSize( defaultFieldSize+defaultFieldSize/4, defaultFieldSize );
+    m_view->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
+    m_view->setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
+    m_view->setFrameStyle( QFrame::NoFrame );
     m_view->setCacheMode( QGraphicsView::CacheBackground );
+
     top->addWidget(m_view, 1);
 
     connect (m_playField, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
@@ -199,6 +210,17 @@ void GameWidget::nextLevel()
     }
     m_level++;
     switchToLevel(m_level);
+}
+
+void GameWidget::resizeEvent( QResizeEvent* ev)
+{
+    if ( testAttribute( Qt::WA_PendingResizeEvent ) )
+        kDebug() << "pending resize" << endl;
+    else
+    {
+        kDebug() << "no pending resize" << endl;
+        m_playField->resize( ev->size().width(), ev->size().height() );
+    }
 }
 
 #include "gamewidget.moc"
