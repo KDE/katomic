@@ -23,7 +23,6 @@
 #ifndef PLAYFIELD_H
 #define PLAYFIELD_H
 #include <QGraphicsScene>
-#include <QGraphicsView>
 #include <QList>
 #include <QStack>
 

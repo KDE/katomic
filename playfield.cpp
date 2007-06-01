@@ -26,6 +26,7 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QResizeEvent>
 #include <QTimeLine>
+#include <QPainter>
 
 #include <kstandarddirs.h>
 #include <kconfig.h>
