@@ -105,7 +105,6 @@ private:
     QTimeLine *m_timeLine;
 };
 
-class MoleculeRenderer;
 class Molecule;
 class PlayField;
 

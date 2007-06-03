@@ -30,7 +30,6 @@
 #define MIN_ELEM_SIZE 30
 
 class KConfigGroup;
-class QResizeEvent;
 class Molecule;
 class AtomFieldItem;
 class ArrowFieldItem;

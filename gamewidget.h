@@ -21,10 +21,7 @@
 #define GAMEWIDGET_H
 
 class PlayField;
-class Molecule;
-class QScrollBar;
 class QGraphicsView;
-class QLabel;
 class KScoreDialog;
 
 #include <QWidget>
