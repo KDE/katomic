@@ -485,7 +485,9 @@ void PlayField::moveSelectedAtom( Direction dir, int numCells )
         // so this is just a place to drop redo history :-)
         m_redoStack.clear();
         emit enableRedo(false);
-        m_numMoves++;
+        // only count it as move if we actually move :-)
+        if(numEmptyCells)
+            m_numMoves++;
     }
     else
         numEmptyCells = numCells;
