@@ -71,6 +71,7 @@ int main(int argc, char **argv)
       KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
       if ( args->isSet( "hackmode" ) )
           top->enableHackMode();
+      args->clear();
       top->show();
   }
   return a.exec();
