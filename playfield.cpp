@@ -1,6 +1,6 @@
 /*******************************************************************
  *
- * Copyright 2006 Dmitry Suzdalev <dimsuz@gmail.com>
+ * Copyright 2006-2007 Dmitry Suzdalev <dimsuz@gmail.com>
  *
  * This file is part of the KDE project "KAtomic"
  *
@@ -41,7 +41,7 @@ static const int MIN_INFO_SIZE=10;
 PlayField::PlayField( QObject* parent )
     : QGraphicsScene(parent), m_mol(0), m_numMoves(0),
     m_elemSize(MIN_ELEM_SIZE), m_selIdx(-1), m_animSpeed(120),
-    m_levelFinished(false), m_infoItem(0)
+    m_levelFinished(false)
 {
     // this object will hold the current molecule
     m_mol = new Molecule();
@@ -50,9 +50,6 @@ PlayField::PlayField( QObject* parent )
 
     m_atomTimeLine = new QTimeLine(300, this);
     connect(m_atomTimeLine, SIGNAL(frameChanged(int)), SLOT(atomAnimFrameChanged(int)) );
-
-    m_infoTimeLine = new QTimeLine(300, this);
-    connect(m_infoTimeLine, SIGNAL(frameChanged(int)), SLOT(infoItemAnimFrameChanged(int)) );
 
     m_upArrow = new ArrowFieldItem(this);
     m_downArrow = new ArrowFieldItem(this);
@@ -83,8 +80,6 @@ void PlayField::loadLevel(const KConfigGroup& config)
 
     m_mol->load(config);
     m_previewItem->setMolecule(m_mol);
-    if(m_infoItem)
-        m_infoItem->setMolecule(*m_mol);
 
     QString key;
 
@@ -168,37 +163,6 @@ void PlayField::resize( int width, int height)
     m_elemSize = qMin(width, height) / FIELD_SIZE;
     m_previewItem->setMaxAtomSize( m_elemSize );
 
-    if(m_infoItem)
-    {
-        // resize and reposition
-        int size = m_elemSize*(FIELD_SIZE-1);
-
-        // if there's animation in progress, we'll just stop it
-        // and bring it to an end frame
-        m_infoTimeLine->stop();
-        if(m_infoTimeLine->direction() == QTimeLine::Backward )
-        {
-            m_infoItem->hide();
-            size = MIN_INFO_SIZE;
-        }
-        else
-        {
-            m_infoItem->setShowInfo(true);
-        }
-
-        // FIXME dimsuz: bug in Qt? QTimeLine::stop() doesn't reset current time,
-        // so when I call start() it continues from where it left
-        // So for now I'll call it manually
-        // same in ArrowFieldItem IIRC
-        if(m_infoTimeLine->direction() == QTimeLine::Backward )
-            m_infoTimeLine->setCurrentTime(m_infoTimeLine->duration());
-        else
-            m_infoTimeLine->setCurrentTime(0);
-
-        m_infoItem->setSize(size, size);
-        m_infoItem->setPos( fieldCenterX()-size/2, fieldCenterY()-size/2 );
-    }
-
     // if atom animation is running we need to rescale timeline
     if( isAnimating() )
     {
@@ -217,7 +181,7 @@ void PlayField::resize( int width, int height)
 
 void PlayField::nextAtom()
 {
-    if ( m_levelFinished )
+    if ( m_levelFinished || isAnimating() )
         return;
 
     if(m_selIdx == -1)
@@ -260,7 +224,7 @@ void PlayField::nextAtom()
 
 void PlayField::previousAtom()
 {
-    if ( m_levelFinished )
+    if ( m_levelFinished || isAnimating() )
         return;
 
     if(m_selIdx == -1)
@@ -571,7 +535,7 @@ void PlayField::atomAnimFrameChanged(int frame)
 
     if(frame == m_atomTimeLine->endFrame()) // that is: move finished
     {
-        // FIXME dimsuz: consider moving this to separate function
+        // NOTE: consider moving this to separate function (something like moveFinished())
         // to improve code readablility
         selAtom->setFieldX( toFieldX((int)selAtom->pos().x()) );
         selAtom->setFieldY( toFieldY((int)selAtom->pos().y()) );
@@ -588,21 +552,6 @@ void PlayField::atomAnimFrameChanged(int frame)
             emit gameOver(m_numMoves);
         }
     }
-}
-
-void PlayField::infoItemAnimFrameChanged(int frame)
-{
-    // setSize before setPos -> no unnecessary redraws during animation
-    m_infoItem->setSize(frame, frame);
-    m_infoItem->setPos( fieldCenterX()-frame/2, fieldCenterY()-frame/2 );
-
-    if(frame == m_infoTimeLine->startFrame()
-            && m_infoTimeLine->direction() == QTimeLine::Backward)
-        m_infoItem->hide();
-
-    if(frame == m_infoTimeLine->endFrame()
-            && m_infoTimeLine->direction() == QTimeLine::Forward)
-        m_infoItem->setShowInfo(true); // enable displaying info
 }
 
 // most complicated algorithm ;-)
@@ -777,28 +726,6 @@ void PlayField::loadGame( const KConfigGroup& config )
     m_selIdx = config.readEntry("SelectedAtom", 0);
     m_levelFinished = config.readEntry("LevelFinished", false);
     updateArrows();
-}
-
-void PlayField::setShowTrivia(bool enabled)
-{
-    if(!m_infoItem) // lazy creating
-    {
-        m_infoItem = new MoleculeInfoItem(this);
-        m_infoItem->setZValue(5);
-        m_infoItem->setMolecule(*m_mol);
-        m_infoItem->setPos(fieldCenterX()-MIN_INFO_SIZE/2, fieldCenterY()-MIN_INFO_SIZE/2);
-    }
-    if(enabled)
-        m_infoItem->show();
-
-    // don't show text while animating -> speed up
-    m_infoItem->setShowInfo(false);
-
-    const int maxSize = m_elemSize*(FIELD_SIZE-1);
-    m_infoTimeLine->stop();
-    m_infoTimeLine->setFrameRange( MIN_INFO_SIZE, maxSize );
-    m_infoTimeLine->setDirection(enabled ? QTimeLine::Forward : QTimeLine::Backward );
-    m_infoTimeLine->start();
 }
 
 void PlayField::saveLastBackground()

@@ -1,6 +1,6 @@
 /*******************************************************************
  *
- * Copyright 2006 Dmitry Suzdalev <dimsuz@gmail.com>
+ * Copyright 2006-2007 Dmitry Suzdalev <dimsuz@gmail.com>
  *
  * This file is part of the KDE project "KAtomic"
  *
@@ -144,25 +144,6 @@ private:
     int m_atomSize;
     int m_maxAtomSize;
     const Molecule* m_mol;
-};
-
-// FIXME dimsuz: if it'll stay - document it
-// /me playing
-class MoleculeInfoItem : public QGraphicsTextItem
-{
-public:
-    explicit MoleculeInfoItem( QGraphicsScene* scene );
-    void setMolecule( const Molecule& mol );
-    void setSize( int width, int height );
-    // used in playfield to optimize animation -> disables text rendering (only bounding rect)
-    void setShowInfo(bool show) { m_showInfo = show; update(); }
-    inline QRectF boundingRect() const { return QRectF(0,0, m_width, m_height); }
-private:
-    void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 );
-
-    int m_width;
-    int m_height;
-    bool m_showInfo;
 };
 
 #endif

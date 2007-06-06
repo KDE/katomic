@@ -83,11 +83,6 @@ public:
      */
     bool isLevelFinished() const { return m_levelFinished; }
     /**
-     *  Shows or hides various interesting additional
-     *  information about current molecule
-     */
-    void setShowTrivia(bool enable);
-    /**
      * Saves current background to png file to quickly restore it
      * at startup. Should be called when katomic is about to quit
      */
@@ -124,7 +119,6 @@ signals:
     void enableRedo(bool);
 private slots:
     void atomAnimFrameChanged(int frame);
-    void infoItemAnimFrameChanged(int frame);
 private:
     virtual void drawBackground( QPainter*, const QRectF& );
     virtual void mousePressEvent( QGraphicsSceneMouseEvent* ev );
@@ -199,10 +193,6 @@ private:
      */
     QTimeLine *m_atomTimeLine;
     /**
-     *  Timeline object to control showing trivia animation
-     */
-    QTimeLine *m_infoTimeLine;
-    /**
      *  True if current level is finished and thus all player input should be disabled
      */
     bool m_levelFinished;
@@ -219,7 +209,6 @@ private:
     QStack<AtomMove> m_redoStack;
 
     MoleculePreviewItem *m_previewItem;
-    MoleculeInfoItem *m_infoItem;
 };
 
 #endif

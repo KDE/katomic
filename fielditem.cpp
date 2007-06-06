@@ -144,48 +144,4 @@ void MoleculePreviewItem::paint( QPainter * painter, const QStyleOptionGraphicsI
         }
 }
 
-// ----------------- MoleculeInfoItem ----------------------------
-MoleculeInfoItem::MoleculeInfoItem( QGraphicsScene* scene )
-    : QGraphicsTextItem( 0, scene ), m_width(10), m_height(10),
-    m_showInfo(true)
-{
-}
-
-void MoleculeInfoItem::setSize( int width, int height )
-{
-    setTextWidth( width );
-    m_width = width;
-    m_height = height;
-}
-
-void MoleculeInfoItem::setMolecule( const Molecule& mol )
-{
-    double weight = mol.molecularWeight();
-    QString weightString = weight == 0 ?  i18n("Unknown weight") : QString::number( weight );
-
-    QString str = "<h3 align=\"center\"><u>";
-    str.append(mol.moleculeName());
-    str.append("</u></h3><br>");
-    str.append("<table border=\"1\" width=\"100%\"><tr><td><b>");
-    str.append(i18n("Molecular weight"));
-    str.append("</b></td><td>");
-    str.append(weightString);
-    str.append("</td></tr>");
-    str.append("<tr><td><b>");
-    str.append(i18n("Some other property"));
-    str.append("</b></td><td>");
-    str.append(i18n("Some description of <i>%1</i>", mol.moleculeName()));
-    str.append("</i></td></tr></table>");
-    setHtml(str);
-}
-
-void MoleculeInfoItem::paint( QPainter * painter, const QStyleOptionGraphicsItem* opt, QWidget *w)
-{
-    painter->setBrush(Qt::gray);
-    painter->drawRect( boundingRect() );
-    //painter->setOpacity(0.9);
-    if(m_showInfo)
-        QGraphicsTextItem::paint(painter, opt, w);
-}
-
 #include "fielditem.moc"

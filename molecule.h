@@ -2,7 +2,7 @@
  *
  * Copyright (C) Andreas Wüst <AndreasWuest@gmx.de>
  * Copyright (C) Stephan Kulow <coolo@kde.org>
- * Copyright (C) 2006 Dmitry Suzdalev <dimsuz@gmail.com>
+ * Copyright (C) 2006-2007 Dmitry Suzdalev <dimsuz@gmail.com>
  *
  * This file is part of the KDE project "KAtomic"
  *
