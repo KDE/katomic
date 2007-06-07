@@ -98,7 +98,8 @@ void GameWidget::moveRight()
 void GameWidget::gameOver(int moves) {
     int answer = KMessageBox::questionYesNo(this, i18n("Congratulations! You solved level %1 with %2 moves!\n Advance to the next one?", m_level, moves), i18n("Congratulations"));
     // writing this info only in normal mode
-    if ( !m_allowAnyLevelSwitch )
+    if ( !m_allowAnyLevelSwitch &&
+		    Preferences::maxAccessibleLevel() < m_level+1 )
     {
         Preferences::setMaxAccessibleLevel( m_level+1 );
         Preferences::self()->writeConfig();
