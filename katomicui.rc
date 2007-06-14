@@ -20,11 +20,11 @@
   <Action name="game_new" />
   <Action name="game_restart" />
   <Separator />
-  <Action name="prev_level" />
-  <Action name="next_level" />
-  <Separator />
   <Action name="move_undo" />
   <Action name="move_redo" />
+  <Separator />
+  <Action name="prev_level" />
+  <Action name="next_level" />
 </ToolBar>
 
 </gui>
