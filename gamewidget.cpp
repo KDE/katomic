@@ -96,11 +96,6 @@ void GameWidget::moveRight()
 }
 
 void GameWidget::gameOver(int moves) {
-    int answer = KMessageBox::questionYesNo(this, i18n("Congratulations! You solved level %1 with %2 moves!\n"
-                                                       "Advance to the next one?",
-                                                       m_level, moves),
-                                            i18n("Congratulations"));
-
     // writing this info only in normal mode
     if ( !m_allowAnyLevelSwitch &&
 		    Preferences::maxAccessibleLevel() < m_level+1 )
@@ -123,9 +118,7 @@ void GameWidget::gameOver(int moves) {
         m_playField->showMessage( i18n("Congratulations! You have a new highscore for level %1!", m_level) );
 
     emit statsChanged(m_level, moves, highScore->highScore());
-
-    if ( answer == KMessageBox::Yes )
-        switchToLevel(m_level+1);
+    switchToLevel(m_level+1);
 }
 
 void GameWidget::updateMoves(int moves)
