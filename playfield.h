@@ -34,8 +34,8 @@ class Molecule;
 class AtomFieldItem;
 class ArrowFieldItem;
 class MoleculePreviewItem;
-class MoleculeInfoItem;
 class QTimeLine;
+class GameMessageItem;
 
 /**
  *  KAtomic level playfield
@@ -87,6 +87,10 @@ public:
      * at startup. Should be called when katomic is about to quit
      */
     void saveLastBackground();
+    /**
+     * Displays a passive popup message at the bottom of the scene
+     */
+    void showMessage( const QString& message );
 public slots:
     /**
      *  Selects next atom
@@ -176,6 +180,10 @@ private:
      *  Arrow items
      */
     ArrowFieldItem *m_upArrow, *m_leftArrow, *m_downArrow, *m_rightArrow;
+    /**
+     * Item used to show messages to user
+     */
+    GameMessageItem *m_messageItem;
     /**
      *  Index of currently selected atom
      */

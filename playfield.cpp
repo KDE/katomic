@@ -35,6 +35,7 @@
 #include "molecule.h"
 #include "fielditem.h"
 #include "atom.h"
+#include "gamemessage.h"
 
 static const int MIN_INFO_SIZE=10;
 
@@ -55,6 +56,9 @@ PlayField::PlayField( QObject* parent )
     m_downArrow = new ArrowFieldItem(this);
     m_leftArrow = new ArrowFieldItem(this);
     m_rightArrow = new ArrowFieldItem(this);
+
+    m_messageItem = new GameMessageItem();
+    addItem(m_messageItem); // it hides itself by default
 
     m_previewItem = new MoleculePreviewItem(this);
     updateArrows(true); // this will hide them
@@ -733,6 +737,12 @@ void PlayField::loadGame( const KConfigGroup& config )
 void PlayField::saveLastBackground()
 {
     KAtomicRenderer::self()->saveBackground(sceneRect().size().toSize());
+}
+
+void PlayField::showMessage( const QString& message )
+{
+    m_messageItem->setMessageTimeOut( 4000 );
+    m_messageItem->showMessage( message, GameMessageItem::BottomLeft );
 }
 
 #include "playfield.moc"

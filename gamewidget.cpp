@@ -16,7 +16,6 @@
   You should have received a copy of the GNU General Public License
   along with this program; if not, write to the Free Software
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-
   */
 
 #include "gamewidget.h"
@@ -96,7 +95,11 @@ void GameWidget::moveRight()
 }
 
 void GameWidget::gameOver(int moves) {
-    int answer = KMessageBox::questionYesNo(this, i18n("Congratulations! You solved level %1 with %2 moves!\n Advance to the next one?", m_level, moves), i18n("Congratulations"));
+    int answer = KMessageBox::questionYesNo(this, i18n("Congratulations! You solved level %1 with %2 moves!\n"
+                                                       "Advance to the next one?",
+                                                       m_level, moves),
+                                            i18n("Congratulations"));
+
     // writing this info only in normal mode
     if ( !m_allowAnyLevelSwitch &&
 		    Preferences::maxAccessibleLevel() < m_level+1 )
@@ -108,8 +111,8 @@ void GameWidget::gameOver(int moves) {
     highScore->setCaption(i18n("Level %1 Highscores", m_level));
     highScore->setConfigGroup(QString("Highscores Level %1").arg(m_level));
 
-    if (highScore->addScore(moves, KScoreDialog::AskName | KScoreDialog::LessIsMore))
-        highScore->exec();
+    if (highScore->addScore(moves, KScoreDialog::LessIsMore))
+        m_playField->showMessage( i18n("Congratulations! You have a new highscore for level %1!", m_level) );
 
     emit statsChanged(m_level, moves, highScore->highScore());
 
