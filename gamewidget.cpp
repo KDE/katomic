@@ -114,8 +114,10 @@ void GameWidget::gameOver(int moves) {
     scoreInfo[KScoreDialog::Name] = user.fullName().isEmpty() ? user.loginName() : user.fullName();
     scoreInfo[KScoreDialog::Score].setNum(moves);
 
+    QString message = i18n( "Level %1 finished", m_level );
     if (highScore->addScore(scoreInfo, KScoreDialog::LessIsMore))
-        m_playField->showMessage( i18n("Congratulations! You have a new highscore for level %1!", m_level) );
+        message += i18n(". Congratulations! You have a new highscore!" );
+    m_playField->showMessage( message );
 
     emit statsChanged(m_level, moves, highScore->highScore());
 }
