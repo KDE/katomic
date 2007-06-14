@@ -62,6 +62,7 @@ public:
     virtual void paint( QPainter* p, const QStyleOptionGraphicsItem *option, QWidget* widget );
 private slots:
     void animationFrame(int);
+    void hideMe();
     void timeout();
 private:
     GameMessageItemPrivate * const d;

@@ -37,6 +37,7 @@
 #include <kconfig.h>
 #include <kglobalsettings.h>
 #include <kfiledialog.h>
+#include <kuser.h>
 
 GameWidget::GameWidget ( int startingLevel, QWidget *parent )
     : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0)
@@ -108,10 +109,17 @@ void GameWidget::gameOver(int moves) {
         Preferences::self()->writeConfig();
     }
 
-    highScore->setCaption(i18n("Level %1 Highscores", m_level));
-    highScore->setConfigGroup(QString("Highscores Level %1").arg(m_level));
+    highScore->setConfigGroup(QString("Level %1").arg(m_level));
 
-    if (highScore->addScore(moves, KScoreDialog::LessIsMore))
+    // NOTE: This might change as we are currently discussing on kde-games-devel
+    // what name should be used and how (and from where) it should be set
+    // For now go with KUser solution
+    KScoreDialog::FieldInfo scoreInfo;
+    KUser user;
+    scoreInfo[KScoreDialog::Name] = user.fullName().isEmpty() ? user.loginName() : user.fullName();
+    scoreInfo[KScoreDialog::Score].setNum(moves);
+
+    if (highScore->addScore(scoreInfo, KScoreDialog::LessIsMore))
         m_playField->showMessage( i18n("Congratulations! You have a new highscore for level %1!", m_level) );
 
     emit statsChanged(m_level, moves, highScore->highScore());
@@ -151,7 +159,7 @@ void GameWidget::switchToLevel (int l)
     m_view->resetCachedContent();
     m_view->update();
 
-    highScore->setConfigGroup(QString("Highscores Level %1").arg(m_level));
+    highScore->setConfigGroup(QString("Level %1").arg(m_level));
     emit statsChanged(m_level, 0, highScore->highScore());
 }
 
@@ -186,8 +194,7 @@ void GameWidget::loadGame()
 
 void GameWidget::showHighscores ()
 {
-    highScore->setCaption(i18n("Level %1 Highscores", m_level));
-    highScore->setConfigGroup(QString("Highscores Level %1").arg(m_level));
+    highScore->setCaption(i18n("Highscores"));
     highScore->exec();
 }
 

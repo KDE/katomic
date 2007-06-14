@@ -60,7 +60,7 @@ GameMessageItem::GameMessageItem()
     d->m_timer.setSingleShot(true);
 
     connect( &d->m_timeLine, SIGNAL(frameChanged(int)), SLOT(animationFrame(int)) );
-    connect( &d->m_timeLine, SIGNAL(finished()), SLOT(hide()));
+    connect( &d->m_timeLine, SIGNAL(finished()), SLOT(hideMe()));
     connect( &d->m_timer, SIGNAL(timeout()), SLOT(timeout()) );
 }
 
@@ -142,6 +142,13 @@ QRectF GameMessageItem::boundingRect() const
 GameMessageItem::~GameMessageItem()
 {
     delete d;
+}
+
+void GameMessageItem::hideMe()
+{
+    // if we just got moved out of visibility, let's do more - let's hide :)
+    if( d->m_timeLine.direction() == QTimeLine::Backward )
+        hide();
 }
 
 #include "gamemessage.moc"
