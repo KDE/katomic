@@ -75,20 +75,19 @@ bool AtomTopLevel::queryClose()
 void AtomTopLevel::createMenu()
 {
     // Game
-    KStandardGameAction::gameNew(m_gameWid, SLOT(restartLevel()), actionCollection());
     KStandardGameAction::restart(m_gameWid, SLOT(restartLevel()), actionCollection());
     KStandardGameAction::highscores(m_gameWid, SLOT(showHighscores()), actionCollection());
     KStandardGameAction::load(m_gameWid, SLOT(loadGame()), actionCollection());
     KStandardGameAction::save(m_gameWid, SLOT(saveGame()), actionCollection());
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());
-  
+
     // Move
     m_undoAct = KStandardGameAction::undo(m_gameWid->playfield(), SLOT(undo()), actionCollection());
     m_redoAct = KStandardGameAction::redo(m_gameWid->playfield(), SLOT(redo()), actionCollection());
-  
-    
+
+
     QAction *act;
-    
+
     // TODO: gray out corresponding actions if we are at first or at last level
     act = actionCollection()->addAction( "prev_level" );
     act->setIcon( KIcon( "arrow-left" ) );
