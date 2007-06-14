@@ -118,7 +118,6 @@ void GameWidget::gameOver(int moves) {
         m_playField->showMessage( i18n("Congratulations! You have a new highscore for level %1!", m_level) );
 
     emit statsChanged(m_level, moves, highScore->highScore());
-    switchToLevel(m_level+1);
 }
 
 void GameWidget::updateMoves(int moves)
