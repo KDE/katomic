@@ -1,6 +1,6 @@
 /*******************************************************************
  *
- * Copyright 2006 Dmitry Suzdalev <dimsuz@gmail.com>
+ * Copyright 2006-2007 Dmitry Suzdalev <dimsuz@gmail.com>
  *
  * This file is part of the KDE project "KAtomic"
  *
@@ -25,10 +25,10 @@
 
 #include <QHash>
 #include <QSize>
+#include <QPixmap>
 
 class atom;
 class KSvgRenderer;
-class QPixmap;
 
 /**
  *  Class for rendering elements of game SVG to QPixmap
@@ -88,6 +88,7 @@ private:
     KSvgRenderer *m_renderer;
     QHash<char, QString> m_names; // cryptic_char -> elemName
     QHash<char, QString> m_bondNames; // cryptic_char -> bondName
+    mutable QPixmap m_cachedBkgnd;
 };
 
 #endif

@@ -1,6 +1,6 @@
 /*******************************************************************
  *
- * Copyright 2006 Dmitry Suzdalev <dimsuz@gmail.com>
+ * Copyright 2006-2007 Dmitry Suzdalev <dimsuz@gmail.com>
  *
  * This file is part of the KDE project "KAtomic"
  *
@@ -39,7 +39,7 @@ KAtomicRenderer* KAtomicRenderer::self()
 
 KAtomicRenderer::KAtomicRenderer()
 {
-    QPixmapCache::setCacheLimit( 5000 ); // around 5 Mb
+    QPixmapCache::setCacheLimit( 2000 ); // around 2 Mb
     m_renderer = new KSvgRenderer( KStandardDirs::locate( "appdata", "pics/default_theme.svgz" ) );
     fillNameHashes();
 }
@@ -144,18 +144,14 @@ QPixmap KAtomicRenderer::renderNonAtom( char element, int size ) const
 
 QPixmap KAtomicRenderer::renderBackground(const QSize& size) const
 {
-//    kDebug() << "renderBackground" << size << endl;
-    QString cacheName = QString("bkgnd_%1_%2").arg(size.width()).arg(size.height());
-    QPixmap bkgnd;
-    if( !QPixmapCache::find(cacheName, bkgnd)  )
+    if( m_cachedBkgnd.isNull() || m_cachedBkgnd.size() != size )
     {
-        bkgnd = QPixmap(size);
-        QPainter p(&bkgnd);
+        m_cachedBkgnd = QPixmap(size);
+        QPainter p(&m_cachedBkgnd);
         m_renderer->render(&p, "background");
-
-        QPixmapCache::insert( cacheName, bkgnd );
     }
-    return bkgnd;
+
+    return m_cachedBkgnd;
 }
 
 void KAtomicRenderer::ensureAtomIsInCache(const atom& at, int size) const
@@ -207,9 +203,8 @@ void KAtomicRenderer::restoreSavedBackground()
     if ( !fname.isEmpty() )
     {
         QPixmap pix( fname );
-        QString cacheName = QString("bkgnd_%1_%2").arg(pix.width()).arg(pix.height());
-        kDebug() << "inserting " << cacheName << endl;
-        QPixmapCache::insert( cacheName, pix );
+        kDebug() << "restoring saved background..." << endl;
+        m_cachedBkgnd = pix;
     }
     else
         kDebug() << "no last saved pixmap found" << endl;
