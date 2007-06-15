@@ -208,7 +208,6 @@ void KAtomicRenderer::saveBackground(const QSize& size) const
 
 void KAtomicRenderer::restoreSavedBackground()
 {
-    // put last saved background (if any) to cache immediately :-)
     QString fname = KStandardDirs::locate( "appdata", "savedBkgnd.png" );
     if ( !fname.isEmpty() )
     {
@@ -217,6 +216,11 @@ void KAtomicRenderer::restoreSavedBackground()
         m_cachedBkgnd = pix;
     }
     else
+    {
         kDebug() << "no last saved pixmap found" << endl;
-
+        // reset corresponding fields in config file
+        Preferences::self()->setSavedBackgroundWidth( -1 );
+        Preferences::self()->setSavedBackgroundHeight( -1 );
+        Preferences::self()->writeConfig();
+    }
 }
