@@ -22,6 +22,7 @@
  ********************************************************************/
 #include "katomicrenderer.h"
 #include "atom.h"
+#include "prefs.h"
 
 #include <KSvgRenderer>
 #include <KDebug>
@@ -192,8 +193,17 @@ void KAtomicRenderer::ensureAtomIsInCache(const atom& at, int size) const
 
 void KAtomicRenderer::saveBackground(const QSize& size) const
 {
+    int savedWidth = Preferences::self()->savedBackgroundWidth();
+    int savedHeight = Preferences::self()->savedBackgroundHeight();
+    if( savedWidth == size.width() && savedHeight == size.height() )
+        return;
+
     QPixmap bkgnd = renderBackground(size);
     bkgnd.save( KStandardDirs::locateLocal( "appdata", "savedBkgnd.png" ) );
+
+    Preferences::self()->setSavedBackgroundWidth( size.width() );
+    Preferences::self()->setSavedBackgroundHeight( size.height() );
+    Preferences::self()->writeConfig();
 }
 
 void KAtomicRenderer::restoreSavedBackground()

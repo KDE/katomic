@@ -23,4 +23,14 @@
         <default>1</default>
     </entry>
   </group>
+  <group name="General">
+    <entry name="SavedBackgroundWidth" type="Int">
+      <label>Width of saved background</label>
+      <default>-1</default>
+    </entry>
+    <entry name="SavedBackgroundHeight" type="Int">
+      <label>Height of saved background</label>
+      <default>-1</default>
+    </entry>
+  </group>
 </kcfg>
