@@ -22,9 +22,10 @@
 
 class PlayField;
 class QGraphicsView;
-class KScoreDialog;
 
 #include <QWidget>
+
+class KAtomicHighscores;
 
 class GameWidget : public QWidget
 {
@@ -58,7 +59,6 @@ public slots:
     // use this slot to update the moves continually
     void updateMoves(int moves);
 
-    // Menupunkt Highscores im Pop-up Menu, der Highscore anzeigt
     void showHighscores ();
 
     void moveUp();
@@ -76,11 +76,17 @@ private:
 
     QGraphicsView *m_view;
     PlayField *m_playField;
+    /**
+     * Manages highscores
+     */
+    KAtomicHighscores *m_highscore;
 
-    int m_level;
     int m_moves;
-
-    KScoreDialog *highScore;
+    /**
+     * Highscore of the current level
+     */
+    int m_levelHighscore;
+    int m_level;
 };
 
 #endif

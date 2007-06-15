@@ -2,13 +2,14 @@ project(katomic)
 
 add_subdirectory( levels )
 
-include_directories( ${CMAKE_SOURCE_DIR}/libkdegames ${CMAKE_SOURCE_DIR}/libkdegames/highscore )
+include_directories( ${CMAKE_SOURCE_DIR}/libkdegames )
 
 
 ########### next target ###############
 
 set(katomic_SRCS 
    katomicrenderer.cpp
+   highscores.cpp
    gamemessage.cpp
    playfield.cpp
    fielditem.cpp

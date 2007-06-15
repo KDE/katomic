@@ -19,6 +19,7 @@
   */
 
 #include "gamewidget.h"
+#include "highscores.h"
 #include "playfield.h"
 #include "prefs.h"
 
@@ -30,18 +31,19 @@
 #include <QResizeEvent>
 #include <QApplication> // for qApp->quit()
 
-#include <kscoredialog.h>
 #include <kmessagebox.h>
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <kconfig.h>
 #include <kglobalsettings.h>
 #include <kfiledialog.h>
-#include <kuser.h>
 
 GameWidget::GameWidget ( int startingLevel, QWidget *parent )
     : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0)
 {
+    m_highscore = new KAtomicHighscores();
+    m_levelHighscore = 0;
+
     QVBoxLayout *top = new QVBoxLayout(this);
     top->setMargin(0);
 
@@ -62,13 +64,12 @@ GameWidget::GameWidget ( int startingLevel, QWidget *parent )
     connect (m_playField, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     connect (m_playField, SIGNAL (updateMoves(int)), SLOT(updateMoves(int)));
 
-    highScore = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Score, this);
-
     switchToLevel(startingLevel);
 }
 
 GameWidget::~GameWidget()
 {
+    delete m_highscore;
 }
 
 void GameWidget::moveUp()
@@ -104,28 +105,22 @@ void GameWidget::gameOver(int moves) {
         Preferences::self()->writeConfig();
     }
 
-    highScore->setConfigGroup(QString("Level %1").arg(m_level));
-
-    // NOTE: This might change as we are currently discussing on kde-games-devel
-    // what name should be used and how (and from where) it should be set
-    // For now go with KUser solution
-    KScoreDialog::FieldInfo scoreInfo;
-    KUser user;
-    scoreInfo[KScoreDialog::Name] = user.fullName().isEmpty() ? user.loginName() : user.fullName();
-    scoreInfo[KScoreDialog::Score].setNum(moves);
-
     QString message = i18n( "Level %1 finished", m_level );
-    if (highScore->addScore(scoreInfo, KScoreDialog::LessIsMore))
+
+    if( m_highscore->addScore( moves , m_level ) ) // new highscore!
+    {
         message += i18n(". Congratulations! You have a new highscore!" );
+    }
+
     m_playField->showMessage( message );
 
-    emit statsChanged(m_level, moves, highScore->highScore());
+    emit statsChanged(m_level, moves, m_highscore->levelHighscore(m_level));
 }
 
 void GameWidget::updateMoves(int moves)
 {
     m_moves = moves;
-    emit statsChanged(m_level, moves, highScore->highScore());
+    emit statsChanged(m_level, moves, m_levelHighscore);
 }
 
 void GameWidget::switchToLevel (int l)
@@ -153,8 +148,8 @@ void GameWidget::switchToLevel (int l)
     m_view->resetCachedContent();
     m_view->update();
 
-    highScore->setConfigGroup(QString("Level %1").arg(m_level));
-    emit statsChanged(m_level, 0, highScore->highScore());
+    m_levelHighscore = m_highscore->levelHighscore( m_level );
+    emit statsChanged(m_level, 0, m_levelHighscore);
 }
 
 void GameWidget::restartLevel()
@@ -188,13 +183,12 @@ void GameWidget::loadGame()
 
 void GameWidget::showHighscores ()
 {
-    highScore->setCaption(i18n("Highscores"));
-    highScore->exec();
+    // TODO: Implement me! Please... 8-)
 }
 
 int GameWidget::currentHighScore() const
 {
-    return highScore->highScore();
+    return m_levelHighscore;
 }
 
 void GameWidget::prevLevel()
