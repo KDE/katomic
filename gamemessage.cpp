@@ -41,7 +41,9 @@ static const int SOME_SPACE = 10;
 class GameMessageItemPrivate
 {
 public:
-    GameMessageItemPrivate() : m_position( GameMessageItem::BottomLeft ), m_timeout(2000) {}
+    GameMessageItemPrivate()
+        : m_position( GameMessageItem::BottomLeft ), m_timeout(2000),
+          m_hoveredByMouse(false) {}
     /**
      * Text to show
      */
@@ -70,6 +72,10 @@ public:
      * Pixmap to display at the left of the text
      */
     QPixmap m_iconPix;
+    /**
+     * Set to true when mouse hovers the message
+     */
+    bool m_hoveredByMouse;
 };
 
 GameMessageItem::GameMessageItem()
@@ -81,9 +87,11 @@ GameMessageItem::GameMessageItem()
     d->m_iconPix = infoIcon.pixmap(PIX_SIZE, PIX_SIZE);
     d->m_timer.setSingleShot(true);
 
+    setAcceptsHoverEvents(true);
+
     connect( &d->m_timeLine, SIGNAL(frameChanged(int)), SLOT(animationFrame(int)) );
     connect( &d->m_timeLine, SIGNAL(finished()), SLOT(hideMe()));
-    connect( &d->m_timer, SIGNAL(timeout()), SLOT(timeout()) );
+    connect( &d->m_timer, SIGNAL(timeout()), SLOT(playHideAnimation()) );
 }
 
 void GameMessageItem::paint( QPainter* p, const QStyleOptionGraphicsItem *option, QWidget* widget )
@@ -144,8 +152,11 @@ void GameMessageItem::animationFrame(int frame)
         setPos( scene()->width()-d->m_boundRect.width()-SHOW_OFFSET, frame );
 }
 
-void GameMessageItem::timeout()
+void GameMessageItem::playHideAnimation()
 {
+    if( d->m_hoveredByMouse )
+        return;
+
     // let's hide
     d->m_timeLine.setDirection( QTimeLine::Backward );
     d->m_timeLine.start();
@@ -171,6 +182,19 @@ void GameMessageItem::hideMe()
     // if we just got moved out of visibility, let's do more - let's hide :)
     if( d->m_timeLine.direction() == QTimeLine::Backward )
         hide();
+}
+
+void GameMessageItem::hoverEnterEvent( QGraphicsSceneHoverEvent* )
+{
+    d->m_hoveredByMouse = true;
+}
+
+void GameMessageItem::hoverLeaveEvent( QGraphicsSceneHoverEvent* )
+{
+    d->m_hoveredByMouse = false;
+
+    if( !d->m_timer.isActive() && d->m_timeLine.state() != QTimeLine::Running )
+        playHideAnimation(); // let's hide
 }
 
 #include "gamemessage.moc"

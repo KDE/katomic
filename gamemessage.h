@@ -64,12 +64,19 @@ public:
      * Sets the amount of time the item will stay visible on screen
      * before it goes away.
      * By default item is shown for 2000 msec
+     * If item is hovered with mouse it will hide only after
+     * user moves the mouse away
+     *
      * @param msec amount of time in milliseconds
      */
     void setMessageTimeOut( int msec );
     /**
      * Shows the message to item: item will appear at specified place
      * of the scene using simple animation
+     * Item will be automatically hidden after timeout set in setMessageTimeOut() passes
+     * If item is hovered with mouse it won't hide until user moves
+     * the mouse away
+     *
      * @param text holds the message to show
      * @param pos position on the scene where the message will appear
      */
@@ -82,11 +89,13 @@ public:
      * Paints item. Reimplemented from QGraphicsItem
      */
     virtual void paint( QPainter* p, const QStyleOptionGraphicsItem *option, QWidget* widget );
-private slots:
+private Q_SLOTS:
     void animationFrame(int);
     void hideMe();
-    void timeout();
+    void playHideAnimation();
 private:
+    virtual void hoverEnterEvent( QGraphicsSceneHoverEvent* );
+    virtual void hoverLeaveEvent( QGraphicsSceneHoverEvent* );
     GameMessageItemPrivate * const d;
 };
 
