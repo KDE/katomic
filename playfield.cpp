@@ -59,6 +59,7 @@ PlayField::PlayField( QObject* parent )
     m_rightArrow = new ArrowFieldItem(this);
 
     m_messageItem = new KGamePopupItem();
+    m_messageItem->setMessageOpacity(0.9);
     addItem(m_messageItem); // it hides itself by default
 
     m_previewItem = new MoleculePreviewItem(this);
