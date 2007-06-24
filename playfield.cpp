@@ -31,11 +31,12 @@
 #include <kstandarddirs.h>
 #include <kconfig.h>
 
+#include <kgamepopupitem.h>
+
 #include "katomicrenderer.h"
 #include "molecule.h"
 #include "fielditem.h"
 #include "atom.h"
-#include "gamemessage.h"
 
 static const int MIN_INFO_SIZE=10;
 
@@ -57,7 +58,7 @@ PlayField::PlayField( QObject* parent )
     m_leftArrow = new ArrowFieldItem(this);
     m_rightArrow = new ArrowFieldItem(this);
 
-    m_messageItem = new GameMessageItem();
+    m_messageItem = new KGamePopupItem();
     addItem(m_messageItem); // it hides itself by default
 
     m_previewItem = new MoleculePreviewItem(this);
@@ -742,7 +743,7 @@ void PlayField::saveLastBackground()
 void PlayField::showMessage( const QString& message )
 {
     m_messageItem->setMessageTimeOut( 4000 );
-    m_messageItem->showMessage( message, GameMessageItem::BottomLeft );
+    m_messageItem->showMessage( message, KGamePopupItem::BottomLeft );
 }
 
 #include "playfield.moc"

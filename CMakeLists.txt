@@ -10,7 +10,6 @@ include_directories( ${CMAKE_SOURCE_DIR}/libkdegames )
 set(katomic_SRCS 
    katomicrenderer.cpp
    highscores.cpp
-   gamemessage.cpp
    playfield.cpp
    fielditem.cpp
    molecule.cpp 

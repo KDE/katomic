@@ -35,7 +35,7 @@ class AtomFieldItem;
 class ArrowFieldItem;
 class MoleculePreviewItem;
 class QTimeLine;
-class GameMessageItem;
+class KGamePopupItem;
 
 /**
  *  KAtomic level playfield
@@ -183,7 +183,7 @@ private:
     /**
      * Item used to show messages to user
      */
-    GameMessageItem *m_messageItem;
+    KGamePopupItem *m_messageItem;
     /**
      *  Index of currently selected atom
      */
