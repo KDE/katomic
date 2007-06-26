@@ -28,10 +28,10 @@
 #include <QTimeLine>
 #include <QPainter>
 
-#include <kstandarddirs.h>
-#include <kconfig.h>
+#include <KStandardDirs>
+#include <KConfig>
 
-#include <kgamepopupitem.h>
+#include <KGamePopupItem>
 
 #include "katomicrenderer.h"
 #include "molecule.h"
