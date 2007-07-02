@@ -33,32 +33,29 @@ static const char description[] =
 
 static const char version[] = "2.1";
 
-static const KCmdLineOptions options[] =
-{
-    { "hackmode",  I18N_NOOP( "Enable access to all levels" ),  0 },
-    KCmdLineLastOption
-};
-
 // ##########################
 // #	Main                #
 // ##########################
 
 int main(int argc, char **argv)
 {
-  KAboutData aboutData( "katomic", I18N_NOOP("KAtomic"),
-    version, description, KAboutData::License_GPL,
-    "(c) 1998, Andreas Wuest");
-  aboutData.addAuthor("Andreas Wuest", 0, "AndreasWuest@gmx.de");
-  aboutData.addAuthor("Stephan Kulow", 0, "coolo@kde.org");
-  aboutData.addAuthor("Cristian Tibirna", 0, "tibirna@kde.org");
-  aboutData.addAuthor("Dmitry Suzdalev", I18N_NOOP("Porting to KDE4. Current maintainer"), "dimsuz@gmail.com");
-  aboutData.addCredit("Carsten Pfeiffer", 0, "pfeiffer@kde.org");
-  aboutData.addCredit("Dave Corrie", 0, "kde@davecorrie.com");
-  aboutData.addCredit("Kai Jung", I18N_NOOP("6 new levels"), "jung@fh-fresenius.de");
-  aboutData.addCredit("Danny Allen", I18N_NOOP("Game graphics and application icon"), "danny@dannyallen.co.uk");
-  aboutData.addCredit("Johann Ollivier Lapeyre", I18N_NOOP("New great SVG artwork for KDE4"), "johann.ollivierlapeyre@gmail.com");
+  KAboutData aboutData( "katomic", 0, ki18n("KAtomic"),
+    version, ki18n(description), KAboutData::License_GPL,
+    ki18n("(c) 1998, Andreas Wuest"));
+  aboutData.addAuthor(ki18n("Andreas Wuest"), KLocalizedString(), "AndreasWuest@gmx.de");
+  aboutData.addAuthor(ki18n("Stephan Kulow"), KLocalizedString(), "coolo@kde.org");
+  aboutData.addAuthor(ki18n("Cristian Tibirna"), KLocalizedString(), "tibirna@kde.org");
+  aboutData.addAuthor(ki18n("Dmitry Suzdalev"), ki18n("Porting to KDE4. Current maintainer"), "dimsuz@gmail.com");
+  aboutData.addCredit(ki18n("Carsten Pfeiffer"), KLocalizedString(), "pfeiffer@kde.org");
+  aboutData.addCredit(ki18n("Dave Corrie"), KLocalizedString(), "kde@davecorrie.com");
+  aboutData.addCredit(ki18n("Kai Jung"), ki18n("6 new levels"), "jung@fh-fresenius.de");
+  aboutData.addCredit(ki18n("Danny Allen"), ki18n("Game graphics and application icon"), "danny@dannyallen.co.uk");
+  aboutData.addCredit(ki18n("Johann Ollivier Lapeyre"), ki18n("New great SVG artwork for KDE4"), "johann.ollivierlapeyre@gmail.com");
 
   KCmdLineArgs::init( argc, argv, &aboutData );
+
+  KCmdLineOptions options;
+  options.add("hackmode", ki18n( "Enable access to all levels" ));
   KCmdLineArgs::addCmdLineOptions( options );
 
   KApplication a;
