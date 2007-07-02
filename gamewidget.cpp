@@ -59,6 +59,10 @@ GameWidget::GameWidget ( int startingLevel, QWidget *parent )
     m_view->setFrameStyle( QFrame::NoFrame );
     m_view->setCacheMode( QGraphicsView::CacheBackground );
 
+    m_view->setOptimizationFlags( QGraphicsView::DontClipPainter |
+                                  QGraphicsView::DontSavePainterState |
+                                  QGraphicsView::DontAdjustForAntialiasing );
+
     top->addWidget(m_view, 1);
 
     connect (m_playField, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
