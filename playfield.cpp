@@ -743,7 +743,7 @@ void PlayField::saveLastBackground()
 
 void PlayField::showMessage( const QString& message )
 {
-    m_messageItem->setMessageTimeOut( 4000 );
+    m_messageItem->setMessageTimeout( 4000 );
     m_messageItem->showMessage( message, KGamePopupItem::BottomLeft );
 }
 
