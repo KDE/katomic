@@ -17,8 +17,6 @@ set(katomic_SRCS
    toplevel.cpp 
    gamewidget.cpp )
 
-kde4_automoc(${katomic_SRCS})
-
 kde4_add_kcfg_files(katomic_SRCS prefs.kcfgc)
 
 kde4_add_executable(katomic ${katomic_SRCS})
