@@ -109,11 +109,11 @@ void GameWidget::gameOver(int moves) {
         Preferences::self()->writeConfig();
     }
 
-    QString message = i18n( "Level %1 finished", m_level );
+    QString message = i18n( "Level %1 finished. ", m_level );
 
     if( m_highscore->addScore( moves , m_level ) ) // new highscore!
     {
-        message += i18n(". Congratulations! You have a new highscore!" );
+        message += i18n("Congratulations! You have a new highscore!" );
     }
 
     m_playField->showMessage( message );
