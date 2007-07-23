@@ -28,7 +28,7 @@ install(TARGETS katomic  DESTINATION ${BIN_INSTALL_DIR} )
 
 ########### install files ###############
 
-install( FILES katomic.desktop  DESTINATION  ${XDG_APPS_DIR} )
+install( FILES katomic.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES katomicui.rc  DESTINATION  ${DATA_INSTALL_DIR}/katomic )
 install( FILES default_theme.svgz  DESTINATION  ${DATA_INSTALL_DIR}/katomic/pics/ )
 
