@@ -149,8 +149,6 @@ void GameWidget::switchToLevel (int l)
     KConfig cfg( levelFile, KConfig::OnlyLocal);
     KConfigGroup gr = cfg.group("Level");
     m_playField->loadLevel(gr);
-    m_view->resetCachedContent();
-    m_view->update();
 
     m_levelHighscore = m_highscore->levelHighscore( m_level );
     emit statsChanged(m_level, 0, m_levelHighscore);

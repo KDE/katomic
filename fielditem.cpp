@@ -27,12 +27,6 @@
 #include <QPainter>
 #include <QTimeLine>
 
-// these are used by MoleculePreviewItem to draw a button
-#include <QStyle>
-#include <QStyleOptionButton>
-#include <QApplication>
-#include <QGraphicsSceneHoverEvent>
-
 #include <kdebug.h>
 #include <klocale.h>
 #include "molecule.h"

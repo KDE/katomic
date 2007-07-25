@@ -212,6 +212,10 @@ private:
     QStack<AtomMove> m_redoStack;
 
     MoleculePreviewItem *m_previewItem;
+    /**
+     * Item holding pixmap with walls inferior
+     */
+    QGraphicsPixmapItem *m_wallsItem;
 };
 
 #endif

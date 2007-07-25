@@ -62,6 +62,11 @@ PlayField::PlayField( QObject* parent )
 
     m_previewItem = new MoleculePreviewItem(this);
     updateArrows(true); // this will hide them
+
+    m_wallsItem = new QGraphicsPixmapItem();
+    m_wallsItem->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
+    m_wallsItem->setZValue(-10);
+    addItem(m_wallsItem);
 }
 
 PlayField::~PlayField()
@@ -149,6 +154,19 @@ void PlayField::updateFieldItems()
 
     m_rightArrow->setPixmap( KAtomicRenderer::self()->renderNonAtom('>', m_elemSize ) );
     m_rightArrow->setPos( toPixX(m_rightArrow->fieldX()), toPixY(m_rightArrow->fieldY()) );
+
+    // re-render walls item
+    QPixmap walls(FIELD_SIZE*m_elemSize, FIELD_SIZE*m_elemSize);
+    walls.fill(Qt::transparent);
+    QPixmap aPix = KAtomicRenderer::self()->renderNonAtom('#', m_elemSize);
+    QPainter p(&walls);
+    for (int i = 0; i < FIELD_SIZE; i++)
+        for (int j = 0; j < FIELD_SIZE; j++)
+            if (m_field[i][j])
+                p.drawPixmap(toPixX(i), toPixY(j), aPix);
+    p.end();
+    m_wallsItem->setPixmap(walls);
+    m_wallsItem->setPos(0,0);
 }
 
 void PlayField::resize( int width, int height)
@@ -656,12 +674,6 @@ void PlayField::updateArrows(bool justHide)
 void PlayField::drawBackground( QPainter *p, const QRectF&)
 {
     p->drawPixmap(0, 0, KAtomicRenderer::self()->renderBackground( sceneRect().size().toSize() ));
-
-    QPixmap aPix = KAtomicRenderer::self()->renderNonAtom('#', m_elemSize);
-    for (int i = 0; i < FIELD_SIZE; i++)
-        for (int j = 0; j < FIELD_SIZE; j++)
-            if (m_field[i][j])
-                p->drawPixmap(toPixX(i), toPixY(j), aPix);
 }
 
 bool PlayField::isAnimating() const
