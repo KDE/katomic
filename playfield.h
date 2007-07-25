@@ -120,6 +120,7 @@ private slots:
     void atomAnimFrameChanged(int frame);
 private:
     virtual void drawBackground( QPainter*, const QRectF& );
+    virtual void drawForeground( QPainter*, const QRectF& );
     virtual void mousePressEvent( QGraphicsSceneMouseEvent* ev );
 
     /**
@@ -212,10 +213,6 @@ private:
     QStack<AtomMove> m_redoStack;
 
     MoleculePreviewItem *m_previewItem;
-    /**
-     * Item holding pixmap with walls inferior
-     */
-    QGraphicsPixmapItem *m_wallsItem;
 };
 
 #endif
