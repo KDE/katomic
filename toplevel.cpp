@@ -68,7 +68,6 @@ bool AtomTopLevel::queryClose()
 {
     Preferences::setLastPlayedLevel(m_gameWid->currentLevel());
     Preferences::self()->writeConfig();
-    m_gameWid->playfield()->saveLastBackground();
     return true;
 }
 

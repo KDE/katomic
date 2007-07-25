@@ -28,8 +28,7 @@
 #include <KDebug>
 #include <KStandardDirs>
 
-#include <QPixmap>
-#include <QPixmapCache>
+#include <kpixmapcache.h>
 #include <QPainter>
 
 KAtomicRenderer* KAtomicRenderer::self()
@@ -40,13 +39,16 @@ KAtomicRenderer* KAtomicRenderer::self()
 
 KAtomicRenderer::KAtomicRenderer()
 {
-    QPixmapCache::setCacheLimit( 2000 ); // around 2 Mb
+    m_cache = new KPixmapCache("katomic-cache");
+    m_cache->setCacheLimit( 3*1024 );
+
     m_renderer = new KSvgRenderer( KStandardDirs::locate( "appdata", "pics/default_theme.svgz" ) );
     fillNameHashes();
 }
 
 KAtomicRenderer::~KAtomicRenderer()
 {
+    delete m_cache;
     delete m_renderer;
 }
 
@@ -95,7 +97,7 @@ void KAtomicRenderer::fillNameHashes()
 
 QPixmap KAtomicRenderer::renderAtom( const atom& at, int size ) const
 {
-    if (!m_renderer->isValid()) return QPixmap();
+    if (!m_renderer->isValid() || size == 0) return QPixmap();
 
     ensureAtomIsInCache(at, size);
 
@@ -111,13 +113,13 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at, int size ) const
         if (!conn)
             break;
         cacheName = QString("bond_%1_%2").arg(conn).arg(size);
-        if(QPixmapCache::find(cacheName, bond_pix))
+        if(m_cache->find(cacheName, bond_pix))
             p.drawPixmap( 0, 0, bond_pix );
     }
     // and now the atom
     QPixmap atom_pix;
     cacheName = QString("atom_%1_%2").arg(at.obj).arg(size);
-    if(QPixmapCache::find(cacheName, atom_pix))
+    if(m_cache->find(cacheName, atom_pix))
         p.drawPixmap( 0, 0, atom_pix );
     p.end();
     return res;
@@ -125,19 +127,19 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at, int size ) const
 
 QPixmap KAtomicRenderer::renderNonAtom( char element, int size ) const
 {
-    if (!m_renderer->isValid()) return QPixmap();
+    if (!m_renderer->isValid() || size == 0) return QPixmap();
 
     QString cacheName = QString("nonAtom_%1_%2").arg(element).arg(size);
     QPixmap pix;
-    if(!QPixmapCache::find(cacheName,pix))
+    if(!m_cache->find(cacheName,pix))
     {
-        QImage baseImg(size, size, QImage::Format_ARGB32_Premultiplied);
-        //Fill the buffer, it is unitialised by default
-        baseImg.fill(0);
-        QPainter p(&baseImg);
-        m_renderer->render(&p, m_names.value(element), QRectF(0,0, size, size) );
-        pix = QPixmap::fromImage(baseImg);
-        QPixmapCache::insert(cacheName, pix);
+        kDebug() << "putting " << cacheName << " to cache" << endl;
+        pix = QPixmap(size,size);
+        pix.fill(Qt::transparent);
+        QPainter p(&pix);
+        m_renderer->render(&p, m_names.value(element) );
+        p.end();
+        m_cache->insert(cacheName, pix);
     }
 
     return pix;
@@ -145,30 +147,35 @@ QPixmap KAtomicRenderer::renderNonAtom( char element, int size ) const
 
 QPixmap KAtomicRenderer::renderBackground(const QSize& size) const
 {
-    if( m_cachedBkgnd.isNull() || m_cachedBkgnd.size() != size )
+    QPixmap pix;
+    QString cacheName = QString("background_%1x%2").arg(size.width()).arg(size.height());
+    if(!m_cache->find(cacheName, pix))
     {
-        m_cachedBkgnd = QPixmap(size);
-        QPainter p(&m_cachedBkgnd);
+        kDebug() << "putting " << cacheName << " to cache" << endl;
+        pix = QPixmap(size);
+        pix.fill(Qt::transparent);
+        QPainter p(&pix);
         m_renderer->render(&p, "background");
+        p.end();
+        m_cache->insert(cacheName, pix);
     }
 
-    return m_cachedBkgnd;
+    return pix;
 }
 
 void KAtomicRenderer::ensureAtomIsInCache(const atom& at, int size) const
 {
-    QImage baseImg;
     QString cacheName = QString("atom_%1_%2").arg(at.obj).arg(size);
-    if(!QPixmapCache::find(cacheName))
+    QPixmap pix;
+    if(!m_cache->find(cacheName, pix))
     {
-        //Construct an image object to render the contents of the .svgz file
-        baseImg = QImage(size, size, QImage::Format_ARGB32_Premultiplied);
-        //Fill the buffer, it is unitialised by default
-        baseImg.fill(0);
-        QPainter p(&baseImg);
-        m_renderer->render(&p, m_names.value(at.obj), QRectF(0,0, size, size) );
-        QPixmap atomPix = QPixmap::fromImage(baseImg);
-        QPixmapCache::insert(cacheName, atomPix);
+        kDebug() << "putting " << cacheName << " to cache" << endl;
+        pix = QPixmap(size,size);
+        pix.fill(Qt::transparent);
+        QPainter p(&pix);
+        m_renderer->render(&p, m_names.value(at.obj) );
+        p.end();
+        m_cache->insert(cacheName, pix);
     }
 
     for (int c = 0; c < MAX_CONNS_PER_ATOM; c++)
@@ -177,50 +184,16 @@ void KAtomicRenderer::ensureAtomIsInCache(const atom& at, int size) const
         if (!conn)
             break;
         cacheName = QString("bond_%1_%2").arg(conn).arg(size);
-        if(!QPixmapCache::find(cacheName))
+        QPixmap pix;
+        if(!m_cache->find(cacheName, pix))
         {
-            //Construct an image object to render the contents of the .svgz file
-            baseImg = QImage(size, size, QImage::Format_ARGB32_Premultiplied);
-            //Fill the buffer, it is unitialised by default
-            baseImg.fill(0);
-            QPainter p(&baseImg);
-            m_renderer->render(&p, m_bondNames.value(conn), QRectF(0,0, size, size) );
-            QPixmap bondPix = QPixmap::fromImage(baseImg);
-            QPixmapCache::insert(cacheName, bondPix);
+            kDebug() << "putting " << cacheName << " to cache" << endl;
+            pix = QPixmap(size,size);
+            pix.fill(Qt::transparent);
+            QPainter p(&pix);
+            m_renderer->render(&p, m_bondNames.value(conn) );
+            p.end();
+            m_cache->insert(cacheName, pix);
         }
-    }
-}
-
-void KAtomicRenderer::saveBackground(const QSize& size) const
-{
-    int savedWidth = Preferences::self()->savedBackgroundWidth();
-    int savedHeight = Preferences::self()->savedBackgroundHeight();
-    if( savedWidth == size.width() && savedHeight == size.height() )
-        return;
-
-    QPixmap bkgnd = renderBackground(size);
-    bkgnd.save( KStandardDirs::locateLocal( "appdata", "savedBkgnd.png" ) );
-
-    Preferences::self()->setSavedBackgroundWidth( size.width() );
-    Preferences::self()->setSavedBackgroundHeight( size.height() );
-    Preferences::self()->writeConfig();
-}
-
-void KAtomicRenderer::restoreSavedBackground()
-{
-    QString fname = KStandardDirs::locate( "appdata", "savedBkgnd.png" );
-    if ( !fname.isEmpty() )
-    {
-        QPixmap pix( fname );
-        kDebug() << "restoring saved background..." << endl;
-        m_cachedBkgnd = pix;
-    }
-    else
-    {
-        kDebug() << "no last saved pixmap found" << endl;
-        // reset corresponding fields in config file
-        Preferences::self()->setSavedBackgroundWidth( -1 );
-        Preferences::self()->setSavedBackgroundHeight( -1 );
-        Preferences::self()->writeConfig();
     }
 }

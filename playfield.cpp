@@ -48,8 +48,6 @@ PlayField::PlayField( QObject* parent )
     // this object will hold the current molecule
     m_mol = new Molecule();
 
-    KAtomicRenderer::self()->restoreSavedBackground();
-
     m_atomTimeLine = new QTimeLine(300, this);
     connect(m_atomTimeLine, SIGNAL(frameChanged(int)), SLOT(atomAnimFrameChanged(int)) );
 
@@ -734,11 +732,6 @@ void PlayField::loadGame( const KConfigGroup& config )
     m_selIdx = config.readEntry("SelectedAtom", 0);
     m_levelFinished = config.readEntry("LevelFinished", false);
     updateArrows();
-}
-
-void PlayField::saveLastBackground()
-{
-    KAtomicRenderer::self()->saveBackground(sceneRect().size().toSize());
 }
 
 void PlayField::showMessage( const QString& message )

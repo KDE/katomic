@@ -83,11 +83,6 @@ public:
      */
     bool isLevelFinished() const { return m_levelFinished; }
     /**
-     * Saves current background to png file to quickly restore it
-     * at startup. Should be called when katomic is about to quit
-     */
-    void saveLastBackground();
-    /**
      * Displays a passive popup message at the bottom of the scene
      */
     void showMessage( const QString& message );

@@ -23,12 +23,12 @@
 #ifndef KATOMIC_RENDERER_H
 #define KATOMIC_RENDERER_H
 
-#include <QHash>
-#include <QSize>
 #include <QPixmap>
+#include <QHash>
 
 class atom;
 class KSvgRenderer;
+class KPixmapCache;
 
 /**
  *  Class for rendering elements of game SVG to QPixmap
@@ -56,17 +56,6 @@ public:
      *  Background pixmap is cached
      */
     QPixmap renderBackground(const QSize& size) const;
-    /**
-     * Renders background from SVG and saves it to $appdata/savedBkgnd.png
-     * Background can be restored (put to cache) later with restoreSavedBackground().
-     * Used to speed up startup
-     */
-    void saveBackground(const QSize&) const;
-    /**
-     * Reads pixmap which was saved by saveBackground() and puts it to cache.
-     * If no pixmap is found - nothing is done
-     */
-    void restoreSavedBackground();
 private:
     KAtomicRenderer();
     ~KAtomicRenderer();
@@ -88,7 +77,7 @@ private:
     KSvgRenderer *m_renderer;
     QHash<char, QString> m_names; // cryptic_char -> elemName
     QHash<char, QString> m_bondNames; // cryptic_char -> bondName
-    mutable QPixmap m_cachedBkgnd;
+    KPixmapCache *m_cache;
 };
 
 #endif
