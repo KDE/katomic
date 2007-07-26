@@ -99,30 +99,48 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at, int size ) const
 {
     if (!m_renderer->isValid() || size == 0) return QPixmap();
 
-    ensureAtomIsInCache(at, size);
+    QString cacheName = QString("atom_%1_%2").arg(at.obj).arg(size);
+    QPixmap atomPix;
+    if(!m_cache->find(cacheName, atomPix))
+    {
+        kDebug() << "putting " << cacheName << " to cache" << endl;
+        atomPix = QPixmap(size,size);
+        atomPix.fill(Qt::transparent);
+        QPainter p(&atomPix);
+        m_renderer->render(&p, m_names.value(at.obj) );
+        p.end();
+        m_cache->insert(cacheName, atomPix);
+    }
 
-    QString cacheName;
-    QPixmap res(size, size);
-    res.fill( Qt::transparent );
-    QPainter p(&res);
-    QPixmap bond_pix;
-    // paint connections first
+    QPainter p;
+    QPixmap bonds(size,size);
+    bonds.fill(Qt::transparent);
     for (int c = 0; c < MAX_CONNS_PER_ATOM; c++)
     {
         char conn = at.conn[c];
         if (!conn)
             break;
         cacheName = QString("bond_%1_%2").arg(conn).arg(size);
-        if(m_cache->find(cacheName, bond_pix))
-            p.drawPixmap( 0, 0, bond_pix );
+        QPixmap pix;
+        if(!m_cache->find(cacheName, pix))
+        {
+            kDebug() << "putting " << cacheName << " to cache" << endl;
+            pix = QPixmap(size,size);
+            pix.fill(Qt::transparent);
+            p.begin(&pix);
+            m_renderer->render(&p, m_bondNames.value(conn) );
+            p.end();
+            m_cache->insert(cacheName, pix);
+        }
+        p.begin(&bonds);
+        p.drawPixmap(0,0, pix);
+        p.end();
     }
-    // and now the atom
-    QPixmap atom_pix;
-    cacheName = QString("atom_%1_%2").arg(at.obj).arg(size);
-    if(m_cache->find(cacheName, atom_pix))
-        p.drawPixmap( 0, 0, atom_pix );
+    bonds.save("bonds.png");
+    p.begin(&bonds);
+    p.drawPixmap(0,0, atomPix);
     p.end();
-    return res;
+    return bonds;
 }
 
 QPixmap KAtomicRenderer::renderNonAtom( char element, int size ) const
@@ -159,41 +177,5 @@ QPixmap KAtomicRenderer::renderBackground(const QSize& size) const
         p.end();
         m_cache->insert(cacheName, pix);
     }
-
     return pix;
-}
-
-void KAtomicRenderer::ensureAtomIsInCache(const atom& at, int size) const
-{
-    QString cacheName = QString("atom_%1_%2").arg(at.obj).arg(size);
-    QPixmap pix;
-    if(!m_cache->find(cacheName, pix))
-    {
-        kDebug() << "putting " << cacheName << " to cache" << endl;
-        pix = QPixmap(size,size);
-        pix.fill(Qt::transparent);
-        QPainter p(&pix);
-        m_renderer->render(&p, m_names.value(at.obj) );
-        p.end();
-        m_cache->insert(cacheName, pix);
-    }
-
-    for (int c = 0; c < MAX_CONNS_PER_ATOM; c++)
-    {
-        char conn = at.conn[c];
-        if (!conn)
-            break;
-        cacheName = QString("bond_%1_%2").arg(conn).arg(size);
-        QPixmap pix;
-        if(!m_cache->find(cacheName, pix))
-        {
-            kDebug() << "putting " << cacheName << " to cache" << endl;
-            pix = QPixmap(size,size);
-            pix.fill(Qt::transparent);
-            QPainter p(&pix);
-            m_renderer->render(&p, m_bondNames.value(conn) );
-            p.end();
-            m_cache->insert(cacheName, pix);
-        }
-    }
 }

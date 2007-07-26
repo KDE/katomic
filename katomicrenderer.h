@@ -69,10 +69,6 @@ private:
      * level files to corresponding SVG-element names
      */
     void fillNameHashes();
-    /**
-     *  Renders this atom pixmaps and puts them in cache in case they arent there yet
-     */
-    void ensureAtomIsInCache(const atom&, int size) const;
 
     KSvgRenderer *m_renderer;
     QHash<char, QString> m_names; // cryptic_char -> elemName
