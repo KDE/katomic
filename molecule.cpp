@@ -70,7 +70,7 @@ void Molecule::load (const KConfigGroup& config)
 
         strlcpy(current.conn, value.toAscii(), sizeof(current.conn));
         kWarning( atoms.indexOf(current) != -1 )
-            << "OOOPS, duplicate atom definition in " << key << endl;
+            << "OOOPS, duplicate atom definition in" << key;
         atoms.append(current);
         atom_index++;
     }

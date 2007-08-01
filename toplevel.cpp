@@ -194,7 +194,7 @@ void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
 
 void AtomTopLevel::enableHackMode()
 {
-    kDebug() << "Enabling hack mode" << endl;
+    kDebug() << "Enabling hack mode";
     m_gameWid->enableSwitchToAnyLevel();
 }
 

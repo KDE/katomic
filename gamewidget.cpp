@@ -216,10 +216,10 @@ void GameWidget::nextLevel()
 void GameWidget::resizeEvent( QResizeEvent* ev)
 {
     if ( testAttribute( Qt::WA_PendingResizeEvent ) )
-        kDebug() << "pending resize" << endl;
+        kDebug() << "pending resize";
     else
     {
-        kDebug() << "no pending resize" << endl;
+        kDebug() << "no pending resize";
         m_playField->resize( ev->size().width(), ev->size().height() );
     }
 }

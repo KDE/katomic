@@ -154,7 +154,7 @@ void PlayField::updateFieldItems()
 
 void PlayField::resize( int width, int height)
 {
-    kDebug() << "resize:" << width << "," << height << endl;
+    kDebug() << "resize:" << width << "," << height;
     setSceneRect( 0, 0, width, height );
 
     // we take 1/4 of width for displaying preview
@@ -171,7 +171,7 @@ void PlayField::resize( int width, int height)
     // if atom animation is running we need to rescale timeline
     if( isAnimating() )
     {
-        kDebug() << "restarting animation" << endl;
+        kDebug() << "restarting animation";
         int curTime = m_atomTimeLine->currentTime();
         // calculate numCells to move using oldSize
         int numCells = m_atomTimeLine->endFrame()/oldSize;

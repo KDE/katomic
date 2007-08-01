@@ -103,7 +103,7 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at, int size ) const
     QPixmap atomPix;
     if(!m_cache->find(cacheName, atomPix))
     {
-        kDebug() << "putting " << cacheName << " to cache" << endl;
+        kDebug() << "putting" << cacheName << "to cache";
         atomPix = QPixmap(size,size);
         atomPix.fill(Qt::transparent);
         QPainter p(&atomPix);
@@ -124,7 +124,7 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at, int size ) const
         QPixmap pix;
         if(!m_cache->find(cacheName, pix))
         {
-            kDebug() << "putting " << cacheName << " to cache" << endl;
+            kDebug() << "putting" << cacheName << "to cache";
             pix = QPixmap(size,size);
             pix.fill(Qt::transparent);
             p.begin(&pix);
@@ -151,7 +151,7 @@ QPixmap KAtomicRenderer::renderNonAtom( char element, int size ) const
     QPixmap pix;
     if(!m_cache->find(cacheName,pix))
     {
-        kDebug() << "putting " << cacheName << " to cache" << endl;
+        kDebug() << "putting" << cacheName << "to cache";
         pix = QPixmap(size,size);
         pix.fill(Qt::transparent);
         QPainter p(&pix);
@@ -169,7 +169,7 @@ QPixmap KAtomicRenderer::renderBackground(const QSize& size) const
     QString cacheName = QString("background_%1x%2").arg(size.width()).arg(size.height());
     if(!m_cache->find(cacheName, pix))
     {
-        kDebug() << "putting " << cacheName << " to cache" << endl;
+        kDebug() << "putting" << cacheName << "to cache";
         pix = QPixmap(size);
         pix.fill(Qt::transparent);
         QPainter p(&pix);
