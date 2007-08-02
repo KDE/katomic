@@ -2,9 +2,6 @@ project(katomic)
 
 add_subdirectory( levels )
 
-include_directories( ${CMAKE_SOURCE_DIR}/libkdegames )
-
-
 ########### next target ###############
 
 set(katomic_SRCS 
