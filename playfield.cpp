@@ -744,4 +744,9 @@ void PlayField::showMessage( const QString& message )
     m_messageItem->showMessage( message, KGamePopupItem::BottomLeft );
 }
 
+QString PlayField::moleculeName()
+{
+    return m_mol->moleculeName();
+}
+
 #include "playfield.moc"

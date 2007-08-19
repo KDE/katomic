@@ -50,12 +50,15 @@ AtomTopLevel::AtomTopLevel()
     loadSettings();
     setCentralWidget(m_gameWid);
 
-    statusBar()->insertItem( i18n("Level:"), 0 );
-    statusBar()->insertItem( i18n("Current score:"), 1 );
-    statusBar()->insertItem( i18n("Highscore:"), 2 );
-    updateStatusBar( m_gameWid->currentLevel(), m_gameWid->currentScore(), m_gameWid->currentHighScore() );
+    statusBar()->insertItem( i18n("Level:"), 0 , 1);
+    statusBar()->insertItem( "", 3 , 1);
+    statusBar()->insertPermanentItem( i18n("Current score:"), 1, 1);
+    statusBar()->insertPermanentItem( i18n("Highscore:"), 2, 1 );
+    statusBar()->setItemAlignment(0, Qt::AlignLeft & Qt::AlignVCenter);
 
-    connect(m_gameWid, SIGNAL(statsChanged(int,int,int)), SLOT(updateStatusBar(int,int,int)));
+    updateStatusBar( m_gameWid->currentLevel(), m_gameWid->currentMolecule(), m_gameWid->currentScore(), m_gameWid->currentHighScore() );
+
+    connect(m_gameWid, SIGNAL(statsChanged(int,int,int)), SLOT(updateStatusBar(int, QString, int, int)));
 
     setupGUI();
 }
@@ -180,9 +183,10 @@ void AtomTopLevel::slotAnimSpeedChanged(int speed)
     Preferences::self()->writeConfig();
 }
 
-void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
+void AtomTopLevel::updateStatusBar( int level, QString molecule, int score, int highscore )
 {
     statusBar()->changeItem( i18n("Level: %1", level), 0 );
+    statusBar()->changeItem( molecule, 3);
     statusBar()->changeItem( i18n("Current score: %1", score), 1 );
     QString str;
     if(highscore == 0)

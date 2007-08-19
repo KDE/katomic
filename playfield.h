@@ -86,6 +86,11 @@ public:
      * Displays a passive popup message at the bottom of the scene
      */
     void showMessage( const QString& message );
+    /**
+     * Name of the current molecule
+     */
+    QString moleculeName();
+
 public slots:
     /**
      *  Selects next atom

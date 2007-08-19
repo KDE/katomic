@@ -76,6 +76,11 @@ GameWidget::~GameWidget()
     delete m_highscore;
 }
 
+QString GameWidget::currentMolecule() const
+{
+    return m_playField->moleculeName();
+}
+
 void GameWidget::moveUp()
 {
     if(!m_playField->isLevelFinished())
@@ -151,6 +156,7 @@ void GameWidget::switchToLevel (int l)
     m_playField->loadLevel(gr);
 
     m_levelHighscore = m_highscore->levelHighscore( m_level );
+
     emit statsChanged(m_level, 0, m_levelHighscore);
 }
 

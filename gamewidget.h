@@ -40,6 +40,7 @@ public:
     PlayField* playfield() { return m_playField; }
 
     int currentLevel() const { return m_level; }
+    QString currentMolecule() const;
     int currentScore() const { return m_moves; }
     int currentHighScore() const;
 signals:
