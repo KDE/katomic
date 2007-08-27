@@ -136,7 +136,7 @@ QPixmap KAtomicRenderer::renderAtom( const atom& at, int size ) const
         p.drawPixmap(0,0, pix);
         p.end();
     }
-    bonds.save("bonds.png");
+
     p.begin(&bonds);
     p.drawPixmap(0,0, atomPix);
     p.end();
