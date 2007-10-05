@@ -30,6 +30,7 @@
 #include <kconfig.h>
 #include <klocale.h>
 #include <kdebug.h>
+#include <kconfiggroup.h>
 
 #include <QPainter>
 #include <QPaintEvent>

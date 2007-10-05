@@ -30,6 +30,8 @@
 
 #include <KStandardDirs>
 #include <KConfig>
+#include <KDebug>
+#include <kconfiggroup.h>
 
 #include <KGamePopupItem>
 
