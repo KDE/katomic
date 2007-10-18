@@ -158,6 +158,7 @@ void GameWidget::switchToLevel (int l)
     m_levelHighscore = m_highscore->levelHighscore( m_level );
 
     emit statsChanged(m_level, 0, m_levelHighscore);
+    emit levelChanged(m_level);
 }
 
 void GameWidget::restartLevel()

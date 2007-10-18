@@ -50,7 +50,8 @@ public:
     void enableHackMode();
 private slots:
     void slotAnimSpeedChanged(int);
-    void updateStatusBar(int level, QString molecule, int score, int highscore);
+    void updateStatusBar(int level, int score, int highscore);
+    void updateLevelName();
 private:
     virtual bool queryClose(); // reimp
 

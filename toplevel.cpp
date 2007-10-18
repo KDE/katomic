@@ -56,9 +56,11 @@ AtomTopLevel::AtomTopLevel()
     statusBar()->insertPermanentItem( i18n("Highscore:"), 2, 1 );
     statusBar()->setItemAlignment(0, Qt::AlignLeft & Qt::AlignVCenter);
 
-    updateStatusBar( m_gameWid->currentLevel(), m_gameWid->currentMolecule(), m_gameWid->currentScore(), m_gameWid->currentHighScore() );
+    updateStatusBar( m_gameWid->currentLevel(), m_gameWid->currentScore(), m_gameWid->currentHighScore() );
+    updateLevelName();
 
-    connect(m_gameWid, SIGNAL(statsChanged(int,int,int)), SLOT(updateStatusBar(int, QString, int, int)));
+    connect(m_gameWid, SIGNAL(statsChanged(int,int,int)), SLOT(updateStatusBar(int, int, int)));
+    connect(m_gameWid, SIGNAL(levelChanged(int)), SLOT(updateLevelName()));
 
     setupGUI();
 }
@@ -185,10 +187,9 @@ void AtomTopLevel::slotAnimSpeedChanged(int speed)
     Preferences::self()->writeConfig();
 }
 
-void AtomTopLevel::updateStatusBar( int level, QString molecule, int score, int highscore )
+void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
 {
     statusBar()->changeItem( i18n("Level: %1", level), 0 );
-    statusBar()->changeItem( molecule, 3);
     statusBar()->changeItem( i18n("Current score: %1", score), 1 );
     QString str;
     if(highscore == 0)
@@ -202,6 +203,11 @@ void AtomTopLevel::enableHackMode()
 {
     kDebug() << "Enabling hack mode";
     m_gameWid->enableSwitchToAnyLevel();
+}
+
+void AtomTopLevel::updateLevelName()
+{
+    statusBar()->changeItem( m_gameWid->currentMolecule(), 3);
 }
 
 #include "toplevel.moc"

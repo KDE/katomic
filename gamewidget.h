@@ -45,6 +45,7 @@ public:
     int currentHighScore() const;
 signals:
     void statsChanged(int level,int score,int highscore);
+    void levelChanged(int level);
 public slots:
     void prevLevel();
     void nextLevel();
