@@ -23,7 +23,7 @@
 KAtomicHighscores::KAtomicHighscores()
 {
     KUser user;
-    m_playerName =  user.fullName().isEmpty() ? user.loginName() : user.fullName();
+    m_playerName =  user.property(KUser::FullName).toString().isEmpty() ? user.loginName() : user.property(KUser::FullName).toString();
 }
 
 bool KAtomicHighscores::addScore( int numMoves, int level )
