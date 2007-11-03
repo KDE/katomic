@@ -1,27 +1,29 @@
 <?xml version="1.0" ?>
+<!--IMPORTANT: please note that'do not change this!' notice does not apply to translators -->
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
- <!ENTITY kappname "&katomic;">
- <!ENTITY package "kdegames">
- <!ENTITY % English "INCLUDE">
- <!ENTITY % addindex "IGNORE">
+  <!ENTITY kapp-name "&katomic;">
+  <!ENTITY kappversion "2.0"><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY docversion "1.0"><!--Document version. Use this variable everywhere it's needed.-->
+  <!ENTITY docupdate "2005-12-14"><!--Document version. Use this variable everywhere it's needed.-->
+  <!ENTITY package "kdegames">  <!-- do not change this! -->
+  <!ENTITY % English "INCLUDE" > <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"> <!-- do not change this! -->
 ]>
-
-<book lang="&language;">
+ 
+<book lang="&language;"> <!-- do not change this! -->
 <bookinfo>
-<title>The Atomic Entertainment Handbook</title>
-
+	<title>&kapp-name; Handbook</title> <!-- This is the title of the docbook. Live as is unless change is necessary.-->
+<!-- List of immidiate authors begins here. -->
+<!--INPORTANT! - All other contributors: [to be determined] -->
 <authorgroup>
 <author>
 <firstname>Dirk</firstname>
 <surname>Doerflinger</surname>
 </author>
-
-<othercredit role="developer">
-<firstname>Stephan</firstname><surname>Kulow</surname><contrib>Developer</contrib><affiliation><address>&Stephan.Kulow.mail;</address>
-</affiliation></othercredit>
-<othercredit role="developer">
-<firstname>Cristian</firstname><surname>Tibirna</surname><contrib>Developer</contrib><affiliation><address>&Cristian.Tibirna.mail;</address>
-</affiliation></othercredit>
+<author>
+<firstname>Eugene</firstname><surname>Trounev</surname>
+<affiliation><address><email>eugene.trounev@gmail.com</email></address></affiliation>
+</author>
 <othercredit role="reviewer">
 <firstname>Mike</firstname><surname>McBride</surname>
 <contrib>Reviewer</contrib>
@@ -29,75 +31,165 @@
 </othercredit>
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
-
-<date>2005-12-14</date>
-<releaseinfo>2.0</releaseinfo>
-
+ 
+<date>&docupdate;</date><!-- Date of (re)writing, ro update. Use the variable definitions within header to change this value.-->
+<releaseinfo>&docversion;</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+ 
+<!--Short description of this document. Do not change unless necessary!-->
 <abstract>
-<para>This Handbook describes &katomic; Version 2.0</para>
+	<para>This documentation describes the game of &kapp-name; version &kappversion;</para>
 </abstract>
-
+ 
+<!--List of relevan keywords-->
 <keywordset>
-<keyword>KDE</keyword>
-<keyword>kdegames</keyword>
-<keyword>KAtomic</keyword>
-<keyword>game</keyword>
-<keyword>atomic entertainment</keyword>
+	<keyword>KDE</keyword> <!-- do not change this! -->
+	<keyword>kdegames</keyword> <!-- do not change this! -->
+	<keyword>game</keyword> <!-- do not change this! -->
+	<keyword>Katomic</keyword><!--Application name goes here-->
+<!-- Game genre. use as many as necessary.Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<keyword>arcade</keyword>
+	<keyword>logic</keyword>
+	<keyword>atoms</keyword>
+	<keyword>socoban</keyword>
+<!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<keyword>one player</keyword>
+<!--All other relevant keywords-->
+	<keyword>chemical elements</keyword>
+	<keyword> reassemble the molecule</keyword>
 </keywordset>
 </bookinfo>
-
-<chapter id="introduction">
-<title>Introduction</title>
-<para>
-<application>Atomic Entertainment</application> is a small game which resembles
-<application>Sokoban</application>. The object of the game is to build chemical
-molecules on a <application>Sokoban</application> like board.</para>
+<!--Content begins here: -->
+<chapter id="introduction"><title>Introduction</title> <!-- do not change this! -->
+	<note><title>Gametype:</title><para>Logic, Arcade</para></note><!-- Game genre. use as many as necessary.Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note><title>Number of possible players:</title><para>One</para></note><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+ 
+<!--Short game description starts here. 3-4 sentences (paragraphs)-->
+	<para>
+	Katomic is both fun and educational game built around molecular geometry. It employs simplistic two-dimensional looks at different chemical elements. Elements are disassembled into separate atoms and scattered around the play field. Player is expected to reassemble the molecule, thus completing current level and moving up to the next one.
+	</para>
 </chapter>
+ 
+<chapter id="howto"><title>How to play</title> <!-- do not change this! -->
+<!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
+	<note><title>Objective:</title><para>Reassemble molecules from compound atoms by sliding them around.</para></note><!--Describe the objective of the game.-->
+<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+	<para>
+	Katomic will load level one once you start the game and you can begin playing right away. To see how the molecule you are supposed to make looks like, take a look at the upper right corner. To play, click on an atom. You will see green arrows pointing in the directions where atom can move. To move the atom, click on the desired arrow. When an atom starts moving, it will not stop until it hits another atom or a wall, so make sure you think before you do your next move. You can assemble your molecule wherever you like on the game board, but some places are easier to access than others. When the molecule is assembled, you can move to the next level.
+	</para>
+</chapter>
+ 
+<chapter id="rules_and_tips"><title>Game Rules, Strategies and Tips</title> <!-- do not change this! -->
+	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+	<sect1><title>Game Rules</title>		
+		<itemizedlist>
+			<listitem><para>Game pieces can only move in one direction at a time.</para></listitem>
+			<listitem><para>Once an atom begins moving it will not stop until it meets either a wall or another peace.</para></listitem>
+			<listitem><para>The only way to progress to the next game level is to complete a current one. *Once player completes a certain level game automatically switches to the next one, thus 'uncovering it'.</para></listitem>
+			<listitem><para>Player can only switch between the levels which have been uncovered.</para></listitem>
+			<listitem><para>The game progress is automatically saved every time an adjacent level is reached, and will be reloaded the next time application is started.</para></listitem>
+		</itemizedlist>
+	</sect1>
+	<sect1><title>Strategies and Tips</title>
+		<itemizedlist>
+			<listitem><para>Always review the complete molecule using the reference screen before making any moves.</para></listitem>
+			<listitem><para>Next, study the play field and plan your moves. Remember, once a piece is moved it may not be possible to return it into the starting position.</para></listitem>
+			<listitem><para>Think through your every move and try to visualize the trajectory piece will follow once a directional arrow is clicked.</para></listitem>
+			<listitem><para>When using keyboard to move pieces make sure that an exact piece is selected. If a wrong atom is marked as selected, use 'Tab' key to switch between the pieces until you reach a desired one.</para></listitem>
+		</itemizedlist>
+	</sect1>
+</chapter> 
+ 
+<chapter id="interface"><title>Interface Overview</title> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist> and <varlistentry>. Split the chapter into sections using <sect1(2,3)> for better viewing.-->
+<sect1 id="keybindings">
+<title id="keybindings-title">Default Keybindings</title>
 
+<para>Default shortcuts are:</para>
 
-<chapter id="playing-katomic">
-<title>Playing <application>Atomic Entertainment</application></title>
-
-<sect1 id="rules">
-<title>Rules</title>
-
-<para>The aim of <application>Atomic Entertainment</application> is to build
-chemical molecules using basic atoms you are given.  The molecule being built is
-shown in a frame in the main window.</para>
-
-<para>Clicking on an atom will cause arrows to appear beside it.  These arrows
-show the direction the atom can be moved. After an arrow is clicked, the atom
-will move in this direction until it reaches the next border or another atom. If
-two atoms touch each other with the corresponding connectors, they form a
-molecule. The atoms can only be moved one at a time. </para>
-
-<para>The level is solved when the new molecule has the same structure as shown
-in the preview window.</para>
-
-<para>In the higher levels, some tactical skill will be necessary for solving
-the puzzle.</para>
-
-<para>The best score in this game is actually the lower score, because the
-goal is to solve a level with as few moves as
-possible. <guilabel>Highscore:</guilabel> in the main-window shows
-the lowest number of moves used for this level. <guilabel>Your score
-so far:</guilabel> shows the current number of moves.</para>
-
-<para>The scrollbar on the top right of the main window changes the game
-level.</para>
+<table>
+<title>Shortcuts</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry>Restart Game</entry>
+<entry>
+<keycap>F5</keycap>
+</entry>
+</row>
+<row>
+<entry>Quit</entry>
+<entry>
+<keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
+</entry>
+</row>
+<row>
+<entry>Show Highscores</entry>
+<entry>
+<keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
+</entry>
+</row>
+<row>
+<entry>Undo</entry>
+<entry>
+<keycombo action="simul">&Ctrl;<keycap>Z</keycap></keycombo>
+</entry>
+</row>
+<row>
+<entry>Redo</entry>
+<entry>
+<keycombo action="simul">&Ctrl;&Shift;<keycap>Z</keycap></keycombo>
+</entry>
+</row>
+<row>
+<entry>Atom Down</entry>
+<entry>
+<keycap>Down Arrow</keycap>
+</entry>
+</row>
+<row>
+<entry>Atom Left</entry>
+<entry>
+<keycap>Left Arrow</keycap>
+</entry>
+</row>
+<row>
+<entry>Atom Right</entry>
+<entry>
+<keycap>Right Arrow</keycap>
+</entry>
+</row>
+<row>
+<entry>Atom Up</entry>
+<entry>
+<keycap>Up Arrow</keycap>
+</entry>
+</row>
+<row>
+<entry>Next Atom</entry>
+<entry><keycap>Tab</keycap></entry>
+</row>
+<row>
+<entry>Previous Atom</entry>
+<entry><keycombo action="simul">&Shift;&Tab;</keycombo></entry>
+</row>
+<row>
+<entry>Help</entry>
+<entry><keycap>F1</keycap></entry>
+</row>
+<row>
+<entry>What's this?</entry>
+<entry>
+<keycombo action="simul">&Shift;<keycap>F1</keycap></keycombo>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
 
 </sect1>
-
-</chapter>
-
-<chapter id="configuration">
-<title>Menu Reference</title>
-
-<sect1 id="game-menu">
+ <sect1 id="game-menu">
 <title>The <guimenu>Game</guimenu> Menu</title>
-
 <variablelist>
-
 <varlistentry>
 <term>
 <menuchoice>
@@ -187,103 +279,61 @@ atomic movement can be set.</para></listitem>
 </variablelist>
 
 </sect1>
-
-<sect1 id="help">
-<title>The <guimenu>Help</guimenu> Menu</title>
-
+<sect1 id="help"><!--This is a standard Help menubar entry. Only change if needed.-->
+<title>The <guimenuitem>Help</guimenuitem> Menu</title>
 &help.menu.documentation;
-
-</sect1>
-
-<sect1 id="keybindings">
-<title id="keybindings-title">Shortcuts</title>
-
-<para>Default shortcuts are:</para>
-
-<table>
-<title>Shortcuts</title>
-<tgroup cols="2">
-<tbody>
-<row>
-<entry>Restart Game</entry>
-<entry>
-<keycap>F5</keycap>
-</entry>
-</row>
-<row>
-<entry>Quit</entry>
-<entry>
-<keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
-</entry>
-</row>
-<row>
-<entry>Show Highscores</entry>
-<entry>
-<keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
-</entry>
-</row>
-<row>
-<entry>Undo</entry>
-<entry>
-<keycombo action="simul">&Ctrl;<keycap>Z</keycap></keycombo>
-</entry>
-</row>
-<row>
-<entry>Redo</entry>
-<entry>
-<keycombo action="simul">&Ctrl;&Shift;<keycap>Z</keycap></keycombo>
-</entry>
-</row>
-<row>
-<entry>Atom Down</entry>
-<entry>
-<keycap>Down Arrow</keycap>
-</entry>
-</row>
-<row>
-<entry>Atom Left</entry>
-<entry>
-<keycap>Left Arrow</keycap>
-</entry>
-</row>
-<row>
-<entry>Atom Right</entry>
-<entry>
-<keycap>Right Arrow</keycap>
-</entry>
-</row>
-<row>
-<entry>Atom Up</entry>
-<entry>
-<keycap>Up Arrow</keycap>
-</entry>
-</row>
-<row>
-<entry>Next Atom</entry>
-<entry><keycap>Tab</keycap></entry>
-</row>
-<row>
-<entry>Previous Atom</entry>
-<entry><keycombo action="simul">&Shift;&Tab;</keycombo></entry>
-</row>
-<row>
-<entry>Help</entry>
-<entry><keycap>F1</keycap></entry>
-</row>
-<row>
-<entry>What's this?</entry>
-<entry>
-<keycombo action="simul">&Shift;<keycap>F1</keycap></keycombo>
-</entry>
-</row>
-</tbody>
-</tgroup>
-</table>
-
 </sect1>
 </chapter>
-
-
+ 
+ 
+<chapter id="faq"><title>Frequently asked questions</title> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset> <qandaentry> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+<qandaentry>
+<question><para>Who made this game?</para></question>
+ <answer><para>The kdegames team. You can find their website here.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Where can I get cheatcodes? </para></question>
+ <answer><para>You can't get cheatcodes for KDE games.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>How do I know what does the molecule look like?</para></question>
+ <answer><para>You can view the molecule on the reference screen located in the top right corner of the game screen.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Where is the reference screen?</para></question>
+ <answer><para>The reference screen is located in the top right corner of the game screen.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>How do I move a game piece(atom)?</para></question>
+ <answer><para>To move a game piece(atom) use your mouse cursor to click on it. At this time the available directional icon will become visible. Click on the corresponding directional icon to make a game piece move in desired direction. Alternatively, you can use your keyboard to move the pieces. Use [Tab] key to switch between the items, and directional key to move them once selected.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Can I use keyboard to control the pieces(atoms)?</para></question>
+ <answer><para>Yes. Use [Tab] key to switch between the items, and directional key to move them once selected.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>When I move a peace (atom) it goes right past the place where I want it. How do I make it stop there?</para></question>
+ <answer><para>You don't. Once an atom begins moving, it will not stop until it meets either a wall or another peace.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I have stuck. How can I restart the game?</para></question>
+ <answer><para>To restart Karomic choose 'Game' in the game window menu. There choose 'Restart Game'. Alternatively you can press [F5] key on your keyboard to restart the game.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I can't beat the level. Is there a hint system, or a solver?</para></question>
+  <answer><para>No. Unfortunately at this time Katomic does not feature a hint system. So the only way to finish a level is to solve it on your own.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I did something wrong. Can I undo.</para></question>
+ <answer><para>Yes. To undo a wrong move select 'Move' from the menubar. Then select 'Undo'. Alternatively you can press [Ctrl+Z] on your keyboard.</para></answer>
+</qandaentry>
+<!--Please add more Q&As if needed-->
+</qandaset>
+</chapter>
+ 
 <chapter id="credits">
 <title>Credits and License</title>
 
@@ -303,56 +353,45 @@ Documentation Copyright 2000 &Dirk.Doerflinger;
 Proofreading by Michael McBride
 &Mike.McBride.mail;
 </para>
-<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-
+<!-- TRANS:CREDIT_FOR_TRANSLATORS --> 
+ 
+<!-- !!!do not change ANYTHING after this line!!!! -->
 &underFDL;
 &underGPL;
-
+ 
 </chapter>
-
+ 
+ 
 <appendix id="installation">
 <title>Installation</title>
-<sect1 id="getting-katomic">
-<title>How to obtain <application>Atomic Entertainment</application></title>
-
-<para>
-<application>Atomic Entertainment</application> (&katomic;) is written for the &kde; project
-<ulink url="http://www.kde.org">http://www.kde.org</ulink> by &Stephan.Kulow;
-&Stephan.Kulow.mail; and Cristian Tiberna
-&Cristian.Tibirna.mail;.
-It is based on Atomic 1.0.67 by Andreas Wuest
-<email>AndreasWuest@gmx.de</email>.
-</para>
-
+ 
 &install.intro.documentation;
-
-</sect1>
-
-<sect1 id="requirements">
-<title>Requirements</title>
-<para>
-In order to successfully compile <application>Atomic Entertainment</application>, you need &kde; 3.0 </para>
-<para>
-All required libraries as well as <application>Atomic Entertainment</application> itself can be found on
-&kde-ftp;.</para>
-</sect1>
-
-
-<sect1 id="compilation">
+ 
+ 
+<sect1 id="Compilation">
 <title>Compilation and Installation</title>
-
+ 
 &install.compile.documentation;
-
+ 
 </sect1>
 </appendix>
-
+ 
+&documentation.index; 
 </book>
 <!--
 Local Variables:
 mode: sgml
-sgml-omittag: nil
-sgml-shorttag: t
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
 End:
 -->
-
-
