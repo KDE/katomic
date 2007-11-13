@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 <!--IMPORTANT: please note that'do not change this!' notice does not apply to translators -->
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
-  <!ENTITY kapp-name "&katomic;">
-  <!ENTITY kappversion "2.0"><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY kappname "&katomic;">
+  <!ENTITY kappversion "3.0"><!--Applicaion version. Use this variable everywhere it's needed.-->
   <!ENTITY docversion "1.0"><!--Document version. Use this variable everywhere it's needed.-->
   <!ENTITY docupdate "2005-12-14"><!--Document version. Use this variable everywhere it's needed.-->
   <!ENTITY package "kdegames">  <!-- do not change this! -->
@@ -12,7 +12,7 @@
  
 <book lang="&language;"> <!-- do not change this! -->
 <bookinfo>
-	<title>&kapp-name; Handbook</title> <!-- This is the title of the docbook. Live as is unless change is necessary.-->
+<title>&kappname; Handbook</title> <!-- This is the title of the docbook. Live as is unless change is necessary.-->
 <!-- List of immidiate authors begins here. -->
 <!--INPORTANT! - All other contributors: [to be determined] -->
 <authorgroup>
@@ -37,7 +37,7 @@
  
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
-	<para>This documentation describes the game of &kapp-name; version &kappversion;</para>
+	<para>This documentation describes the game of &katomic; version &kappversion;</para>
 </abstract>
  
 <!--List of relevan keywords-->
@@ -65,16 +65,16 @@
  
 <!--Short game description starts here. 3-4 sentences (paragraphs)-->
 	<para>
-	Katomic is both fun and educational game built around molecular geometry. It employs simplistic two-dimensional looks at different chemical elements. Elements are disassembled into separate atoms and scattered around the play field. Player is expected to reassemble the molecule, thus completing current level and moving up to the next one.
+	&katomic; is both fun and educational game built around molecular geometry. It employs simplistic two-dimensional looks at different chemical elements. Elements are disassembled into separate atoms and scattered around the play field. Player is expected to reassemble the molecule, thus completing current level and moving up to the next one.
 	</para>
 </chapter>
  
-<chapter id="howto"><title>How to play</title> <!-- do not change this! -->
+<chapter id="howto"><title>How to Play</title> <!-- do not change this! -->
 <!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
 	<note><title>Objective:</title><para>Reassemble molecules from compound atoms by sliding them around.</para></note><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
 	<para>
-	Katomic will load level one once you start the game and you can begin playing right away. To see how the molecule you are supposed to make looks like, take a look at the upper right corner. To play, click on an atom. You will see green arrows pointing in the directions where atom can move. To move the atom, click on the desired arrow. When an atom starts moving, it will not stop until it hits another atom or a wall, so make sure you think before you do your next move. You can assemble your molecule wherever you like on the game board, but some places are easier to access than others. When the molecule is assembled, you can move to the next level.
+	&katomic; will load level one once you start the game and you can begin playing right away. To see how the molecule you are supposed to make looks like, take a look at the upper right corner. To play, click on an atom. You will see green arrows pointing in the directions where atom can move. To move the atom, click on the desired arrow. When an atom starts moving, it will not stop until it hits another atom or a wall, so make sure you think before you do your next move. You can assemble your molecule wherever you like on the game board, but some places are easier to access than others. When the molecule is assembled, you can move to the next level.
 	</para>
 </chapter>
  
@@ -84,8 +84,8 @@
 		<itemizedlist>
 			<listitem><para>Game pieces can only move in one direction at a time.</para></listitem>
 			<listitem><para>Once an atom begins moving it will not stop until it meets either a wall or another peace.</para></listitem>
-			<listitem><para>The only way to progress to the next game level is to complete a current one. *Once player completes a certain level game automatically switches to the next one, thus 'uncovering it'.</para></listitem>
-			<listitem><para>Player can only switch between the levels which have been uncovered.</para></listitem>
+			<listitem><para>The only way to progress to the next game level is to complete a current one. Once a player completes a certain level the game automatically switches to the next one, thus 'uncovering it'.</para></listitem>
+			<listitem><para>A player can only switch between the levels which have been uncovered.</para></listitem>
 			<listitem><para>The game progress is automatically saved every time an adjacent level is reached, and will be reloaded the next time application is started.</para></listitem>
 		</itemizedlist>
 	</sect1>
@@ -94,7 +94,7 @@
 			<listitem><para>Always review the complete molecule using the reference screen before making any moves.</para></listitem>
 			<listitem><para>Next, study the play field and plan your moves. Remember, once a piece is moved it may not be possible to return it into the starting position.</para></listitem>
 			<listitem><para>Think through your every move and try to visualize the trajectory piece will follow once a directional arrow is clicked.</para></listitem>
-			<listitem><para>When using keyboard to move pieces make sure that an exact piece is selected. If a wrong atom is marked as selected, use 'Tab' key to switch between the pieces until you reach a desired one.</para></listitem>
+			<listitem><para>When using the keyboard to move pieces make sure that the desired piece is selected. If a wrong atom is marked as selected, use the &Tab; key to switch between the pieces until you reach a desired one.</para></listitem>
 		</itemizedlist>
 	</sect1>
 </chapter> 
@@ -111,21 +111,31 @@
 <tgroup cols="2">
 <tbody>
 <row>
+<entry>Load</entry>
+<entry><keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo></entry>
+</row>
+<row>
 <entry>Restart Game</entry>
 <entry>
 <keycap>F5</keycap>
 </entry>
 </row>
 <row>
+<entry>Save</entry>
+<entry><keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo></entry>
+</row>
+<row>
+<entry>Previous Level</entry>
+<entry><keycombo action="simul">&Ctrl;<keycap>P</keycap></keycombo></entry>
+</row>
+<row>
+<entry>Next Level</entry>
+<entry><keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo></entry>
+</row>
+<row>
 <entry>Quit</entry>
 <entry>
 <keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
-</entry>
-</row>
-<row>
-<entry>Show Highscores</entry>
-<entry>
-<keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
 </entry>
 </row>
 <row>
@@ -140,6 +150,7 @@
 <keycombo action="simul">&Ctrl;&Shift;<keycap>Z</keycap></keycombo>
 </entry>
 </row>
+
 <row>
 <entry>Atom Down</entry>
 <entry>
@@ -166,7 +177,7 @@
 </row>
 <row>
 <entry>Next Atom</entry>
-<entry><keycap>Tab</keycap></entry>
+<entry>&Tab;</entry>
 </row>
 <row>
 <entry>Previous Atom</entry>
@@ -191,6 +202,15 @@
 <title>The <guimenu>Game</guimenu> Menu</title>
 <variablelist>
 <varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>Load...</guimenuitem></menuchoice></term>
+<listitem><para>Loads a previously save game.</para></listitem>
+</varlistentry>
+
+<varlistentry>
 <term>
 <menuchoice>
 <shortcut><keycap>F5</keycap></shortcut>
@@ -201,11 +221,38 @@
 
 <varlistentry>
 <term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>Save</guimenuitem></menuchoice></term>
+<listitem><para>Saves the current state of the game to the disk.</para></listitem>
+</varlistentry>
+
+<!--varlistentry>
+<term><menuchoice>
 <shortcut><keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
 <guimenuitem>Show Highscores</guimenuitem></menuchoice></term>
 <listitem><para>This will show the best scores for the current level.</para></listitem>
+</varlistentry-->
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>P</keycap></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>Previous Level</guimenuitem></menuchoice></term>
+<listitem><para>Change to the previous game level</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>Next Level</guimenuitem></menuchoice></term>
+<listitem><para>Change to the next game level</para></listitem>
 </varlistentry>
 
 <varlistentry>
@@ -214,7 +261,7 @@
 </shortcut>
 <guimenu>Game</guimenu>
 <guimenuitem>Quit</guimenuitem></menuchoice></term>
-<listitem><para>Selecting this item will end your current game, and exit the
+<listitem><para>Selecting this item will end your current game, and exit
 &katomic;.</para></listitem>
 </varlistentry>
 </variablelist>
@@ -254,13 +301,52 @@ here.</action></para>
 </listitem>
 </varlistentry>
 
+<varlistentry>
+<term><menuchoice>
+<guimenu>Move</guimenu>
+<guimenuitem>Undo All</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>Undo</action> all moves you made.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Move</guimenu>
+<guimenuitem>Redo All</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>Redo</action> all undone moves.</para>
+</listitem>
+</varlistentry>
+
 </variablelist>
 </sect1>
-
+	
 <sect1 id="settings-menu">
 <title>The <guimenu>Settings</guimenu> Menu</title>
 
 <variablelist>
+<varlistentry>
+<term><menuchoice><guimenu>Settings</guimenu><guisubmenu>Animation Speed
+</guisubmenu></menuchoice></term>
+<listitem><para>Set the animation speed to <guimenuitem>Slow</guimenuitem>, <guimenuitem>Normal</guimenuitem> or 
+<guimenuitem>Fast</guimenuitem>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Show/Hide
+Toolbar</guimenuitem></menuchoice></term>
+<listitem><para><action>Toggles</action> display of the toolbar below the menu bar.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Show/Hide
+Statusbar</guimenuitem></menuchoice></term>
+<listitem><para>Toggle the display of the status bar at the bottom of the main window.</para></listitem>
+</varlistentry>
+
 <varlistentry>
 <term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure
 Shortcuts...</guimenuitem></menuchoice></term>
@@ -272,9 +358,9 @@ defaults.</para></listitem>
 
 <varlistentry>
 <term><menuchoice><guimenu>Settings</guimenu>
-<guimenuitem>Configure &katomic;...</guimenuitem></menuchoice></term>
-<listitem><para>In the dialog box that appears, the animation-speed of the
-atomic movement can be set.</para></listitem>
+<guimenuitem>Configure Toolbars...</guimenuitem></menuchoice></term>
+<listitem><para>Displays the &kde; standard dialog to customize
+the toolbars.</para></listitem>
 </varlistentry>
 </variablelist>
 
@@ -292,14 +378,14 @@ atomic movement can be set.</para></listitem>
 <!--Following is a standard list of FAQ questions.-->
 <qandaentry>
 <question><para>Who made this game?</para></question>
- <answer><para>The kdegames team. You can find their website here.</para></answer>
+ <answer><para>The kdegames team. You can find their website <ulink url="http://games.kde.org">here</ulink>.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>Where can I get cheatcodes? </para></question>
- <answer><para>You can't get cheatcodes for KDE games.</para></answer>
+ <answer><para>You cannot get cheatcodes for &kde; games.</para></answer>
 </qandaentry>
 <qandaentry>
- <question><para>How do I know what does the molecule look like?</para></question>
+ <question><para>How do I know what does the molecule looks like?</para></question>
  <answer><para>You can view the molecule on the reference screen located in the top right corner of the game screen.</para></answer>
 </qandaentry>
 <qandaentry>
@@ -307,28 +393,28 @@ atomic movement can be set.</para></listitem>
  <answer><para>The reference screen is located in the top right corner of the game screen.</para></answer>
 </qandaentry>
 <qandaentry>
- <question><para>How do I move a game piece(atom)?</para></question>
- <answer><para>To move a game piece(atom) use your mouse cursor to click on it. At this time the available directional icon will become visible. Click on the corresponding directional icon to make a game piece move in desired direction. Alternatively, you can use your keyboard to move the pieces. Use [Tab] key to switch between the items, and directional key to move them once selected.</para></answer>
+ <question><para>How do I move a game piece (atom)?</para></question>
+ <answer><para>To move a game piece (atom) use your mouse cursor to click on it. At this time the available directional icon will become visible. Click on the corresponding directional icon to make a game piece move into the desired direction. Alternatively, you can use your keyboard to move the pieces. Use the &Tab; key to switch between the items, and the cursor keys to move them once selected.</para></answer>
 </qandaentry>
 <qandaentry>
- <question><para>Can I use keyboard to control the pieces(atoms)?</para></question>
- <answer><para>Yes. Use [Tab] key to switch between the items, and directional key to move them once selected.</para></answer>
+ <question><para>Can I use the keyboard to control the pieces (atoms)?</para></question>
+ <answer><para>Yes. Use &Tab; key to switch between the items, and he cursor keys to move them once selected.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>When I move a peace (atom) it goes right past the place where I want it. How do I make it stop there?</para></question>
- <answer><para>You don't. Once an atom begins moving, it will not stop until it meets either a wall or another peace.</para></answer>
+ <answer><para>You don't. Once an atom begins moving, it will not stop until it meets either a wall or another piece.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>I have stuck. How can I restart the game?</para></question>
- <answer><para>To restart Karomic choose 'Game' in the game window menu. There choose 'Restart Game'. Alternatively you can press [F5] key on your keyboard to restart the game.</para></answer>
+ <answer><para>To restart &katomic; choose <menuchoice><guimenu>Game</guimenu><guimenuitem>Restart</guimenuitem></menuchoice> from the menubar. Alternatively you can press <keycap>F5</keycap> key on your keyboard to restart the game.</para></answer>
 </qandaentry>
 <qandaentry>
- <question><para>I can't beat the level. Is there a hint system, or a solver?</para></question>
-  <answer><para>No. Unfortunately at this time Katomic does not feature a hint system. So the only way to finish a level is to solve it on your own.</para></answer>
+ <question><para>I cannot beat the level. Is there a hint system, or a solver?</para></question>
+  <answer><para>No. Unfortunately at this time &katomic; does not feature a hint system. So the only way to finish a level is to solve it on your own.</para></answer>
 </qandaentry>
 <qandaentry>
- <question><para>I did something wrong. Can I undo.</para></question>
- <answer><para>Yes. To undo a wrong move select 'Move' from the menubar. Then select 'Undo'. Alternatively you can press [Ctrl+Z] on your keyboard.</para></answer>
+ <question><para>I did something wrong. Can I undo?</para></question>
+ <answer><para>Yes. To undo a wrong move select <menuchoice><guimenu>Move</guimenu><guimenuitem>Undo</guimenuitem></menuchoice> from the menubar. Alternatively you can press <keycombo action="simul">&Ctrl;<keycap>Z</keycap></keycombo> on your keyboard.</para></answer>
 </qandaentry>
 <!--Please add more Q&As if needed-->
 </qandaset>
@@ -354,8 +440,6 @@ Proofreading by Michael McBride
 &Mike.McBride.mail;
 </para>
 <!-- TRANS:CREDIT_FOR_TRANSLATORS --> 
- 
-<!-- !!!do not change ANYTHING after this line!!!! -->
 &underFDL;
 &underGPL;
  
