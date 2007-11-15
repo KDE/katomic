@@ -4,7 +4,7 @@
   <!ENTITY kappname "&katomic;">
   <!ENTITY kappversion "3.0"><!--Applicaion version. Use this variable everywhere it's needed.-->
   <!ENTITY docversion "1.0"><!--Document version. Use this variable everywhere it's needed.-->
-  <!ENTITY docupdate "2005-12-14"><!--Document version. Use this variable everywhere it's needed.-->
+  <!ENTITY docupdate "2007-11-14"><!--Document version. Use this variable everywhere it's needed.-->
   <!ENTITY package "kdegames">  <!-- do not change this! -->
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE"> <!-- do not change this! -->
