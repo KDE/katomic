@@ -366,7 +366,7 @@ the toolbars.</para></listitem>
 
 </sect1>
 <sect1 id="help"><!--This is a standard Help menubar entry. Only change if needed.-->
-<title>The <guimenuitem>Help</guimenuitem> Menu</title>
+<title>The <guimenu>Help</guimenu> Menu</title>
 &help.menu.documentation;
 </sect1>
 </chapter>
