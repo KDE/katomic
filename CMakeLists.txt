@@ -17,11 +17,11 @@ set(katomic_SRCS
 kde4_add_kcfg_files(katomic_SRCS prefs.kcfgc)
 
 set(katomic_icons
-	hi16-app-katomic.png
-	hi32-app-katomic.png
-	hi48-app-katomic.png
-	hi64-app-katomic.png
-	hi128-app-katomic.png
+	${CMAKE_CURRENT_SOURCE_DIR}/hi16-app-katomic.png
+	${CMAKE_CURRENT_SOURCE_DIR}/hi32-app-katomic.png
+	${CMAKE_CURRENT_SOURCE_DIR}/hi48-app-katomic.png
+	${CMAKE_CURRENT_SOURCE_DIR}/hi64-app-katomic.png
+	${CMAKE_CURRENT_SOURCE_DIR}/hi128-app-katomic.png
 )
 kde4_add_win32_app_icon(katomic_SRCS ${katomic_icons})
 kde4_add_executable(katomic ${katomic_SRCS})
