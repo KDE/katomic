@@ -16,6 +16,14 @@ set(katomic_SRCS
 
 kde4_add_kcfg_files(katomic_SRCS prefs.kcfgc)
 
+set(katomic_icons
+	hi16-app-katomic.png
+	hi32-app-katomic.png
+	hi48-app-katomic.png
+	hi64-app-katomic.png
+	hi128-app-katomic.png
+)
+kde4_add_win32_app_icon(katomic_SRCS ${katomic_icons})
 kde4_add_executable(katomic ${katomic_SRCS})
 
 target_link_libraries(katomic  ${KDE4_KDEUI_LIBS} kdegames )
