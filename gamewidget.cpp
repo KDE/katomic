@@ -23,13 +23,10 @@
 #include "playfield.h"
 #include "prefs.h"
 
-#include <QScrollBar>
-#include <QGroupBox>
 #include <QGraphicsView>
-#include <QLayout>
-#include <QLabel>
 #include <QResizeEvent>
 #include <QApplication> // for qApp->quit()
+#include <QVBoxLayout>
 
 #include <kmessagebox.h>
 #include <klocale.h>

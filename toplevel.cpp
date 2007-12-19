@@ -22,7 +22,6 @@
 
 #include "toplevel.h"
 
-#include <QLayout>
 
 #include <klocale.h>
 #include <kconfig.h>

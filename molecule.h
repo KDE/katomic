@@ -25,9 +25,8 @@
 #ifndef MOLECULE_H
 #define MOLECULE_H
 
-#include <QWidget>
-#include <QPixmap>
 #include <QList>
+#include <QString>
 #include "atom.h"
 
 class KConfig;

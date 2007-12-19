@@ -24,7 +24,6 @@
 #include "playfield.h"
 
 #include <QGraphicsSceneMouseEvent>
-#include <QResizeEvent>
 #include <QTimeLine>
 #include <QPainter>
 
