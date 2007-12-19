@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KAtomic
 Name[af]=Katomic
+Name[bn]=কে-অ্যাটমিক
 Name[ne]=केडीई एटोमिक
 Name[pa]=ਕੇ-ਪਰਮਾਣੂ
 Name[pl]=Atomy
@@ -18,6 +19,7 @@ Exec=katomic -caption "%c"
 X-DocPath=katomic/index.html
 GenericName=Sokoban-like Logic Game
 GenericName[be]=Лагічная гульня тыпу Sokoban
+GenericName[bn]=সোকোবান-এর মত যুক্তির খেলা
 GenericName[ca]=Joc de lògica similar al Sokoban
 GenericName[cs]=Logická hra jako Sokoban
 GenericName[cy]=Gêm Resymeg sy'n debyg i Sokoban
@@ -54,6 +56,7 @@ GenericName[pt]=Jogo de Lógica tipo Sokoban
 GenericName[pt_BR]=Jogo Lógico parecido com Sokoban
 GenericName[ru]=Логическая игра похожая на Сокобан
 GenericName[se]=Sokoban-lágan logihkkaspeallu
+GenericName[sk]=Logická hra ako Sokoban
 GenericName[sl]=Logična igra podobna Sokobanu
 GenericName[sr]=Логичка игра налик на Sokoban
 GenericName[sr@latin]=Logička igra nalik na Sokoban
