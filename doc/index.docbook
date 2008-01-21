@@ -207,7 +207,7 @@
 </shortcut>
 <guimenu>Game</guimenu>
 <guimenuitem>Load...</guimenuitem></menuchoice></term>
-<listitem><para>Loads a previously save game.</para></listitem>
+<listitem><para>Loads a previously saved game.</para></listitem>
 </varlistentry>
 
 <varlistentry>
@@ -336,14 +336,12 @@ here.</action></para>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Show/Hide
-Toolbar</guimenuitem></menuchoice></term>
+<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Show Toolbar</guimenuitem></menuchoice></term>
 <listitem><para><action>Toggles</action> display of the toolbar below the menu bar.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Show/Hide
-Statusbar</guimenuitem></menuchoice></term>
+<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Show Statusbar</guimenuitem></menuchoice></term>
 <listitem><para>Toggle the display of the status bar at the bottom of the main window.</para></listitem>
 </varlistentry>
 
