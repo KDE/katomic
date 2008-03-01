@@ -83,7 +83,7 @@
 	<sect1><title>Game Rules</title>		
 		<itemizedlist>
 			<listitem><para>Game pieces can only move in one direction at a time.</para></listitem>
-			<listitem><para>Once an atom begins moving it will not stop until it meets either a wall or another peace.</para></listitem>
+			<listitem><para>Once an atom begins moving it will not stop until it meets either a wall or another piece.</para></listitem>
 			<listitem><para>The only way to progress to the next game level is to complete a current one. Once a player completes a certain level the game automatically switches to the next one, thus 'uncovering it'.</para></listitem>
 			<listitem><para>A player can only switch between the levels which have been uncovered.</para></listitem>
 			<listitem><para>The game progress is automatically saved every time an adjacent level is reached, and will be reloaded the next time application is started.</para></listitem>
@@ -399,7 +399,7 @@ the toolbars.</para></listitem>
  <answer><para>Yes. Use &Tab; key to switch between the items, and he cursor keys to move them once selected.</para></answer>
 </qandaentry>
 <qandaentry>
- <question><para>When I move a peace (atom) it goes right past the place where I want it. How do I make it stop there?</para></question>
+ <question><para>When I move a piece (atom) it goes right past the place where I want it. How do I make it stop there?</para></question>
  <answer><para>You don't. Once an atom begins moving, it will not stop until it meets either a wall or another piece.</para></answer>
 </qandaentry>
 <qandaentry>
