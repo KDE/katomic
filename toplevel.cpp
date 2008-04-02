@@ -53,7 +53,7 @@ AtomTopLevel::AtomTopLevel()
     statusBar()->insertItem( "", 3 , 1);
     statusBar()->insertPermanentItem( i18n("Current score:"), 1, 1);
     statusBar()->insertPermanentItem( i18n("Highscore:"), 2, 1 );
-    statusBar()->setItemAlignment(0, Qt::AlignLeft & Qt::AlignVCenter);
+    statusBar()->setItemAlignment(0, Qt::AlignLeft | Qt::AlignVCenter);
 
     updateStatusBar( m_gameWid->currentLevel(), m_gameWid->currentScore(), m_gameWid->currentHighScore() );
     updateLevelName();
