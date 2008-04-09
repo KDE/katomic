@@ -22,6 +22,7 @@
 
 class PlayField;
 class QGraphicsView;
+class QTimer;
 
 #include <QWidget>
 
@@ -36,6 +37,7 @@ public:
     ~GameWidget();
 
     void enableSwitchToAnyLevel() { m_allowAnyLevelSwitch = true; }
+    bool switchToAnyLevelAllowed() const { return m_allowAnyLevelSwitch; }
 
     PlayField* playfield() { return m_playField; }
 
@@ -89,6 +91,10 @@ private:
      */
     int m_levelHighscore;
     int m_level;
+    /**
+     * Timer for automatic next level
+     */
+    QTimer *m_timer;
 };
 
 #endif

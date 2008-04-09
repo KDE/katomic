@@ -27,7 +27,7 @@
 #include <QResizeEvent>
 #include <QApplication> // for qApp->quit()
 #include <QVBoxLayout>
-
+#include <QTimer> // Next Level after N seconds
 #include <kmessagebox.h>
 #include <klocale.h>
 #include <kstandarddirs.h>
@@ -64,6 +64,12 @@ GameWidget::GameWidget ( int startingLevel, QWidget *parent )
 
     connect (m_playField, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
     connect (m_playField, SIGNAL (updateMoves(int)), SLOT(updateMoves(int)));
+
+    // Next level after some seconds after ending the game. See gameOver, nextLevel and prevLevel
+    m_timer = new QTimer(this);
+    m_timer->setSingleShot(true);
+    m_timer->stop();
+    connect (m_timer, SIGNAL(timeout()), this, SLOT(nextLevel()));
 
     switchToLevel(startingLevel);
 }
@@ -119,8 +125,14 @@ void GameWidget::gameOver(int moves) {
     }
 
     m_playField->showMessage( message );
-
     emit statsChanged(m_level, moves, m_highscore->levelHighscore(m_level));
+    if (!m_allowAnyLevelSwitch)
+    {
+        // reuse this signal to allow switching levels over toolbar
+        emit levelChanged(m_level);
+        // after 4 seconds, nextLevel
+        m_timer->start(4000);
+    }
 }
 
 void GameWidget::updateMoves(int moves)
@@ -199,6 +211,9 @@ int GameWidget::currentHighScore() const
 
 void GameWidget::prevLevel()
 {
+    // if user hits toolbar buttons, stop timer
+    if (m_timer->isActive())
+        m_timer->stop();
     if ( m_level == 1 )
         return;
     m_level--;
@@ -207,6 +222,9 @@ void GameWidget::prevLevel()
 
 void GameWidget::nextLevel()
 {
+    // if user hits toolbar buttons, stop timer
+    if (m_timer->isActive())
+        m_timer->stop();
     if ( !m_allowAnyLevelSwitch && m_level >= Preferences::maxAccessibleLevel() )
     {
         KMessageBox::information(this, i18n("You must solve level %1 before advancing to the next one!",

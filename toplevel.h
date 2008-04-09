@@ -51,7 +51,7 @@ public:
 private slots:
     void slotAnimSpeedChanged(int);
     void updateStatusBar(int level, int score, int highscore);
-    void updateLevelName();
+    void levelHasChanged(int level);
 private:
     virtual bool queryClose(); // reimp
 
@@ -62,9 +62,14 @@ private:
     // Get the configuration from the config-file.
     void loadSettings();
 
+    // Whenever a level gets changed, we update the actions
+    // "m_prevLevelAct" and "m_nextLevelAct".
+    void updateActionsForLevel(int level);
+
     GameWidget *m_gameWid;
 
     QAction *m_redoAct, *m_undoAct;
+    QAction *m_prevLevelAct, *m_nextLevelAct;
     KSelectAction* m_animSpeedAct;
 };
 

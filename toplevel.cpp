@@ -43,7 +43,7 @@ AtomTopLevel::AtomTopLevel()
     int lastPlayed = Preferences::lastPlayedLevel();
     int maxLevel = Preferences::maxAccessibleLevel();
 
-    m_gameWid = new GameWidget(lastPlayed <= maxLevel ? lastPlayed : maxLevel, this);
+    m_gameWid = new GameWidget( qMin(lastPlayed, maxLevel), this);
     m_gameWid->setObjectName("gamewidget");
     createMenu();
     loadSettings();
@@ -56,11 +56,12 @@ AtomTopLevel::AtomTopLevel()
     statusBar()->setItemAlignment(0, Qt::AlignLeft | Qt::AlignVCenter);
 
     updateStatusBar( m_gameWid->currentLevel(), m_gameWid->currentScore(), m_gameWid->currentHighScore() );
-    updateLevelName();
 
     connect(m_gameWid, SIGNAL(statsChanged(int,int,int)), SLOT(updateStatusBar(int, int, int)));
-    connect(m_gameWid, SIGNAL(levelChanged(int)), SLOT(updateLevelName()));
+    connect(m_gameWid, SIGNAL(levelChanged(int)), SLOT(levelHasChanged(int)));
 
+    // update grayed actions
+    levelHasChanged( qMin(lastPlayed, maxLevel) );
     setupGUI();
 }
 
@@ -91,22 +92,19 @@ void AtomTopLevel::createMenu()
     m_redoAct = KStandardGameAction::redo(m_gameWid->playfield(), SLOT(redo()), actionCollection());
 
 
-    QAction *act;
+    m_prevLevelAct = actionCollection()->addAction( "prev_level" );
+    m_prevLevelAct->setIcon( KIcon( "arrow-left" ) );
+    m_prevLevelAct->setText( i18n( "Previous Level" ) );
+    m_prevLevelAct->setShortcut( Qt::CTRL + Qt::Key_P );
+    addAction( m_prevLevelAct );
+    connect( m_prevLevelAct, SIGNAL( triggered( bool ) ), m_gameWid, SLOT( prevLevel() ) );
 
-    // TODO: gray out corresponding actions if we are at first or at last level
-    act = actionCollection()->addAction( "prev_level" );
-    act->setIcon( KIcon( "arrow-left" ) );
-    act->setText( i18n( "Previous Level" ) );
-    act->setShortcut( Qt::CTRL + Qt::Key_P );
-    addAction( act );
-    connect( act, SIGNAL( triggered( bool ) ), m_gameWid, SLOT( prevLevel() ) );
-
-    act = actionCollection()->addAction( "next_level" );
-    act->setIcon( KIcon( "arrow-right" ) );
-    act->setText( i18n( "Next Level" ) );
-    act->setShortcut( Qt::CTRL + Qt::Key_N );
-    addAction( act );
-    connect( act, SIGNAL( triggered( bool ) ), m_gameWid, SLOT( nextLevel() ) );
+    m_nextLevelAct = actionCollection()->addAction( "next_level" );
+    m_nextLevelAct->setIcon( KIcon( "arrow-right" ) );
+    m_nextLevelAct->setText( i18n( "Next Level" ) );
+    m_nextLevelAct->setShortcut( Qt::CTRL + Qt::Key_N );
+    addAction( m_nextLevelAct );
+    connect( m_nextLevelAct, SIGNAL( triggered( bool ) ), m_gameWid, SLOT( nextLevel() ) );
 
 
     m_animSpeedAct = new KSelectAction(i18n("Animation Speed"), this);
@@ -201,12 +199,26 @@ void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
 void AtomTopLevel::enableHackMode()
 {
     kDebug() << "Enabling hack mode";
+    m_prevLevelAct->setDisabled(false);
+    m_nextLevelAct->setDisabled(false);
     m_gameWid->enableSwitchToAnyLevel();
 }
 
-void AtomTopLevel::updateLevelName()
+void AtomTopLevel::levelHasChanged(int level)
 {
+    // Update level name
     statusBar()->changeItem( m_gameWid->currentMolecule(), 3);
+    // don't gray out actions in hackmode, else do
+    if(!m_gameWid->switchToAnyLevelAllowed())
+        updateActionsForLevel(level);
 }
+
+void AtomTopLevel::updateActionsForLevel(int level)
+{
+    int maxLevel = Preferences::maxAccessibleLevel();
+    m_prevLevelAct->setDisabled( level == 1 );
+    m_nextLevelAct->setDisabled( level == maxLevel );
+}
+
 
 #include "toplevel.moc"
