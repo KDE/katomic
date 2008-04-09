@@ -68,7 +68,6 @@ GameWidget::GameWidget ( int startingLevel, QWidget *parent )
     // Next level after some seconds after ending the game. See gameOver, nextLevel and prevLevel
     m_timer = new QTimer(this);
     m_timer->setSingleShot(true);
-    m_timer->stop();
     connect (m_timer, SIGNAL(timeout()), this, SLOT(nextLevel()));
 
     switchToLevel(startingLevel);
