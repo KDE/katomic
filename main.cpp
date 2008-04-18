@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 {
   KAboutData aboutData( "katomic", 0, ki18n("KAtomic"),
     version, ki18n(description), KAboutData::License_GPL,
-    ki18n("(c) 1998, Andreas Wuest"));
+    ki18n("(c) 1998, Andreas Wuest"), KLocalizedString(), "http://games.kde.org/katomic" );
   aboutData.addAuthor(ki18n("Andreas Wuest"), KLocalizedString(), "AndreasWuest@gmx.de");
   aboutData.addAuthor(ki18n("Stephan Kulow"), KLocalizedString(), "coolo@kde.org");
   aboutData.addAuthor(ki18n("Cristian Tibirna"), KLocalizedString(), "tibirna@kde.org");
