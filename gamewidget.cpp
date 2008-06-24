@@ -29,6 +29,7 @@
 #include <qvbox.h>
 #include <qlabel.h>
 
+#include <kapplication.h>
 #include <kscoredialog.h>
 #include <kmessagebox.h>
 #include <klocale.h>
