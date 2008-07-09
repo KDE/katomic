@@ -19,6 +19,7 @@ Type=Application
 Exec=katomic -caption "%c"
 X-DocPath=katomic/index.html
 GenericName=Sokoban-like Logic Game
+GenericName[ar]= مثل لعبة المنطق
 GenericName[be]=Лагічная гульня тыпу Sokoban
 GenericName[bn]=সোকোবান-এর মত যুক্তির খেলা
 GenericName[ca]=Joc de lògica similar al Sokoban
