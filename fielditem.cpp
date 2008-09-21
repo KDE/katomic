@@ -54,8 +54,10 @@ void ArrowFieldItem::setOpacity( qreal opacity )
 
 void ArrowFieldItem::paint( QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget )
 {
+    qreal oldOpacity = painter->opacity();
     painter->setOpacity( m_opacity );
     QGraphicsPixmapItem::paint( painter, option, widget );
+    painter->setOpacity( oldOpacity );
 }
 
 QVariant ArrowFieldItem::itemChange( GraphicsItemChange change, const QVariant& value )
@@ -114,6 +116,7 @@ void MoleculePreviewItem::paint( QPainter * painter, const QStyleOptionGraphicsI
     if ( m_width == 0 )
         return;
 
+    painter->save();
     painter->setBrush(Qt::gray);
     painter->setOpacity(0.5);
     painter->drawRect(boundingRect());
@@ -136,6 +139,7 @@ void MoleculePreviewItem::paint( QPainter * painter, const QStyleOptionGraphicsI
             QPixmap aPix = KAtomicRenderer::self()->renderAtom(m_mol->getAtom(atomIdx), m_atomSize);
             painter->drawPixmap(x, y, aPix);
         }
+    painter->restore();
 }
 
 #include "fielditem.moc"
