@@ -45,7 +45,7 @@ public:
     QString currentPlayerName() const { return m_playerName; }
     /**
      * Tries to add new result to highscores.
-     * If numMoves is lesser then current highscore for this level,
+     * If numMoves is lesser than current highscore for this level,
      * this result will become a new highscore of currentPlayerName for this level
      * @return whether numMoves was set as a new highscore
      */
