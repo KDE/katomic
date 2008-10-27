@@ -134,37 +134,37 @@ void AtomTopLevel::createMenu()
     connect (m_gameWid->playfield(), SIGNAL (enableUndo(bool)), undoAll, SLOT(setEnabled(bool)));
     connect (m_gameWid->playfield(), SIGNAL (enableRedo(bool)), redoAll, SLOT(setEnabled(bool)));
 
-    QAction* atomUpAct = actionCollection()->addAction("atom_up");
+    KAction* atomUpAct = actionCollection()->addAction("atom_up");
     atomUpAct->setText(i18n("Atom Up"));
     atomUpAct->setShortcut(Qt::Key_Up);
     addAction(atomUpAct);
     connect(atomUpAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveUp()));
 
-    QAction* atomDownAct = actionCollection()->addAction("atom_down");
+    KAction* atomDownAct = actionCollection()->addAction("atom_down");
     atomDownAct->setText(i18n("Atom Down"));
     atomDownAct->setShortcut(Qt::Key_Down);
     addAction(atomDownAct);
     connect(atomDownAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveDown()));
 
-    QAction* atomLeftAct = actionCollection()->addAction("atom_left");
+    KAction* atomLeftAct = actionCollection()->addAction("atom_left");
     atomLeftAct->setText(i18n("Atom Left"));
     atomLeftAct->setShortcut(Qt::Key_Left);
     addAction(atomLeftAct);
     connect(atomLeftAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveLeft()));
 
-    QAction* atomRightAct = actionCollection()->addAction("atom_right");
+    KAction* atomRightAct = actionCollection()->addAction("atom_right");
     atomRightAct->setText(i18n("Atom Right"));
     atomRightAct->setShortcut(Qt::Key_Right);
     addAction(atomRightAct);
     connect(atomRightAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveRight()));
 
-    QAction* nextAtomAct = actionCollection()->addAction("next_atom");
+    KAction* nextAtomAct = actionCollection()->addAction("next_atom");
     nextAtomAct->setText(i18n("Next Atom"));
     nextAtomAct->setShortcut(Qt::Key_Tab);
     addAction(nextAtomAct);
     connect(nextAtomAct, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(nextAtom()));
 
-    QAction* prevAtomAct = actionCollection()->addAction("prev_atom");
+    KAction* prevAtomAct = actionCollection()->addAction("prev_atom");
     prevAtomAct->setText(i18n("Previous Atom"));
     prevAtomAct->setShortcut(Qt::SHIFT+Qt::Key_Tab);
     addAction(prevAtomAct);

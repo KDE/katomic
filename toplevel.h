@@ -24,6 +24,7 @@
 class GameWidget;
 class KSelectAction;
 class QAction;
+class KAction;
 
 #include <kxmlguiwindow.h>
 
@@ -69,7 +70,7 @@ private:
     GameWidget *m_gameWid;
 
     QAction *m_redoAct, *m_undoAct;
-    QAction *m_prevLevelAct, *m_nextLevelAct;
+    KAction *m_prevLevelAct, *m_nextLevelAct;
     KSelectAction* m_animSpeedAct;
 };
 
