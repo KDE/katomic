@@ -375,20 +375,8 @@ the toolbars.</para></listitem>
 <qandaset>
 <!--Following is a standard list of FAQ questions.-->
 <qandaentry>
-<question><para>Who made this game?</para></question>
- <answer><para>The kdegames team. You can find their website <ulink url="http://games.kde.org">here</ulink>.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>Where can I get cheatcodes? </para></question>
- <answer><para>You cannot get cheatcodes for &kde; games.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>How do I know what does the molecule looks like?</para></question>
+ <question><para>How do I know what the molecule looks like?</para></question>
  <answer><para>You can view the molecule on the reference screen located in the top right corner of the game screen.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>Where is the reference screen?</para></question>
- <answer><para>The reference screen is located in the top right corner of the game screen.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>How do I move a game piece (atom)?</para></question>
@@ -403,16 +391,8 @@ the toolbars.</para></listitem>
  <answer><para>You don't. Once an atom begins moving, it will not stop until it meets either a wall or another piece.</para></answer>
 </qandaentry>
 <qandaentry>
- <question><para>I have stuck. How can I restart the game?</para></question>
- <answer><para>To restart &katomic; choose <menuchoice><guimenu>Game</guimenu><guimenuitem>Restart</guimenuitem></menuchoice> from the menubar. Alternatively you can press <keycap>F5</keycap> key on your keyboard to restart the game.</para></answer>
-</qandaentry>
-<qandaentry>
  <question><para>I cannot beat the level. Is there a hint system, or a solver?</para></question>
   <answer><para>No. Unfortunately at this time &katomic; does not feature a hint system. So the only way to finish a level is to solve it on your own.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>I did something wrong. Can I undo?</para></question>
- <answer><para>Yes. To undo a wrong move select <menuchoice><guimenu>Move</guimenu><guimenuitem>Undo</guimenuitem></menuchoice> from the menubar. Alternatively you can press <keycombo action="simul">&Ctrl;<keycap>Z</keycap></keycombo> on your keyboard.</para></answer>
 </qandaentry>
 <!--Please add more Q&As if needed-->
 </qandaset>
