@@ -19,7 +19,7 @@
         <default>1</default>
     </entry>
     <entry name="MaxAccessibleLevel" type="Int">
-        <label>Maximum level number that player allowed to play on</label>
+        <label>Highest level player is allowed to play</label>
         <default>1</default>
     </entry>
   </group>
