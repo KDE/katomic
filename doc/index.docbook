@@ -78,7 +78,7 @@
  
 <chapter id="rules_and_tips"><title>Game Rules, Strategies and Tips</title> <!-- do not change this! -->
 	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
-	<sect1><title>Game Rules</title>		
+	<sect1 id="games_rules"><title>Game Rules</title>		
 		<itemizedlist>
 			<listitem><para>Game pieces can only move in one direction at a time.</para></listitem>
 			<listitem><para>Once an atom begins moving it will not stop until it meets either a wall or another piece.</para></listitem>
@@ -87,7 +87,7 @@
 			<listitem><para>The game progress is automatically saved every time an adjacent level is reached, and will be reloaded the next time application is started.</para></listitem>
 		</itemizedlist>
 	</sect1>
-	<sect1><title>Strategies and Tips</title>
+	<sect1 id="tips"><title>Strategies and Tips</title>
 		<itemizedlist>
 			<listitem><para>Always review the complete molecule using the reference screen before making any moves.</para></listitem>
 			<listitem><para>Next, study the play field and plan your moves. Remember, once a piece is moved it may not be possible to return it into the starting position.</para></listitem>
