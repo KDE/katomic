@@ -236,13 +236,7 @@ void GameWidget::nextLevel()
 
 void GameWidget::resizeEvent( QResizeEvent* ev)
 {
-    if ( testAttribute( Qt::WA_PendingResizeEvent ) )
-        kDebug() << "pending resize";
-    else
-    {
-        kDebug() << "no pending resize";
-        m_playField->resize( ev->size().width(), ev->size().height() );
-    }
+    m_playField->resize( ev->size().width(), ev->size().height() );
 }
 
 #include "gamewidget.moc"
