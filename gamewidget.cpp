@@ -143,7 +143,7 @@ void GameWidget::updateMoves(int moves)
 void GameWidget::switchToLevel (int l)
 {
     m_level=l;
-    QString levelFile = KStandardDirs::locate("appdata", QString("levels/level_%1").arg(l));
+    const QString levelFile = KStandardDirs::locate("appdata", QString("levels/level_%1").arg(l));
     if (levelFile.isNull()) {
         if ( m_level != 1 )
         {
