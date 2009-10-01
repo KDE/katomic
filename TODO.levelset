@@ -5,3 +5,4 @@ What needed to add level set support to katomic
 - Implement widget to allow levels selection
 - Adjust save files to save level set name too. Be sure to fallback to default level set if old save file is loaded.
   Also be sure to tell the user if saved level set is absent on his computer (use case: save file transfered from other PC)
+- highscores should be relative to level set

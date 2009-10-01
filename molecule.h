@@ -42,8 +42,6 @@ class Molecule
 public:
     Molecule() : m_width(0), m_height(0) { }
 
-    void load(const KConfigGroup& config);
-
     const atom& getAtom(int index) const;
 
     uint getAtom(int x, int y) const { return molek[x][y]; }

@@ -143,6 +143,7 @@ void GameWidget::updateMoves(int moves)
 void GameWidget::switchToLevel (int l)
 {
     m_level=l;
+    /* TODO remove
     const QString levelFile = KStandardDirs::locate("appdata", QString("levels/level_%1").arg(l));
     if (levelFile.isNull()) {
         if ( m_level != 1 )
@@ -161,12 +162,19 @@ void GameWidget::switchToLevel (int l)
 
     KConfig cfg( levelFile, KConfig::SimpleConfig);
     KConfigGroup gr = cfg.group("Level");
-    m_playField->loadLevel(gr);
+    */
+    const LevelData* level = m_levelSet.levelData(m_level);
+    if (level)
+    {
+        m_playField->setLevelData(*level);
 
-    m_levelHighscore = m_highscore->levelHighscore( m_level );
+        m_levelHighscore = m_highscore->levelHighscore( m_level );
 
-    emit statsChanged(m_level, 0, m_levelHighscore);
-    emit levelChanged(m_level);
+        emit statsChanged(m_level, 0, m_levelHighscore);
+        emit levelChanged(m_level);
+    }
+    else
+        kDebug() << "failed to load level" << m_level;
 }
 
 void GameWidget::restartLevel()

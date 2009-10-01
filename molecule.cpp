@@ -47,6 +47,7 @@ const atom& Molecule::getAtom(int index) const
     return atoms.at(index - 1);
 }
 
+/* TODO remove
 void Molecule::load (const KConfigGroup& config)
 {
     atoms.clear();
@@ -94,7 +95,7 @@ void Molecule::load (const KConfigGroup& config)
             else
             {
                 molek[i][j] = atom2int(line.at(i).toLatin1());
-		m_weight += getAtom(molek[i][j]).weight();
+                m_weight += getAtom(molek[i][j]).weight();
                 max_non_null_i = i;
             }
         }
@@ -107,3 +108,4 @@ void Molecule::load (const KConfigGroup& config)
 
     mname = i18n(config.readEntry("Name", I18N_NOOP("Noname")).toLatin1());
 }
+*/

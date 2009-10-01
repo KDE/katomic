@@ -25,6 +25,7 @@ class QGraphicsView;
 class QTimer;
 
 #include <QWidget>
+#include "levelset.h"
 
 class KAtomicHighscores;
 
@@ -87,9 +88,16 @@ private:
 
     int m_moves;
     /**
+     * Current levelset
+     */
+    LevelSet m_levelSet;
+    /**
      * Highscore of the current level
      */
     int m_levelHighscore;
+    /**
+     * Number of the current level
+     */
     int m_level;
     /**
      * Timer for automatic next level

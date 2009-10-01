@@ -36,6 +36,7 @@ class ArrowFieldItem;
 class MoleculePreviewItem;
 class QTimeLine;
 class KGamePopupItem;
+class LevelData;
 
 /**
  *  KAtomic level playfield
@@ -58,9 +59,9 @@ public:
      */
     void resize( int width, int height );
     /**
-     *  Loads level from config file
+     *  Loads level
      */
-    void loadLevel(const KConfigGroup& config);
+    void setLevelData(const LevelData& level);
     /**
      *  Sets animation speed (0-slow, 1-normal, 2-fast)
      */
@@ -89,7 +90,7 @@ public:
     /**
      * Name of the current molecule
      */
-    QString moleculeName();
+    QString moleculeName() const;
 
 public slots:
     /**
@@ -159,7 +160,7 @@ private:
     /**
      *  Molecule to be done
      */
-    Molecule *m_mol;
+    const Molecule *m_mol;
     /**
      *  Number of moves made for current level
      */

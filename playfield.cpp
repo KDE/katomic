@@ -37,7 +37,7 @@
 #include "katomicrenderer.h"
 #include "molecule.h"
 #include "fielditem.h"
-#include "atom.h"
+#include "levelset.h"
 
 static const int MIN_INFO_SIZE=10;
 
@@ -46,9 +46,6 @@ PlayField::PlayField( QObject* parent )
     m_elemSize(MIN_ELEM_SIZE), m_selIdx(-1), m_animSpeed(120),
     m_levelFinished(false)
 {
-    // this object will hold the current molecule
-    m_mol = new Molecule();
-
     m_atomTimeLine = new QTimeLine(300, this);
     connect(m_atomTimeLine, SIGNAL(frameChanged(int)), SLOT(atomAnimFrameChanged(int)) );
 
@@ -67,10 +64,9 @@ PlayField::PlayField( QObject* parent )
 
 PlayField::~PlayField()
 {
-    delete m_mol;
 }
 
-void PlayField::loadLevel(const KConfigGroup& config)
+void PlayField::setLevelData(const LevelData& level)
 {
     qDeleteAll(m_atoms);
     m_atoms.clear();
@@ -83,9 +79,27 @@ void PlayField::loadLevel(const KConfigGroup& config)
     emit enableUndo(false);
     emit enableRedo(false);
 
-    m_mol->load(config);
+    m_mol = level.molecule();
     m_previewItem->setMolecule(m_mol);
 
+    for (int x = 0; x < FIELD_SIZE; x++)
+    {
+        for (int y = 0; y < FIELD_SIZE; y++)
+        {
+            LevelData::ElementType type = level.elementTypeAt(x,y);
+            if (type == LevelData::AtomElement)
+            {
+                AtomFieldItem* atom = new AtomFieldItem(this);
+                atom->setFieldXY(x, y);
+                atom->setAtomNum(level.atomAt(x,y));
+            }
+            else
+            {
+                m_field[x][y] = (type == LevelData::WallElement);
+            }
+        }
+    }
+    /* TODO remove
     QString key;
 
     for (int j = 0; j < FIELD_SIZE; j++) {
@@ -118,6 +132,7 @@ void PlayField::loadLevel(const KConfigGroup& config)
             m_field[i][j] = wall;
         }
     }
+    */
 
     m_selIdx = -1;
     updateArrows(true); // this will hide them (no atom selected)
@@ -127,6 +142,12 @@ void PlayField::loadLevel(const KConfigGroup& config)
 
 void PlayField::updateFieldItems()
 {
+    if (!m_mol)
+    {
+        kDebug() << "molecule object is null!";
+        return;
+    }
+
     foreach( AtomFieldItem *item, m_atoms )
     {
         item->setPixmap( KAtomicRenderer::self()->renderAtom( m_mol->getAtom(item->atomNum()), m_elemSize ) );
@@ -565,6 +586,11 @@ void PlayField::atomAnimFrameChanged(int frame)
 // most complicated algorithm ;-)
 bool PlayField::checkDone() const
 {
+    if (!m_mol)
+    {
+        kDebug() << "molecule object is null!";
+        return false;
+    }
     // let's assume that molecule is done
     // and see if we can break assumtion
     //
@@ -706,7 +732,7 @@ void PlayField::saveGame( KConfigGroup& config ) const
 
 void PlayField::loadGame( const KConfigGroup& config )
 {
-    // it is assumed that this method is called right after loadLevel() so
+    // it is assumed that this method is called right after setLevelData() so
     // level itself is already loaded at this point
 
     // read atom positions
@@ -745,8 +771,14 @@ void PlayField::showMessage( const QString& message )
     m_messageItem->showMessage( message, KGamePopupItem::BottomLeft );
 }
 
-QString PlayField::moleculeName()
+QString PlayField::moleculeName() const
 {
+    if (!m_mol)
+    {
+        kDebug() << "molecule object is null!";
+        return QString();
+    }
+
     return m_mol->moleculeName();
 }
 

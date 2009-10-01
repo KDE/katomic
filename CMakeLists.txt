@@ -4,15 +4,16 @@ add_subdirectory( levels )
 
 ########### next target ###############
 
-set(katomic_SRCS 
+set(katomic_SRCS
    katomicrenderer.cpp
    highscores.cpp
    playfield.cpp
    fielditem.cpp
-   molecule.cpp 
-   main.cpp 
-   toplevel.cpp 
-   gamewidget.cpp )
+   molecule.cpp
+   main.cpp
+   toplevel.cpp
+   gamewidget.cpp
+   levelset.cpp )
 
 kde4_add_kcfg_files(katomic_SRCS prefs.kcfgc)
 
