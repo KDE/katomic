@@ -90,9 +90,11 @@ void PlayField::setLevelData(const LevelData* level)
 
     foreach (const LevelData::Element& element, m_levelData->atomElements())
     {
+        kDebug() << "adding atom";
         AtomFieldItem* atom = new AtomFieldItem(this);
         atom->setFieldXY(element.x, element.y);
         atom->setAtomNum(element.atom);
+        m_atoms.append(atom);
     }
 
     m_selIdx = -1;

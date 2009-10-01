@@ -62,11 +62,15 @@ private:
     friend class LevelSet;
 
     // @param elements contain atoms and walls. for walls 'atom' field will be -1
-    explicit LevelData(const QList<Element>& elements);
+    // @param molecule - molecule to be solved. LevelData takes ownership of this object and will
+    // delete it
+    LevelData(const QList<Element>& elements, const Molecule* mol);
     LevelData(const LevelData&);
 
     QList<Element> m_atoms;
     bool m_field[FIELD_SIZE][FIELD_SIZE];
+
+    const Molecule* m_molecule;
 };
 
 /**
@@ -84,6 +88,7 @@ public:
 private:
     void reset();
     const LevelData* readLevel(int levelNum) const;
+    const Molecule* readLevelMolecule(int levelNum) const;
 
 private:
     KSharedConfigPtr m_levelsFile;

@@ -43,7 +43,7 @@ AtomTopLevel::AtomTopLevel()
     int lastPlayed = Preferences::lastPlayedLevel();
     int maxLevel = Preferences::maxAccessibleLevel();
 
-    m_gameWid = new GameWidget( qMin(lastPlayed, maxLevel), this);
+    m_gameWid = new GameWidget( qMin(lastPlayed, maxLevel), "default_levels", this);
     m_gameWid->setObjectName("gamewidget");
     createMenu();
     loadSettings();

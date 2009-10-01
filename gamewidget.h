@@ -34,7 +34,7 @@ class GameWidget : public QWidget
     Q_OBJECT
 
 public:
-    GameWidget ( int startingLevel, QWidget *parent );
+    GameWidget ( int startingLevel, const QString& levelSet, QWidget *parent );
     ~GameWidget();
 
     void enableSwitchToAnyLevel() { m_allowAnyLevelSwitch = true; }

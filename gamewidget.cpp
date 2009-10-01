@@ -35,7 +35,7 @@
 #include <kglobalsettings.h>
 #include <kfiledialog.h>
 
-GameWidget::GameWidget ( int startingLevel, QWidget *parent )
+GameWidget::GameWidget ( int startingLevel, const QString& levelSet, QWidget *parent )
     : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0)
 {
     m_highscore = new KAtomicHighscores();
@@ -70,7 +70,7 @@ GameWidget::GameWidget ( int startingLevel, QWidget *parent )
     m_timer->setSingleShot(true);
     connect (m_timer, SIGNAL(timeout()), this, SLOT(nextLevel()));
 
-    m_levelSet.load("default_levels");
+    m_levelSet.load(levelSet);
     switchToLevel(startingLevel);
 }
 

@@ -25,10 +25,14 @@
 #include <KStandardDirs>
 #include <KConfigGroup>
 #include <KDebug>
+#include <KLocale>
+#include <kdefakes.h>
 
 #include "atom.h"
+#include "molecule.h"
 
-LevelData::LevelData(const QList<Element>& elements)
+LevelData::LevelData(const QList<Element>& elements, const Molecule* mol)
+    : m_molecule(mol)
 {
     memset(m_field, 0, sizeof(m_field));
     foreach (const Element& el, elements)
@@ -42,12 +46,11 @@ LevelData::LevelData(const QList<Element>& elements)
             m_atoms.append(el);
         }
     }
-    kDebug() << "creating level data: atoms =" << m_atoms.count();
 }
 
 LevelData::~LevelData()
 {
-
+    delete m_molecule;
 }
 
 QList<LevelData::Element> LevelData::atomElements() const
@@ -62,7 +65,7 @@ bool LevelData::containsWallAt(int x, int y) const
 
 const Molecule* LevelData::molecule() const
 {
-    return 0;
+    return m_molecule;
 }
 
 // ==================================================
@@ -130,6 +133,12 @@ const LevelData* LevelSet::readLevel(int levelNum) const
 
         for (int i = 0; i < FIELD_SIZE; i++)
         {
+            if (line.isEmpty())
+            {
+                kDebug() << "error while reading level data!";
+                return 0;
+            }
+
             QChar c = line.at(i);
             if( c == '#' )
             {
@@ -152,8 +161,72 @@ const LevelData* LevelSet::readLevel(int levelNum) const
         }
     }
 
-    LevelData* level = new LevelData(elements);
+    // Molecule object will be deleted by LevelData, it takes ownership
+    LevelData* level = new LevelData(elements, readLevelMolecule(levelNum));
     m_levelCache[levelNum] = level;
 
     return level;
+}
+
+const Molecule* LevelSet::readLevelMolecule(int levelNum) const
+{
+    Molecule* mol = new Molecule();
+    KConfigGroup config = m_levelsFile->group("Level"+QString::number(levelNum));
+
+    QString key;
+
+    atom current;
+
+    int atom_index = 1;
+    QString value;
+    while (true) {
+        key.sprintf("atom_%c", int2atom(atom_index));
+        value = config.readEntry(key,QString());
+        if (value.isEmpty())
+            break;
+
+        current.obj = value.at(0).toLatin1();
+        value = value.mid(2);
+
+        strlcpy(current.conn, value.toAscii(), sizeof(current.conn));
+        kWarning( mol->m_atoms.indexOf(current) != -1 )
+            << "OOOPS, duplicate atom definition in" << key;
+        mol->m_atoms.append(current);
+        atom_index++;
+    }
+
+    QString line;
+
+    mol->m_width = 0;
+    mol->m_height = 0;
+    mol->m_weight = 0.0;
+
+    int max_i = -1;
+    for (int j = 0; j < MOLECULE_SIZE; j++) {
+
+        key.sprintf("mole_%d", j);
+        line = config.readEntry(key,QString());
+
+        int max_non_null_i = -1;
+        for (int i = 0; i < MOLECULE_SIZE; i++)
+        {
+            if (i >= line.size())
+                mol->m_molek[i][j] = 0;
+            else
+            {
+                mol->m_molek[i][j] = atom2int(line.at(i).toLatin1());
+                mol->m_weight += mol->getAtom(mol->m_molek[i][j]).weight();
+                max_non_null_i = i;
+            }
+        }
+        if( max_non_null_i != -1 )
+            mol->m_height++;
+        max_i = qMax( max_i, max_non_null_i );
+    }
+
+    mol->m_width = max_i+1;
+
+    mol->m_name = i18n(config.readEntry("Name", I18N_NOOP("Noname")).toLatin1());
+
+    return mol;
 }
