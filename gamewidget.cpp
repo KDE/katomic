@@ -70,6 +70,7 @@ GameWidget::GameWidget ( int startingLevel, QWidget *parent )
     m_timer->setSingleShot(true);
     connect (m_timer, SIGNAL(timeout()), this, SLOT(nextLevel()));
 
+    m_levelSet.load("default_levels");
     switchToLevel(startingLevel);
 }
 
@@ -143,30 +144,11 @@ void GameWidget::updateMoves(int moves)
 void GameWidget::switchToLevel (int l)
 {
     m_level=l;
-    /* TODO remove
-    const QString levelFile = KStandardDirs::locate("appdata", QString("levels/level_%1").arg(l));
-    if (levelFile.isNull()) {
-        if ( m_level != 1 )
-        {
-            KMessageBox::sorry( this,  i18n( "Level %1 can not be found. Please check your installation. Now switching to Level 1" ,  m_level ), "Broken installation?" );
-            switchToLevel(1);
-            return;
-        }
-        else if ( m_level == 1 )
-        {
-            KMessageBox::error( this,  i18n( "Level 1 data can not be found. Please check your installation. KAtomic will quit now." ) );
-            qApp->quit();
-            return;
-        }
-    }
 
-    KConfig cfg( levelFile, KConfig::SimpleConfig);
-    KConfigGroup gr = cfg.group("Level");
-    */
     const LevelData* level = m_levelSet.levelData(m_level);
     if (level)
     {
-        m_playField->setLevelData(*level);
+        m_playField->setLevelData(level);
 
         m_levelHighscore = m_highscore->levelHighscore( m_level );
 

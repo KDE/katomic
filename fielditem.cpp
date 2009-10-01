@@ -113,7 +113,7 @@ void MoleculePreviewItem::setWidth(int width)
 
 void MoleculePreviewItem::paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget *)
 {
-    if ( m_width == 0 )
+    if ( m_width == 0 || m_mol == 0 )
         return;
 
     painter->save();

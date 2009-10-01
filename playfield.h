@@ -26,11 +26,11 @@
 #include <QList>
 #include <QStack>
 
-#define FIELD_SIZE 15
+#include "commondefs.h"
+
 #define MIN_ELEM_SIZE 30
 
 class KConfigGroup;
-class Molecule;
 class AtomFieldItem;
 class ArrowFieldItem;
 class MoleculePreviewItem;
@@ -61,7 +61,7 @@ public:
     /**
      *  Loads level
      */
-    void setLevelData(const LevelData& level);
+    void setLevelData(const LevelData* level);
     /**
      *  Sets animation speed (0-slow, 1-normal, 2-fast)
      */
@@ -158,18 +158,13 @@ private:
     inline int fieldCenterY() const { return toPixY(0) + m_elemSize*FIELD_SIZE/2; }
 
     /**
-     *  Molecule to be done
-     */
-    const Molecule *m_mol;
-    /**
      *  Number of moves made for current level
      */
     int m_numMoves;
     /**
-     *  Represents level.
-     *  True means there's a wall, false means no wall
+     * Level Data
      */
-    bool m_field[FIELD_SIZE][FIELD_SIZE];
+    const LevelData* m_levelData;
     /**
      *  Element (i.e. atom, wall, arrow) size
      */

@@ -35,8 +35,6 @@
 
 #include "katomicrenderer.h"
 
-extern int level;
-
 const atom& Molecule::getAtom(int index) const
 {
     static atom none = { 0, "" };

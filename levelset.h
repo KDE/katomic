@@ -24,6 +24,11 @@
 #define _LEVELSET_H
 
 #include <QString>
+#include <QList>
+
+#include <KSharedConfig>
+
+#include "commondefs.h"
 
 class Molecule;
 
@@ -35,17 +40,18 @@ class LevelData
 public:
     ~LevelData();
 
-    enum ElementType { AtomElement, WallElement, EmptyElement };
+    struct Element
+    {
+        int atom; // == -1 for walls
+        int x;
+        int y;
 
-    /**
-     * @return type of the element at cell with [x,y] coords
-     */
-    ElementType elementTypeAt(int x, int y) const;
+        Element() : atom(-1), x(-1), y(-1) {}
+    };
 
-    /**
-     * @return atom id of atom at [x,y], and -1 if no atom there
-     */
-    int atomAt(int x, int y) const;
+    QList<Element> atomElements() const;
+
+    bool containsWallAt(int x, int y) const;
 
     /**
      * A pointer to molecule object that is the target of this level
@@ -54,8 +60,13 @@ public:
 
 private:
     friend class LevelSet;
-    LevelData();
+
+    // @param elements contain atoms and walls. for walls 'atom' field will be -1
+    explicit LevelData(const QList<Element>& elements);
     LevelData(const LevelData&);
+
+    QList<Element> m_atoms;
+    bool m_field[FIELD_SIZE][FIELD_SIZE];
 };
 
 /**
@@ -69,6 +80,19 @@ public:
 
     bool load(const QString& levelSetName);
     const LevelData* levelData(int levelNum) const;
+
+private:
+    void reset();
+    const LevelData* readLevel(int levelNum) const;
+
+private:
+    KSharedConfigPtr m_levelsFile;
+    mutable QHash<int, LevelData*> m_levelCache;
+
+    QString m_visibleName;
+    QString m_description;
+    QString m_author;
+    QString m_authorEmail;
 };
 
 #endif

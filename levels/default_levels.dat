@@ -1,3 +1,8 @@
+[LevelSet]
+Name=Default
+Description=Default levels
+Author=Andreas Wuest
+AuthorEmail=AndreasWuest@gmx.de
 
 [Level1]
 Name=Water
