@@ -85,6 +85,8 @@ public:
     bool load(const QString& levelSetName);
     const LevelData* levelData(int levelNum) const;
 
+    static bool isDefaultLevelsAvailable() { return false; }
+
 private:
     void reset();
     const LevelData* readLevel(int levelNum) const;

@@ -1,8 +1,12 @@
 What needed to add level set support to katomic
 
-- Rework levels/ directory to not contain level files directly, but to contain subdirs with level files
+[DONE] Rework levels/ directory to not contain level files directly, but to contain single-file levelsets
 - Rework level loading/saving
 - Implement widget to allow levels selection
 - Adjust save files to save level set name too. Be sure to fallback to default level set if old save file is loaded.
   Also be sure to tell the user if saved level set is absent on his computer (use case: save file transfered from other PC)
+
+// THESE SHOULD PICK UP VALUES FROM OLD CONFIG (kconf_upd script needed)
 - highscores should be relative to level set
+- lastplayed level should be relative to level set
+- max accessible level should be relative to level set

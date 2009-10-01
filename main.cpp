@@ -26,6 +26,10 @@
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 #include <kglobal.h>
+#include <kmessagebox.h>
+#include <qtimer.h>
+
+#include "levelset.h"
 
 
 static const char description[] =
@@ -61,16 +65,25 @@ int main(int argc, char **argv)
   KApplication a;
   KGlobal::locale()->insertCatalog("libkdegames");
 
-  if ( a.isSessionRestored() )
-        RESTORE(AtomTopLevel)
-  else {
-      AtomTopLevel *top = new AtomTopLevel;
-      KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-      if ( args->isSet( "hackmode" ) )
-          top->enableHackMode();
-      args->clear();
-      top->show();
+  if (!LevelSet::isDefaultLevelsAvailable())
+  {
+      KMessageBox::error(0, i18n("KAtomic failed to find its default level pack and will quit. Please check your installation."));
+      QTimer::singleShot(0, &a, SLOT(quit()));
   }
+  else
+  {
+      if ( a.isSessionRestored() )
+          RESTORE(AtomTopLevel)
+      else {
+          AtomTopLevel *top = new AtomTopLevel;
+          KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+          if ( args->isSet( "hackmode" ) )
+              top->enableHackMode();
+          args->clear();
+          top->show();
+      }
+  }
+
   return a.exec();
 }
 
