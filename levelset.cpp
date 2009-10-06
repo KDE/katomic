@@ -31,6 +31,8 @@
 #include "atom.h"
 #include "molecule.h"
 
+static const char DEF_LEVELSET_NAME[] = "default_levels.dat";
+
 LevelData::LevelData(const QList<Element>& elements, const Molecule* mol)
     : m_molecule(mol)
 {
@@ -82,6 +84,7 @@ LevelSet::~LevelSet()
 
 void LevelSet::reset()
 {
+    m_name = QString();
     m_visibleName = QString();
     m_description = QString();
     m_author = QString();
@@ -105,12 +108,23 @@ bool LevelSet::load(const QString& levelSetName)
     m_levelsFile = KSharedConfig::openConfig( file, KConfig::SimpleConfig);
     KConfigGroup gr = m_levelsFile->group("LevelSet");
 
+    m_name = levelSetName;
     m_visibleName = gr.readEntry("Name");
     m_description = gr.readEntry("Description");
     m_author = gr.readEntry("Author");
     m_authorEmail = gr.readEntry("AuthorEmail");
 
     return true;
+}
+
+QString LevelSet::name() const
+{
+    return m_name;
+}
+
+QString LevelSet::visibleName() const
+{
+    return m_visibleName;
 }
 
 const LevelData* LevelSet::levelData(int levelNum) const
@@ -229,4 +243,16 @@ const Molecule* LevelSet::readLevelMolecule(int levelNum) const
     mol->m_name = i18n(config.readEntry("Name", I18N_NOOP("Noname")).toLatin1());
 
     return mol;
+}
+
+bool LevelSet::isDefaultLevelsAvailable()
+{
+    QString file = KStandardDirs::locate("appdata", QString("levels/%1").arg(DEF_LEVELSET_NAME));
+    if (file.isEmpty())
+    {
+        kDebug() << "default level set \"" << DEF_LEVELSET_NAME << "\" data file not found. Check your installation";
+        return false;
+    }
+
+    return true;
 }

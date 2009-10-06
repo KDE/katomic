@@ -7,6 +7,26 @@ What needed to add level set support to katomic
   Also be sure to tell the user if saved level set is absent on his computer (use case: save file transfered from other PC)
 
 // THESE SHOULD PICK UP VALUES FROM OLD CONFIG (kconf_upd script needed)
-- highscores should be relative to level set
+[DONE] highscores should be relative to level set
 - lastplayed level should be relative to level set
 - max accessible level should be relative to level set
+- remove lastplayed and max accessible from .kcfg file
+
+- kconf_upd:
+  WAS:
+  in katomicrc
+
+    [Highscores_user]
+    Level_1=15
+
+  NOW:
+  in $DATA_DIR/highscores:
+
+    [Highscores_user][default_levels]
+    Level1=15
+
+
+- Check that when katomic will be upgraded it will correctly pick up:
+  [ ] higshcores for default level set
+  [ ] last played level for default level set
+  [ ] max accessible level

@@ -85,7 +85,19 @@ public:
     bool load(const QString& levelSetName);
     const LevelData* levelData(int levelNum) const;
 
-    static bool isDefaultLevelsAvailable() { return false; }
+    /**
+     * Returns name of the levelset. In general this name shouldn't be used in gui.
+     * To get the name suitable to showing in gui @see visibleName
+     */
+    QString name() const;
+
+    /**
+     * @return name of the levelset which is suitable for showing in gui
+     */
+    QString visibleName() const;
+
+    static bool isDefaultLevelsAvailable();
+
 
 private:
     void reset();
@@ -96,6 +108,7 @@ private:
     KSharedConfigPtr m_levelsFile;
     mutable QHash<int, LevelData*> m_levelCache;
 
+    QString m_name;
     QString m_visibleName;
     QString m_description;
     QString m_author;

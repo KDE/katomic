@@ -119,13 +119,13 @@ void GameWidget::gameOver(int moves) {
 
     QString message = i18n( "Level %1 finished. ", m_level );
 
-    if( m_highscore->addScore( moves , m_level ) ) // new highscore!
+    if( m_highscore->addScore( moves , m_levelSet.name(), m_level ) ) // new highscore!
     {
         message += i18n("Congratulations! You have a new highscore!" );
     }
 
     m_playField->showMessage( message );
-    emit statsChanged(m_level, moves, m_highscore->levelHighscore(m_level));
+    emit statsChanged(m_level, moves, m_highscore->levelHighscore(m_levelSet.name(), m_level));
     if (!m_allowAnyLevelSwitch)
     {
         // reuse this signal to allow switching levels over toolbar
@@ -150,7 +150,7 @@ void GameWidget::switchToLevel (int l)
     {
         m_playField->setLevelData(level);
 
-        m_levelHighscore = m_highscore->levelHighscore( m_level );
+        m_levelHighscore = m_highscore->levelHighscore( m_levelSet.name(), m_level );
 
         emit statsChanged(m_level, 0, m_levelHighscore);
         emit levelChanged(m_level);

@@ -20,6 +20,7 @@
 #define KATOMIC_HIGHSCORES_H
 
 #include <QString>
+#include <KSharedConfig>
 
 /**
  * This class is used to manage katomic's highscores.
@@ -49,16 +50,18 @@ public:
      * this result will become a new highscore of currentPlayerName for this level
      * @return whether numMoves was set as a new highscore
      */
-    bool addScore( int numMoves, int level );
+    bool addScore( int numMoves, const QString& levelSetName, int level );
     /**
      * @return highscore of current player for level
      */
-    int levelHighscore( int level ) const;
+    int levelHighscore( const QString& levelSetName, int level ) const;
 private:
     /**
      * Current player name
      */
     QString m_playerName;
+
+    KSharedConfigPtr m_hsFile;
 };
 
 #endif
