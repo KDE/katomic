@@ -53,6 +53,9 @@ private slots:
     void slotAnimSpeedChanged(int);
     void updateStatusBar(int level, int score, int highscore);
     void levelHasChanged(int level);
+    void chooseLevelSet();
+    void changeLevelSet(const QString&);
+
 private:
     virtual bool queryClose(); // reimp
 

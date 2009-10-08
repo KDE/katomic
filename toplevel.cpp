@@ -38,6 +38,7 @@
 #include "playfield.h"
 #include "prefs.h"
 #include "commondefs.h"
+#include "chooselevelsetdialog.h"
 
 AtomTopLevel::AtomTopLevel()
 {
@@ -103,6 +104,10 @@ void AtomTopLevel::createMenu()
     addAction( m_nextLevelAct );
     connect( m_nextLevelAct, SIGNAL( triggered( bool ) ), m_gameWid, SLOT( nextLevel() ) );
 
+    QAction* chooseLevelSet = actionCollection()->addAction( "choose_level_set" );
+    chooseLevelSet->setText( i18n( "Choose level pack..." ) );
+    addAction( chooseLevelSet );
+    connect( chooseLevelSet, SIGNAL( triggered( bool ) ), SLOT( chooseLevelSet() ) );
 
     m_animSpeedAct = new KSelectAction(i18n("Animation Speed"), this);
     actionCollection()->addAction("anim_speed", m_animSpeedAct);
@@ -216,5 +221,18 @@ void AtomTopLevel::updateActionsForLevel(int)
     m_nextLevelAct->setEnabled( m_gameWid->isNextLevelAvailable() );
 }
 
+void AtomTopLevel::chooseLevelSet()
+{
+    // will delete itself on close
+    ChooseLevelSetDialog* dlg = new ChooseLevelSetDialog(this);
+    connect(dlg, SIGNAL(levelSetChanged(QString)), SLOT(changeLevelSet(QString)));
+    dlg->show();
+}
+
+void AtomTopLevel::changeLevelSet(const QString& levelSet)
+{
+    if (!levelSet.isEmpty())
+        m_gameWid->setLevelSet(levelSet);
+}
 
 #include "toplevel.moc"

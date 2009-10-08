@@ -13,9 +13,11 @@ set(katomic_SRCS
    main.cpp
    toplevel.cpp
    gamewidget.cpp
-   levelset.cpp )
+   levelset.cpp
+   chooselevelsetdialog.cpp )
 
 kde4_add_kcfg_files(katomic_SRCS prefs.kcfgc)
+kde4_add_ui_files(katomic_SRCS levelsetwidget.ui)
 
 kde4_add_app_icon(katomic_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-katomic.png")
 kde4_add_executable(katomic ${katomic_SRCS})

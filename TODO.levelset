@@ -42,3 +42,7 @@ What needed to add level set support to katomic
   [ ] higshcores for default level set
   [ ] last played level for default level set
   [ ] max accessible level
+
+- Check that levelsets will be correctly picked up both from global dir and local user dir
+- Check that katomic behaves correctly if level set with the same name is installed in both local
+  and global dirs

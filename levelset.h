@@ -83,6 +83,8 @@ public:
     ~LevelSet();
 
     bool load(const QString& levelSetName);
+    bool loadFromFile(const QString& fileName);
+
     const LevelData* levelData(int levelNum) const;
 
     /**

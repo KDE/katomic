@@ -95,8 +95,6 @@ void LevelSet::reset()
 
 bool LevelSet::load(const QString& levelSetName)
 {
-    reset();
-
     QString file = KStandardDirs::locate("appdata", QString("levels/%1.dat").arg(levelSetName));
     if (file.isEmpty())
     {
@@ -104,10 +102,20 @@ bool LevelSet::load(const QString& levelSetName)
         return false;
     }
 
-    m_levelsFile = KSharedConfig::openConfig( file, KConfig::SimpleConfig);
+    bool res = loadFromFile(file);
+    if (res)
+        m_name = levelSetName;
+
+    return res;
+}
+
+bool LevelSet::loadFromFile(const QString& fileName)
+{
+    reset();
+
+    m_levelsFile = KSharedConfig::openConfig(fileName, KConfig::SimpleConfig);
     KConfigGroup gr = m_levelsFile->group("LevelSet");
 
-    m_name = levelSetName;
     m_visibleName = gr.readEntry("Name");
     m_description = gr.readEntry("Description");
     m_author = gr.readEntry("Author");

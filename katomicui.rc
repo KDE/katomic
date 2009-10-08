@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gui name="katomic"
-     version="13"
+     version="14"
      xmlns="http://www.kde.org/standards/kxmlgui/1.0"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
@@ -10,6 +10,8 @@
   <Menu name="game">
     <Action name="prev_level" />
     <Action name="next_level" />
+    <Separator />
+    <Action name="choose_level_set" />
   </Menu>
   <Menu name="settings"><text>&amp;Settings</text>
     <Action name="anim_speed" />
