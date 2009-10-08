@@ -20,4 +20,6 @@
 
 #define FIELD_SIZE 15
 
+#define DEFAULT_LEVELSET_NAME "default_levels"
+
 #endif

@@ -30,8 +30,7 @@
 
 #include "atom.h"
 #include "molecule.h"
-
-static const char DEF_LEVELSET_NAME[] = "default_levels.dat";
+#include "commondefs.h"
 
 LevelData::LevelData(const QList<Element>& elements, const Molecule* mol)
     : m_molecule(mol)
@@ -247,10 +246,10 @@ const Molecule* LevelSet::readLevelMolecule(int levelNum) const
 
 bool LevelSet::isDefaultLevelsAvailable()
 {
-    QString file = KStandardDirs::locate("appdata", QString("levels/%1").arg(DEF_LEVELSET_NAME));
+    QString file = KStandardDirs::locate("appdata", QString("levels/%1.dat").arg(DEFAULT_LEVELSET_NAME));
     if (file.isEmpty())
     {
-        kDebug() << "default level set \"" << DEF_LEVELSET_NAME << "\" data file not found. Check your installation";
+        kDebug() << "default level set \"" << DEFAULT_LEVELSET_NAME << "\" data file not found. Check your installation";
         return false;
     }
 

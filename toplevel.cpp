@@ -37,13 +37,11 @@
 #include "gamewidget.h"
 #include "playfield.h"
 #include "prefs.h"
+#include "commondefs.h"
 
 AtomTopLevel::AtomTopLevel()
 {
-    int lastPlayed = Preferences::lastPlayedLevel();
-    int maxLevel = Preferences::maxAccessibleLevel();
-
-    m_gameWid = new GameWidget( qMin(lastPlayed, maxLevel), "default_levels", this);
+    m_gameWid = new GameWidget( DEFAULT_LEVELSET_NAME, this);
     m_gameWid->setObjectName("gamewidget");
     createMenu();
     loadSettings();
@@ -60,8 +58,8 @@ AtomTopLevel::AtomTopLevel()
     connect(m_gameWid, SIGNAL(statsChanged(int,int,int)), SLOT(updateStatusBar(int, int, int)));
     connect(m_gameWid, SIGNAL(levelChanged(int)), SLOT(levelHasChanged(int)));
 
-    // update grayed actions
-    levelHasChanged( qMin(lastPlayed, maxLevel) );
+    // update next/prev actions
+    levelHasChanged(m_gameWid->currentLevel());
     setupGUI();
 }
 

@@ -35,7 +35,7 @@
 #include <kglobalsettings.h>
 #include <kfiledialog.h>
 
-GameWidget::GameWidget ( int startingLevel, const QString& levelSet, QWidget *parent )
+GameWidget::GameWidget ( const QString& levelSet, QWidget *parent )
     : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0)
 {
     m_highscore = new KAtomicHighscores();
@@ -70,13 +70,36 @@ GameWidget::GameWidget ( int startingLevel, const QString& levelSet, QWidget *pa
     m_timer->setSingleShot(true);
     connect (m_timer, SIGNAL(timeout()), this, SLOT(nextLevel()));
 
-    m_levelSet.load(levelSet);
-    switchToLevel(startingLevel);
+    setLevelSet(levelSet);
 }
 
 GameWidget::~GameWidget()
 {
     delete m_highscore;
+}
+
+
+void GameWidget::setLevelSet(const QString& levelSet)
+{
+    if (m_levelSet.name() == levelSet)
+    {
+        kDebug() << "level set named" << levelSet << "is already loaded";
+        return;
+    }
+
+    m_levelSet.load(levelSet);
+
+    // TODO depend on levelset!
+    int lastPlayed = lastPlayedLevel();
+    int maxLevel = maxAccessibleLevel();
+
+    int startingLevel = qMin(lastPlayed, maxLevel);
+    switchToLevel(startingLevel);
+}
+
+QString GameWidget::levelSet() const
+{
+    return m_levelSet.name();
 }
 
 QString GameWidget::currentMolecule() const
@@ -111,7 +134,7 @@ void GameWidget::moveRight()
 void GameWidget::gameOver(int moves) {
     // writing this info only in normal mode
     if ( !m_allowAnyLevelSwitch &&
-		    Preferences::maxAccessibleLevel() < m_level+1 )
+         Preferences::maxAccessibleLevel() < m_level+1 )
     {
         Preferences::setMaxAccessibleLevel( m_level+1 );
         Preferences::self()->writeConfig();
@@ -227,6 +250,16 @@ void GameWidget::nextLevel()
 void GameWidget::resizeEvent( QResizeEvent* ev)
 {
     m_playField->resize( ev->size().width(), ev->size().height() );
+}
+
+int GameWidget::lastPlayedLevel() const
+{
+    return Preferences::lastPlayedLevel();
+}
+
+int GameWidget::maxAccessibleLevel() const
+{
+    return Preferences::maxAccessibleLevel();
 }
 
 #include "gamewidget.moc"

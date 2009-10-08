@@ -34,8 +34,11 @@ class GameWidget : public QWidget
     Q_OBJECT
 
 public:
-    GameWidget ( int startingLevel, const QString& levelSet, QWidget *parent );
+    GameWidget ( const QString& levelSet, QWidget *parent );
     ~GameWidget();
+
+    void setLevelSet(const QString& levelSet);
+    QString levelSet() const;
 
     void enableSwitchToAnyLevel() { m_allowAnyLevelSwitch = true; }
     bool switchToAnyLevelAllowed() const { return m_allowAnyLevelSwitch; }
@@ -46,9 +49,14 @@ public:
     QString currentMolecule() const;
     int currentScore() const { return m_moves; }
     int currentHighScore() const;
+
+    int lastPlayedLevel() const;
+    int maxAccessibleLevel() const;
+
 signals:
     void statsChanged(int level,int score,int highscore);
     void levelChanged(int level);
+
 public slots:
     void prevLevel();
     void nextLevel();
