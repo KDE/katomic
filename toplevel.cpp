@@ -69,8 +69,7 @@ AtomTopLevel::~AtomTopLevel()
 
 bool AtomTopLevel::queryClose()
 {
-    Preferences::setLastPlayedLevel(m_gameWid->currentLevel());
-    Preferences::self()->writeConfig();
+    m_gameWid->saveLastPlayedLevel();
     return true;
 }
 
@@ -211,11 +210,10 @@ void AtomTopLevel::levelHasChanged(int level)
         updateActionsForLevel(level);
 }
 
-void AtomTopLevel::updateActionsForLevel(int level)
+void AtomTopLevel::updateActionsForLevel(int)
 {
-    int maxLevel = Preferences::maxAccessibleLevel();
-    m_prevLevelAct->setDisabled( level == 1 );
-    m_nextLevelAct->setDisabled( level == maxLevel );
+    m_prevLevelAct->setEnabled( m_gameWid->isPrevLevelAvailable() );
+    m_nextLevelAct->setEnabled( m_gameWid->isNextLevelAvailable() );
 }
 
 

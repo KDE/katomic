@@ -21,7 +21,6 @@
 #include "gamewidget.h"
 #include "highscores.h"
 #include "playfield.h"
-#include "prefs.h"
 
 #include <QGraphicsView>
 #include <QResizeEvent>
@@ -34,6 +33,7 @@
 #include <kconfig.h>
 #include <kglobalsettings.h>
 #include <kfiledialog.h>
+#include <kdebug.h>
 
 GameWidget::GameWidget ( const QString& levelSet, QWidget *parent )
     : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0)
@@ -134,10 +134,9 @@ void GameWidget::moveRight()
 void GameWidget::gameOver(int moves) {
     // writing this info only in normal mode
     if ( !m_allowAnyLevelSwitch &&
-         Preferences::maxAccessibleLevel() < m_level+1 )
+         maxAccessibleLevel() < m_level+1 )
     {
-        Preferences::setMaxAccessibleLevel( m_level+1 );
-        Preferences::self()->writeConfig();
+        saveMaxAccessibleLevel( m_level+1 );
     }
 
     QString message = i18n( "Level %1 finished. ", m_level );
@@ -237,10 +236,10 @@ void GameWidget::nextLevel()
     // if user hits toolbar buttons, stop timer
     if (m_timer->isActive())
         m_timer->stop();
-    if ( !m_allowAnyLevelSwitch && m_level >= Preferences::maxAccessibleLevel() )
+    if ( !m_allowAnyLevelSwitch && m_level >= maxAccessibleLevel() )
     {
         KMessageBox::information(this, i18n("You must solve level %1 before advancing to the next one!",
-                                            Preferences::maxAccessibleLevel()), i18n("Warning"));
+                                            maxAccessibleLevel()), i18n("Warning"));
         return;
     }
     m_level++;
@@ -252,14 +251,46 @@ void GameWidget::resizeEvent( QResizeEvent* ev)
     m_playField->resize( ev->size().width(), ev->size().height() );
 }
 
+void GameWidget::saveLastPlayedLevel()
+{
+    KSharedConfigPtr cfg = KGlobal::config();
+    KConfigGroup grp(cfg, m_levelSet.name());
+    grp.writeEntry("LastPlayedLevel", m_level);
+}
+
+void GameWidget::saveMaxAccessibleLevel(int level)
+{
+    KSharedConfigPtr cfg = KGlobal::config();
+    KConfigGroup grp(cfg, m_levelSet.name());
+    grp.writeEntry("MaxAccessibleLevel", level);
+}
+
 int GameWidget::lastPlayedLevel() const
 {
-    return Preferences::lastPlayedLevel();
+    KSharedConfigPtr cfg = KGlobal::config();
+    KConfigGroup grp(cfg, m_levelSet.name());
+    int lastPlayed = grp.readEntry("LastPlayedLevel", 1);
+    kDebug() << "last played level:" << lastPlayed;
+    return lastPlayed;
 }
 
 int GameWidget::maxAccessibleLevel() const
 {
-    return Preferences::maxAccessibleLevel();
+    KSharedConfigPtr cfg = KGlobal::config();
+    KConfigGroup grp(cfg, m_levelSet.name());
+    int maxAccessible = grp.readEntry("MaxAccessibleLevel", 1);
+    kDebug() << "max accessible level:" << maxAccessible;
+    return maxAccessible;
+}
+
+bool GameWidget::isNextLevelAvailable() const
+{
+    return m_level != maxAccessibleLevel();
+}
+
+bool GameWidget::isPrevLevelAvailable() const
+{
+    return m_level != 1;
 }
 
 #include "gamewidget.moc"

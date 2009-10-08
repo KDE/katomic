@@ -50,8 +50,11 @@ public:
     int currentScore() const { return m_moves; }
     int currentHighScore() const;
 
-    int lastPlayedLevel() const;
-    int maxAccessibleLevel() const;
+    bool isNextLevelAvailable() const;
+    bool isPrevLevelAvailable() const;
+
+    void saveMaxAccessibleLevel(int level);
+    void saveLastPlayedLevel();
 
 signals:
     void statsChanged(int level,int score,int highscore);
@@ -79,8 +82,13 @@ public slots:
     void moveLeft();
     void moveRight();
 private:
+
     virtual void resizeEvent( QResizeEvent* );
     void switchToLevel (int);
+
+    int lastPlayedLevel() const;
+    int maxAccessibleLevel() const;
+
     /**
      * If on, katomic will allow user to switch to any
      * level even if she didn't solved it yet.

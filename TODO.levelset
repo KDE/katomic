@@ -1,19 +1,18 @@
 What needed to add level set support to katomic
 
 [DONE] Rework levels/ directory to not contain level files directly, but to contain single-file levelsets
-- Rework level loading/saving
-- Implement widget to allow levels selection
 - Adjust save files to save level set name too. Be sure to fallback to default level set if old save file is loaded.
   Also be sure to tell the user if saved level set is absent on his computer (use case: save file transfered from other PC)
+- Implement widget to allow levels selection
 
 // THESE SHOULD PICK UP VALUES FROM OLD CONFIG (kconf_upd script needed)
 [DONE] highscores should be relative to level set
-- lastplayed level should be relative to level set
-- max accessible level should be relative to level set
-- remove lastplayed and max accessible from .kcfg file
+[DONE] lastplayed level should be relative to level set
+[DONE] max accessible level should be relative to level set
+[DONE] remove lastplayed and max accessible from .kcfg file
 
 - kconf_upd:
-  WAS:
+1.  WAS:
   in katomicrc
 
     [Highscores_user]
@@ -24,6 +23,19 @@ What needed to add level set support to katomic
 
     [Highscores_user][default_levels]
     Level1=15
+
+2. WAS:
+  in katomicrc
+
+  [Game]
+  LastPlayedLevel=X
+  MaxAccessibleLevel=Y
+
+  NOW:
+
+  [default_levels]
+  LastPlayedLevel=X
+  MaxAccessibleLevel=Y
 
 
 - Check that when katomic will be upgraded it will correctly pick up:
