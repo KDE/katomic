@@ -45,11 +45,11 @@ int main(int argc, char **argv)
 {
   KAboutData aboutData( "katomic", 0, ki18n("KAtomic"),
     version, ki18n(description), KAboutData::License_GPL,
-    ki18n("(c) 1998, Andreas Wuest"), KLocalizedString(), "http://games.kde.org/katomic" );
-  aboutData.addAuthor(ki18n("Andreas Wuest"), KLocalizedString(), "AndreasWuest@gmx.de");
+    ki18n("(c) 1998, Andreas Wuest\n(c) 2007-2009 Dmitry Suzdalev"), KLocalizedString(), "http://games.kde.org/katomic" );
+  aboutData.addAuthor(ki18n("Andreas Wuest"), ki18n("Original author"), "AndreasWuest@gmx.de");
+  aboutData.addAuthor(ki18n("Dmitry Suzdalev"), ki18n("Porting to KDE4. Current maintainer"), "dimsuz@gmail.com");
   aboutData.addAuthor(ki18n("Stephan Kulow"), KLocalizedString(), "coolo@kde.org");
   aboutData.addAuthor(ki18n("Cristian Tibirna"), KLocalizedString(), "tibirna@kde.org");
-  aboutData.addAuthor(ki18n("Dmitry Suzdalev"), ki18n("Porting to KDE4. Current maintainer"), "dimsuz@gmail.com");
   aboutData.addCredit(ki18n("Carsten Pfeiffer"), KLocalizedString(), "pfeiffer@kde.org");
   aboutData.addCredit(ki18n("Dave Corrie"), KLocalizedString(), "kde@davecorrie.com");
   aboutData.addCredit(ki18n("Kai Jung"), ki18n("6 new levels"), "jung@fh-fresenius.de");

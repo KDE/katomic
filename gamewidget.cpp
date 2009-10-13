@@ -1,7 +1,7 @@
 /*
 
   Copyright (C) 1998   Andreas Wüst (AndreasWuest@gmx.de)
-  Copyright (C) 2006-2007   Dmitry Suzdalev (dimsuz@gmail.com)
+  Copyright (C) 2006-2009   Dmitry Suzdalev (dimsuz@gmail.com)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
