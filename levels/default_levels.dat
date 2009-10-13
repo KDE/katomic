@@ -3,6 +3,7 @@ Name=Default
 Description=Default levels
 Author=Andreas Wuest
 AuthorEmail=AndreasWuest@gmx.de
+LevelCount=83
 
 [Level1]
 Name=Water

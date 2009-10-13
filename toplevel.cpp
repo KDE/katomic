@@ -232,7 +232,9 @@ void AtomTopLevel::chooseLevelSet()
 void AtomTopLevel::changeLevelSet(const QString& levelSet)
 {
     if (!levelSet.isEmpty())
+    {
         m_gameWid->setLevelSet(levelSet);
+    }
 }
 
 #include "toplevel.moc"

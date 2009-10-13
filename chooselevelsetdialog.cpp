@@ -54,8 +54,25 @@ void ChooseLevelSetDialog::loadData()
         QString visibleName = ls.visibleName();
         if (!visibleName.isEmpty())
         {
-            m_ui.m_lwLevelSets->addItem(visibleName);
-            // todo setDAta
+            QListWidgetItem* item = new QListWidgetItem;
+            item->setText(visibleName);
+            item->setData(Qt::UserRole, ls.name());
+            m_ui.m_lwLevelSets->addItem(item);
         }
     }
+}
+
+void ChooseLevelSetDialog::slotButtonClicked(int but)
+{
+    if (but == KDialog::Ok || but == KDialog::Apply)
+    {
+        QListWidgetItem* item = m_ui.m_lwLevelSets->currentItem();
+        if (item)
+        {
+            QString levelSetName = item->data(Qt::UserRole).toString();
+            emit levelSetChanged(levelSetName);
+        }
+    }
+
+    KDialog::slotButtonClicked(but);
 }

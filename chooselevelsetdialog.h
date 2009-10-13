@@ -38,6 +38,9 @@ public:
 signals:
     void levelSetChanged(QString);
 
+protected Q_SLOTS:
+    void slotButtonClicked(int);
+
 private:
     void loadData();
 

@@ -98,8 +98,15 @@ public:
      */
     QString visibleName() const;
 
-    static bool isDefaultLevelsAvailable();
+    /**
+     * @return number of levels in this levelset
+     */
+    int levelCount() const;
 
+    /**
+     * Checks if default level set is installed on disk
+     */
+    static bool isDefaultLevelsAvailable();
 
 private:
     void reset();
@@ -115,6 +122,7 @@ private:
     QString m_description;
     QString m_author;
     QString m_authorEmail;
+    int m_levelCount;
 };
 
 #endif

@@ -27,6 +27,7 @@
 #include <KDebug>
 #include <KLocale>
 #include <kdefakes.h>
+#include <QFileInfo>
 
 #include "atom.h"
 #include "molecule.h"
@@ -88,6 +89,7 @@ void LevelSet::reset()
     m_description = QString();
     m_author = QString();
     m_authorEmail = QString();
+    m_levelCount = 0;
 
     qDeleteAll(m_levelCache);
     m_levelCache.clear();
@@ -103,8 +105,8 @@ bool LevelSet::load(const QString& levelSetName)
     }
 
     bool res = loadFromFile(file);
-    if (res)
-        m_name = levelSetName;
+    if (!res)
+        kDebug() << "warning: failed to load level set" << levelSetName;
 
     return res;
 }
@@ -120,6 +122,12 @@ bool LevelSet::loadFromFile(const QString& fileName)
     m_description = gr.readEntry("Description");
     m_author = gr.readEntry("Author");
     m_authorEmail = gr.readEntry("AuthorEmail");
+    m_levelCount = gr.readEntry("LevelCount", 0);
+
+    m_name = QFileInfo(fileName).baseName();
+
+    if (m_levelCount <= 0)
+        kDebug() << "warning: in level set" << m_name << "level count not specified or invalid";
 
     return true;
 }
@@ -132,6 +140,11 @@ QString LevelSet::name() const
 QString LevelSet::visibleName() const
 {
     return m_visibleName;
+}
+
+int LevelSet::levelCount() const
+{
+    return m_levelCount;
 }
 
 const LevelData* LevelSet::levelData(int levelNum) const
@@ -156,7 +169,7 @@ const LevelData* LevelSet::readLevel(int levelNum) const
         {
             if (line.isEmpty())
             {
-                kDebug() << "error while reading level data!";
+                kDebug() << "error while reading level" << levelNum << "data from" << m_name;
                 return 0;
             }
 

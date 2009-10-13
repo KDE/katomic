@@ -36,7 +36,7 @@
 #include <kdebug.h>
 
 GameWidget::GameWidget ( const QString& levelSet, QWidget *parent )
-    : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0)
+    : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0), m_level(0)
 {
     m_highscore = new KAtomicHighscores();
     m_levelHighscore = 0;
@@ -87,9 +87,13 @@ void GameWidget::setLevelSet(const QString& levelSet)
         return;
     }
 
-    m_levelSet.load(levelSet);
+    bool res = m_levelSet.load(levelSet);
+    if (!res)
+    {
+        kDebug() << "failed to load levelset" << levelSet;
+        return;
+    }
 
-    // TODO depend on levelset!
     int lastPlayed = lastPlayedLevel();
     int maxLevel = maxAccessibleLevel();
 
@@ -165,12 +169,12 @@ void GameWidget::updateMoves(int moves)
 
 void GameWidget::switchToLevel (int l)
 {
-    m_level=l;
-
-    const LevelData* level = m_levelSet.levelData(m_level);
-    if (level)
+    const LevelData* levelData = m_levelSet.levelData(l);
+    if (levelData)
     {
-        m_playField->setLevelData(level);
+        m_level=l;
+
+        m_playField->setLevelData(levelData);
 
         m_levelHighscore = m_highscore->levelHighscore( m_levelSet.name(), m_level );
 
@@ -178,7 +182,7 @@ void GameWidget::switchToLevel (int l)
         emit levelChanged(m_level);
     }
     else
-        kDebug() << "failed to load level" << m_level;
+        kDebug() << "failed to load level" << l;
 }
 
 void GameWidget::restartLevel()
@@ -205,8 +209,7 @@ void GameWidget::loadGame()
     KConfig config(fileName, KConfig::SimpleConfig);
     KConfigGroup gr = config.group("Savegame");
     int l = gr.readEntry( "Level", 1 );
-    m_level = l;
-    switchToLevel(m_level);
+    switchToLevel(l);
     m_playField->loadGame( gr );
 }
 
@@ -225,10 +228,11 @@ void GameWidget::prevLevel()
     // if user hits toolbar buttons, stop timer
     if (m_timer->isActive())
         m_timer->stop();
-    if ( m_level == 1 )
-        return;
-    m_level--;
-    switchToLevel(m_level);
+
+    if (isPrevLevelAvailable())
+    {
+        switchToLevel(m_level-1);
+    }
 }
 
 void GameWidget::nextLevel()
@@ -236,14 +240,11 @@ void GameWidget::nextLevel()
     // if user hits toolbar buttons, stop timer
     if (m_timer->isActive())
         m_timer->stop();
-    if ( !m_allowAnyLevelSwitch && m_level >= maxAccessibleLevel() )
+
+    if (isNextLevelAvailable())
     {
-        KMessageBox::information(this, i18n("You must solve level %1 before advancing to the next one!",
-                                            maxAccessibleLevel()), i18n("Warning"));
-        return;
+        switchToLevel(m_level+1);
     }
-    m_level++;
-    switchToLevel(m_level);
 }
 
 void GameWidget::resizeEvent( QResizeEvent* ev)
@@ -270,6 +271,7 @@ int GameWidget::lastPlayedLevel() const
     KSharedConfigPtr cfg = KGlobal::config();
     KConfigGroup grp(cfg, m_levelSet.name());
     int lastPlayed = grp.readEntry("LastPlayedLevel", 1);
+    lastPlayed = qMax(1, lastPlayed); // can't be less than 1
     kDebug() << "last played level:" << lastPlayed;
     return lastPlayed;
 }
@@ -285,12 +287,13 @@ int GameWidget::maxAccessibleLevel() const
 
 bool GameWidget::isNextLevelAvailable() const
 {
-    return m_level != maxAccessibleLevel();
+    bool avail = (m_level != maxAccessibleLevel() && m_level <= m_levelSet.levelCount());
+    return avail;
 }
 
 bool GameWidget::isPrevLevelAvailable() const
 {
-    return m_level != 1;
+    return m_level > 1;
 }
 
 #include "gamewidget.moc"
