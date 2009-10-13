@@ -21,6 +21,7 @@
 #include "gamewidget.h"
 #include "highscores.h"
 #include "playfield.h"
+#include "prefs.h"
 
 #include <QGraphicsView>
 #include <QResizeEvent>
@@ -79,19 +80,20 @@ GameWidget::~GameWidget()
 }
 
 
-void GameWidget::setLevelSet(const QString& levelSet)
+bool GameWidget::setLevelSet(const QString& levelSet)
 {
     if (m_levelSet.name() == levelSet)
     {
         kDebug() << "level set named" << levelSet << "is already loaded";
-        return;
+        return true;
     }
 
     bool res = m_levelSet.load(levelSet);
     if (!res)
     {
+        KMessageBox::error(this, i18n("Failed to load level pack \"%1\". Check if it is installed on your computer.", levelSet));
         kDebug() << "failed to load levelset" << levelSet;
-        return;
+        return false;
     }
 
     int lastPlayed = lastPlayedLevel();
@@ -99,11 +101,18 @@ void GameWidget::setLevelSet(const QString& levelSet)
 
     int startingLevel = qMin(lastPlayed, maxLevel);
     switchToLevel(startingLevel);
+
+    return true;
 }
 
 QString GameWidget::levelSet() const
 {
     return m_levelSet.name();
+}
+
+QString GameWidget::levelSetVisibleName() const
+{
+    return m_levelSet.visibleName();
 }
 
 QString GameWidget::currentMolecule() const
@@ -198,6 +207,7 @@ void GameWidget::saveGame()
     KConfig config(fileName, KConfig::SimpleConfig);
     KConfigGroup gr = config.group("Savegame");
     gr.writeEntry( "Level", m_level );
+    gr.writeEntry( "LevelSet", m_levelSet.name() );
     m_playField->saveGame( gr );
 }
 
@@ -208,9 +218,20 @@ void GameWidget::loadGame()
         return;
     KConfig config(fileName, KConfig::SimpleConfig);
     KConfigGroup gr = config.group("Savegame");
-    int l = gr.readEntry( "Level", 1 );
-    switchToLevel(l);
-    m_playField->loadGame( gr );
+    QString levelSet = gr.readEntry("LevelSet");
+    if (levelSet.isEmpty())
+    {
+        kDebug() << "note: savegame file doesn't contain info about levelset, assuming default one";
+        levelSet = DEFAULT_LEVELSET_NAME;
+    }
+
+    bool res = setLevelSet(levelSet);
+    if (res)
+    {
+        int l = gr.readEntry( "Level", 1 );
+        switchToLevel(l);
+        m_playField->loadGame( gr );
+    }
 }
 
 void GameWidget::showHighscores ()
@@ -257,6 +278,8 @@ void GameWidget::saveLastPlayedLevel()
     KSharedConfigPtr cfg = KGlobal::config();
     KConfigGroup grp(cfg, m_levelSet.name());
     grp.writeEntry("LastPlayedLevel", m_level);
+
+    Preferences::setLastPlayedLevelSet(m_levelSet.name());
 }
 
 void GameWidget::saveMaxAccessibleLevel(int level)

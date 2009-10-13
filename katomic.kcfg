@@ -24,5 +24,9 @@
       <label>Height of saved background</label>
       <default>-1</default>
     </entry>
+    <entry name="LastPlayedLevelSet" type="String">
+        <label>Last played levelset</label>
+        <default>default_levels</default>
+    </entry>
   </group>
 </kcfg>
