@@ -100,6 +100,8 @@ void PlayField::setLevelData(const LevelData* level)
     updateArrows(true); // this will hide them (no atom selected)
     updateFieldItems();
     nextAtom();
+
+    update();
 }
 
 void PlayField::updateFieldItems()

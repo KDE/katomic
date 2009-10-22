@@ -57,8 +57,11 @@ GameWidget::GameWidget ( const QString& levelSet, QWidget *parent )
     m_view->setFrameStyle( QFrame::NoFrame );
     m_view->setCacheMode( QGraphicsView::CacheBackground );
 
+    // TODO uncomment DontSavePainterState optimization back after this bug in Qt 4.6 preview will be
+    // fixed (darktears promised it will get fixed in 4.6.0 release). Bug is about wrong coordinates
+    // for QPainter passed to QGS::drawForeground() function
     m_view->setOptimizationFlags( QGraphicsView::DontClipPainter |
-                                  QGraphicsView::DontSavePainterState |
+                                  //QGraphicsView::DontSavePainterState |
                                   QGraphicsView::DontAdjustForAntialiasing );
 
     top->addWidget(m_view, 1);
