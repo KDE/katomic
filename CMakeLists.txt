@@ -35,4 +35,7 @@ install( FILES default_theme.svgz  DESTINATION  ${DATA_INSTALL_DIR}/katomic/pics
 
 kde4_install_icons( ${ICON_INSTALL_DIR}   )
 
-
+if(NOT WIN32)
+  install( FILES katomic-levelset-upd.pl DESTINATION  ${KCONF_UPDATE_INSTALL_DIR} )
+  install( FILES katomic-levelset.upd DESTINATION  ${KCONF_UPDATE_INSTALL_DIR} )
+endif(NOT WIN32)
