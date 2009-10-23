@@ -30,7 +30,8 @@ namespace KAtomic
         LevelSetNameRole = Qt::UserRole,
         LevelSetAuthorRole = Qt::UserRole+1,
         LevelSetAuthorEmailRole = Qt::UserRole+2,
-        LevelSetDescriptionRole = Qt::UserRole+3
+        LevelSetDescriptionRole = Qt::UserRole+3,
+        LevelSetLevelCountRole = Qt::UserRole+4
     };
 } // namespace KAtomic
 

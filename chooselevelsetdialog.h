@@ -46,8 +46,12 @@ protected Q_SLOTS:
 private:
     void loadData();
 
+private Q_SLOTS:
+    void updateApplyButton();
+
 private:
     Ui::LevelSetWidget m_ui;
+    QString m_gameCurrentLevelSetName;
 };
 
 #endif

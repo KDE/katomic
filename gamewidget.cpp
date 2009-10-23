@@ -192,6 +192,8 @@ void GameWidget::switchToLevel (int l)
 
         emit statsChanged(m_level, 0, m_levelHighscore);
         emit levelChanged(m_level);
+
+        saveLastPlayedLevel();
     }
     else
         kDebug() << "failed to load level" << l;

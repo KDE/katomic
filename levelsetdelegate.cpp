@@ -98,6 +98,9 @@ void LevelSetDelegate::paint(QPainter* p, const QStyleOptionViewItem& opt, const
         if (!authorEmail.isEmpty())
             text.append(" <"+authorEmail+">");
 
+        int numLevels = index.data(KAtomic::LevelSetLevelCountRole).toUInt();
+        text.append(i18np(", contains 1 level", ", contains %1 levels", numLevels));
+
         p->drawText(r, flags, text);
     }
 
@@ -108,9 +111,9 @@ void LevelSetDelegate::paint(QPainter* p, const QStyleOptionViewItem& opt, const
     if (!descr.isEmpty())
     {
         if (option.state & QStyle::State_Selected)
-            p->setPen(option.palette.color(QPalette::Disabled, QPalette::HighlightedText));
+            p->setPen(option.palette.color(QPalette::Normal, QPalette::HighlightedText));
         else
-            p->setPen(option.palette.color(QPalette::Disabled, QPalette::Text));
+            p->setPen(option.palette.color(QPalette::Normal, QPalette::Text));
 
         r = opt.rect.adjusted(textStartX, fm.lineSpacing()*2, -marginH*2, -marginV*2);
         flags = Qt::AlignLeft | Qt::AlignBottom | Qt::TextSingleLine;

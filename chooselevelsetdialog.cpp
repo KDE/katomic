@@ -35,19 +35,23 @@ ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
 
-    setCaption(i18n("Choose a level pack"));
+    setCaption(i18n("Level Packs"));
     setButtons(KDialog::Ok | KDialog::Apply | KDialog::Cancel);
 
     QWidget* chooseWidget = new QWidget(this);
     m_ui.setupUi(chooseWidget);
 
     m_ui.m_lwLevelSets->setItemDelegate(new LevelSetDelegate(this));
+    m_ui.m_lwLevelSets->setSortingEnabled(true);
 
     setMainWidget(chooseWidget);
 
     resize(520, 320);
 
     loadData();
+
+    connect(m_ui.m_lwLevelSets, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),
+            SLOT(updateApplyButton()));
 }
 
 void ChooseLevelSetDialog::loadData()
@@ -62,12 +66,13 @@ void ChooseLevelSetDialog::loadData()
         if (!visibleName.isEmpty())
         {
             QListWidgetItem* item = new QListWidgetItem;
-            item->setIcon(KIcon("view-preview"));
+            item->setIcon(KIcon("katomic"));
             item->setText(visibleName);
             item->setData(KAtomic::LevelSetNameRole, ls.name());
             item->setData(KAtomic::LevelSetDescriptionRole, ls.description());
             item->setData(KAtomic::LevelSetAuthorRole, ls.author());
             item->setData(KAtomic::LevelSetAuthorEmailRole, ls.authorEmail());
+            item->setData(KAtomic::LevelSetLevelCountRole, ls.levelCount());
             m_ui.m_lwLevelSets->addItem(item);
         }
     }
@@ -75,6 +80,8 @@ void ChooseLevelSetDialog::loadData()
 
 void ChooseLevelSetDialog::setCurrentLevelSet(const QString& levelSetName)
 {
+    m_gameCurrentLevelSetName = levelSetName;
+
     int count = m_ui.m_lwLevelSets->count();
     for (int i=0;i<count;++i)
     {
@@ -99,8 +106,20 @@ void ChooseLevelSetDialog::slotButtonClicked(int but)
         {
             QString levelSetName = item->data(KAtomic::LevelSetNameRole).toString();
             emit levelSetChanged(levelSetName);
+
+            m_gameCurrentLevelSetName = levelSetName;
+            updateApplyButton();
         }
     }
 
     KDialog::slotButtonClicked(but);
+}
+
+void ChooseLevelSetDialog::updateApplyButton()
+{
+    QListWidgetItem* item = m_ui.m_lwLevelSets->currentItem();
+    if (item)
+    {
+        enableButtonApply(item->data(KAtomic::LevelSetNameRole).toString() != m_gameCurrentLevelSetName);
+    }
 }
