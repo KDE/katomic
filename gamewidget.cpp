@@ -108,7 +108,7 @@ bool GameWidget::setLevelSet(const QString& levelSet)
     return true;
 }
 
-QString GameWidget::levelSet() const
+QString GameWidget::levelSetName() const
 {
     return m_levelSet.name();
 }

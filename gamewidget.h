@@ -38,7 +38,13 @@ public:
     ~GameWidget();
 
     bool setLevelSet(const QString& levelSet);
-    QString levelSet() const;
+    /**
+     * @return levelset name
+     */
+    QString levelSetName() const;
+    /**
+     * @return levelset name suitable for showing in gui
+     */
     QString levelSetVisibleName() const;
 
     void enableSwitchToAnyLevel() { m_allowAnyLevelSwitch = true; }

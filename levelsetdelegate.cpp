@@ -20,34 +20,20 @@
  * Boston, MA 02110-1301, USA.
  *
  ********************************************************************/
+#include "levelsetdelegate.h"
 
-#ifndef CHOOSE_LEVEL_SET_DIALOG_H
-#define CHOOSE_LEVEL_SET_DIALOG_H
-
-#include <KDialog>
-
-#include "ui_levelsetwidget.h"
-
-class ChooseLevelSetDialog : public KDialog
+LevelSetDelegate::LevelSetDelegate(QObject* parent)
+    : QStyledItemDelegate(parent)
 {
-    Q_OBJECT
 
-public:
-    ChooseLevelSetDialog(QWidget* parent=0);
+}
 
-    void setCurrentLevelSet(const QString& levelSetName);
+void LevelSetDelegate::paint(QPainter* p, const QStyleOptionViewItem& option, const QModelIndex& index) const
+{
+    return QStyledItemDelegate::paint(p, option, index);
+}
 
-signals:
-    void levelSetChanged(QString);
-
-protected Q_SLOTS:
-    void slotButtonClicked(int);
-
-private:
-    void loadData();
-
-private:
-    Ui::LevelSetWidget m_ui;
-};
-
-#endif
+QSize LevelSetDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const
+{
+    return QSize(option.rect.width(), 80);
+}

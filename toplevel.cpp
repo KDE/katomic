@@ -237,6 +237,8 @@ void AtomTopLevel::chooseLevelSet()
     // will delete itself on close
     ChooseLevelSetDialog* dlg = new ChooseLevelSetDialog(this);
     connect(dlg, SIGNAL(levelSetChanged(QString)), SLOT(changeLevelSet(QString)));
+
+    dlg->setCurrentLevelSet(m_gameWid->levelSetName());
     dlg->show();
 }
 

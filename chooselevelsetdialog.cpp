@@ -26,6 +26,7 @@
 #include <KDebug>
 
 #include "levelset.h"
+#include "levelsetdelegate.h"
 
 ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
     : KDialog(parent)
@@ -37,6 +38,8 @@ ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
 
     QWidget* chooseWidget = new QWidget(this);
     m_ui.setupUi(chooseWidget);
+
+    m_ui.m_lwLevelSets->setItemDelegate(new LevelSetDelegate(this));
 
     setMainWidget(chooseWidget);
 
@@ -58,6 +61,23 @@ void ChooseLevelSetDialog::loadData()
             item->setText(visibleName);
             item->setData(Qt::UserRole, ls.name());
             m_ui.m_lwLevelSets->addItem(item);
+        }
+    }
+}
+
+void ChooseLevelSetDialog::setCurrentLevelSet(const QString& levelSetName)
+{
+    int count = m_ui.m_lwLevelSets->count();
+    for (int i=0;i<count;++i)
+    {
+        QListWidgetItem* item = m_ui.m_lwLevelSets->item(i);
+        if (!item)
+            continue;
+
+        if (item->data(Qt::UserRole).toString() == levelSetName)
+        {
+            m_ui.m_lwLevelSets->setCurrentItem(item);
+            break;
         }
     }
 }

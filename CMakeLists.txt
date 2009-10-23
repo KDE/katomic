@@ -14,6 +14,7 @@ set(katomic_SRCS
    toplevel.cpp
    gamewidget.cpp
    levelset.cpp
+   levelsetdelegate.cpp
    chooselevelsetdialog.cpp )
 
 kde4_add_kcfg_files(katomic_SRCS prefs.kcfgc)
