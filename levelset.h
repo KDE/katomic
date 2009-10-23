@@ -99,6 +99,21 @@ public:
     QString visibleName() const;
 
     /**
+     * @return name of the author of the levelset
+     */
+    QString author() const;
+
+    /**
+     * @return email of the author of the levelset
+     */
+    QString authorEmail() const;
+
+    /**
+     * @return description of the levelset
+     */
+    QString description() const;
+
+    /**
      * @return number of levels in this levelset
      */
     int levelCount() const;

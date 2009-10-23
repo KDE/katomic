@@ -142,6 +142,21 @@ QString LevelSet::visibleName() const
     return m_visibleName;
 }
 
+QString LevelSet::author() const
+{
+    return m_author;
+}
+
+QString LevelSet::authorEmail() const
+{
+    return m_authorEmail;
+}
+
+QString LevelSet::description() const
+{
+    return m_description;
+}
+
 int LevelSet::levelCount() const
 {
     return m_levelCount;

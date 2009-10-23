@@ -32,6 +32,9 @@ public:
 
     virtual void paint(QPainter* p, const QStyleOptionViewItem& option, const QModelIndex& index) const;
     virtual QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const;
+
+private:
+    mutable int m_lineHeight;
 };
 
 #endif

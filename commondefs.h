@@ -22,4 +22,16 @@
 
 #define DEFAULT_LEVELSET_NAME "default_levels"
 
+namespace KAtomic
+{
+    enum LevelSetRoles
+    {
+        LevelSetGuiNameRole = Qt::DisplayRole,
+        LevelSetNameRole = Qt::UserRole,
+        LevelSetAuthorRole = Qt::UserRole+1,
+        LevelSetAuthorEmailRole = Qt::UserRole+2,
+        LevelSetDescriptionRole = Qt::UserRole+3
+    };
+} // namespace KAtomic
+
 #endif

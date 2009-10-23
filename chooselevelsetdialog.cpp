@@ -28,6 +28,8 @@
 #include "levelset.h"
 #include "levelsetdelegate.h"
 
+#include "commondefs.h"
+
 ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
     : KDialog(parent)
 {
@@ -42,6 +44,8 @@ ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
     m_ui.m_lwLevelSets->setItemDelegate(new LevelSetDelegate(this));
 
     setMainWidget(chooseWidget);
+
+    resize(520, 320);
 
     loadData();
 }
@@ -58,8 +62,12 @@ void ChooseLevelSetDialog::loadData()
         if (!visibleName.isEmpty())
         {
             QListWidgetItem* item = new QListWidgetItem;
+            item->setIcon(KIcon("view-preview"));
             item->setText(visibleName);
-            item->setData(Qt::UserRole, ls.name());
+            item->setData(KAtomic::LevelSetNameRole, ls.name());
+            item->setData(KAtomic::LevelSetDescriptionRole, ls.description());
+            item->setData(KAtomic::LevelSetAuthorRole, ls.author());
+            item->setData(KAtomic::LevelSetAuthorEmailRole, ls.authorEmail());
             m_ui.m_lwLevelSets->addItem(item);
         }
     }
@@ -74,7 +82,7 @@ void ChooseLevelSetDialog::setCurrentLevelSet(const QString& levelSetName)
         if (!item)
             continue;
 
-        if (item->data(Qt::UserRole).toString() == levelSetName)
+        if (item->data(KAtomic::LevelSetNameRole).toString() == levelSetName)
         {
             m_ui.m_lwLevelSets->setCurrentItem(item);
             break;
@@ -89,7 +97,7 @@ void ChooseLevelSetDialog::slotButtonClicked(int but)
         QListWidgetItem* item = m_ui.m_lwLevelSets->currentItem();
         if (item)
         {
-            QString levelSetName = item->data(Qt::UserRole).toString();
+            QString levelSetName = item->data(KAtomic::LevelSetNameRole).toString();
             emit levelSetChanged(levelSetName);
         }
     }
