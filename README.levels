@@ -3,11 +3,11 @@ Levels are stored in level packs. Level pack has a simple ini-file format which 
 1. Header
 
 [LevelSet]
-Name=Original levels
-Description=This is the original collection of KAtomic levels.
-Author=Andreas Wuest
-AuthorEmail=AndreasWuest@gmx.de
-LevelCount=83
+Name=KAtomic levels
+Description=This is the additional collection of KAtomic levels.
+Author=Mr. Foo Bar
+AuthorEmail=foo@bar.mr
+LevelCount=27
 
 Fields Name and LevelCount are required
 
