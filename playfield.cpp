@@ -37,18 +37,15 @@
 #include "katomicrenderer.h"
 #include "molecule.h"
 #include "fielditem.h"
-#include "atom.h"
+#include "levelset.h"
 
 static const int MIN_INFO_SIZE=10;
 
 PlayField::PlayField( QObject* parent )
-    : QGraphicsScene(parent), m_mol(0), m_numMoves(0),
+    : QGraphicsScene(parent), m_numMoves(0), m_levelData(0),
     m_elemSize(MIN_ELEM_SIZE), m_selIdx(-1), m_animSpeed(120),
     m_levelFinished(false)
 {
-    // this object will hold the current molecule
-    m_mol = new Molecule();
-
     m_atomTimeLine = new QTimeLine(300, this);
     connect(m_atomTimeLine, SIGNAL(frameChanged(int)), SLOT(atomAnimFrameChanged(int)) );
 
@@ -67,69 +64,57 @@ PlayField::PlayField( QObject* parent )
 
 PlayField::~PlayField()
 {
-    delete m_mol;
 }
 
-void PlayField::loadLevel(const KConfigGroup& config)
+void PlayField::setLevelData(const LevelData* level)
 {
+    if (!level)
+    {
+        kDebug() << "level data is null!";
+        return;
+    }
+
     qDeleteAll(m_atoms);
     m_atoms.clear();
     m_numMoves = 0;
     m_levelFinished = false;
     m_atomTimeLine->stop();
+    m_levelData = level;
 
     m_undoStack.clear();
     m_redoStack.clear();
     emit enableUndo(false);
     emit enableRedo(false);
 
-    m_mol->load(config);
-    m_previewItem->setMolecule(m_mol);
+    m_previewItem->setMolecule(m_levelData->molecule());
 
-    QString key;
-
-    for (int j = 0; j < FIELD_SIZE; j++) {
-
-        key.sprintf("feld_%02d", j);
-        QString line = config.readEntry(key,QString());
-
-        for (int i = 0; i < FIELD_SIZE; i++)
-        {
-            QChar c = line.at(i);
-            bool wall = false;
-            if(c == '.')
-            {
-                wall = false;
-            }
-            else if( c == '#' )
-            {
-                wall = true;
-            }
-            else //atom
-            {
-                AtomFieldItem* atom = new AtomFieldItem(this);
-                atom->setFieldXY(i, j);
-                atom->setAtomNum(atom2int(c.toLatin1()));
-
-                m_atoms.append(atom);
-                //pixmaps will be set in updateFieldItems
-            }
-
-            m_field[i][j] = wall;
-        }
+    foreach (const LevelData::Element& element, m_levelData->atomElements())
+    {
+        AtomFieldItem* atom = new AtomFieldItem(this);
+        atom->setFieldXY(element.x, element.y);
+        atom->setAtomNum(element.atom);
+        m_atoms.append(atom);
     }
 
     m_selIdx = -1;
     updateArrows(true); // this will hide them (no atom selected)
     updateFieldItems();
     nextAtom();
+
+    update();
 }
 
 void PlayField::updateFieldItems()
 {
+    if (!m_levelData || !m_levelData->molecule())
+    {
+        kDebug() << "level or molecule data is null!";
+        return;
+    }
+
     foreach( AtomFieldItem *item, m_atoms )
     {
-        item->setPixmap( KAtomicRenderer::self()->renderAtom( m_mol->getAtom(item->atomNum()), m_elemSize ) );
+        item->setPixmap( KAtomicRenderer::self()->renderAtom( m_levelData->molecule()->getAtom(item->atomNum()), m_elemSize ) );
 
         // this may be true if resize happens during animation
         if( isAnimating() && m_selIdx != -1 && item == m_atoms.at(m_selIdx) )
@@ -565,6 +550,11 @@ void PlayField::atomAnimFrameChanged(int frame)
 // most complicated algorithm ;-)
 bool PlayField::checkDone() const
 {
+    if (!m_levelData || !m_levelData->molecule())
+    {
+        kDebug() << "level or molecule data is null!";
+        return false;
+    }
     // let's assume that molecule is done
     // and see if we can break assumtion
     //
@@ -587,7 +577,7 @@ bool PlayField::checkDone() const
         uint atomNum = atom->atomNum();
         int molecCoordX = atom->fieldX() - minX;
         int molecCoordY = atom->fieldY() - minY;
-        if( m_mol->getAtom( molecCoordX, molecCoordY ) != atomNum )
+        if( m_levelData->molecule()->getAtom( molecCoordX, molecCoordY ) != atomNum )
             return false; // nope. not there
     }
     return true;
@@ -595,7 +585,13 @@ bool PlayField::checkDone() const
 
 bool PlayField::cellIsEmpty(int x, int y) const
 {
-    if(m_field[x][y] == true)
+    if (!m_levelData)
+    {
+        kDebug() << "level data is null!";
+        return true;
+    }
+
+    if(m_levelData->containsWallAt(x,y))
         return false; // it is a wall
 
     foreach( AtomFieldItem *atom, m_atoms )
@@ -623,7 +619,7 @@ void PlayField::updateArrows(bool justHide)
     m_leftArrow->hide();
     m_rightArrow->hide();
 
-    if(justHide || m_selIdx == -1 || m_levelFinished)
+    if(justHide || m_selIdx == -1 || m_levelFinished || m_atoms.isEmpty())
         return;
 
     int selX = m_atoms.at(m_selIdx)->fieldX();
@@ -662,10 +658,16 @@ void PlayField::drawBackground( QPainter *p, const QRectF&)
 
 void PlayField::drawForeground( QPainter *p, const QRectF&)
 {
+    if (!m_levelData)
+    {
+        kDebug() << "level data is null!";
+        return;
+    }
+
     QPixmap aPix = KAtomicRenderer::self()->renderNonAtom('#', m_elemSize);
     for (int i = 0; i < FIELD_SIZE; i++)
         for (int j = 0; j < FIELD_SIZE; j++)
-            if (m_field[i][j])
+            if(m_levelData->containsWallAt(i,j))
                 p->drawPixmap(toPixX(i), toPixY(j), aPix);
 }
 
@@ -706,7 +708,7 @@ void PlayField::saveGame( KConfigGroup& config ) const
 
 void PlayField::loadGame( const KConfigGroup& config )
 {
-    // it is assumed that this method is called right after loadLevel() so
+    // it is assumed that this method is called right after setLevelData() so
     // level itself is already loaded at this point
 
     // read atom positions
@@ -745,9 +747,15 @@ void PlayField::showMessage( const QString& message )
     m_messageItem->showMessage( message, KGamePopupItem::BottomLeft );
 }
 
-QString PlayField::moleculeName()
+QString PlayField::moleculeName() const
 {
-    return m_mol->moleculeName();
+    if (!m_levelData || !m_levelData->molecule())
+    {
+        kDebug() << "level or molecule data is null!";
+        return QString();
+    }
+
+    return m_levelData->molecule()->moleculeName();
 }
 
 #include "playfield.moc"

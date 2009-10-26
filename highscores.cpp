@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2007   Dmitry Suzdalev (dimsuz@gmail.com)
+  Copyright (C) 2007-2009   Dmitry Suzdalev (dimsuz@gmail.com)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -16,32 +16,39 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 #include "highscores.h"
-#include "prefs.h"
 
 #include <kuser.h>
+#include <kstandarddirs.h>
+#include <kconfiggroup.h>
 
 KAtomicHighscores::KAtomicHighscores()
 {
     KUser user;
     m_playerName =  user.property(KUser::FullName).toString().isEmpty() ? user.loginName() : user.property(KUser::FullName).toString();
+
+    m_hsFile = KSharedConfig::openConfig( KStandardDirs::locateLocal("appdata", "highscores"), KConfig::SimpleConfig );
 }
 
-bool KAtomicHighscores::addScore( int numMoves, int level )
+bool KAtomicHighscores::addScore( int numMoves, const QString& levelSetName, int level )
 {
-    KConfigGroup grp( Preferences::self()->config(), "Highscores_"+m_playerName );
-    QString keyStr = "Level_"+QString::number(level);
-    int curHighScore = grp.readEntry( keyStr, -1 );
+    KConfigGroup userHsGroup( m_hsFile, "Highscores_"+m_playerName );
+    KConfigGroup levelSetGroup( &userHsGroup, levelSetName );
+
+    QString keyStr = "Level"+QString::number(level);
+    int curHighScore = levelSetGroup.readEntry( keyStr, -1 );
     if( numMoves < curHighScore || curHighScore == -1 ) // new highscore!
     {
-        grp.writeEntry( keyStr, numMoves );
+        levelSetGroup.writeEntry( keyStr, numMoves );
         return true;
     }
     return false;
 }
 
-int KAtomicHighscores::levelHighscore( int level ) const
+int KAtomicHighscores::levelHighscore( const QString& levelSetName, int level ) const
 {
-    KConfigGroup grp( Preferences::self()->config(), "Highscores_"+m_playerName );
-    QString keyStr = "Level_"+QString::number(level);
-    return grp.readEntry( keyStr, 0 );
+    KConfigGroup userHsGroup( m_hsFile, "Highscores_"+m_playerName );
+    KConfigGroup levelSetGroup( &userHsGroup, levelSetName );
+
+    QString keyStr = "Level"+QString::number(level);
+    return levelSetGroup.readEntry( keyStr, 0 );
 }

@@ -4,17 +4,21 @@ add_subdirectory( levels )
 
 ########### next target ###############
 
-set(katomic_SRCS 
+set(katomic_SRCS
    katomicrenderer.cpp
    highscores.cpp
    playfield.cpp
    fielditem.cpp
-   molecule.cpp 
-   main.cpp 
-   toplevel.cpp 
-   gamewidget.cpp )
+   molecule.cpp
+   main.cpp
+   toplevel.cpp
+   gamewidget.cpp
+   levelset.cpp
+   levelsetdelegate.cpp
+   chooselevelsetdialog.cpp )
 
 kde4_add_kcfg_files(katomic_SRCS prefs.kcfgc)
+kde4_add_ui_files(katomic_SRCS levelsetwidget.ui)
 
 kde4_add_app_icon(katomic_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-katomic.png")
 kde4_add_executable(katomic ${katomic_SRCS})
@@ -32,4 +36,7 @@ install( FILES default_theme.svgz  DESTINATION  ${DATA_INSTALL_DIR}/katomic/pics
 
 kde4_install_icons( ${ICON_INSTALL_DIR}   )
 
-
+if(NOT WIN32)
+  install( FILES katomic-levelset-upd.pl DESTINATION  ${KCONF_UPDATE_INSTALL_DIR} )
+  install( FILES katomic-levelset.upd DESTINATION  ${KCONF_UPDATE_INSTALL_DIR} )
+endif(NOT WIN32)

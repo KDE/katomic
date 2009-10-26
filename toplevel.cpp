@@ -37,22 +37,30 @@
 #include "gamewidget.h"
 #include "playfield.h"
 #include "prefs.h"
+#include "commondefs.h"
+#include "chooselevelsetdialog.h"
+
+static const int LEVEL_BAR_ID = 0;
+static const int CUR_SCORE_BAR_ID = 1;
+static const int HIGHSCORE_BAR_ID = 2;
+static const int MOLECULE_NAME_ID = 3;
 
 AtomTopLevel::AtomTopLevel()
 {
-    int lastPlayed = Preferences::lastPlayedLevel();
-    int maxLevel = Preferences::maxAccessibleLevel();
+    QString lastPlayedLevelSet = Preferences::lastPlayedLevelSet();
+    if (lastPlayedLevelSet.isEmpty())
+        lastPlayedLevelSet = DEFAULT_LEVELSET_NAME;
 
-    m_gameWid = new GameWidget( qMin(lastPlayed, maxLevel), this);
+    m_gameWid = new GameWidget( lastPlayedLevelSet, this);
     m_gameWid->setObjectName("gamewidget");
     createMenu();
     loadSettings();
     setCentralWidget(m_gameWid);
 
-    statusBar()->insertItem( i18n("Level:"), 0 , 1);
-    statusBar()->insertItem( "", 3 , 1);
-    statusBar()->insertPermanentItem( i18n("Current score:"), 1, 1);
-    statusBar()->insertPermanentItem( i18n("Highscore:"), 2, 1 );
+    statusBar()->insertItem( i18n("Level:"), LEVEL_BAR_ID , 1);
+    statusBar()->insertPermanentItem( i18n("Current score:"), CUR_SCORE_BAR_ID, 1);
+    statusBar()->insertPermanentItem( i18n("Highscore:"), HIGHSCORE_BAR_ID, 1 );
+    statusBar()->insertItem( QString(), MOLECULE_NAME_ID , 1);
     statusBar()->setItemAlignment(0, Qt::AlignLeft | Qt::AlignVCenter);
 
     updateStatusBar( m_gameWid->currentLevel(), m_gameWid->currentScore(), m_gameWid->currentHighScore() );
@@ -60,8 +68,8 @@ AtomTopLevel::AtomTopLevel()
     connect(m_gameWid, SIGNAL(statsChanged(int,int,int)), SLOT(updateStatusBar(int, int, int)));
     connect(m_gameWid, SIGNAL(levelChanged(int)), SLOT(levelHasChanged(int)));
 
-    // update grayed actions
-    levelHasChanged( qMin(lastPlayed, maxLevel) );
+    // update next/prev actions
+    levelHasChanged(m_gameWid->currentLevel());
     setupGUI();
 }
 
@@ -71,7 +79,8 @@ AtomTopLevel::~AtomTopLevel()
 
 bool AtomTopLevel::queryClose()
 {
-    Preferences::setLastPlayedLevel(m_gameWid->currentLevel());
+    // saves last played level and levelset
+    m_gameWid->saveLastPlayedLevel();
     Preferences::self()->writeConfig();
     return true;
 }
@@ -106,6 +115,10 @@ void AtomTopLevel::createMenu()
     addAction( m_nextLevelAct );
     connect( m_nextLevelAct, SIGNAL( triggered( bool ) ), m_gameWid, SLOT( nextLevel() ) );
 
+    QAction* chooseLevelSet = actionCollection()->addAction( "choose_level_set" );
+    chooseLevelSet->setText( i18n( "Choose level pack..." ) );
+    addAction( chooseLevelSet );
+    connect( chooseLevelSet, SIGNAL( triggered( bool ) ), SLOT( chooseLevelSet() ) );
 
     m_animSpeedAct = new KSelectAction(i18n("Animation Speed"), this);
     actionCollection()->addAction("anim_speed", m_animSpeedAct);
@@ -186,14 +199,14 @@ void AtomTopLevel::slotAnimSpeedChanged(int speed)
 
 void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
 {
-    statusBar()->changeItem( i18n("Level: %1", level), 0 );
-    statusBar()->changeItem( i18n("Current score: %1", score), 1 );
+    statusBar()->changeItem( i18n("Level: %1 (%2)", level, m_gameWid->levelSetVisibleName()), LEVEL_BAR_ID );
+    statusBar()->changeItem( i18n("Current score: %1", score), CUR_SCORE_BAR_ID );
     QString str;
     if(highscore == 0)
         str = "-";
     else
         str.setNum(highscore);
-    statusBar()->changeItem( i18n("Highscore: %1", str), 2 );
+    statusBar()->changeItem( i18n("Highscore: %1", str), HIGHSCORE_BAR_ID );
 }
 
 void AtomTopLevel::enableHackMode()
@@ -207,18 +220,32 @@ void AtomTopLevel::enableHackMode()
 void AtomTopLevel::levelHasChanged(int level)
 {
     // Update level name
-    statusBar()->changeItem( m_gameWid->currentMolecule(), 3);
+    statusBar()->changeItem( m_gameWid->currentMolecule(), MOLECULE_NAME_ID);
     // don't gray out actions in hackmode, else do
     if(!m_gameWid->switchToAnyLevelAllowed())
         updateActionsForLevel(level);
 }
 
-void AtomTopLevel::updateActionsForLevel(int level)
+void AtomTopLevel::updateActionsForLevel(int)
 {
-    int maxLevel = Preferences::maxAccessibleLevel();
-    m_prevLevelAct->setDisabled( level == 1 );
-    m_nextLevelAct->setDisabled( level == maxLevel );
+    m_prevLevelAct->setEnabled( m_gameWid->isPrevLevelAvailable() );
+    m_nextLevelAct->setEnabled( m_gameWid->isNextLevelAvailable() );
 }
 
+void AtomTopLevel::chooseLevelSet()
+{
+    // will delete itself on close
+    ChooseLevelSetDialog* dlg = new ChooseLevelSetDialog(this);
+    connect(dlg, SIGNAL(levelSetChanged(QString)), SLOT(changeLevelSet(QString)));
+
+    dlg->setCurrentLevelSet(m_gameWid->levelSetName());
+    dlg->show();
+}
+
+void AtomTopLevel::changeLevelSet(const QString& levelSet)
+{
+    if (!levelSet.isEmpty())
+        m_gameWid->setLevelSet(levelSet);
+}
 
 #include "toplevel.moc"

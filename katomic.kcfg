@@ -14,14 +14,6 @@
       </choices>
       <default>Normal</default>
     </entry>
-    <entry name="LastPlayedLevel" type="Int">
-        <label>Last Played Level</label>
-        <default>1</default>
-    </entry>
-    <entry name="MaxAccessibleLevel" type="Int">
-        <label>Highest level player is allowed to play</label>
-        <default>1</default>
-    </entry>
   </group>
   <group name="General">
     <entry name="SavedBackgroundWidth" type="Int">
@@ -31,6 +23,10 @@
     <entry name="SavedBackgroundHeight" type="Int">
       <label>Height of saved background</label>
       <default>-1</default>
+    </entry>
+    <entry name="LastPlayedLevelSet" type="String">
+        <label>Last played levelset</label>
+        <default>default_levels</default>
     </entry>
   </group>
 </kcfg>

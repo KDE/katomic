@@ -1,8 +1,6 @@
 /*******************************************************************
  *
- * Copyright (C) Andreas Wuest <AndreasWuest@gmx.de>
- * Copyright (C) Stephan Kulow <coolo@kde.org>
- * Copyright (C) 2006 Dmitry Suzdalev <dimsuz@gmail.com>
+ * Copyright 2006-2009 Dmitry Suzdalev <dimsuz@gmail.com>
  *
  * This file is part of the KDE project "KAtomic"
  *
@@ -22,16 +20,21 @@
  * Boston, MA 02110-1301, USA.
  *
  ********************************************************************/
+#ifndef LEVEL_SET_DELEGATE_H
+#define LEVEL_SET_DELEGATE_H
 
-#include "molecule.h"
+#include <QStyledItemDelegate>
 
-const atom& Molecule::getAtom(int index) const
+class LevelSetDelegate : public QStyledItemDelegate
 {
-    static atom none = { 0, "" };
+public:
+    LevelSetDelegate(QObject* parent = 0);
 
-    if (index > m_atoms.count() || index == 0)
-        return none;
+    virtual void paint(QPainter* p, const QStyleOptionViewItem& option, const QModelIndex& index) const;
+    virtual QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const;
 
-    return m_atoms.at(index - 1);
-}
+private:
+    mutable int m_lineHeight;
+};
 
+#endif

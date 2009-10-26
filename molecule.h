@@ -31,6 +31,7 @@
 
 class KConfig;
 class KConfigGroup;
+class LevelData;
 
 #define MOLECULE_SIZE 15
 
@@ -40,13 +41,9 @@ class KConfigGroup;
 class Molecule
 {
 public:
-    Molecule() : m_width(0), m_height(0) { }
-
-    void load(const KConfigGroup& config);
-
     const atom& getAtom(int index) const;
 
-    uint getAtom(int x, int y) const { return molek[x][y]; }
+    uint getAtom(int x, int y) const { return m_molek[x][y]; }
 
     /**
      *  Width of molecule measured in atoms
@@ -60,7 +57,7 @@ public:
     /**
       * @return the name of the molecule
       */
-    QString moleculeName() const { return mname; }
+    QString moleculeName() const { return m_name; }
 
     /**
     * @return the molecule weight of the molecule
@@ -68,15 +65,20 @@ public:
     double molecularWeight() const { return m_weight; }
 
 private:
-    uint molek[MOLECULE_SIZE][MOLECULE_SIZE]; // the indexes within atoms
-    QList<atom> atoms;
-    QString mname;
+    friend class LevelSet;
+
+    Molecule() : m_width(0), m_height(0), m_weight(0) { }
+
+    uint m_molek[MOLECULE_SIZE][MOLECULE_SIZE]; // the indexes within atoms
+    QList<atom> m_atoms;
+    QString m_name;
+
+    int m_width;
+    int m_height;
 
     ///the molecule weight of the Molecule
     double m_weight;
 
-    int m_width;
-    int m_height;
 };
 
 #endif // MOLECULE_H

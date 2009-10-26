@@ -25,6 +25,7 @@ class QGraphicsView;
 class QTimer;
 
 #include <QWidget>
+#include "levelset.h"
 
 class KAtomicHighscores;
 
@@ -33,8 +34,18 @@ class GameWidget : public QWidget
     Q_OBJECT
 
 public:
-    GameWidget ( int startingLevel, QWidget *parent );
+    GameWidget ( const QString& levelSet, QWidget *parent );
     ~GameWidget();
+
+    bool setLevelSet(const QString& levelSet);
+    /**
+     * @return levelset name
+     */
+    QString levelSetName() const;
+    /**
+     * @return levelset name suitable for showing in gui
+     */
+    QString levelSetVisibleName() const;
 
     void enableSwitchToAnyLevel() { m_allowAnyLevelSwitch = true; }
     bool switchToAnyLevelAllowed() const { return m_allowAnyLevelSwitch; }
@@ -45,9 +56,17 @@ public:
     QString currentMolecule() const;
     int currentScore() const { return m_moves; }
     int currentHighScore() const;
+
+    bool isNextLevelAvailable() const;
+    bool isPrevLevelAvailable() const;
+
+    void saveMaxAccessibleLevel(int level);
+    void saveLastPlayedLevel();
+
 signals:
     void statsChanged(int level,int score,int highscore);
     void levelChanged(int level);
+
 public slots:
     void prevLevel();
     void nextLevel();
@@ -70,8 +89,13 @@ public slots:
     void moveLeft();
     void moveRight();
 private:
+
     virtual void resizeEvent( QResizeEvent* );
     void switchToLevel (int);
+
+    int lastPlayedLevel() const;
+    int maxAccessibleLevel() const;
+
     /**
      * If on, katomic will allow user to switch to any
      * level even if she didn't solved it yet.
@@ -87,9 +111,16 @@ private:
 
     int m_moves;
     /**
+     * Current levelset
+     */
+    LevelSet m_levelSet;
+    /**
      * Highscore of the current level
      */
     int m_levelHighscore;
+    /**
+     * Number of the current level
+     */
     int m_level;
     /**
      * Timer for automatic next level

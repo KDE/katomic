@@ -1,8 +1,6 @@
 /*******************************************************************
  *
- * Copyright (C) Andreas Wuest <AndreasWuest@gmx.de>
- * Copyright (C) Stephan Kulow <coolo@kde.org>
- * Copyright (C) 2006 Dmitry Suzdalev <dimsuz@gmail.com>
+ * Copyright 2006-2009 Dmitry Suzdalev <dimsuz@gmail.com>
  *
  * This file is part of the KDE project "KAtomic"
  *
@@ -23,15 +21,37 @@
  *
  ********************************************************************/
 
-#include "molecule.h"
+#ifndef CHOOSE_LEVEL_SET_DIALOG_H
+#define CHOOSE_LEVEL_SET_DIALOG_H
 
-const atom& Molecule::getAtom(int index) const
+#include <KDialog>
+
+#include "ui_levelsetwidget.h"
+
+class ChooseLevelSetDialog : public KDialog
 {
-    static atom none = { 0, "" };
+    Q_OBJECT
 
-    if (index > m_atoms.count() || index == 0)
-        return none;
+public:
+    ChooseLevelSetDialog(QWidget* parent=0);
 
-    return m_atoms.at(index - 1);
-}
+    void setCurrentLevelSet(const QString& levelSetName);
 
+signals:
+    void levelSetChanged(QString);
+
+protected Q_SLOTS:
+    void slotButtonClicked(int);
+
+private:
+    void loadData();
+
+private Q_SLOTS:
+    void updateApplyButton();
+
+private:
+    Ui::LevelSetWidget m_ui;
+    QString m_gameCurrentLevelSetName;
+};
+
+#endif
