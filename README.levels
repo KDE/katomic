@@ -1,4 +1,44 @@
-In level config files there are entries like:
+Levels are stored in level packs. Level pack has a simple ini-file format which includes:
+
+1. Header
+
+[LevelSet]
+Name=Original levels
+Description=This is the original collection of KAtomic levels.
+Author=Andreas Wuest
+AuthorEmail=AndreasWuest@gmx.de
+LevelCount=83
+
+Fields Name and LevelCount are required
+
+2. Levels description
+
+Each level described by a separate ini-file group entry named [LevelNNN] where NNN is level number, for example:
+
+[Level1]
+Name=Water
+atom_1=1-c
+atom_2=3-cg
+atom_3=1-g
+feld_00=...............
+feld_01=...............
+feld_02=...............
+feld_03=..###########..
+feld_04=..#..#......#..
+feld_05=..#.3#......#..
+feld_06=..#.##......#..
+feld_07=..#.#..#.####..
+feld_08=..#....#.2..#..
+feld_09=..###.#.....#..
+feld_10=..#1....#...#..
+feld_11=..###########..
+feld_12=...............
+feld_13=...............
+feld_14=...............
+mole_0=123
+
+Explanation of level description format:
+(could be improved, currently please read levels/default_levels.dat for examples)
 
 atom_1=2-bdD
 
