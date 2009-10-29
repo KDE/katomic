@@ -1,4 +1,4 @@
-Levels are stored in level packs. Level pack has a simple ini-file format which includes:
+Levels are stored in level sets. Level pack has a simple ini-file format which includes:
 
 1. Header
 

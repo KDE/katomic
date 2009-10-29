@@ -116,7 +116,7 @@ void AtomTopLevel::createMenu()
     connect( m_nextLevelAct, SIGNAL( triggered( bool ) ), m_gameWid, SLOT( nextLevel() ) );
 
     QAction* chooseLevelSet = actionCollection()->addAction( "choose_level_set" );
-    chooseLevelSet->setText( i18n( "Choose level pack..." ) );
+    chooseLevelSet->setText( i18n( "Choose level set..." ) );
     addAction( chooseLevelSet );
     connect( chooseLevelSet, SIGNAL( triggered( bool ) ), SLOT( chooseLevelSet() ) );
 

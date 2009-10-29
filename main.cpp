@@ -67,7 +67,7 @@ int main(int argc, char **argv)
 
   if (!LevelSet::isDefaultLevelsAvailable())
   {
-      KMessageBox::error(0, i18n("KAtomic failed to find its default level pack and will quit. Please check your installation."));
+      KMessageBox::error(0, i18n("KAtomic failed to find its default level set and will quit. Please check your installation."));
       QTimer::singleShot(0, &a, SLOT(quit()));
   }
   else

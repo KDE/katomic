@@ -20,7 +20,7 @@
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>Choose a level pack to play:</string>
+      <string>Choose a level set to play:</string>
      </property>
     </widget>
    </item>

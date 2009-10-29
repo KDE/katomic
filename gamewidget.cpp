@@ -94,7 +94,7 @@ bool GameWidget::setLevelSet(const QString& levelSet)
     bool res = m_levelSet.load(levelSet);
     if (!res)
     {
-        KMessageBox::error(this, i18n("Failed to load level pack \"%1\". Check if it is installed on your computer.", levelSet));
+        KMessageBox::error(this, i18n("Failed to load level set \"%1\". Check if it is installed on your computer.", levelSet));
         kDebug() << "failed to load levelset" << levelSet;
         return false;
     }

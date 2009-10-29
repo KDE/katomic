@@ -35,7 +35,7 @@ ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
 
-    setCaption(i18n("Level Packs"));
+    setCaption(i18n("Level Sets"));
     setButtons(KDialog::Ok | KDialog::Apply | KDialog::Cancel);
 
     QWidget* chooseWidget = new QWidget(this);
