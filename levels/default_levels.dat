@@ -1,12 +1,26 @@
 [LevelSet]
 Name=Original levels
+Name[en_GB]=Original levels
+Name[pt]=Níveis originais
+Name[uk]=Вбудовані рівні
+Name[x-test]=xxOriginal levelsxx
 Description=This is the original collection of KAtomic levels.
+Description[en_GB]=This is the original collection of KAtomic levels.
+Description[pt]=Esta é a colecção original de níveis do KAtomic.
+Description[uk]=Це збірка вбудованих рівнів KAtomic.
+Description[x-test]=xxThis is the original collection of KAtomic levels.xx
 Author=Andreas Wuest
 AuthorEmail=AndreasWuest@gmx.de
 LevelCount=83
 
 [Level1]
 Name=Water
+Name[de]=Wasser
+Name[en_GB]=Water
+Name[pt]=Água
+Name[sv]=Vatten
+Name[uk]=Вода
+Name[x-test]=xxWaterxx
 atom_1=1-c
 atom_2=3-cg
 atom_3=1-g
@@ -29,6 +43,11 @@ mole_0=123
 
 [Level10]
 Name=Formic Acid
+Name[de]=Ameisensäure
+Name[en_GB]=Formic Acid
+Name[pt]=Ácido Fórmico
+Name[uk]=Мурашина кислота
+Name[x-test]=xxFormic Acidxx
 atom_1=1-c
 atom_2=3-C
 atom_3=2-cgA
@@ -54,6 +73,11 @@ mole_1=1345
 
 [Level11]
 Name=Acetic Acid
+Name[de]=Essigsäure
+Name[en_GB]=Acetic Acid
+Name[pt]=Ácido Acético
+Name[uk]=Оцтова кислота
+Name[x-test]=xxAcetic Acidxx
 atom_1=1-c
 atom_2=1-e
 atom_3=2-aceg
@@ -83,6 +107,11 @@ mole_2=.4...
 
 [Level12]
 Name=trans-Butene
+Name[de]=trans-Buten
+Name[en_GB]=trans-Butene
+Name[pt]=trans-Butano
+Name[uk]=Транс-бутен
+Name[x-test]=xxtrans-Butenexx
 atom_1=1-d
 atom_2=1-b
 atom_3=2-bdfh
@@ -113,6 +142,11 @@ mole_4=2.5...
 
 [Level13]
 Name=cis-Butene
+Name[de]=cis-Buten
+Name[en_GB]=cis-Butene
+Name[pt]=cis-Butano
+Name[uk]=Цис-бутен
+Name[x-test]=xxcis-Butenexx
 atom_1=1-d
 atom_2=1-b
 atom_3=2-bdfh
@@ -142,6 +176,11 @@ mole_3=2.52.5
 
 [Level14]
 Name=Dimethyl ether
+Name[de]=Dimethylether
+Name[en_GB]=Dimethyl ether
+Name[pt]=Éter dimetilo
+Name[uk]=Диметиловий ефір
+Name[x-test]=xxDimethyl etherxx
 atom_1=1-c
 atom_2=1-e
 atom_3=2-aceg
@@ -169,6 +208,11 @@ mole_2=.4.4.
 
 [Level15]
 Name=Butanol
+Name[de]=Butanol
+Name[en_GB]=Butanol
+Name[pt]=Butanol
+Name[uk]=Бутанол
+Name[x-test]=xxButanolxx
 atom_1=1-c
 atom_2=1-e
 atom_3=2-aceg
@@ -197,6 +241,11 @@ mole_3=....4.
 
 [Level16]
 Name=2-Methyl-2-Propanol
+Name[de]=2-Methyl-2-Propanol
+Name[en_GB]=2-Methyl-2-Propanol
+Name[pt]=2-Metil-2-Propanol
+Name[uk]=2-метил-2-пропанол
+Name[x-test]=xx2-Methyl-2-Propanolxx
 atom_1=1-c
 atom_2=1-d
 atom_3=1-e
@@ -229,6 +278,11 @@ mole_4=..5..
 
 [Level17]
 Name=Glycerin
+Name[de]=Glycerin
+Name[en_GB]=Glycerin
+Name[pt]=Glicerina
+Name[uk]=Гліцерин
+Name[x-test]=xxGlycerinxx
 atom_1=1-c
 atom_2=1-e
 atom_3=2-aceg
@@ -258,6 +312,11 @@ mole_4=.4..
 
 [Level18]
 Name=Poly-Tetra-Fluoro-Ethene
+Name[de]=Polytetraflourethen
+Name[en_GB]=Poly-Tetra-Fluoro-Ethene
+Name[pt]=Poli-Tetra-Fluoro-Etano
+Name[uk]=Політетрафторетилен
+Name[x-test]=xxPoly-Tetra-Fluoro-Ethenexx
 atom_1=6-e
 atom_2=6-a
 atom_3=2-aceg
@@ -282,6 +341,12 @@ mole_2=2222
 
 [Level19]
 Name=Oxalic Acid
+Name[de]=Oxalsäure
+Name[en_GB]=Oxalic Acid
+Name[pt]=Ácido Oxálico
+Name[sv]=Oxalsyra
+Name[uk]=Щавлева кислота
+Name[x-test]=xxOxalic Acidxx
 atom_1=3-D
 atom_2=2-ceD
 atom_3=3-ae
@@ -309,6 +374,12 @@ mole_2=.44
 
 [Level2]
 Name=Methane
+Name[de]=Methan
+Name[en_GB]=Methane
+Name[pt]=Metano
+Name[sv]=Metan
+Name[uk]=Метан
+Name[x-test]=xxMethanexx
 atom_1=1-c
 atom_2=1-e
 atom_3=2-aceg
@@ -335,6 +406,11 @@ mole_2=.4.
 
 [Level20]
 Name=Formaldehyde
+Name[de]=Formaldehyd
+Name[en_GB]=Formaldehyde
+Name[pt]=Formaldeído
+Name[uk]=Формальдегід
+Name[x-test]=xxFormaldehydexx
 atom_1=1-e
 atom_2=2-aeB
 atom_3=1-a
@@ -360,6 +436,11 @@ mole_2=3
 
 [Level21]
 Name=Crystal 1
+Name[de]=Kristall 1
+Name[en_GB]=Crystal 1
+Name[pt]=Cristal 1
+Name[uk]=Кристал 1
+Name[x-test]=xxCrystal 1xx
 atom_1=o-ce
 atom_2=o-ace
 atom_3=o-ac
@@ -391,6 +472,11 @@ mole_3=3669
 
 [Level22]
 Name=Acetic acid ethyl ester
+Name[de]=Essigsäureester
+Name[en_GB]=Acetic acid ethyl ester
+Name[pt]=Ácido acético estil ester
+Name[uk]=Етиловий ефір оцтової кислоти
+Name[x-test]=xxAcetic acid ethyl esterxx
 atom_1=1-c
 atom_2=1-e
 atom_3=2-aceg
@@ -420,6 +506,11 @@ mole_2=.4..44.
 
 [Level23]
 Name=Ammonia
+Name[de]=Ammoniak
+Name[en_GB]=Ammonia
+Name[pt]=Amónia
+Name[uk]=Аміак
+Name[x-test]=xxAmmoniaxx
 atom_1=1-c
 atom_2=4-bdg
 atom_3=1-f
@@ -445,6 +536,11 @@ mole_2=..4
 
 [Level24]
 Name=3-Methyl-Pentane
+Name[de]=3-Methylpentan
+Name[en_GB]=3-Methyl-Pentane
+Name[pt]=3-Metil-Pentano
+Name[uk]=Триметилпентан
+Name[x-test]=xx3-Methyl-Pentanexx
 atom_1=1-c
 atom_2=1-e
 atom_3=2-aceg
@@ -475,6 +571,11 @@ mole_3=.44444.
 
 [Level25]
 Name=Propanal
+Name[de]=Propanal
+Name[en_GB]=Propanal
+Name[pt]=Propanol
+Name[uk]=Пропанал
+Name[x-test]=xxPropanalxx
 atom_1=1-c
 atom_2=1-e
 atom_3=2-aceg
@@ -503,6 +604,11 @@ mole_2=.446.
 
 [Level26]
 Name=Propyne
+Name[de]=Propin
+Name[en_GB]=Propyne
+Name[pt]=Propano
+Name[uk]=Пропін
+Name[x-test]=xxPropynexx
 atom_1=1-c
 atom_2=2-gF
 atom_3=1-e
@@ -531,6 +637,11 @@ mole_2=...6.
 
 [Level27]
 Name=Furanal
+Name[de]=Furanal
+Name[en_GB]=Furanal
+Name[pt]=Furano
+Name[uk]=Фуранал
+Name[x-test]=xxFuranalxx
 atom_1=1-d
 atom_2=1-b
 atom_3=2-chC
@@ -565,6 +676,11 @@ mole_4=....a
 
 [Level28]
 Name=Pyran
+Name[de]=Pyran
+Name[en_GB]=Pyran
+Name[pt]=Pirano
+Name[uk]=Піран
+Name[x-test]=xxPyranxx
 atom_1=3-bd
 atom_2=1-e
 atom_3=2-afB
@@ -598,6 +714,11 @@ mole_4=.55..
 
 [Level29]
 Name=Cyclo-Pentane
+Name[de]=Cyclopentan
+Name[en_GB]=Cyclo-Pentane
+Name[pt]=Ciclo-Pentano
+Name[uk]=Циклопентан
+Name[x-test]=xxCyclo-Pentanexx
 atom_1=1-d
 atom_2=1-c
 atom_3=2-begh
@@ -630,6 +751,11 @@ mole_4=.559.
 
 [Level3]
 Name=Methanol
+Name[de]=Methanol
+Name[en_GB]=Methanol
+Name[pt]=Metanol
+Name[uk]=Метанол
+Name[x-test]=xxMethanolxx
 atom_1=1-c
 atom_2=1-e
 atom_3=2-aceg
@@ -657,6 +783,11 @@ mole_2=.4..
 
 [Level30]
 Name=Nitro-Glycerin
+Name[de]=Nitroglyzerin
+Name[en_GB]=Nitro-Glycerin
+Name[pt]=Nitroglicerina
+Name[uk]=Нітрогліцерин
+Name[x-test]=xxNitro-Glycerinxx
 atom_1=3-cd
 atom_2=1-c
 atom_3=4-beg
@@ -698,6 +829,11 @@ mole_6=.4...g.
 
 [Level31]
 Name=Ethane
+Name[de]=Ethan
+Name[en_GB]=Ethane
+Name[pt]=Etanol
+Name[uk]=Етан
+Name[x-test]=xxEthanexx
 atom_1=1-d
 atom_2=1-b
 atom_3=1-e
@@ -728,6 +864,11 @@ mole_3=268
 
 [Level32]
 Name=Crystal 2
+Name[de]=Kristall 2
+Name[en_GB]=Crystal 2
+Name[pt]=Cristal 2
+Name[uk]=Кристал 2
+Name[x-test]=xxCrystal 2xx
 atom_1=o-bd
 atom_2=o-bdf
 atom_3=o-bdh
@@ -760,6 +901,11 @@ mole_4=..6..
 
 [Level33]
 Name=Ethylene-Glycol
+Name[de]=Ethylenglycol
+Name[en_GB]=Ethylene-Glycol
+Name[pt]=Etileno-Glicol
+Name[uk]=Етиленгліколь
+Name[x-test]=xxEthylene-Glycolxx
 atom_1=1-b
 atom_2=1-d
 atom_3=3-bf
@@ -788,6 +934,11 @@ mole_3=1.1.6.
 
 [Level34]
 Name=L-Alanine
+Name[de]=L-Alanin
+Name[en_GB]=L-Alanine
+Name[pt]=L-Alanina
+Name[uk]=L-аланін
+Name[x-test]=xxL-Alaninexx
 atom_1=1-d
 atom_2=1-c
 atom_3=1-b
@@ -822,6 +973,11 @@ mole_3=.3.a..
 
 [Level35]
 Name=Cyanoguanidine
+Name[de]=Cycloguanidin
+Name[en_GB]=Cyanoguanidine
+Name[pt]=Cianoguanidina
+Name[uk]=Ціаногуанідін
+Name[x-test]=xxCyanoguanidinexx
 atom_1=1-d
 atom_2=1-b
 atom_3=4-cfh
@@ -854,6 +1010,11 @@ mole_3=..6..
 
 [Level36]
 Name=Prussic Acid (Cyanic Acid)
+Name[de]=Cyanid-Säure
+Name[en_GB]=Prussic Acid (Cyanic Acid)
+Name[pt]=Ácido Prússico
+Name[uk]=Ціаніста кислота
+Name[x-test]=xxPrussic Acid (Cyanic Acid)xx
 atom_1=1-e
 atom_2=2-aG
 atom_3=4-E
@@ -878,6 +1039,11 @@ mole_2=3
 
 [Level37]
 Name=Anthracene
+Name[de]=Anthrazen
+Name[en_GB]=Anthracene
+Name[pt]=Antraceno
+Name[uk]=Антрацен
+Name[x-test]=xxAnthracenexx
 atom_1=1-d
 atom_2=1-c
 atom_3=1-b
@@ -920,6 +1086,11 @@ mole_6=..3..h
 
 [Level38]
 Name=Thiazole
+Name[de]=Thiazol
+Name[en_GB]=Thiazole
+Name[pt]=Tiazola
+Name[uk]=Тіазол
+Name[x-test]=xxThiazolexx
 atom_1=1-d
 atom_2=2-ehB
 atom_3=C-
@@ -951,6 +1122,11 @@ mole_4=...8
 
 [Level39]
 Name=Saccharin
+Name[de]=Saccharin
+Name[en_GB]=Saccharin
+Name[pt]=Sacarina
+Name[uk]=Сахарин
+Name[x-test]=xxSaccharinxx
 atom_1=1-c
 atom_2=4-bdg
 atom_3=3-C
@@ -991,6 +1167,11 @@ mole_4=..g.b.f
 
 [Level4]
 Name=Ethylene
+Name[de]=Ethylen
+Name[en_GB]=Ethylene
+Name[pt]=Etileno
+Name[uk]=Етилен
+Name[x-test]=xxEthylenexx
 atom_1=1-d
 atom_2=1-b
 atom_3=2-fhB
@@ -1018,6 +1199,11 @@ mole_2=2..6
 
 [Level40]
 Name=Styrene
+Name[de]=Styrol
+Name[en_GB]=Styrene
+Name[pt]=Estireno
+Name[uk]=Стирен
+Name[x-test]=xxStyrenexx
 atom_1=1-d
 atom_2=1-b
 atom_3=2-fhB
@@ -1056,6 +1242,11 @@ mole_5=..2..e
 
 [Level41]
 Name=Melamine
+Name[de]=Melamin
+Name[en_GB]=Melamine
+Name[pt]=Melamina
+Name[uk]=Меламін
+Name[x-test]=xxMelaminexx
 atom_1=1-c
 atom_2=1-e
 atom_3=4-acg
@@ -1091,6 +1282,11 @@ mole_4=..6.b..
 
 [Level42]
 Name=Cyclobutane
+Name[de]=Cyclobutan
+Name[en_GB]=Cyclobutane
+Name[pt]=Ciclobutano
+Name[uk]=Циклобутан
+Name[x-test]=xxCyclobutanexx
 atom_1=1-c
 atom_2=1-e
 atom_3=2-aceg
@@ -1118,6 +1314,11 @@ mole_3=.44.
 
 [Level43]
 Name=Nicotine
+Name[de]=Nikotin
+Name[en_GB]=Nicotine
+Name[pt]=Nicotina
+Name[uk]=Нікотин
+Name[x-test]=xxNicotinexx
 atom_1=1-d
 atom_2=1-c
 atom_3=2-ehB
@@ -1161,6 +1362,11 @@ mole_5=..bah..
 
 [Level44]
 Name=Acetyle salicylic acid
+Name[de]=Acetylsalicylsäure
+Name[en_GB]=Acetyle salicylic acid
+Name[pt]=Ácido Acetisalicílico
+Name[uk]=Ацетилсаліцилова кислота (Аспірин)
+Name[x-test]=xxAcetyle salicylic acidxx
 atom_1=1-c
 atom_2=3-B
 atom_3=1-b
@@ -1205,6 +1411,11 @@ mole_7=3..g..
 
 [Level45]
 Name=Meta-Di-Nitro-Benzene
+Name[de]=Meta-Di-Nitro-Benzene
+Name[en_GB]=Meta-Di-Nitro-Benzene
+Name[pt]=Meta-Di-Nitro-Benzeno
+Name[uk]=Мета-ді-нітробензол
+Name[x-test]=xxMeta-Di-Nitro-Benzenexx
 atom_1=3-B
 atom_2=1-d
 atom_3=4-bD
@@ -1241,6 +1452,11 @@ mole_3=13.a.e4
 
 [Level46]
 Name=Propyne
+Name[de]=Propin
+Name[en_GB]=Propyne
+Name[pt]=Propano
+Name[uk]=Пропін
+Name[x-test]=xxPropynexx
 atom_1=1-d
 atom_2=1-e
 atom_3=2-abeh
@@ -1271,6 +1487,11 @@ mole_4=.6.
 
 [Level47]
 Name=Malonic Acid
+Name[de]=Malonsäure
+Name[en_GB]=Malonic Acid
+Name[pt]=Ácido Malónico
+Name[uk]=Малонова кислота
+Name[x-test]=xxMalonic Acidxx
 atom_1=1-c
 atom_2=3-dg
 atom_3=2-chC
@@ -1303,6 +1524,11 @@ mole_2=..b7.9a
 
 [Level48]
 Name=2,2-Dimethylpropane
+Name[de]=2,2-Dimethylpropan
+Name[en_GB]=2,2-Dimethylpropane
+Name[pt]=2,2-Dimetilpropano
+Name[uk]=2,2-діметилпропан
+Name[x-test]=xx2,2-Dimethylpropanexx
 atom_1=1-d
 atom_2=1-c
 atom_3=1-b
@@ -1339,6 +1565,11 @@ mole_4=.39c.
 
 [Level49]
 Name=Ethyl-Benzene
+Name[de]=Ethylen
+Name[en_GB]=Ethyl-Benzene
+Name[pt]=Etil-Benzeno
+Name[uk]=Етилбензол
+Name[x-test]=xxEthyl-Benzenexx
 atom_1=1-d
 atom_2=1-b
 atom_3=2-ehB
@@ -1376,6 +1607,11 @@ mole_5=2.9.d
 
 [Level5]
 Name=Propene
+Name[de]=Propen
+Name[en_GB]=Propene
+Name[pt]=Propano
+Name[uk]=Пропін
+Name[x-test]=xxPropenexx
 atom_1=1-c
 atom_2=1-e
 atom_3=2-aceg
@@ -1405,6 +1641,11 @@ mole_2=.4..8
 
 [Level50]
 Name=L-Asparagine
+Name[de]=L-Asparagin
+Name[en_GB]=L-Asparagine
+Name[pt]=L-Asparagina
+Name[uk]=L-аспарагін
+Name[x-test]=xxL-Asparaginexx
 atom_1=3-B
 atom_2=1-d
 atom_3=1-b
@@ -1444,6 +1685,11 @@ mole_5=3.f..
 
 [Level51]
 Name=1,3,5,7-Cyclooctatetraene
+Name[de]=1-3-5-7-Cyclooktatetraen
+Name[en_GB]=1,3,5,7-Cyclooctatetraene
+Name[pt]=1,3,5,7-Ciclooctatetraeno
+Name[uk]=1,3,5,7-циклооктатетрин
+Name[x-test]=xx1,3,5,7-Cyclooctatetraenexx
 atom_1=1-d
 atom_2=1-b
 atom_3=2-bhC
@@ -1476,6 +1722,11 @@ mole_5=.2..8.
 
 [Level52]
 Name=Vanillin
+Name[de]=Vanillin
+Name[en_GB]=Vanillin
+Name[pt]=Vanilina
+Name[uk]=Ванілін
+Name[x-test]=xxVanillinxx
 atom_1=1-c
 atom_2=3-C
 atom_3=2-dgA
@@ -1518,6 +1769,11 @@ mole_6=......g.
 
 [Level53]
 Name=Crystal 3
+Name[de]=Kristall 3
+Name[en_GB]=Crystal 3
+Name[pt]=Cristal 3
+Name[uk]=Кристал 3
+Name[x-test]=xxCrystal 3xx
 atom_1=o-bc
 atom_2=o-bcf
 atom_3=o-bcg
@@ -1549,6 +1805,11 @@ mole_3=1336...
 
 [Level54]
 Name=Uric Acid
+Name[de]=Harnsäure
+Name[en_GB]=Uric Acid
+Name[pt]=Ácido Úrico
+Name[uk]=Сечова кислота
+Name[x-test]=xxUric Acidxx
 atom_1=1-d
 atom_2=3-B
 atom_3=1-b
@@ -1589,6 +1850,11 @@ mole_5=...c.
 
 [Level55]
 Name=Thymine
+Name[de]=Thymin
+Name[en_GB]=Thymine
+Name[pt]=Tiamina
+Name[uk]=Тимін
+Name[x-test]=xxThyminexx
 atom_1=1-c
 atom_2=4-bdg
 atom_3=1-b
@@ -1626,6 +1892,11 @@ mole_5=....ac
 
 [Level56]
 Name=Aniline
+Name[de]=Anilin
+Name[en_GB]=Aniline
+Name[pt]=Anilina
+Name[uk]=Анілін
+Name[x-test]=xxAnilinexx
 atom_1=1-c
 atom_2=1-d
 atom_3=4-beg
@@ -1664,6 +1935,11 @@ mole_5=.4....
 
 [Level57]
 Name=Chloroform
+Name[de]=Chloroform
+Name[en_GB]=Chloroform
+Name[pt]=Clorofórmio
+Name[uk]=Хлороформ
+Name[x-test]=xxChloroformxx
 atom_1=7-d
 atom_2=7-b
 atom_3=2-bdfh
@@ -1690,6 +1966,11 @@ mole_2=2.5
 
 [Level58]
 Name=Carbonic acid
+Name[de]=Kohlensäure
+Name[en_GB]=Carbonic acid
+Name[pt]=Ácido carbónico
+Name[uk]=Вуглекислота
+Name[x-test]=xxCarbonic acidxx
 atom_1=1-e
 atom_2=3-ad
 atom_3=3-be
@@ -1719,6 +2000,11 @@ mole_4=4.
 
 [Level59]
 Name=Crystal 4
+Name[de]=Kristall 4
+Name[en_GB]=Crystal 4
+Name[pt]=Cristal 4
+Name[uk]=Кристал 4
+Name[x-test]=xxCrystal 4xx
 atom_1=o-be
 atom_2=o-ad
 atom_3=o-bdf
@@ -1759,6 +2045,11 @@ mole_5=..8c..
 
 [Level6]
 Name=Ethanol
+Name[de]=Ethanol
+Name[en_GB]=Ethanol
+Name[pt]=Etanol
+Name[uk]=Етиловий спирт
+Name[x-test]=xxEthanolxx
 atom_1=1-c
 atom_2=1-e
 atom_3=2-aceg
@@ -1786,6 +2077,11 @@ mole_2=.44..
 
 [Level60]
 Name=Acrylo-Nitril
+Name[de]=Acrylnitril
+Name[en_GB]=Acrylo-Nitril
+Name[pt]=Acrilo-Nitril
+Name[uk]=Акрилонітріл
+Name[x-test]=xxAcrylo-Nitrilxx
 atom_1=1-d
 atom_2=1-b
 atom_3=2-bhC
@@ -1815,6 +2111,11 @@ mole_3=2.6
 
 [Level61]
 Name=Furan
+Name[de]=Furan
+Name[en_GB]=Furan
+Name[pt]=Furano
+Name[uk]=Фуран
+Name[x-test]=xxFuranxx
 atom_1=1-d
 atom_2=1-b
 atom_3=2-bhC
@@ -1846,6 +2147,11 @@ mole_3=2...9
 
 [Level62]
 Name=l-Lactic acid
+Name[de]=Milchsäure
+Name[en_GB]=l-Lactic acid
+Name[pt]=Ácido l-Láctico
+Name[uk]=Молочна кислота
+Name[x-test]=xxl-Lactic acidxx
 atom_1=1-d
 atom_2=1-b
 atom_3=3-dh
@@ -1878,6 +2184,11 @@ mole_4=2.5...
 
 [Level63]
 Name=Maleic Acid
+Name[de]=Maleinsäure
+Name[en_GB]=Maleic Acid
+Name[pt]=Ácido Maleico
+Name[uk]=Малеїнова кислота
+Name[x-test]=xxMaleic Acidxx
 atom_1=3-B
 atom_2=3-be
 atom_3=2-adD
@@ -1913,6 +2224,11 @@ mole_7=..9.
 
 [Level64]
 Name=meso-Tartaric acid
+Name[de]=Weinsäure
+Name[en_GB]=meso-Tartaric acid
+Name[pt]=Ácido meso-Tartárico
+Name[uk]=Мезо-винна кислота
+Name[x-test]=xxmeso-Tartaric acidxx
 atom_1=1-c
 atom_2=3-dg
 atom_3=2-chC
@@ -1948,6 +2264,11 @@ mole_4=...8....
 
 [Level65]
 Name=Crystal 5
+Name[de]=Kristall 5
+Name[en_GB]=Crystal 5
+Name[pt]=Cristal 5
+Name[uk]=Кристал 5
+Name[x-test]=xxCrystal 5xx
 atom_1=o-cd
 atom_2=o-bc
 atom_3=o-de
@@ -1988,6 +2309,11 @@ mole_4=.7.e.
 
 [Level66]
 Name=Formic acid ethyl ester
+Name[de]=Ameisensäuremethylester
+Name[en_GB]=Formic acid ethyl ester
+Name[pt]=Ácido fórmico etil ester
+Name[uk]=Етиловий ефір мурашиної кислоти
+Name[x-test]=xxFormic acid ethyl esterxx
 atom_1=1-c
 atom_2=2-bgC
 atom_3=3-A
@@ -2020,6 +2346,11 @@ mole_5=.3
 
 [Level67]
 Name=1,4-Cyclohexadiene
+Name[de]=1,4-Cyclohexadien
+Name[en_GB]=1,4-Cyclohexadiene
+Name[pt]=1,4-Ciclohexadieno
+Name[uk]=1,4-циклогексадієн
+Name[x-test]=xx1,4-Cyclohexadienexx
 atom_1=1-h
 atom_2=1-d
 atom_3=2-bdfh
@@ -2050,6 +2381,11 @@ mole_4=.4..1.
 
 [Level68]
 Name=Squaric acid
+Name[de]=Quadratsäure
+Name[en_GB]=Squaric acid
+Name[pt]=Ácido esquárico
+Name[uk]=Скварикова кислота
+Name[x-test]=xxSquaric acidxx
 atom_1=3-C
 atom_2=2-ceA
 atom_3=2-egA
@@ -2082,6 +2418,11 @@ mole_4=......
 
 [Level69]
 Name=Ascorbic acid
+Name[de]=Ascorbionsäure
+Name[en_GB]=Ascorbic acid
+Name[pt]=Ácido ascórbico
+Name[uk]=Аскорбінова кислота
+Name[x-test]=xxAscorbic acidxx
 atom_1=1-c
 atom_2=1-d
 atom_3=1-f
@@ -2121,6 +2462,11 @@ mole_5=..1f..e5
 
 [Level7]
 Name=Isopropanol
+Name[de]=Isopropanol
+Name[en_GB]=Isopropanol
+Name[pt]=Isopropanol
+Name[uk]=Ізопропанол
+Name[x-test]=xxIsopropanolxx
 atom_1=1-c
 atom_2=1-e
 atom_3=2-aceg
@@ -2149,6 +2495,11 @@ mole_3=..4..
 
 [Level70]
 Name=Phosgene
+Name[de]=Phosgen
+Name[en_GB]=Phosgene
+Name[pt]=Fosgénoi
+Name[uk]=Фосген
+Name[x-test]=xxPhosgenexx
 atom_1=3-C
 atom_2=2-dfA
 atom_3=7-b
@@ -2174,6 +2525,11 @@ mole_2=3.4
 
 [Level71]
 Name=Thiophene
+Name[de]=Thiophen
+Name[en_GB]=Thiophene
+Name[pt]=Tiofeno
+Name[uk]=Тіофен
+Name[x-test]=xxThiophenexx
 atom_1=1-d
 atom_2=1-b
 atom_3=2-dfA
@@ -2205,6 +2561,11 @@ mole_3=2.9.6
 
 [Level72]
 Name=Urea
+Name[de]=Harnsäure
+Name[en_GB]=Urea
+Name[pt]=Ureia
+Name[uk]=Сечовина
+Name[x-test]=xxUreaxx
 atom_1=1-c
 atom_2=1-e
 atom_3=4-adg
@@ -2236,6 +2597,11 @@ le_4=.4..
 
 [Level73]
 Name=Pyruvic Acid
+Name[de]=Brenztraubensäure
+Name[en_GB]=Pyruvic Acid
+Name[pt]=Ácido Pirúvico
+Name[uk]=Пировиноградна кислота
+Name[x-test]=xxPyruvic Acidxx
 atom_1=1-c
 atom_2=3-D
 atom_3=2-aceg
@@ -2268,6 +2634,11 @@ mole_4=.4..
 
 [Level74]
 Name=Ethylene oxide
+Name[de]=Ethylenoxid
+Name[en_GB]=Ethylene oxide
+Name[pt]=Óxido de etileno
+Name[uk]=Оксид етилену
+Name[x-test]=xxEthylene oxidexx
 atom_1=2-cdfh
 atom_2=2-bdfg
 atom_3=A-
@@ -2297,6 +2668,11 @@ mole_2=6.4.5
 
 [Level75]
 Name=Phosphoric Acid
+Name[de]=Phosphorsäure
+Name[en_GB]=Phosphoric Acid
+Name[pt]=Ácido Fosfórico
+Name[uk]=Фосфорна кислота
+Name[x-test]=xxPhosphoric Acidxx
 atom_1=1-c
 atom_2=3-cg
 atom_3=1-g
@@ -2326,6 +2702,11 @@ mole_3=..5..
 
 [Level76]
 Name=Diacetyl
+Name[de]=Diacetyl
+Name[en_GB]=Diacetyl
+Name[pt]=Diacetil
+Name[uk]=Діацетил
+Name[x-test]=xxDiacetylxx
 atom_1=1-d
 atom_2=1-h
 atom_3=1-f
@@ -2358,6 +2739,11 @@ mole_5=4.2.
 
 [Level77]
 Name=trans-Dichloroethene
+Name[de]=trans-Dichlorethen
+Name[en_GB]=trans-Dichloroethene
+Name[pt]=trans-Dicloroetano
+Name[uk]=Трансдихлоретилен
+Name[x-test]=xxtrans-Dichloroethenexx
 atom_1=1-d
 atom_2=1-h
 atom_3=2-fhB
@@ -2385,6 +2771,11 @@ mole_2=6..2
 
 [Level78]
 Name=Allylisothiocyanate
+Name[de]=Allylisothiocyanat
+Name[en_GB]=Allylisothiocyanate
+Name[pt]=Alilisotiocianato
+Name[uk]=Алілозотіоцианат
+Name[x-test]=xxAllylisothiocyanatexx
 atom_1=1-d
 atom_2=1-h
 atom_3=1-b
@@ -2414,6 +2805,11 @@ mole_2=3..2..
 
 [Level79]
 Name=Diketene
+Name[de]=Diketen
+Name[en_GB]=Diketene
+Name[pt]=Diqueteno
+Name[uk]=Дікетен
+Name[x-test]=xxDiketenexx
 atom_1=1-d
 atom_2=1-f
 atom_3=2-aceg
@@ -2447,6 +2843,11 @@ mole_4=84.
 
 [Level8]
 Name=Ethanal
+Name[de]=Ethanal
+Name[en_GB]=Ethanal
+Name[pt]=Etanol
+Name[uk]=Етанал
+Name[x-test]=xxEthanalxx
 atom_1=1-c
 atom_2=1-e
 atom_3=2-aceg
@@ -2474,6 +2875,11 @@ mole_2=.4..
 
 [Level80]
 Name=Acroleine
+Name[de]=Acrolein
+Name[en_GB]=Acroleine
+Name[pt]=Acroleína
+Name[uk]=Акролеїн
+Name[x-test]=xxAcroleinexx
 atom_1=1-f
 atom_2=1-h
 atom_3=1-b
@@ -2504,6 +2910,11 @@ mole_4=.3.2
 
 [Level81]
 Name=Malonic Acid
+Name[de]=Malonsäure
+Name[en_GB]=Malonic Acid
+Name[pt]=Ácido Malónico
+Name[uk]=Малонова кислота
+Name[x-test]=xxMalonic Acidxx
 atom_1=1-d
 atom_2=1-g
 atom_3=1-b
@@ -2536,6 +2947,11 @@ mole_4=..4..
 
 [Level82]
 Name=Uracil
+Name[de]=Uracil
+Name[en_GB]=Uracil
+Name[pt]=Uracil
+Name[uk]=Урацил
+Name[x-test]=xxUracilxx
 atom_1=1-a
 atom_2=3-D
 atom_3=1-b
@@ -2571,6 +2987,11 @@ mole_5=..1..
 
 [Level83]
 Name=Caffeine
+Name[de]=Koffein
+Name[en_GB]=Caffeine
+Name[pt]=Cafeína
+Name[uk]=Кофеїн
+Name[x-test]=xxCaffeinexx
 atom_1=1-d
 atom_2=1-e
 atom_3=1-f
@@ -2618,6 +3039,11 @@ mole_6=..klm...
 
 [Level9]
 Name=Acetone
+Name[de]=Aceton
+Name[en_GB]=Acetone
+Name[pt]=Acetona
+Name[uk]=Ацетон
+Name[x-test]=xxAcetonexx
 atom_1=1-c
 atom_2=1-e
 atom_3=2-aceg
