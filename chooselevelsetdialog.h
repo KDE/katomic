@@ -42,8 +42,6 @@ signals:
 
 protected Q_SLOTS:
     void slotButtonClicked(int);
-
-private:
     void loadData();
 
 private Q_SLOTS:

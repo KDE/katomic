@@ -23,7 +23,7 @@ kde4_add_ui_files(katomic_SRCS levelsetwidget.ui)
 kde4_add_app_icon(katomic_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-katomic.png")
 kde4_add_executable(katomic ${katomic_SRCS})
 
-target_link_libraries(katomic  ${KDE4_KIO_LIBS} ${KDE4_KDEUI_LIBS} kdegames )
+target_link_libraries(katomic  ${KDE4_KIO_LIBS} ${KDE4_KDEUI_LIBS} ${KDE4_KNEWSTUFF2_LIBS} kdegames )
 
 install(TARGETS katomic  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
@@ -33,6 +33,7 @@ install(TARGETS katomic  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install( FILES katomic.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES katomicui.rc  DESTINATION  ${DATA_INSTALL_DIR}/katomic )
 install( FILES default_theme.svgz  DESTINATION  ${DATA_INSTALL_DIR}/katomic/pics/ )
+install( FILES katomic.knsrc  DESTINATION  ${CONFIG_INSTALL_DIR} )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}   )
 

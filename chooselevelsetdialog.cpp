@@ -52,10 +52,13 @@ ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
 
     connect(m_ui.m_lwLevelSets, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),
             SLOT(updateApplyButton()));
+    connect(m_ui.m_pbNewStuff, SIGNAL(dialogFinished()), SLOT(loadData()));
 }
 
 void ChooseLevelSetDialog::loadData()
 {
+    m_ui.m_lwLevelSets->clear();
+
     QStringList fileList = KGlobal::dirs()->findAllResources("appdata", "levels/*.dat", KStandardDirs::NoDuplicates);
 
     LevelSet ls;
@@ -76,6 +79,10 @@ void ChooseLevelSetDialog::loadData()
             m_ui.m_lwLevelSets->addItem(item);
         }
     }
+
+    // reselect current levelset if it is set
+    if(!m_gameCurrentLevelSetName.isEmpty())
+        setCurrentLevelSet(m_gameCurrentLevelSetName);
 }
 
 void ChooseLevelSetDialog::setCurrentLevelSet(const QString& levelSetName)
