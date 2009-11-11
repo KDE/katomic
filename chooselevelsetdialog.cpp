@@ -46,7 +46,7 @@ ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
 
     setMainWidget(chooseWidget);
 
-    resize(520, 320);
+    resize(550, 350);
 
     loadData();
 
