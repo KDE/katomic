@@ -1,5 +1,6 @@
 [LevelSet]
 Name=Original levels
+Name[de]=Original
 Name[en_GB]=Original levels
 Name[es]=Niveles originales
 Name[et]=Originaaltasemed
@@ -10,6 +11,7 @@ Name[uk]=Вбудовані рівні
 Name[x-test]=xxOriginal levelsxx
 Name[zh_TW]=原始關卡
 Description=This is the original collection of KAtomic levels.
+Description[de]=Das ist das Paket mit den originalen Ebenen von KAtomic.
 Description[en_GB]=This is the original collection of KAtomic levels.
 Description[es]=Esta es la colección original de niveles para KAtomic
 Description[et]=See on KAtomicu algupäraste tasemete kogu.
