@@ -74,6 +74,14 @@ void KAtomicRenderer::fillNameHashes()
     m_names['>'] = "arrow_Right";
     m_names['^'] = "arrow_Up";
     m_names['_'] = "arrow_Down";
+    m_names['E'] = "atom_flask0";
+    m_names['F'] = "atom_flask1";
+    m_names['G'] = "atom_flask2";
+    m_names['H'] = "atom_flask3";
+    m_names['I'] = "atom_flask4";
+    m_names['J'] = "atom_flask5";
+    m_names['K'] = "atom_flask6";
+    m_names['L'] = "atom_flask7";
 
     m_bondNames['a'] = "bond_I_Top";
     m_bondNames['b'] = "bond_I_TopRight";

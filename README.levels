@@ -58,6 +58,7 @@ Atoms:
 9=P
 0=J
 o=Crystal
+E,F,G,H,I,J,K,L - flasks with ranging fullness, E - being an empty flask, L - full flask.
 A=horizontal connector
 B=slash-like connector
 C=vertical connector
