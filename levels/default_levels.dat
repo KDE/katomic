@@ -26,6 +26,7 @@ LevelCount=83
 
 [Level1]
 Name=Water
+Name[cs]=Voda
 Name[de]=Wasser
 Name[en_GB]=Water
 Name[es]=Agua
@@ -774,6 +775,7 @@ mole_4=....a
 
 [Level28]
 Name=Pyran
+Name[cs]=Pyran
 Name[de]=Pyran
 Name[en_GB]=Pyran
 Name[es]=Pirano
@@ -1235,6 +1237,7 @@ mole_6=..3..h
 
 [Level38]
 Name=Thiazole
+Name[cs]=Thiazol
 Name[de]=Thiazol
 Name[en_GB]=Thiazole
 Name[es]=Tiazol
@@ -2134,6 +2137,7 @@ mole_5=....ac
 
 [Level56]
 Name=Aniline
+Name[cs]=Anilin
 Name[de]=Anilin
 Name[en_GB]=Aniline
 Name[es]=Anilina
@@ -2383,6 +2387,7 @@ mole_3=2.6
 
 [Level61]
 Name=Furan
+Name[cs]=Furan
 Name[de]=Furan
 Name[en_GB]=Furan
 Name[es]=Furano
@@ -2688,6 +2693,7 @@ mole_4=.4..1.
 
 [Level68]
 Name=Squaric acid
+Name[cs]=Kyselina čtverečná
 Name[de]=Quadratsäure
 Name[en_GB]=Squaric acid
 Name[es]=Ácido escuárico
