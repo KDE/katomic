@@ -24,6 +24,7 @@
 
 #include <KStandardDirs>
 #include <KDebug>
+#include <KNS3/KNewStuffButton>
 
 #include "levelset.h"
 #include "levelsetdelegate.h"
@@ -44,6 +45,8 @@ ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
     m_ui.m_lwLevelSets->setItemDelegate(new LevelSetDelegate(this));
     m_ui.m_lwLevelSets->setSortingEnabled(true);
 
+    m_ui.m_pbNewStuff->setConfigFile("katomic.knsrc");
+
     setMainWidget(chooseWidget);
 
     resize(550, 350);
@@ -52,7 +55,13 @@ ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
 
     connect(m_ui.m_lwLevelSets, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),
             SLOT(updateApplyButton()));
-    connect(m_ui.m_pbNewStuff, SIGNAL(dialogFinished()), SLOT(loadData()));
+    connect(m_ui.m_pbNewStuff, SIGNAL(dialogFinished(KNS3::Entry::List)), SLOT(newStuffDone(KNS3::Entry::List)));
+}
+
+void ChooseLevelSetDialog::newStuffDone(const KNS3::Entry::List& entries)
+{
+    if (!entries.isEmpty())
+        loadData();
 }
 
 void ChooseLevelSetDialog::loadData()

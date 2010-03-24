@@ -36,13 +36,14 @@ public:
     ChooseLevelSetDialog(QWidget* parent=0);
 
     void setCurrentLevelSet(const QString& levelSetName);
+    void loadData();
 
 signals:
     void levelSetChanged(QString);
 
 protected Q_SLOTS:
     void slotButtonClicked(int);
-    void loadData();
+    void newStuffDone(const KNS3::Entry::List& entries);
 
 private Q_SLOTS:
     void updateApplyButton();

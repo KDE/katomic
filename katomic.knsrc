@@ -1,4 +1,5 @@
-[KNewStuff2]
-ProvidersUrl=http://download.kde.org/khotnewstuff/katomiclevels-providers.xml
+[KNewStuff3]
+ProvidersUrl=http://download.kde.org/ocs/providers.xml
+Categories=KAtomic Level
 Uncompress=archive
 TargetDir=katomic/levels
