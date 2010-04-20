@@ -199,7 +199,7 @@ void AtomTopLevel::slotAnimSpeedChanged(int speed)
 
 void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
 {
-    statusBar()->changeItem( i18n("Level: %1 (%2)", level, m_gameWid->levelSetVisibleName()), LEVEL_BAR_ID );
+    statusBar()->changeItem( i18n("Level: %1 (%2)", level, m_gameWid->levelSet().visibleName()), LEVEL_BAR_ID );
     statusBar()->changeItem( i18n("Current score: %1", score), CUR_SCORE_BAR_ID );
     QString str;
     if(highscore == 0)
@@ -238,7 +238,7 @@ void AtomTopLevel::chooseLevelSet()
     ChooseLevelSetDialog* dlg = new ChooseLevelSetDialog(this);
     connect(dlg, SIGNAL(levelSetChanged(QString)), SLOT(changeLevelSet(QString)));
 
-    dlg->setCurrentLevelSet(m_gameWid->levelSetName());
+    dlg->setCurrentLevelSet(m_gameWid->levelSet().name());
     dlg->show();
 }
 

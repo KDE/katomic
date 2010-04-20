@@ -108,14 +108,9 @@ bool GameWidget::setLevelSet(const QString& levelSet)
     return true;
 }
 
-QString GameWidget::levelSetName() const
+const LevelSet& GameWidget::levelSet() const
 {
-    return m_levelSet.name();
-}
-
-QString GameWidget::levelSetVisibleName() const
-{
-    return m_levelSet.visibleName();
+    return m_levelSet;
 }
 
 QString GameWidget::currentMolecule() const
@@ -315,7 +310,8 @@ int GameWidget::maxAccessibleLevel() const
 
 bool GameWidget::isNextLevelAvailable() const
 {
-    bool avail = (m_level != maxAccessibleLevel() && m_level <= m_levelSet.levelCount());
+    bool avail = m_allowAnyLevelSwitch ? true :
+                (m_level != maxAccessibleLevel() && m_level <= m_levelSet.levelCount());
     return avail;
 }
 
