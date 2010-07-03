@@ -96,7 +96,7 @@ void LevelSetDelegate::paint(QPainter* p, const QStyleOptionViewItem& opt, const
         QString text = i18n("by %1", authorName);
         QString authorEmail = index.data(KAtomic::LevelSetAuthorEmailRole).toString();
         if (!authorEmail.isEmpty())
-            text.append(" <"+authorEmail+">");
+            text.append(QString::fromLatin1(" <%1>").arg(authorEmail));
 
         int numLevels = index.data(KAtomic::LevelSetLevelCountRole).toUInt();
         text.append(i18np(", contains 1 level", ", contains %1 levels", numLevels));
