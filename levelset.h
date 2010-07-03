@@ -20,8 +20,8 @@
  * Boston, MA 02110-1301, USA.
  *
  ********************************************************************/
-#ifndef _LEVELSET_H
-#define _LEVELSET_H
+#ifndef KATOMIC_LEVELSET_H
+#define KATOMIC_LEVELSET_H
 
 #include <QString>
 #include <QList>
