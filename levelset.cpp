@@ -62,7 +62,7 @@ QList<LevelData::Element> LevelData::atomElements() const
 
 bool LevelData::containsWallAt(int x, int y) const
 {
-    return m_field[x][y] == true;
+    return m_field[x][y];
 }
 
 const Molecule* LevelData::molecule() const
