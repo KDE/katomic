@@ -92,13 +92,8 @@ public:
 private slots:
     void setOpacity( qreal opacity );
 private:
-    void paint( QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget = 0 );
     QVariant itemChange( GraphicsItemChange change, const QVariant& value );
 
-    /**
-     *  Current opacity of an item (changes during fade-in effect)
-     */
-    qreal m_opacity;
     /**
      *  Timeline object to control fade-in animation
      */

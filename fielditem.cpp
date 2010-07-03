@@ -34,8 +34,9 @@
 #include "playfield.h"
 
 ArrowFieldItem::ArrowFieldItem( QGraphicsScene* scene )
-    : FieldItem(scene), m_opacity(0.0)
+    : FieldItem(scene)
 {
+    setOpacity(0.0); //start invisible
     m_timeLine = new QTimeLine(200);
     m_timeLine->setFrameRange( 0, 30 );
     connect(m_timeLine, SIGNAL(valueChanged(qreal)), SLOT(setOpacity(qreal)) );
@@ -48,16 +49,8 @@ ArrowFieldItem::~ArrowFieldItem()
 
 void ArrowFieldItem::setOpacity( qreal opacity )
 {
-    m_opacity = opacity;
-    update();
-}
-
-void ArrowFieldItem::paint( QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget )
-{
-    qreal oldOpacity = painter->opacity();
-    painter->setOpacity( m_opacity );
-    QGraphicsPixmapItem::paint( painter, option, widget );
-    painter->setOpacity( oldOpacity );
+    //NOTE: This method is only there because QGI::setOpacity is not a slot.
+    QGraphicsItem::setOpacity(opacity);
 }
 
 QVariant ArrowFieldItem::itemChange( GraphicsItemChange change, const QVariant& value )
