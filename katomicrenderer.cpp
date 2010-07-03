@@ -24,7 +24,7 @@
 #include "atom.h"
 #include "prefs.h"
 
-#include <KSvgRenderer>
+#include <QSvgRenderer>
 #include <KDebug>
 #include <KStandardDirs>
 
@@ -42,7 +42,7 @@ KAtomicRenderer::KAtomicRenderer()
     m_cache = new KPixmapCache("katomic-cache");
     m_cache->setCacheLimit( 3*1024 );
 
-    m_renderer = new KSvgRenderer( KStandardDirs::locate( "appdata", "pics/default_theme.svgz" ) );
+    m_renderer = new QSvgRenderer( KStandardDirs::locate( "appdata", "pics/default_theme.svgz" ) );
     fillNameHashes();
 }
 

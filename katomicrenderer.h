@@ -27,7 +27,7 @@
 #include <QHash>
 
 class atom;
-class KSvgRenderer;
+class QSvgRenderer;
 class KPixmapCache;
 
 /**
@@ -70,7 +70,7 @@ private:
      */
     void fillNameHashes();
 
-    KSvgRenderer *m_renderer;
+    QSvgRenderer *m_renderer;
     QHash<char, QString> m_names; // cryptic_char -> elemName
     QHash<char, QString> m_bondNames; // cryptic_char -> bondName
     KPixmapCache *m_cache;
