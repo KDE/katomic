@@ -38,6 +38,6 @@ install( FILES katomic.knsrc  DESTINATION  ${CONFIG_INSTALL_DIR} )
 kde4_install_icons( ${ICON_INSTALL_DIR}   )
 
 if(NOT WIN32)
-  install( FILES katomic-levelset-upd.pl DESTINATION  ${KCONF_UPDATE_INSTALL_DIR} )
+  install( PROGRAMS katomic-levelset-upd.pl DESTINATION  ${KCONF_UPDATE_INSTALL_DIR} )
   install( FILES katomic-levelset.upd DESTINATION  ${KCONF_UPDATE_INSTALL_DIR} )
 endif(NOT WIN32)
