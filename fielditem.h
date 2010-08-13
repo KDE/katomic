@@ -1,6 +1,7 @@
 /*******************************************************************
  *
  * Copyright 2006-2007 Dmitry Suzdalev <dimsuz@gmail.com>
+ * Copyright 2010 Brian Croom <brian.s.croom@gmail.com>
  *
  * This file is part of the KDE project "KAtomic"
  *
@@ -23,20 +24,23 @@
 #ifndef FIELD_ITEM_H
 #define FIELD_ITEM_H
 
-#include <QGraphicsPixmapItem>
+#include <KGameRenderedItem>
 #include <QGraphicsTextItem>
+
+#include "playfield.h" // for enum PlayField::Direction
+
+class KGameRenderer;
+class atom;
 
 /**
  *  Represents item that can be placed in the PlayField.
  *  Basically it just extends QGraphicsPixmapItem by understanding
  *  field's cellbased coords.
  */
-class FieldItem : public QGraphicsPixmapItem
+class FieldItem : public KGameRenderedItem
 {
 public:
-    explicit FieldItem( QGraphicsScene* scene )
-        : QGraphicsPixmapItem( 0, scene ), m_fieldX(0), m_fieldY(0)
-    { setShapeMode( BoundingRectShape ); }
+    explicit FieldItem( KGameRenderer* renderer, const QString& spriteKey, QGraphicsScene* scene );
 
     void setFieldX(int x) { m_fieldX = x; }
     void setFieldY(int y) { m_fieldY = y; }
@@ -60,11 +64,21 @@ private:
 class AtomFieldItem : public FieldItem
 {
 public:
-    explicit AtomFieldItem( QGraphicsScene* scene )
-        : FieldItem(scene), m_atomNum(-1) { }
+    explicit AtomFieldItem( KGameRenderer* renderer, const atom& at, QGraphicsScene* scene );
 
     void setAtomNum(int n) { m_atomNum = n; }
     int atomNum() const { return m_atomNum; }
+
+    /**
+     * Override so that the bonds (child objects) have their render size
+     * adjusted too
+     */
+    void setRenderSize(const QSize& renderSize);
+
+    /**
+     * Statically render the atom, for MoleculePreviewItem
+     */
+    static QPixmap renderAtom( KGameRenderer* renderer, const atom& at, int size);
 
     // enable use of qgraphicsitem_cast
     enum { Type = UserType + 2 };
@@ -72,6 +86,17 @@ public:
 private:
     // from molecule
     int m_atomNum;
+
+    KGameRenderedItem* m_bond;
+
+    static QHash<char, QString> s_names; // cryptic_char -> elemName
+    static QHash<char, QString> s_bondNames; // cryptic_char -> bondName
+
+    /**
+     * Creates hashes for translating atom and bond signatures found in
+     * level files to corresponding SVG-element names
+     */
+    static void fillNameHashes();
 };
 
 class QTimeLine;
@@ -83,7 +108,7 @@ class ArrowFieldItem : public QObject, public FieldItem
 {
     Q_OBJECT
 public:
-    explicit ArrowFieldItem( QGraphicsScene* scene );
+    explicit ArrowFieldItem( KGameRenderer* renderer, PlayField::Direction dir, QGraphicsScene* scene );
     virtual ~ArrowFieldItem();
 
     // enable use of qgraphicsitem_cast
@@ -135,6 +160,7 @@ public:
 private:
     void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 );
 
+    KGameRenderer* m_renderer;
     int m_width;
     int m_atomSize;
     int m_maxAtomSize;

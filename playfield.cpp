@@ -1,6 +1,7 @@
 /*******************************************************************
  *
  * Copyright 2006-2007 Dmitry Suzdalev <dimsuz@gmail.com>
+ * Copyright 2010 Brian Croom <brian.s.croom@gmail.com>
  *
  * This file is part of the KDE project "KAtomic"
  *
@@ -34,7 +35,6 @@
 
 #include <KGamePopupItem>
 
-#include "katomicrenderer.h"
 #include "molecule.h"
 #include "fielditem.h"
 #include "levelset.h"
@@ -42,28 +42,35 @@
 static const int MIN_INFO_SIZE=10;
 
 PlayField::PlayField( QObject* parent )
-    : QGraphicsScene(parent), m_numMoves(0), m_levelData(0),
+    : QGraphicsScene(parent), m_renderer("pics/default_theme.desktop"), m_numMoves(0), m_levelData(0),
     m_elemSize(MIN_ELEM_SIZE), m_selIdx(-1), m_animSpeed(120),
     m_levelFinished(false)
 {
     m_atomTimeLine = new QTimeLine(300, this);
     connect(m_atomTimeLine, SIGNAL(frameChanged(int)), SLOT(atomAnimFrameChanged(int)) );
 
-    m_upArrow = new ArrowFieldItem(this);
-    m_downArrow = new ArrowFieldItem(this);
-    m_leftArrow = new ArrowFieldItem(this);
-    m_rightArrow = new ArrowFieldItem(this);
+    m_upArrow = new ArrowFieldItem(&m_renderer, Up, this);
+    m_downArrow = new ArrowFieldItem(&m_renderer, Down, this);
+    m_leftArrow = new ArrowFieldItem(&m_renderer, Left, this);
+    m_rightArrow = new ArrowFieldItem(&m_renderer, Right, this);
 
     m_messageItem = new KGamePopupItem();
     m_messageItem->setMessageOpacity(0.9);
     addItem(m_messageItem); // it hides itself by default
 
     m_previewItem = new MoleculePreviewItem(this);
+
     updateArrows(true); // this will hide them
+    updateBackground();
 }
 
 PlayField::~PlayField()
 {
+    //FIXME? Letting the contents of this list be destroyed as the scene's children
+    //results in seg faults due to their having their own child objects and a
+    //bug(?) in KGameRenderer's deletion code
+    qDeleteAll(m_atoms);
+    m_atoms.clear();
 }
 
 void PlayField::setLevelData(const LevelData* level)
@@ -90,7 +97,7 @@ void PlayField::setLevelData(const LevelData* level)
 
     foreach (const LevelData::Element& element, m_levelData->atomElements())
     {
-        AtomFieldItem* atom = new AtomFieldItem(this);
+        AtomFieldItem* atom = new AtomFieldItem(&m_renderer, m_levelData->molecule()->getAtom(element.atom), this);
         atom->setFieldXY(element.x, element.y);
         atom->setAtomNum(element.atom);
         m_atoms.append(atom);
@@ -114,7 +121,7 @@ void PlayField::updateFieldItems()
 
     foreach( AtomFieldItem *item, m_atoms )
     {
-        item->setPixmap( KAtomicRenderer::self()->renderAtom( m_levelData->molecule()->getAtom(item->atomNum()), m_elemSize ) );
+        item->setRenderSize( QSize(m_elemSize, m_elemSize) );
 
         // this may be true if resize happens during animation
         if( isAnimating() && m_selIdx != -1 && item == m_atoms.at(m_selIdx) )
@@ -124,18 +131,22 @@ void PlayField::updateFieldItems()
         item->show();
     }
 
-    m_upArrow->setPixmap( KAtomicRenderer::self()->renderNonAtom('^', m_elemSize) );
+    m_upArrow->setRenderSize(QSize(m_elemSize, m_elemSize));
     m_upArrow->setPos( toPixX(m_upArrow->fieldX()), toPixY(m_upArrow->fieldY()) );
 
-    m_downArrow->setPixmap( KAtomicRenderer::self()->renderNonAtom('_', m_elemSize ) );
+    m_downArrow->setRenderSize(QSize(m_elemSize, m_elemSize));
     m_downArrow->setPos( toPixX(m_downArrow->fieldX()), toPixY(m_downArrow->fieldY()) );
 
-    m_leftArrow->setPixmap( KAtomicRenderer::self()->renderNonAtom('<', m_elemSize ) );
+    m_leftArrow->setRenderSize(QSize(m_elemSize, m_elemSize));
     m_leftArrow->setPos( toPixX(m_leftArrow->fieldX()), toPixY(m_leftArrow->fieldY()) );
 
-    m_rightArrow->setPixmap( KAtomicRenderer::self()->renderNonAtom('>', m_elemSize ) );
+    m_rightArrow->setRenderSize(QSize(m_elemSize, m_elemSize));
     m_rightArrow->setPos( toPixX(m_rightArrow->fieldX()), toPixY(m_rightArrow->fieldY()) );
+}
 
+void PlayField::updateBackground()
+{
+    setBackgroundBrush(m_renderer.spritePixmap("background", sceneRect().size().toSize()));
 }
 
 void PlayField::resize( int width, int height)
@@ -168,6 +179,7 @@ void PlayField::resize( int width, int height)
         m_atomTimeLine->start();
     }
     updateFieldItems();
+    updateBackground();
 }
 
 void PlayField::nextAtom()
@@ -651,11 +663,6 @@ void PlayField::updateArrows(bool justHide)
     }
 }
 
-void PlayField::drawBackground( QPainter *p, const QRectF&)
-{
-    p->drawPixmap(0, 0, KAtomicRenderer::self()->renderBackground( sceneRect().size().toSize() ));
-}
-
 void PlayField::drawForeground( QPainter *p, const QRectF&)
 {
     if (!m_levelData)
@@ -664,7 +671,7 @@ void PlayField::drawForeground( QPainter *p, const QRectF&)
         return;
     }
 
-    QPixmap aPix = KAtomicRenderer::self()->renderNonAtom('#', m_elemSize);
+    QPixmap aPix = m_renderer.spritePixmap("wall", QSize(m_elemSize, m_elemSize));
     for (int i = 0; i < FIELD_SIZE; i++)
         for (int j = 0; j < FIELD_SIZE; j++)
             if(m_levelData->containsWallAt(i,j))

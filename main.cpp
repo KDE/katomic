@@ -55,6 +55,7 @@ int main(int argc, char **argv)
   aboutData.addCredit(ki18n("Kai Jung"), ki18n("6 new levels"), "jung@fh-fresenius.de");
   aboutData.addCredit(ki18n("Danny Allen"), ki18n("Game graphics and application icon"), "danny@dannyallen.co.uk");
   aboutData.addCredit(ki18n("Johann Ollivier Lapeyre"), ki18n("New great SVG artwork for KDE4"), "johann.ollivierlapeyre@gmail.com");
+  aboutData.addCredit(ki18n("Brian Croom"), ki18n("Port to use KGameRenderer"), "brian.s.croom@gmail.com");
 
   KCmdLineArgs::init( argc, argv, &aboutData );
 

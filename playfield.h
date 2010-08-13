@@ -1,6 +1,7 @@
 /*******************************************************************
  *
  * Copyright 2006-2007 Dmitry Suzdalev <dimsuz@gmail.com>
+ * Copyright 2010 Brian Croom <brian.s.croom@gmail.com>
  *
  * This file is part of the KDE project "KAtomic"
  *
@@ -23,6 +24,7 @@
 #ifndef PLAYFIELD_H
 #define PLAYFIELD_H
 #include <QGraphicsScene>
+#include <KGameRenderer>
 #include <QList>
 #include <QStack>
 
@@ -91,6 +93,10 @@ public:
      * Name of the current molecule
      */
     QString moleculeName() const;
+    /**
+     * The caching SVG pixmap renderer
+     */
+    KGameRenderer* renderer() { return &m_renderer; }
 
 public slots:
     /**
@@ -125,7 +131,6 @@ signals:
 private slots:
     void atomAnimFrameChanged(int frame);
 private:
-    virtual void drawBackground( QPainter*, const QRectF& );
     virtual void drawForeground( QPainter*, const QRectF& );
     virtual void mousePressEvent( QGraphicsSceneMouseEvent* ev );
 
@@ -142,6 +147,10 @@ private:
      */
     void updateArrows(bool justHide=false);
     /**
+     * Set the background brush to a properly sized pixmap
+     */
+    void updateBackground();
+    /**
      *  Returns true if Field cell (x,y) is empty, i.e. it isn't a wall and has no atom
      */
     bool cellIsEmpty(int x, int y) const;
@@ -157,6 +166,10 @@ private:
     inline int fieldCenterX() const { return toPixX(0) + m_elemSize*FIELD_SIZE/2; }
     inline int fieldCenterY() const { return toPixY(0) + m_elemSize*FIELD_SIZE/2; }
 
+    /**
+     * Renderer object
+     */
+    KGameRenderer m_renderer;
     /**
      *  Number of moves made for current level
      */
