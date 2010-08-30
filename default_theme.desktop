@@ -10,6 +10,7 @@ Name[pt_BR]=Tema padrão do KAtomic
 Name[sv]=Katom standardtema
 Name[uk]=Типова тема KAtomic
 Name[x-test]=xxKAtomic Default Themexx
+Name[zh_TW]=KAtomic 預設主題
 Description=KAtomic Default Theme.
 Description[de]=Das Standard-Design von KAtomic.
 Description[es]=Tema predeterminado de KAtomic
@@ -19,6 +20,7 @@ Description[pt_BR]=Tema padrão do KAtomic.
 Description[sv]=Katom standardtema
 Description[uk]=Типова тема KAtomic.
 Description[x-test]=xxKAtomic Default Theme.xx
+Description[zh_TW]=KAtomic 預設主題
 FileName=default_theme.svgz
 
 [Desktop Entry]
