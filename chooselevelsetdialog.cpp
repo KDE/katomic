@@ -78,7 +78,7 @@ void ChooseLevelSetDialog::loadData()
         if (!visibleName.isEmpty())
         {
             QListWidgetItem* item = new QListWidgetItem;
-            item->setIcon(KIcon("katomic"));
+            item->setIcon(KIcon( QLatin1String( "katomic" )));
             item->setText(visibleName);
             item->setData(KAtomic::LevelSetNameRole, ls.name());
             item->setData(KAtomic::LevelSetDescriptionRole, ls.description());

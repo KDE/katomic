@@ -64,7 +64,7 @@ int main(int argc, char **argv)
   KCmdLineArgs::addCmdLineOptions( options );
 
   KApplication a;
-  KGlobal::locale()->insertCatalog("libkdegames");
+  KGlobal::locale()->insertCatalog( QLatin1String( "libkdegames" ));
 
   if (!LevelSet::isDefaultLevelsAvailable())
   {
