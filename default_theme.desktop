@@ -15,6 +15,7 @@ Name[ru]=Оформление по умолчанию для KAtomic
 Name[sv]=Katom standardtema
 Name[uk]=Типова тема KAtomic
 Name[x-test]=xxKAtomic Default Themexx
+Name[zh_CN]=KAtomic 默认主题
 Name[zh_TW]=KAtomic 預設主題
 Description=KAtomic Default Theme.
 Description[ca]=Tema predeterminat del KAtomic.
@@ -30,6 +31,7 @@ Description[ru]=Оформление по умолчанию для KAtomic.
 Description[sv]=Katom standardtema
 Description[uk]=Типова тема KAtomic.
 Description[x-test]=xxKAtomic Default Theme.xx
+Description[zh_CN]=KAtomic 默认主题。
 Description[zh_TW]=KAtomic 預設主題
 FileName=default_theme.svgz
 
