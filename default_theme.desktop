@@ -3,6 +3,7 @@
 VersionFormat=1
 Name=KAtomic Default Theme
 Name[ca]=Tema predeterminat del KAtomic
+Name[da]=KAtomics standardtema 
 Name[de]=Standard
 Name[en_GB]=KAtomic Default Theme
 Name[es]=Tema predeterminado de KAtomic
@@ -21,6 +22,7 @@ Name[zh_CN]=KAtomic 默认主题
 Name[zh_TW]=KAtomic 預設主題
 Description=KAtomic Default Theme.
 Description[ca]=Tema predeterminat del KAtomic.
+Description[da]=KAtomic standardtema.
 Description[de]=Das Standard-Design von KAtomic.
 Description[en_GB]=KAtomic Default Theme.
 Description[es]=Tema predeterminado de KAtomic
