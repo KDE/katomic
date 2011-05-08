@@ -2,6 +2,7 @@
 [KGameTheme]
 VersionFormat=1
 Name=KAtomic Default Theme
+Name[bs]=Podrazumijevana tema K‑atomike
 Name[ca]=Tema predeterminat del KAtomic
 Name[ca@valencia]=Tema predeterminat del KAtomic
 Name[da]=KAtomics standardtema 
@@ -27,6 +28,7 @@ Name[x-test]=xxKAtomic Default Themexx
 Name[zh_CN]=KAtomic 默认主题
 Name[zh_TW]=KAtomic 預設主題
 Description=KAtomic Default Theme.
+Description[bs]=Podrazumijevana tema K‑atomike
 Description[ca]=Tema predeterminat del KAtomic.
 Description[ca@valencia]=Tema predeterminat del KAtomic.
 Description[da]=KAtomic standardtema.
