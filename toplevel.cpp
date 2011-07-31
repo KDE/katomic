@@ -65,7 +65,7 @@ AtomTopLevel::AtomTopLevel()
 
     updateStatusBar( m_gameWid->currentLevel(), m_gameWid->currentScore(), m_gameWid->currentHighScore() );
 
-    connect(m_gameWid, SIGNAL(statsChanged(int,int,int)), SLOT(updateStatusBar(int, int, int)));
+    connect(m_gameWid, SIGNAL(statsChanged(int,int,int)), SLOT(updateStatusBar(int,int,int)));
     connect(m_gameWid, SIGNAL(levelChanged(int)), SLOT(levelHasChanged(int)));
 
     // update next/prev actions
@@ -106,19 +106,19 @@ void AtomTopLevel::createMenu()
     m_prevLevelAct->setText( i18n( "Previous Level" ) );
     m_prevLevelAct->setShortcut( Qt::CTRL + Qt::Key_P );
     addAction( m_prevLevelAct );
-    connect( m_prevLevelAct, SIGNAL( triggered( bool ) ), m_gameWid, SLOT( prevLevel() ) );
+    connect( m_prevLevelAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(prevLevel()) );
 
     m_nextLevelAct = actionCollection()->addAction( QLatin1String(  "next_level" ) );
     m_nextLevelAct->setIcon( KIcon( QLatin1String(  "arrow-right" ) ) );
     m_nextLevelAct->setText( i18n( "Next Level" ) );
     m_nextLevelAct->setShortcut( Qt::CTRL + Qt::Key_N );
     addAction( m_nextLevelAct );
-    connect( m_nextLevelAct, SIGNAL( triggered( bool ) ), m_gameWid, SLOT( nextLevel() ) );
+    connect( m_nextLevelAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(nextLevel()) );
 
     QAction* chooseLevelSet = actionCollection()->addAction( QLatin1String(  "choose_level_set" ) );
     chooseLevelSet->setText( i18n( "Choose level set..." ) );
     addAction( chooseLevelSet );
-    connect( chooseLevelSet, SIGNAL( triggered( bool ) ), SLOT( chooseLevelSet() ) );
+    connect( chooseLevelSet, SIGNAL(triggered(bool)), SLOT(chooseLevelSet()) );
 
     m_animSpeedAct = new KSelectAction(i18n("Animation Speed"), this);
     actionCollection()->addAction( QLatin1String( "anim_speed" ), m_animSpeedAct);
