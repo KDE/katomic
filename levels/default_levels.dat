@@ -1353,7 +1353,7 @@ mole_4=....a
 [Level28]
 Name=Pyran
 Name[bs]=Piren
-Name[ca]=PiràPiràmide
+Name[ca]=Piran
 Name[ca@valencia]=PiràPiràmide
 Name[cs]=Pyran
 Name[da]=Pyran
@@ -3220,7 +3220,7 @@ mole_5=.2..8.
 [Level52]
 Name=Vanillin
 Name[bs]=Vanilin
-Name[ca]=Vainillina
+Name[ca]=Vanil·lina
 Name[ca@valencia]=Vainillina
 Name[da]=Vanillin
 Name[de]=Vanillin
@@ -4595,7 +4595,7 @@ mole_3=..4..
 [Level70]
 Name=Phosgene
 Name[bs]=Fosgen
-Name[ca]=Fosgè
+Name[ca]=Fosgen
 Name[ca@valencia]=Fosgè
 Name[da]=Phosgen
 Name[de]=Phosgen
@@ -4719,7 +4719,7 @@ mole_3=2.9.6
 [Level72]
 Name=Urea
 Name[bs]=Urea
-Name[ca]=UreaArena
+Name[ca]=Urea
 Name[ca@valencia]=UreaArena
 Name[da]=Urea
 Name[de]=Harnsäure
