@@ -31,7 +31,8 @@ install(TARGETS katomic  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 install( PROGRAMS katomic.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES katomicui.rc  DESTINATION  ${DATA_INSTALL_DIR}/katomic )
-install( FILES default_theme.svgz default_theme.desktop  DESTINATION  ${DATA_INSTALL_DIR}/katomic/pics/ )
+install( FILES default_theme.svgz  DESTINATION  ${DATA_INSTALL_DIR}/katomic/pics/ )
+# ^^^ default_theme.desktop is not installed at the moment
 install( FILES katomic.knsrc  DESTINATION  ${CONFIG_INSTALL_DIR} )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}   )
