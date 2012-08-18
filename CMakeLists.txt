@@ -12,6 +12,7 @@ if(NOT COMPILING_KDEGAMES)
 endif(NOT COMPILING_KDEGAMES)
 
 add_subdirectory( levels )
+add_subdirectory( doc )
 
 ########### next target ###############
 
