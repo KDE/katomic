@@ -1,10 +1,14 @@
 [Desktop Entry]
 Name=KAtomic
+Name[uk]=Веселі атоми
+Name[x-test]=xxKAtomicxx
 Icon=katomic
 Type=Application
 Exec=katomic -caption "%c"
 X-DocPath=katomic/index.html
 GenericName=Sokoban-like Logic Game
+GenericName[uk]=Гра на логіку подібна до Сокобану
+GenericName[x-test]=xxSokoban-like Logic Gamexx
 X-KDE-StartupNotify=true
 X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Game;StrategyGame;

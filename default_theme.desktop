@@ -2,7 +2,11 @@
 [KGameTheme]
 VersionFormat=1
 Name=KAtomic Default Theme
+Name[uk]=Типова тема KAtomic
+Name[x-test]=xxKAtomic Default Themexx
 Description=KAtomic Default Theme.
+Description[uk]=Типова тема KAtomic.
+Description[x-test]=xxKAtomic Default Theme.xx
 FileName=default_theme.svgz
 
 [Desktop Entry]
