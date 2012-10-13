@@ -9,7 +9,7 @@
 ]>
  
 <book id="katomic" lang="&language;"> <!-- do not change this! -->
-<book id="katomic"info>
+<bookinfo>
 <title>The &kappname; Handbook</title> <!-- This is the title of the docbook. Leave as is unless change is necessary.-->
 <!-- List of immediate authors begins here. -->
 <!--INPORTANT! - All other contributors: [to be determined] -->
