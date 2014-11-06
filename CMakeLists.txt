@@ -42,6 +42,7 @@ install(TARGETS katomic  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 ########### install files ###############
 
 install( PROGRAMS katomic.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
+install( FILES katomic.appdata.xml DESTINATION  ${DATA_INSTALL_DIR}/appdata )
 install( FILES katomicui.rc  DESTINATION  ${DATA_INSTALL_DIR}/katomic )
 install( FILES default_theme.svgz  DESTINATION  ${DATA_INSTALL_DIR}/katomic/pics/ )
 # ^^^ default_theme.desktop is not installed at the moment
