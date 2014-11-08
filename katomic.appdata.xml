@@ -1,15 +1,22 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <component type="desktop">
   <id>katomic.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KAtomic</name>
+  <name xml:lang="pt">KAtomic</name>
+  <name xml:lang="uk">KAtomic</name>
+  <name xml:lang="x-test">xxKAtomicxx</name>
   <summary>Sokoban-like Logic Game</summary>
+  <summary xml:lang="uk">Логічна гра, подібна до гри «Сокобан»</summary>
+  <summary xml:lang="x-test">xxSokoban-like Logic Gamexx</summary>
   <description>
     <p>
       KAtomic is a fun educational game built around molecular geometry.
       It employs simplistic two-dimensional looks at different chemical elements.
     </p>
+    <p xml:lang="uk">KAtomic — цікава навчальна гра у побудову молекул з атомів. У грі ви матимете справу зі спрощеними двовимірними моделями різних хімічних сполук.</p>
+    <p xml:lang="x-test">xxKAtomic is a fun educational game built around molecular geometry. It employs simplistic two-dimensional looks at different chemical elements.xx</p>
   </description>
   <url type="homepage">http://games.kde.org/game.php?game=katomic</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=katomic</url>
