@@ -4,10 +4,17 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KAtomic</name>
+  <name xml:lang="de">KAtomic</name>
+  <name xml:lang="nl">KAtomic</name>
+  <name xml:lang="pl">Atomy</name>
   <name xml:lang="pt">KAtomic</name>
+  <name xml:lang="sk">KAtomic</name>
   <name xml:lang="uk">KAtomic</name>
   <name xml:lang="x-test">xxKAtomicxx</name>
   <summary>Sokoban-like Logic Game</summary>
+  <summary xml:lang="nl">Sokoban-achtig logisch spel</summary>
+  <summary xml:lang="pl">Gra logiczna typu Sokoban</summary>
+  <summary xml:lang="sk">Logická hra ako Sokoban</summary>
   <summary xml:lang="uk">Логічна гра, подібна до гри «Сокобан»</summary>
   <summary xml:lang="x-test">xxSokoban-like Logic Gamexx</summary>
   <description>
@@ -15,6 +22,9 @@
       KAtomic is a fun educational game built around molecular geometry.
       It employs simplistic two-dimensional looks at different chemical elements.
     </p>
+    <p xml:lang="nl">KAtomic is een leuk educatief spel gebouwd rond moleculaire geometrie. Het gebruikt simplistische tweedimensionale beelden van verschillende chemische elementen.</p>
+    <p xml:lang="pl">KAtomic jest grą edukującą poprzez zabawę stworzoną wokół geometrii cząsteczek. Gra wykorzystuje proste dwuwymiarowe widoki różnych pierwiastków chemicznych.</p>
+    <p xml:lang="sk">KAtomic je zábavná výuková hra založená na molekulárnej geometrii. Používa jednoduchý dvojrozmerný pohľad na rôzne chemické prvky.</p>
     <p xml:lang="uk">KAtomic — цікава навчальна гра у побудову молекул з атомів. У грі ви матимете справу зі спрощеними двовимірними моделями різних хімічних сполук.</p>
     <p xml:lang="x-test">xxKAtomic is a fun educational game built around molecular geometry. It employs simplistic two-dimensional looks at different chemical elements.xx</p>
   </description>
