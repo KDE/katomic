@@ -81,7 +81,7 @@ bool AtomTopLevel::queryClose()
 {
     // saves last played level and levelset
     m_gameWid->saveLastPlayedLevel();
-    Preferences::self()->writeConfig();
+    Preferences::self()->save();
     return true;
 }
 
@@ -194,7 +194,7 @@ void AtomTopLevel::slotAnimSpeedChanged(int speed)
 {
     m_gameWid->playfield()->setAnimationSpeed(speed);
     Preferences::setAnimationSpeed(speed);
-    Preferences::self()->writeConfig();
+    Preferences::self()->save();
 }
 
 void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
@@ -248,4 +248,4 @@ void AtomTopLevel::changeLevelSet(const QString& levelSet)
         m_gameWid->setLevelSet(levelSet);
 }
 
-#include "toplevel.moc"
+

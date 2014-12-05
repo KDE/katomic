@@ -67,12 +67,12 @@ install(TARGETS katomic  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 install( PROGRAMS katomic.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES katomic.appdata.xml DESTINATION  ${DATA_INSTALL_DIR}/appdata )
-install( FILES katomicui.rc  DESTINATION  ${DATA_INSTALL_DIR}/katomic )
+install( FILES katomicui.rc  DESTINATION  ${KXMLGUI_INSTALL_DIR}/katomic )
 install( FILES default_theme.svgz  DESTINATION  ${DATA_INSTALL_DIR}/katomic/pics/ )
 # ^^^ default_theme.desktop is not installed at the moment
 install( FILES katomic.knsrc  DESTINATION  ${CONFIG_INSTALL_DIR} )
 
-ecm_install_icons( ${ICON_INSTALL_DIR}   )
+ecm_install_icons(ICONS hi128-apps-katomic.png  hi16-apps-katomic.png  hi22-apps-katomic.png  hi32-apps-katomic.png  hi48-apps-katomic.png  hi64-apps-katomic.png DESTINATION ${ICON_INSTALL_DIR}   )
 
 if(NOT WIN32)
   install( PROGRAMS katomic-levelset-upd.pl DESTINATION  ${KCONF_UPDATE_INSTALL_DIR} )

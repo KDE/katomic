@@ -263,4 +263,4 @@ void MoleculePreviewItem::paint( QPainter * painter, const QStyleOptionGraphicsI
     painter->restore();
 }
 
-#include "fielditem.moc"
+
