@@ -277,7 +277,7 @@ void GameWidget::resizeEvent( QResizeEvent* ev)
 
 void GameWidget::saveLastPlayedLevel()
 {
-    KSharedConfigPtr cfg = KGlobal::config();
+    KSharedConfigPtr cfg = KSharedConfig::openConfig();
     KConfigGroup grp(cfg, m_levelSet.name());
     grp.writeEntry("LastPlayedLevel", m_level);
 
@@ -286,14 +286,14 @@ void GameWidget::saveLastPlayedLevel()
 
 void GameWidget::saveMaxAccessibleLevel(int level)
 {
-    KSharedConfigPtr cfg = KGlobal::config();
+    KSharedConfigPtr cfg = KSharedConfig::openConfig();
     KConfigGroup grp(cfg, m_levelSet.name());
     grp.writeEntry("MaxAccessibleLevel", level);
 }
 
 int GameWidget::lastPlayedLevel() const
 {
-    KSharedConfigPtr cfg = KGlobal::config();
+    KSharedConfigPtr cfg = KSharedConfig::openConfig();
     KConfigGroup grp(cfg, m_levelSet.name());
     int lastPlayed = grp.readEntry("LastPlayedLevel", 1);
     lastPlayed = qMax(1, lastPlayed); // can't be less than 1
@@ -303,7 +303,7 @@ int GameWidget::lastPlayedLevel() const
 
 int GameWidget::maxAccessibleLevel() const
 {
-    KSharedConfigPtr cfg = KGlobal::config();
+    KSharedConfigPtr cfg = KSharedConfig::openConfig();
     KConfigGroup grp(cfg, m_levelSet.name());
     int maxAccessible = grp.readEntry("MaxAccessibleLevel", 1);
     kDebug() << "max accessible level:" << maxAccessible;
