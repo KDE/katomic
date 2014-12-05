@@ -29,6 +29,8 @@
 #include <kdefakes.h>
 #include <QFileInfo>
 
+#include <string.h>
+
 #include "atom.h"
 #include "molecule.h"
 #include "commondefs.h"
@@ -237,7 +239,7 @@ const Molecule* LevelSet::readLevelMolecule(int levelNum) const
         current.obj = value.at(0).toLatin1();
         value = value.mid(2);
 
-        strlcpy(current.conn, value.toAscii(), sizeof(current.conn));
+        //QT5 port it strlcpy(current.conn, value.toAscii(), sizeof(current.conn));
         kWarning( mol->m_atoms.indexOf(current) != -1 )
             << "OOOPS, duplicate atom definition in" << key;
         mol->m_atoms.append(current);

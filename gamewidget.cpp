@@ -35,6 +35,8 @@
 #include <kglobalsettings.h>
 #include <kfiledialog.h>
 #include <kdebug.h>
+#include <KGlobal>
+#include <KUrl>
 
 GameWidget::GameWidget ( const QString& levelSet, QWidget *parent )
     : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0), m_level(0)

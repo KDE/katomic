@@ -25,6 +25,7 @@
 #include <KStandardDirs>
 #include <KDebug>
 #include <KNS3/KNewStuffButton>
+#include <KGlobal>
 
 #include "levelset.h"
 #include "levelsetdelegate.h"
@@ -78,7 +79,7 @@ void ChooseLevelSetDialog::loadData()
         if (!visibleName.isEmpty())
         {
             QListWidgetItem* item = new QListWidgetItem;
-            item->setIcon(KIcon( QLatin1String( "katomic" )));
+            item->setIcon(QIcon::fromTheme( QLatin1String( "katomic" )));
             item->setText(visibleName);
             item->setData(KAtomic::LevelSetNameRole, ls.name());
             item->setData(KAtomic::LevelSetDescriptionRole, ls.description());

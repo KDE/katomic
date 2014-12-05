@@ -197,9 +197,10 @@ QPixmap AtomFieldItem::renderAtom( KGameRenderer* renderer, const atom& at, int 
 // ----------------- MoleculePreviewItem ----------------------------
 
 MoleculePreviewItem::MoleculePreviewItem( PlayField* scene )
-    : QGraphicsItem( 0, scene ), m_renderer(scene->renderer()), m_width(0),
+    : QGraphicsItem( 0 ), m_renderer(scene->renderer()), m_width(0),
       m_atomSize(20), m_maxAtomSize(30), m_mol( 0 )
 {
+   scene->addItem(this);
 }
 
 MoleculePreviewItem::~MoleculePreviewItem()

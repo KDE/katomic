@@ -57,11 +57,11 @@ AtomTopLevel::AtomTopLevel()
     loadSettings();
     setCentralWidget(m_gameWid);
 
-    statusBar()->insertItem( i18n("Level:"), LEVEL_BAR_ID , 1);
-    statusBar()->insertPermanentItem( i18n("Current score:"), CUR_SCORE_BAR_ID, 1);
-    statusBar()->insertPermanentItem( i18n("Highscore:"), HIGHSCORE_BAR_ID, 1 );
-    statusBar()->insertItem( QString(), MOLECULE_NAME_ID , 1);
-    statusBar()->setItemAlignment(0, Qt::AlignLeft | Qt::AlignVCenter);
+    //QT5 statusBar()->insertItem( i18n("Level:"), LEVEL_BAR_ID , 1);
+    //QT5 statusBar()->insertPermanentItem( i18n("Current score:"), CUR_SCORE_BAR_ID, 1);
+    //QT5 statusBar()->insertPermanentItem( i18n("Highscore:"), HIGHSCORE_BAR_ID, 1 );
+    //QT5 statusBar()->insertItem( QString(), MOLECULE_NAME_ID , 1);
+    //QT5 statusBar()->setItemAlignment(0, Qt::AlignLeft | Qt::AlignVCenter);
 
     updateStatusBar( m_gameWid->currentLevel(), m_gameWid->currentScore(), m_gameWid->currentHighScore() );
 
@@ -147,37 +147,37 @@ void AtomTopLevel::createMenu()
     connect (m_gameWid->playfield(), SIGNAL (enableUndo(bool)), undoAll, SLOT(setEnabled(bool)));
     connect (m_gameWid->playfield(), SIGNAL (enableRedo(bool)), redoAll, SLOT(setEnabled(bool)));
 
-    KAction* atomUpAct = actionCollection()->addAction( QLatin1String( "atom_up" ));
+    QAction * atomUpAct = actionCollection()->addAction( QLatin1String( "atom_up" ));
     atomUpAct->setText(i18n("Atom Up"));
     atomUpAct->setShortcut(Qt::Key_Up);
     addAction(atomUpAct);
     connect(atomUpAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveUp()));
 
-    KAction* atomDownAct = actionCollection()->addAction( QLatin1String( "atom_down" ));
+    QAction * atomDownAct = actionCollection()->addAction( QLatin1String( "atom_down" ));
     atomDownAct->setText(i18n("Atom Down"));
     atomDownAct->setShortcut(Qt::Key_Down);
     addAction(atomDownAct);
     connect(atomDownAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveDown()));
 
-    KAction* atomLeftAct = actionCollection()->addAction( QLatin1String( "atom_left" ));
+    QAction * atomLeftAct = actionCollection()->addAction( QLatin1String( "atom_left" ));
     atomLeftAct->setText(i18n("Atom Left"));
     atomLeftAct->setShortcut(Qt::Key_Left);
     addAction(atomLeftAct);
     connect(atomLeftAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveLeft()));
 
-    KAction* atomRightAct = actionCollection()->addAction( QLatin1String( "atom_right" ));
+    QAction * atomRightAct = actionCollection()->addAction( QLatin1String( "atom_right" ));
     atomRightAct->setText(i18n("Atom Right"));
     atomRightAct->setShortcut(Qt::Key_Right);
     addAction(atomRightAct);
     connect(atomRightAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveRight()));
 
-    KAction* nextAtomAct = actionCollection()->addAction( QLatin1String( "next_atom" ));
+    QAction * nextAtomAct = actionCollection()->addAction( QLatin1String( "next_atom" ));
     nextAtomAct->setText(i18n("Next Atom"));
     nextAtomAct->setShortcut(Qt::Key_Tab);
     addAction(nextAtomAct);
     connect(nextAtomAct, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(nextAtom()));
 
-    KAction* prevAtomAct = actionCollection()->addAction( QLatin1String( "prev_atom" ));
+    QAction * prevAtomAct = actionCollection()->addAction( QLatin1String( "prev_atom" ));
     prevAtomAct->setText(i18n("Previous Atom"));
     prevAtomAct->setShortcut(Qt::SHIFT+Qt::Key_Tab);
     addAction(prevAtomAct);
@@ -199,14 +199,14 @@ void AtomTopLevel::slotAnimSpeedChanged(int speed)
 
 void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
 {
-    statusBar()->changeItem( i18n("Level: %1 (%2)", level, m_gameWid->levelSet().visibleName()), LEVEL_BAR_ID );
-    statusBar()->changeItem( i18n("Current score: %1", score), CUR_SCORE_BAR_ID );
+    //QT5 statusBar()->changeItem( i18n("Level: %1 (%2)", level, m_gameWid->levelSet().visibleName()), LEVEL_BAR_ID );
+    //QT5 statusBar()->changeItem( i18n("Current score: %1", score), CUR_SCORE_BAR_ID );
     QString str;
     if(highscore == 0)
         str = '-';
     else
         str.setNum(highscore);
-    statusBar()->changeItem( i18n("Highscore: %1", str), HIGHSCORE_BAR_ID );
+    //QT5 statusBar()->changeItem( i18n("Highscore: %1", str), HIGHSCORE_BAR_ID );
 }
 
 void AtomTopLevel::enableHackMode()
@@ -220,7 +220,7 @@ void AtomTopLevel::enableHackMode()
 void AtomTopLevel::levelHasChanged(int level)
 {
     // Update level name
-    statusBar()->changeItem( m_gameWid->currentMolecule(), MOLECULE_NAME_ID);
+    //QT5 statusBar()->changeItem( m_gameWid->currentMolecule(), MOLECULE_NAME_ID);
     // don't gray out actions in hackmode, else do
     if(!m_gameWid->switchToAnyLevelAllowed())
         updateActionsForLevel(level);
