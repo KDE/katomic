@@ -23,7 +23,7 @@
 #include "chooselevelsetdialog.h"
 
 #include <KStandardDirs>
-#include <KDebug>
+#include <QDebug>
 #include <KNS3/KNewStuffButton>
 #include <KGlobal>
 

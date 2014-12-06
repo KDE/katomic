@@ -22,7 +22,7 @@
 #include "toplevel.h"
 
 #include <kapplication.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kcmdlineargs.h>
 #include <K4AboutData>
 #include <kglobal.h>

@@ -24,8 +24,8 @@
 
 #include <KStandardDirs>
 #include <KConfigGroup>
-#include <KDebug>
-#include <KLocale>
+#include <QDebug>
+#include <KLocalizedString>
 #include <kdefakes.h>
 #include <QFileInfo>
 
@@ -102,13 +102,14 @@ bool LevelSet::load(const QString& levelSetName)
     QString file = KStandardDirs::locate("appdata", QString("levels/%1.dat").arg(levelSetName));
     if (file.isEmpty())
     {
-        kDebug() << "level set \"" << levelSetName << "\" data file not found. Check your installation";
+        //qDebug() << "level set \"" << levelSetName << "\" data file not found. Check your installation";
         return false;
     }
 
     bool res = loadFromFile(file);
-    if (!res)
-        kDebug() << "warning: failed to load level set" << levelSetName;
+    if (!res) {
+        //qDebug() << "warning: failed to load level set" << levelSetName;
+    }
 
     return res;
 }
@@ -128,8 +129,9 @@ bool LevelSet::loadFromFile(const QString& fileName)
 
     m_name = QFileInfo(fileName).baseName();
 
-    if (m_levelCount <= 0)
-        kDebug() << "warning: in level set" << m_name << "level count not specified or invalid";
+    if (m_levelCount <= 0) {
+        //qDebug() << "warning: in level set" << m_name << "level count not specified or invalid";
+    }
 
     return true;
 }
@@ -186,7 +188,7 @@ const LevelData* LevelSet::readLevel(int levelNum) const
         {
             if (line.isEmpty())
             {
-                kDebug() << "error while reading level" << levelNum << "data from" << m_name;
+                //qDebug() << "error while reading level" << levelNum << "data from" << m_name;
                 return 0;
             }
 
@@ -240,7 +242,8 @@ const Molecule* LevelSet::readLevelMolecule(int levelNum) const
         value = value.mid(2);
 
         //QT5 port it strlcpy(current.conn, value.toAscii(), sizeof(current.conn));
-        kWarning( mol->m_atoms.indexOf(current) != -1 )
+        if (mol->m_atoms.indexOf(current) != -1)
+             qWarning()
             << "OOOPS, duplicate atom definition in" << key;
         mol->m_atoms.append(current);
         atom_index++;
@@ -287,7 +290,7 @@ bool LevelSet::isDefaultLevelsAvailable()
     QString file = KStandardDirs::locate("appdata", QString("levels/%1.dat").arg(DEFAULT_LEVELSET_NAME));
     if (file.isEmpty())
     {
-        kDebug() << "default level set \"" << DEFAULT_LEVELSET_NAME << "\" data file not found. Check your installation";
+        //qDebug() << "default level set \"" << DEFAULT_LEVELSET_NAME << "\" data file not found. Check your installation";
         return false;
     }
 

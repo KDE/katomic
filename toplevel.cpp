@@ -23,15 +23,15 @@
 #include "toplevel.h"
 
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kconfig.h>
 #include <kstandarddirs.h>
 #include <kstandardaction.h>
 #include <kstandardgameaction.h>
 #include <kselectaction.h>
 #include <kactioncollection.h>
-#include <kdebug.h>
-#include <kicon.h>
+#include <QDebug>
+#include <QIcon>
 #include <kstatusbar.h>
 
 #include "gamewidget.h"
@@ -102,14 +102,14 @@ void AtomTopLevel::createMenu()
 
 
     m_prevLevelAct = actionCollection()->addAction( QLatin1String(  "prev_level" ) );
-    m_prevLevelAct->setIcon( KIcon( QLatin1String(  "arrow-left" ) ) );
+    m_prevLevelAct->setIcon( QIcon::fromTheme( QLatin1String(  "arrow-left" ) ) );
     m_prevLevelAct->setText( i18n( "Previous Level" ) );
     m_prevLevelAct->setShortcut( Qt::CTRL + Qt::Key_P );
     addAction( m_prevLevelAct );
     connect( m_prevLevelAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(prevLevel()) );
 
     m_nextLevelAct = actionCollection()->addAction( QLatin1String(  "next_level" ) );
-    m_nextLevelAct->setIcon( KIcon( QLatin1String(  "arrow-right" ) ) );
+    m_nextLevelAct->setIcon( QIcon::fromTheme( QLatin1String(  "arrow-right" ) ) );
     m_nextLevelAct->setText( i18n( "Next Level" ) );
     m_nextLevelAct->setShortcut( Qt::CTRL + Qt::Key_N );
     addAction( m_nextLevelAct );
@@ -128,12 +128,12 @@ void AtomTopLevel::createMenu()
     connect( m_animSpeedAct, SIGNAL(triggered(int)), SLOT(slotAnimSpeedChanged(int)) );
 
     QAction *undoAll = actionCollection()->addAction( QLatin1String(  "move_undo_all" ) );
-    undoAll->setIcon( KIcon( QLatin1String( "media-skip-backward" )) );
+    undoAll->setIcon( QIcon::fromTheme( QLatin1String( "media-skip-backward" )) );
     undoAll->setText( i18n("Undo All") );
     connect( undoAll, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(undoAll()) );
 
     QAction *redoAll = actionCollection()->addAction( QLatin1String(  "move_redo_all" ) );
-    redoAll->setIcon( KIcon( QLatin1String( "media-skip-forward" )) );
+    redoAll->setIcon( QIcon::fromTheme( QLatin1String( "media-skip-forward" )) );
     redoAll->setText( i18n("Redo All") );
     connect( redoAll, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(redoAll()) );
 
@@ -211,7 +211,7 @@ void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
 
 void AtomTopLevel::enableHackMode()
 {
-    kDebug() << "Enabling hack mode";
+    //qDebug() << "Enabling hack mode";
     m_prevLevelAct->setDisabled(false);
     m_nextLevelAct->setDisabled(false);
     m_gameWid->enableSwitchToAnyLevel();

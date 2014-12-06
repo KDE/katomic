@@ -26,7 +26,7 @@
 #include <QApplication>
 
 #include <KGlobalSettings>
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "commondefs.h"
 

@@ -28,8 +28,8 @@
 #include <QPainter>
 #include <QTimeLine>
 
-#include <kdebug.h>
-#include <klocale.h>
+#include <QDebug>
+#include <KLocalizedString>
 #include "molecule.h"
 #include "playfield.h"
 

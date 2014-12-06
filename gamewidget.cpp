@@ -29,12 +29,12 @@
 #include <QVBoxLayout>
 #include <QTimer> // Next Level after N seconds
 #include <kmessagebox.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kstandarddirs.h>
 #include <kconfig.h>
 #include <kglobalsettings.h>
 #include <kfiledialog.h>
-#include <kdebug.h>
+#include <QDebug>
 #include <KGlobal>
 #include <KUrl>
 
@@ -89,7 +89,7 @@ bool GameWidget::setLevelSet(const QString& levelSet)
 {
     if (m_levelSet.name() == levelSet)
     {
-        kDebug() << "level set named" << levelSet << "is already loaded";
+        //qDebug() << "level set named" << levelSet << "is already loaded";
         return true;
     }
 
@@ -97,7 +97,7 @@ bool GameWidget::setLevelSet(const QString& levelSet)
     if (!res)
     {
         KMessageBox::error(this, i18n("Failed to load level set \"%1\". Check if it is installed on your computer.", levelSet));
-        kDebug() << "failed to load levelset" << levelSet;
+        //qDebug() << "failed to load levelset" << levelSet;
         return false;
     }
 
@@ -192,8 +192,9 @@ void GameWidget::switchToLevel (int l)
 
         saveLastPlayedLevel();
     }
-    else
-        kDebug() << "failed to load level" << l;
+    else {
+        //qDebug() << "failed to load level" << l;
+    }
 }
 
 void GameWidget::restartLevel()
@@ -223,7 +224,7 @@ void GameWidget::loadGame()
     QString levelSet = gr.readEntry("LevelSet");
     if (levelSet.isEmpty())
     {
-        kDebug() << "note: savegame file doesn't contain info about levelset, assuming default one";
+        //qDebug() << "note: savegame file doesn't contain info about levelset, assuming default one";
         levelSet = DEFAULT_LEVELSET_NAME;
     }
 
@@ -297,7 +298,7 @@ int GameWidget::lastPlayedLevel() const
     KConfigGroup grp(cfg, m_levelSet.name());
     int lastPlayed = grp.readEntry("LastPlayedLevel", 1);
     lastPlayed = qMax(1, lastPlayed); // can't be less than 1
-    kDebug() << "last played level:" << lastPlayed;
+    //qDebug() << "last played level:" << lastPlayed;
     return lastPlayed;
 }
 
@@ -306,7 +307,7 @@ int GameWidget::maxAccessibleLevel() const
     KSharedConfigPtr cfg = KSharedConfig::openConfig();
     KConfigGroup grp(cfg, m_levelSet.name());
     int maxAccessible = grp.readEntry("MaxAccessibleLevel", 1);
-    kDebug() << "max accessible level:" << maxAccessible;
+    //qDebug() << "max accessible level:" << maxAccessible;
     return maxAccessible;
 }
 
