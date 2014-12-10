@@ -65,7 +65,7 @@ install(TARGETS katomic  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### install files ###############
 
-install( PROGRAMS katomic.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
+install( PROGRAMS org.kde.katomic.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES katomic.appdata.xml DESTINATION  ${DATA_INSTALL_DIR}/appdata )
 install( FILES katomicui.rc  DESTINATION  ${KXMLGUI_INSTALL_DIR}/katomic )
 install( FILES default_theme.svgz  DESTINATION  ${DATA_INSTALL_DIR}/katomic/pics/ )

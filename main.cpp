@@ -23,11 +23,13 @@
 
 #include <kapplication.h>
 #include <KLocalizedString>
-#include <kcmdlineargs.h>
-#include <K4AboutData>
+
+#include <KAboutData>
 #include <kglobal.h>
 #include <kmessagebox.h>
 #include <qtimer.h>
+#include <QCommandLineParser>
+#include <QCommandLineOption>
 
 #include "levelset.h"
 
@@ -43,47 +45,49 @@ static const char version[] = "3.0";
 
 int main(int argc, char **argv)
 {
-  K4AboutData aboutData( "katomic", 0, ki18n("KAtomic"),
-    version, ki18n(description), K4AboutData::License_GPL,
-    ki18n("(c) 1998, Andreas Wuest\n(c) 2007-2009 Dmitry Suzdalev"), KLocalizedString(), "http://games.kde.org/katomic" );
-  aboutData.addAuthor(ki18n("Andreas Wuest"), ki18n("Original author"), "AndreasWuest@gmx.de");
-  aboutData.addAuthor(ki18n("Dmitry Suzdalev"), ki18n("Porting to KDE4. Current maintainer"), "dimsuz@gmail.com");
-  aboutData.addAuthor(ki18n("Stephan Kulow"), KLocalizedString(), "coolo@kde.org");
-  aboutData.addAuthor(ki18n("Cristian Tibirna"), KLocalizedString(), "tibirna@kde.org");
-  aboutData.addCredit(ki18n("Carsten Pfeiffer"), KLocalizedString(), "pfeiffer@kde.org");
-  aboutData.addCredit(ki18n("Dave Corrie"), KLocalizedString(), "kde@davecorrie.com");
-  aboutData.addCredit(ki18n("Kai Jung"), ki18n("6 new levels"), "jung@fh-fresenius.de");
-  aboutData.addCredit(ki18n("Danny Allen"), ki18n("Game graphics and application icon"), "danny@dannyallen.co.uk");
-  aboutData.addCredit(ki18n("Johann Ollivier Lapeyre"), ki18n("New great SVG artwork for KDE4"), "johann.ollivierlapeyre@gmail.com");
-  aboutData.addCredit(ki18n("Brian Croom"), ki18n("Port to use KGameRenderer"), "brian.s.croom@gmail.com");
+  KAboutData aboutData( "katomic", i18n("KAtomic"),
+    version, i18n(description), KAboutLicense::GPL,
+    i18n("(c) 1998, Andreas Wuest\n(c) 2007-2009 Dmitry Suzdalev"), "http://games.kde.org/katomic" );
+  aboutData.addAuthor(i18n("Andreas Wuest"), i18n("Original author"), "AndreasWuest@gmx.de");
+  aboutData.addAuthor(i18n("Dmitry Suzdalev"), i18n("Porting to KDE4. Current maintainer"), "dimsuz@gmail.com");
+  aboutData.addAuthor(i18n("Stephan Kulow"), QString(), "coolo@kde.org");
+  aboutData.addAuthor(i18n("Cristian Tibirna"), QString(), "tibirna@kde.org");
+  aboutData.addCredit(i18n("Carsten Pfeiffer"), QString(), "pfeiffer@kde.org");
+  aboutData.addCredit(i18n("Dave Corrie"), QString(), "kde@davecorrie.com");
+  aboutData.addCredit(i18n("Kai Jung"), i18n("6 new levels"), "jung@fh-fresenius.de");
+  aboutData.addCredit(i18n("Danny Allen"), i18n("Game graphics and application icon"), "danny@dannyallen.co.uk");
+  aboutData.addCredit(i18n("Johann Ollivier Lapeyre"), i18n("New great SVG artwork for KDE4"), "johann.ollivierlapeyre@gmail.com");
+  aboutData.addCredit(i18n("Brian Croom"), i18n("Port to use KGameRenderer"), "brian.s.croom@gmail.com");
 
-  KCmdLineArgs::init( argc, argv, &aboutData );
+    QApplication app(argc, argv);
+    QCommandLineParser parser;
+    KAboutData::setApplicationData(aboutData);
+    parser.addVersionOption();
+    parser.addHelpOption();
+  parser.addOption(QCommandLineOption(QStringList() <<  QLatin1String("hackmode"), i18n( "Enable access to all levels" )));
 
-  KCmdLineOptions options;
-  options.add("hackmode", ki18n( "Enable access to all levels" ));
-  KCmdLineArgs::addCmdLineOptions( options );
-
-  KApplication a;
+    aboutData.setupCommandLine(&parser);
+    parser.process(app);
+    aboutData.processCommandLine(&parser);
 
   if (!LevelSet::isDefaultLevelsAvailable())
   {
       KMessageBox::error(0, i18n("KAtomic failed to find its default level set and will quit. Please check your installation."));
-      QTimer::singleShot(0, &a, SLOT(quit()));
+      QTimer::singleShot(0, &app, SLOT(quit()));
   }
   else
   {
-      if ( a.isSessionRestored() )
+      if ( app.isSessionRestored() )
           RESTORE(AtomTopLevel)
       else {
           AtomTopLevel *top = new AtomTopLevel;
-          KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-          if ( args->isSet( "hackmode" ) )
+          if ( parser.isSet( "hackmode" ) )
               top->enableHackMode();
-          args->clear();
+          
           top->show();
       }
   }
 
-  return a.exec();
+  return app.exec();
 }
 

@@ -25,14 +25,13 @@
 
 #include <KLocalizedString>
 #include <kconfig.h>
-#include <kstandarddirs.h>
 #include <kstandardaction.h>
 #include <kstandardgameaction.h>
 #include <kselectaction.h>
 #include <kactioncollection.h>
 #include <QDebug>
 #include <QIcon>
-#include <kstatusbar.h>
+#include <qstatusbar.h>
 
 #include "gamewidget.h"
 #include "playfield.h"

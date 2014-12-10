@@ -28,13 +28,14 @@
 #include <QTimeLine>
 #include <QPainter>
 
-#include <KStandardDirs>
+
 #include <KConfig>
 #include <QDebug>
 #include <kconfiggroup.h>
 
 #include <KGamePopupItem>
 #include <KgTheme>
+#include <QStandardPaths>
 
 #include "molecule.h"
 #include "fielditem.h"
@@ -46,7 +47,7 @@ struct Theme : public KgTheme
 {
 	Theme() : KgTheme("pics/default_theme.desktop")
 	{
-		setGraphicsPath(KStandardDirs::locate("appdata", "pics/default_theme.svgz"));
+		setGraphicsPath(QStandardPaths::locate(QStandardPaths::DataLocation, "pics/default_theme.svgz"));
 	}
 };
 
