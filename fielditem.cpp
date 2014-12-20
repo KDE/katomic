@@ -50,7 +50,7 @@ ArrowFieldItem::ArrowFieldItem( KGameRenderer* renderer, PlayField::Direction di
     setOpacity(0.0); //start invisible
     m_timeLine = new QTimeLine(200);
     m_timeLine->setFrameRange( 0, 30 );
-    connect(m_timeLine, SIGNAL(valueChanged(qreal)), SLOT(setOpacity(qreal)) );
+    connect(m_timeLine, &QTimeLine::valueChanged, this, &ArrowFieldItem::setOpacity);
 }
 
 ArrowFieldItem::~ArrowFieldItem()

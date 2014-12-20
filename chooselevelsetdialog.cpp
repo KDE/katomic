@@ -54,9 +54,8 @@ ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
 
     loadData();
 
-    connect(m_ui.m_lwLevelSets, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),
-            SLOT(updateApplyButton()));
-    connect(m_ui.m_pbNewStuff, SIGNAL(dialogFinished(KNS3::Entry::List)), SLOT(newStuffDone(KNS3::Entry::List)));
+    connect(m_ui.m_lwLevelSets, &QListWidget::currentItemChanged, this, &ChooseLevelSetDialog::updateApplyButton);
+    connect(m_ui.m_pbNewStuff, &KNS3::Button::dialogFinished, this, &ChooseLevelSetDialog::newStuffDone);
 }
 
 void ChooseLevelSetDialog::newStuffDone(const KNS3::Entry::List& entries)

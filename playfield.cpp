@@ -57,7 +57,7 @@ PlayField::PlayField( QObject* parent )
     m_levelFinished(false)
 {
     m_atomTimeLine = new QTimeLine(300, this);
-    connect(m_atomTimeLine, SIGNAL(frameChanged(int)), SLOT(atomAnimFrameChanged(int)) );
+    connect(m_atomTimeLine, &QTimeLine::frameChanged, this, &PlayField::atomAnimFrameChanged);
 
     m_upArrow = new ArrowFieldItem(&m_renderer, Up, this);
     m_downArrow = new ArrowFieldItem(&m_renderer, Down, this);

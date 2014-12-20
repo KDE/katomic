@@ -64,8 +64,8 @@ AtomTopLevel::AtomTopLevel()
 
     updateStatusBar( m_gameWid->currentLevel(), m_gameWid->currentScore(), m_gameWid->currentHighScore() );
 
-    connect(m_gameWid, SIGNAL(statsChanged(int,int,int)), SLOT(updateStatusBar(int,int,int)));
-    connect(m_gameWid, SIGNAL(levelChanged(int)), SLOT(levelHasChanged(int)));
+    connect(m_gameWid, &GameWidget::statsChanged, this, &AtomTopLevel::updateStatusBar);
+    connect(m_gameWid, &GameWidget::levelChanged, this, &AtomTopLevel::levelHasChanged);
 
     // update next/prev actions
     levelHasChanged(m_gameWid->currentLevel());
@@ -117,14 +117,14 @@ void AtomTopLevel::createMenu()
     QAction* chooseLevelSet = actionCollection()->addAction( QLatin1String(  "choose_level_set" ) );
     chooseLevelSet->setText( i18n( "Choose level set..." ) );
     addAction( chooseLevelSet );
-    connect( chooseLevelSet, SIGNAL(triggered(bool)), SLOT(chooseLevelSet()) );
+    connect(chooseLevelSet, &QAction::triggered, this, &AtomTopLevel::chooseLevelSet);
 
     m_animSpeedAct = new KSelectAction(i18n("Animation Speed"), this);
     actionCollection()->addAction( QLatin1String( "anim_speed" ), m_animSpeedAct);
     QStringList acts;
     acts << i18n("Slow") << i18n("Normal") << i18n("Fast");
     m_animSpeedAct->setItems(acts);
-    connect( m_animSpeedAct, SIGNAL(triggered(int)), SLOT(slotAnimSpeedChanged(int)) );
+    connect(m_animSpeedAct, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &AtomTopLevel::slotAnimSpeedChanged);
 
     QAction *undoAll = actionCollection()->addAction( QLatin1String(  "move_undo_all" ) );
     undoAll->setIcon( QIcon::fromTheme( QLatin1String( "media-skip-backward" )) );
@@ -150,25 +150,25 @@ void AtomTopLevel::createMenu()
     atomUpAct->setText(i18n("Atom Up"));
     atomUpAct->setShortcut(Qt::Key_Up);
     addAction(atomUpAct);
-    connect(atomUpAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveUp()));
+    connect(atomUpAct, &QAction::triggered, m_gameWid, &GameWidget::moveUp);
 
     QAction * atomDownAct = actionCollection()->addAction( QLatin1String( "atom_down" ));
     atomDownAct->setText(i18n("Atom Down"));
     atomDownAct->setShortcut(Qt::Key_Down);
     addAction(atomDownAct);
-    connect(atomDownAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveDown()));
+    connect(atomDownAct, &QAction::triggered, m_gameWid, &GameWidget::moveDown);
 
     QAction * atomLeftAct = actionCollection()->addAction( QLatin1String( "atom_left" ));
     atomLeftAct->setText(i18n("Atom Left"));
     atomLeftAct->setShortcut(Qt::Key_Left);
     addAction(atomLeftAct);
-    connect(atomLeftAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveLeft()));
+    connect(atomLeftAct, &QAction::triggered, m_gameWid, &GameWidget::moveLeft);
 
     QAction * atomRightAct = actionCollection()->addAction( QLatin1String( "atom_right" ));
     atomRightAct->setText(i18n("Atom Right"));
     atomRightAct->setShortcut(Qt::Key_Right);
     addAction(atomRightAct);
-    connect(atomRightAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(moveRight()));
+    connect(atomRightAct, &QAction::triggered, m_gameWid, &GameWidget::moveRight);
 
     QAction * nextAtomAct = actionCollection()->addAction( QLatin1String( "next_atom" ));
     nextAtomAct->setText(i18n("Next Atom"));
@@ -235,7 +235,7 @@ void AtomTopLevel::chooseLevelSet()
 {
     // will delete itself on close
     ChooseLevelSetDialog* dlg = new ChooseLevelSetDialog(this);
-    connect(dlg, SIGNAL(levelSetChanged(QString)), SLOT(changeLevelSet(QString)));
+    connect(dlg, &ChooseLevelSetDialog::levelSetChanged, this, &AtomTopLevel::changeLevelSet);
 
     dlg->setCurrentLevelSet(m_gameWid->levelSet().name());
     dlg->show();

@@ -68,13 +68,13 @@ GameWidget::GameWidget ( const QString& levelSet, QWidget *parent )
 
     top->addWidget(m_view, 1);
 
-    connect (m_playField, SIGNAL (gameOver(int)), SLOT(gameOver(int)));
-    connect (m_playField, SIGNAL (updateMoves(int)), SLOT(updateMoves(int)));
+    connect(m_playField, &PlayField::gameOver, this, &GameWidget::gameOver);
+    connect(m_playField, &PlayField::updateMoves, this, &GameWidget::updateMoves);
 
     // Next level after some seconds after ending the game. See gameOver, nextLevel and prevLevel
     m_timer = new QTimer(this);
     m_timer->setSingleShot(true);
-    connect (m_timer, SIGNAL(timeout()), this, SLOT(nextLevel()));
+    connect(m_timer, &QTimer::timeout, this, &GameWidget::nextLevel);
 
     setLevelSet(levelSet);
 }
