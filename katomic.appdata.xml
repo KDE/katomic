@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KAtomic</name>
+  <name xml:lang="ca">KAtomic</name>
   <name xml:lang="cs">KAtomic</name>
   <name xml:lang="da">KAtomic</name>
   <name xml:lang="de">KAtomic</name>
@@ -23,6 +24,7 @@
   <name xml:lang="uk">KAtomic</name>
   <name xml:lang="x-test">xxKAtomicxx</name>
   <summary>Sokoban-like Logic Game</summary>
+  <summary xml:lang="ca">Joc de lògica similar al Sokoban</summary>
   <summary xml:lang="cs">Logická hra jako Sokoban</summary>
   <summary xml:lang="en-GB">Sokoban-like Logic Game</summary>
   <summary xml:lang="es">Juego de lógica parecido al Sokoban</summary>
@@ -44,6 +46,7 @@
       KAtomic is a fun educational game built around molecular geometry.
       It employs simplistic two-dimensional looks at different chemical elements.
     </p>
+    <p xml:lang="ca">El KAtomic és un joc educatiu divertit construït al voltant de la geometria molecular. Fa servir aparences bidimensionals simplificades de elements químics diferents.</p>
     <p xml:lang="en-GB">KAtomic is a fun educational game built around molecular geometry. It employs simplistic two-dimensional looks at different chemical elements.</p>
     <p xml:lang="es">KAtomic es un divertido juego educativo basado en la geometría molecular. Emplea vistas bidimensionales simplificadas de diferentes elementos químicos.</p>
     <p xml:lang="it">KAtomic è un gioco divertente ed educativo, basato sulla geometria molecolare. Impiega una rappresentazione bidimensionale semplificata per gli elementi chimici.</p>
