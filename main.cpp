@@ -21,7 +21,7 @@
 
 #include "toplevel.h"
 
-#include <kapplication.h>
+#include <qapplication.h>
 #include <KLocalizedString>
 
 #include <KAboutData>
@@ -29,6 +29,7 @@
 #include <qtimer.h>
 #include <QCommandLineParser>
 #include <QCommandLineOption>
+#include <kdelibs4configmigrator.h>
 
 #include "levelset.h"
 
@@ -44,6 +45,11 @@ static const char version[] = "3.0";
 
 int main(int argc, char **argv)
 {
+    Kdelibs4ConfigMigrator migrate(QStringLiteral("katomic"));
+    migrate.setConfigFiles(QStringList() << QStringLiteral("katomicrc"));
+    migrate.setUiFiles(QStringList() << QStringLiteral("katomicui.rc"));
+    migrate.migrate();
+
   KAboutData aboutData( "katomic", i18n("KAtomic"),
     version, i18n(description), KAboutLicense::GPL,
     i18n("(c) 1998, Andreas Wuest\n(c) 2007-2009 Dmitry Suzdalev"), "http://games.kde.org/katomic" );
