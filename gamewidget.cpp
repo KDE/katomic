@@ -31,7 +31,6 @@
 #include <kmessagebox.h>
 #include <KLocalizedString>
 #include <kconfig.h>
-#include <kglobalsettings.h>
 #include <kfiledialog.h>
 #include <QDebug>
 #include <KUrl>
