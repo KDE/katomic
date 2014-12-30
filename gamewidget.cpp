@@ -30,12 +30,10 @@
 #include <QTimer> // Next Level after N seconds
 #include <kmessagebox.h>
 #include <KLocalizedString>
-#include <kstandarddirs.h>
 #include <kconfig.h>
 #include <kglobalsettings.h>
 #include <kfiledialog.h>
 #include <QDebug>
-#include <KGlobal>
 #include <KUrl>
 
 GameWidget::GameWidget ( const QString& levelSet, QWidget *parent )

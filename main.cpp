@@ -25,7 +25,6 @@
 #include <KLocalizedString>
 
 #include <KAboutData>
-#include <kglobal.h>
 #include <kmessagebox.h>
 #include <qtimer.h>
 #include <QCommandLineParser>
