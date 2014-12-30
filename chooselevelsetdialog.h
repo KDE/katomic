@@ -24,11 +24,11 @@
 #ifndef CHOOSE_LEVEL_SET_DIALOG_H
 #define CHOOSE_LEVEL_SET_DIALOG_H
 
-#include <KDialog>
+#include <QDialog>
 
 #include "ui_levelsetwidget.h"
-
-class ChooseLevelSetDialog : public KDialog
+class QDialogButtonBox;
+class ChooseLevelSetDialog : public QDialog
 {
     Q_OBJECT
 
@@ -42,15 +42,18 @@ signals:
     void levelSetChanged(QString);
 
 protected Q_SLOTS:
-    void slotButtonClicked(int);
     void newStuffDone(const KNS3::Entry::List& entries);
 
 private Q_SLOTS:
     void updateApplyButton();
+    void slotApplyClicked();
+    void slotOkClicked();
 
 private:
+    void saveSettings();
     Ui::LevelSetWidget m_ui;
     QString m_gameCurrentLevelSetName;
+    QDialogButtonBox *m_buttonBox;
 };
 
 #endif

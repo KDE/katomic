@@ -26,6 +26,10 @@
 #include <QDebug>
 #include <KNS3/KNewStuffButton>
 #include <KGlobal>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 #include "levelset.h"
 #include "levelsetdelegate.h"
@@ -33,12 +37,22 @@
 #include "commondefs.h"
 
 ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
-    : KDialog(parent)
+    : QDialog(parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
 
-    setCaption(i18n("Level Sets"));
-    setButtons(KDialog::Ok | KDialog::Apply | KDialog::Cancel);
+    setWindowTitle(i18n("Level Sets"));
+    m_buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QPushButton *okButton = m_buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(m_buttonBox->button(QDialogButtonBox::Ok), SIGNAL(clicked()), this, SLOT(slotOkClicked()));
+    connect(m_buttonBox->button(QDialogButtonBox::Apply), SIGNAL(clicked()), this, SLOT(slotApplyClicked()));
+    connect(m_buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     QWidget* chooseWidget = new QWidget(this);
     m_ui.setupUi(chooseWidget);
@@ -48,7 +62,9 @@ ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
 
     m_ui.m_pbNewStuff->setConfigFile("katomic.knsrc");
 
-    setMainWidget(chooseWidget);
+    mainLayout->addWidget(chooseWidget);
+    mainLayout->addWidget(m_buttonBox);
+
 
     resize(550, 350);
 
@@ -113,22 +129,28 @@ void ChooseLevelSetDialog::setCurrentLevelSet(const QString& levelSetName)
     }
 }
 
-void ChooseLevelSetDialog::slotButtonClicked(int but)
+void ChooseLevelSetDialog::saveSettings()
 {
-    if (but == KDialog::Ok || but == KDialog::Apply)
-    {
-        QListWidgetItem* item = m_ui.m_lwLevelSets->currentItem();
-        if (item)
-        {
-            QString levelSetName = item->data(KAtomic::LevelSetNameRole).toString();
-            emit levelSetChanged(levelSetName);
-
-            m_gameCurrentLevelSetName = levelSetName;
-            updateApplyButton();
-        }
+    QListWidgetItem* item = m_ui.m_lwLevelSets->currentItem();
+    if (item)
+    {   
+        QString levelSetName = item->data(KAtomic::LevelSetNameRole).toString();
+        emit levelSetChanged(levelSetName);
+            
+        m_gameCurrentLevelSetName = levelSetName;
+        updateApplyButton();
     }
+}
 
-    KDialog::slotButtonClicked(but);
+void ChooseLevelSetDialog::slotApplyClicked()
+{
+    saveSettings();
+}
+
+void ChooseLevelSetDialog::slotOkClicked()
+{
+    saveSettings();
+    accept();
 }
 
 void ChooseLevelSetDialog::updateApplyButton()
@@ -136,6 +158,6 @@ void ChooseLevelSetDialog::updateApplyButton()
     QListWidgetItem* item = m_ui.m_lwLevelSets->currentItem();
     if (item)
     {
-        enableButtonApply(item->data(KAtomic::LevelSetNameRole).toString() != m_gameCurrentLevelSetName);
+        m_buttonBox->button(QDialogButtonBox::Apply)->setEnabled(item->data(KAtomic::LevelSetNameRole).toString() != m_gameCurrentLevelSetName);
     }
 }
