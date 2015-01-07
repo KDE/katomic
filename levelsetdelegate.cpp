@@ -27,6 +27,7 @@
 
 #include <KGlobalSettings>
 #include <KLocalizedString>
+#include <QFontDatabase>
 
 #include "commondefs.h"
 
@@ -91,7 +92,7 @@ void LevelSetDelegate::paint(QPainter* p, const QStyleOptionViewItem& opt, const
         r = r.adjusted(innerSpacing, fm.lineSpacing(), -marginH*2, 0);
         flags = Qt::AlignLeft | Qt::AlignTop;
 
-        p->setFont(KGlobalSettings::smallestReadableFont());
+        p->setFont(QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont));
 
         QString text = i18n("by %1", authorName);
         QString authorEmail = index.data(KAtomic::LevelSetAuthorEmailRole).toString();

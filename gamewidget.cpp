@@ -33,7 +33,7 @@
 #include <kconfig.h>
 #include <kfiledialog.h>
 #include <QDebug>
-#include <KUrl>
+#include <QUrl>
 
 GameWidget::GameWidget ( const QString& levelSet, QWidget *parent )
     : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0), m_level(0)
@@ -201,7 +201,7 @@ void GameWidget::restartLevel()
 
 void GameWidget::saveGame()
 {
-    QString fileName = KFileDialog::getSaveFileName( KUrl(), "*.katomic", this );
+    QString fileName = KFileDialog::getSaveFileName( QUrl(), "*.katomic", this );
     if(fileName.isEmpty())
         return;
     KConfig config(fileName, KConfig::SimpleConfig);
@@ -213,7 +213,7 @@ void GameWidget::saveGame()
 
 void GameWidget::loadGame()
 {
-    QString fileName = KFileDialog::getOpenFileName( KUrl(), "*.katomic", this );
+    QString fileName = KFileDialog::getOpenFileName( QUrl(), "*.katomic", this );
     if(fileName.isEmpty())
         return;
     KConfig config(fileName, KConfig::SimpleConfig);

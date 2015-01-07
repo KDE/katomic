@@ -18,15 +18,17 @@
 #include "highscores.h"
 
 #include <kuser.h>
-#include <kstandarddirs.h>
+
 #include <kconfiggroup.h>
+#include <QStandardPaths>
+#include <KSharedConfig>
 
 KAtomicHighscores::KAtomicHighscores()
 {
     KUser user;
     m_playerName =  user.property(KUser::FullName).toString().isEmpty() ? user.loginName() : user.property(KUser::FullName).toString();
 
-    m_hsFile = KSharedConfig::openConfig( KStandardDirs::locateLocal("appdata", "highscores"), KConfig::SimpleConfig );
+    m_hsFile = KSharedConfig::openConfig( QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QLatin1Char('/') + "highscores", KConfig::SimpleConfig);
 }
 
 bool KAtomicHighscores::addScore( int numMoves, const QString& levelSetName, int level )
