@@ -30,7 +30,7 @@
 #include <QCommandLineParser>
 #include <QCommandLineOption>
 #include <kdelibs4configmigrator.h>
-
+#include <KDBusService>
 #include "levelset.h"
 
 
@@ -45,6 +45,8 @@ static const char version[] = "3.0";
 
 int main(int argc, char **argv)
 {
+    QApplication app(argc, argv);
+
     Kdelibs4ConfigMigrator migrate(QStringLiteral("katomic"));
     migrate.setConfigFiles(QStringList() << QStringLiteral("katomicrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("katomicui.rc"));
@@ -64,7 +66,6 @@ int main(int argc, char **argv)
   aboutData.addCredit(i18n("Johann Ollivier Lapeyre"), i18n("New great SVG artwork for KDE4"), "johann.ollivierlapeyre@gmail.com");
   aboutData.addCredit(i18n("Brian Croom"), i18n("Port to use KGameRenderer"), "brian.s.croom@gmail.com");
 
-    QApplication app(argc, argv);
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
     parser.addVersionOption();
@@ -75,6 +76,7 @@ int main(int argc, char **argv)
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
+  KDBusService service;
   if (!LevelSet::isDefaultLevelsAvailable())
   {
       KMessageBox::error(0, i18n("KAtomic failed to find its default level set and will quit. Please check your installation."));

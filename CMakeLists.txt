@@ -58,7 +58,7 @@ ki18n_wrap_ui(katomic_SRCS levelsetwidget.ui)
 kde4_add_app_icon(katomic_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-katomic.png")
 add_executable(katomic ${katomic_SRCS})
 
-target_link_libraries(katomic  KF5::KIOCore  KF5::NewStuff KF5KDEGames KF5::KDELibs4Support )
+target_link_libraries(katomic  KF5::KIOCore  KF5::NewStuff KF5KDEGames KF5::KDELibs4Support KF5::DBusAddons)
 
 install(TARGETS katomic  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
