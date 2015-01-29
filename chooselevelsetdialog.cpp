@@ -50,9 +50,9 @@ ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
     QPushButton *okButton = m_buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(m_buttonBox->button(QDialogButtonBox::Ok), SIGNAL(clicked()), this, SLOT(slotOkClicked()));
-    connect(m_buttonBox->button(QDialogButtonBox::Apply), SIGNAL(clicked()), this, SLOT(slotApplyClicked()));
-    connect(m_buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(m_buttonBox->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &ChooseLevelSetDialog::slotOkClicked);
+    connect(m_buttonBox->button(QDialogButtonBox::Apply), &QPushButton::clicked, this, &ChooseLevelSetDialog::slotApplyClicked);
+    connect(m_buttonBox, &QDialogButtonBox::rejected, this, &ChooseLevelSetDialog::reject);
 
     QWidget* chooseWidget = new QWidget(this);
     m_ui.setupUi(chooseWidget);
