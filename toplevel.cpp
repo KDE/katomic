@@ -32,6 +32,7 @@
 #include <QDebug>
 #include <QIcon>
 #include <qstatusbar.h>
+#include <QLabel>
 
 #include "gamewidget.h"
 #include "playfield.h"
@@ -39,10 +40,6 @@
 #include "commondefs.h"
 #include "chooselevelsetdialog.h"
 
-static const int LEVEL_BAR_ID = 0;
-static const int CUR_SCORE_BAR_ID = 1;
-static const int HIGHSCORE_BAR_ID = 2;
-static const int MOLECULE_NAME_ID = 3;
 
 AtomTopLevel::AtomTopLevel()
 {
@@ -56,11 +53,14 @@ AtomTopLevel::AtomTopLevel()
     loadSettings();
     setCentralWidget(m_gameWid);
 
-    //QT5 statusBar()->insertItem( i18n("Level:"), LEVEL_BAR_ID , 1);
-    //QT5 statusBar()->insertPermanentItem( i18n("Current score:"), CUR_SCORE_BAR_ID, 1);
-    //QT5 statusBar()->insertPermanentItem( i18n("Highscore:"), HIGHSCORE_BAR_ID, 1 );
-    //QT5 statusBar()->insertItem( QString(), MOLECULE_NAME_ID , 1);
-    //QT5 statusBar()->setItemAlignment(0, Qt::AlignLeft | Qt::AlignVCenter);
+    mLevel = new QLabel(i18n("Level:"));
+    mCurrentScore = new QLabel(i18n("Current score:"));
+    mHighScore = new QLabel(i18n("Highscore:"));
+    mMoleculeName = new QLabel;
+    statusBar()->addWidget(mLevel);
+    statusBar()->addPermanentWidget(mCurrentScore);
+    statusBar()->addPermanentWidget(mHighScore);
+    statusBar()->addWidget(mMoleculeName);
 
     updateStatusBar( m_gameWid->currentLevel(), m_gameWid->currentScore(), m_gameWid->currentHighScore() );
 
@@ -198,14 +198,14 @@ void AtomTopLevel::slotAnimSpeedChanged(int speed)
 
 void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
 {
-    //QT5 statusBar()->changeItem( i18n("Level: %1 (%2)", level, m_gameWid->levelSet().visibleName()), LEVEL_BAR_ID );
-    //QT5 statusBar()->changeItem( i18n("Current score: %1", score), CUR_SCORE_BAR_ID );
+    mLevel->setText(i18n("Level: %1 (%2)", level, m_gameWid->levelSet().visibleName()));
+    mCurrentScore->setText(i18n("Current score: %1", score));
     QString str;
     if(highscore == 0)
         str = '-';
     else
         str.setNum(highscore);
-    //QT5 statusBar()->changeItem( i18n("Highscore: %1", str), HIGHSCORE_BAR_ID );
+    mHighScore->setText(i18n("Highscore: %1", str));
 }
 
 void AtomTopLevel::enableHackMode()
@@ -219,7 +219,7 @@ void AtomTopLevel::enableHackMode()
 void AtomTopLevel::levelHasChanged(int level)
 {
     // Update level name
-    //QT5 statusBar()->changeItem( m_gameWid->currentMolecule(), MOLECULE_NAME_ID);
+    mMoleculeName->setText(m_gameWid->currentMolecule());
     // don't gray out actions in hackmode, else do
     if(!m_gameWid->switchToAnyLevelAllowed())
         updateActionsForLevel(level);

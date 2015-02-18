@@ -24,8 +24,7 @@
 class GameWidget;
 class KSelectAction;
 class QAction;
-class QAction;
-
+class QLabel;
 #include <kxmlguiwindow.h>
 
 /**
@@ -75,6 +74,10 @@ private:
     QAction *m_redoAct, *m_undoAct;
     QAction *m_prevLevelAct, *m_nextLevelAct;
     KSelectAction* m_animSpeedAct;
+    QLabel *mLevel;
+    QLabel *mCurrentScore;
+    QLabel *mHighScore;
+    QLabel *mMoleculeName;
 };
 
 #endif
