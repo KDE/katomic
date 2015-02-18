@@ -22,7 +22,7 @@
  ********************************************************************/
 #include "levelset.h"
 
-#include <KStandardDirs>
+
 #include <KConfigGroup>
 #include <QDebug>
 #include <KLocalizedString>
@@ -30,6 +30,8 @@
 #include <QFileInfo>
 
 #include <string.h>
+#include <QStandardPaths>
+#include <KSharedConfig>
 
 #include "atom.h"
 #include "molecule.h"
@@ -99,16 +101,16 @@ void LevelSet::reset()
 
 bool LevelSet::load(const QString& levelSetName)
 {
-    QString file = KStandardDirs::locate("appdata", QString("levels/%1.dat").arg(levelSetName));
+    QString file = QStandardPaths::locate(QStandardPaths::DataLocation, QString("levels/%1.dat").arg(levelSetName));
     if (file.isEmpty())
     {
-        //qDebug() << "level set \"" << levelSetName << "\" data file not found. Check your installation";
+        qDebug() << "level set \"" << levelSetName << "\" data file not found. Check your installation";
         return false;
     }
 
     bool res = loadFromFile(file);
     if (!res) {
-        //qDebug() << "warning: failed to load level set" << levelSetName;
+        qDebug() << "warning: failed to load level set" << levelSetName;
     }
 
     return res;
@@ -287,7 +289,7 @@ const Molecule* LevelSet::readLevelMolecule(int levelNum) const
 
 bool LevelSet::isDefaultLevelsAvailable()
 {
-    QString file = KStandardDirs::locate("appdata", QString("levels/%1.dat").arg(DEFAULT_LEVELSET_NAME));
+    QString file = QStandardPaths::locate(QStandardPaths::DataLocation, QString("levels/%1.dat").arg(DEFAULT_LEVELSET_NAME));
     if (file.isEmpty())
     {
         //qDebug() << "default level set \"" << DEFAULT_LEVELSET_NAME << "\" data file not found. Check your installation";
