@@ -37,7 +37,7 @@
 static const char description[] =
 	I18N_NOOP("KDE Atomic Entertainment Game");
 
-static const char version[] = "3.0";
+static const char version[] = "4.0";
 
 // ##########################
 // #	Main                #
