@@ -24,7 +24,7 @@
 
 
 #include <QDebug>
-#include <KNS3/KNewStuffButton>
+#include <KNS3/Button>
 #include <KConfigGroup>
 #include <QDialogButtonBox>
 #include <QPushButton>

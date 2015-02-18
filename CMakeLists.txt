@@ -21,7 +21,7 @@ find_package(KF5 REQUIRED COMPONENTS
     KIO
     NotifyConfig
     NewStuff
-    KDELibs4Support)
+    )
 
 find_package(KF5KDEGames 4.9.0 REQUIRED)
 
@@ -55,10 +55,10 @@ set(katomic_SRCS
 kconfig_add_kcfg_files(katomic_SRCS prefs.kcfgc)
 ki18n_wrap_ui(katomic_SRCS levelsetwidget.ui)
 
-kde4_add_app_icon(katomic_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-katomic.png")
+#kde4_add_app_icon(katomic_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-katomic.png")
 add_executable(katomic ${katomic_SRCS})
 
-target_link_libraries(katomic  KF5::KIOCore  KF5::NewStuff KF5KDEGames KF5::KDELibs4Support KF5::DBusAddons)
+target_link_libraries(katomic  KF5::KIOCore  KF5::NewStuff KF5KDEGames KF5::I18n KF5::DBusAddons KF5::NewStuff)
 
 install(TARGETS katomic  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 

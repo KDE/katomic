@@ -70,7 +70,7 @@
   <customwidget>
    <class>KNS3::Button</class>
    <extends>QPushButton</extends>
-   <header location="global">KNS3/KNewStuffButton</header>
+   <header location="global">KNS3/Button</header>
   </customwidget>
  </customwidgets>
  <resources/>
