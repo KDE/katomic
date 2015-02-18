@@ -26,7 +26,6 @@
 #include <KConfigGroup>
 #include <QDebug>
 #include <KLocalizedString>
-#include <kdefakes.h>
 #include <QFileInfo>
 
 #include <string.h>
