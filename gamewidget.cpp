@@ -31,7 +31,7 @@
 #include <kmessagebox.h>
 #include <KLocalizedString>
 #include <kconfig.h>
-#include <kfiledialog.h>
+#include <qfiledialog.h>
 #include <QDebug>
 #include <QUrl>
 
@@ -201,7 +201,7 @@ void GameWidget::restartLevel()
 
 void GameWidget::saveGame()
 {
-    QString fileName = KFileDialog::getSaveFileName( QUrl(), "*.katomic", this );
+    QString fileName = QFileDialog::getSaveFileName( this, QString(), QString(), "*.katomic" );
     if(fileName.isEmpty())
         return;
     KConfig config(fileName, KConfig::SimpleConfig);
@@ -213,7 +213,7 @@ void GameWidget::saveGame()
 
 void GameWidget::loadGame()
 {
-    QString fileName = KFileDialog::getOpenFileName( QUrl(), "*.katomic", this );
+    QString fileName = QFileDialog::getOpenFileName( this, QString(), QString(), "*.katomic" );
     if(fileName.isEmpty())
         return;
     KConfig config(fileName, KConfig::SimpleConfig);

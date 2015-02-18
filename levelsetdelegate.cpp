@@ -25,7 +25,6 @@
 #include <QPainter>
 #include <QApplication>
 
-#include <KGlobalSettings>
 #include <KLocalizedString>
 #include <QFontDatabase>
 

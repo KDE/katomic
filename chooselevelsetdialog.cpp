@@ -22,7 +22,7 @@
  ********************************************************************/
 #include "chooselevelsetdialog.h"
 
-#include <KStandardDirs>
+
 #include <QDebug>
 #include <KNS3/KNewStuffButton>
 #include <KGlobal>
@@ -30,6 +30,7 @@
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QDir>
 
 #include "levelset.h"
 #include "levelsetdelegate.h"
@@ -83,8 +84,14 @@ void ChooseLevelSetDialog::newStuffDone(const KNS3::Entry::List& entries)
 void ChooseLevelSetDialog::loadData()
 {
     m_ui.m_lwLevelSets->clear();
-
-    QStringList fileList = KGlobal::dirs()->findAllResources("appdata", "levels/*.dat", KStandardDirs::NoDuplicates);
+    QStringList fileList;
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, "levels", QStandardPaths::LocateDirectory);
+    Q_FOREACH (const QString& dir, dirs) {
+        const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.dat"));
+        Q_FOREACH (const QString& file, fileNames) {
+            fileList.append(dir + '/' + file);
+        }
+    }
 
     LevelSet ls;
     foreach (const QString& fileName, fileList)
