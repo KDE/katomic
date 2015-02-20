@@ -76,6 +76,8 @@ int main(int argc, char **argv)
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
+    app.setWindowIcon(QIcon::fromTheme(QLatin1String("katomic")));
+
   KDBusService service;
   if (!LevelSet::isDefaultLevelsAvailable())
   {
