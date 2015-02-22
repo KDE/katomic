@@ -10,6 +10,7 @@
   <name xml:lang="de">KAtomic</name>
   <name xml:lang="en-GB">KAtomic</name>
   <name xml:lang="es">KAtomic</name>
+  <name xml:lang="gl">KAtomic</name>
   <name xml:lang="it">KAtomic</name>
   <name xml:lang="nl">KAtomic</name>
   <name xml:lang="pl">Atomy</name>
@@ -30,6 +31,7 @@
   <summary xml:lang="cs">Logická hra jako Sokoban</summary>
   <summary xml:lang="en-GB">Sokoban-like Logic Game</summary>
   <summary xml:lang="es">Juego de lógica parecido al Sokoban</summary>
+  <summary xml:lang="gl">Xogo de lóxica ao estilo do Sokoban</summary>
   <summary xml:lang="it">Gioco di logica simile a Sokoban</summary>
   <summary xml:lang="nl">Sokoban-achtig logisch spel</summary>
   <summary xml:lang="pl">Gra logiczna typu Sokoban</summary>
@@ -53,6 +55,7 @@
     <p xml:lang="ca">El KAtomic és un joc educatiu divertit construït al voltant de la geometria molecular. Fa servir aparences bidimensionals simplificades de elements químics diferents.</p>
     <p xml:lang="en-GB">KAtomic is a fun educational game built around molecular geometry. It employs simplistic two-dimensional looks at different chemical elements.</p>
     <p xml:lang="es">KAtomic es un divertido juego educativo basado en la geometría molecular. Emplea vistas bidimensionales simplificadas de diferentes elementos químicos.</p>
+    <p xml:lang="gl">KAtomic é un xogo divertido e educativo sobre xeometría molecular. Nel óllanse visións simplistas en dúas dimensións de varios elementos químicos.</p>
     <p xml:lang="it">KAtomic è un gioco divertente ed educativo, basato sulla geometria molecolare. Impiega una rappresentazione bidimensionale semplificata per gli elementi chimici.</p>
     <p xml:lang="nl">KAtomic is een leuk educatief spel gebouwd rond moleculaire geometrie. Het gebruikt simplistische tweedimensionale beelden van verschillende chemische elementen.</p>
     <p xml:lang="pl">KAtomic jest grą edukującą poprzez zabawę stworzoną wokół geometrii cząsteczek. Gra wykorzystuje proste dwuwymiarowe widoki różnych pierwiastków chemicznych.</p>
