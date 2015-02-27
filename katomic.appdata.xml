@@ -4,12 +4,14 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KAtomic</name>
+  <name xml:lang="ast">KAtomic</name>
   <name xml:lang="ca">KAtomic</name>
   <name xml:lang="cs">KAtomic</name>
   <name xml:lang="da">KAtomic</name>
   <name xml:lang="de">KAtomic</name>
   <name xml:lang="en-GB">KAtomic</name>
   <name xml:lang="es">KAtomic</name>
+  <name xml:lang="fi">KAtomic</name>
   <name xml:lang="gl">KAtomic</name>
   <name xml:lang="it">KAtomic</name>
   <name xml:lang="nl">KAtomic</name>
@@ -31,6 +33,7 @@
   <summary xml:lang="cs">Logická hra jako Sokoban</summary>
   <summary xml:lang="en-GB">Sokoban-like Logic Game</summary>
   <summary xml:lang="es">Juego de lógica parecido al Sokoban</summary>
+  <summary xml:lang="fi">Sokoban-tyylinen logiikkapeli</summary>
   <summary xml:lang="gl">Xogo de lóxica ao estilo do Sokoban</summary>
   <summary xml:lang="it">Gioco di logica simile a Sokoban</summary>
   <summary xml:lang="nl">Sokoban-achtig logisch spel</summary>
