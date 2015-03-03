@@ -3,5 +3,5 @@
 
 ########### install files ###############
 
-install( FILES default_levels.dat DESTINATION ${DATA_INSTALL_DIR}/katomic/levels)
+install( FILES default_levels.dat DESTINATION ${KDE_INSTALL_DATADIR}/katomic/levels)
 
