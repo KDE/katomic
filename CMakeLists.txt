@@ -56,7 +56,7 @@ set(katomic_SRCS
 kconfig_add_kcfg_files(katomic_SRCS prefs.kcfgc)
 ki18n_wrap_ui(katomic_SRCS levelsetwidget.ui)
 
-file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-apps-katomic.png")
+file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*-apps-katomic.png")
 ecm_add_app_icon(katomic_SRCS ICONS ${ICONS_SRCS})
 add_executable(katomic ${katomic_SRCS})
 
@@ -74,7 +74,7 @@ install( FILES default_theme.svgz  DESTINATION  ${KDE_INSTALL_DATADIR}/katomic/p
 # ^^^ default_theme.desktop is not installed at the moment
 install( FILES katomic.knsrc  DESTINATION  ${KDE_INSTALL_CONFDIR} )
 
-ecm_install_icons(ICONS hi128-apps-katomic.png  hi16-apps-katomic.png  hi22-apps-katomic.png  hi32-apps-katomic.png  hi48-apps-katomic.png  hi64-apps-katomic.png DESTINATION ${KDE_INSTALL_ICONDIR}   )
+ecm_install_icons(ICONS 128-apps-katomic.png  16-apps-katomic.png  22-apps-katomic.png  32-apps-katomic.png  48-apps-katomic.png  64-apps-katomic.png DESTINATION ${KDE_INSTALL_ICONDIR} THEME hicolor   )
 
 if(NOT WIN32)
   install( PROGRAMS katomic-levelset-upd.pl DESTINATION  ${KDE_INSTALL_KCONFUPDATEDIR} )
