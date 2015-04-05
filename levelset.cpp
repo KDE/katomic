@@ -242,7 +242,7 @@ const Molecule* LevelSet::readLevelMolecule(int levelNum) const
         current.obj = value.at(0).toLatin1();
         value = value.mid(2);
 
-        //QT5 port it strlcpy(current.conn, value.toAscii(), sizeof(current.conn));
+        strncpy(current.conn, value.toAscii(), sizeof(current.conn));
         if (mol->m_atoms.indexOf(current) != -1)
              qWarning()
             << "OOOPS, duplicate atom definition in" << key;
