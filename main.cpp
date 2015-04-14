@@ -45,12 +45,12 @@ static const char version[] = "4.0";
 
 int main(int argc, char **argv)
 {
+    QApplication app(argc, argv);
 
     Kdelibs4ConfigMigrator migrate(QStringLiteral("katomic"));
     migrate.setConfigFiles(QStringList() << QStringLiteral("katomicrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("katomicui.rc"));
     migrate.migrate();
-    QApplication app(argc, argv);
 
   KAboutData aboutData( "katomic", i18n("KAtomic"),
     version, i18n(description), KAboutLicense::GPL,
