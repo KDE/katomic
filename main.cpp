@@ -51,7 +51,7 @@ int main(int argc, char **argv)
     migrate.setConfigFiles(QStringList() << QStringLiteral("katomicrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("katomicui.rc"));
     migrate.migrate();
-
+  KLocalizedString::setApplicationDomain("katomic");
   KAboutData aboutData( "katomic", i18n("KAtomic"),
     version, i18n(description), KAboutLicense::GPL,
     i18n("(c) 1998, Andreas Wuest\n(c) 2007-2009 Dmitry Suzdalev"), "http://games.kde.org/katomic" );
