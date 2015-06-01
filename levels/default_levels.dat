@@ -155,7 +155,7 @@ mole_0=123
 [Level10]
 Name=Formic Acid
 Name[bs]=Mravlja kiselina
-Name[ca]=Acid fòrmic
+Name[ca]=Àcid fòrmic
 Name[ca@valencia]=Acid fòrmic
 Name[cs]=Kyselina mravenčí
 Name[da]=Myresyre
@@ -224,7 +224,7 @@ mole_1=1345
 [Level11]
 Name=Acetic Acid
 Name[bs]=Sirćetna kiselina
-Name[ca]=Acid acètic
+Name[ca]=Àcid acètic
 Name[ca@valencia]=Acid acètic
 Name[da]=Eddikesyre
 Name[de]=Essigsäure
