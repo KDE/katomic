@@ -211,14 +211,14 @@ void PlayField::nextAtom()
 
     while(1)
     {
-        AtomFieldItem* item = 0;
         for(int y=ys; y<FIELD_SIZE; ++y )
         {
             int px = toPixX(x)+m_elemSize/2;
             int py = toPixY(y)+m_elemSize/2;
-            item = qgraphicsitem_cast<AtomFieldItem*>( itemAt(px, py) );
-            if( item != 0 )
+            const QList<QGraphicsItem *> itemsAtPoint = items(QPointF(px, py));
+            if( !itemsAtPoint.isEmpty() )
             {
+                AtomFieldItem* item = qgraphicsitem_cast<AtomFieldItem*>( itemsAtPoint[0] );
                 m_selIdx = m_atoms.indexOf(item);
                 updateArrows();
                 // if this atom can't move, we won't return - we'll search further
@@ -254,21 +254,24 @@ void PlayField::previousAtom()
 
     while(1)
     {
-        AtomFieldItem* item = 0;
         for(int y=ys; y>=0; --y )
         {
             int px = toPixX(x)+m_elemSize/2;
             int py = toPixY(y)+m_elemSize/2;
-            item = qgraphicsitem_cast<AtomFieldItem*>( itemAt(px, py) );
-            if( item != 0 && item->atomNum() != -1 )
+            const QList<QGraphicsItem *> itemsAtPoint = items(QPointF(px, py));
+            if( !itemsAtPoint.isEmpty() )
             {
-                m_selIdx = m_atoms.indexOf(item);
-                updateArrows();
-                // if this atom can't move, we won't return - we'll search further
-                // until we found moveable one
-                if( m_upArrow->isVisible() || m_rightArrow->isVisible()
-                        || m_downArrow->isVisible() || m_leftArrow->isVisible() )
-                    return;
+                AtomFieldItem* item = qgraphicsitem_cast<AtomFieldItem*>( itemsAtPoint[0] );
+                if ( item->atomNum() != -1 )
+                {
+                    m_selIdx = m_atoms.indexOf(item);
+                    updateArrows();
+                    // if this atom can't move, we won't return - we'll search further
+                    // until we found moveable one
+                    if( m_upArrow->isVisible() || m_rightArrow->isVisible()
+                            || m_downArrow->isVisible() || m_leftArrow->isVisible() )
+                        return;
+                }
             }
         }
         x--;
@@ -420,11 +423,11 @@ void PlayField::mousePressEvent( QGraphicsSceneMouseEvent* ev )
     if( isAnimating() || m_levelFinished )
         return;
 
-    QGraphicsItem* clickedItem = itemAt(ev->scenePos());
-    if(!clickedItem)
+    const QList<QGraphicsItem *> itemsAtPoint = items(ev->scenePos());
+    if(itemsAtPoint.isEmpty())
         return;
 
-    AtomFieldItem *atomItem = qgraphicsitem_cast<AtomFieldItem*>(clickedItem);
+    AtomFieldItem *atomItem = qgraphicsitem_cast<AtomFieldItem*>(itemsAtPoint[0]);
     if( atomItem ) // that is: atom selected
     {
         m_selIdx = m_atoms.indexOf( atomItem );
@@ -432,7 +435,7 @@ void PlayField::mousePressEvent( QGraphicsSceneMouseEvent* ev )
         return;
     }
 
-    ArrowFieldItem *arrowItem = qgraphicsitem_cast<ArrowFieldItem*>(clickedItem);
+    ArrowFieldItem *arrowItem = qgraphicsitem_cast<ArrowFieldItem*>(itemsAtPoint[0]);
     if( arrowItem == m_upArrow )
     {
         moveSelectedAtom( Up );
