@@ -25,7 +25,6 @@
 
 #include <KLocalizedString>
 #include <kconfig.h>
-#include <kstandardaction.h>
 #include <kstandardgameaction.h>
 #include <kselectaction.h>
 #include <kactioncollection.h>
