@@ -54,7 +54,7 @@ file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*-apps-katomic.png")
 ecm_add_app_icon(katomic_SRCS ICONS ${ICONS_SRCS})
 add_executable(katomic ${katomic_SRCS})
 
-target_link_libraries(katomic  KF5::KIOCore  KF5::NewStuff KF5KDEGames KF5::I18n KF5::DBusAddons KF5::NewStuff)
+target_link_libraries(katomic  KF5::NewStuff KF5KDEGames KF5::I18n KF5::DBusAddons KF5::NewStuff)
 
 install(TARGETS katomic  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 
