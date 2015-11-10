@@ -52,31 +52,31 @@ int main(int argc, char **argv)
     migrate.setUiFiles(QStringList() << QStringLiteral("katomicui.rc"));
     migrate.migrate();
   KLocalizedString::setApplicationDomain("katomic");
-  KAboutData aboutData( "katomic", i18n("KAtomic"),
+  KAboutData aboutData( QStringLiteral("katomic"), i18n("KAtomic"),
     version, i18n(description), KAboutLicense::GPL,
-    i18n("(c) 1998, Andreas Wuest\n(c) 2007-2009 Dmitry Suzdalev"), "http://games.kde.org/katomic" );
-  aboutData.addAuthor(i18n("Andreas Wuest"), i18n("Original author"), "AndreasWuest@gmx.de");
-  aboutData.addAuthor(i18n("Dmitry Suzdalev"), i18n("Porting to KDE4. Current maintainer"), "dimsuz@gmail.com");
-  aboutData.addAuthor(i18n("Stephan Kulow"), QString(), "coolo@kde.org");
-  aboutData.addAuthor(i18n("Cristian Tibirna"), QString(), "tibirna@kde.org");
-  aboutData.addCredit(i18n("Carsten Pfeiffer"), QString(), "pfeiffer@kde.org");
-  aboutData.addCredit(i18n("Dave Corrie"), QString(), "kde@davecorrie.com");
-  aboutData.addCredit(i18n("Kai Jung"), i18n("6 new levels"), "jung@fh-fresenius.de");
-  aboutData.addCredit(i18n("Danny Allen"), i18n("Game graphics and application icon"), "danny@dannyallen.co.uk");
-  aboutData.addCredit(i18n("Johann Ollivier Lapeyre"), i18n("New great SVG artwork for KDE4"), "johann.ollivierlapeyre@gmail.com");
-  aboutData.addCredit(i18n("Brian Croom"), i18n("Port to use KGameRenderer"), "brian.s.croom@gmail.com");
+    i18n("(c) 1998, Andreas Wuest\n(c) 2007-2009 Dmitry Suzdalev"), QStringLiteral("http://games.kde.org/katomic") );
+  aboutData.addAuthor(i18n("Andreas Wuest"), i18n("Original author"), QStringLiteral("AndreasWuest@gmx.de"));
+  aboutData.addAuthor(i18n("Dmitry Suzdalev"), i18n("Porting to KDE4. Current maintainer"), QStringLiteral("dimsuz@gmail.com"));
+  aboutData.addAuthor(i18n("Stephan Kulow"), QString(), QStringLiteral("coolo@kde.org"));
+  aboutData.addAuthor(i18n("Cristian Tibirna"), QString(), QStringLiteral("tibirna@kde.org"));
+  aboutData.addCredit(i18n("Carsten Pfeiffer"), QString(), QStringLiteral("pfeiffer@kde.org"));
+  aboutData.addCredit(i18n("Dave Corrie"), QString(), QStringLiteral("kde@davecorrie.com"));
+  aboutData.addCredit(i18n("Kai Jung"), i18n("6 new levels"), QStringLiteral("jung@fh-fresenius.de"));
+  aboutData.addCredit(i18n("Danny Allen"), i18n("Game graphics and application icon"), QStringLiteral("danny@dannyallen.co.uk"));
+  aboutData.addCredit(i18n("Johann Ollivier Lapeyre"), i18n("New great SVG artwork for KDE4"), QStringLiteral("johann.ollivierlapeyre@gmail.com"));
+  aboutData.addCredit(i18n("Brian Croom"), i18n("Port to use KGameRenderer"), QStringLiteral("brian.s.croom@gmail.com"));
 
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
     parser.addVersionOption();
     parser.addHelpOption();
-  parser.addOption(QCommandLineOption(QStringList() <<  QLatin1String("hackmode"), i18n( "Enable access to all levels" )));
+  parser.addOption(QCommandLineOption(QStringList() <<  QStringLiteral("hackmode"), i18n( "Enable access to all levels" )));
 
     aboutData.setupCommandLine(&parser);
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    app.setWindowIcon(QIcon::fromTheme(QLatin1String("katomic")));
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("katomic")));
 
   KDBusService service;
   if (!LevelSet::isDefaultLevelsAvailable())
@@ -90,7 +90,7 @@ int main(int argc, char **argv)
           RESTORE(AtomTopLevel)
       else {
           AtomTopLevel *top = new AtomTopLevel;
-          if ( parser.isSet( "hackmode" ) )
+          if ( parser.isSet( QStringLiteral("hackmode") ) )
               top->enableHackMode();
           
           top->show();

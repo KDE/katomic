@@ -60,7 +60,7 @@ ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
     m_ui.m_lwLevelSets->setItemDelegate(new LevelSetDelegate(this));
     m_ui.m_lwLevelSets->setSortingEnabled(true);
 
-    m_ui.m_pbNewStuff->setConfigFile("katomic.knsrc");
+    m_ui.m_pbNewStuff->setConfigFile(QStringLiteral("katomic.knsrc"));
 
     mainLayout->addWidget(chooseWidget);
     mainLayout->addWidget(m_buttonBox);
@@ -84,7 +84,7 @@ void ChooseLevelSetDialog::loadData()
 {
     m_ui.m_lwLevelSets->clear();
     QStringList fileList;
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, "levels", QStandardPaths::LocateDirectory);
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("levels"), QStandardPaths::LocateDirectory);
     Q_FOREACH (const QString& dir, dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.dat"));
         Q_FOREACH (const QString& file, fileNames) {
@@ -100,7 +100,7 @@ void ChooseLevelSetDialog::loadData()
         if (!visibleName.isEmpty())
         {
             QListWidgetItem* item = new QListWidgetItem;
-            item->setIcon(QIcon::fromTheme( QLatin1String( "katomic" )));
+            item->setIcon(QIcon::fromTheme( QStringLiteral( "katomic" )));
             item->setText(visibleName);
             item->setData(KAtomic::LevelSetNameRole, ls.name());
             item->setData(KAtomic::LevelSetDescriptionRole, ls.description());

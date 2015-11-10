@@ -201,7 +201,7 @@ void GameWidget::restartLevel()
 
 void GameWidget::saveGame()
 {
-    QString fileName = QFileDialog::getSaveFileName( this, QString(), QString(), "*.katomic" );
+    QString fileName = QFileDialog::getSaveFileName( this, QString(), QString(), QStringLiteral("*.katomic") );
     if(fileName.isEmpty())
         return;
     KConfig config(fileName, KConfig::SimpleConfig);
@@ -213,7 +213,7 @@ void GameWidget::saveGame()
 
 void GameWidget::loadGame()
 {
-    QString fileName = QFileDialog::getOpenFileName( this, QString(), QString(), "*.katomic" );
+    QString fileName = QFileDialog::getOpenFileName( this, QString(), QString(), QStringLiteral("*.katomic") );
     if(fileName.isEmpty())
         return;
     KConfig config(fileName, KConfig::SimpleConfig);

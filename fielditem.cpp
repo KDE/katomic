@@ -117,53 +117,53 @@ QHash<char, QString> AtomFieldItem::s_bondNames;
 
 void AtomFieldItem::fillNameHashes()
 {
-    s_names['1'] = "atom_H";
-    s_names['2'] = "atom_C";
-    s_names['3'] = "atom_O";
-    s_names['4'] = "atom_N";
-    s_names['5'] = "atom_S";
-    s_names['6'] = "atom_F";
-    s_names['7'] = "atom_Cl";
-    s_names['8'] = "atom_Br";
-    s_names['9'] = "atom_P";
-    s_names['0'] = "atom_J";
-    s_names['o'] = "atom_Crystal";
-    s_names['A'] = "connector_Hor";
-    s_names['B'] = "connector_Slash";
-    s_names['C'] = "connector_Ver";
-    s_names['D'] = "connector_Backslash";
-    s_names['#'] = "wall";
-    s_names['<'] = "arrow_Left";
-    s_names['>'] = "arrow_Right";
-    s_names['^'] = "arrow_Up";
-    s_names['_'] = "arrow_Down";
-    s_names['E'] = "atom_flask0";
-    s_names['F'] = "atom_flask1";
-    s_names['G'] = "atom_flask2";
-    s_names['H'] = "atom_flask3";
-    s_names['I'] = "atom_flask4";
-    s_names['J'] = "atom_flask5";
-    s_names['K'] = "atom_flask6";
-    s_names['L'] = "atom_flask7";
+    s_names['1'] = QStringLiteral("atom_H");
+    s_names['2'] = QStringLiteral("atom_C");
+    s_names['3'] = QStringLiteral("atom_O");
+    s_names['4'] = QStringLiteral("atom_N");
+    s_names['5'] = QStringLiteral("atom_S");
+    s_names['6'] = QStringLiteral("atom_F");
+    s_names['7'] = QStringLiteral("atom_Cl");
+    s_names['8'] = QStringLiteral("atom_Br");
+    s_names['9'] = QStringLiteral("atom_P");
+    s_names['0'] = QStringLiteral("atom_J");
+    s_names['o'] = QStringLiteral("atom_Crystal");
+    s_names['A'] = QStringLiteral("connector_Hor");
+    s_names['B'] = QStringLiteral("connector_Slash");
+    s_names['C'] = QStringLiteral("connector_Ver");
+    s_names['D'] = QStringLiteral("connector_Backslash");
+    s_names['#'] = QStringLiteral("wall");
+    s_names['<'] = QStringLiteral("arrow_Left");
+    s_names['>'] = QStringLiteral("arrow_Right");
+    s_names['^'] = QStringLiteral("arrow_Up");
+    s_names['_'] = QStringLiteral("arrow_Down");
+    s_names['E'] = QStringLiteral("atom_flask0");
+    s_names['F'] = QStringLiteral("atom_flask1");
+    s_names['G'] = QStringLiteral("atom_flask2");
+    s_names['H'] = QStringLiteral("atom_flask3");
+    s_names['I'] = QStringLiteral("atom_flask4");
+    s_names['J'] = QStringLiteral("atom_flask5");
+    s_names['K'] = QStringLiteral("atom_flask6");
+    s_names['L'] = QStringLiteral("atom_flask7");
 
-    s_bondNames['a'] = "bond_I_Top";
-    s_bondNames['b'] = "bond_I_TopRight";
-    s_bondNames['c'] = "bond_I_Right";
-    s_bondNames['d'] = "bond_I_BotRight";
-    s_bondNames['e'] = "bond_I_Bottom";
-    s_bondNames['f'] = "bond_I_BotLeft";
-    s_bondNames['g'] = "bond_I_Left";
-    s_bondNames['h'] = "bond_I_TopLeft";
+    s_bondNames['a'] = QStringLiteral("bond_I_Top");
+    s_bondNames['b'] = QStringLiteral("bond_I_TopRight");
+    s_bondNames['c'] = QStringLiteral("bond_I_Right");
+    s_bondNames['d'] = QStringLiteral("bond_I_BotRight");
+    s_bondNames['e'] = QStringLiteral("bond_I_Bottom");
+    s_bondNames['f'] = QStringLiteral("bond_I_BotLeft");
+    s_bondNames['g'] = QStringLiteral("bond_I_Left");
+    s_bondNames['h'] = QStringLiteral("bond_I_TopLeft");
 
-    s_bondNames['A'] = "bond_II_Top";
-    s_bondNames['B'] = "bond_II_Right";
-    s_bondNames['C'] = "bond_II_Bottom";
-    s_bondNames['D'] = "bond_II_Left";
+    s_bondNames['A'] = QStringLiteral("bond_II_Top");
+    s_bondNames['B'] = QStringLiteral("bond_II_Right");
+    s_bondNames['C'] = QStringLiteral("bond_II_Bottom");
+    s_bondNames['D'] = QStringLiteral("bond_II_Left");
 
-    s_bondNames['E'] = "bond_III_Top";
-    s_bondNames['F'] = "bond_III_Right";
-    s_bondNames['G'] = "bond_III_Bottom";
-    s_bondNames['H'] = "bond_III_Left";
+    s_bondNames['E'] = QStringLiteral("bond_III_Top");
+    s_bondNames['F'] = QStringLiteral("bond_III_Right");
+    s_bondNames['G'] = QStringLiteral("bond_III_Bottom");
+    s_bondNames['H'] = QStringLiteral("bond_III_Left");
 }
 
 QPixmap AtomFieldItem::renderAtom( KGameRenderer* renderer, const atom& at, int size )

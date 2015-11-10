@@ -100,7 +100,7 @@ void LevelSet::reset()
 
 bool LevelSet::load(const QString& levelSetName)
 {
-    QString file = QStandardPaths::locate(QStandardPaths::DataLocation, QString("levels/%1.dat").arg(levelSetName));
+    QString file = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("levels/%1.dat").arg(levelSetName));
     if (file.isEmpty())
     {
         qDebug() << "level set \"" << levelSetName << "\" data file not found. Check your installation";
@@ -288,7 +288,7 @@ const Molecule* LevelSet::readLevelMolecule(int levelNum) const
 
 bool LevelSet::isDefaultLevelsAvailable()
 {
-    QString file = QStandardPaths::locate(QStandardPaths::DataLocation, QString("levels/%1.dat").arg(DEFAULT_LEVELSET_NAME));
+    QString file = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("levels/%1.dat").arg(DEFAULT_LEVELSET_NAME));
     if (file.isEmpty())
     {
         //qDebug() << "default level set \"" << DEFAULT_LEVELSET_NAME << "\" data file not found. Check your installation";

@@ -47,7 +47,7 @@ struct Theme : public KgTheme
 {
 	Theme() : KgTheme("pics/default_theme.desktop")
 	{
-		setGraphicsPath(QStandardPaths::locate(QStandardPaths::DataLocation, "pics/default_theme.svgz"));
+		setGraphicsPath(QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("pics/default_theme.svgz")));
 	}
 };
 
@@ -156,7 +156,7 @@ void PlayField::updateFieldItems()
 
 void PlayField::updateBackground()
 {
-    setBackgroundBrush(m_renderer.spritePixmap("background", sceneRect().size().toSize()));
+    setBackgroundBrush(m_renderer.spritePixmap(QStringLiteral("background"), sceneRect().size().toSize()));
 }
 
 void PlayField::resize( int width, int height)
@@ -684,7 +684,7 @@ void PlayField::drawForeground( QPainter *p, const QRectF&)
         return;
     }
 
-    QPixmap aPix = m_renderer.spritePixmap("wall", QSize(m_elemSize, m_elemSize));
+    QPixmap aPix = m_renderer.spritePixmap(QStringLiteral("wall"), QSize(m_elemSize, m_elemSize));
     for (int i = 0; i < FIELD_SIZE; i++)
         for (int j = 0; j < FIELD_SIZE; j++)
             if(m_levelData->containsWallAt(i,j))
@@ -707,7 +707,7 @@ void PlayField::saveGame( KConfigGroup& config ) const
         // we'll write pos through using QPoint
         // I'd use QPair but it isn't supported by QVariant
         QPoint pos(m_atoms.at(idx)->fieldX(), m_atoms.at(idx)->fieldY());
-        config.writeEntry( QString("Atom_%1").arg(idx), pos);
+        config.writeEntry( QStringLiteral("Atom_%1").arg(idx), pos);
     }
 
     // save undo history
@@ -720,7 +720,7 @@ void PlayField::saveGame( KConfigGroup& config ) const
         // atomIdx, direction, numCells
         QList<int> move;
         move << mv.atomIdx << static_cast<int>(mv.dir) << mv.numCells;
-        config.writeEntry( QString("Move_%1").arg(i), move );
+        config.writeEntry( QStringLiteral("Move_%1").arg(i), move );
     }
     config.writeEntry("SelectedAtom", m_selIdx);
     config.writeEntry("LevelFinished", m_levelFinished );
@@ -734,7 +734,7 @@ void PlayField::loadGame( const KConfigGroup& config )
     // read atom positions
     for(int idx=0; idx<m_atoms.count(); ++idx)
     {
-        QPoint pos = config.readEntry( QString("Atom_%1").arg(idx), QPoint() );
+        QPoint pos = config.readEntry( QStringLiteral("Atom_%1").arg(idx), QPoint() );
         m_atoms.at(idx)->setFieldXY(pos.x(), pos.y());
         m_atoms.at(idx)->setPos( toPixX(pos.x()), toPixY(pos.y()) );
     }
@@ -744,7 +744,7 @@ void PlayField::loadGame( const KConfigGroup& config )
     AtomMove mv;
     for(int i=0;i<m_numMoves;++i)
     {
-        QList<int> move = config.readEntry( QString("Move_%1").arg(i), QList<int>() );
+        QList<int> move = config.readEntry( QStringLiteral("Move_%1").arg(i), QList<int>() );
         mv.atomIdx = move.at(0);
         mv.dir = static_cast<Direction>(move.at(1));
         mv.numCells = move.at(2);
