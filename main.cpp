@@ -54,7 +54,7 @@ int main(int argc, char **argv)
   KLocalizedString::setApplicationDomain("katomic");
   KAboutData aboutData( QStringLiteral("katomic"), i18n("KAtomic"),
     version, i18n(description), KAboutLicense::GPL,
-    i18n("(c) 1998, Andreas Wuest\n(c) 2007-2009 Dmitry Suzdalev"), QStringLiteral("http://games.kde.org/katomic") );
+    i18n("(c) 1998, Andreas Wuest\n(c) 2007-2009 Dmitry Suzdalev"));
   aboutData.addAuthor(i18n("Andreas Wuest"), i18n("Original author"), QStringLiteral("AndreasWuest@gmx.de"));
   aboutData.addAuthor(i18n("Dmitry Suzdalev"), i18n("Porting to KDE4. Current maintainer"), QStringLiteral("dimsuz@gmail.com"));
   aboutData.addAuthor(i18n("Stephan Kulow"), QString(), QStringLiteral("coolo@kde.org"));
@@ -65,6 +65,7 @@ int main(int argc, char **argv)
   aboutData.addCredit(i18n("Danny Allen"), i18n("Game graphics and application icon"), QStringLiteral("danny@dannyallen.co.uk"));
   aboutData.addCredit(i18n("Johann Ollivier Lapeyre"), i18n("New great SVG artwork for KDE4"), QStringLiteral("johann.ollivierlapeyre@gmail.com"));
   aboutData.addCredit(i18n("Brian Croom"), i18n("Port to use KGameRenderer"), QStringLiteral("brian.s.croom@gmail.com"));
+  aboutData.setHomepage(QStringLiteral("http://games.kde.org/katomic"));
 
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
