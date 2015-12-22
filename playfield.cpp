@@ -595,7 +595,7 @@ bool PlayField::checkDone() const
             minY = atom->fieldY();
     }
     // so origin is (minX,minY)
-    // we'll substract this origin from each atom's coords and check
+    // we'll subtract this origin from each atom's coords and check
     // if the resulting position is the same as this atom has in molecule
     foreach( AtomFieldItem* atom, m_atoms )
     {
