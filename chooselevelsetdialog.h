@@ -33,7 +33,7 @@ class ChooseLevelSetDialog : public QDialog
     Q_OBJECT
 
 public:
-    ChooseLevelSetDialog(QWidget* parent=0);
+    explicit ChooseLevelSetDialog(QWidget* parent=0);
 
     void setCurrentLevelSet(const QString& levelSetName);
     void loadData();

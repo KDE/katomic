@@ -28,7 +28,7 @@
 class LevelSetDelegate : public QStyledItemDelegate
 {
 public:
-    LevelSetDelegate(QObject* parent = 0);
+    explicit LevelSetDelegate(QObject* parent = 0);
 
     virtual void paint(QPainter* p, const QStyleOptionViewItem& option, const QModelIndex& index) const;
     virtual QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const;
