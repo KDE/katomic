@@ -63,7 +63,7 @@ install(TARGETS katomic  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.katomic.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
 install(FILES katomic.appdata.xml DESTINATION  ${KDE_INSTALL_DATADIR}/appdata)
 install(FILES katomicui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/katomic)
-# defaul theme is installed without .desktop file since KgTheme does not need it
+# default theme is installed without .desktop file since KgTheme does not need it
 # when only one theme is available. See: 30a1cadd20
 install(FILES default_theme.svgz  DESTINATION  ${KDE_INSTALL_DATADIR}/katomic/pics/)
 install(FILES katomic.knsrc  DESTINATION  ${KDE_INSTALL_CONFDIR})
