@@ -87,8 +87,6 @@ private:
     // from molecule
     int m_atomNum;
 
-    KGameRenderedItem* m_bond;
-
     static QHash<char, QString> s_names; // cryptic_char -> elemName
     static QHash<char, QString> s_bondNames; // cryptic_char -> bondName
 

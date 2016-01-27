@@ -41,8 +41,6 @@
 #include "fielditem.h"
 #include "levelset.h"
 
-static const int MIN_INFO_SIZE=10;
-
 struct Theme : public KgTheme
 {
     Theme() : KgTheme("pics/default_theme.desktop")
