@@ -142,7 +142,7 @@ void ChooseLevelSetDialog::saveSettings()
     {   
         QString levelSetName = item->data(KAtomic::LevelSetNameRole).toString();
         emit levelSetChanged(levelSetName);
-            
+
         m_gameCurrentLevelSetName = levelSetName;
         updateApplyButton();
     }

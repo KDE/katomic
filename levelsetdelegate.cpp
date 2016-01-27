@@ -58,16 +58,15 @@ void LevelSetDelegate::paint(QPainter* p, const QStyleOptionViewItem& opt, const
     else
         p->setPen(option.palette.color(QPalette::Normal, QPalette::Text));
 
-     //
-     // Draw text
-     //
+    //
+    // Draw text
+    //
     int marginH = style->pixelMetric( QStyle::PM_FocusFrameHMargin );
     int marginV = style->pixelMetric( QStyle::PM_FocusFrameVMargin );
     int innerSpacing = 9;
 
     int textStartX = option.decorationSize.width() + innerSpacing;
-    QRect r = opt.rect.adjusted(textStartX, marginV*2,
-                                0, 0);
+    QRect r = opt.rect.adjusted(textStartX, marginV*2, 0, 0);
 
     QFontMetrics fm(opt.font);
 

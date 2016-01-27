@@ -48,13 +48,7 @@ class PlayField : public QGraphicsScene
     Q_OBJECT
 public:
     enum Direction { Up=0, Down, Left, Right };
-    /**
-     *  Constructor
-     */
     explicit PlayField( QObject *parent );
-    /**
-     *  Destructor
-     */
     virtual ~PlayField();
     /**
      *  Resizes playfield to width,height
@@ -115,7 +109,7 @@ public slots:
      *  Redoes one movement
      */
     void redo();
-      /**
+    /**
      *  Undoes all movements
      */
     void undoAll();

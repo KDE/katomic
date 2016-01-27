@@ -36,8 +36,8 @@ class LevelData;
 #define MOLECULE_SIZE 15
 
 /**
-  this class represents one molecule
-*/
+ this class represents one molecule
+ */
 class Molecule
 {
 public:
@@ -55,13 +55,13 @@ public:
     int height() const { return m_height; }
 
     /**
-      * @return the name of the molecule
-      */
+     * @return the name of the molecule
+     */
     QString moleculeName() const { return m_name; }
 
     /**
-    * @return the molecule weight of the molecule
-    */
+     * @return the molecule weight of the molecule
+     */
     double molecularWeight() const { return m_weight; }
 
 private:

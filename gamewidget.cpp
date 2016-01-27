@@ -1,22 +1,22 @@
 /*
 
-  Copyright (C) 1998   Andreas Wüst (AndreasWuest@gmx.de)
-  Copyright (C) 2006-2009   Dmitry Suzdalev (dimsuz@gmail.com)
+   Copyright (C) 1998   Andreas Wüst (AndreasWuest@gmx.de)
+   Copyright (C) 2006-2009   Dmitry Suzdalev (dimsuz@gmail.com)
 
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation; either version 2 of the License, or
-  (at your option) any later version.
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
 
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
 
-  You should have received a copy of the GNU General Public License
-  along with this program; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-  */
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+   */
 
 #include "gamewidget.h"
 #include "highscores.h"
@@ -60,8 +60,8 @@ GameWidget::GameWidget ( const QString& levelSet, QWidget *parent )
     // fixed (darktears promised it will get fixed in 4.6.0 release). Bug is about wrong coordinates
     // for QPainter passed to QGS::drawForeground() function
     m_view->setOptimizationFlags( QGraphicsView::DontClipPainter |
-                                  //QGraphicsView::DontSavePainterState |
-                                  QGraphicsView::DontAdjustForAntialiasing );
+            //QGraphicsView::DontSavePainterState |
+            QGraphicsView::DontAdjustForAntialiasing );
 
     top->addWidget(m_view, 1);
 
@@ -144,7 +144,7 @@ void GameWidget::moveRight()
 void GameWidget::gameOver(int moves) {
     // writing this info only in normal mode
     if ( !m_allowAnyLevelSwitch &&
-         maxAccessibleLevel() < m_level+1 )
+            maxAccessibleLevel() < m_level+1 )
     {
         saveMaxAccessibleLevel( m_level+1 );
     }
@@ -311,7 +311,7 @@ int GameWidget::maxAccessibleLevel() const
 bool GameWidget::isNextLevelAvailable() const
 {
     bool avail = m_allowAnyLevelSwitch ? true :
-                (m_level != maxAccessibleLevel() && m_level <= m_levelSet.levelCount());
+        (m_level != maxAccessibleLevel() && m_level <= m_levelSet.levelCount());
     return avail;
 }
 

@@ -1,24 +1,24 @@
 /* toplevel.cpp
 
-  Copyright (C) 1998   Andreas Wüst <AndreasWuest@gmx.de>
-  Copyright (C) 2006   Dmitry Suzdalev <dimsuz@gmail.com>
-  Copyright (C) 2007   Simon Hürlimann <simon.huerlimann@huerlisi.ch>
+   Copyright (C) 1998   Andreas Wüst <AndreasWuest@gmx.de>
+   Copyright (C) 2006   Dmitry Suzdalev <dimsuz@gmail.com>
+   Copyright (C) 2007   Simon Hürlimann <simon.huerlimann@huerlisi.ch>
 
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation; either version 2 of the License, or
-  (at your option) any later version.
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
 
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
 
-  You should have received a copy of the GNU General Public License
-  along with this program; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-  */
+*/
 
 #include "toplevel.h"
 
@@ -89,7 +89,7 @@ void AtomTopLevel::createMenu()
     KStandardGameAction::restart(m_gameWid, SLOT(restartLevel()), actionCollection());
     // FIXME: comment this until highscore dialog will be implemented.
     // (katomic needs spesial one)
-//    KStandardGameAction::highscores(m_gameWid, SLOT(showHighscores()), actionCollection());
+    //    KStandardGameAction::highscores(m_gameWid, SLOT(showHighscores()), actionCollection());
     KStandardGameAction::load(m_gameWid, SLOT(loadGame()), actionCollection());
     KStandardGameAction::save(m_gameWid, SLOT(saveGame()), actionCollection());
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());

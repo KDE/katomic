@@ -244,8 +244,8 @@ const Molecule* LevelSet::readLevelMolecule(int levelNum) const
 
         strncpy(current.conn, value.toLatin1(), sizeof(current.conn));
         if (mol->m_atoms.indexOf(current) != -1)
-             qWarning()
-            << "OOOPS, duplicate atom definition in" << key;
+            qWarning()
+                << "OOOPS, duplicate atom definition in" << key;
         mol->m_atoms.append(current);
         atom_index++;
     }

@@ -45,10 +45,10 @@ static const int MIN_INFO_SIZE=10;
 
 struct Theme : public KgTheme
 {
-	Theme() : KgTheme("pics/default_theme.desktop")
-	{
-		setGraphicsPath(QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("pics/default_theme.svgz")));
-	}
+    Theme() : KgTheme("pics/default_theme.desktop")
+    {
+        setGraphicsPath(QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("pics/default_theme.svgz")));
+    }
 };
 
 PlayField::PlayField( QObject* parent )
