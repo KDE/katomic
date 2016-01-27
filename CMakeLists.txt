@@ -2,14 +2,16 @@ project(katomic)
 
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 set(QT_MIN_VERSION "5.3.0")
+set (KF5_MIN_VERSION "5.15.0")
 
 find_package(ECM 1.7.0 REQUIRED CONFIG)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets)
-find_package(KF5 REQUIRED COMPONENTS
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     Config
+    Crash
     WidgetsAddons
     I18n
     XmlGui
@@ -53,7 +55,13 @@ file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*-apps-katomic.png")
 ecm_add_app_icon(katomic_SRCS ICONS ${ICONS_SRCS})
 add_executable(katomic ${katomic_SRCS})
 
-target_link_libraries(katomic  KF5::NewStuff KF5KDEGames KF5::I18n KF5::DBusAddons KF5::NewStuff)
+target_link_libraries(katomic
+    KF5::NewStuff
+    KF5KDEGames
+    KF5::I18n
+    KF5::DBusAddons
+    KF5::Crash
+    KF5::NewStuff)
 
 install(TARGETS katomic  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 

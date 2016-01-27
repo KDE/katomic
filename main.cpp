@@ -25,6 +25,7 @@
 #include <KLocalizedString>
 
 #include <KAboutData>
+#include <KCrash>
 #include <kmessagebox.h>
 #include <qtimer.h>
 #include <QCommandLineParser>
@@ -69,6 +70,7 @@ int main(int argc, char **argv)
 
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
+    KCrash::initialize();
     parser.addVersionOption();
     parser.addHelpOption();
   parser.addOption(QCommandLineOption(QStringList() <<  QStringLiteral("hackmode"), i18n( "Enable access to all levels" )));
