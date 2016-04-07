@@ -45,7 +45,7 @@ struct Theme : public KgTheme
 {
     Theme() : KgTheme("pics/default_theme.desktop")
     {
-        setGraphicsPath(QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("pics/default_theme.svgz")));
+        setGraphicsPath(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("pics/default_theme.svgz")));
     }
 };
 

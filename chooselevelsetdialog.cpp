@@ -84,7 +84,7 @@ void ChooseLevelSetDialog::loadData()
 {
     m_ui.m_lwLevelSets->clear();
     QStringList fileList;
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("levels"), QStandardPaths::LocateDirectory);
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("levels"), QStandardPaths::LocateDirectory);
     Q_FOREACH (const QString& dir, dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.dat"));
         Q_FOREACH (const QString& file, fileNames) {
@@ -139,7 +139,7 @@ void ChooseLevelSetDialog::saveSettings()
 {
     QListWidgetItem* item = m_ui.m_lwLevelSets->currentItem();
     if (item)
-    {   
+    {
         QString levelSetName = item->data(KAtomic::LevelSetNameRole).toString();
         emit levelSetChanged(levelSetName);
 
