@@ -1,16 +1,12 @@
 <?xml version="1.0" ?>
-<!--IMPORTANT: please note that'do not change this!' notice does not apply to translators -->
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&katomic;">
-  <!ENTITY kappversion "3.0"><!--Application version. Use this variable everywhere it's needed.-->
-  <!ENTITY package "kdegames">  <!-- do not change this! -->
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE"> <!-- do not change this! -->
 ]>
  
 <book id="katomic" lang="&language;"> <!-- do not change this! -->
 <bookinfo>
-<title>The &kappname; Handbook</title> <!-- This is the title of the docbook. Leave as is unless change is necessary.-->
+<title>The &katomic; Handbook</title> <!-- This is the title of the docbook. Leave as is unless change is necessary.-->
 <!-- List of immediate authors begins here. -->
 <!--INPORTANT! - All other contributors: [to be determined] -->
 <authorgroup>
@@ -30,12 +26,12 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 <legalnotice>&FDLNotice;</legalnotice> 
-<date>2013-05-05</date><!-- Date of (re)writing, or update-->
-<releaseinfo>&kappversion; (&kde; 4.11)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+<date>2016-05-09</date>
+<releaseinfo>4.0 (Applications 16.04)</releaseinfo>
  
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
-	<para>This documentation describes the game of &katomic; version &kappversion;</para>
+	<para>This documentation describes the game of &katomic; version 4.0</para>
 </abstract>
  
 <!--List of relevan keywords-->
@@ -68,6 +64,16 @@
 </chapter>
  
 <chapter id="howto"><title>How to Play</title> <!-- do not change this! -->
+<screenshot>
+<mediaobject>
+<imageobject>
+<imagedata fileref="mainscreen.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>&katomic; main screen</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
 <!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
 	<note><title>Objective:</title><para>Reassemble molecules from compound atoms by sliding them around.</para></note><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
@@ -384,21 +390,6 @@ Proofreading by Michael McBride
 &underGPL;
  
 </chapter>
- 
- 
-<appendix id="installation">
-<title>Installation</title>
- 
-&install.intro.documentation;
- 
- 
-<sect1 id="Compilation">
-<title>Compilation and Installation</title>
- 
-&install.compile.documentation;
- 
-</sect1>
-</appendix>
  
 &documentation.index; 
 </book>
