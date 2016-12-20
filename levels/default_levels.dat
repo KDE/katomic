@@ -85,6 +85,7 @@ LevelCount=83
 
 [Level1]
 Name=Water
+Name[ast]=Agua
 Name[bs]=Voda
 Name[ca]=Aigua
 Name[ca@valencia]=Aigua
