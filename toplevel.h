@@ -56,7 +56,7 @@ private slots:
     void changeLevelSet(const QString&);
 
 private:
-    virtual bool queryClose(); // reimp
+    bool queryClose(); // reimp
 
     // Creates the menubar and connects the menu-entries to the
     // appropriate functions

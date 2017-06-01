@@ -51,7 +51,7 @@ public:
 
     // enable use of qgraphicsitem_cast
     enum { Type = UserType + 1 };
-    virtual int type() const { return Type; }
+    int type() const Q_DECL_OVERRIDE { return Type; }
 private:
     int m_fieldX;
     int m_fieldY;
@@ -82,7 +82,7 @@ public:
 
     // enable use of qgraphicsitem_cast
     enum { Type = UserType + 2 };
-    virtual int type() const { return Type; }
+    int type() const Q_DECL_OVERRIDE { return Type; }
 private:
     // from molecule
     int m_atomNum;
@@ -111,11 +111,11 @@ public:
 
     // enable use of qgraphicsitem_cast
     enum { Type = UserType + 3 };
-    virtual int type() const { return Type; }
+    int type() const Q_DECL_OVERRIDE { return Type; }
 private slots:
     void setOpacity( qreal opacity );
 private:
-    QVariant itemChange( GraphicsItemChange change, const QVariant& value );
+    QVariant itemChange( GraphicsItemChange change, const QVariant& value ) Q_DECL_OVERRIDE;
 
     /**
      *  Timeline object to control fade-in animation
@@ -154,9 +154,9 @@ public:
      */
     void setMaxAtomSize( int maxSize );
 
-    inline QRectF boundingRect() const { return QRectF(0,0, m_width, m_width); } // reimp
+    inline QRectF boundingRect() const Q_DECL_OVERRIDE { return QRectF(0,0, m_width, m_width); } // reimp
 private:
-    void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 );
+    void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 ) Q_DECL_OVERRIDE;
 
     KGameRenderer* m_renderer;
     int m_width;

@@ -125,8 +125,8 @@ signals:
 private slots:
     void atomAnimFrameChanged(int frame);
 private:
-    virtual void drawForeground( QPainter*, const QRectF& );
-    virtual void mousePressEvent( QGraphicsSceneMouseEvent* ev );
+    void drawForeground( QPainter*, const QRectF& ) Q_DECL_OVERRIDE;
+    void mousePressEvent( QGraphicsSceneMouseEvent* ev ) Q_DECL_OVERRIDE;
 
     /**
      *  Checks if molecule is finished

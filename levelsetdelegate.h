@@ -30,8 +30,8 @@ class LevelSetDelegate : public QStyledItemDelegate
 public:
     explicit LevelSetDelegate(QObject* parent = 0);
 
-    virtual void paint(QPainter* p, const QStyleOptionViewItem& option, const QModelIndex& index) const;
-    virtual QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const;
+    void paint(QPainter* p, const QStyleOptionViewItem& option, const QModelIndex& index) const Q_DECL_OVERRIDE;
+    QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const Q_DECL_OVERRIDE;
 
 private:
     mutable int m_lineHeight;

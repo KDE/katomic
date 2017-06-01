@@ -87,7 +87,7 @@ public slots:
     void moveRight();
 private:
 
-    virtual void resizeEvent( QResizeEvent* );
+    void resizeEvent( QResizeEvent* ) Q_DECL_OVERRIDE;
     void switchToLevel (int);
 
     int lastPlayedLevel() const;
