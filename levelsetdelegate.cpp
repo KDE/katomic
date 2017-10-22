@@ -38,7 +38,7 @@ LevelSetDelegate::LevelSetDelegate(QObject* parent)
 void LevelSetDelegate::paint(QPainter* p, const QStyleOptionViewItem& opt, const QModelIndex& index) const
 {
     p->save();
-    QStyleOptionViewItemV4 option(opt);
+    QStyleOptionViewItem option(opt);
     initStyleOption(&option, index);
 
     //

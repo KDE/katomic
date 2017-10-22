@@ -71,8 +71,6 @@ int main(int argc, char **argv)
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
     KCrash::initialize();
-    parser.addVersionOption();
-    parser.addHelpOption();
     parser.addOption(QCommandLineOption(QStringList() <<  QStringLiteral("hackmode"), i18n( "Enable access to all levels" )));
 
     aboutData.setupCommandLine(&parser);
