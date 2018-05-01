@@ -260,7 +260,7 @@ void PlayField::previousAtom()
             if( !itemsAtPoint.isEmpty() )
             {
                 AtomFieldItem* item = qgraphicsitem_cast<AtomFieldItem*>( itemsAtPoint[0] );
-                if ( item->atomNum() != -1 )
+                if ( item && item->atomNum() != -1 )
                 {
                     m_selIdx = m_atoms.indexOf(item);
                     updateArrows();
