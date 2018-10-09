@@ -579,7 +579,7 @@ bool PlayField::checkDone() const
         return false;
     }
     // let's assume that molecule is done
-    // and see if we can break assumtion
+    // and see if we can break assumption
     //
     // first we find molecule origin in field coords
     // by finding minimum fieldX, fieldY through all atoms

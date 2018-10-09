@@ -88,7 +88,7 @@ void AtomTopLevel::createMenu()
     // Game
     KStandardGameAction::restart(m_gameWid, SLOT(restartLevel()), actionCollection());
     // FIXME: comment this until highscore dialog will be implemented.
-    // (katomic needs spesial one)
+    // (katomic needs special one)
     //    KStandardGameAction::highscores(m_gameWid, SLOT(showHighscores()), actionCollection());
     KStandardGameAction::load(m_gameWid, SLOT(loadGame()), actionCollection());
     KStandardGameAction::save(m_gameWid, SLOT(saveGame()), actionCollection());

@@ -141,7 +141,7 @@ public:
     void setMolecule( const Molecule* mol );
 
     /**
-     *  Sets item width. Height will be calculated autmatically
+     *  Sets item width. Height will be calculated automatically
      */
     void setWidth( int width );
     /**
