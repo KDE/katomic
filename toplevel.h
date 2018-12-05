@@ -48,7 +48,7 @@ public:
      * May enable some other "hacks" in future (if any will emerge)
      */
     void enableHackMode();
-private slots:
+private Q_SLOTS:
     void slotAnimSpeedChanged(int);
     void updateStatusBar(int level, int score, int highscore);
     void levelHasChanged(int level);

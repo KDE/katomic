@@ -88,7 +88,7 @@ void ChooseLevelSetDialog::loadData()
     Q_FOREACH (const QString& dir, dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.dat"));
         Q_FOREACH (const QString& file, fileNames) {
-            fileList.append(dir + '/' + file);
+            fileList.append(dir + QLatin1Char('/') + file);
         }
     }
 

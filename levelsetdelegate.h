@@ -28,10 +28,10 @@
 class LevelSetDelegate : public QStyledItemDelegate
 {
 public:
-    explicit LevelSetDelegate(QObject* parent = 0);
+    explicit LevelSetDelegate(QObject* parent = nullptr);
 
-    void paint(QPainter* p, const QStyleOptionViewItem& option, const QModelIndex& index) const Q_DECL_OVERRIDE;
-    QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const Q_DECL_OVERRIDE;
+    void paint(QPainter* p, const QStyleOptionViewItem& option, const QModelIndex& index) const override;
+    QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const override;
 
 private:
     mutable int m_lineHeight;

@@ -169,13 +169,13 @@ int LevelSet::levelCount() const
 
 const LevelData* LevelSet::levelData(int levelNum) const
 {
-    LevelData* data = m_levelCache.value(levelNum, 0);
+    LevelData* data = m_levelCache.value(levelNum, nullptr);
     return data ? data : readLevel(levelNum);
 }
 
 const LevelData* LevelSet::readLevel(int levelNum) const
 {
-    KConfigGroup config = m_levelsFile->group("Level"+QString::number(levelNum));
+    KConfigGroup config = m_levelsFile->group(QStringLiteral("Level")+QString::number(levelNum));
     QString key;
 
     QList<LevelData::Element> elements;
@@ -190,11 +190,11 @@ const LevelData* LevelSet::readLevel(int levelNum) const
             if (line.isEmpty())
             {
                 //qDebug() << "error while reading level" << levelNum << "data from" << m_name;
-                return 0;
+                return nullptr;
             }
 
             QChar c = line.at(i);
-            if( c == '#' )
+            if( c == QLatin1Char('#') )
             {
                 LevelData::Element el;
                 el.x = i;
@@ -203,7 +203,7 @@ const LevelData* LevelSet::readLevel(int levelNum) const
 
                 elements.append(el);
             }
-            else if (c != '.')//atom
+            else if (c != QLatin1Char('.'))//atom
             {
                 LevelData::Element el;
                 el.x = i;
@@ -225,7 +225,7 @@ const LevelData* LevelSet::readLevel(int levelNum) const
 const Molecule* LevelSet::readLevelMolecule(int levelNum) const
 {
     Molecule* mol = new Molecule();
-    KConfigGroup config = m_levelsFile->group("Level"+QString::number(levelNum));
+    KConfigGroup config = m_levelsFile->group(QStringLiteral("Level")+QString::number(levelNum));
 
     QString key;
 
@@ -242,7 +242,7 @@ const Molecule* LevelSet::readLevelMolecule(int levelNum) const
         current.obj = value.at(0).toLatin1();
         value = value.mid(2);
 
-        strncpy(current.conn, value.toLatin1(), sizeof(current.conn));
+        strncpy(current.conn, value.toLatin1().constData(), sizeof(current.conn));
         if (mol->m_atoms.indexOf(current) != -1)
             qWarning()
                 << "OOOPS, duplicate atom definition in" << key;
@@ -281,14 +281,14 @@ const Molecule* LevelSet::readLevelMolecule(int levelNum) const
 
     mol->m_width = max_i+1;
 
-    mol->m_name = i18n(config.readEntry("Name", I18N_NOOP("Noname")).toUtf8());
+    mol->m_name = i18n(config.readEntry("Name", I18N_NOOP("Noname")).toUtf8().constData());
 
     return mol;
 }
 
 bool LevelSet::isDefaultLevelsAvailable()
 {
-    QString file = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("levels/%1.dat").arg(DEFAULT_LEVELSET_NAME));
+    QString file = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("levels/%1.dat").arg(QLatin1String(DEFAULT_LEVELSET_NAME)));
     if (file.isEmpty())
     {
         //qDebug() << "default level set \"" << DEFAULT_LEVELSET_NAME << "\" data file not found. Check your installation";

@@ -28,15 +28,15 @@ KAtomicHighscores::KAtomicHighscores()
     KUser user;
     m_playerName =  user.property(KUser::FullName).toString().isEmpty() ? user.loginName() : user.property(KUser::FullName).toString();
 
-    m_hsFile = KSharedConfig::openConfig( QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QLatin1Char('/') + "highscores", KConfig::SimpleConfig);
+    m_hsFile = KSharedConfig::openConfig( QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QLatin1Char('/') + QStringLiteral("highscores"), KConfig::SimpleConfig);
 }
 
 bool KAtomicHighscores::addScore( int numMoves, const QString& levelSetName, int level )
 {
-    KConfigGroup userHsGroup( m_hsFile, "Highscores_"+m_playerName );
+    KConfigGroup userHsGroup( m_hsFile, QStringLiteral("Highscores_")+m_playerName );
     KConfigGroup levelSetGroup( &userHsGroup, levelSetName );
 
-    QString keyStr = "Level"+QString::number(level);
+    QString keyStr = QStringLiteral("Level")+QString::number(level);
     int curHighScore = levelSetGroup.readEntry( keyStr, -1 );
     if( numMoves < curHighScore || curHighScore == -1 ) // new highscore!
     {
@@ -48,9 +48,9 @@ bool KAtomicHighscores::addScore( int numMoves, const QString& levelSetName, int
 
 int KAtomicHighscores::levelHighscore( const QString& levelSetName, int level ) const
 {
-    KConfigGroup userHsGroup( m_hsFile, "Highscores_"+m_playerName );
+    KConfigGroup userHsGroup( m_hsFile, QStringLiteral("Highscores_")+m_playerName );
     KConfigGroup levelSetGroup( &userHsGroup, levelSetName );
 
-    QString keyStr = "Level"+QString::number(level);
+    QString keyStr = QStringLiteral("Level")+QString::number(level);
     return levelSetGroup.readEntry( keyStr, 0 );
 }

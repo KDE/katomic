@@ -54,7 +54,7 @@ int main(int argc, char **argv)
     migrate.migrate();
     KLocalizedString::setApplicationDomain("katomic");
     KAboutData aboutData( QStringLiteral("katomic"), i18n("KAtomic"),
-            version, i18n(description), KAboutLicense::GPL,
+            QLatin1String(version), i18n(description), KAboutLicense::GPL,
             i18n("(c) 1998, Andreas Wuest\n(c) 2007-2009 Dmitry Suzdalev"));
     aboutData.addAuthor(i18n("Andreas Wuest"), i18n("Original author"), QStringLiteral("AndreasWuest@gmx.de"));
     aboutData.addAuthor(i18n("Dmitry Suzdalev"), i18n("Porting to KDE4. Current maintainer"), QStringLiteral("dimsuz@gmail.com"));

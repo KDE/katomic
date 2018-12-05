@@ -34,8 +34,8 @@ class GameWidget : public QWidget
     Q_OBJECT
 
 public:
-    GameWidget ( const QString& levelSet, QWidget *parent );
-    ~GameWidget();
+    explicit GameWidget ( const QString& levelSet, QWidget *parent );
+    ~GameWidget() override;
 
     bool setLevelSet(const QString& levelSet);
 
@@ -60,11 +60,11 @@ public:
     void saveMaxAccessibleLevel(int level);
     void saveLastPlayedLevel();
 
-signals:
+Q_SIGNALS:
     void statsChanged(int level,int score,int highscore);
     void levelChanged(int level);
 
-public slots:
+public Q_SLOTS:
     void prevLevel();
     void nextLevel();
 
@@ -87,7 +87,7 @@ public slots:
     void moveRight();
 private:
 
-    void resizeEvent( QResizeEvent* ) Q_DECL_OVERRIDE;
+    void resizeEvent( QResizeEvent* ) override;
     void switchToLevel (int);
 
     int lastPlayedLevel() const;

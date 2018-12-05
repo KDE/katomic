@@ -45,7 +45,7 @@ FieldItem::FieldItem( KGameRenderer* renderer, const QString& spriteKey, QGraphi
 static const char* arrow_spriteKeys[] = {"arrow_Up", "arrow_Down", "arrow_Left", "arrow_Right"};
 
 ArrowFieldItem::ArrowFieldItem( KGameRenderer* renderer, PlayField::Direction dir, QGraphicsScene* scene )
-    : FieldItem( renderer, arrow_spriteKeys[dir], scene )
+    : FieldItem( renderer, QLatin1String(arrow_spriteKeys[dir]), scene )
 {
     setOpacity(0.0); //start invisible
     m_timeLine = new QTimeLine(200);

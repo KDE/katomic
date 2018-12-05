@@ -44,7 +44,7 @@ AtomTopLevel::AtomTopLevel()
 {
     QString lastPlayedLevelSet = Preferences::lastPlayedLevelSet();
     if (lastPlayedLevelSet.isEmpty())
-        lastPlayedLevelSet = DEFAULT_LEVELSET_NAME;
+        lastPlayedLevelSet = QLatin1String(DEFAULT_LEVELSET_NAME);
 
     m_gameWid = new GameWidget( lastPlayedLevelSet, this);
     m_gameWid->setObjectName( QStringLiteral("gamewidget" ));
@@ -201,7 +201,7 @@ void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
     mCurrentScore->setText(i18n("Current score: %1", score));
     QString str;
     if(highscore == 0)
-        str = '-';
+        str = QLatin1Char('-');
     else
         str.setNum(highscore);
     mHighScore->setText(i18n("Highscore: %1", str));

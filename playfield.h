@@ -92,7 +92,7 @@ public:
      */
     KGameRenderer* renderer() { return &m_renderer; }
 
-public slots:
+public Q_SLOTS:
     /**
      *  Selects next atom
      */
@@ -117,16 +117,16 @@ public slots:
      *  Redoes all movements
      */
     void redoAll();
-signals:
+Q_SIGNALS:
     void gameOver(int numMoves);
     void updateMoves(int);
     void enableUndo(bool);
     void enableRedo(bool);
-private slots:
+private Q_SLOTS:
     void atomAnimFrameChanged(int frame);
 private:
-    void drawForeground( QPainter*, const QRectF& ) Q_DECL_OVERRIDE;
-    void mousePressEvent( QGraphicsSceneMouseEvent* ev ) Q_DECL_OVERRIDE;
+    void drawForeground( QPainter*, const QRectF& ) override;
+    void mousePressEvent( QGraphicsSceneMouseEvent* ev ) override;
 
     /**
      *  Checks if molecule is finished

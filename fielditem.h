@@ -51,7 +51,7 @@ public:
 
     // enable use of qgraphicsitem_cast
     enum { Type = UserType + 1 };
-    int type() const Q_DECL_OVERRIDE { return Type; }
+    int type() const override { return Type; }
 private:
     int m_fieldX;
     int m_fieldY;
@@ -82,7 +82,7 @@ public:
 
     // enable use of qgraphicsitem_cast
     enum { Type = UserType + 2 };
-    int type() const Q_DECL_OVERRIDE { return Type; }
+    int type() const override { return Type; }
 private:
     // from molecule
     int m_atomNum;
@@ -107,15 +107,15 @@ class ArrowFieldItem : public QObject, public FieldItem
     Q_OBJECT
 public:
     explicit ArrowFieldItem( KGameRenderer* renderer, PlayField::Direction dir, QGraphicsScene* scene );
-    virtual ~ArrowFieldItem();
+    ~ArrowFieldItem() override;
 
     // enable use of qgraphicsitem_cast
     enum { Type = UserType + 3 };
-    int type() const Q_DECL_OVERRIDE { return Type; }
-private slots:
+    int type() const override { return Type; }
+private Q_SLOTS:
     void setOpacity( qreal opacity );
 private:
-    QVariant itemChange( GraphicsItemChange change, const QVariant& value ) Q_DECL_OVERRIDE;
+    QVariant itemChange( GraphicsItemChange change, const QVariant& value ) override;
 
     /**
      *  Timeline object to control fade-in animation
@@ -133,7 +133,7 @@ class MoleculePreviewItem : public QGraphicsItem
 {
 public:
     explicit MoleculePreviewItem( PlayField* scene );
-    ~MoleculePreviewItem();
+    ~MoleculePreviewItem() override;
 
     /**
      *  Sets molecule to display
@@ -154,9 +154,9 @@ public:
      */
     void setMaxAtomSize( int maxSize );
 
-    inline QRectF boundingRect() const Q_DECL_OVERRIDE { return QRectF(0,0, m_width, m_width); } // reimp
+    inline QRectF boundingRect() const override { return QRectF(0,0, m_width, m_width); } // reimp
 private:
-    void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 ) Q_DECL_OVERRIDE;
+    void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 ) override;
 
     KGameRenderer* m_renderer;
     int m_width;
