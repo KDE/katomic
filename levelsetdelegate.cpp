@@ -51,7 +51,7 @@ void LevelSetDelegate::paint(QPainter* p, const QStyleOptionViewItem& opt, const
     option.decorationSize = QSize(48, 48);
 
     QStyle* style = QApplication::style();
-    style->drawControl(QStyle::CE_ItemViewItem, &option, p, 0);
+    style->drawControl(QStyle::CE_ItemViewItem, &option, p, nullptr);
 
     if (option.state & QStyle::State_Selected)
         p->setPen(option.palette.color(QPalette::Normal, QPalette::HighlightedText));

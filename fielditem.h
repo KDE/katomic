@@ -156,7 +156,7 @@ public:
 
     inline QRectF boundingRect() const override { return QRectF(0,0, m_width, m_width); } // reimp
 private:
-    void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = 0 ) override;
+    void paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget * widget = nullptr ) override;
 
     KGameRenderer* m_renderer;
     int m_width;

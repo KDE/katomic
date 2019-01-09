@@ -50,7 +50,7 @@ struct Theme : public KgTheme
 };
 
 PlayField::PlayField( QObject* parent )
-    : QGraphicsScene(parent), m_renderer(new Theme), m_numMoves(0), m_levelData(0),
+    : QGraphicsScene(parent), m_renderer(new Theme), m_numMoves(0), m_levelData(nullptr),
     m_elemSize(MIN_ELEM_SIZE), m_selIdx(-1), m_animSpeed(120),
     m_levelFinished(false)
 {

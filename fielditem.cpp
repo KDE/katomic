@@ -197,8 +197,8 @@ QPixmap AtomFieldItem::renderAtom( KGameRenderer* renderer, const atom& at, int 
 // ----------------- MoleculePreviewItem ----------------------------
 
 MoleculePreviewItem::MoleculePreviewItem( PlayField* scene )
-    : QGraphicsItem( 0 ), m_renderer(scene->renderer()), m_width(0),
-    m_atomSize(20), m_maxAtomSize(30), m_mol( 0 )
+    : QGraphicsItem( nullptr ), m_renderer(scene->renderer()), m_width(0),
+    m_atomSize(20), m_maxAtomSize(30), m_mol( nullptr )
 {
     scene->addItem(this);
 }
@@ -234,7 +234,7 @@ void MoleculePreviewItem::setWidth(int width)
 
 void MoleculePreviewItem::paint( QPainter * painter, const QStyleOptionGraphicsItem*, QWidget *)
 {
-    if ( m_width == 0 || m_mol == 0 )
+    if ( m_width == 0 || m_mol == nullptr )
         return;
 
     painter->save();

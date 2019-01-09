@@ -44,7 +44,7 @@ AtomTopLevel::AtomTopLevel()
 {
     QString lastPlayedLevelSet = Preferences::lastPlayedLevelSet();
     if (lastPlayedLevelSet.isEmpty())
-        lastPlayedLevelSet = QLatin1String(DEFAULT_LEVELSET_NAME);
+        lastPlayedLevelSet = QStringLiteral(DEFAULT_LEVELSET_NAME);
 
     m_gameWid = new GameWidget( lastPlayedLevelSet, this);
     m_gameWid->setObjectName( QStringLiteral("gamewidget" ));
@@ -104,14 +104,14 @@ void AtomTopLevel::createMenu()
     m_prevLevelAct->setText( i18n( "Previous Level" ) );
     actionCollection()->setDefaultShortcut(m_prevLevelAct, Qt::CTRL + Qt::Key_P );
     addAction( m_prevLevelAct );
-    connect( m_prevLevelAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(prevLevel()) );
+    connect( m_prevLevelAct, &QAction::triggered, m_gameWid, &GameWidget::prevLevel );
 
     m_nextLevelAct = actionCollection()->addAction( QStringLiteral(  "next_level" ) );
     m_nextLevelAct->setIcon( QIcon::fromTheme( QStringLiteral(  "arrow-right" ) ) );
     m_nextLevelAct->setText( i18n( "Next Level" ) );
     actionCollection()->setDefaultShortcut(m_nextLevelAct, Qt::CTRL + Qt::Key_N );
     addAction( m_nextLevelAct );
-    connect( m_nextLevelAct, SIGNAL(triggered(bool)), m_gameWid, SLOT(nextLevel()) );
+    connect( m_nextLevelAct, &QAction::triggered, m_gameWid, &GameWidget::nextLevel );
 
     QAction* chooseLevelSet = actionCollection()->addAction( QStringLiteral(  "choose_level_set" ) );
     chooseLevelSet->setText( i18n( "Choose level set..." ) );
@@ -128,22 +128,22 @@ void AtomTopLevel::createMenu()
     QAction *undoAll = actionCollection()->addAction( QStringLiteral(  "move_undo_all" ) );
     undoAll->setIcon( QIcon::fromTheme( QStringLiteral( "media-skip-backward" )) );
     undoAll->setText( i18n("Undo All") );
-    connect( undoAll, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(undoAll()) );
+    connect( undoAll, &QAction::triggered, m_gameWid->playfield(), &PlayField::undoAll );
 
     QAction *redoAll = actionCollection()->addAction( QStringLiteral(  "move_redo_all" ) );
     redoAll->setIcon( QIcon::fromTheme( QStringLiteral( "media-skip-forward" )) );
     redoAll->setText( i18n("Redo All") );
-    connect( redoAll, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(redoAll()) );
+    connect( redoAll, &QAction::triggered, m_gameWid->playfield(), &PlayField::redoAll );
 
     m_undoAct->setEnabled(false);
     m_redoAct->setEnabled(false);
     undoAll->setEnabled(false);
     redoAll->setEnabled(false);
 
-    connect (m_gameWid->playfield(), SIGNAL (enableRedo(bool)), m_redoAct, SLOT(setEnabled(bool)));
-    connect (m_gameWid->playfield(), SIGNAL (enableUndo(bool)), m_undoAct, SLOT(setEnabled(bool)));
-    connect (m_gameWid->playfield(), SIGNAL (enableUndo(bool)), undoAll, SLOT(setEnabled(bool)));
-    connect (m_gameWid->playfield(), SIGNAL (enableRedo(bool)), redoAll, SLOT(setEnabled(bool)));
+    connect (m_gameWid->playfield(), &PlayField::enableRedo, m_redoAct, &QAction::setEnabled);
+    connect (m_gameWid->playfield(), &PlayField::enableUndo, m_undoAct, &QAction::setEnabled);
+    connect (m_gameWid->playfield(), &PlayField::enableUndo, undoAll, &QAction::setEnabled);
+    connect (m_gameWid->playfield(), &PlayField::enableRedo, redoAll, &QAction::setEnabled);
 
     QAction * atomUpAct = actionCollection()->addAction( QStringLiteral( "atom_up" ));
     atomUpAct->setText(i18n("Atom Up"));
@@ -173,13 +173,13 @@ void AtomTopLevel::createMenu()
     nextAtomAct->setText(i18n("Next Atom"));
     actionCollection()->setDefaultShortcut(nextAtomAct,Qt::Key_Tab);
     addAction(nextAtomAct);
-    connect(nextAtomAct, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(nextAtom()));
+    connect(nextAtomAct, &QAction::triggered, m_gameWid->playfield(), &PlayField::nextAtom);
 
     QAction * prevAtomAct = actionCollection()->addAction( QStringLiteral( "prev_atom" ));
     prevAtomAct->setText(i18n("Previous Atom"));
     actionCollection()->setDefaultShortcut(prevAtomAct,Qt::SHIFT+Qt::Key_Tab);
     addAction(prevAtomAct);
-    connect(prevAtomAct, SIGNAL(triggered(bool)), m_gameWid->playfield(), SLOT(previousAtom()));
+    connect(prevAtomAct, &QAction::triggered, m_gameWid->playfield(), &PlayField::previousAtom);
 }
 
 void AtomTopLevel::loadSettings()

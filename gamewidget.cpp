@@ -222,7 +222,7 @@ void GameWidget::loadGame()
     if (levelSet.isEmpty())
     {
         //qDebug() << "note: savegame file doesn't contain info about levelset, assuming default one";
-        levelSet = QLatin1String(DEFAULT_LEVELSET_NAME);
+        levelSet = QStringLiteral(DEFAULT_LEVELSET_NAME);
     }
 
     bool res = setLevelSet(levelSet);
