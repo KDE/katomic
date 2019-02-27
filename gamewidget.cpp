@@ -42,7 +42,7 @@ GameWidget::GameWidget ( const QString& levelSet, QWidget *parent )
     m_levelHighscore = 0;
 
     QVBoxLayout *top = new QVBoxLayout(this);
-    top->setMargin(0);
+    top->setContentsMargins(0, 0, 0, 0);
 
     // playfield
     m_playField = new PlayField(this);
