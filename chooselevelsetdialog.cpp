@@ -85,15 +85,15 @@ void ChooseLevelSetDialog::loadData()
     m_ui.m_lwLevelSets->clear();
     QStringList fileList;
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("levels"), QStandardPaths::LocateDirectory);
-    Q_FOREACH (const QString& dir, dirs) {
+    for (const QString& dir : dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.dat"));
-        Q_FOREACH (const QString& file, fileNames) {
+        for (const QString& file : fileNames) {
             fileList.append(dir + QLatin1Char('/') + file);
         }
     }
 
     LevelSet ls;
-    foreach (const QString& fileName, fileList)
+    for (const QString& fileName : fileList)
     {
         ls.loadFromFile(fileName);
         QString visibleName = ls.visibleName();

@@ -105,8 +105,8 @@ void AtomFieldItem::setRenderSize(const QSize& renderSize)
 {
     KGameRenderedItem::setRenderSize(renderSize);
 
-    QList<QGraphicsItem*> bonds = childItems();
-    foreach(QGraphicsItem* item, bonds)
+    const QList<QGraphicsItem*> bonds = childItems();
+    for (QGraphicsItem* item : bonds)
     {
         dynamic_cast<KGameRenderedItem*>(item)->setRenderSize(renderSize);
     }

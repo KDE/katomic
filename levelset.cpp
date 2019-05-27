@@ -40,7 +40,7 @@ LevelData::LevelData(const QList<Element>& elements, const Molecule* mol)
     : m_molecule(mol)
 {
     memset(m_field, 0, sizeof(m_field));
-    foreach (const Element& el, elements)
+    for (const Element& el : elements)
     {
         if (el.atom == -1)
         {

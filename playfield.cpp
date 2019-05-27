@@ -103,7 +103,8 @@ void PlayField::setLevelData(const LevelData* level)
 
     m_previewItem->setMolecule(m_levelData->molecule());
 
-    foreach (const LevelData::Element& element, m_levelData->atomElements())
+    const auto atomElements = m_levelData->atomElements();
+    for (const LevelData::Element& element : atomElements)
     {
         AtomFieldItem* atom = new AtomFieldItem(&m_renderer, m_levelData->molecule()->getAtom(element.atom), this);
         atom->setFieldXY(element.x, element.y);
@@ -127,7 +128,7 @@ void PlayField::updateFieldItems()
         return;
     }
 
-    foreach( AtomFieldItem *item, m_atoms )
+    for ( AtomFieldItem *item : qAsConst(m_atoms) )
     {
         item->setRenderSize( QSize(m_elemSize, m_elemSize) );
 
@@ -364,7 +365,7 @@ void PlayField::undoAll()
         atom->setFieldXY( atom->fieldX()+xdelta, atom->fieldY()+ydelta );
     }
     // update pixel positions
-    foreach( AtomFieldItem* atom, m_atoms )
+    for ( AtomFieldItem* atom : qAsConst(m_atoms) )
         atom->setPos( toPixX(atom->fieldX()), toPixY(atom->fieldY()));
 
     m_numMoves = 0;
@@ -403,7 +404,7 @@ void PlayField::redoAll()
         atom->setFieldXY( atom->fieldX()+xdelta, atom->fieldY()+ydelta );
     }
     // update pixel positions
-    foreach( AtomFieldItem * atom, m_atoms )
+    for ( AtomFieldItem * atom : qAsConst(m_atoms) )
         atom->setPos( toPixX(atom->fieldX()), toPixY(atom->fieldY()));
 
     m_numMoves = m_undoStack.count();
@@ -585,7 +586,7 @@ bool PlayField::checkDone() const
     // by finding minimum fieldX, fieldY through all atoms
     int minX = FIELD_SIZE+1;
     int minY = FIELD_SIZE+1;
-    foreach( AtomFieldItem* atom, m_atoms )
+    for ( AtomFieldItem* atom : qAsConst(m_atoms) )
     {
         if(atom->fieldX() < minX)
             minX = atom->fieldX();
@@ -595,7 +596,7 @@ bool PlayField::checkDone() const
     // so origin is (minX,minY)
     // we'll subtract this origin from each atom's coords and check
     // if the resulting position is the same as this atom has in molecule
-    foreach( AtomFieldItem* atom, m_atoms )
+    for ( AtomFieldItem* atom : qAsConst(m_atoms) )
     {
         uint atomNum = atom->atomNum();
         int molecCoordX = atom->fieldX() - minX;
@@ -617,7 +618,7 @@ bool PlayField::cellIsEmpty(int x, int y) const
     if(m_levelData->containsWallAt(x,y))
         return false; // it is a wall
 
-    foreach( AtomFieldItem *atom, m_atoms )
+    for ( AtomFieldItem *atom : qAsConst(m_atoms) )
     {
         if( atom->fieldX() == x && atom->fieldY() == y )
             return false;
