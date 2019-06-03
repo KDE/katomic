@@ -30,8 +30,6 @@
 #include "atom.h"
 
 class KConfig;
-class KConfigGroup;
-class LevelData;
 
 #define MOLECULE_SIZE 15
 
