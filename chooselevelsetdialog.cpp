@@ -23,9 +23,7 @@
 #include "chooselevelsetdialog.h"
 
 
-#include <QDebug>
 #include <KNS3/Button>
-#include <KConfigGroup>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>

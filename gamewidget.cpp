@@ -33,7 +33,6 @@
 #include <kconfig.h>
 #include <qfiledialog.h>
 #include <QDebug>
-#include <QUrl>
 
 GameWidget::GameWidget ( const QString& levelSet, QWidget *parent )
     : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0), m_level(0)
