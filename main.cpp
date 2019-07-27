@@ -33,12 +33,10 @@
 #include <kdelibs4configmigrator.h>
 #include <KDBusService>
 #include "levelset.h"
-
+#include "katomic_version.h"
 
 static const char description[] =
 I18N_NOOP("KDE Atomic Entertainment Game");
-
-static const char version[] = "4.0";
 
 // ##########################
 // #	Main                #
@@ -54,7 +52,7 @@ int main(int argc, char **argv)
     migrate.migrate();
     KLocalizedString::setApplicationDomain("katomic");
     KAboutData aboutData( QStringLiteral("katomic"), i18n("KAtomic"),
-            QLatin1String(version), i18n(description), KAboutLicense::GPL,
+            QStringLiteral(KATOMIC_VERSION_STRING), i18n(description), KAboutLicense::GPL,
             i18n("(c) 1998, Andreas Wuest\n(c) 2007-2009 Dmitry Suzdalev"));
     aboutData.addAuthor(i18n("Andreas Wuest"), i18n("Original author"), QStringLiteral("AndreasWuest@gmx.de"));
     aboutData.addAuthor(i18n("Dmitry Suzdalev"), i18n("Porting to KDE4. Current maintainer"), QStringLiteral("dimsuz@gmail.com"));

@@ -1,6 +1,13 @@
-project(katomic)
-
 cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
+
+# KDE Application Version, managed by release script
+set(KDE_APPLICATIONS_VERSION_MAJOR "19")
+set(KDE_APPLICATIONS_VERSION_MINOR "11")
+set(KDE_APPLICATIONS_VERSION_MICRO "70")
+set(KDE_APPLICATIONS_VERSION "${KDE_APPLICATIONS_VERSION_MAJOR}.${KDE_APPLICATIONS_VERSION_MINOR}.${KDE_APPLICATIONS_VERSION_MICRO}")
+
+project(katomic VERSION ${KDE_APPLICATIONS_VERSION})
+
 set(QT_MIN_VERSION "5.7.0")
 set (KF5_MIN_VERSION "5.30.0")
 
@@ -27,6 +34,7 @@ include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(ECMAddAppIcon)
+include(ECMSetupVersion)
 
 if (${KF5Config_VERSION} STRGREATER "5.56.0")
         add_definitions(-DQT_NO_FOREACH)
@@ -50,6 +58,8 @@ set(katomic_SRCS
    levelset.cpp
    levelsetdelegate.cpp
    chooselevelsetdialog.cpp)
+
+ecm_setup_version(${KDE_APPLICATIONS_VERSION} VARIABLE_PREFIX KATOMIC VERSION_HEADER katomic_version.h)
 
 kconfig_add_kcfg_files(katomic_SRCS prefs.kcfgc)
 ki18n_wrap_ui(katomic_SRCS levelsetwidget.ui)
