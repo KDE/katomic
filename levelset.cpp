@@ -176,13 +176,12 @@ const LevelData* LevelSet::levelData(int levelNum) const
 const LevelData* LevelSet::readLevel(int levelNum) const
 {
     KConfigGroup config = m_levelsFile->group(QStringLiteral("Level")+QString::number(levelNum));
-    QString key;
 
     QList<LevelData::Element> elements;
 
     for (int j = 0; j < FIELD_SIZE; j++)
     {
-        key.sprintf("feld_%02d", j);
+        const QString key = QString::asprintf("feld_%02d", j);
         QString line = config.readEntry(key,QString());
 
         for (int i = 0; i < FIELD_SIZE; i++)
@@ -227,14 +226,13 @@ const Molecule* LevelSet::readLevelMolecule(int levelNum) const
     Molecule* mol = new Molecule();
     KConfigGroup config = m_levelsFile->group(QStringLiteral("Level")+QString::number(levelNum));
 
-    QString key;
 
     atom current;
 
     int atom_index = 1;
     QString value;
     while (true) {
-        key.sprintf("atom_%c", int2atom(atom_index));
+        const QString key = QString::asprintf("atom_%c", int2atom(atom_index));
         value = config.readEntry(key,QString());
         if (value.isEmpty())
             break;
@@ -259,7 +257,7 @@ const Molecule* LevelSet::readLevelMolecule(int levelNum) const
     int max_i = -1;
     for (int j = 0; j < MOLECULE_SIZE; j++) {
 
-        key.sprintf("mole_%d", j);
+        const QString key = QString::asprintf("mole_%d", j);
         line = config.readEntry(key,QString());
 
         int max_non_null_i = -1;
