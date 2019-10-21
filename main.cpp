@@ -86,7 +86,7 @@ int main(int argc, char **argv)
     else
     {
         if ( app.isSessionRestored() )
-            RESTORE(AtomTopLevel)
+            kRestoreMainWindows<AtomTopLevel>();
         else {
             AtomTopLevel *top = new AtomTopLevel;
             if ( parser.isSet( QStringLiteral("hackmode") ) )
