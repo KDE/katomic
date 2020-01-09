@@ -24,7 +24,7 @@
 
 
 #include <KConfigGroup>
-#include <QDebug>
+#include "katomic_debug.h"
 #include <KLocalizedString>
 #include <QFileInfo>
 
@@ -103,13 +103,13 @@ bool LevelSet::load(const QString& levelSetName)
     QString file = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("levels/%1.dat").arg(levelSetName));
     if (file.isEmpty())
     {
-        qDebug() << "level set \"" << levelSetName << "\" data file not found. Check your installation";
+        qCDebug(KATOMIC_LOG) << "level set \"" << levelSetName << "\" data file not found. Check your installation";
         return false;
     }
 
     bool res = loadFromFile(file);
     if (!res) {
-        qDebug() << "warning: failed to load level set" << levelSetName;
+        qCDebug(KATOMIC_LOG) << "warning: failed to load level set" << levelSetName;
     }
 
     return res;
@@ -131,7 +131,7 @@ bool LevelSet::loadFromFile(const QString& fileName)
     m_name = QFileInfo(fileName).baseName();
 
     if (m_levelCount <= 0) {
-        //qDebug() << "warning: in level set" << m_name << "level count not specified or invalid";
+        //qCDebug(KATOMIC_LOG) << "warning: in level set" << m_name << "level count not specified or invalid";
     }
 
     return true;
@@ -188,7 +188,7 @@ const LevelData* LevelSet::readLevel(int levelNum) const
         {
             if (line.isEmpty())
             {
-                //qDebug() << "error while reading level" << levelNum << "data from" << m_name;
+                //qCDebug(KATOMIC_LOG) << "error while reading level" << levelNum << "data from" << m_name;
                 return nullptr;
             }
 
@@ -242,7 +242,7 @@ const Molecule* LevelSet::readLevelMolecule(int levelNum) const
 
         strncpy(current.conn, value.toLatin1().constData(), sizeof(current.conn));
         if (mol->m_atoms.indexOf(current) != -1)
-            qWarning()
+            qCWarning(KATOMIC_LOG)
                 << "OOOPS, duplicate atom definition in" << key;
         mol->m_atoms.append(current);
         atom_index++;
@@ -289,7 +289,7 @@ bool LevelSet::isDefaultLevelsAvailable()
     QString file = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("levels/%1.dat").arg(QLatin1String(DEFAULT_LEVELSET_NAME)));
     if (file.isEmpty())
     {
-        //qDebug() << "default level set \"" << DEFAULT_LEVELSET_NAME << "\" data file not found. Check your installation";
+        //qCDebug(KATOMIC_LOG) << "default level set \"" << DEFAULT_LEVELSET_NAME << "\" data file not found. Check your installation";
         return false;
     }
 

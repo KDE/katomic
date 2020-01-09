@@ -35,6 +35,7 @@ include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(ECMAddAppIcon)
 include(ECMSetupVersion)
+include(ECMQtDeclareLoggingCategory)
 
 if (${KF5Config_VERSION} STRGREATER "5.56.0")
         add_definitions(-DQT_NO_FOREACH)
@@ -63,7 +64,7 @@ set(katomic_SRCS
    chooselevelsetdialog.cpp)
 
 ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KATOMIC VERSION_HEADER katomic_version.h)
-
+ecm_qt_declare_logging_category(katomic_SRCS HEADER katomic_debug.h IDENTIFIER KATOMIC_LOG CATEGORY_NAME org.kde.kdegames.katomic)
 kconfig_add_kcfg_files(katomic_SRCS prefs.kcfgc)
 ki18n_wrap_ui(katomic_SRCS levelsetwidget.ui)
 
@@ -98,4 +99,6 @@ if(NOT WIN32)
   install(PROGRAMS katomic-levelset-upd.pl DESTINATION  ${KDE_INSTALL_KCONFUPDATEDIR})
   install(FILES katomic-levelset.upd DESTINATION  ${KDE_INSTALL_KCONFUPDATEDIR})
 endif(NOT WIN32)
+install( FILES katomic.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR} )
+
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

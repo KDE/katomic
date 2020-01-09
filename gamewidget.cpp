@@ -32,7 +32,7 @@
 #include <KLocalizedString>
 #include <kconfig.h>
 #include <qfiledialog.h>
-#include <QDebug>
+#include "katomic_debug.h"
 
 GameWidget::GameWidget ( const QString& levelSet, QWidget *parent )
     : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0), m_level(0)
@@ -85,7 +85,7 @@ bool GameWidget::setLevelSet(const QString& levelSet)
 {
     if (m_levelSet.name() == levelSet)
     {
-        //qDebug() << "level set named" << levelSet << "is already loaded";
+        //qCDebug(KATOMIC_LOG) << "level set named" << levelSet << "is already loaded";
         return true;
     }
 
@@ -93,7 +93,7 @@ bool GameWidget::setLevelSet(const QString& levelSet)
     if (!res)
     {
         KMessageBox::error(this, i18n("Failed to load level set \"%1\". Check if it is installed on your computer.", levelSet));
-        //qDebug() << "failed to load levelset" << levelSet;
+        //qCDebug(KATOMIC_LOG) << "failed to load levelset" << levelSet;
         return false;
     }
 
@@ -189,7 +189,7 @@ void GameWidget::switchToLevel (int l)
         saveLastPlayedLevel();
     }
     else {
-        //qDebug() << "failed to load level" << l;
+        //qCDebug(KATOMIC_LOG) << "failed to load level" << l;
     }
 }
 
@@ -220,7 +220,7 @@ void GameWidget::loadGame()
     QString levelSet = gr.readEntry("LevelSet");
     if (levelSet.isEmpty())
     {
-        //qDebug() << "note: savegame file doesn't contain info about levelset, assuming default one";
+        //qCDebug(KATOMIC_LOG) << "note: savegame file doesn't contain info about levelset, assuming default one";
         levelSet = QStringLiteral(DEFAULT_LEVELSET_NAME);
     }
 
@@ -294,7 +294,7 @@ int GameWidget::lastPlayedLevel() const
     KConfigGroup grp(cfg, m_levelSet.name());
     int lastPlayed = grp.readEntry("LastPlayedLevel", 1);
     lastPlayed = qMax(1, lastPlayed); // can't be less than 1
-    //qDebug() << "last played level:" << lastPlayed;
+    //qCDebug(KATOMIC_LOG) << "last played level:" << lastPlayed;
     return lastPlayed;
 }
 
@@ -303,7 +303,7 @@ int GameWidget::maxAccessibleLevel() const
     KSharedConfigPtr cfg = KSharedConfig::openConfig();
     KConfigGroup grp(cfg, m_levelSet.name());
     int maxAccessible = grp.readEntry("MaxAccessibleLevel", 1);
-    //qDebug() << "max accessible level:" << maxAccessible;
+    //qCDebug(KATOMIC_LOG) << "max accessible level:" << maxAccessible;
     return maxAccessible;
 }
 

@@ -28,7 +28,7 @@
 #include <kstandardgameaction.h>
 #include <kselectaction.h>
 #include <kactioncollection.h>
-#include <QDebug>
+#include "katomic_debug.h"
 #include <QIcon>
 #include <qstatusbar.h>
 #include <QLabel>
@@ -209,7 +209,7 @@ void AtomTopLevel::updateStatusBar( int level, int score, int highscore )
 
 void AtomTopLevel::enableHackMode()
 {
-    //qDebug() << "Enabling hack mode";
+    //qCDebug(KATOMIC_LOG) << "Enabling hack mode";
     m_prevLevelAct->setDisabled(false);
     m_nextLevelAct->setDisabled(false);
     m_gameWid->enableSwitchToAnyLevel();

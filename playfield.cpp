@@ -30,7 +30,7 @@
 
 
 #include <KConfig>
-#include <QDebug>
+#include "katomic_debug.h"
 #include <kconfiggroup.h>
 
 #include <KGamePopupItem>
@@ -85,7 +85,7 @@ void PlayField::setLevelData(const LevelData* level)
 {
     if (!level)
     {
-        //qDebug() << "level data is null!";
+        //qCDebug(KATOMIC_LOG) << "level data is null!";
         return;
     }
 
@@ -124,7 +124,7 @@ void PlayField::updateFieldItems()
 {
     if (!m_levelData || !m_levelData->molecule())
     {
-        //qDebug() << "level or molecule data is null!";
+        //qCDebug(KATOMIC_LOG) << "level or molecule data is null!";
         return;
     }
 
@@ -160,7 +160,7 @@ void PlayField::updateBackground()
 
 void PlayField::resize( int width, int height)
 {
-    //qDebug() << "resize:" << width << "," << height;
+    //qCDebug(KATOMIC_LOG) << "resize:" << width << "," << height;
     setSceneRect( 0, 0, width, height );
 
     // we take 1/4 of width for displaying preview
@@ -177,7 +177,7 @@ void PlayField::resize( int width, int height)
     // if atom animation is running we need to rescale timeline
     if( isAnimating() )
     {
-        //qDebug() << "restarting animation";
+        //qCDebug(KATOMIC_LOG) << "restarting animation";
         int curTime = m_atomTimeLine->currentTime();
         // calculate numCells to move using oldSize
         int numCells = m_atomTimeLine->endFrame()/oldSize;
@@ -576,7 +576,7 @@ bool PlayField::checkDone() const
 {
     if (!m_levelData || !m_levelData->molecule())
     {
-        //qDebug() << "level or molecule data is null!";
+        //qCDebug(KATOMIC_LOG) << "level or molecule data is null!";
         return false;
     }
     // let's assume that molecule is done
@@ -611,7 +611,7 @@ bool PlayField::cellIsEmpty(int x, int y) const
 {
     if (!m_levelData)
     {
-        //qDebug() << "level data is null!";
+        //qCDebug(KATOMIC_LOG) << "level data is null!";
         return true;
     }
 
@@ -679,7 +679,7 @@ void PlayField::drawForeground( QPainter *p, const QRectF&)
 {
     if (!m_levelData)
     {
-        //qDebug() << "level data is null!";
+        //qCDebug(KATOMIC_LOG) << "level data is null!";
         return;
     }
 
@@ -770,7 +770,7 @@ QString PlayField::moleculeName() const
 {
     if (!m_levelData || !m_levelData->molecule())
     {
-        //qDebug() << "level or molecule data is null!";
+        //qCDebug(KATOMIC_LOG) << "level or molecule data is null!";
         return QString();
     }
 
