@@ -30,7 +30,7 @@ public:
     char obj;
     char conn[MAX_CONNS_PER_ATOM + 1];
 
-    bool operator==(const atom& rhs) const { return (rhs.obj == obj && !strcmp(rhs.conn,conn)); }
+    bool operator==(atom rhs) const { return (rhs.obj == obj && !strcmp(rhs.conn,conn)); }
     bool isEmpty() const { return (obj == 0 || obj == '.'); }
     double weight() const {
         switch (obj) {

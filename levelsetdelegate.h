@@ -27,6 +27,7 @@
 
 class LevelSetDelegate : public QStyledItemDelegate
 {
+    Q_OBJECT
 public:
     explicit LevelSetDelegate(QObject* parent = nullptr);
 

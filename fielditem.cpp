@@ -78,7 +78,7 @@ QVariant ArrowFieldItem::itemChange( GraphicsItemChange change, const QVariant& 
 
 
 
-AtomFieldItem::AtomFieldItem( KGameRenderer* renderer, const atom& at, QGraphicsScene* scene )
+AtomFieldItem::AtomFieldItem( KGameRenderer* renderer, atom at, QGraphicsScene* scene )
     : FieldItem(renderer, s_names.value(at.obj), scene), m_atomNum(-1)
 {
     if(s_names.empty())
@@ -164,7 +164,7 @@ void AtomFieldItem::fillNameHashes()
     s_bondNames['H'] = QStringLiteral("bond_III_Left");
 }
 
-QPixmap AtomFieldItem::renderAtom( KGameRenderer* renderer, const atom& at, int size )
+QPixmap AtomFieldItem::renderAtom( KGameRenderer* renderer, atom at, int size )
 {
     if (size == 0) return QPixmap();
 

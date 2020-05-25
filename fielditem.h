@@ -64,7 +64,7 @@ private:
 class AtomFieldItem : public FieldItem
 {
 public:
-    explicit AtomFieldItem( KGameRenderer* renderer, const atom& at, QGraphicsScene* scene );
+    explicit AtomFieldItem(KGameRenderer* renderer, atom at, QGraphicsScene* scene );
 
     void setAtomNum(int n) { m_atomNum = n; }
     int atomNum() const { return m_atomNum; }
@@ -78,7 +78,7 @@ public:
     /**
      * Statically render the atom, for MoleculePreviewItem
      */
-    static QPixmap renderAtom( KGameRenderer* renderer, const atom& at, int size);
+    static QPixmap renderAtom(KGameRenderer* renderer, atom at, int size);
 
     // enable use of qgraphicsitem_cast
     enum { Type = UserType + 2 };
