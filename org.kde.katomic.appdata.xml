@@ -34,6 +34,7 @@
   <name xml:lang="sv">Katom</name>
   <name xml:lang="tr">Katomic</name>
   <name xml:lang="uk">KAtomic</name>
+  <name xml:lang="x-test">xxKAtomicxx</name>
   <name xml:lang="zh-CN">KAtomic</name>
   <name xml:lang="zh-TW">KAtomic</name>
   <summary>Sokoban-like Logic Game</summary>
@@ -66,6 +67,7 @@
   <summary xml:lang="sv">Sokoban-liknande logiskt spel</summary>
   <summary xml:lang="tr">Sokoban benzeri Mantık Oyunu</summary>
   <summary xml:lang="uk">Логічна гра, подібна до гри «Сокобан»</summary>
+  <summary xml:lang="x-test">xxSokoban-like Logic Gamexx</summary>
   <summary xml:lang="zh-CN">类似推箱子的逻辑游戏</summary>
   <summary xml:lang="zh-TW">倉庫番(sokoban)式的智力遊戲</summary>
   <description>
@@ -101,6 +103,7 @@
     <p xml:lang="sv">Katom är ett roligt och lärorikt spel byggt omkring molekylgeometri. Det använder ett förenklat tvådimensionellt utseende för olika kemiska element.</p>
     <p xml:lang="tr">KAtomic, moleküler geometri üzerin inşa edilmiş, eğlenceli bir eğitim oyunudur. Farklı kimyasal elementleri basitçe iki boyutlu olarak kullanır.</p>
     <p xml:lang="uk">KAtomic — цікава навчальна гра у побудову молекул з атомів. У грі ви матимете справу зі спрощеними двовимірними моделями різних хімічних сполук.</p>
+    <p xml:lang="x-test">xxKAtomic is a fun educational game built around molecular geometry. It employs simplistic two-dimensional looks at different chemical elements.xx</p>
     <p xml:lang="zh-TW">KAtomic 是一款教育類的遊戲，以原子模型為背景。</p>
   </description>
   <url type="homepage">https://games.kde.org/game.php?game=katomic</url>
