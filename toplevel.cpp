@@ -24,13 +24,13 @@
 
 
 #include <KLocalizedString>
-#include <kconfig.h>
-#include <kstandardgameaction.h>
-#include <kselectaction.h>
-#include <kactioncollection.h>
+#include <KConfig>
+#include <KStandardGameAction>
+#include <KSelectAction>
+#include <KActionCollection>
 #include "katomic_debug.h"
 #include <QIcon>
-#include <qstatusbar.h>
+#include <QStatusBar>
 #include <QLabel>
 
 #include "gamewidget.h"

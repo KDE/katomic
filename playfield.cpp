@@ -31,7 +31,7 @@
 
 #include <KConfig>
 #include "katomic_debug.h"
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 
 #include <KGamePopupItem>
 #include <KgTheme>

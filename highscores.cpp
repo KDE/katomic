@@ -17,9 +17,9 @@
    */
 #include "highscores.h"
 
-#include <kuser.h>
+#include <KUser>
 
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 #include <QStandardPaths>
 #include <KSharedConfig>
 

@@ -28,10 +28,10 @@
 #include <QApplication> // for qApp->quit()
 #include <QVBoxLayout>
 #include <QTimer> // Next Level after N seconds
-#include <kmessagebox.h>
+#include <KMessageBox>
 #include <KLocalizedString>
-#include <kconfig.h>
-#include <qfiledialog.h>
+#include <KConfig>
+#include <QFileDialog>
 #include "katomic_debug.h"
 
 GameWidget::GameWidget ( const QString& levelSet, QWidget *parent )
