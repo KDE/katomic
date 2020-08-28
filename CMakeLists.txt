@@ -9,7 +9,7 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 project(katomic VERSION ${RELEASE_SERVICE_VERSION})
 
 set(QT_MIN_VERSION "5.7.0")
-set (KF5_MIN_VERSION "5.30.0")
+set (KF5_MIN_VERSION "5.57.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED CONFIG)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
@@ -88,7 +88,7 @@ install(FILES katomicui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/katomic)
 # default theme is installed without .desktop file since KgTheme does not need it
 # when only one theme is available. See: 30a1cadd20
 install(FILES default_theme.svgz  DESTINATION  ${KDE_INSTALL_DATADIR}/katomic/pics/)
-install(FILES katomic.knsrc  DESTINATION  ${KDE_INSTALL_CONFDIR})
+install(FILES katomic.knsrc  DESTINATION  ${KDE_INSTALL_KNSRCDIR})
 
 ecm_install_icons(ICONS 128-apps-katomic.png 16-apps-katomic.png 22-apps-katomic.png 32-apps-katomic.png 48-apps-katomic.png 64-apps-katomic.png DESTINATION ${KDE_INSTALL_ICONDIR} THEME hicolor)
 
