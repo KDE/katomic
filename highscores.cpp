@@ -21,7 +21,6 @@
 
 #include <KConfigGroup>
 #include <QStandardPaths>
-#include <KSharedConfig>
 
 KAtomicHighscores::KAtomicHighscores()
 {

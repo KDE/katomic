@@ -30,11 +30,9 @@
 
 #include <string.h>
 #include <QStandardPaths>
-#include <KSharedConfig>
 
 #include "atom.h"
 #include "molecule.h"
-#include "commondefs.h"
 
 LevelData::LevelData(const QList<Element>& elements, const Molecule* mol)
     : m_molecule(mol)
