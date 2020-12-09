@@ -102,14 +102,14 @@ void AtomTopLevel::createMenu()
     m_prevLevelAct = actionCollection()->addAction( QStringLiteral(  "prev_level" ) );
     m_prevLevelAct->setIcon( QIcon::fromTheme( QStringLiteral(  "arrow-left" ) ) );
     m_prevLevelAct->setText( i18n( "Previous Level" ) );
-    actionCollection()->setDefaultShortcut(m_prevLevelAct, Qt::CTRL + Qt::Key_P );
+    actionCollection()->setDefaultShortcut(m_prevLevelAct, Qt::CTRL | Qt::Key_P );
     addAction( m_prevLevelAct );
     connect( m_prevLevelAct, &QAction::triggered, m_gameWid, &GameWidget::prevLevel );
 
     m_nextLevelAct = actionCollection()->addAction( QStringLiteral(  "next_level" ) );
     m_nextLevelAct->setIcon( QIcon::fromTheme( QStringLiteral(  "arrow-right" ) ) );
     m_nextLevelAct->setText( i18n( "Next Level" ) );
-    actionCollection()->setDefaultShortcut(m_nextLevelAct, Qt::CTRL + Qt::Key_N );
+    actionCollection()->setDefaultShortcut(m_nextLevelAct, Qt::CTRL | Qt::Key_N );
     addAction( m_nextLevelAct );
     connect( m_nextLevelAct, &QAction::triggered, m_gameWid, &GameWidget::nextLevel );
 
