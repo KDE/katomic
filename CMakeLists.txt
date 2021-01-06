@@ -8,8 +8,8 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 
 project(katomic VERSION ${RELEASE_SERVICE_VERSION})
 
-set(QT_MIN_VERSION "5.7.0")
-set (KF5_MIN_VERSION "5.57.0")
+set(QT_MIN_VERSION "5.12.0")
+set (KF5_MIN_VERSION "5.68.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED CONFIG)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} )
@@ -61,7 +61,8 @@ set(katomic_SRCS
    chooselevelsetdialog.cpp)
 
 ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KATOMIC VERSION_HEADER katomic_version.h)
-ecm_qt_declare_logging_category(katomic_SRCS HEADER katomic_debug.h IDENTIFIER KATOMIC_LOG CATEGORY_NAME org.kde.kdegames.katomic)
+ecm_qt_declare_logging_category(katomic_SRCS HEADER katomic_debug.h IDENTIFIER KATOMIC_LOG CATEGORY_NAME org.kde.kdegames.katomic DESCRIPTION "katomic (kdegames)" EXPORT KATOMIC)
+
 kconfig_add_kcfg_files(katomic_SRCS prefs.kcfgc)
 ki18n_wrap_ui(katomic_SRCS levelsetwidget.ui)
 
@@ -96,6 +97,5 @@ if(NOT WIN32)
   install(PROGRAMS katomic-levelset-upd.pl DESTINATION  ${KDE_INSTALL_KCONFUPDATEDIR})
   install(FILES katomic-levelset.upd DESTINATION  ${KDE_INSTALL_KCONFUPDATEDIR})
 endif(NOT WIN32)
-install( FILES katomic.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR} )
-
+ecm_qt_install_logging_categories(EXPORT KATOMIC FILE katomic.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
