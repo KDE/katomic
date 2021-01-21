@@ -51,6 +51,7 @@ add_definitions(
 )
 
 add_subdirectory(levels)
+add_subdirectory(icons)
 add_subdirectory(doc)
 
 ########### next target ###############
@@ -73,7 +74,7 @@ ecm_qt_declare_logging_category(katomic_SRCS HEADER katomic_debug.h IDENTIFIER K
 kconfig_add_kcfg_files(katomic_SRCS prefs.kcfgc)
 ki18n_wrap_ui(katomic_SRCS levelsetwidget.ui)
 
-file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*-apps-katomic.png")
+file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/icons/*-apps-katomic.png")
 ecm_add_app_icon(katomic_SRCS ICONS ${ICONS_SRCS})
 add_executable(katomic ${katomic_SRCS})
 
@@ -97,8 +98,6 @@ install(FILES katomicui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/katomic)
 # when only one theme is available. See: 30a1cadd20
 install(FILES default_theme.svgz  DESTINATION  ${KDE_INSTALL_DATADIR}/katomic/pics/)
 install(FILES katomic.knsrc  DESTINATION  ${KDE_INSTALL_KNSRCDIR})
-
-ecm_install_icons(ICONS 128-apps-katomic.png 16-apps-katomic.png 22-apps-katomic.png 32-apps-katomic.png 48-apps-katomic.png 64-apps-katomic.png DESTINATION ${KDE_INSTALL_ICONDIR} THEME hicolor)
 
 if(NOT WIN32)
   install(PROGRAMS katomic-levelset-upd.pl DESTINATION  ${KDE_INSTALL_KCONFUPDATEDIR})
