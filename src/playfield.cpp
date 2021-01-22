@@ -98,8 +98,8 @@ void PlayField::setLevelData(const LevelData* level)
 
     m_undoStack.clear();
     m_redoStack.clear();
-    emit enableUndo(false);
-    emit enableRedo(false);
+    Q_EMIT enableUndo(false);
+    Q_EMIT enableRedo(false);
 
     m_previewItem->setMolecule(m_levelData->molecule());
 
@@ -287,15 +287,15 @@ void PlayField::undo()
 
     AtomMove am = m_undoStack.pop();
     if(m_redoStack.isEmpty())
-        emit enableRedo(true);
+        Q_EMIT enableRedo(true);
 
     m_redoStack.push(am);
 
     if(m_undoStack.isEmpty())
-        emit enableUndo(false);
+        Q_EMIT enableUndo(false);
 
     m_numMoves--;
-    emit updateMoves(m_numMoves);
+    Q_EMIT updateMoves(m_numMoves);
 
     m_selIdx = am.atomIdx;
     switch( am.dir )
@@ -322,16 +322,16 @@ void PlayField::redo()
 
     AtomMove am = m_redoStack.pop();
     if(m_undoStack.isEmpty())
-        emit enableUndo(true);
+        Q_EMIT enableUndo(true);
 
     if(!m_redoStack.isEmpty()) //otherwise it will be pushed at the end of the move
         m_undoStack.push(am);
 
     if(m_redoStack.isEmpty())
-        emit enableRedo(false);
+        Q_EMIT enableRedo(false);
 
     m_numMoves++;
-    emit updateMoves(m_numMoves);
+    Q_EMIT updateMoves(m_numMoves);
 
     m_selIdx = am.atomIdx;
     moveSelectedAtom(am.dir, am.numCells);
@@ -369,9 +369,9 @@ void PlayField::undoAll()
         atom->setPos( toPixX(atom->fieldX()), toPixY(atom->fieldY()));
 
     m_numMoves = 0;
-    emit updateMoves(m_numMoves);
-    emit enableUndo(false);
-    emit enableRedo(!m_redoStack.isEmpty());
+    Q_EMIT updateMoves(m_numMoves);
+    Q_EMIT enableUndo(false);
+    Q_EMIT enableRedo(!m_redoStack.isEmpty());
     m_selIdx = m_redoStack.last().atomIdx;
     updateArrows();
 }
@@ -408,9 +408,9 @@ void PlayField::redoAll()
         atom->setPos( toPixX(atom->fieldX()), toPixY(atom->fieldY()));
 
     m_numMoves = m_undoStack.count();
-    emit updateMoves(m_numMoves);
-    emit enableUndo(!m_undoStack.isEmpty());
-    emit enableRedo(false);
+    Q_EMIT updateMoves(m_numMoves);
+    Q_EMIT enableUndo(!m_undoStack.isEmpty());
+    Q_EMIT enableRedo(false);
     m_selIdx = m_undoStack.last().atomIdx;
     updateArrows();
 }
@@ -499,7 +499,7 @@ void PlayField::moveSelectedAtom( Direction dir, int numCells )
         // but as a result of mouse/keyb input from player
         // so this is just a place to drop redo history :-)
         m_redoStack.clear();
-        emit enableRedo(false);
+        Q_EMIT enableRedo(false);
         // only count it as move if we actually move :-)
         if(numEmptyCells)
             m_numMoves++;
@@ -515,7 +515,7 @@ void PlayField::moveSelectedAtom( Direction dir, int numCells )
     if(m_redoStack.isEmpty())
     {
         if(m_undoStack.isEmpty())
-            emit enableUndo(true);
+            Q_EMIT enableUndo(true);
         m_undoStack.push( AtomMove(m_selIdx, m_dir, numEmptyCells) );
     }
 
@@ -558,7 +558,7 @@ void PlayField::atomAnimFrameChanged(int frame)
         selAtom->setFieldY( toFieldY((int)selAtom->pos().y()) );
         updateArrows();
 
-        emit updateMoves(m_numMoves);
+        Q_EMIT updateMoves(m_numMoves);
 
         if(checkDone() && !m_levelFinished)
         {
@@ -566,7 +566,7 @@ void PlayField::atomAnimFrameChanged(int frame)
             // hide arrows
             updateArrows(true);
             m_selIdx = -1;
-            emit gameOver(m_numMoves);
+            Q_EMIT gameOver(m_numMoves);
         }
     }
 }
@@ -751,8 +751,8 @@ void PlayField::loadGame( const KConfigGroup& config )
     }
     if(m_numMoves)
     {
-        emit enableUndo(true);
-        emit updateMoves(m_numMoves);
+        Q_EMIT enableUndo(true);
+        Q_EMIT updateMoves(m_numMoves);
     }
 
     m_selIdx = config.readEntry("SelectedAtom", 0);

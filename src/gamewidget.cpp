@@ -156,11 +156,11 @@ void GameWidget::gameOver(int moves) {
     }
 
     m_playField->showMessage( message );
-    emit statsChanged(m_level, moves, m_highscore->levelHighscore(m_levelSet.name(), m_level));
+    Q_EMIT statsChanged(m_level, moves, m_highscore->levelHighscore(m_levelSet.name(), m_level));
     if (!m_allowAnyLevelSwitch)
     {
         // reuse this signal to allow switching levels over toolbar
-        emit levelChanged(m_level);
+        Q_EMIT levelChanged(m_level);
         // after 4 seconds, nextLevel
         m_timer->start(4000);
     }
@@ -169,7 +169,7 @@ void GameWidget::gameOver(int moves) {
 void GameWidget::updateMoves(int moves)
 {
     m_moves = moves;
-    emit statsChanged(m_level, moves, m_levelHighscore);
+    Q_EMIT statsChanged(m_level, moves, m_levelHighscore);
 }
 
 void GameWidget::switchToLevel (int l)
@@ -183,8 +183,8 @@ void GameWidget::switchToLevel (int l)
 
         m_levelHighscore = m_highscore->levelHighscore( m_levelSet.name(), m_level );
 
-        emit statsChanged(m_level, 0, m_levelHighscore);
-        emit levelChanged(m_level);
+        Q_EMIT statsChanged(m_level, 0, m_levelHighscore);
+        Q_EMIT levelChanged(m_level);
 
         saveLastPlayedLevel();
     }
