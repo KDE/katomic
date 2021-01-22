@@ -10,10 +10,11 @@
 #ifndef FIELD_ITEM_H
 #define FIELD_ITEM_H
 
-#include <KGameRenderedItem>
-#include <QGraphicsTextItem>
-
 #include "playfield.h" // for enum PlayField::Direction
+
+#include <KGameRenderedItem>
+
+#include <QGraphicsTextItem>
 
 class KGameRenderer;
 class atom;

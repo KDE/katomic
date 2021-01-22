@@ -9,10 +9,12 @@
 #ifndef CHOOSE_LEVEL_SET_DIALOG_H
 #define CHOOSE_LEVEL_SET_DIALOG_H
 
+#include "ui_levelsetwidget.h"
+
 #include <QDialog>
 
-#include "ui_levelsetwidget.h"
 class QDialogButtonBox;
+
 class ChooseLevelSetDialog : public QDialog
 {
     Q_OBJECT

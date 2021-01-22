@@ -8,22 +8,24 @@
 
 #include "toplevel.h"
 
-#include <kwidgetsaddons_version.h>
-#include <KLocalizedString>
-#include <KConfig>
-#include <KStandardGameAction>
-#include <KSelectAction>
-#include <KActionCollection>
-#include "katomic_debug.h"
-#include <QIcon>
-#include <QStatusBar>
-#include <QLabel>
-
 #include "gamewidget.h"
 #include "playfield.h"
 #include "prefs.h"
 #include "commondefs.h"
 #include "chooselevelsetdialog.h"
+#include "katomic_debug.h"
+
+#include <KStandardGameAction>
+
+#include <kwidgetsaddons_version.h>
+#include <KLocalizedString>
+#include <KConfig>
+#include <KSelectAction>
+#include <KActionCollection>
+
+#include <QIcon>
+#include <QStatusBar>
+#include <QLabel>
 
 
 AtomTopLevel::AtomTopLevel()

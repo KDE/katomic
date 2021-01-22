@@ -9,12 +9,14 @@
 
 #ifndef PLAYFIELD_H
 #define PLAYFIELD_H
-#include <QGraphicsScene>
-#include <KGameRenderer>
-#include <QList>
-#include <QStack>
 
 #include "commondefs.h"
+
+#include <KGameRenderer>
+
+#include <QGraphicsScene>
+#include <QList>
+#include <QStack>
 
 #define MIN_ELEM_SIZE 30
 
@@ -35,7 +37,7 @@ class PlayField : public QGraphicsScene
 public:
     enum Direction { Up=0, Down, Left, Right };
     explicit PlayField( QObject *parent );
-    virtual ~PlayField();
+    ~PlayField();
     /**
      *  Resizes playfield to width,height
      */

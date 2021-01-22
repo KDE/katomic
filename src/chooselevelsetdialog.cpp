@@ -9,16 +9,17 @@
 #include "chooselevelsetdialog.h"
 
 
-#include <KNS3/Button>
-#include <QDialogButtonBox>
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QDir>
-
 #include "levelset.h"
 #include "levelsetdelegate.h"
 
 #include "commondefs.h"
+
+#include <KNS3/Button>
+
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QDir>
 
 ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
     : QDialog(parent)

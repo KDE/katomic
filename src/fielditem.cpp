@@ -10,10 +10,10 @@
 
 #include "fielditem.h"
 
+#include "molecule.h"
+
 #include <QPainter>
 #include <QTimeLine>
-
-#include "molecule.h"
 
 FieldItem::FieldItem( KGameRenderer* renderer, const QString& spriteKey, QGraphicsScene* scene )
     : KGameRenderedItem( renderer, spriteKey ), m_fieldX(0), m_fieldY(0)

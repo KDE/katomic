@@ -6,20 +6,22 @@
 */
 
 #include "gamewidget.h"
+
 #include "highscores.h"
 #include "playfield.h"
 #include "prefs.h"
+#include "katomic_debug.h"
+
+#include <KMessageBox>
+#include <KLocalizedString>
+#include <KConfig>
 
 #include <QGraphicsView>
 #include <QResizeEvent>
 #include <QApplication> // for qApp->quit()
 #include <QVBoxLayout>
 #include <QTimer> // Next Level after N seconds
-#include <KMessageBox>
-#include <KLocalizedString>
-#include <KConfig>
 #include <QFileDialog>
-#include "katomic_debug.h"
 
 GameWidget::GameWidget ( const QString& levelSet, QWidget *parent )
     : QWidget( parent ), m_allowAnyLevelSwitch( false ), m_moves(0), m_level(0)

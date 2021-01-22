@@ -8,13 +8,13 @@
 
 #include "levelsetdelegate.h"
 
-#include <QPainter>
-#include <QApplication>
+#include "commondefs.h"
 
 #include <KLocalizedString>
 #include <QFontDatabase>
 
-#include "commondefs.h"
+#include <QPainter>
+#include <QApplication>
 
 LevelSetDelegate::LevelSetDelegate(QObject* parent)
     : QStyledItemDelegate(parent), m_lineHeight(-1)

@@ -7,8 +7,8 @@
 #include "highscores.h"
 
 #include <KUser>
-
 #include <KConfigGroup>
+
 #include <QStandardPaths>
 
 KAtomicHighscores::KAtomicHighscores()

@@ -6,19 +6,20 @@
 
 #include "toplevel.h"
 
-#include <QApplication>
-#include <KLocalizedString>
+#include "levelset.h"
+#include "katomic_version.h"
 
+#include <KLocalizedString>
 #include <KAboutData>
 #include <KCrash>
 #include <KMessageBox>
+#include <Kdelibs4ConfigMigrator>
+#include <KDBusService>
+
 #include <QTimer>
 #include <QCommandLineParser>
 #include <QCommandLineOption>
-#include <Kdelibs4ConfigMigrator>
-#include <KDBusService>
-#include "levelset.h"
-#include "katomic_version.h"
+#include <QApplication>
 
 // ##########################
 // #	Main                #

@@ -9,22 +9,21 @@
 
 #include "playfield.h"
 
-#include <QGraphicsSceneMouseEvent>
-#include <QTimeLine>
-#include <QPainter>
-
-
-#include <KConfig>
-#include "katomic_debug.h"
-#include <KConfigGroup>
-
-#include <KGamePopupItem>
-#include <KgTheme>
-#include <QStandardPaths>
-
 #include "molecule.h"
 #include "fielditem.h"
 #include "levelset.h"
+#include "katomic_debug.h"
+
+#include <KGamePopupItem>
+#include <KgTheme>
+
+#include <KConfig>
+#include <KConfigGroup>
+
+#include <QGraphicsSceneMouseEvent>
+#include <QTimeLine>
+#include <QPainter>
+#include <QStandardPaths>
 
 struct Theme : public KgTheme
 {

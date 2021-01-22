@@ -9,6 +9,8 @@
 #ifndef ATOM_H
 #define ATOM_H
 
+#include <cstring>
+
 #define MAX_CONNS_PER_ATOM 8
 
 class atom {

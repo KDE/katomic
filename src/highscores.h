@@ -7,8 +7,9 @@
 #ifndef KATOMIC_HIGHSCORES_H
 #define KATOMIC_HIGHSCORES_H
 
-#include <QString>
 #include <KSharedConfig>
+
+#include <QString>
 
 /**
  * This class is used to manage katomic's highscores.

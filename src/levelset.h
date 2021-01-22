@@ -9,12 +9,12 @@
 #ifndef KATOMIC_LEVELSET_H
 #define KATOMIC_LEVELSET_H
 
-#include <QString>
-#include <QList>
+#include "commondefs.h"
 
 #include <KSharedConfig>
 
-#include "commondefs.h"
+#include <QString>
+#include <QList>
 
 class Molecule;
 

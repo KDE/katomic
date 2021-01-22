@@ -8,17 +8,15 @@
 
 #include "levelset.h"
 
-
-#include <KConfigGroup>
 #include "katomic_debug.h"
-#include <KLocalizedString>
-#include <QFileInfo>
-
-#include <string.h>
-#include <QStandardPaths>
-
 #include "atom.h"
 #include "molecule.h"
+
+#include <KConfigGroup>
+#include <KLocalizedString>
+
+#include <QFileInfo>
+#include <QStandardPaths>
 
 LevelData::LevelData(const QList<Element>& elements, const Molecule* mol)
     : m_molecule(mol)

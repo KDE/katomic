@@ -7,12 +7,13 @@
 #ifndef GAMEWIDGET_H
 #define GAMEWIDGET_H
 
+#include "levelset.h"
+
+#include <QWidget>
+
 class PlayField;
 class QGraphicsView;
 class QTimer;
-
-#include <QWidget>
-#include "levelset.h"
 
 class KAtomicHighscores;
 

@@ -7,11 +7,12 @@
 #ifndef TOPLEVEL_H
 #define TOPLEVEL_H
 
+#include <KXmlGuiWindow>
+
 class GameWidget;
 class KSelectAction;
 class QAction;
 class QLabel;
-#include <kxmlguiwindow.h>
 
 /**
  * This is the class AtomTopLevel. The class is used only for the program

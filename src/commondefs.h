@@ -7,6 +7,8 @@
 #ifndef KATOMIC_COMMONDEFS_H
 #define KATOMIC_COMMONDEFS_H
 
+#include <Qt>
+
 #define FIELD_SIZE 15
 
 #define DEFAULT_LEVELSET_NAME "default_levels"
