@@ -24,6 +24,8 @@ ecm_qt_declare_logging_category(katomic_SRCS
     EXPORT KATOMIC
 )
 
+qt5_add_resources(katomic_SRCS katomic.qrc)
+
 kconfig_add_kcfg_files(katomic_SRCS prefs.kcfgc)
 
 ki18n_wrap_ui(katomic_SRCS levelsetwidget.ui)
@@ -46,7 +48,6 @@ install(TARGETS katomic  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(PROGRAMS org.kde.katomic.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.katomic.appdata.xml DESTINATION  ${KDE_INSTALL_METAINFODIR})
-install(FILES katomicui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/katomic)
 # default theme is installed without .desktop file since KgTheme does not need it
 # when only one theme is available. See: 30a1cadd20
 install(FILES default_theme.svgz  DESTINATION  ${KDE_INSTALL_DATADIR}/katomic/pics/)
