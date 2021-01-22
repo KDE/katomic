@@ -22,7 +22,7 @@
 
 #include "toplevel.h"
 
-
+#include <kwidgetsaddons_version.h>
 #include <KLocalizedString>
 #include <KConfig>
 #include <KStandardGameAction>
@@ -123,7 +123,12 @@ void AtomTopLevel::createMenu()
     QStringList acts;
     acts << i18n("Slow") << i18n("Normal") << i18n("Fast");
     m_animSpeedAct->setItems(acts);
-    connect(m_animSpeedAct, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &AtomTopLevel::slotAnimSpeedChanged);
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 78, 0)
+    connect(m_animSpeedAct, &KSelectAction::indexTriggered,
+#else
+    connect(m_animSpeedAct, QOverload<int>::of(&KSelectAction::triggered),
+#endif
+            this, &AtomTopLevel::slotAnimSpeedChanged);
 
     QAction *undoAll = actionCollection()->addAction( QStringLiteral(  "move_undo_all" ) );
     undoAll->setIcon( QIcon::fromTheme( QStringLiteral( "media-skip-backward" )) );
