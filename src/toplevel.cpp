@@ -86,17 +86,17 @@ bool AtomTopLevel::queryClose()
 void AtomTopLevel::createMenu()
 {
     // Game
-    KStandardGameAction::restart(m_gameWid, SLOT(restartLevel()), actionCollection());
+    KStandardGameAction::restart(m_gameWid, &GameWidget::restartLevel, actionCollection());
     // FIXME: comment this until highscore dialog will be implemented.
     // (katomic needs special one)
-    //    KStandardGameAction::highscores(m_gameWid, SLOT(showHighscores()), actionCollection());
-    KStandardGameAction::load(m_gameWid, SLOT(loadGame()), actionCollection());
-    KStandardGameAction::save(m_gameWid, SLOT(saveGame()), actionCollection());
-    KStandardGameAction::quit(this, SLOT(close()), actionCollection());
+    //    KStandardGameAction::highscores(m_gameWid, &GameWidget::showHighscores, actionCollection());
+    KStandardGameAction::load(m_gameWid, &GameWidget::loadGame, actionCollection());
+    KStandardGameAction::save(m_gameWid, &GameWidget::saveGame, actionCollection());
+    KStandardGameAction::quit(this, &QWidget::close, actionCollection());
 
     // Move
-    m_undoAct = KStandardGameAction::undo(m_gameWid->playfield(), SLOT(undo()), actionCollection());
-    m_redoAct = KStandardGameAction::redo(m_gameWid->playfield(), SLOT(redo()), actionCollection());
+    m_undoAct = KStandardGameAction::undo(m_gameWid->playfield(), &PlayField::undo, actionCollection());
+    m_redoAct = KStandardGameAction::redo(m_gameWid->playfield(), &PlayField::redo, actionCollection());
 
 
     m_prevLevelAct = actionCollection()->addAction( QStringLiteral(  "prev_level" ) );
