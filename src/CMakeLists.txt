@@ -9,6 +9,7 @@ set(katomic_SRCS
    levelset.cpp
    levelsetdelegate.cpp
    chooselevelsetdialog.cpp
+   katomic.qrc
 )
 
 ecm_setup_version(${RELEASE_SERVICE_VERSION}
@@ -23,8 +24,6 @@ ecm_qt_declare_logging_category(katomic_SRCS
     DESCRIPTION "katomic (kdegames)"
     EXPORT KATOMIC
 )
-
-qt5_add_resources(katomic_SRCS katomic.qrc)
 
 kconfig_add_kcfg_files(katomic_SRCS prefs.kcfgc)
 
