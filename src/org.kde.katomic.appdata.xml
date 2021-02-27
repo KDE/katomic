@@ -108,7 +108,7 @@
     <p xml:lang="x-test">xxKAtomic is a fun educational game built around molecular geometry. It employs simplistic two-dimensional looks at different chemical elements.xx</p>
     <p xml:lang="zh-TW">KAtomic 是一款教育類的遊戲，以原子模型為背景。</p>
   </description>
-  <url type="homepage">https://games.kde.org/game.php?game=katomic</url>
+  <url type="homepage">https://games.kde.org/games/katomic</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=katomic</url>
   <url type="help">https://docs.kde.org/?application=katomic</url>
   <url type="donation">https://www.kde.org/community/donations/?app=katomic&amp;source=appdata</url>
