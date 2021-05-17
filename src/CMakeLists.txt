@@ -1,23 +1,26 @@
-set(katomic_SRCS
-   highscores.cpp
-   playfield.cpp
-   fielditem.cpp
-   molecule.cpp
-   main.cpp
-   toplevel.cpp
-   gamewidget.cpp
-   levelset.cpp
-   levelsetdelegate.cpp
-   chooselevelsetdialog.cpp
-   katomic.qrc
-)
-
 ecm_setup_version(${RELEASE_SERVICE_VERSION}
     VARIABLE_PREFIX KATOMIC
     VERSION_HEADER katomic_version.h
 )
 
-ecm_qt_declare_logging_category(katomic_SRCS
+add_executable(katomic)
+
+target_sources(katomic PRIVATE
+    highscores.cpp
+    playfield.cpp
+    fielditem.cpp
+    molecule.cpp
+    main.cpp
+    toplevel.cpp
+    gamewidget.cpp
+    levelset.cpp
+    levelsetdelegate.cpp
+    chooselevelsetdialog.cpp
+
+    katomic.qrc
+)
+
+ecm_qt_declare_logging_category(katomic
     HEADER katomic_debug.h
     IDENTIFIER KATOMIC_LOG
     CATEGORY_NAME org.kde.kdegames.katomic
@@ -25,18 +28,16 @@ ecm_qt_declare_logging_category(katomic_SRCS
     EXPORT KATOMIC
 )
 
-kconfig_add_kcfg_files(katomic_SRCS prefs.kcfgc)
+kconfig_add_kcfg_files(katomic prefs.kcfgc)
 
-ki18n_wrap_ui(katomic_SRCS levelsetwidget.ui)
+ki18n_wrap_ui(katomic levelsetwidget.ui)
 
 file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/icons/*-apps-katomic.png")
-ecm_add_app_icon(katomic_SRCS ICONS ${ICONS_SRCS})
-
-add_executable(katomic ${katomic_SRCS})
+ecm_add_app_icon(katomic ICONS ${ICONS_SRCS})
 
 target_link_libraries(katomic
-    KF5::NewStuff
     KF5KDEGames
+    KF5::NewStuff
     KF5::I18n
     KF5::DBusAddons
     KF5::Crash
@@ -53,9 +54,9 @@ install(FILES default_theme.svgz  DESTINATION  ${KDE_INSTALL_DATADIR}/katomic/pi
 install(FILES katomic.knsrc  DESTINATION  ${KDE_INSTALL_KNSRCDIR})
 
 if(NOT WIN32)
-  install(PROGRAMS katomic-levelset-upd.pl DESTINATION  ${KDE_INSTALL_KCONFUPDATEDIR})
-  install(FILES katomic-levelset.upd DESTINATION  ${KDE_INSTALL_KCONFUPDATEDIR})
-endif(NOT WIN32)
+    install(PROGRAMS katomic-levelset-upd.pl DESTINATION  ${KDE_INSTALL_KCONFUPDATEDIR})
+    install(FILES katomic-levelset.upd DESTINATION  ${KDE_INSTALL_KCONFUPDATEDIR})
+endif()
 
 ecm_qt_install_logging_categories(
     EXPORT KATOMIC
