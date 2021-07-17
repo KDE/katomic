@@ -17,7 +17,6 @@
 
 #include <KStandardGameAction>
 
-#include <kwidgetsaddons_version.h>
 #include <KLocalizedString>
 #include <KConfig>
 #include <KSelectAction>
