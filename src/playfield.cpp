@@ -112,7 +112,7 @@ void PlayField::updateFieldItems()
         return;
     }
 
-    for ( AtomFieldItem *item : qAsConst(m_atoms) )
+    for ( AtomFieldItem *item : std::as_const(m_atoms) )
     {
         item->setRenderSize( QSize(m_elemSize, m_elemSize) );
 
@@ -349,7 +349,7 @@ void PlayField::undoAll()
         atom->setFieldXY( atom->fieldX()+xdelta, atom->fieldY()+ydelta );
     }
     // update pixel positions
-    for ( AtomFieldItem* atom : qAsConst(m_atoms) )
+    for ( AtomFieldItem* atom : std::as_const(m_atoms) )
         atom->setPos( toPixX(atom->fieldX()), toPixY(atom->fieldY()));
 
     m_numMoves = 0;
@@ -388,7 +388,7 @@ void PlayField::redoAll()
         atom->setFieldXY( atom->fieldX()+xdelta, atom->fieldY()+ydelta );
     }
     // update pixel positions
-    for ( AtomFieldItem * atom : qAsConst(m_atoms) )
+    for ( AtomFieldItem * atom : std::as_const(m_atoms) )
         atom->setPos( toPixX(atom->fieldX()), toPixY(atom->fieldY()));
 
     m_numMoves = m_undoStack.count();
@@ -570,7 +570,7 @@ bool PlayField::checkDone() const
     // by finding minimum fieldX, fieldY through all atoms
     int minX = FIELD_SIZE+1;
     int minY = FIELD_SIZE+1;
-    for ( AtomFieldItem* atom : qAsConst(m_atoms) )
+    for ( AtomFieldItem* atom : std::as_const(m_atoms) )
     {
         if(atom->fieldX() < minX)
             minX = atom->fieldX();
@@ -580,7 +580,7 @@ bool PlayField::checkDone() const
     // so origin is (minX,minY)
     // we'll subtract this origin from each atom's coords and check
     // if the resulting position is the same as this atom has in molecule
-    for ( AtomFieldItem* atom : qAsConst(m_atoms) )
+    for ( AtomFieldItem* atom : std::as_const(m_atoms) )
     {
         uint atomNum = atom->atomNum();
         int molecCoordX = atom->fieldX() - minX;
@@ -602,7 +602,7 @@ bool PlayField::cellIsEmpty(int x, int y) const
     if(m_levelData->containsWallAt(x,y))
         return false; // it is a wall
 
-    for ( AtomFieldItem *atom : qAsConst(m_atoms) )
+    for ( AtomFieldItem *atom : std::as_const(m_atoms) )
     {
         if( atom->fieldX() == x && atom->fieldY() == y )
             return false;
