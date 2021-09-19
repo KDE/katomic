@@ -106,6 +106,7 @@
     <p xml:lang="tr">KAtomic, moleküler geometri üzerin inşa edilmiş, eğlenceli bir eğitim oyunudur. Farklı kimyasal elementleri basitçe iki boyutlu olarak kullanır.</p>
     <p xml:lang="uk">KAtomic — цікава навчальна гра у побудову молекул з атомів. У грі ви матимете справу зі спрощеними двовимірними моделями різних хімічних сполук.</p>
     <p xml:lang="x-test">xxKAtomic is a fun educational game built around molecular geometry. It employs simplistic two-dimensional looks at different chemical elements.xx</p>
+    <p xml:lang="zh-CN">KAtomic 是一款围绕分子几何学打造的趣味教学游戏。它采用了极简的二维视角来观察不同的化学元素。</p>
     <p xml:lang="zh-TW">KAtomic 是一款教育類的遊戲，以原子模型為背景。</p>
   </description>
   <url type="homepage">https://games.kde.org/games/katomic</url>
