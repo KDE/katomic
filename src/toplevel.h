@@ -28,7 +28,7 @@ class AtomTopLevel : public KXmlGuiWindow
 
 public:
     AtomTopLevel();
-    ~AtomTopLevel();
+    ~AtomTopLevel() override;
     /**
      * If called, katomic will allow user to switch to any
      * level even if he didn't solved it yet.

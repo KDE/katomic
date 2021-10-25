@@ -37,7 +37,7 @@ class PlayField : public QGraphicsScene
 public:
     enum Direction { Up=0, Down, Left, Right };
     explicit PlayField( QObject *parent );
-    ~PlayField();
+    ~PlayField() override;
     /**
      *  Resizes playfield to width,height
      */
