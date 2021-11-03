@@ -16,7 +16,6 @@
 #include <QList>
 #include <QString>
 
-class KConfig;
 
 #define MOLECULE_SIZE 15
 
