@@ -6,16 +6,27 @@ ecm_setup_version(${RELEASE_SERVICE_VERSION}
 add_executable(katomic)
 
 target_sources(katomic PRIVATE
-    highscores.cpp
-    playfield.cpp
+    atom.h
+    chooselevelsetdialog.cpp
+    chooselevelsetdialog.h
+    commondefs.h
     fielditem.cpp
-    molecule.cpp
-    main.cpp
-    toplevel.cpp
+    fielditem.h
     gamewidget.cpp
+    gamewidget.h
+    highscores.cpp
+    highscores.h
     levelset.cpp
     levelsetdelegate.cpp
-    chooselevelsetdialog.cpp
+    levelsetdelegate.h
+    levelset.h
+    main.cpp
+    molecule.cpp
+    molecule.h
+    playfield.cpp
+    playfield.h
+    toplevel.cpp
+    toplevel.h
 
     katomic.qrc
 )
