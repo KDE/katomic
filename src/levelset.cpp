@@ -261,7 +261,7 @@ const Molecule* LevelSet::readLevelMolecule(int levelNum) const
 
     mol->m_width = max_i+1;
 
-    mol->m_name = i18n(config.readEntry("Name", I18N_NOOP("Noname")).toUtf8().constData());
+    mol->m_name = i18n(config.readEntry("Name", i18n("Noname")).toUtf8().constData());
 
     return mol;
 }
