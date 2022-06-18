@@ -14,7 +14,7 @@
 
 #include "commondefs.h"
 
-#include <KNS3/Button>
+#include <KNSWidgets/Button>
 
 #include <QDialogButtonBox>
 #include <QPushButton>
@@ -56,10 +56,10 @@ ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
     loadData();
 
     connect(m_ui.m_lwLevelSets, &QListWidget::currentItemChanged, this, &ChooseLevelSetDialog::updateApplyButton);
-    connect(m_ui.m_pbNewStuff, &KNS3::Button::dialogFinished, this, &ChooseLevelSetDialog::newStuffDone);
+    connect(m_ui.m_pbNewStuff, &KNSWidgets::Button::dialogFinished, this, &ChooseLevelSetDialog::newStuffDone);
 }
 
-void ChooseLevelSetDialog::newStuffDone(const KNS3::Entry::List& entries)
+void ChooseLevelSetDialog::newStuffDone(const QList<KNSCore::Entry>& entries)
 {
     if (!entries.isEmpty())
         loadData();

@@ -48,7 +48,7 @@ ecm_add_app_icon(katomic ICONS ${ICONS_SRCS})
 
 target_link_libraries(katomic
     KF5KDEGames
-    KF5::NewStuff
+    KF5::NewStuffWidgets
     KF5::I18n
     KF5::DBusAddons
     KF5::Crash

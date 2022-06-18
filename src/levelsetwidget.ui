@@ -40,7 +40,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="KNS3::Button" name="m_pbNewStuff">
+      <widget class="KNSWidgets::Button" name="m_pbNewStuff">
        <property name="text">
         <string>Get new levels</string>
        </property>
@@ -68,9 +68,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KNS3::Button</class>
+   <class>KNSWidgets::Button</class>
    <extends>QPushButton</extends>
-   <header location="global">KNS3/Button</header>
+   <header location="global">KNSWidgets/Button</header>
   </customwidget>
  </customwidgets>
  <resources/>

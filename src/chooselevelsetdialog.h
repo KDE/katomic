@@ -29,7 +29,7 @@ Q_SIGNALS:
     void levelSetChanged(QString);
 
 protected Q_SLOTS:
-    void newStuffDone(const KNS3::Entry::List& entries);
+    void newStuffDone(const QList<KNSCore::Entry>& entries);
 
 private Q_SLOTS:
     void updateApplyButton();
