@@ -109,7 +109,7 @@
     <p xml:lang="zh-CN">KAtomic 是一款围绕分子几何学打造的趣味教学游戏。它采用了极简的二维视角来观察不同的化学元素。</p>
     <p xml:lang="zh-TW">KAtomic 是一款教育類的遊戲，以原子模型為背景。</p>
   </description>
-  <url type="homepage">https://games.kde.org/games/katomic</url>
+  <url type="homepage">https://apps.kde.org/katomic</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=katomic</url>
   <url type="help">https://docs.kde.org/?application=katomic</url>
   <url type="donation">https://www.kde.org/community/donations/?app=katomic&amp;source=appdata</url>

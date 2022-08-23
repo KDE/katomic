@@ -56,7 +56,7 @@ int main(int argc, char **argv)
     aboutData.addCredit(i18n("Danny Allen"), i18n("Game graphics and application icon"), QStringLiteral("danny@dannyallen.co.uk"));
     aboutData.addCredit(i18n("Johann Ollivier Lapeyre"), i18n("New great SVG artwork for KDE4"), QStringLiteral("johann.ollivierlapeyre@gmail.com"));
     aboutData.addCredit(i18n("Brian Croom"), i18n("Port to use KGameRenderer"), QStringLiteral("brian.s.croom@gmail.com"));
-    aboutData.setHomepage(QStringLiteral("https://kde.org/applications/games/org.kde.katomic"));
+    aboutData.setHomepage(QStringLiteral("https://apps.kde.org/katomic"));
 
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
