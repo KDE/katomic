@@ -119,6 +119,10 @@
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
+  <launchable type="desktop-id">org.kde.katomic.desktop</launchable>
+  <provides>
+    <binary>katomic</binary>
+  </provides>
   <releases>
     <release version="22.08.1" date="2022-09-08"/>
     <release version="22.08.0" date="2022-08-18"/>
