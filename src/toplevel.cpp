@@ -18,7 +18,6 @@
 #include <KStandardGameAction>
 
 #include <KLocalizedString>
-#include <KConfig>
 #include <KSelectAction>
 #include <KActionCollection>
 
