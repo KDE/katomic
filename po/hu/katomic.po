@@ -1,0 +1,602 @@
+#
+# Biro Szabolcs  <szbiro@index.hu>, 1999.
+# Kristóf Kiszel <ulysses@kubuntu.org>, 2011.
+# Balázs Úr <urbalazs@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: KDE 4.3\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"PO-Revision-Date: 2012-08-20 14:00+0200\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kiszel Kristóf,Úr Balázs,Bíró Szabolcs,Szántó Tamás"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"ulysses@kubuntu.org,urbalazs@gmail.com,szbiro@index.hu,tszanto@interware.hu"
+
+#: chooselevelsetdialog.cpp:29
+#, kde-format
+msgid "Level Sets"
+msgstr "Szintek"
+
+#: gamewidget.cpp:84
+#, kde-format
+msgid ""
+"Failed to load level set \"%1\". Check if it is installed on your computer."
+msgstr ""
+"Nem sikerült betölteni a(z) „%1” szintet. Ellenőrizze, hogy telepítve van-e "
+"a számítógépére."
+
+#: gamewidget.cpp:140
+#, kde-format
+msgid "Level %1 finished. "
+msgstr "A(z) %1. szint befejeződött. "
+
+#: gamewidget.cpp:144
+#, kde-format
+msgid "Congratulations! You have a new highscore!"
+msgstr "Gratulálunk, felkerült a dicsőségtáblára!"
+
+#. i18n: ectx: label, entry (AnimationSpeed), group (Game)
+#: katomic.kcfg:9
+#, kde-format
+msgid "The speed of the animations."
+msgstr "Az animáció sebessége."
+
+#. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
+#: katomic.kcfg:20
+#, kde-format
+msgid "Width of saved background"
+msgstr "Az elmentett háttér szélessége"
+
+#. i18n: ectx: label, entry (SavedBackgroundHeight), group (General)
+#: katomic.kcfg:24
+#, kde-format
+msgid "Height of saved background"
+msgstr "Az elmentett háttér magassága"
+
+#. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
+#: katomic.kcfg:28
+#, kde-format
+msgid "Last played levelset"
+msgstr "A legutóbb játszott szint"
+
+#. i18n: ectx: Menu (settings)
+#: katomicui.rc:16
+#, kde-format
+msgid "&Settings"
+msgstr "&Beállítások"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: katomicui.rc:25
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Alap eszköztár"
+
+#: levelset.cpp:264
+#, kde-format
+msgid "Noname"
+msgstr "Névtelen"
+
+#: levelsetdelegate.cpp:81
+#, kde-format
+msgid "by %1"
+msgstr "%1"
+
+#: levelsetdelegate.cpp:87
+#, kde-format
+msgid ", contains 1 level"
+msgid_plural ", contains %1 levels"
+msgstr[0] ", 1 szintet tartalmaz"
+msgstr[1] ", %1 szintet tartalmaz"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: levelsetwidget.ui:20
+#, kde-format
+msgid "Choose a level set to play:"
+msgstr "Válaszon szintet a játékhoz:"
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
+#: levelsetwidget.ui:45
+#, kde-format
+msgid "Get new levels"
+msgstr "Új szintek beszerzése"
+
+#: main.cpp:44
+#, kde-format
+msgid "KAtomic"
+msgstr "KAtomic"
+
+#: main.cpp:46
+#, fuzzy, kde-format
+#| msgid "KDE Atomic Entertainment Game"
+msgid "Atomic Entertainment Game"
+msgstr "Atomos szórakoztató játék"
+
+#: main.cpp:48
+#, kde-format
+msgid ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+msgstr ""
+"(c) Andreas Wuerst, 1998\n"
+"(c) Dmitry Suzdalev, 2007-2009"
+
+#: main.cpp:49
+#, kde-format
+msgid "Andreas Wuest"
+msgstr "Andreas Wuest"
+
+#: main.cpp:49
+#, kde-format
+msgid "Original author"
+msgstr "Eredeti szerző"
+
+#: main.cpp:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: main.cpp:50
+#, kde-format
+msgid "Porting to KDE4. Current maintainer"
+msgstr "Portolás a KDE4-re. A jelenlegi karbantartó"
+
+#: main.cpp:51
+#, kde-format
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: main.cpp:52
+#, kde-format
+msgid "Cristian Tibirna"
+msgstr "Cristian Tibirna"
+
+#: main.cpp:53
+#, kde-format
+msgid "Carsten Pfeiffer"
+msgstr "Carsten Pfeiffer"
+
+#: main.cpp:54
+#, kde-format
+msgid "Dave Corrie"
+msgstr "Dave Corrie"
+
+#: main.cpp:55
+#, kde-format
+msgid "Kai Jung"
+msgstr "Kai Jung"
+
+#: main.cpp:55
+#, kde-format
+msgid "6 new levels"
+msgstr "6 új szint"
+
+#: main.cpp:56
+#, kde-format
+msgid "Danny Allen"
+msgstr "Danny Allen"
+
+#: main.cpp:56
+#, kde-format
+msgid "Game graphics and application icon"
+msgstr "Grafika, alkalmazásikon"
+
+#: main.cpp:57
+#, kde-format
+msgid "Johann Ollivier Lapeyre"
+msgstr "Johann Ollivier Lapeyre"
+
+#: main.cpp:57
+#, kde-format
+msgid "New great SVG artwork for KDE4"
+msgstr "Új, nagyszerű SVG grafika a KDE4-hez"
+
+#: main.cpp:58
+#, kde-format
+msgid "Brian Croom"
+msgstr "Brian Croom"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to use KGameRenderer"
+msgstr "Átírva a KGameRenderer használatára"
+
+#: main.cpp:64
+#, kde-format
+msgid "Enable access to all levels"
+msgstr "Hozzáférés az összes szinthez"
+
+#: main.cpp:75
+#, kde-format
+msgid ""
+"KAtomic failed to find its default level set and will quit. Please check "
+"your installation."
+msgstr ""
+"A KAtomicnak nem sikerült megtalálnia az alapértelmezett szintet és ki fog "
+"lépni. Kérem ellenőrizze le a telepítését."
+
+#: toplevel.cpp:41
+#, kde-format
+msgid "Level:"
+msgstr "Szint:"
+
+#: toplevel.cpp:42
+#, kde-format
+msgid "Current score:"
+msgstr "Pontszám:"
+
+#: toplevel.cpp:43
+#, kde-format
+msgid "Highscore:"
+msgstr "Legmagasabb pontszám:"
+
+#: toplevel.cpp:90
+#, kde-format
+msgid "Previous Level"
+msgstr "Előző szint"
+
+#: toplevel.cpp:97
+#, kde-format
+msgid "Next Level"
+msgstr "Következő szint"
+
+#: toplevel.cpp:103
+#, kde-format
+msgid "Choose level set..."
+msgstr "Válasszon szintet..."
+
+#: toplevel.cpp:107
+#, kde-format
+msgid "Animation Speed"
+msgstr "Az animáció sebessége"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Slow"
+msgstr "Lassú"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Normal"
+msgstr "Normál"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Fast"
+msgstr "Gyors"
+
+#: toplevel.cpp:117
+#, kde-format
+msgid "Undo All"
+msgstr "Minden visszavonása"
+
+#: toplevel.cpp:122
+#, kde-format
+msgid "Redo All"
+msgstr "Minden újra végrehajtása"
+
+#: toplevel.cpp:136
+#, kde-format
+msgid "Atom Up"
+msgstr "Felfelé mozgatás"
+
+#: toplevel.cpp:142
+#, kde-format
+msgid "Atom Down"
+msgstr "Lefelé mozgatás"
+
+#: toplevel.cpp:148
+#, kde-format
+msgid "Atom Left"
+msgstr "Balra mozgatás"
+
+#: toplevel.cpp:154
+#, kde-format
+msgid "Atom Right"
+msgstr "Jobbra mozgatás"
+
+#: toplevel.cpp:160
+#, kde-format
+msgid "Next Atom"
+msgstr "Következő atom"
+
+#: toplevel.cpp:166
+#, kde-format
+msgid "Previous Atom"
+msgstr "Előző atom"
+
+#: toplevel.cpp:187
+#, kde-format
+msgid "Level: %1 (%2)"
+msgstr "Szint: %1 (%2)"
+
+#: toplevel.cpp:188
+#, kde-format
+msgid "Current score: %1"
+msgstr "Pontszám: %1"
+
+#: toplevel.cpp:194
+#, kde-format
+msgid "Highscore: %1"
+msgstr "Legmagasabb pontszám: %1"
+
+#~ msgid ""
+#~ "Level %1 can not be found. Please check your installation. Now switching "
+#~ "to Level 1"
+#~ msgstr ""
+#~ "Nem található a(z) %1. szint. Ellenőrizze, megfelelően van-e telepítve a "
+#~ "program. Az 1. szint következik."
+
+#~ msgid ""
+#~ "Level 1 data can not be found. Please check your installation. KAtomic "
+#~ "will quit now."
+#~ msgstr ""
+#~ "Nem találhatók az 1. szint adatai. Ellenőrizze, megfelelően van-e "
+#~ "telepítve a program. A program bezáródik."
+
+#~ msgid "You must solve level %1 before advancing to the next one!"
+#~ msgstr "Továbblépni csak a(z) %1. szint befejezése után lehet."
+
+#~ msgid "Warning"
+#~ msgstr "Figyelem"
+
+#~ msgid "Water"
+#~ msgstr "Víz"
+
+#~ msgid "Formic Acid"
+#~ msgstr "Hangyasav"
+
+#~ msgid "Acetic Acid"
+#~ msgstr "Ecetsav"
+
+#~ msgid "trans-Butene"
+#~ msgstr "Transzbutén"
+
+#~ msgid "cis-Butene"
+#~ msgstr "Cisz-butén"
+
+#~ msgid "Dimethyl ether"
+#~ msgstr "Dimetil-éter"
+
+#~ msgid "Butanol"
+#~ msgstr "Butanol"
+
+#~ msgid "2-Methyl-2-Propanol"
+#~ msgstr "2-metil-2-propanol"
+
+#~ msgid "Glycerin"
+#~ msgstr "Glicerin"
+
+#~ msgid "Poly-Tetra-Fluoro-Ethene"
+#~ msgstr "Poli-tetra-fluor-etán"
+
+#~ msgid "Oxalic Acid"
+#~ msgstr "Oxálsav"
+
+#~ msgid "Methane"
+#~ msgstr "Metán"
+
+#~ msgid "Formaldehyde"
+#~ msgstr "Formaldehid"
+
+#~ msgid "Crystal 1"
+#~ msgstr "1. kristály"
+
+#~ msgid "Acetic acid ethyl ester"
+#~ msgstr "Acetilsav-etilészter"
+
+#~ msgid "Ammonia"
+#~ msgstr "Ammónia"
+
+#~ msgid "3-Methyl-Pentane"
+#~ msgstr "3-metil-pentán"
+
+#~ msgid "Propanal"
+#~ msgstr "Propanal"
+
+#~ msgid "Propyne"
+#~ msgstr "Propin"
+
+#~ msgid "Furanal"
+#~ msgstr "Furán"
+
+#~ msgid "Pyran"
+#~ msgstr "Pirán"
+
+#~ msgid "Cyclo-Pentane"
+#~ msgstr "Ciklopentán"
+
+#~ msgid "Methanol"
+#~ msgstr "Metanol"
+
+#~ msgid "Nitro-Glycerin"
+#~ msgstr "Nitroglicerin"
+
+#~ msgid "Ethane"
+#~ msgstr "Etán"
+
+#~ msgid "Crystal 2"
+#~ msgstr "2. kristály"
+
+#~ msgid "Ethylene-Glycol"
+#~ msgstr "Etilénglikol"
+
+#~ msgid "L-Alanine"
+#~ msgstr "L-alanin"
+
+#~ msgid "Cyanoguanidine"
+#~ msgstr "Ciano-guanidin"
+
+#~ msgid "Prussic Acid (Cyanic Acid)"
+#~ msgstr "Porosz sav (ciánsav)"
+
+#~ msgid "Anthracene"
+#~ msgstr "Antracén"
+
+#~ msgid "Thiazole"
+#~ msgstr "Tiaszol"
+
+#~ msgid "Saccharin"
+#~ msgstr "Szacharin"
+
+#~ msgid "Ethylene"
+#~ msgstr "Etilén"
+
+#~ msgid "Styrene"
+#~ msgstr "Sztirén"
+
+#~ msgid "Melamine"
+#~ msgstr "Melamin"
+
+#~ msgid "Cyclobutane"
+#~ msgstr "Ciklobután"
+
+#~ msgid "Nicotine"
+#~ msgstr "Nikotin"
+
+#~ msgid "Acetyle salicylic acid"
+#~ msgstr "Acetilszalicilsav"
+
+#~ msgid "Meta-Di-Nitro-Benzene"
+#~ msgstr "Meta-dinitro-benzin"
+
+#~ msgid "Malonic Acid"
+#~ msgstr "Malonsav"
+
+#~ msgid "2,2-Dimethylpropane"
+#~ msgstr "2,2-dimetil-propán"
+
+#~ msgid "Ethyl-Benzene"
+#~ msgstr "Etil-benzin"
+
+#~ msgid "Propene"
+#~ msgstr "Propén"
+
+#~ msgid "L-Asparagine"
+#~ msgstr "L-aszparagin"
+
+#~ msgid "1,3,5,7-Cyclooctatetraene"
+#~ msgstr "1,3,5,7-ciklooktatetrén"
+
+#~ msgid "Vanillin"
+#~ msgstr "Vanillin"
+
+#~ msgid "Crystal 3"
+#~ msgstr "3. kristály"
+
+#~ msgid "Uric Acid"
+#~ msgstr "Húgysav"
+
+#~ msgid "Thymine"
+#~ msgstr "Timin"
+
+#~ msgid "Aniline"
+#~ msgstr "Anilin"
+
+#~ msgid "Chloroform"
+#~ msgstr "Kloroform"
+
+#~ msgid "Carbonic acid"
+#~ msgstr "Szénsav"
+
+#~ msgid "Crystal 4"
+#~ msgstr "4. kristály"
+
+#~ msgid "Ethanol"
+#~ msgstr "Etanol"
+
+#~ msgid "Acrylo-Nitril"
+#~ msgstr "Akrilnitril"
+
+#~ msgid "Furan"
+#~ msgstr "Furán"
+
+#~ msgid "l-Lactic acid"
+#~ msgstr "Tejsav"
+
+#~ msgid "Maleic Acid"
+#~ msgstr "Maleinsav"
+
+#~ msgid "meso-Tartaric acid"
+#~ msgstr "Mezo-tartársav"
+
+#~ msgid "Crystal 5"
+#~ msgstr "5. kristály"
+
+#~ msgid "Formic acid ethyl ester"
+#~ msgstr "Hangyasav-etilészter"
+
+#~ msgid "1,4-Cyclohexadiene"
+#~ msgstr "1,4-ciklohexadién"
+
+#~ msgid "Squaric acid"
+#~ msgstr "Dibutil-észter"
+
+#~ msgid "Ascorbic acid"
+#~ msgstr "Aszkorbinsav"
+
+#~ msgid "Isopropanol"
+#~ msgstr "Izopropanol"
+
+#~ msgid "Phosgene"
+#~ msgstr "Foszgén"
+
+#~ msgid "Thiophene"
+#~ msgstr "Tiofén"
+
+#~ msgid "Urea"
+#~ msgstr "Húgysav"
+
+#~ msgid "Pyruvic Acid"
+#~ msgstr "Piroszőlősav"
+
+#~ msgid "Ethylene oxide"
+#~ msgstr "Etilénoxid"
+
+#~ msgid "Phosphoric Acid"
+#~ msgstr "Foszforsav"
+
+#~ msgid "Diacetyl"
+#~ msgstr "Diacetil"
+
+#~ msgid "trans-Dichloroethene"
+#~ msgstr "Transzdikloro-etén"
+
+#~ msgid "Allylisothiocyanate"
+#~ msgstr "Allil-izotiocianát"
+
+#~ msgid "Diketene"
+#~ msgstr "Diketén"
+
+#~ msgid "Ethanal"
+#~ msgstr "Etanal"
+
+#~ msgid "Acroleine"
+#~ msgstr "Akrolein"
+
+#~ msgid "Uracil"
+#~ msgstr "Uracil"
+
+#~ msgid "Caffeine"
+#~ msgstr "Koffein"
+
+#~ msgid "Acetone"
+#~ msgstr "Aceton"
+
+#~ msgid "Highest level player is allowed to play"
+#~ msgstr "Az engedélyezett legmagasabb szint"

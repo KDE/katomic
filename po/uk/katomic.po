@@ -1,0 +1,608 @@
+# Translation of katomic.po to Ukrainian
+# Copyright (C) 2003-2021 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Eugene Onischenko <oneugene@ukr.net>, 2003, 2004.
+# Ivan Petrouchtchak <ivanpetrouchtchak@yahoo.com>, 2005, 2006.
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: katomic\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"PO-Revision-Date: 2021-01-23 09:05+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.11.70\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Eugene Onischenko,Іван Петрущак"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "oneugene@ukr.net,ivanpetrouchtchak@yahoo.com"
+
+#: chooselevelsetdialog.cpp:29
+#, kde-format
+msgid "Level Sets"
+msgstr "Набори рівнів"
+
+#: gamewidget.cpp:84
+#, kde-format
+msgid ""
+"Failed to load level set \"%1\". Check if it is installed on your computer."
+msgstr ""
+"Не вдалося завантажити набір рівнів «%1». Переконайтеся, що цей пакунок "
+"встановлено на вашому комп’ютері."
+
+#: gamewidget.cpp:140
+#, kde-format
+msgid "Level %1 finished. "
+msgstr "Рівень %1 пройдено. "
+
+#: gamewidget.cpp:144
+#, kde-format
+msgid "Congratulations! You have a new highscore!"
+msgstr "Поздоровляємо! Ви потрапили до списку найкращих результатів!"
+
+#. i18n: ectx: label, entry (AnimationSpeed), group (Game)
+#: katomic.kcfg:9
+#, kde-format
+msgid "The speed of the animations."
+msgstr "Швидкість анімації."
+
+#. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
+#: katomic.kcfg:20
+#, kde-format
+msgid "Width of saved background"
+msgstr "Ширина збереженого тла"
+
+#. i18n: ectx: label, entry (SavedBackgroundHeight), group (General)
+#: katomic.kcfg:24
+#, kde-format
+msgid "Height of saved background"
+msgstr "Висота збереженого тла"
+
+#. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
+#: katomic.kcfg:28
+#, kde-format
+msgid "Last played levelset"
+msgstr "Попередній набір рівнів"
+
+#. i18n: ectx: Menu (settings)
+#: katomicui.rc:16
+#, kde-format
+msgid "&Settings"
+msgstr "&Параметри"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: katomicui.rc:25
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Головний пенал"
+
+#: levelset.cpp:264
+#, kde-format
+msgid "Noname"
+msgstr "Без імені"
+
+#: levelsetdelegate.cpp:81
+#, kde-format
+msgid "by %1"
+msgstr "Автор — %1"
+
+#: levelsetdelegate.cpp:87
+#, kde-format
+msgid ", contains 1 level"
+msgid_plural ", contains %1 levels"
+msgstr[0] ", складається з %1 рівня"
+msgstr[1] ", складається з %1 рівнів"
+msgstr[2] ", складається з %1 рівнів"
+msgstr[3] ", складається з одного рівня"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: levelsetwidget.ui:20
+#, kde-format
+msgid "Choose a level set to play:"
+msgstr "Оберіть набір рівнів для гри:"
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
+#: levelsetwidget.ui:45
+#, kde-format
+msgid "Get new levels"
+msgstr "Отримати нові рівні"
+
+#: main.cpp:44
+#, kde-format
+msgid "KAtomic"
+msgstr "Веселі атоми"
+
+#: main.cpp:46
+#, kde-format
+msgid "Atomic Entertainment Game"
+msgstr "Гра «Веселі атоми»"
+
+#: main.cpp:48
+#, kde-format
+msgid ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+msgstr ""
+"© Andreas Wuest, 1998,\n"
+"© Dmitry Suzdalev, 2007–2009"
+
+#: main.cpp:49
+#, kde-format
+msgid "Andreas Wuest"
+msgstr "Andreas Wuest"
+
+#: main.cpp:49
+#, kde-format
+msgid "Original author"
+msgstr "Автор програми"
+
+#: main.cpp:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: main.cpp:50
+#, kde-format
+msgid "Porting to KDE4. Current maintainer"
+msgstr "Портування на KDE4. Поточний відповідальний за програму"
+
+#: main.cpp:51
+#, kde-format
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: main.cpp:52
+#, kde-format
+msgid "Cristian Tibirna"
+msgstr "Cristian Tibirna"
+
+#: main.cpp:53
+#, kde-format
+msgid "Carsten Pfeiffer"
+msgstr "Carsten Pfeiffer"
+
+#: main.cpp:54
+#, kde-format
+msgid "Dave Corrie"
+msgstr "Dave Corrie"
+
+#: main.cpp:55
+#, kde-format
+msgid "Kai Jung"
+msgstr "Kai Jung"
+
+#: main.cpp:55
+#, kde-format
+msgid "6 new levels"
+msgstr "6 нових молекул"
+
+#: main.cpp:56
+#, kde-format
+msgid "Danny Allen"
+msgstr "Danny Allen"
+
+#: main.cpp:56
+#, kde-format
+msgid "Game graphics and application icon"
+msgstr "Графіка і піктограма програми"
+
+#: main.cpp:57
+#, kde-format
+msgid "Johann Ollivier Lapeyre"
+msgstr "Johann Ollivier Lapeyre"
+
+#: main.cpp:57
+#, kde-format
+msgid "New great SVG artwork for KDE4"
+msgstr "Нові чудові малюнки SVG для KDE4"
+
+#: main.cpp:58
+#, kde-format
+msgid "Brian Croom"
+msgstr "Brian Croom"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to use KGameRenderer"
+msgstr "Портування на KGameRenderer"
+
+#: main.cpp:64
+#, kde-format
+msgid "Enable access to all levels"
+msgstr "Дозволити доступ до всіх рівнів"
+
+#: main.cpp:75
+#, kde-format
+msgid ""
+"KAtomic failed to find its default level set and will quit. Please check "
+"your installation."
+msgstr ""
+"Програмі KAtomic не вдалося знайти типовий набір рівнів, зараз вона "
+"завершить роботу. Будь ласка, перевірте чи правильно встановлено файли "
+"програми."
+
+#: toplevel.cpp:41
+#, kde-format
+msgid "Level:"
+msgstr "Рівень:"
+
+#: toplevel.cpp:42
+#, kde-format
+msgid "Current score:"
+msgstr "Поточний рахунок:"
+
+#: toplevel.cpp:43
+#, kde-format
+msgid "Highscore:"
+msgstr "Найкращий результат:"
+
+#: toplevel.cpp:90
+#, kde-format
+msgid "Previous Level"
+msgstr "Попередній рівень"
+
+#: toplevel.cpp:97
+#, kde-format
+msgid "Next Level"
+msgstr "Наступний рівень"
+
+#: toplevel.cpp:103
+#, kde-format
+msgid "Choose level set..."
+msgstr "Вибір набору рівнів..."
+
+#: toplevel.cpp:107
+#, kde-format
+msgid "Animation Speed"
+msgstr "Швидкість анімації"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Slow"
+msgstr "Повільна"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Normal"
+msgstr "Звичайна"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Fast"
+msgstr "Швидка"
+
+#: toplevel.cpp:117
+#, kde-format
+msgid "Undo All"
+msgstr "Скасувати всі дії"
+
+#: toplevel.cpp:122
+#, kde-format
+msgid "Redo All"
+msgstr "Повторити всі дії"
+
+#: toplevel.cpp:136
+#, kde-format
+msgid "Atom Up"
+msgstr "Пересунути вгору"
+
+#: toplevel.cpp:142
+#, kde-format
+msgid "Atom Down"
+msgstr "Пересунути вниз"
+
+#: toplevel.cpp:148
+#, kde-format
+msgid "Atom Left"
+msgstr "Пересунути ліворуч"
+
+#: toplevel.cpp:154
+#, kde-format
+msgid "Atom Right"
+msgstr "Пересунути праворуч"
+
+#: toplevel.cpp:160
+#, kde-format
+msgid "Next Atom"
+msgstr "Наступний атом"
+
+#: toplevel.cpp:166
+#, kde-format
+msgid "Previous Atom"
+msgstr "Попередній атом"
+
+#: toplevel.cpp:187
+#, kde-format
+msgid "Level: %1 (%2)"
+msgstr "Рівень: %1 (%2)"
+
+#: toplevel.cpp:188
+#, kde-format
+msgid "Current score: %1"
+msgstr "Поточний результат: %1"
+
+#: toplevel.cpp:194
+#, kde-format
+msgid "Highscore: %1"
+msgstr "Найкращий результат: %1"
+
+#~ msgid ""
+#~ "Level %1 can not be found. Please check your installation. Now switching "
+#~ "to Level 1"
+#~ msgstr ""
+#~ "Рівень %1 не знайдено. Будь ласка, перевірте встановлені файли. Зараз "
+#~ "переходимо на Рівень 1"
+
+#~ msgid ""
+#~ "Level 1 data can not be found. Please check your installation. KAtomic "
+#~ "will quit now."
+#~ msgstr ""
+#~ "Дані для Рівня 1 не знайдено. Будь ласка, перевірте встановлені файли. "
+#~ "Зараз KAtomic завершить роботу."
+
+#~ msgid "You must solve level %1 before advancing to the next one!"
+#~ msgstr "Перш ніж перейти до наступного рівня, розв’яжіть рівень %1!"
+
+#~ msgid "Warning"
+#~ msgstr "Попередження"
+
+#~ msgid "Water"
+#~ msgstr "Вода"
+
+#~ msgid "Formic Acid"
+#~ msgstr "Мурашина кислота"
+
+#~ msgid "Acetic Acid"
+#~ msgstr "Оцтова кислота"
+
+#~ msgid "trans-Butene"
+#~ msgstr "Транс-бутен"
+
+#~ msgid "cis-Butene"
+#~ msgstr "Цис-бутен"
+
+#~ msgid "Dimethyl ether"
+#~ msgstr "Диметиловий ефір"
+
+#~ msgid "Butanol"
+#~ msgstr "Бутанол"
+
+#~ msgid "2-Methyl-2-Propanol"
+#~ msgstr "2-метил-2-пропанол"
+
+#~ msgid "Glycerin"
+#~ msgstr "Гліцерин"
+
+#~ msgid "Poly-Tetra-Fluoro-Ethene"
+#~ msgstr "Політетрафторетилен"
+
+#~ msgid "Oxalic Acid"
+#~ msgstr "Щавлева кислота"
+
+#~ msgid "Methane"
+#~ msgstr "Метан"
+
+#~ msgid "Formaldehyde"
+#~ msgstr "Формальдегід"
+
+#~ msgid "Crystal 1"
+#~ msgstr "Кристал 1"
+
+#~ msgid "Acetic acid ethyl ester"
+#~ msgstr "Етиловий ефір оцтової кислоти"
+
+#~ msgid "Ammonia"
+#~ msgstr "Аміак"
+
+#~ msgid "3-Methyl-Pentane"
+#~ msgstr "Триметилпентан"
+
+#~ msgid "Propanal"
+#~ msgstr "Пропанал"
+
+#~ msgid "Propyne"
+#~ msgstr "Пропін"
+
+#~ msgid "Furanal"
+#~ msgstr "Фуранал"
+
+#~ msgid "Pyran"
+#~ msgstr "Піран"
+
+#~ msgid "Cyclo-Pentane"
+#~ msgstr "Циклопентан"
+
+#~ msgid "Methanol"
+#~ msgstr "Метанол"
+
+#~ msgid "Nitro-Glycerin"
+#~ msgstr "Нітрогліцерин"
+
+#~ msgid "Ethane"
+#~ msgstr "Етан"
+
+#~ msgid "Crystal 2"
+#~ msgstr "Кристал 2"
+
+#~ msgid "Ethylene-Glycol"
+#~ msgstr "Етиленгліколь"
+
+#~ msgid "L-Alanine"
+#~ msgstr "L-аланін"
+
+#~ msgid "Cyanoguanidine"
+#~ msgstr "Ціаногуанідін"
+
+#~ msgid "Prussic Acid (Cyanic Acid)"
+#~ msgstr "Ціаніста кислота"
+
+#~ msgid "Anthracene"
+#~ msgstr "Антрацен"
+
+#~ msgid "Thiazole"
+#~ msgstr "Тіазол"
+
+#~ msgid "Saccharin"
+#~ msgstr "Сахарин"
+
+#~ msgid "Ethylene"
+#~ msgstr "Етилен"
+
+#~ msgid "Styrene"
+#~ msgstr "Стирен"
+
+#~ msgid "Melamine"
+#~ msgstr "Меламін"
+
+#~ msgid "Cyclobutane"
+#~ msgstr "Циклобутан"
+
+#~ msgid "Nicotine"
+#~ msgstr "Нікотин"
+
+#~ msgid "Acetyle salicylic acid"
+#~ msgstr "Ацетилсаліцилова кислота (Аспірин)"
+
+#~ msgid "Meta-Di-Nitro-Benzene"
+#~ msgstr "Мета-ді-нітробензол"
+
+#~ msgid "Malonic Acid"
+#~ msgstr "Малонова кислота"
+
+#~ msgid "2,2-Dimethylpropane"
+#~ msgstr "2,2-діметилпропан"
+
+#~ msgid "Ethyl-Benzene"
+#~ msgstr "Етилбензол"
+
+#~ msgid "Propene"
+#~ msgstr "Пропін"
+
+#~ msgid "L-Asparagine"
+#~ msgstr "L-аспарагін"
+
+#~ msgid "1,3,5,7-Cyclooctatetraene"
+#~ msgstr "1,3,5,7-циклооктатетрин"
+
+#~ msgid "Vanillin"
+#~ msgstr "Ванілін"
+
+#~ msgid "Crystal 3"
+#~ msgstr "Кристал 3"
+
+#~ msgid "Uric Acid"
+#~ msgstr "Сечова кислота"
+
+#~ msgid "Thymine"
+#~ msgstr "Тимін"
+
+#~ msgid "Aniline"
+#~ msgstr "Анілін"
+
+#~ msgid "Chloroform"
+#~ msgstr "Хлороформ"
+
+#~ msgid "Carbonic acid"
+#~ msgstr "Вуглекислота"
+
+#~ msgid "Crystal 4"
+#~ msgstr "Кристал 4"
+
+#~ msgid "Ethanol"
+#~ msgstr "Етиловий спирт"
+
+#~ msgid "Acrylo-Nitril"
+#~ msgstr "Акрилонітріл"
+
+#~ msgid "Furan"
+#~ msgstr "Фуран"
+
+#~ msgid "l-Lactic acid"
+#~ msgstr "Молочна кислота"
+
+#~ msgid "Maleic Acid"
+#~ msgstr "Малеїнова кислота"
+
+#~ msgid "meso-Tartaric acid"
+#~ msgstr "Мезо-винна кислота"
+
+#~ msgid "Crystal 5"
+#~ msgstr "Кристал 5"
+
+#~ msgid "Formic acid ethyl ester"
+#~ msgstr "Етиловий ефір мурашиної кислоти"
+
+#~ msgid "1,4-Cyclohexadiene"
+#~ msgstr "1,4-циклогексадієн"
+
+#~ msgid "Squaric acid"
+#~ msgstr "Скварикова кислота"
+
+#~ msgid "Ascorbic acid"
+#~ msgstr "Аскорбінова кислота"
+
+#~ msgid "Isopropanol"
+#~ msgstr "Ізопропанол"
+
+#~ msgid "Phosgene"
+#~ msgstr "Фосген"
+
+#~ msgid "Thiophene"
+#~ msgstr "Тіофен"
+
+#~ msgid "Urea"
+#~ msgstr "Сечовина"
+
+#~ msgid "Pyruvic Acid"
+#~ msgstr "Пировиноградна кислота"
+
+#~ msgid "Ethylene oxide"
+#~ msgstr "Оксид етилену"
+
+#~ msgid "Phosphoric Acid"
+#~ msgstr "Фосфорна кислота"
+
+#~ msgid "Diacetyl"
+#~ msgstr "Діацетил"
+
+#~ msgid "trans-Dichloroethene"
+#~ msgstr "Транс-дихлоретилен"
+
+#~ msgid "Allylisothiocyanate"
+#~ msgstr "Алілозотіоцианат"
+
+#~ msgid "Diketene"
+#~ msgstr "Дікетен"
+
+#~ msgid "Ethanal"
+#~ msgstr "Етанал"
+
+#~ msgid "Acroleine"
+#~ msgstr "Акролеїн"
+
+#~ msgid "Uracil"
+#~ msgstr "Ураціл"
+
+#~ msgid "Caffeine"
+#~ msgstr "Кофеїн"
+
+#~ msgid "Acetone"
+#~ msgstr "Ацетон"
+
+#~ msgid "Highest level player is allowed to play"
+#~ msgstr "Максимальний рівень, на якому може грати гравець"

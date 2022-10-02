@@ -1,0 +1,733 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"
+> <!-- do not change this! -->
+]>
+
+<book id="katomic" lang="&language;"
+> <!-- do not change this! -->
+<bookinfo>
+<title
+>El manual del &katomic;</title
+> <!-- This is the title of the docbook. Leave as is unless change is necessary.-->
+<!-- List of immediate authors begins here. -->
+<!--INPORTANT! - All other contributors: [to be determined] -->
+<authorgroup>
+<author
+><firstname
+>Dirk</firstname
+> <surname
+>Doerflinger</surname
+> </author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Revisor</contrib>
+<affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+> <firstname
+>Albert</firstname
+> <surname
+>Astals Cid</surname
+> <affiliation
+><address
+><email
+>aacid@kde.org</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> &traductor.Antoni.Bella; 
+</authorgroup>
+<legalnotice
+>&FDLNotice;</legalnotice>
+<date
+>13 d'octubre de 2021</date>
+<releaseinfo
+>KDE Gear 21.08</releaseinfo>
+
+<!--Short description of this document. Do not change unless necessary!-->
+<abstract>
+  <para
+>Aquesta documentació descriu el joc &katomic; versió 21.08</para>
+</abstract>
+
+<!--List of relevan keywords-->
+<keywordset>
+  <keyword
+>KDE</keyword
+> <!-- do not change this! -->
+  <keyword
+>joc</keyword
+> <!-- do not change this! -->
+  <keyword
+>Katomic</keyword
+><!--Application name goes here-->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+  <keyword
+>arcade</keyword>
+  <keyword
+>lògica</keyword>
+  <keyword
+>àtoms</keyword>
+  <keyword
+>socoban</keyword>
+<!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+  <keyword
+>un jugador</keyword>
+<!--All other relevant keywords-->
+  <keyword
+>elements químics</keyword>
+  <keyword
+>munta la molècula</keyword>
+</keywordset>
+</bookinfo>
+<!--Content begins here: -->
+<chapter id="introduction"
+><title
+>Introducció</title
+> <!-- do not change this! -->
+  <note
+><title
+>Tipus de joc:</title
+><para
+>Lògic, Arcade</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+  <note
+><title
+>Nombre de possibles jugadors:</title
+><para
+>Un</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+
+<!--Short game description starts here. 3-4 sentences (paragraphs)-->
+  <para
+>&katomic; és un joc divertit i educatiu creat al voltant de la geometria molecular. Empra un aspecte simple de dues dimensions dels elements que componen una molècula. Una molècula és desmuntada en els seus àtoms per separat i dispersos per tot el camp de joc. El jugador ha de tornar a muntar la molècula per tal de completar el nivell actual i passar al següent. </para>
+</chapter>
+
+<chapter id="howto"
+><title
+>Com jugar</title
+> <!-- do not change this! -->
+
+<screenshot>
+  <mediaobject>
+    <imageobject
+><imagedata fileref="mainscreen.png" format="PNG"/></imageobject>
+    <textobject
+><phrase
+>Pantalla principal del &katomic;</phrase
+></textobject>
+  </mediaobject>
+</screenshot>
+
+<!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
+  <note
+><title
+>Objectiu:</title
+><para
+>Tornar a muntar les molècules fent lliscar els àtoms que les componen.</para
+></note
+><!--Describe the objective of the game.-->
+<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+  <para
+>&katomic; carregarà un nivell una vegada que inicieu la partida i podreu començar a jugar immediatament. Per veure quin aspecte té la molècula que se suposa que heu de muntar, doneu una ullada a la cantonada superior dreta. Per jugar, feu clic en un àtom. Veureu fletxes verdes que apunten en la direcció cap on es pot moure. Per moure'l, feu clic a la fletxa desitjada. Quan un àtom comença a moure, no s'aturarà fins que xoca amb un altre àtom o una paret, així que assegureu-vos abans de fer el vostre pròxim moviment. Podeu muntar-la on vulgueu en el tauler, però alguns llocs són més fàcils d'accedir que altres. Quan la molècula està muntada, podeu passar al següent nivell. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>Les regles del joc, estratègies i consells</title
+> <!-- do not change this! -->
+  <!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+  <sect1 id="games_rules"
+><title
+>Les regles del joc</title
+>    
+    <itemizedlist>
+      <listitem
+><para
+>Les peces del joc només es poden moure en una direcció a la vegada.</para
+></listitem>
+      <listitem
+><para
+>Quan un àtom es comença a moure no s'aturarà fins que es trobi una paret o una altra peça.</para
+></listitem>
+      <listitem
+><para
+>L'única manera de progressar al següent nivell de joc és completar-ne un. Quan un jugador completa un cert nivell el joc canvia automàticament al següent, per tant <quote
+>descobrint-lo</quote
+>.</para
+></listitem>
+      <listitem
+><para
+>Un jugador només pot canviar entre els nivells que ja s'han descobert.</para
+></listitem>
+      <listitem
+><para
+>El progrés en el joc es desa automàticament cada vegada que s'arriba a un nivell adjacent, i es tornarà a carregar la pròxima vegada que s'iniciï l'aplicació.</para
+></listitem>
+    </itemizedlist>
+  </sect1>
+  <sect1 id="tips"
+><title
+>Les estratègies i consells</title>
+    <itemizedlist>
+      <listitem
+><para
+>Reviseu sempre la molècula completa utilitzant la pantalla de referència abans de realitzar qualsevol moviment.</para
+></listitem>
+      <listitem
+><para
+>A continuació, estudieu el camp de joc i planegeu els vostres moviments. Recordeu, una vegada es mou una peça no es podrà tornar-la a la seva posició inicial.</para
+></listitem>
+      <listitem
+><para
+>Penseu en tots els vostres moviments i mireu de visualitzar la trajectòria que seguirà una vegada feu clic sobre una fletxa de direcció.</para
+></listitem>
+      <listitem
+><para
+>Quan s'utilitza el teclat per moure les peces assegureu-vos que està seleccionada la peça desitjada. Si està seleccionat un àtom incorrecte, feu servir la tecla &Tab; per canviar entre les peces fins a arribar a la desitjada.</para
+></listitem>
+    </itemizedlist>
+  </sect1>
+</chapter>
+
+<chapter id="interface"
+><title
+>Resum de la interfície</title
+> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
+> and <varlistentry
+>. Split the chapter into sections using <sect1(2,3)
+> for better viewing.-->
+<sect1 id="menu">
+<title
+>Elements del menú</title>
+
+<variablelist>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Carrega...</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Càrrega una partida desada anteriorment.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Reinicia la partida</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Això reiniciarà el nivell actual.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Desa</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Desa l'estat actual de la partida en el disc.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Nivell anterior</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Canvia al nivell de la partida anterior.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Nivell següent</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Canvia al nivell de la partida següent.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Mou</guimenu
+> <guimenuitem
+>Seleccioneu el conjunt de nivells...</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Això mostrarà tots els conjunts de nivells disponibles i la possibilitat de descarregar conjunts addicionals enviats per altres usuaris des d'Internet.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Surt</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>En seleccionar aquest element s'acabarà la teva partida en joc i se sortirà del &katomic;.</para
+></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mou</guimenu
+> <guimenuitem
+>Desfés</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Desfà l'últim moviment que heu realitzat.</action
+></para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&Maj;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mou</guimenu
+> <guimenuitem
+>Refés</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Si prèviament s'ha desfet una acció, la podeu refer de nou.</action
+></para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Mou</guimenu
+> <guimenuitem
+>Desfés-ho tot</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Desfà</action
+> l'últim moviment realitzat.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Mou</guimenu
+> <guimenuitem
+>Refés-ho tot</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Refà</action
+> l'últim moviment realitzat.</para
+></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Arranjament</guimenu
+><guimenuitem
+>Velocitat de l'animació</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Estableix la velocitat de l'animació a <guimenuitem
+>Lenta</guimenuitem
+>, <guimenuitem
+>Normal</guimenuitem
+> o <guimenuitem
+>Ràpida</guimenuitem
+>.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>De manera addicional, el &katomic; té la configuració comuna al &kde; i els elements dels menús <guimenu
+>Arranjament</guimenu
+> i <guimenu
+>Ajuda</guimenu
+>. Per a obtenir més informació, llegiu les seccions sobre <ulink url="help:/fundamentals/menus.html#menus-settings"
+>El menú Arranjament</ulink
+> i <ulink url="help:/fundamentals/menus.html#menus-help"
+>El menú Ajuda</ulink
+> en els Fonaments del &kde;. </para>
+
+</sect1>
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Tecles per omissió</title>
+
+<para
+>Les dreceres per omissió són:</para>
+
+<table>
+<title
+>Dreceres</title>
+  <tgroup cols="2">
+    <tbody>
+      <row>
+        <entry
+>Carrega</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Reinicia la partida</entry>
+        <entry
+><keycap
+>F5</keycap
+></entry>
+      </row>
+      <row>
+        <entry
+>Desa</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Nivell anterior</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Nivell Següent</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Surt</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Desfés</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Refés</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;&Maj;<keycap
+>Z</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Àtom avall</entry>
+        <entry
+>&Down;</entry>
+      </row>
+      <row>
+        <entry
+>Àtom esquerra</entry>
+        <entry
+>&Left;</entry>
+      </row>
+      <row>
+        <entry
+>Àtom dreta</entry>
+        <entry
+>&Right;</entry>
+      </row>
+      <row>
+        <entry
+>Àtom amunt</entry>
+        <entry
+>&Up;</entry>
+      </row>
+      <row>
+        <entry
+>Àtom següent</entry>
+        <entry
+>&Tab;</entry>
+      </row>
+      <row>
+        <entry
+>Àtom anterior</entry>
+        <entry
+><keycombo action="simul"
+>&Maj;&Tab;</keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Ajuda</entry>
+        <entry
+><keycap
+>F1</keycap
+></entry>
+      </row>
+      <row>
+        <entry
+>Ajuda «Què és això?»</entry>
+        <entry
+><keycombo action="simul"
+>&Maj;<keycap
+>F1</keycap
+></keycombo
+></entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+</sect1>
+
+</chapter>
+
+<chapter id="faq"
+><title
+>Preguntes més freqüents</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+<qandaentry>
+ <question
+><para
+>Com puc conèixer l'aspecte de la molècula?</para
+></question>
+ <answer
+><para
+>Podeu veure la molècula a la pantalla de referència situada a la part superior dreta de la pantalla de la partida.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Com puc moure una peça de la partida (àtom)?</para
+></question>
+ <answer
+><para
+>Per moure una peça de la partida (àtom), utilitzeu el cursor del ratolí per fer-hi clic. En aquest moment la icona de direcció disponible es farà visible. Feu clic sobre la direcció corresponent per fer un moviment de la peça en la direcció desitjada. També podeu utilitzar el teclat per moure les peces. Utilitzeu la tecla &Tab; per canviar entre els elements i les tecles del cursor per moure'l una vegada seleccionat.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Puc utilitzar el teclat per al control de les peces (àtoms)?</para
+></question>
+ <answer
+><para
+>Sí. Utilitzeu la tecla &Tab; per canviar entre els elements, i les tecles del cursor per moure'l una vegada seleccionat.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Quan moc una peça (àtom) i va cap al lloc on jo vull. Com puc fer que s'aturi allà?</para
+></question>
+ <answer
+><para
+>No ho fan. Una vegada que un àtom es comença a moure, no s'aturarà fins que es trobi una paret o una altra peça.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>No es pot superar el nivell. Hi ha un sistema de consells, o un solucionador?</para
+></question>
+  <answer
+><para
+>No. Malauradament en aquest moment &katomic; no compta amb un sistema de consells. De manera que l'única manera d'acabar un nivell és resoldre'l pel vostre compte.</para
+></answer>
+</qandaentry>
+<!--Please add more Q&As if needed-->
+</qandaset>
+</chapter>
+
+<chapter id="credits">
+<title
+>Crèdits i llicència</title>
+
+<para
+><application
+>Entreteniment Atòmic</application
+> Copyright 1999 &Stephan.Kulow; &Stephan.Kulow.mail; i &Cristian.Tibirna; &Cristian.Tibirna.mail;. </para>
+<para
+>Atomic Copyright Andreas Wuest <email
+>Andreas Wuest@gmx.de</email
+>. </para>
+<para
+>Copyright de la documentació 2000 &Dirk.Doerflinger; &Dirk.Doerflinger.mail; </para>
+<para
+>Revisió de la documentació per &Mike.McBride; &Mike.McBride.mail; </para>
+<para
+>Traductor de la documentació: Albert Astals Cid <email
+>aacid@kde.org</email
+> i &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

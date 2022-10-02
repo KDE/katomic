@@ -1,0 +1,610 @@
+# translation of katomic.po to
+# Copyright (C) 2002, 2004, 2007 Free Software Foundation, Inc.
+# Ibrahim Al-Ibrahim <ibrahim@arabeyes.org>, 2002.
+# Isam Bayazidi <bayazidi@arabeyes.org>, 2002.
+# Ahmad M. Zawawi <azawawi@emirates.net.ae>, 2004.
+# Ahmad M. Zawawi <zawawi@arabeyes.org>, 2004.
+# Youssef Chahibi <chahibi@gmail.com>, 2007.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: katomic\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"PO-Revision-Date: 2022-02-03 22:24+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 21.07.70\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "زايد السعيدي"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zayed.alsaidi@gmail.com"
+
+#: chooselevelsetdialog.cpp:29
+#, kde-format
+msgid "Level Sets"
+msgstr "مجموعات المستويات"
+
+#: gamewidget.cpp:84
+#, kde-format
+msgid ""
+"Failed to load level set \"%1\". Check if it is installed on your computer."
+msgstr ""
+
+#: gamewidget.cpp:140
+#, kde-format
+msgid "Level %1 finished. "
+msgstr "انتهى المستوى %1 ."
+
+#: gamewidget.cpp:144
+#, kde-format
+msgid "Congratulations! You have a new highscore!"
+msgstr "تهانينا ، لقد حصلت على مستوى عالي جديد!"
+
+#. i18n: ectx: label, entry (AnimationSpeed), group (Game)
+#: katomic.kcfg:9
+#, kde-format
+msgid "The speed of the animations."
+msgstr "سرعة التحريك."
+
+#. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
+#: katomic.kcfg:20
+#, kde-format
+msgid "Width of saved background"
+msgstr "عرض الخلفية المحفوظة"
+
+#. i18n: ectx: label, entry (SavedBackgroundHeight), group (General)
+#: katomic.kcfg:24
+#, kde-format
+msgid "Height of saved background"
+msgstr "ارتفاع الخلفية المحفوظة"
+
+#. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
+#: katomic.kcfg:28
+#, kde-format
+msgid "Last played levelset"
+msgstr "آخر المستويات الملعوبة"
+
+#. i18n: ectx: Menu (settings)
+#: katomicui.rc:16
+#, kde-format
+msgid "&Settings"
+msgstr "إ&عدادات"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: katomicui.rc:25
+#, kde-format
+msgid "Main Toolbar"
+msgstr "شريط الأدوات الرئيسي"
+
+#: levelset.cpp:264
+#, kde-format
+msgid "Noname"
+msgstr "بدون اسم"
+
+#: levelsetdelegate.cpp:81
+#, kde-format
+msgid "by %1"
+msgstr "بواسطة %1"
+
+#: levelsetdelegate.cpp:87
+#, kde-format
+msgid ", contains 1 level"
+msgid_plural ", contains %1 levels"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: levelsetwidget.ui:20
+#, kde-format
+msgid "Choose a level set to play:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
+#: levelsetwidget.ui:45
+#, kde-format
+msgid "Get new levels"
+msgstr "احصل على مستويات جديدة"
+
+#: main.cpp:44
+#, fuzzy, kde-format
+msgid "KAtomic"
+msgstr "لعبة التركيب الجزيئي الكيميائي KAtomic"
+
+#: main.cpp:46
+#, fuzzy, kde-format
+#| msgid "KDE Atomic Entertainment Game"
+msgid "Atomic Entertainment Game"
+msgstr "لعبة الذرات الترفيهية KDE"
+
+#: main.cpp:48
+#, fuzzy, kde-format
+msgid ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+msgstr "c"
+
+#: main.cpp:49
+#, kde-format
+msgid "Andreas Wuest"
+msgstr "Andreas Wuest"
+
+#: main.cpp:49
+#, kde-format
+msgid "Original author"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: main.cpp:50
+#, kde-format
+msgid "Porting to KDE4. Current maintainer"
+msgstr "النقل إلى كدي4 ، و المشرف الحالي"
+
+#: main.cpp:51
+#, kde-format
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: main.cpp:52
+#, kde-format
+msgid "Cristian Tibirna"
+msgstr "Cristian Tibirna"
+
+#: main.cpp:53
+#, kde-format
+msgid "Carsten Pfeiffer"
+msgstr "Carsten Pfeiffer"
+
+#: main.cpp:54
+#, kde-format
+msgid "Dave Corrie"
+msgstr "Dave Corrie"
+
+#: main.cpp:55
+#, kde-format
+msgid "Kai Jung"
+msgstr "Kai Jung"
+
+#: main.cpp:55
+#, kde-format
+msgid "6 new levels"
+msgstr "6 مرحلة جديدة"
+
+#: main.cpp:56
+#, kde-format
+msgid "Danny Allen"
+msgstr "Danny Allen"
+
+#: main.cpp:56
+#, kde-format
+msgid "Game graphics and application icon"
+msgstr "رسوم اللعبة ، و أيقونة التطبيق"
+
+#: main.cpp:57
+#, kde-format
+msgid "Johann Ollivier Lapeyre"
+msgstr "Johann Ollivier Lapeyre"
+
+#: main.cpp:57
+#, kde-format
+msgid "New great SVG artwork for KDE4"
+msgstr "رسوم SVG الرائعة لكدي4"
+
+#: main.cpp:58
+#, kde-format
+msgid "Brian Croom"
+msgstr "Brian Croom"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to use KGameRenderer"
+msgstr "النقل ليستخدم KGameRenderer"
+
+#: main.cpp:64
+#, kde-format
+msgid "Enable access to all levels"
+msgstr "مكّن الوصول إلى كل المستويات"
+
+#: main.cpp:75
+#, kde-format
+msgid ""
+"KAtomic failed to find its default level set and will quit. Please check "
+"your installation."
+msgstr ""
+
+#: toplevel.cpp:41
+#, kde-format
+msgid "Level:"
+msgstr "المستوى:"
+
+#: toplevel.cpp:42
+#, kde-format
+msgid "Current score:"
+msgstr "النتيجة الحالية:"
+
+#: toplevel.cpp:43
+#, kde-format
+msgid "Highscore:"
+msgstr "أعلى نتيجة:"
+
+#: toplevel.cpp:90
+#, kde-format
+msgid "Previous Level"
+msgstr "المستوى السابق"
+
+#: toplevel.cpp:97
+#, kde-format
+msgid "Next Level"
+msgstr "المستوى التالي"
+
+#: toplevel.cpp:103
+#, kde-format
+msgid "Choose level set..."
+msgstr ""
+
+#: toplevel.cpp:107
+#, kde-format
+msgid "Animation Speed"
+msgstr "سرعة الحركات"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Slow"
+msgstr "بطيء"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Normal"
+msgstr "عادي"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Fast"
+msgstr "سريع"
+
+#: toplevel.cpp:117
+#, kde-format
+msgid "Undo All"
+msgstr "تراجع الكل"
+
+#: toplevel.cpp:122
+#, kde-format
+msgid "Redo All"
+msgstr "تكرار الكل"
+
+#: toplevel.cpp:136
+#, kde-format
+msgid "Atom Up"
+msgstr "حرك الذرة الى أعلى"
+
+#: toplevel.cpp:142
+#, kde-format
+msgid "Atom Down"
+msgstr "حرك الذرة الي أسفل"
+
+#: toplevel.cpp:148
+#, kde-format
+msgid "Atom Left"
+msgstr "حرك الذرة الي اليسار"
+
+#: toplevel.cpp:154
+#, kde-format
+msgid "Atom Right"
+msgstr "حرك الذرة الى اليمين"
+
+#: toplevel.cpp:160
+#, kde-format
+msgid "Next Atom"
+msgstr "الذرة التالية"
+
+#: toplevel.cpp:166
+#, kde-format
+msgid "Previous Atom"
+msgstr "الذرة السابقة"
+
+#: toplevel.cpp:187
+#, kde-format
+msgid "Level: %1 (%2)"
+msgstr "المستوى: %1 (%2)"
+
+#: toplevel.cpp:188
+#, kde-format
+msgid "Current score: %1"
+msgstr "النتيجة الحالية: %1"
+
+#: toplevel.cpp:194
+#, kde-format
+msgid "Highscore: %1"
+msgstr "أعلى نتيجة: %1"
+
+#, fuzzy
+#~ msgid ""
+#~ "Level %1 can not be found. Please check your installation. Now switching "
+#~ "to Level 1"
+#~ msgstr "المستوى ليس موجود رجاء تفقّد تثبيت الآن إلى المستوى 1"
+
+#, fuzzy
+#~ msgid ""
+#~ "Level 1 data can not be found. Please check your installation. KAtomic "
+#~ "will quit now."
+#~ msgstr ""
+#~ "المستوى البيانات ليس موجود رجاء تفقّد تثبيت لعبة التركيب الجزيئي الكيميائي "
+#~ "KAtomic اخرج الآن."
+
+#, fuzzy
+#~ msgid "You must solve level %1 before advancing to the next one!"
+#~ msgstr "أنت مستوى قبل إلى التالي!"
+
+#, fuzzy
+#~ msgid "Warning"
+#~ msgstr "تحذير"
+
+#~ msgid "Water"
+#~ msgstr "ماء"
+
+#~ msgid "Formic Acid"
+#~ msgstr "حمض النمليك"
+
+#~ msgid "Acetic Acid"
+#~ msgstr "حمض الخليك"
+
+#~ msgid "trans-Butene"
+#~ msgstr "trans-Butene"
+
+#~ msgid "cis-Butene"
+#~ msgstr "cis-Butene"
+
+#~ msgid "Dimethyl ether"
+#~ msgstr "Dimethyl ether"
+
+#~ msgid "Butanol"
+#~ msgstr "Butanol"
+
+#~ msgid "2-Methyl-2-Propanol"
+#~ msgstr "٢-ميثيل-٢-بروبانول"
+
+#~ msgid "Glycerin"
+#~ msgstr "جلسرين"
+
+#, fuzzy
+#~ msgid "Poly-Tetra-Fluoro-Ethene"
+#~ msgstr "متعدّد"
+
+#, fuzzy
+#~ msgid "Oxalic Acid"
+#~ msgstr "أكساليكي اسيد"
+
+#~ msgid "Methane"
+#~ msgstr "ميثان"
+
+#~ msgid "Formaldehyde"
+#~ msgstr "فورمالديهايد"
+
+#~ msgid "Crystal 1"
+#~ msgstr "كريستال ١"
+
+#~ msgid "Acetic acid ethyl ester"
+#~ msgstr "حمض الخليك إثيل إستر"
+
+#~ msgid "Ammonia"
+#~ msgstr "أمونيا"
+
+#~ msgid "3-Methyl-Pentane"
+#~ msgstr "3-Methyl-Pentane"
+
+#~ msgid "Propanal"
+#~ msgstr "Propanal"
+
+#~ msgid "Propyne"
+#~ msgstr "بروبين"
+
+#~ msgid "Furanal"
+#~ msgstr "Furanal"
+
+#~ msgid "Pyran"
+#~ msgstr "بيران"
+
+#~ msgid "Cyclo-Pentane"
+#~ msgstr "Cyclo-Pentane"
+
+#~ msgid "Methanol"
+#~ msgstr "ميثانول"
+
+#~ msgid "Nitro-Glycerin"
+#~ msgstr "نترات-جلسرين"
+
+#~ msgid "Ethane"
+#~ msgstr "إثين"
+
+#~ msgid "Crystal 2"
+#~ msgstr "كريستال ٢"
+
+#~ msgid "Ethylene-Glycol"
+#~ msgstr "Ethylene-Glycol"
+
+#~ msgid "L-Alanine"
+#~ msgstr "L-Alanine"
+
+#~ msgid "Cyanoguanidine"
+#~ msgstr "Cyanoguanidine"
+
+#~ msgid "Prussic Acid (Cyanic Acid)"
+#~ msgstr "حمض البروسيك (حمض الجيانيك)"
+
+#~ msgid "Anthracene"
+#~ msgstr "أنثراسين"
+
+#~ msgid "Thiazole"
+#~ msgstr "Thiazole"
+
+#~ msgid "Saccharin"
+#~ msgstr "مركب السكرين"
+
+#~ msgid "Ethylene"
+#~ msgstr "إيثيلين"
+
+#~ msgid "Styrene"
+#~ msgstr "إستيرين"
+
+#~ msgid "Melamine"
+#~ msgstr "ميلامين"
+
+#~ msgid "Cyclobutane"
+#~ msgstr "Cyclobutane"
+
+#~ msgid "Nicotine"
+#~ msgstr "نيكوتين"
+
+#~ msgid "Acetyle salicylic acid"
+#~ msgstr "Acetyle salicylic acid"
+
+#~ msgid "Meta-Di-Nitro-Benzene"
+#~ msgstr "Meta-Di-Nitro-Benzene"
+
+#~ msgid "Malonic Acid"
+#~ msgstr "Malonic Acid"
+
+#~ msgid "2,2-Dimethylpropane"
+#~ msgstr "2,2-Dimethylpropane"
+
+#~ msgid "Ethyl-Benzene"
+#~ msgstr "اثيل-بنزين"
+
+#~ msgid "Propene"
+#~ msgstr "Propene"
+
+#~ msgid "L-Asparagine"
+#~ msgstr "L-Asparagine"
+
+#~ msgid "1,3,5,7-Cyclooctatetraene"
+#~ msgstr "1,3,5,7-Cyclooctatetraene"
+
+#~ msgid "Vanillin"
+#~ msgstr "ونيلين"
+
+#~ msgid "Crystal 3"
+#~ msgstr "كريستال ٣"
+
+#~ msgid "Uric Acid"
+#~ msgstr "حامض بولي"
+
+#~ msgid "Thymine"
+#~ msgstr "ثايمين"
+
+#~ msgid "Aniline"
+#~ msgstr "أنيلين"
+
+#~ msgid "Chloroform"
+#~ msgstr "كلوروفورم"
+
+#~ msgid "Carbonic acid"
+#~ msgstr "حمض الكربونيك"
+
+#~ msgid "Crystal 4"
+#~ msgstr "كريستال ٤"
+
+#~ msgid "Ethanol"
+#~ msgstr "ايثانول"
+
+#~ msgid "Acrylo-Nitril"
+#~ msgstr "Acrylo-Nitril"
+
+#~ msgid "Furan"
+#~ msgstr "فوران"
+
+#~ msgid "l-Lactic acid"
+#~ msgstr "ل-حمض الاكتيك"
+
+#~ msgid "Maleic Acid"
+#~ msgstr "حمض التفاح"
+
+#~ msgid "meso-Tartaric acid"
+#~ msgstr "حمض الطرطريك المتوسط"
+
+#~ msgid "Crystal 5"
+#~ msgstr "كريستال ٥"
+
+#~ msgid "Formic acid ethyl ester"
+#~ msgstr "Formic acid ethyl ester"
+
+#~ msgid "1,4-Cyclohexadiene"
+#~ msgstr "1,4-Cyclohexadiene"
+
+#~ msgid "Squaric acid"
+#~ msgstr "Squaric acid"
+
+#~ msgid "Ascorbic acid"
+#~ msgstr "حمض الاسكروبيك"
+
+#, fuzzy
+#~ msgid "Isopropanol"
+#~ msgstr "Propanal"
+
+#~ msgid "Phosgene"
+#~ msgstr "فوسجين"
+
+#~ msgid "Thiophene"
+#~ msgstr "Thiophene"
+
+#~ msgid "Urea"
+#~ msgstr "يوريا"
+
+#~ msgid "Pyruvic Acid"
+#~ msgstr "حمض البيروفيك"
+
+#~ msgid "Ethylene oxide"
+#~ msgstr "أوكسيد الاثيلين"
+
+#~ msgid "Phosphoric Acid"
+#~ msgstr "حمض الفوسفوريك"
+
+#~ msgid "Diacetyl"
+#~ msgstr "Diacetyl"
+
+#~ msgid "trans-Dichloroethene"
+#~ msgstr "trans-Dichloroethene"
+
+#~ msgid "Allylisothiocyanate"
+#~ msgstr "Allylisothiocyanate"
+
+#~ msgid "Diketene"
+#~ msgstr "Diketene"
+
+#~ msgid "Ethanal"
+#~ msgstr "Ethanal"
+
+#~ msgid "Acroleine"
+#~ msgstr "Acroleine"
+
+#~ msgid "Uracil"
+#~ msgstr "يوراسيل"
+
+#~ msgid "Caffeine"
+#~ msgstr "الكافايين"
+
+#~ msgid "Acetone"
+#~ msgstr "أسيتون"
+
+#, fuzzy
+#~ msgid "Highest level player is allowed to play"
+#~ msgstr "الأقصى مستوى رقم المسموح لهم إلى تشغيل يعمل"

@@ -1,0 +1,344 @@
+# translation of katomic.po to
+# KDE Finnish translation sprint participants:
+# Kim Enkovaara <kim.enkovaara@iki.fi>, 2002.
+# Teemu Rytilahti <teemu.rytilahti@d5k.net>, 2003.
+# Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2003.
+# Ilpo Kantonen <ilpo@iki.fi>, 2005.
+# Mikko Piippo <piippo@cc.helsinki.fi>, 2008.
+# Joonas Sarajärvi <muepsj@gmail.com>, 2010.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2012, 2013, 2014.
+# Tommi Nieminen <translator@legisign.org>, 2011, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: katomic\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"PO-Revision-Date: 2021-08-02 19:31+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2012-12-01 22:23:59+0000\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Kim Enkovaara,Teemu Rytilahti,Ilpo Kantonen,Mikko Piippo,Joonas Sarajärvi"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"kim.enkovaara@iki.fi,teemu.rytilahti@kde-fi.org,ilpo@iki.fi,mikko."
+"piippo@helsinki.fi,muepsj@gmail.com"
+
+#: chooselevelsetdialog.cpp:29
+#, kde-format
+msgid "Level Sets"
+msgstr "Tasopaketit"
+
+#: gamewidget.cpp:84
+#, kde-format
+msgid ""
+"Failed to load level set \"%1\". Check if it is installed on your computer."
+msgstr ""
+"Tasopaketin \"%1\" lataaminen epäonnistui. Tarkista, onko se asennettu "
+"tietokoneellesi."
+
+#: gamewidget.cpp:140
+#, kde-format
+msgid "Level %1 finished. "
+msgstr "Taso %1 läpäisty."
+
+#: gamewidget.cpp:144
+#, kde-format
+msgid "Congratulations! You have a new highscore!"
+msgstr "Onneksi olkoon! Teit uuden ennätyksen!"
+
+#. i18n: ectx: label, entry (AnimationSpeed), group (Game)
+#: katomic.kcfg:9
+#, kde-format
+msgid "The speed of the animations."
+msgstr "Animaatioiden nopeus."
+
+#. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
+#: katomic.kcfg:20
+#, kde-format
+msgid "Width of saved background"
+msgstr "Tallennetun taustan leveys"
+
+#. i18n: ectx: label, entry (SavedBackgroundHeight), group (General)
+#: katomic.kcfg:24
+#, kde-format
+msgid "Height of saved background"
+msgstr "Tallennetun taustan korkeus"
+
+#. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
+#: katomic.kcfg:28
+#, kde-format
+msgid "Last played levelset"
+msgstr "Viimeksi pelattu tasopaketti"
+
+#. i18n: ectx: Menu (settings)
+#: katomicui.rc:16
+#, kde-format
+msgid "&Settings"
+msgstr "&Asetukset"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: katomicui.rc:25
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Päätyökalurivi"
+
+#: levelset.cpp:264
+#, kde-format
+msgid "Noname"
+msgstr "Ei nimeä"
+
+#: levelsetdelegate.cpp:81
+#, kde-format
+msgid "by %1"
+msgstr "Tekijä: %1"
+
+#: levelsetdelegate.cpp:87
+#, kde-format
+msgid ", contains 1 level"
+msgid_plural ", contains %1 levels"
+msgstr[0] ", sisältää %1 tason"
+msgstr[1] ", sisältää %1 tasoa"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: levelsetwidget.ui:20
+#, kde-format
+msgid "Choose a level set to play:"
+msgstr "Valitse pelattava tasopaketti:"
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
+#: levelsetwidget.ui:45
+#, kde-format
+msgid "Get new levels"
+msgstr "Hae uusia tasoja"
+
+# pmap: =/gen=KAtomicin/
+# pmap: =/elat=KAtomicista/
+#: main.cpp:44
+#, kde-format
+msgid "KAtomic"
+msgstr "KAtomic"
+
+#: main.cpp:46
+#, kde-format
+msgid "Atomic Entertainment Game"
+msgstr "Atomic-viihdepeli"
+
+#: main.cpp:48
+#, kde-format
+msgid ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+msgstr ""
+"© 1998 Andreas Wuest\n"
+"© 2007–2009 Dmitry Suzdalev"
+
+#: main.cpp:49
+#, kde-format
+msgid "Andreas Wuest"
+msgstr "Andreas Wuest"
+
+#: main.cpp:49
+#, kde-format
+msgid "Original author"
+msgstr "Alkuperäinen tekijä"
+
+#: main.cpp:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: main.cpp:50
+#, kde-format
+msgid "Porting to KDE4. Current maintainer"
+msgstr "KDE4-siirros, nykyinen ylläpitäjä"
+
+#: main.cpp:51
+#, kde-format
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: main.cpp:52
+#, kde-format
+msgid "Cristian Tibirna"
+msgstr "Cristian Tibirna"
+
+#: main.cpp:53
+#, kde-format
+msgid "Carsten Pfeiffer"
+msgstr "Carsten Pfeiffer"
+
+#: main.cpp:54
+#, kde-format
+msgid "Dave Corrie"
+msgstr "Dave Corrie"
+
+#: main.cpp:55
+#, kde-format
+msgid "Kai Jung"
+msgstr "Kai Jung"
+
+#: main.cpp:55
+#, kde-format
+msgid "6 new levels"
+msgstr "6 uutta tasoa"
+
+#: main.cpp:56
+#, kde-format
+msgid "Danny Allen"
+msgstr "Danny Allen"
+
+#: main.cpp:56
+#, kde-format
+msgid "Game graphics and application icon"
+msgstr "Pelin grafiikat ja sovelluksen kuvake"
+
+#: main.cpp:57
+#, kde-format
+msgid "Johann Ollivier Lapeyre"
+msgstr "Johann Ollivier Lapeyre"
+
+#: main.cpp:57
+#, kde-format
+msgid "New great SVG artwork for KDE4"
+msgstr "SVG-grafiikka KDE4 varten"
+
+#: main.cpp:58
+#, kde-format
+msgid "Brian Croom"
+msgstr "Brian Croom"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to use KGameRenderer"
+msgstr "Siirros use KGameRendereriin"
+
+#: main.cpp:64
+#, kde-format
+msgid "Enable access to all levels"
+msgstr "Pääsy kaikille tasoille"
+
+#: main.cpp:75
+#, kde-format
+msgid ""
+"KAtomic failed to find its default level set and will quit. Please check "
+"your installation."
+msgstr "KAtomicin oletustasoja ei löydy. Tarkista asennuksen eheys."
+
+#: toplevel.cpp:41
+#, kde-format
+msgid "Level:"
+msgstr "Taso:"
+
+#: toplevel.cpp:42
+#, kde-format
+msgid "Current score:"
+msgstr "Nykyinen tulos:"
+
+#: toplevel.cpp:43
+#, kde-format
+msgid "Highscore:"
+msgstr "Ennätykset:"
+
+#: toplevel.cpp:90
+#, kde-format
+msgid "Previous Level"
+msgstr "Edellinen taso"
+
+#: toplevel.cpp:97
+#, kde-format
+msgid "Next Level"
+msgstr "Seuraava taso"
+
+#: toplevel.cpp:103
+#, kde-format
+msgid "Choose level set..."
+msgstr "Valitse tasopaketti…"
+
+#: toplevel.cpp:107
+#, kde-format
+msgid "Animation Speed"
+msgstr "Animaationopeus"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Slow"
+msgstr "Hidas"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Normal"
+msgstr "Tavallinen"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Fast"
+msgstr "Nopea"
+
+#: toplevel.cpp:117
+#, kde-format
+msgid "Undo All"
+msgstr "Kumoa kaikki"
+
+#: toplevel.cpp:122
+#, kde-format
+msgid "Redo All"
+msgstr "Toista kaikki"
+
+#: toplevel.cpp:136
+#, kde-format
+msgid "Atom Up"
+msgstr "Atomi ylös"
+
+#: toplevel.cpp:142
+#, kde-format
+msgid "Atom Down"
+msgstr "Atomi alas"
+
+#: toplevel.cpp:148
+#, kde-format
+msgid "Atom Left"
+msgstr "Atomi vasemmalle"
+
+#: toplevel.cpp:154
+#, kde-format
+msgid "Atom Right"
+msgstr "Atomi oikealle"
+
+#: toplevel.cpp:160
+#, kde-format
+msgid "Next Atom"
+msgstr "Seuraava atomi"
+
+#: toplevel.cpp:166
+#, kde-format
+msgid "Previous Atom"
+msgstr "Edellinen atomi"
+
+#: toplevel.cpp:187
+#, kde-format
+msgid "Level: %1 (%2)"
+msgstr "Taso: %1 (%2)"
+
+#: toplevel.cpp:188
+#, kde-format
+msgid "Current score: %1"
+msgstr "Nykyinen tulos: %1"
+
+#: toplevel.cpp:194
+#, kde-format
+msgid "Highscore: %1"
+msgstr "Ennätys: %1"

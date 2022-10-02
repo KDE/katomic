@@ -1,0 +1,610 @@
+# translation of katomic.po to Polish
+# Version: $Revision: 1634614 $
+# Michal Rudolf <mrudolf@kdewebdev.org>, 2003, 2005, 2007, 2009.
+# Maciej Wikło <maciej.wiklo@wp.pl>, 2010.
+# Marta Rybczyńska <kde-i18n@rybczynska.net>, 2010.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2011, 2015, 2016, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: katomic\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"PO-Revision-Date: 2021-02-14 08:45+0100\n"
+"Last-Translator: Łukasz Wojniłowicz <<lukasz.wojnilowicz@gmail.com>>\n"
+"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+">\n"
+">\n"
+">\n"
+">\n"
+"X-Generator: Lokalize 20.12.1\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Michał Rudolf, Jacek Stolarczyk, Łukasz Wojniłowicz"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"mrudolf@kdewebdev.org, jacek@mer.chemia.polsl.gliwice.pl,lukasz."
+"wojnilowicz@gmail.com"
+
+#: chooselevelsetdialog.cpp:29
+#, kde-format
+msgid "Level Sets"
+msgstr "Zestawy poziomów"
+
+#: gamewidget.cpp:84
+#, kde-format
+msgid ""
+"Failed to load level set \"%1\". Check if it is installed on your computer."
+msgstr ""
+"Wczytywanie zestawu poziomów \"%1\" nie powiodło się. Sprawdź, czy jest on "
+"zainstalowany na Twoim komputerze."
+
+#: gamewidget.cpp:140
+#, kde-format
+msgid "Level %1 finished. "
+msgstr "Poziom %1 zakończony. "
+
+#: gamewidget.cpp:144
+#, kde-format
+msgid "Congratulations! You have a new highscore!"
+msgstr "Gratujacje! Nowy rekord!"
+
+#. i18n: ectx: label, entry (AnimationSpeed), group (Game)
+#: katomic.kcfg:9
+#, kde-format
+msgid "The speed of the animations."
+msgstr "Szybkość animacji."
+
+#. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
+#: katomic.kcfg:20
+#, kde-format
+msgid "Width of saved background"
+msgstr "Szerokość zapisanego tła"
+
+#. i18n: ectx: label, entry (SavedBackgroundHeight), group (General)
+#: katomic.kcfg:24
+#, kde-format
+msgid "Height of saved background"
+msgstr "Wysokość zapisanego tła"
+
+#. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
+#: katomic.kcfg:28
+#, kde-format
+msgid "Last played levelset"
+msgstr "Ostatni zestaw poziomów"
+
+#. i18n: ectx: Menu (settings)
+#: katomicui.rc:16
+#, kde-format
+msgid "&Settings"
+msgstr "&Ustawienia"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: katomicui.rc:25
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Główny pasek narzędzi"
+
+#: levelset.cpp:264
+#, kde-format
+msgid "Noname"
+msgstr "Anonim"
+
+#: levelsetdelegate.cpp:81
+#, kde-format
+msgid "by %1"
+msgstr "przez %1"
+
+#: levelsetdelegate.cpp:87
+#, kde-format
+msgid ", contains 1 level"
+msgid_plural ", contains %1 levels"
+msgstr[0] ", zawiera 1 poziom"
+msgstr[1] ", zawiera %1 poziomy"
+msgstr[2] ", zawiera %1 poziomów"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: levelsetwidget.ui:20
+#, kde-format
+msgid "Choose a level set to play:"
+msgstr "Wybierz zestaw poziomów do gry:"
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
+#: levelsetwidget.ui:45
+#, kde-format
+msgid "Get new levels"
+msgstr "Pobierz nowe poziomy"
+
+#: main.cpp:44
+#, kde-format
+msgid "KAtomic"
+msgstr "Atomy"
+
+#: main.cpp:46
+#, kde-format
+msgid "Atomic Entertainment Game"
+msgstr "Gra rozrywkowa w Atomy"
+
+#: main.cpp:48
+#, kde-format
+msgid ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+msgstr ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+
+#: main.cpp:49
+#, kde-format
+msgid "Andreas Wuest"
+msgstr "Andreas Wuest"
+
+#: main.cpp:49
+#, kde-format
+msgid "Original author"
+msgstr "Autor pierwszej wersji"
+
+#: main.cpp:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: main.cpp:50
+#, kde-format
+msgid "Porting to KDE4. Current maintainer"
+msgstr "Przeniesienie do KDE 4. Aktualny opiekun"
+
+#: main.cpp:51
+#, kde-format
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: main.cpp:52
+#, kde-format
+msgid "Cristian Tibirna"
+msgstr "Cristian Tibirna"
+
+#: main.cpp:53
+#, kde-format
+msgid "Carsten Pfeiffer"
+msgstr "Carsten Pfeiffer"
+
+#: main.cpp:54
+#, kde-format
+msgid "Dave Corrie"
+msgstr "Dave Corrie"
+
+#: main.cpp:55
+#, kde-format
+msgid "Kai Jung"
+msgstr "Kai Jung"
+
+#: main.cpp:55
+#, kde-format
+msgid "6 new levels"
+msgstr "6 nowych poziomów"
+
+#: main.cpp:56
+#, kde-format
+msgid "Danny Allen"
+msgstr "Danny Allen"
+
+#: main.cpp:56
+#, kde-format
+msgid "Game graphics and application icon"
+msgstr "Grafika i ikona programu"
+
+#: main.cpp:57
+#, kde-format
+msgid "Johann Ollivier Lapeyre"
+msgstr "Johann Ollivier Lapeyre"
+
+#: main.cpp:57
+#, kde-format
+msgid "New great SVG artwork for KDE4"
+msgstr "Nowa grafika SVG dla KDE 4"
+
+#: main.cpp:58
+#, kde-format
+msgid "Brian Croom"
+msgstr "Brian Croom"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to use KGameRenderer"
+msgstr "Port, który używa KGameRenderer"
+
+#: main.cpp:64
+#, kde-format
+msgid "Enable access to all levels"
+msgstr "Włącz dostęp do wszystkich poziomów"
+
+#: main.cpp:75
+#, kde-format
+msgid ""
+"KAtomic failed to find its default level set and will quit. Please check "
+"your installation."
+msgstr ""
+"Nie znaleziono domyślnego zestawu poziomów i program KAtomic zostanie "
+"zamknięty. Proszę sprawdzić swoją instalację."
+
+#: toplevel.cpp:41
+#, kde-format
+msgid "Level:"
+msgstr "Poziom:"
+
+#: toplevel.cpp:42
+#, kde-format
+msgid "Current score:"
+msgstr "Aktualny wynik:"
+
+#: toplevel.cpp:43
+#, kde-format
+msgid "Highscore:"
+msgstr "Rekord:"
+
+#: toplevel.cpp:90
+#, kde-format
+msgid "Previous Level"
+msgstr "Poprzedni poziom"
+
+#: toplevel.cpp:97
+#, kde-format
+msgid "Next Level"
+msgstr "Następny poziom"
+
+#: toplevel.cpp:103
+#, kde-format
+msgid "Choose level set..."
+msgstr "Wybierz zestaw poziomów..."
+
+#: toplevel.cpp:107
+#, kde-format
+msgid "Animation Speed"
+msgstr "Szybkość animacji"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Slow"
+msgstr "Wolno"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Normal"
+msgstr "Średnio"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Fast"
+msgstr "Szybko"
+
+#: toplevel.cpp:117
+#, kde-format
+msgid "Undo All"
+msgstr "Cofnij wszystko"
+
+#: toplevel.cpp:122
+#, kde-format
+msgid "Redo All"
+msgstr "Przywróć wszystko"
+
+#: toplevel.cpp:136
+#, kde-format
+msgid "Atom Up"
+msgstr "Atom w górę"
+
+#: toplevel.cpp:142
+#, kde-format
+msgid "Atom Down"
+msgstr "Atom w dół"
+
+#: toplevel.cpp:148
+#, kde-format
+msgid "Atom Left"
+msgstr "Atom w lewo"
+
+#: toplevel.cpp:154
+#, kde-format
+msgid "Atom Right"
+msgstr "Atom w prawo"
+
+#: toplevel.cpp:160
+#, kde-format
+msgid "Next Atom"
+msgstr "Następny atom"
+
+#: toplevel.cpp:166
+#, kde-format
+msgid "Previous Atom"
+msgstr "Poprzedni atom"
+
+#: toplevel.cpp:187
+#, kde-format
+msgid "Level: %1 (%2)"
+msgstr "Poziom: %1 (%2)"
+
+#: toplevel.cpp:188
+#, kde-format
+msgid "Current score: %1"
+msgstr "Aktualny wynik: %1"
+
+#: toplevel.cpp:194
+#, kde-format
+msgid "Highscore: %1"
+msgstr "Rekord: %1"
+
+#~ msgid ""
+#~ "Level %1 can not be found. Please check your installation. Now switching "
+#~ "to Level 1"
+#~ msgstr ""
+#~ "Nie można znaleźć poziomu %1. Proszę sprawdzić instalację. Zostanie "
+#~ "wczytane poziom 1."
+
+#~ msgid ""
+#~ "Level 1 data can not be found. Please check your installation. KAtomic "
+#~ "will quit now."
+#~ msgstr ""
+#~ "Nie można wczytać danych poziomu 1. Proszę sprawdzić instalację. Program "
+#~ "KAtomic zakończy pracę."
+
+#~ msgid "You must solve level %1 before advancing to the next one!"
+#~ msgstr "Trzeba przejść poziom %1, żeby zagrać w następny!"
+
+#~ msgid "Warning"
+#~ msgstr "Ostrzeżenie"
+
+#~ msgid "Water"
+#~ msgstr "Woda"
+
+#~ msgid "Formic Acid"
+#~ msgstr "Kwas mrówkowy"
+
+#~ msgid "Acetic Acid"
+#~ msgstr "Kwas octowy"
+
+#~ msgid "trans-Butene"
+#~ msgstr "trans-Buten"
+
+#~ msgid "cis-Butene"
+#~ msgstr "cis-Buten"
+
+#~ msgid "Dimethyl ether"
+#~ msgstr "Eter dimetylowy"
+
+#~ msgid "Butanol"
+#~ msgstr "Butanol"
+
+#~ msgid "2-Methyl-2-Propanol"
+#~ msgstr "2-metylo-2-propanol"
+
+#~ msgid "Glycerin"
+#~ msgstr "Gliceryna"
+
+#~ msgid "Poly-Tetra-Fluoro-Ethene"
+#~ msgstr "Poli(tetrafluoroetylen)"
+
+#~ msgid "Oxalic Acid"
+#~ msgstr "Kwas szczawiowy"
+
+#~ msgid "Methane"
+#~ msgstr "Metan"
+
+#~ msgid "Formaldehyde"
+#~ msgstr "Formaldehyd"
+
+#~ msgid "Crystal 1"
+#~ msgstr "Kryształ 1"
+
+#~ msgid "Acetic acid ethyl ester"
+#~ msgstr "Ester etylowy kwasu octowego"
+
+#~ msgid "Ammonia"
+#~ msgstr "Amoniak"
+
+#~ msgid "3-Methyl-Pentane"
+#~ msgstr "3-metylopentan"
+
+#~ msgid "Propanal"
+#~ msgstr "Propanal"
+
+#~ msgid "Propyne"
+#~ msgstr "Propyn"
+
+#~ msgid "Furanal"
+#~ msgstr "Furanal"
+
+#~ msgid "Pyran"
+#~ msgstr "Piran"
+
+#~ msgid "Cyclo-Pentane"
+#~ msgstr "Cyklopentan"
+
+#~ msgid "Methanol"
+#~ msgstr "Metanol"
+
+#~ msgid "Nitro-Glycerin"
+#~ msgstr "Nitrogliceryna"
+
+#~ msgid "Ethane"
+#~ msgstr "Etan"
+
+#~ msgid "Crystal 2"
+#~ msgstr "Kryształ 2"
+
+#~ msgid "Ethylene-Glycol"
+#~ msgstr "Glikol etylenowy"
+
+#~ msgid "L-Alanine"
+#~ msgstr "L-Alanina"
+
+#~ msgid "Cyanoguanidine"
+#~ msgstr "Cyjanoguanidyna"
+
+#~ msgid "Prussic Acid (Cyanic Acid)"
+#~ msgstr "Kwas cyjanowodorowy"
+
+#~ msgid "Anthracene"
+#~ msgstr "Antracen"
+
+#~ msgid "Thiazole"
+#~ msgstr "Tiazol"
+
+#~ msgid "Saccharin"
+#~ msgstr "Sacharyna"
+
+#~ msgid "Ethylene"
+#~ msgstr "Etylen"
+
+#~ msgid "Styrene"
+#~ msgstr "Styren"
+
+#~ msgid "Melamine"
+#~ msgstr "Melamina"
+
+#~ msgid "Cyclobutane"
+#~ msgstr "Cyklobutan"
+
+#~ msgid "Nicotine"
+#~ msgstr "Nikotyna"
+
+#~ msgid "Acetyle salicylic acid"
+#~ msgstr "Aspiryna (kwas acetylosalicylowy)"
+
+#~ msgid "Meta-Di-Nitro-Benzene"
+#~ msgstr "meta-dinitrobenzen"
+
+#~ msgid "Malonic Acid"
+#~ msgstr "Kwas malonowy"
+
+#~ msgid "2,2-Dimethylpropane"
+#~ msgstr "2,2-dimetylopropan"
+
+#~ msgid "Ethyl-Benzene"
+#~ msgstr "Etylobenzen"
+
+#~ msgid "Propene"
+#~ msgstr "Propen"
+
+#~ msgid "L-Asparagine"
+#~ msgstr "L-aspargina"
+
+#~ msgid "1,3,5,7-Cyclooctatetraene"
+#~ msgstr "1,3,5,7-cyklooktatetracen"
+
+#~ msgid "Vanillin"
+#~ msgstr "Wanilina"
+
+#~ msgid "Crystal 3"
+#~ msgstr "Kryształ 3"
+
+#~ msgid "Uric Acid"
+#~ msgstr "Kwas moczowy"
+
+#~ msgid "Thymine"
+#~ msgstr "Tymina"
+
+#~ msgid "Aniline"
+#~ msgstr "Anilina"
+
+#~ msgid "Chloroform"
+#~ msgstr "Chloroform"
+
+#~ msgid "Carbonic acid"
+#~ msgstr "Kwas węglowy"
+
+#~ msgid "Crystal 4"
+#~ msgstr "Kryształ 4"
+
+#~ msgid "Ethanol"
+#~ msgstr "Etanol"
+
+#~ msgid "Acrylo-Nitril"
+#~ msgstr "Akrylonitryl"
+
+#~ msgid "Furan"
+#~ msgstr "Furan"
+
+#~ msgid "l-Lactic acid"
+#~ msgstr "l-kwas mlekowy"
+
+#~ msgid "Maleic Acid"
+#~ msgstr "Kwas maleinowy"
+
+#~ msgid "meso-Tartaric acid"
+#~ msgstr "Kwas mezowinowy"
+
+#~ msgid "Crystal 5"
+#~ msgstr "Kryształ 5"
+
+#~ msgid "Formic acid ethyl ester"
+#~ msgstr "Ester etylowy kwasu mrówkowego"
+
+#~ msgid "1,4-Cyclohexadiene"
+#~ msgstr "1,4-cykloheksadien"
+
+#~ msgid "Squaric acid"
+#~ msgstr "Kwas kwadratowy"
+
+#~ msgid "Ascorbic acid"
+#~ msgstr "Witamina C (kwas askorbinowy)"
+
+#~ msgid "Isopropanol"
+#~ msgstr "Izopropanol"
+
+#~ msgid "Phosgene"
+#~ msgstr "Fosgen"
+
+#~ msgid "Thiophene"
+#~ msgstr "Tiofen"
+
+#~ msgid "Urea"
+#~ msgstr "Mocznik"
+
+#~ msgid "Pyruvic Acid"
+#~ msgstr "Kwas pirogronowy"
+
+#~ msgid "Ethylene oxide"
+#~ msgstr "Tlenek etylenu"
+
+#~ msgid "Phosphoric Acid"
+#~ msgstr "Kwas fosforowy"
+
+#~ msgid "Diacetyl"
+#~ msgstr "Diacetyl"
+
+#~ msgid "trans-Dichloroethene"
+#~ msgstr "trans-dichloroeten"
+
+#~ msgid "Allylisothiocyanate"
+#~ msgstr "Izotiocyjanian allilu"
+
+#~ msgid "Diketene"
+#~ msgstr "Diketen"
+
+#~ msgid "Ethanal"
+#~ msgstr "Etanal (aldehyd octowy)"
+
+#~ msgid "Acroleine"
+#~ msgstr "Akroleina"
+
+#~ msgid "Uracil"
+#~ msgstr "Uracyl"
+
+#~ msgid "Caffeine"
+#~ msgstr "Kofeina"
+
+#~ msgid "Acetone"
+#~ msgstr "Aceton"
+
+#~ msgid "Highest level player is allowed to play"
+#~ msgstr "Maksymalny poziom, do którego gracz ma dostęp"

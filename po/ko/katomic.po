@@ -1,0 +1,333 @@
+# Translation of katomic to Korean.
+# Copyright (C) 2007 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kdegames package.
+# Myong-sung, Kim <xfuncrushx@gmail.com>, 2007.
+# Shinjo Park <kde@peremen.name>, 2011, 2020, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdegames\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"PO-Revision-Date: 2021-05-16 20:22+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 20.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "김명성"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "xfuncrushx@gmail.com"
+
+#: chooselevelsetdialog.cpp:29
+#, kde-format
+msgid "Level Sets"
+msgstr "레벨 모음"
+
+#: gamewidget.cpp:84
+#, kde-format
+msgid ""
+"Failed to load level set \"%1\". Check if it is installed on your computer."
+msgstr "레벨 모음 \"%1\"을(를) 불러올 수 없습니다. 설치 상태를 확인하십시오."
+
+#: gamewidget.cpp:140
+#, kde-format
+msgid "Level %1 finished. "
+msgstr "%1단계가 완료되었습니다. "
+
+#: gamewidget.cpp:144
+#, kde-format
+msgid "Congratulations! You have a new highscore!"
+msgstr "축하합니다! 최고 점수를 획득했습니다!"
+
+#. i18n: ectx: label, entry (AnimationSpeed), group (Game)
+#: katomic.kcfg:9
+#, kde-format
+msgid "The speed of the animations."
+msgstr "애니메이션의 속도입니다."
+
+#. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
+#: katomic.kcfg:20
+#, kde-format
+msgid "Width of saved background"
+msgstr "저장된 배경의 너비"
+
+#. i18n: ectx: label, entry (SavedBackgroundHeight), group (General)
+#: katomic.kcfg:24
+#, kde-format
+msgid "Height of saved background"
+msgstr "저장된 배경의 높이"
+
+#. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
+#: katomic.kcfg:28
+#, kde-format
+msgid "Last played levelset"
+msgstr "마지막으로 진행한 단계 모음"
+
+#. i18n: ectx: Menu (settings)
+#: katomicui.rc:16
+#, kde-format
+msgid "&Settings"
+msgstr "설정(&S)"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: katomicui.rc:25
+#, kde-format
+msgid "Main Toolbar"
+msgstr "주 도구 모음"
+
+#: levelset.cpp:264
+#, kde-format
+msgid "Noname"
+msgstr "이름없음"
+
+#: levelsetdelegate.cpp:81
+#, kde-format
+msgid "by %1"
+msgstr "%1 만듦"
+
+#: levelsetdelegate.cpp:87
+#, kde-format
+msgid ", contains 1 level"
+msgid_plural ", contains %1 levels"
+msgstr[0] ", 단계 %1개 포함"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: levelsetwidget.ui:20
+#, kde-format
+msgid "Choose a level set to play:"
+msgstr "단계 모음을 선택하십시오:"
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
+#: levelsetwidget.ui:45
+#, kde-format
+msgid "Get new levels"
+msgstr "새 단계 가져오기"
+
+#: main.cpp:44
+#, kde-format
+msgid "KAtomic"
+msgstr "KAtomic"
+
+#: main.cpp:46
+#, kde-format
+msgid "Atomic Entertainment Game"
+msgstr "원소 엔터테인먼트 게임"
+
+#: main.cpp:48
+#, kde-format
+msgid ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+msgstr ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+
+#: main.cpp:49
+#, kde-format
+msgid "Andreas Wuest"
+msgstr "Andreas Wuest"
+
+#: main.cpp:49
+#, kde-format
+msgid "Original author"
+msgstr "원 작성자"
+
+#: main.cpp:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: main.cpp:50
+#, kde-format
+msgid "Porting to KDE4. Current maintainer"
+msgstr "KDE 4 포팅. 현재 관리자."
+
+#: main.cpp:51
+#, kde-format
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: main.cpp:52
+#, kde-format
+msgid "Cristian Tibirna"
+msgstr "Cristian Tibirna"
+
+#: main.cpp:53
+#, kde-format
+msgid "Carsten Pfeiffer"
+msgstr "Carsten Pfeiffer"
+
+#: main.cpp:54
+#, kde-format
+msgid "Dave Corrie"
+msgstr "Dave Corrie"
+
+#: main.cpp:55
+#, kde-format
+msgid "Kai Jung"
+msgstr "Kai Jung"
+
+#: main.cpp:55
+#, kde-format
+msgid "6 new levels"
+msgstr "새로운 단계 6개"
+
+#: main.cpp:56
+#, kde-format
+msgid "Danny Allen"
+msgstr "Danny Allen"
+
+#: main.cpp:56
+#, kde-format
+msgid "Game graphics and application icon"
+msgstr "게임 그래픽과 프로그램 아이콘"
+
+#: main.cpp:57
+#, kde-format
+msgid "Johann Ollivier Lapeyre"
+msgstr "Johann Ollivier Lapeyre"
+
+#: main.cpp:57
+#, kde-format
+msgid "New great SVG artwork for KDE4"
+msgstr "KDE4용 새로운 SVG 그림"
+
+#: main.cpp:58
+#, kde-format
+msgid "Brian Croom"
+msgstr "Brian Croom"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to use KGameRenderer"
+msgstr "KGameRenderer 포팅"
+
+#: main.cpp:64
+#, kde-format
+msgid "Enable access to all levels"
+msgstr "모든 단계를 실행할 수 있도록 하기"
+
+#: main.cpp:75
+#, kde-format
+msgid ""
+"KAtomic failed to find its default level set and will quit. Please check "
+"your installation."
+msgstr ""
+"KAtomic에서 기본 단계 모음을 찾을 수 없었으므로 종료합니다. 설치 상태를 확인"
+"하십시오."
+
+#: toplevel.cpp:41
+#, kde-format
+msgid "Level:"
+msgstr "단계:"
+
+#: toplevel.cpp:42
+#, kde-format
+msgid "Current score:"
+msgstr "현재 점수:"
+
+#: toplevel.cpp:43
+#, kde-format
+msgid "Highscore:"
+msgstr "최고 점수:"
+
+#: toplevel.cpp:90
+#, kde-format
+msgid "Previous Level"
+msgstr "이전 단계"
+
+#: toplevel.cpp:97
+#, kde-format
+msgid "Next Level"
+msgstr "다음 단계"
+
+#: toplevel.cpp:103
+#, kde-format
+msgid "Choose level set..."
+msgstr "단계 모음 선택..."
+
+#: toplevel.cpp:107
+#, kde-format
+msgid "Animation Speed"
+msgstr "애니메이션 속도"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Slow"
+msgstr "느리게"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Normal"
+msgstr "보통"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Fast"
+msgstr "빠르게"
+
+#: toplevel.cpp:117
+#, kde-format
+msgid "Undo All"
+msgstr "모두 실행 취소"
+
+#: toplevel.cpp:122
+#, kde-format
+msgid "Redo All"
+msgstr "모두 다시 실행"
+
+#: toplevel.cpp:136
+#, kde-format
+msgid "Atom Up"
+msgstr "원자 위로 이동"
+
+#: toplevel.cpp:142
+#, kde-format
+msgid "Atom Down"
+msgstr "원자 아래로 이동"
+
+#: toplevel.cpp:148
+#, kde-format
+msgid "Atom Left"
+msgstr "원자 왼쪽으로 이동"
+
+#: toplevel.cpp:154
+#, kde-format
+msgid "Atom Right"
+msgstr "원자 오른쪽으로 이동"
+
+#: toplevel.cpp:160
+#, kde-format
+msgid "Next Atom"
+msgstr "다음 원자"
+
+#: toplevel.cpp:166
+#, kde-format
+msgid "Previous Atom"
+msgstr "이전 원자"
+
+#: toplevel.cpp:187
+#, kde-format
+msgid "Level: %1 (%2)"
+msgstr "단계: %1 (%2)"
+
+#: toplevel.cpp:188
+#, kde-format
+msgid "Current score: %1"
+msgstr "현재 점수: %1"
+
+#: toplevel.cpp:194
+#, kde-format
+msgid "Highscore: %1"
+msgstr "최고 점수: %1"

@@ -1,0 +1,477 @@
+# translation of katomic.po to Punjabi
+#
+# A S Alam <aalam@users.sf.net>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: katomic\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"PO-Revision-Date: 2007-01-17 11:09+0530\n"
+"Last-Translator: A S Alam <aalam@users.sf.net>\n"
+"Language-Team: Punjabi <punjabi-l10n@lists.sf.net>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "aalam@users.sf.net"
+
+#: chooselevelsetdialog.cpp:29
+#, fuzzy, kde-format
+#| msgid "Level: %1"
+msgid "Level Sets"
+msgstr "ਪੱਧਰ: %1"
+
+#: gamewidget.cpp:84
+#, kde-format
+msgid ""
+"Failed to load level set \"%1\". Check if it is installed on your computer."
+msgstr ""
+
+#: gamewidget.cpp:140
+#, fuzzy, kde-format
+#| msgid "Level %1 Highscores"
+msgid "Level %1 finished. "
+msgstr "ਪੱਧਰ %1 ਉੱਚ ਸਕੋਰ"
+
+#: gamewidget.cpp:144
+#, kde-format
+msgid "Congratulations! You have a new highscore!"
+msgstr ""
+
+#. i18n: ectx: label, entry (AnimationSpeed), group (Game)
+#: katomic.kcfg:9
+#, kde-format
+msgid "The speed of the animations."
+msgstr ""
+
+#. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
+#: katomic.kcfg:20
+#, kde-format
+msgid "Width of saved background"
+msgstr ""
+
+#. i18n: ectx: label, entry (SavedBackgroundHeight), group (General)
+#: katomic.kcfg:24
+#, kde-format
+msgid "Height of saved background"
+msgstr ""
+
+#. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
+#: katomic.kcfg:28
+#, kde-format
+msgid "Last played levelset"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: katomicui.rc:16
+#, kde-format
+msgid "&Settings"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: katomicui.rc:25
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: levelset.cpp:264
+#, kde-format
+msgid "Noname"
+msgstr "ਕੋਈ ਨਾਂ ਨਹੀਂ"
+
+#: levelsetdelegate.cpp:81
+#, kde-format
+msgid "by %1"
+msgstr ""
+
+#: levelsetdelegate.cpp:87
+#, kde-format
+msgid ", contains 1 level"
+msgid_plural ", contains %1 levels"
+msgstr[0] ""
+msgstr[1] ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: levelsetwidget.ui:20
+#, kde-format
+msgid "Choose a level set to play:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
+#: levelsetwidget.ui:45
+#, fuzzy, kde-format
+#| msgid "6 new levels"
+msgid "Get new levels"
+msgstr "6 ਨਵੇਂ ਪੱਧਰ"
+
+#: main.cpp:44
+#, kde-format
+msgid "KAtomic"
+msgstr "ਕੇ-ਪਰਮਾਣੂ"
+
+#: main.cpp:46
+#, fuzzy, kde-format
+#| msgid "KDE Atomic Entertainment Game"
+msgid "Atomic Entertainment Game"
+msgstr "ਕੇਡੀਈ ਪਰਮਾਣੂ ਜਾਣ ਪਛਾਣ ਖੇਡ"
+
+#: main.cpp:48
+#, kde-format
+msgid ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+msgstr ""
+
+#: main.cpp:49
+#, kde-format
+msgid "Andreas Wuest"
+msgstr ""
+
+#: main.cpp:49
+#, kde-format
+msgid "Original author"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Porting to KDE4. Current maintainer"
+msgstr ""
+
+#: main.cpp:51
+#, kde-format
+msgid "Stephan Kulow"
+msgstr ""
+
+#: main.cpp:52
+#, kde-format
+msgid "Cristian Tibirna"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Carsten Pfeiffer"
+msgstr ""
+
+#: main.cpp:54
+#, kde-format
+msgid "Dave Corrie"
+msgstr ""
+
+#: main.cpp:55
+#, kde-format
+msgid "Kai Jung"
+msgstr ""
+
+#: main.cpp:55
+#, kde-format
+msgid "6 new levels"
+msgstr "6 ਨਵੇਂ ਪੱਧਰ"
+
+#: main.cpp:56
+#, kde-format
+msgid "Danny Allen"
+msgstr ""
+
+#: main.cpp:56
+#, kde-format
+msgid "Game graphics and application icon"
+msgstr "ਖੇਡ ਗਰਾਫਿਕਸ ਅਤੇ ਕਾਰਜ ਆਈਕਾਨ"
+
+#: main.cpp:57
+#, kde-format
+msgid "Johann Ollivier Lapeyre"
+msgstr ""
+
+#: main.cpp:57
+#, kde-format
+msgid "New great SVG artwork for KDE4"
+msgstr ""
+
+#: main.cpp:58
+#, kde-format
+msgid "Brian Croom"
+msgstr ""
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to use KGameRenderer"
+msgstr ""
+
+#: main.cpp:64
+#, kde-format
+msgid "Enable access to all levels"
+msgstr ""
+
+#: main.cpp:75
+#, kde-format
+msgid ""
+"KAtomic failed to find its default level set and will quit. Please check "
+"your installation."
+msgstr ""
+
+#: toplevel.cpp:41
+#, fuzzy, kde-format
+msgid "Level:"
+msgstr "ਪੱਧਰ: %1"
+
+#: toplevel.cpp:42
+#, kde-format
+msgid "Current score:"
+msgstr ""
+
+#: toplevel.cpp:43
+#, kde-format
+msgid "Highscore:"
+msgstr "ਉੱਚ ਸਕੋਰ:"
+
+#: toplevel.cpp:90
+#, fuzzy, kde-format
+#| msgid "Previous Atom"
+msgid "Previous Level"
+msgstr "ਪੁਰਾਣਾ ਪਰਮਾਣੂ"
+
+#: toplevel.cpp:97
+#, fuzzy, kde-format
+msgid "Next Level"
+msgstr "ਪੱਧਰ: %1"
+
+#: toplevel.cpp:103
+#, kde-format
+msgid "Choose level set..."
+msgstr ""
+
+#: toplevel.cpp:107
+#, fuzzy, kde-format
+msgid "Animation Speed"
+msgstr "ਸਜੀਵਤਾ ਗਤੀ:"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Slow"
+msgstr ""
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Normal"
+msgstr ""
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Fast"
+msgstr ""
+
+#: toplevel.cpp:117
+#, kde-format
+msgid "Undo All"
+msgstr ""
+
+#: toplevel.cpp:122
+#, kde-format
+msgid "Redo All"
+msgstr ""
+
+#: toplevel.cpp:136
+#, kde-format
+msgid "Atom Up"
+msgstr "ਪਰਮਾਣੂ ਉੱਤੇ"
+
+#: toplevel.cpp:142
+#, kde-format
+msgid "Atom Down"
+msgstr "ਪਰਮਾਣੂ ਹੇਠਾਂ"
+
+#: toplevel.cpp:148
+#, kde-format
+msgid "Atom Left"
+msgstr "ਪਰਮਾਣੂ ਖੱਬੇ"
+
+#: toplevel.cpp:154
+#, kde-format
+msgid "Atom Right"
+msgstr "ਪਰਮਾਣੂ ਸੱਜੇ"
+
+#: toplevel.cpp:160
+#, kde-format
+msgid "Next Atom"
+msgstr "ਅਗਲਾ ਪਰਮਾਣੂ"
+
+#: toplevel.cpp:166
+#, kde-format
+msgid "Previous Atom"
+msgstr "ਪੁਰਾਣਾ ਪਰਮਾਣੂ"
+
+#: toplevel.cpp:187
+#, fuzzy, kde-format
+#| msgid "Level: %1"
+msgid "Level: %1 (%2)"
+msgstr "ਪੱਧਰ: %1"
+
+#: toplevel.cpp:188
+#, kde-format
+msgid "Current score: %1"
+msgstr ""
+
+#: toplevel.cpp:194
+#, fuzzy, kde-format
+msgid "Highscore: %1"
+msgstr "ਉੱਚ ਸਕੋਰ:"
+
+#~ msgid "Water"
+#~ msgstr "ਪਾਣੀ"
+
+#~ msgid "Formic Acid"
+#~ msgstr "ਫੋਰਿਕ ਤੇਜ਼ਾਬ"
+
+#~ msgid "Acetic Acid"
+#~ msgstr "ਐਸਟਿਕ ਤੇਜ਼ਾਬ"
+
+#~ msgid "Dimethyl ether"
+#~ msgstr "ਡਾਈਮੀਥਾਇਲ ਈਥਰ"
+
+#~ msgid "Butanol"
+#~ msgstr "ਬੁਟਾਨੋਲ"
+
+#~ msgid "2-Methyl-2-Propanol"
+#~ msgstr "2-ਮੀਥਾਲ-2-ਪਰੋਪੇਨਾਲ"
+
+#~ msgid "Poly-Tetra-Fluoro-Ethene"
+#~ msgstr "ਪੋਲੀ-ਟੈਟਰਾ-ਫਿਰੋਲ-ਈਥੀਨ"
+
+#~ msgid "Oxalic Acid"
+#~ msgstr "ਅਲਜ਼ਿਕ ਤੇਜ਼ਾਬ"
+
+#~ msgid "Methane"
+#~ msgstr "ਮੀਥੇਨ"
+
+#~ msgid "Formaldehyde"
+#~ msgstr "ਫਾਰਮੇਡੀਹਾਈਡੇਨ"
+
+#~ msgid "Crystal 1"
+#~ msgstr "ਰਵਾ 1"
+
+#~ msgid "Acetic acid ethyl ester"
+#~ msgstr "ਐਸਟਿਕ ਤੇਜ਼ਾਬ ਈਥੇਲ ਈਸਟਰ"
+
+#~ msgid "Ammonia"
+#~ msgstr "ਅਮੋਨੀਆ"
+
+#~ msgid "3-Methyl-Pentane"
+#~ msgstr "3-ਮਾਈਥਾਲ-ਪੈਨਟੇਨ"
+
+#~ msgid "Propanal"
+#~ msgstr "ਪਰੋਪੇਨਾਲ"
+
+#~ msgid "Propyne"
+#~ msgstr "ਪਰੋਪੀਨ"
+
+#~ msgid "Furanal"
+#~ msgstr "ਫਰਨੇਲ"
+
+#~ msgid "Pyran"
+#~ msgstr "ਪਯਰਾਨ"
+
+#~ msgid "Cyclo-Pentane"
+#~ msgstr "ਸਾਈਕਲੋ-ਪੈਨਟੇਨ"
+
+#~ msgid "Methanol"
+#~ msgstr "ਮੀਥਾਨੋਲ"
+
+#~ msgid "Nitro-Glycerin"
+#~ msgstr "ਨਾਟਰੋ-ਗਲਿਸਰੀਨ"
+
+#~ msgid "Ethane"
+#~ msgstr "ਈਥੇਨ"
+
+#~ msgid "Crystal 2"
+#~ msgstr "ਰਵਾ 2"
+
+#~ msgid "Ethylene-Glycol"
+#~ msgstr "ਈਥੀਨ-ਗਲੀਕੋਲ"
+
+#~ msgid "Propene"
+#~ msgstr "ਪ੍ਰੋਪੀਨ"
+
+#~ msgid "Crystal 3"
+#~ msgstr "ਰਵਾ 3"
+
+#~ msgid "Uric Acid"
+#~ msgstr "ਯੂਰਿਕ ਤੇਜ਼ਾਬ"
+
+#~ msgid "Thymine"
+#~ msgstr "ਥਾਈਮਿਨ"
+
+#~ msgid "Aniline"
+#~ msgstr "ਐਨੀਲਿਨ"
+
+#~ msgid "Chloroform"
+#~ msgstr "ਕਲੋਰੋਫਾਰਮ"
+
+#~ msgid "Carbonic acid"
+#~ msgstr "ਕਾਰਬੋਨਿਕ ਤੇਜ਼ਾਬ"
+
+#~ msgid "Crystal 4"
+#~ msgstr "ਰਵਾ 4"
+
+#~ msgid "Ethanol"
+#~ msgstr "ਈਥੇਨੋਲ"
+
+#~ msgid "Crystal 5"
+#~ msgstr "ਰਵਾ-5"
+
+#, fuzzy
+#~| msgid "Iso-Propanol"
+#~ msgid "Isopropanol"
+#~ msgstr "ਆਈਸੋ-ਪਰਪੋਨਲ"
+
+#~ msgid "Urea"
+#~ msgstr "ਯੂਰੀਆ"
+
+#~ msgid "Uracil"
+#~ msgstr "ਯਰਾਸਿਲ"
+
+#~ msgid "Caffeine"
+#~ msgstr "ਕੇਫੀਨ"
+
+#, fuzzy
+#~ msgid "Propan-2-ol"
+#~ msgstr "ਪਰੋਪੇਨਾਲ"
+
+#, fuzzy
+#~| msgid "Highscore:"
+#~ msgid "Highscores"
+#~ msgstr "ਉੱਚ ਸਕੋਰ:"
+
+#, fuzzy
+#~| msgid "You solved level %1 with %2 moves!"
+#~ msgid ""
+#~ "Congratulations! You solved level %1 with %2 moves!\n"
+#~ " Advance to the next one?"
+#~ msgstr "ਤੁਸੀਂ %1 ਪੱਧਰ %2 ਚਾਲਾਂ ਨਾਲ ਹੱਲ਼ ਕੀਤੇ!"
+
+#~ msgid "Congratulations"
+#~ msgstr "ਮੁਬਾਰਕਾਂ"
+
+#~ msgid "Score"
+#~ msgstr "ਅੰਕ"
+
+#~ msgid "Your score so far:"
+#~ msgstr "ਤੁਹਾਡਾ ਸਕੋਰ ਹੈ:"
+
+#~ msgid "Show &Highscores"
+#~ msgstr "ਹਾਈਸਕੋਰ ਵੇਖਾਓ(&H)"

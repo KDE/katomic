@@ -1,0 +1,614 @@
+# translation of katomic.po to
+# translation of katomic.po to Tajik
+# translation of katomic.po to Тоҷикӣ
+# Copyright (C) 2004, 2005 Free Software Foundation, Inc.
+# 2004, infoDev, a World Bank organization
+# 2004, Khujand Computer Technologies, Inc.
+# 2004, KCT1, NGO
+#
+# Youth Opportunities NGO, 2005.
+# Dilshod Marupov <dma165@hotmail.com>, 2004.
+# Victor Ibragimov <youth_opportunities@tajikngo.org>, 2005, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: katomic\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"PO-Revision-Date: 2021-09-09 23:32-0700\n"
+"Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
+"Language-Team: Tajik Language Support\n"
+"Language: tg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.08.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Виктор Ибрагимов,Абророва Хиромон,Акмал Ватаншоев"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "youth_opportunities@tajikngo.org,H_Abrorova@rambler.ru,"
+
+#: chooselevelsetdialog.cpp:29
+#, fuzzy, kde-format
+#| msgid "Level: %1"
+msgid "Level Sets"
+msgstr "Сатҳи: %1"
+
+#: gamewidget.cpp:84
+#, kde-format
+msgid ""
+"Failed to load level set \"%1\". Check if it is installed on your computer."
+msgstr ""
+
+#: gamewidget.cpp:140
+#, fuzzy, kde-format
+#| msgid "Level %1 Highscores"
+msgid "Level %1 finished. "
+msgstr "Ҳисоби Беҳтарини Сатҳи %1"
+
+#: gamewidget.cpp:144
+#, kde-format
+msgid "Congratulations! You have a new highscore!"
+msgstr ""
+
+#. i18n: ectx: label, entry (AnimationSpeed), group (Game)
+#: katomic.kcfg:9
+#, kde-format
+msgid "The speed of the animations."
+msgstr ""
+
+#. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
+#: katomic.kcfg:20
+#, kde-format
+msgid "Width of saved background"
+msgstr ""
+
+#. i18n: ectx: label, entry (SavedBackgroundHeight), group (General)
+#: katomic.kcfg:24
+#, kde-format
+msgid "Height of saved background"
+msgstr ""
+
+#. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
+#: katomic.kcfg:28
+#, kde-format
+msgid "Last played levelset"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: katomicui.rc:16
+#, kde-format
+msgid "&Settings"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: katomicui.rc:25
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: levelset.cpp:264
+#, kde-format
+msgid "Noname"
+msgstr "Бе ном"
+
+#: levelsetdelegate.cpp:81
+#, kde-format
+msgid "by %1"
+msgstr ""
+
+#: levelsetdelegate.cpp:87
+#, kde-format
+msgid ", contains 1 level"
+msgid_plural ", contains %1 levels"
+msgstr[0] ""
+msgstr[1] ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: levelsetwidget.ui:20
+#, kde-format
+msgid "Choose a level set to play:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
+#: levelsetwidget.ui:45
+#, fuzzy, kde-format
+#| msgid "6 new levels"
+msgid "Get new levels"
+msgstr "6 сатҳҳои нав"
+
+#: main.cpp:44
+#, kde-format
+msgid "KAtomic"
+msgstr "KАтомҳо"
+
+#: main.cpp:46
+#, fuzzy, kde-format
+#| msgid "KDE Atomic Entertainment Game"
+msgid "Atomic Entertainment Game"
+msgstr "KDE Бозии Шавқовари Атомҳо"
+
+#: main.cpp:48
+#, kde-format
+msgid ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+msgstr ""
+
+#: main.cpp:49
+#, kde-format
+msgid "Andreas Wuest"
+msgstr ""
+
+#: main.cpp:49
+#, kde-format
+msgid "Original author"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Porting to KDE4. Current maintainer"
+msgstr ""
+
+#: main.cpp:51
+#, kde-format
+msgid "Stephan Kulow"
+msgstr ""
+
+#: main.cpp:52
+#, kde-format
+msgid "Cristian Tibirna"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Carsten Pfeiffer"
+msgstr ""
+
+#: main.cpp:54
+#, kde-format
+msgid "Dave Corrie"
+msgstr ""
+
+#: main.cpp:55
+#, kde-format
+msgid "Kai Jung"
+msgstr ""
+
+#: main.cpp:55
+#, kde-format
+msgid "6 new levels"
+msgstr "6 сатҳҳои нав"
+
+#: main.cpp:56
+#, kde-format
+msgid "Danny Allen"
+msgstr ""
+
+#: main.cpp:56
+#, kde-format
+msgid "Game graphics and application icon"
+msgstr "Бозиҳои графикӣ ва нишонаҳои барномавӣ"
+
+#: main.cpp:57
+#, kde-format
+msgid "Johann Ollivier Lapeyre"
+msgstr ""
+
+#: main.cpp:57
+#, kde-format
+msgid "New great SVG artwork for KDE4"
+msgstr ""
+
+#: main.cpp:58
+#, kde-format
+msgid "Brian Croom"
+msgstr ""
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to use KGameRenderer"
+msgstr ""
+
+#: main.cpp:64
+#, kde-format
+msgid "Enable access to all levels"
+msgstr ""
+
+#: main.cpp:75
+#, kde-format
+msgid ""
+"KAtomic failed to find its default level set and will quit. Please check "
+"your installation."
+msgstr ""
+
+#: toplevel.cpp:41
+#, fuzzy, kde-format
+msgid "Level:"
+msgstr "Сатҳи: %1"
+
+#: toplevel.cpp:42
+#, kde-format
+msgid "Current score:"
+msgstr ""
+
+#: toplevel.cpp:43
+#, kde-format
+msgid "Highscore:"
+msgstr "Ҳисоби баланд:"
+
+#: toplevel.cpp:90
+#, fuzzy, kde-format
+#| msgid "Previous Atom"
+msgid "Previous Level"
+msgstr "Атоми Гузашта"
+
+#: toplevel.cpp:97
+#, fuzzy, kde-format
+msgid "Next Level"
+msgstr "Сатҳи: %1"
+
+#: toplevel.cpp:103
+#, kde-format
+msgid "Choose level set..."
+msgstr ""
+
+#: toplevel.cpp:107
+#, fuzzy, kde-format
+msgid "Animation Speed"
+msgstr "Суръати тасвири мутаҳаррик:"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Slow"
+msgstr "Суст"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Normal"
+msgstr ""
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Fast"
+msgstr ""
+
+#: toplevel.cpp:117
+#, kde-format
+msgid "Undo All"
+msgstr ""
+
+#: toplevel.cpp:122
+#, kde-format
+msgid "Redo All"
+msgstr ""
+
+#: toplevel.cpp:136
+#, kde-format
+msgid "Atom Up"
+msgstr "Атом ба Боло"
+
+#: toplevel.cpp:142
+#, kde-format
+msgid "Atom Down"
+msgstr "Атом ба Поён"
+
+#: toplevel.cpp:148
+#, kde-format
+msgid "Atom Left"
+msgstr "Атом ба Чап"
+
+#: toplevel.cpp:154
+#, kde-format
+msgid "Atom Right"
+msgstr "Атом ба Рост"
+
+#: toplevel.cpp:160
+#, kde-format
+msgid "Next Atom"
+msgstr "Атоми Оянда"
+
+#: toplevel.cpp:166
+#, kde-format
+msgid "Previous Atom"
+msgstr "Атоми Гузашта"
+
+#: toplevel.cpp:187
+#, fuzzy, kde-format
+#| msgid "Level: %1"
+msgid "Level: %1 (%2)"
+msgstr "Сатҳи: %1"
+
+#: toplevel.cpp:188
+#, kde-format
+msgid "Current score: %1"
+msgstr ""
+
+#: toplevel.cpp:194
+#, fuzzy, kde-format
+msgid "Highscore: %1"
+msgstr "Ҳисоби баланд:"
+
+#~ msgid "Water"
+#~ msgstr "Об"
+
+#~ msgid "Formic Acid"
+#~ msgstr "Кислотаи Формиат"
+
+#~ msgid "Acetic Acid"
+#~ msgstr "Кислотаи Атсетат"
+
+#~ msgid "trans-Butene"
+#~ msgstr "транс-Бутан"
+
+#~ msgid "cis-Butene"
+#~ msgstr "тсис-Бутан"
+
+#~ msgid "Dimethyl ether"
+#~ msgstr "Эфири диметил"
+
+#~ msgid "Butanol"
+#~ msgstr "Бутанол"
+
+#~ msgid "2-Methyl-2-Propanol"
+#~ msgstr "2-Метил-2-Пропан"
+
+#~ msgid "Glycerin"
+#~ msgstr "Глитсерин"
+
+#~ msgid "Poly-Tetra-Fluoro-Ethene"
+#~ msgstr "Поли-Тетра-Флор-Этан"
+
+#~ msgid "Oxalic Acid"
+#~ msgstr "Кислотаи Малеинӣ"
+
+#~ msgid "Methane"
+#~ msgstr "Метан"
+
+#~ msgid "Formaldehyde"
+#~ msgstr "Формальдегид"
+
+#~ msgid "Crystal 1"
+#~ msgstr "Кристал 1"
+
+#~ msgid "Acetic acid ethyl ester"
+#~ msgstr "Эфири этилени кислотаи атсетат"
+
+#~ msgid "Ammonia"
+#~ msgstr "Аммиак"
+
+#~ msgid "3-Methyl-Pentane"
+#~ msgstr "3-Метил-Пентан"
+
+#~ msgid "Propanal"
+#~ msgstr "Пропанол"
+
+#~ msgid "Propyne"
+#~ msgstr "Пропин"
+
+#~ msgid "Furanal"
+#~ msgstr "Фурунал"
+
+#~ msgid "Pyran"
+#~ msgstr "Пиран"
+
+#~ msgid "Cyclo-Pentane"
+#~ msgstr "Тсекло-Пентан"
+
+#~ msgid "Methanol"
+#~ msgstr "Метанол"
+
+#~ msgid "Nitro-Glycerin"
+#~ msgstr "Нитро-Глитсерин"
+
+#~ msgid "Ethane"
+#~ msgstr "Этан"
+
+#~ msgid "Crystal 2"
+#~ msgstr "Кристал 2"
+
+#~ msgid "Ethylene-Glycol"
+#~ msgstr "Этилен-Гликол"
+
+#~ msgid "L-Alanine"
+#~ msgstr "L-Аланин"
+
+#~ msgid "Cyanoguanidine"
+#~ msgstr "Тсианогуанидин"
+
+#~ msgid "Prussic Acid (Cyanic Acid)"
+#~ msgstr "Кислотаи Пруссик (Кислотаи Тсеанистӣ)"
+
+#~ msgid "Anthracene"
+#~ msgstr "Антратсен"
+
+#~ msgid "Thiazole"
+#~ msgstr "Тиазол"
+
+#~ msgid "Saccharin"
+#~ msgstr "Сахарин"
+
+#~ msgid "Ethylene"
+#~ msgstr "Этилен"
+
+#~ msgid "Styrene"
+#~ msgstr "Стирен"
+
+#~ msgid "Melamine"
+#~ msgstr "Меламин"
+
+#~ msgid "Cyclobutane"
+#~ msgstr "Тсиклобутан"
+
+#~ msgid "Nicotine"
+#~ msgstr "Никотин"
+
+#~ msgid "Acetyle salicylic acid"
+#~ msgstr "Кислотаи атсетилсалитсилӣ"
+
+#~ msgid "Meta-Di-Nitro-Benzene"
+#~ msgstr "Мета-Ди-Нитро-Бензол"
+
+#~ msgid "Malonic Acid"
+#~ msgstr "Кислотаи Малоген"
+
+#~ msgid "2,2-Dimethylpropane"
+#~ msgstr "2,2-Диметилпропан"
+
+#~ msgid "Ethyl-Benzene"
+#~ msgstr "Этил-Бензол"
+
+#~ msgid "Propene"
+#~ msgstr "Пропин"
+
+#~ msgid "L-Asparagine"
+#~ msgstr "L-Аспарагин"
+
+#~ msgid "1,3,5,7-Cyclooctatetraene"
+#~ msgstr "1,3,5,7-Тсиклооктатетрин"
+
+#~ msgid "Vanillin"
+#~ msgstr "Ванелин"
+
+#~ msgid "Crystal 3"
+#~ msgstr "Кристал 3"
+
+#~ msgid "Uric Acid"
+#~ msgstr "Кислотаи Пешоб"
+
+#~ msgid "Thymine"
+#~ msgstr "Тимин"
+
+#~ msgid "Aniline"
+#~ msgstr "Анилин"
+
+#~ msgid "Chloroform"
+#~ msgstr "Хлороформ"
+
+#~ msgid "Carbonic acid"
+#~ msgstr "Кислотаи карбон"
+
+#~ msgid "Crystal 4"
+#~ msgstr "Кристал 4"
+
+#~ msgid "Ethanol"
+#~ msgstr "Этанол"
+
+#~ msgid "Acrylo-Nitril"
+#~ msgstr "Акрило-Нитрин"
+
+#~ msgid "Furan"
+#~ msgstr "Фуран"
+
+#~ msgid "l-Lactic acid"
+#~ msgstr "l-Кислотаи ширӣ"
+
+#~ msgid "Maleic Acid"
+#~ msgstr "Кислотаи Малеӣ"
+
+#~ msgid "meso-Tartaric acid"
+#~ msgstr "кислотаи мезо-Виннӣ"
+
+#~ msgid "Crystal 5"
+#~ msgstr "Кристал 5"
+
+#~ msgid "Formic acid ethyl ester"
+#~ msgstr "Эфири этилен кислотаи атсетат"
+
+#~ msgid "1,4-Cyclohexadiene"
+#~ msgstr "1,4-Тсиклогексадиен"
+
+#~ msgid "Squaric acid"
+#~ msgstr "Кислотаи скварикӣ"
+
+#~ msgid "Ascorbic acid"
+#~ msgstr "Кислотаи аскорбинӣ"
+
+#, fuzzy
+#~| msgid "Iso-Propanol"
+#~ msgid "Isopropanol"
+#~ msgstr "Изо-Пропанол"
+
+#~ msgid "Phosgene"
+#~ msgstr "Фосген"
+
+#~ msgid "Thiophene"
+#~ msgstr "Тиофен"
+
+#~ msgid "Urea"
+#~ msgstr "Пешоб"
+
+#~ msgid "Pyruvic Acid"
+#~ msgstr "Кислотаи Пироангурӣ"
+
+#~ msgid "Ethylene oxide"
+#~ msgstr "Оксиди этилен"
+
+#~ msgid "Phosphoric Acid"
+#~ msgstr "Кислотаи фосфорӣ"
+
+#~ msgid "Diacetyl"
+#~ msgstr "Диатсетил"
+
+#~ msgid "trans-Dichloroethene"
+#~ msgstr "транс-Дихлорэтилен"
+
+#~ msgid "Allylisothiocyanate"
+#~ msgstr "Аллилизотиоҷианат"
+
+#~ msgid "Diketene"
+#~ msgstr "Дикенет"
+
+#~ msgid "Ethanal"
+#~ msgstr "Этанол"
+
+#~ msgid "Acroleine"
+#~ msgstr "Акролин"
+
+#~ msgid "Uracil"
+#~ msgstr "Уратсил"
+
+#~ msgid "Caffeine"
+#~ msgstr "Кафеин"
+
+#~ msgid "Acetone"
+#~ msgstr "Атсетон"
+
+#, fuzzy
+#~ msgid "Propan-2-ol"
+#~ msgstr "Пропанол"
+
+#, fuzzy
+#~| msgid "Highscore:"
+#~ msgid "Highscores"
+#~ msgstr "Ҳисоби баланд:"
+
+#, fuzzy
+#~| msgid "You solved level %1 with %2 moves!"
+#~ msgid ""
+#~ "Congratulations! You solved level %1 with %2 moves!\n"
+#~ " Advance to the next one?"
+#~ msgstr "Шумо сатҳи %1-ро ба %2 гардишҳо гузоштед!"
+
+#~ msgid "Congratulations"
+#~ msgstr "Табрикот"
+
+#~ msgid "Score"
+#~ msgstr "Ҳисобҳо"
+
+#~ msgid "Your score so far:"
+#~ msgstr "Ҳисоби шумо:"
+
+#~ msgid "Show &Highscores"
+#~ msgstr "Намоиши Ҳисоби &Беҳтарин"

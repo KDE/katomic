@@ -1,0 +1,793 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Spanish "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"
+> <!-- do not change this! -->
+]>
+
+<book id="katomic" lang="&language;"
+> <!-- do not change this! -->
+<bookinfo>
+<title
+>Manual de &katomic;</title
+> <!-- This is the title of the docbook. Leave as is unless change is necessary.-->
+<!-- List of immediate authors begins here. -->
+<!--INPORTANT! - All other contributors: [to be determined] -->
+<authorgroup>
+<author
+><firstname
+>Dirk</firstname
+> <surname
+>Doerflinger</surname
+> </author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Revisor</contrib>
+<affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+> <firstname
+>Rocío</firstname
+><surname
+>Gallego</surname
+> <affiliation
+><address
+><email
+>traducciones@rociogallego.com</email
+></address
+></affiliation
+> <contrib
+>Traducción</contrib
+> </othercredit
+><othercredit role="translator"
+> <firstname
+>Rafael</firstname
+> <surname
+>Osuna</surname
+> <affiliation
+><address
+><email
+>rosuna@wol.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+> <firstname
+>Pablo</firstname
+> <surname
+>de Vicente</surname
+> <affiliation
+><address
+><email
+>pablo.devicente@gmail.com</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+><othercredit role="translator"
+> <firstname
+>Pablo</firstname
+> <surname
+>Barneo</surname
+> <affiliation
+><address
+><email
+>pablob@nikhef.nl</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+><firstname
+>Kira</firstname
+><surname
+>J. Fernández</surname
+><affiliation
+><address
+><email
+>kirajfdez@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traductora</contrib
+></othercredit
+> 
+</authorgroup>
+<legalnotice
+>&FDLNotice;</legalnotice>
+<date
+>2021-10-13</date>
+<releaseinfo
+>KDE Gear 21.08</releaseinfo>
+
+<!--Short description of this document. Do not change unless necessary!-->
+<abstract>
+  <para
+>Esta documentación describe el juego &katomic; versión 21.08</para>
+</abstract>
+
+<!--List of relevan keywords-->
+<keywordset>
+  <keyword
+>KDE</keyword
+> <!-- do not change this! -->
+  <keyword
+>juego</keyword
+> <!-- do not change this! -->
+  <keyword
+>Katomic</keyword
+><!--Application name goes here-->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+  <keyword
+>arcade</keyword>
+  <keyword
+>lógica</keyword>
+  <keyword
+>átomos</keyword>
+  <keyword
+>socoban</keyword>
+<!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+  <keyword
+>un jugador</keyword>
+<!--All other relevant keywords-->
+  <keyword
+>elementos químicos</keyword>
+  <keyword
+>ensambla la molécula</keyword>
+</keywordset>
+</bookinfo>
+<!--Content begins here: -->
+<chapter id="introduction"
+><title
+>Introducción</title
+> <!-- do not change this! -->
+  <note
+><title
+>Tipo de juego:</title
+><para
+>Lógica, Arcade</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+  <note
+><title
+>Número de posibles jugadores:</title
+><para
+>Uno</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+
+<!--Short game description starts here. 3-4 sentences (paragraphs)-->
+  <para
+>&katomic; es un divertido juego educativo creado en torno a la geometría molecular. Emplea un aspecto simple en dos dimensiones de los elementos que componen una molécula. Una molécula es descompuesta en sus átomos separados y dispersada por el campo de juego. El jugador debe rearmar la molécula para completar el nivel actual y pasar al siguiente. </para>
+</chapter>
+
+<chapter id="howto"
+><title
+>Cómo jugar</title
+> <!-- do not change this! -->
+
+<screenshot>
+  <mediaobject>
+    <imageobject
+><imagedata fileref="mainscreen.png" format="PNG"/></imageobject>
+    <textobject
+><phrase
+>Ventana principal de &katomic;</phrase
+></textobject>
+  </mediaobject>
+</screenshot>
+
+<!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
+  <note
+><title
+>Objetivo:</title
+><para
+>Ensamblar moléculas deslizando los átomos que las componen.</para
+></note
+><!--Describe the objective of the game.-->
+<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+  <para
+>&katomic; cargará el nivel uno una vez que inicie el juego, y podrá empezar a jugar enseguida. Para ver qué aspecto tiene la molécula que se supone que debe hacer, eche un vistazo a la esquina superior derecha. Para jugar, haga click en un átomo. Verá flechas verdes apuntando en las direcciones en las que el átomo se puede mover. Para mover el átomo, haga click en la flecha deseada. Cuando el átomo empieza a moverse, no se detendrá hasta que choque contra otro átomo o contra una pared, así que asegúrese de pensar antes de hacer su siguiente movimiento. Puede armar su molécula en cualquier parte del tablero de juego, pero algunos lugares son más fáciles de acceder que otros. Cuando la molécula esté armada, puede pasar al siguiente nivel. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>Reglas del juego, estrategias y consejos</title
+> <!-- do not change this! -->
+  <!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+  <sect1 id="games_rules"
+><title
+>Reglas del juego</title
+>    
+    <itemizedlist>
+      <listitem
+><para
+>Las piezas del juego solo se pueden mover en una dirección a la vez.</para
+></listitem>
+      <listitem
+><para
+>Una vez que un átomo comienza a moverse no se detendrá hasta que alcance a otro o a una pared.</para
+></listitem>
+      <listitem
+><para
+>La única forma de avanzar al siguiente nivel del juego es completar el actual. Una vez que el jugador complete un determinado nivel el juego cambiará automáticamente al siguiente, «descubriéndolo» así.</para
+></listitem>
+      <listitem
+><para
+>Un jugador solo puede cambiar a los niveles que haya descubierto.</para
+></listitem>
+      <listitem
+><para
+>El progreso del juego se guarda automáticamente cada vez que se alcance un nivel nuevo y se cargará la siguiente vez que se inicie la aplicación.</para
+></listitem>
+    </itemizedlist>
+  </sect1>
+  <sect1 id="tips"
+><title
+>Estrategias y consejos</title>
+    <itemizedlist>
+      <listitem
+><para
+>Revise siempre la molécula completa utilizando la pantalla de referencia antes de hacer cualquier movimiento.</para
+></listitem>
+      <listitem
+><para
+>A continuación, estudie el campo de juego y planee sus movimientos. Recuerde que una vez que haya movido una pieza no es posible devolverla a su posición original.</para
+></listitem>
+      <listitem
+><para
+>Piense cada movimiento e intente visualizar la trayectoria que seguirá la pieza una vez que se pulsa una flecha de dirección.</para
+></listitem>
+      <listitem
+><para
+>Cuando se utilice el teclado para mover piezas asegúrese que está seleccionada la pieza deseada. Si está seleccionado un átomo incorrecto, utilice la tecla &Tab; para moverse por las piezas hasta que alcance la deseada.</para
+></listitem>
+    </itemizedlist>
+  </sect1>
+</chapter>
+
+<chapter id="interface"
+><title
+>Visión general de la interfaz</title
+> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
+> and <varlistentry
+>. Split the chapter into sections using <sect1(2,3)
+> for better viewing.-->
+<sect1 id="menu">
+<title
+>Opciones de menú</title>
+
+<variablelist>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Cargar...</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Carga una partida guardada anteriormente.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Reiniciar juego</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Reiniciará el nivel actual.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Guardar</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Guarda el estado actual de la partida en el disco.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Nivel anterior</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Cambia al nivel de juego anterior.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Siguiente nivel</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Cambia al siguiente nivel.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Partida</guimenu
+> <guimenuitem
+>Seleccionar conjunto de niveles...</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Esto mostrará todos los conjuntos de niveles disponibles y le permitirá descargar conjuntos adicionales cargados por otros usuarios en Internet.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Salir</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Seleccionando esta opción terminará la partida y saldrá de &katomic;.</para
+></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mover</guimenu
+> <guimenuitem
+>Deshacer</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Deshace el último movimiento hecho.</action
+></para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mover</guimenu
+> <guimenuitem
+>Rehacer</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Si ha deshecho anteriormente un movimiento, puede rehacerlo aquí.</action
+></para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Mover</guimenu
+> <guimenuitem
+>Deshacer todo</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Deshace</action
+> el último movimiento hecho.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Mover</guimenu
+> <guimenuitem
+>Rehacer todo</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Rehace</action
+> todos los movimientos deshechos.</para
+></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Preferencias</guimenu
+> <guisubmenu
+>Velocidad de animación</guisubmenu
+></menuchoice
+></term>
+    <listitem
+><para
+>Establece la velocidad de animación a <guimenuitem
+>Lenta</guimenuitem
+>, <guimenuitem
+>Normal</guimenuitem
+> o <guimenuitem
+>Rápida</guimenuitem
+>.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>Además &katomic; tiene las opciones de menú <guimenu
+>Preferencias</guimenu
+> y <guimenu
+>Ayuda</guimenu
+> comunes de &kde;. Para obtener más información, consulte las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menú «Preferencias»</ulink
+> y <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menú «Ayuda» </ulink
+> de «Aspectos básicos de &kde;». </para>
+
+</sect1>
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Asociaciones de teclas predeterminadas</title>
+
+<para
+>Los accesos predeterminados son:</para>
+
+<table>
+<title
+>Accesos rápidos</title>
+  <tgroup cols="2">
+    <tbody>
+      <row>
+        <entry
+>Cargar</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Reiniciar juego</entry>
+        <entry
+><keycap
+>F5</keycap
+></entry>
+      </row>
+      <row>
+        <entry
+>Guardar</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Nivel anterior</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Siguiente nivel</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Salir</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Deshacer</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Rehacer</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Átomo abajo</entry>
+        <entry
+>Flecha &Down;</entry>
+      </row>
+      <row>
+        <entry
+>Átomo a la izquierda</entry>
+        <entry
+>Flecha &Left;</entry>
+      </row>
+      <row>
+        <entry
+>Átomo a la derecha</entry>
+        <entry
+>Flecha &Right;</entry>
+      </row>
+      <row>
+        <entry
+>Átomo arriba</entry>
+        <entry
+>Flecha &Up;</entry>
+      </row>
+      <row>
+        <entry
+>Átomo siguiente</entry>
+        <entry
+>&Tab;</entry>
+      </row>
+      <row>
+        <entry
+>Átomo previo</entry>
+        <entry
+><keycombo action="simul"
+>&Shift;&Tab;</keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Ayuda</entry>
+        <entry
+><keycap
+>F1</keycap
+></entry>
+      </row>
+      <row>
+        <entry
+>¿Qué es esto?</entry>
+        <entry
+><keycombo action="simul"
+>&Shift; <keycap
+>F1</keycap
+></keycombo
+></entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+</sect1>
+
+</chapter>
+
+<chapter id="faq"
+><title
+>Preguntas frecuentes</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+<qandaentry>
+ <question
+><para
+>¿Cómo puedo saber qué aspecto tiene la molécula?</para
+></question>
+ <answer
+><para
+>Puede ver la molécula en la pantalla de referencia situada en la esquina superior derecha de la pantalla de juego.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>¿Cómo puedo mover una pieza del juego (átomo)?</para
+></question>
+ <answer
+><para
+>Para mover una pieza de juego (átomo) utilice el puntero del ratón para pulsarlo. De esta forma se volverá visible un icono direccional. Pulse en el correspondiente icono direccional para mover una pieza en la dirección deseada. Además también puede utilizar su tablero para mover las piezas. Utilice la tecla &Tab; para moverse entre los elementos, y las teclas de cursor para moverse una vez seleccionada.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>¿Puedo utilizar el teclado para controlar las piezas (átomos)?</para
+></question>
+ <answer
+><para
+>Sí. Utilice la tecla &Tab; para moverse entre los elementos, y las teclas de cursor para moverlo una vez seleccionado.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Cuando he movido una pieza (átomo) y se pasa del lugar deseado ¿Cómo puedo detenerla?</para
+></question>
+ <answer
+><para
+>No puede. Una vez que un átomo comienza a moverse, no se detendrá hasta que encuentre una pared u otro átomo.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>No puedo resolver el nivel. ¿Hay algún sistema de pistas o un solucionador?</para
+></question>
+  <answer
+><para
+>No. Desafortunadamente, en este momento &katomic; no tiene la funcionalidad de sistema de pistas. Por tanto, la única forma de finalizar el nivel es resolverlo por sí mismo.</para
+></answer>
+</qandaentry>
+<!--Please add more Q&As if needed-->
+</qandaset>
+</chapter>
+
+<chapter id="credits">
+<title
+>Créditos y licencia</title>
+
+<para
+><application
+>Entretenimiento atómico</application
+> Copyright 1999 &Stephan.Kulow; &Stephan.Kulow.mail; y &Cristian.Tibirna; &Cristian.Tibirna.mail;. </para>
+<para
+>Derechos de autor de Atómico. Andreas Wuest <email
+>Andreas Wuest@gmx.de</email
+>. </para>
+<para
+>Copyright de la documentación 2000 &Dirk.Doerflinger; &Dirk.Doerflinger.mail; </para>
+<para
+>Revisión por &Mike.McBride; &Mike.McBride.mail; </para>
+<para
+>Traducido por Rocío Gallego <email
+>traducciones@rociogallego.com</email
+>, Rafael Osuna <email
+>rosuna@wol.es</email
+>, Pablo de Vicente <email
+>pablo.devicente@gmail.com</email
+> y Kira J. Fernández <email
+>kirajfdez@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

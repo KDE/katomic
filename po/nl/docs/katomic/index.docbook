@@ -1,0 +1,715 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"
+> <!-- do not change this! -->
+]>
+
+<book id="katomic" lang="&language;"
+> <!-- do not change this! -->
+<bookinfo>
+<title
+>Het handboek van &katomic;</title
+> <!-- This is the title of the docbook. Leave as is unless change is necessary.-->
+<!-- List of immediate authors begins here. -->
+<!--INPORTANT! - All other contributors: [to be determined] -->
+<authorgroup>
+<author
+><firstname
+>Dirk</firstname
+> <surname
+>Doerflinger</surname
+> </author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Nalezer</contrib>
+<affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+&Niels.Reedijk;&Rinse.Devries;&Sander.Koning;&Freek.de.Kruijf;&Ronald.Stroethoff; 
+</authorgroup>
+<legalnotice
+>&FDLNotice;</legalnotice>
+<date
+>2021-10-13</date>
+<releaseinfo
+>KDE Gear 21.08</releaseinfo>
+
+<!--Short description of this document. Do not change unless necessary!-->
+<abstract>
+  <para
+>Dit handboek beschrijft het spel &katomic; versie 21.08</para>
+</abstract>
+
+<!--List of relevan keywords-->
+<keywordset>
+  <keyword
+>KDE</keyword
+> <!-- do not change this! -->
+  <keyword
+>spel</keyword
+> <!-- do not change this! -->
+  <keyword
+>Katomic</keyword
+><!--Application name goes here-->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+  <keyword
+>arcade</keyword>
+  <keyword
+>logica</keyword>
+  <keyword
+>atomen</keyword>
+  <keyword
+>socoban</keyword>
+<!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+  <keyword
+>één speler</keyword>
+<!--All other relevant keywords-->
+  <keyword
+>chemische elementen</keyword>
+  <keyword
+>het molecuul opnieuw samenstellen</keyword>
+</keywordset>
+</bookinfo>
+<!--Content begins here: -->
+<chapter id="introduction"
+><title
+>Inleiding</title
+> <!-- do not change this! -->
+  <note
+><title
+>Speltype:</title
+><para
+>Logisch, Arcade</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+  <note
+><title
+>Aantal mogelijke spelers:</title
+><para
+>Eén</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+
+<!--Short game description starts here. 3-4 sentences (paragraphs)-->
+  <para
+>&katomic; is een leuk en leerzaam spel over moleculaire geometrie. Het geeft een eenvoudig twee-dimensionale weergave van de elementen waaruit een molecuul is samengesteld. Een molecuul bestaat uit aparte atomen die verspreidt over het speelveld liggen. De speler moet het molecuul weer samenstellen om de huidige spelronde te voltooien en door te kunnen gaan naar de volgende spelronde. </para>
+</chapter>
+
+<chapter id="howto"
+><title
+>Hoe te spelen</title
+> <!-- do not change this! -->
+
+<screenshot>
+  <mediaobject>
+    <imageobject
+><imagedata fileref="mainscreen.png" format="PNG"/></imageobject>
+    <textobject
+><phrase
+>Het hoofdscherm van &katomic;</phrase
+></textobject>
+  </mediaobject>
+</screenshot>
+
+<!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
+  <note
+><title
+>Doel:</title
+><para
+>Stel moleculen samen uit atomen door ze rond te schuiven.</para
+></note
+><!--Describe the objective of the game.-->
+<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+  <para
+>&katomic; zal niveau één onmiddellijk laden nadat u het spel heeft opgestart zodat u gelijk kunt beginnen met spelen. Om te zien hoe het molecuul dat u moet maken is opgebouwd, kijkt u in de rechterbovenhoek. Om te spelen klikt u op een atoom. U zult groene pijlen zien die in de richtingen wijzen waarheen het atoom kan bewegen. Om het atoom te bewegen klikt u op de gewenste pijl. Nadat een atoom is gestart met bewegen zal het pas stoppen als het een ander atoom of een muur heeft geraakt, denk daarom na voordat u uw volgende zet doet. U kunt uw molecuul overal op het bord samenstellen, maar sommige plekken zijn toegankelijker dan andere. Pas nadat het molecuul is samengesteld kunt u door naar het volgende niveau. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>Spelregels, strategieën en tips</title
+> <!-- do not change this! -->
+  <!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+  <sect1 id="games_rules"
+><title
+>Spelregels</title
+>    
+    <itemizedlist>
+      <listitem
+><para
+>Spelstukken kunnen per keer slechts in één richting bewegen.</para
+></listitem>
+      <listitem
+><para
+>Wanneer een atoom begint te bewegen zal het niet stoppen totdat het ofwel de muur of een andere stuk ontmoet.</para
+></listitem>
+      <listitem
+><para
+>De enige manier om naar de volgende het volgende niveau te gaan is door het huidige niveau te voltooien. Op het moment dat een speler een niveau voltooit, gaat het spel automatisch naar het volgende niveau, dat op deze manier <quote
+>beschikbaar komt</quote
+>.</para
+></listitem>
+      <listitem
+><para
+>Een speler kan alleen tussen de niveau wisselen die nog niet zijn ontdekt.</para
+></listitem>
+      <listitem
+><para
+>Iedere keer als een volgend niveau is bereikt wordt de voortgang van het spel automatisch opgeslagen en de volgende keer dat u het spel opent wordt het weer geladen.</para
+></listitem>
+    </itemizedlist>
+  </sect1>
+  <sect1 id="tips"
+><title
+>Strategieën en tips</title>
+    <itemizedlist>
+      <listitem
+><para
+>Bestudeer altijd het complete molecuul via het referentie-scherm voordat u een zet doet.</para
+></listitem>
+      <listitem
+><para
+>Bestudeer vervolgens het speelveld en plan uw zetten. Vergeet niet dat een zet ongedaan maken niet mogelijk is.</para
+></listitem>
+      <listitem
+><para
+>Denk over iedere zet na en probeer u voor te stellen welke route het speelstuk zal volgen nadat op een richtingspijl is geklikt.</para
+></listitem>
+      <listitem
+><para
+>Als u het toetsenbord gebruikt om de speelstukken te verplaatsen dan moet u erop letten dat u het juiste speelstuk hebt geselecteerd. Als een verkeerd speelstuk is geselecteerd dan kunt u de &Tab;-toets gebruiken om tussen de speelstukken te wisselen totdat u de gewenste heeft bereikt.</para
+></listitem>
+    </itemizedlist>
+  </sect1>
+</chapter>
+
+<chapter id="interface"
+><title
+>Overzicht van het interface</title
+> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
+> and <varlistentry
+>. Split the chapter into sections using <sect1(2,3)
+> for better viewing.-->
+<sect1 id="menu">
+<title
+>Menu-items</title>
+
+<variablelist>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Laden...</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Hiermee wordt een eerder opgeslagen spel weer ingelezen.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Spel herstarten</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Dit zal het huidige niveau opnieuw starten.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Opslaan</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Slaat de huidige spelsituatie op naar de harde schijf.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Vorig niveau</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Hierdoor gaat u terug naar het vorige spelniveau.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Volgende niveau</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Hierdoor gaat u naar het volgende spelniveau.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Spel</guimenu
+> <guimenuitem
+>Set met niveaus kiezen</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>U krijgt een lijst met beschikbare speelsets te zien waaruit u kunt kiezen, bovendien kunt u extra door andere spelers zijn aangemaakte sets van het internet downloaden.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Afsluiten</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Dit item selecteren zal uw huidige spel afsluiten en &katomic; beëindigen.</para
+></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Zet</guimenu
+> <guimenuitem
+>Ongedaan maken</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Maakt de laatste zet ongedaan.</action
+></para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Zet</guimenu
+> <guimenuitem
+>Opnieuw</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Als u eerder een zet ongedaan hebt gemaakt, dan kunt u die hiermee opnieuw uitvoeren.</action
+></para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Zet</guimenu
+> <guimenuitem
+>Alles ongedaan maken</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Alle door u gemaakte zetten <action
+>ongedaan</action
+> maken.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Zet</guimenu
+> <guimenuitem
+>Alles opnieuw doen</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Opnieuw</action
+> alle ongedaan gemaakte zetten uitvoeren.</para
+></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>Animatiesnelheid</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>De animatiesnelheid instellen op <guimenuitem
+>Langzaam</guimenuitem
+>, <guimenuitem
+>Normaal</guimenuitem
+> of <guimenuitem
+>Snel</guimenuitem
+>.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>Bovendien heeft &katomic; de standaard &kde;-dialogen <guimenu
+>Instellingen</guimenu
+> en <guimenu
+>Help</guimenu
+>, lees voor meer informatie de secties over het <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Instellingendialoog</ulink
+> en <ulink url="help:/fundamentals/menus.html#menus-help"
+>Helpdialoog</ulink
+> van de &kde; Fundamentals. </para>
+
+</sect1>
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Standaard sneltoetsen</title>
+
+<para
+>Standaard sneltoetsen zijn:</para>
+
+<table>
+<title
+>Sneltoetsen</title>
+  <tgroup cols="2">
+    <tbody>
+      <row>
+        <entry
+>Laden</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Spel herstarten</entry>
+        <entry
+><keycap
+>F5</keycap
+></entry>
+      </row>
+      <row>
+        <entry
+>Opslaan</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Vorig niveau</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Volgend niveau</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Afsluiten</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Ongedaan maken</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Opnieuw</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Atoom naar beneden</entry>
+        <entry
+>Pijl &Down;</entry>
+      </row>
+      <row>
+        <entry
+>Atoom naar links</entry>
+        <entry
+>Pijl &Left;</entry>
+      </row>
+      <row>
+        <entry
+>Atoom naar rechts</entry>
+        <entry
+>Pijl &Right;</entry>
+      </row>
+      <row>
+        <entry
+>Atoom naar boven</entry>
+        <entry
+>Pijl &Up;</entry>
+      </row>
+      <row>
+        <entry
+>Volgende atoom</entry>
+        <entry
+>&Tab;</entry>
+      </row>
+      <row>
+        <entry
+>Vorige atoom</entry>
+        <entry
+><keycombo action="simul"
+>&Shift;&Tab;</keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Help</entry>
+        <entry
+><keycap
+>F1</keycap
+></entry>
+      </row>
+      <row>
+        <entry
+>Wat is dit?</entry>
+        <entry
+><keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+></entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+</sect1>
+
+</chapter>
+
+<chapter id="faq"
+><title
+>Veel voorkomende vragen</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+<qandaentry>
+ <question
+><para
+>Hoe weet ik hoe het molecuul eruit ziet?</para
+></question>
+ <answer
+><para
+>U kunt het molecuul bestuderen op het referentie-scherm in de rechterbovenhoek van het speelscherm.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Hoe verplaats ik een spelstuk (atoom)?</para
+></question>
+ <answer
+><para
+>Om een speelstuk (atoom) te verplaatsen gebruikt u uw muiscursor om erop te klikken. Op dat moment komt een pictogram met twee pijlen zichtbaar. Klik op de gekozen pijl om het speelstuk in de gewenste richting te laten gaan. Als alternatief kunt u ook uw toetsenbord gebruiken om de speelstukken te verplaatsen. Gebruik de &Tab;-toets om tussen de speelstukken te wisselen en de cursor-toetsen om het uitgekozen stuk te verplaatsen.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Kan ik het toetsenbord gebruiken om de stukken te besturen?</para
+></question>
+ <answer
+><para
+>Ja, gebruik de &Tab;-toets om tussen de speelstukken heen en weer te schakelen en de cursor-toetsen om het uitgekozen stuk te verplaatsen.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Wanneer ik een speelstuk (atoom) verplaats dan gaat het voorbij de gewenste locatie. Hoe kan ik ervoor zorgen dat het daar stopt?</para
+></question>
+ <answer
+><para
+>U kunt dat niet. Als een speelstuk begint met bewegen dan zal het pas stoppen als het een muur of een ander speelstuk raakt.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Ik kan het niveau niet de baas. Is er een systeem voor hints of een oplosser?</para
+></question>
+  <answer
+><para
+>Nee. helaas heeft &katomic; op dit moment geen systeem voor hints. Dus is de enige manier om een niveau te beëindigen is om zelf op te lossen.</para
+></answer>
+</qandaentry>
+<!--Please add more Q&As if needed-->
+</qandaset>
+</chapter>
+
+<chapter id="credits">
+<title
+>Dankbetuigingen en licentie</title>
+
+<para
+><application
+>Atomic Entertainment</application
+> Copyright 1999 &Stephan.Kulow; &Stephan.Kulow.mail; and &Cristian.Tibirna; &Cristian.Tibirna.mail;. </para>
+<para
+>Atomic copyright Andreas Wuest <email
+>Andreas Wuest@gmx.de</email
+>. </para>
+<para
+>Documentatie Copyright 2000 &Dirk.Doerflinger; &Dirk.Doerflinger.mail; </para>
+<para
+>Proeflezen door &Mike.McBride; &Mike.McBride.mail; </para>
+&meld.fouten;&vertaling.niels;&vertaling.rinse;&vertaling.sander;&vertaling.ronald;&nagelezen.freek; &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

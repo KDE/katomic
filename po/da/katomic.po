@@ -1,0 +1,603 @@
+# translation of katomic.po to
+# Danish translation of katomic
+# Copyright (C).
+#
+# Erik Kjær Pedersen <erik@binghamton.edu>, 1999, 2002, 2003, 2005.
+# Kenneth Geisshirt <kenneth@geisshirt.dk>, 2003.
+# Martin Schlander <mschlander@opensuse.org>, 2008, 2009, 2010, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: katomic\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"PO-Revision-Date: 2021-09-09 21:46+0200\n"
+"Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.04.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Erik Kjær Pedersen,Kenneth Geisshirt"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "erik@binghamton.edu,kenneth@geisshirt.dk"
+
+#: chooselevelsetdialog.cpp:29
+#, kde-format
+msgid "Level Sets"
+msgstr "Banesæt"
+
+#: gamewidget.cpp:84
+#, kde-format
+msgid ""
+"Failed to load level set \"%1\". Check if it is installed on your computer."
+msgstr ""
+"Kunne ikke indlæse banesættet \"%1\". Kontrollér at det er installeret på "
+"din computer."
+
+#: gamewidget.cpp:140
+#, kde-format
+msgid "Level %1 finished. "
+msgstr "Bane %1 gennemført. "
+
+#: gamewidget.cpp:144
+#, kde-format
+msgid "Congratulations! You have a new highscore!"
+msgstr "Tillykke! Du har en ny topscore!"
+
+#. i18n: ectx: label, entry (AnimationSpeed), group (Game)
+#: katomic.kcfg:9
+#, kde-format
+msgid "The speed of the animations."
+msgstr "Animationernes hastighed."
+
+#. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
+#: katomic.kcfg:20
+#, kde-format
+msgid "Width of saved background"
+msgstr "Bredde af gemt baggrund"
+
+#. i18n: ectx: label, entry (SavedBackgroundHeight), group (General)
+#: katomic.kcfg:24
+#, kde-format
+msgid "Height of saved background"
+msgstr "Højde af gemt baggrund"
+
+#. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
+#: katomic.kcfg:28
+#, kde-format
+msgid "Last played levelset"
+msgstr "Sidst spillede banesæt"
+
+#. i18n: ectx: Menu (settings)
+#: katomicui.rc:16
+#, kde-format
+msgid "&Settings"
+msgstr "&Indstillinger"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: katomicui.rc:25
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Hovedværktøjslinje"
+
+#: levelset.cpp:264
+#, kde-format
+msgid "Noname"
+msgstr "Intetnavn"
+
+#: levelsetdelegate.cpp:81
+#, kde-format
+msgid "by %1"
+msgstr "af %1"
+
+#: levelsetdelegate.cpp:87
+#, kde-format
+msgid ", contains 1 level"
+msgid_plural ", contains %1 levels"
+msgstr[0] ", indeholder 1 bane"
+msgstr[1] ", indeholder %1 baner"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: levelsetwidget.ui:20
+#, kde-format
+msgid "Choose a level set to play:"
+msgstr "Vælg et banesæt at spille:"
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
+#: levelsetwidget.ui:45
+#, kde-format
+msgid "Get new levels"
+msgstr "Hent nye baner"
+
+#: main.cpp:44
+#, kde-format
+msgid "KAtomic"
+msgstr "KAtomic"
+
+#: main.cpp:46
+#, kde-format
+msgid "Atomic Entertainment Game"
+msgstr "Atomart underholdningsspil"
+
+#: main.cpp:48
+#, kde-format
+msgid ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+msgstr ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+
+#: main.cpp:49
+#, kde-format
+msgid "Andreas Wuest"
+msgstr "Andreas Wuest"
+
+#: main.cpp:49
+#, kde-format
+msgid "Original author"
+msgstr "Oprindelig udvikler"
+
+#: main.cpp:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: main.cpp:50
+#, kde-format
+msgid "Porting to KDE4. Current maintainer"
+msgstr "Portering til KDE4. Nuværende vedligeholder"
+
+#: main.cpp:51
+#, kde-format
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: main.cpp:52
+#, kde-format
+msgid "Cristian Tibirna"
+msgstr "Cristian Tibirna"
+
+#: main.cpp:53
+#, kde-format
+msgid "Carsten Pfeiffer"
+msgstr "Carsten Pfeiffer"
+
+#: main.cpp:54
+#, kde-format
+msgid "Dave Corrie"
+msgstr "Dave Corrie"
+
+#: main.cpp:55
+#, kde-format
+msgid "Kai Jung"
+msgstr "Kai Jung"
+
+#: main.cpp:55
+#, kde-format
+msgid "6 new levels"
+msgstr "6 nye baner"
+
+#: main.cpp:56
+#, kde-format
+msgid "Danny Allen"
+msgstr "Danny Allen"
+
+#: main.cpp:56
+#, kde-format
+msgid "Game graphics and application icon"
+msgstr "Spilgrafik og programikon"
+
+#: main.cpp:57
+#, kde-format
+msgid "Johann Ollivier Lapeyre"
+msgstr "Johann Ollivier Lapeyre"
+
+#: main.cpp:57
+#, kde-format
+msgid "New great SVG artwork for KDE4"
+msgstr "Ny flot SVG-grafik til KDE4"
+
+#: main.cpp:58
+#, kde-format
+msgid "Brian Croom"
+msgstr "Brian Croom"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to use KGameRenderer"
+msgstr "Portering til at bruge KGameRenderer"
+
+#: main.cpp:64
+#, kde-format
+msgid "Enable access to all levels"
+msgstr "Aktivér adgang til alle baner"
+
+#: main.cpp:75
+#, kde-format
+msgid ""
+"KAtomic failed to find its default level set and will quit. Please check "
+"your installation."
+msgstr ""
+"KAtomic kunne ikke finde dets standard banesæt og vil afslutte. Kontrollér "
+"din installation."
+
+#: toplevel.cpp:41
+#, kde-format
+msgid "Level:"
+msgstr "Bane:"
+
+#: toplevel.cpp:42
+#, kde-format
+msgid "Current score:"
+msgstr "Nuværende score:"
+
+#: toplevel.cpp:43
+#, kde-format
+msgid "Highscore:"
+msgstr "Bedste resultat:"
+
+#: toplevel.cpp:90
+#, kde-format
+msgid "Previous Level"
+msgstr "Forrige bane"
+
+#: toplevel.cpp:97
+#, kde-format
+msgid "Next Level"
+msgstr "Næste bane"
+
+#: toplevel.cpp:103
+#, kde-format
+msgid "Choose level set..."
+msgstr "Vælg banesæt..."
+
+#: toplevel.cpp:107
+#, kde-format
+msgid "Animation Speed"
+msgstr "Animationshastighed"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Slow"
+msgstr "Langsom"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Normal"
+msgstr "Normal"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Fast"
+msgstr "Hurtig"
+
+#: toplevel.cpp:117
+#, kde-format
+msgid "Undo All"
+msgstr "Fortryd alle"
+
+#: toplevel.cpp:122
+#, kde-format
+msgid "Redo All"
+msgstr "Gentag alle"
+
+#: toplevel.cpp:136
+#, kde-format
+msgid "Atom Up"
+msgstr "Atom op"
+
+#: toplevel.cpp:142
+#, kde-format
+msgid "Atom Down"
+msgstr "Atom ned"
+
+#: toplevel.cpp:148
+#, kde-format
+msgid "Atom Left"
+msgstr "Atom til venstre"
+
+#: toplevel.cpp:154
+#, kde-format
+msgid "Atom Right"
+msgstr "Atom til højre"
+
+#: toplevel.cpp:160
+#, kde-format
+msgid "Next Atom"
+msgstr "Næste atom"
+
+#: toplevel.cpp:166
+#, kde-format
+msgid "Previous Atom"
+msgstr "Forrige atom"
+
+#: toplevel.cpp:187
+#, kde-format
+msgid "Level: %1 (%2)"
+msgstr "Bane: %1 (%2)"
+
+#: toplevel.cpp:188
+#, kde-format
+msgid "Current score: %1"
+msgstr "Nuværende score: %1"
+
+#: toplevel.cpp:194
+#, kde-format
+msgid "Highscore: %1"
+msgstr "Topscore: %1"
+
+#~ msgid ""
+#~ "Level %1 can not be found. Please check your installation. Now switching "
+#~ "to Level 1"
+#~ msgstr ""
+#~ "Niveau %1 kan ikke findes. Tjek venligst din installation. Skifter nu til "
+#~ "niveau 1"
+
+#~ msgid ""
+#~ "Level 1 data can not be found. Please check your installation. KAtomic "
+#~ "will quit now."
+#~ msgstr ""
+#~ "Data for niveau 1 kan ikke findes. Tjek venligst din installation. "
+#~ "KAtomic vil nu afslutte."
+
+#~ msgid "You must solve level %1 before advancing to the next one!"
+#~ msgstr "Du skal løse niveau %1 før du går videre til det næste!"
+
+#~ msgid "Warning"
+#~ msgstr "Advarsel"
+
+#~ msgid "Water"
+#~ msgstr "Vand"
+
+#~ msgid "Formic Acid"
+#~ msgstr "Myresyre"
+
+#~ msgid "Acetic Acid"
+#~ msgstr "Eddikesyre"
+
+#~ msgid "trans-Butene"
+#~ msgstr "trans-buten"
+
+#~ msgid "cis-Butene"
+#~ msgstr "cis-buten"
+
+#~ msgid "Dimethyl ether"
+#~ msgstr "Dimethyl-ether"
+
+#~ msgid "Butanol"
+#~ msgstr "Butanol"
+
+#~ msgid "2-Methyl-2-Propanol"
+#~ msgstr "2-methyl-2-propanol"
+
+#~ msgid "Glycerin"
+#~ msgstr "Glycerol"
+
+#~ msgid "Poly-Tetra-Fluoro-Ethene"
+#~ msgstr "Poly-tetra-fluouro-ethan"
+
+#~ msgid "Oxalic Acid"
+#~ msgstr "Oksalsyre"
+
+#~ msgid "Methane"
+#~ msgstr "Methan"
+
+#~ msgid "Formaldehyde"
+#~ msgstr "Formaldehyd"
+
+#~ msgid "Crystal 1"
+#~ msgstr "Krystal 1"
+
+#~ msgid "Acetic acid ethyl ester"
+#~ msgstr "Ethansyreethylester"
+
+#~ msgid "Ammonia"
+#~ msgstr "Ammoniak"
+
+#~ msgid "3-Methyl-Pentane"
+#~ msgstr "3-methyl-pentan"
+
+#~ msgid "Propanal"
+#~ msgstr "Propanal"
+
+#~ msgid "Propyne"
+#~ msgstr "Propyn"
+
+#~ msgid "Furanal"
+#~ msgstr "Furanal"
+
+#~ msgid "Pyran"
+#~ msgstr "Pyran"
+
+#~ msgid "Cyclo-Pentane"
+#~ msgstr "Cyclopentan"
+
+#~ msgid "Methanol"
+#~ msgstr "Methanol"
+
+#~ msgid "Nitro-Glycerin"
+#~ msgstr "Nitroglycerin"
+
+#~ msgid "Ethane"
+#~ msgstr "Ethan"
+
+#~ msgid "Crystal 2"
+#~ msgstr "Krystal 2"
+
+#~ msgid "Ethylene-Glycol"
+#~ msgstr "Ethan-1,2-diol"
+
+#~ msgid "L-Alanine"
+#~ msgstr "L-Alanin"
+
+#~ msgid "Cyanoguanidine"
+#~ msgstr "Cyanoguanidin"
+
+#~ msgid "Prussic Acid (Cyanic Acid)"
+#~ msgstr "Cyansyre"
+
+#~ msgid "Anthracene"
+#~ msgstr "Anthracen"
+
+#~ msgid "Thiazole"
+#~ msgstr "Thiazol"
+
+#~ msgid "Saccharin"
+#~ msgstr "Saccharin"
+
+#~ msgid "Ethylene"
+#~ msgstr "Ethylen"
+
+#~ msgid "Styrene"
+#~ msgstr "Styren"
+
+#~ msgid "Melamine"
+#~ msgstr "Melamin"
+
+#~ msgid "Cyclobutane"
+#~ msgstr "Cyclobutan"
+
+#~ msgid "Nicotine"
+#~ msgstr "Nicotin"
+
+#~ msgid "Acetyle salicylic acid"
+#~ msgstr "Acetylsalicylsyre"
+
+#~ msgid "Meta-Di-Nitro-Benzene"
+#~ msgstr "Meta-dinitrobenzen"
+
+#~ msgid "Malonic Acid"
+#~ msgstr "Malonsyre"
+
+#~ msgid "2,2-Dimethylpropane"
+#~ msgstr "2,2-dimethylpropan"
+
+#~ msgid "Ethyl-Benzene"
+#~ msgstr "Ethylbenzen"
+
+#~ msgid "Propene"
+#~ msgstr "Propen"
+
+#~ msgid "L-Asparagine"
+#~ msgstr "L-Asparagin"
+
+#~ msgid "1,3,5,7-Cyclooctatetraene"
+#~ msgstr "Cycloocta-1,3,5,7-tetraen"
+
+#~ msgid "Vanillin"
+#~ msgstr "Vanillin"
+
+#~ msgid "Crystal 3"
+#~ msgstr "Krystal 3"
+
+#~ msgid "Uric Acid"
+#~ msgstr "Urinsyre"
+
+#~ msgid "Thymine"
+#~ msgstr "Thymin"
+
+#~ msgid "Aniline"
+#~ msgstr "Anilin"
+
+#~ msgid "Chloroform"
+#~ msgstr "Chloroform"
+
+#~ msgid "Carbonic acid"
+#~ msgstr "Kulsyre"
+
+#~ msgid "Crystal 4"
+#~ msgstr "Krystal 4"
+
+#~ msgid "Ethanol"
+#~ msgstr "Ethanol"
+
+#~ msgid "Acrylo-Nitril"
+#~ msgstr "Acrylonitril"
+
+#~ msgid "Furan"
+#~ msgstr "Furan"
+
+#~ msgid "l-Lactic acid"
+#~ msgstr "L-mÃ¦lkesyre"
+
+#~ msgid "Maleic Acid"
+#~ msgstr "Butendisyre"
+
+#~ msgid "meso-Tartaric acid"
+#~ msgstr "meso-vinsyre"
+
+#~ msgid "Crystal 5"
+#~ msgstr "Krystal 5"
+
+#~ msgid "Formic acid ethyl ester"
+#~ msgstr "Methansyreethylester"
+
+#~ msgid "1,4-Cyclohexadiene"
+#~ msgstr "1,4-cyclohexadien"
+
+#~ msgid "Squaric acid"
+#~ msgstr "Kvadratsyre"
+
+#~ msgid "Ascorbic acid"
+#~ msgstr "Ascorbinsyre"
+
+#~ msgid "Isopropanol"
+#~ msgstr "Isopropanol"
+
+#~ msgid "Phosgene"
+#~ msgstr "Phosgen"
+
+#~ msgid "Thiophene"
+#~ msgstr "Thiophen"
+
+#~ msgid "Urea"
+#~ msgstr "Urea"
+
+#~ msgid "Pyruvic Acid"
+#~ msgstr "Pyrodruesyre"
+
+#~ msgid "Ethylene oxide"
+#~ msgstr "Ethylenoxid"
+
+#~ msgid "Phosphoric Acid"
+#~ msgstr "Phosphorsyre"
+
+#~ msgid "Diacetyl"
+#~ msgstr "Diacetyl"
+
+#~ msgid "trans-Dichloroethene"
+#~ msgstr "trans-Dichloroethen"
+
+#~ msgid "Allylisothiocyanate"
+#~ msgstr "Allylisothiocyanat"
+
+#~ msgid "Diketene"
+#~ msgstr "Diketen"
+
+#~ msgid "Ethanal"
+#~ msgstr "Ethanal"
+
+#~ msgid "Acroleine"
+#~ msgstr "Acrolein"
+
+#~ msgid "Uracil"
+#~ msgstr "Uracil"
+
+#~ msgid "Caffeine"
+#~ msgstr "Coffein"
+
+#~ msgid "Acetone"
+#~ msgstr "Acetone"
+
+#~ msgid "Highest level player is allowed to play"
+#~ msgstr "Maksimalt niveau spilleren må spille på"

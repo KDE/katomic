@@ -1,0 +1,767 @@
+<?xml version="1.0" ?>
+<!--IMPORTANT: please note that'do not change this!' notice does not apply to translators -->
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&katomic;">
+  <!ENTITY kappversion "3.0"
+><!--Application version. Use this variable everywhere it's needed.-->
+  <!ENTITY package "kdegames"
+>  <!-- do not change this! -->
+  <!ENTITY % Estonian  "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"
+> <!-- do not change this! -->
+]>
+ 
+<book id="katomic" lang="&language;"
+> <!-- do not change this! -->
+<bookinfo>
+<title
+>&kappname;u käsiraamat</title
+> <!-- This is the title of the docbook. Leave as is unless change is necessary.-->
+<!-- List of immediate authors begins here. -->
+<!--INPORTANT! - All other contributors: [to be determined] -->
+<authorgroup>
+<author
+><firstname
+>Dirk</firstname
+> <surname
+>Doerflinger</surname
+> </author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Korrigeerija</contrib>
+<affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+> <surname
+>Laane</surname
+> <affiliation
+><address
+><email
+>bald@smail.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+</authorgroup>
+<legalnotice
+>&FDLNotice;</legalnotice
+> 
+<date
+>2013-05-05</date
+><!-- Date of (re)writing, or update-->
+<releaseinfo
+>&kappversion; (&kde; 4.11)</releaseinfo
+><!-- Application version number. Use the variable definitions within header to change this value.-->
+ 
+<!--Short description of this document. Do not change unless necessary!-->
+<abstract>
+	<para
+>See käsiraamat kirjeldab mängu &katomic; versiooni &kappversion;.</para>
+</abstract>
+ 
+<!--List of relevan keywords-->
+<keywordset>
+	<keyword
+>KDE</keyword
+> <!-- do not change this! -->
+	<keyword
+>kdegames</keyword
+> <!-- do not change this! -->
+	<keyword
+>mäng</keyword
+> <!-- do not change this! -->
+	<keyword
+>Katomic</keyword
+><!--Application name goes here-->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<keyword
+>arkaadmäng</keyword>
+	<keyword
+>loogikamäng</keyword>
+	<keyword
+>aatomid</keyword>
+	<keyword
+>socoban</keyword>
+<!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<keyword
+>üks mängija</keyword>
+<!--All other relevant keywords-->
+	<keyword
+>keemilised elemendid</keyword>
+	<keyword
+>molekuli kokkupanek</keyword>
+</keywordset>
+</bookinfo>
+<!--Content begins here: -->
+<chapter id="introduction"
+><title
+>Sissejuhatus</title
+> <!-- do not change this! -->
+	<note
+><title
+>Mängu tüüp:</title
+><para
+>loogikamäng, arkaadmäng</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note
+><title
+>Mängijate arv:</title
+><para
+>Üks</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+ 
+<!--Short game description starts here. 3-4 sentences (paragraphs)-->
+	<para
+>&katomic; on nii lõbus kui ka hariv mäng, mis annab teadmisi molekulide ülesehitusest. Selle juures kasutatakse keemiliste elementide lihtsustatud kahemõõtmelist välimust. Molekulid on lahutatud eraldi aatomiteks ning mänguväljale laiali puistatud. Mängija peab molekuli taas kokku seadma ning sellega lõpetama taseme ja liikuma uuele tasemele. </para>
+</chapter>
+ 
+<chapter id="howto"
+><title
+>Kuidas mängida</title
+> <!-- do not change this! -->
+<!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
+	<note
+><title
+>Eesmärk:</title
+><para
+>Molekulide kokkupanemine eraldi asetsevatest aatomitest.</para
+></note
+><!--Describe the objective of the game.-->
+<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+	<para
+>&katomic; alustab mängu käivitamisel kohe esimesel tasemel ja sa võid otsemaid mängima asuda. Paremal ülal nurgas näeb, milline peab molekul lõpuks välja nägema. Mängimiseks klõpsa aatomil. Selle ümber tekivad rohelised noolekesed, mis näitavad, millises suunas saab aatom liikuda. Aatomi liigutamiseks klõpsa vajalikul noolel. Liikuma hakates peatub aatom alles siis, kui ette jääb teine aatom või sein, nii et mõtle väga hoolikalt, enne kui aatomit liigutama asud. Molekuli võib mänguväljal kokku panna suvalises kohas, aga kahtlemata leidub kohti, kus on seda lihtsam teha kui mujal. Kui molekul on koos, liigud edasi järgmisele tasemele. </para>
+</chapter>
+ 
+<chapter id="rules_and_tips"
+><title
+>Mängureeglid, strateegia ja nõuanded</title
+> <!-- do not change this! -->
+	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+	<sect1 id="games_rules"
+><title
+>Mängureeglid</title
+>		
+		<itemizedlist>
+			<listitem
+><para
+>Aatomid saavad liikuda korraga ainult ühes suunas.</para
+></listitem>
+			<listitem
+><para
+>Liikuma hakates peatub aatom alles siis, kui puutub kokku seina või teise aatomiga.</para
+></listitem>
+			<listitem
+><para
+>Järgmisele tasemele jõuab ainult aktiivset taset läbi tehes. Kui mingi tase on läbi tehtud, lülitub mäng automaatselt järgmisele tasemele, nii-öelda avab selle.</para
+></listitem>
+			<listitem
+><para
+>Mängija saab liikuda ainult avatud tasemete vahel.</para
+></listitem>
+			<listitem
+><para
+>Mängu edenemine salvestatakse automaatselt iga järgmise taseme saavutamisel ning saavutatud seis laaditakse uuesti mängu järgmisel käivitamisel.</para
+></listitem>
+		</itemizedlist>
+	</sect1>
+	<sect1 id="tips"
+><title
+>Strateegia ja nõuanded</title>
+		<itemizedlist>
+			<listitem
+><para
+>Enne käikude alustamist uuri alati hoolikalt valmismolekuli.</para
+></listitem>
+			<listitem
+><para
+>Seejärel uuri hoolikalt mänguvälja ja kavanda oma käigud. Pea meeles, et kui oled aatomit liigutanud, ei pruugi enam olla võimalik seda algpositsiooni tagasi viia.</para
+></listitem>
+			<listitem
+><para
+>Mõtle hoolikalt läbi kõik käigud ja proovi ette kujutada, kuhu aatom välja jõuab, kui vajutad sellele või teisele noolele.</para
+></listitem>
+			<listitem
+><para
+>Kui kasutad aatomite liigutamiseks klaviatuuri, kontrolli kindlasti, et valitud oleks just soovitud aatom. Kui valitud on mõni muu aatom, kasuta klahvi &Tab; aatomite vahel liikumiseks, kuni jõuad vajaliku aatomini.</para
+></listitem>
+		</itemizedlist>
+	</sect1>
+</chapter
+> 
+ 
+<chapter id="interface"
+><title
+>Liidese tutvustus</title
+> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
+> and <varlistentry
+>. Split the chapter into sections using <sect1(2,3)
+> for better viewing.-->
+<sect1 id="menu">
+<title
+>Menüükirjed</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Ava...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Avab varem salvestatud mängu.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Käivita mäng uuesti</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Käivitab parajasti käsil oleva taseme uuesti.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Salvesta</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Salvestab mängu oleku kettale.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Eelmine tase</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Liigub eelmisele tasemele.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Järgmine tase</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Liigub järgmisele tasemele.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Vali tasemekogu...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Näitab kõiki saadaolevaid tasemekogusid ja võimaldab internetist alla laadida teiste kasutajate üles laaditud lisakogusid.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Välju</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Lõpetab aktiivse mängu ja kogu &katomic;u töö.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Liikumine</guimenu
+> <guimenuitem
+>Võta tagasi</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Tühistab viimase käigu.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Liikumine</guimenu
+> <guimenuitem
+>Tee uuesti</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Kui oled käigu tagasi võtnud, saad selle käsuga selle uuesti sooritada.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Liikumine</guimenu
+> <guimenuitem
+>Võta kõik tagasi</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Tühistab</action
+> kõik sooritatud käigud.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Liikumine</guimenu
+> <guimenuitem
+>Tee kõik uuesti</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Sooritab uuesti</action
+> kõik tagasi võetud käigud.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Seadistused</guimenu
+><guisubmenu
+>Animatsiooni kiirus</guisubmenu
+></menuchoice
+></term>
+<listitem
+><para
+>Võimaldab määrata animatsiooni kiiruse: <guimenuitem
+>Aeglane</guimenuitem
+>, <guimenuitem
+>Normaalne</guimenuitem
+> või <guimenuitem
+>Kiire</guimenuitem
+>.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Lisaks on &katomic;ul tavapärased &kde; <guimenu
+>seadistuste</guimenu
+> ja <guimenu
+>abi</guimenu
+>menüü elemendid, mille kohta leiab rohkem teavet &kde; põhialuste käsiraamatu osadest <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Menüü Seadistused</ulink
+> ja <ulink url="help:/fundamentals/ui.html#menus-help"
+>Menüü Abi</ulink
+>. </para>
+
+</sect1>
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Vaikimisi kiirklahvid</title>
+
+<para
+>Vaikimisi kiirklahvid on järgmised:</para>
+
+<table>
+<title
+>Kiirklahvid</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>Ava</entry>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></entry>
+</row>
+<row>
+<entry
+>Käivita mäng uuesti</entry>
+<entry>
+<keycap
+>F5</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Salvesta</entry>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+</row>
+<row>
+<entry
+>Eelmine tase</entry>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+</row>
+<row>
+<entry
+>Järgmine tase</entry>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+</row>
+<row>
+<entry
+>Välju</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Võta tagasi</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Tee uuesti</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo>
+</entry>
+</row>
+
+<row>
+<entry
+>Aatom alla</entry>
+<entry>
+<keycap
+>Nool alla</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Aatom vasakule</entry>
+<entry>
+<keycap
+>Nool vasakule</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Aatom paremale</entry>
+<entry>
+<keycap
+>Nool paremale</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Aatom üles</entry>
+<entry>
+<keycap
+>Nool üles</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Järgmine aatom</entry>
+<entry
+>&Tab;</entry>
+</row>
+<row>
+<entry
+>Eelmine aatom</entry>
+<entry
+><keycombo action="simul"
+>&Shift;&Tab;</keycombo
+></entry>
+</row>
+<row>
+<entry
+>Abi</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>Mis see on?</entry>
+<entry>
+<keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</sect1>
+
+</chapter>
+ 
+<chapter id="faq"
+><title
+>Korduma kippuvad küsimused</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+<qandaentry>
+ <question
+><para
+>Kuidas teada saada, milline peab molekul olema?</para
+></question>
+ <answer
+><para
+>Molekuli, nagu see lõpuks mänguväljal välja peab nägema, näeb mänguakna ülemises parempoolses nurgas.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Kuidas aatomit liigutada?</para
+></question>
+ <answer
+><para
+>Aatomi liigutamiseks klõpsa sellele hiirega. Seejärel ilmuvad nähtavale nooled, mis näitavad, millises suunas saab aatom liikuda. Noolele klõpsates asub aatom selles suunas liikuma. Samamoodi võib aatomeid liigutada klaviatuuri abil. Klahviga &Tab; saab lülituda ühelt aatomilt teisele, nooleklahvidega vajalikus suunas liigutada.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Kas aatomeid saab juhtida ka klaviatuuri abil?</para
+></question>
+ <answer
+><para
+>Jah. Klahviga &Tab; saab aatomite vahel lülituda, nooleklahvidega neid vajalikus suunas liigutada.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Kui ma aatomit liigutan, läheb see sellest kohast mööda, kuhu ma tahan ta saada. Kuidas aatom õiges kohas peatuma panna?</para
+></question>
+ <answer
+><para
+>Seda ei saagi. Liikuma hakates peatub aatom alles siis, kui puutub kokku seina või teise aatomiga.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Ma ei suuda taset läbi teha. Kas pole siis mingeid vihjeid või lahendajat või midagi?</para
+></question>
+  <answer
+><para
+>Ei ole. &katomic; paraku ei kasuta veel vihjeid. Nii et ainuke viis tase läbi teha on see tõesti omal käel, nõul ja jõul läbida.</para
+></answer>
+</qandaentry>
+<!--Please add more Q&As if needed-->
+</qandaset>
+</chapter>
+ 
+<chapter id="credits">
+<title
+>Autorid ja litsents</title>
+
+<para
+><application
+>Aatomimäng</application
+>u autoriõigus 1999: &Stephan.Kulow; &Stephan.Kulow.mail; ja Cristian Tibirna &Cristian.Tibirna.mail;. </para>
+<para
+>Atomicu autoriõigus: Andreas Wuest <email
+>Wuest@gmx.de</email
+>. </para>
+<para
+>Dokumentatsiooni autoriõigus 2000: &Dirk.Doerflinger; <email
+>ddoerflinger@gmx.net</email
+> </para>
+<para
+>Korrektuur: Michael McBride &Mike.McBride.mail; </para>
+<para
+>Tõlge eesti keelde: Marek Laane <email
+>bald@smail.ee</email
+></para
+>  &underFDL; &underGPL; </chapter>
+ 
+ 
+<appendix id="installation">
+<title
+>Paigaldamine</title>
+ 
+&install.intro.documentation;
+ 
+ 
+<sect1 id="Compilation">
+<title
+>Kompileerimine ja paigaldamine</title>
+&install.compile.documentation; </sect1>
+</appendix>
+ 
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

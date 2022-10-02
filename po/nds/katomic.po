@@ -1,0 +1,603 @@
+# translation of katomic.po to Low Saxon
+# Translation of katomic.po to Low Saxon
+#
+# Manfred Wiese <m.j.wiese@web.de>, 2006, 2008, 2010, 2011.
+# Sönke Dibbern <s_dibbern@web.de>, 2006, 2007, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: katomic\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"PO-Revision-Date: 2010-08-27 08:53+0200\n"
+"Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
+"Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
+"Language: nds\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Manfred Wiese, Sönke Dibbern"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "m.j.wiese@web.de, s_dibbern@web.de"
+
+#: chooselevelsetdialog.cpp:29
+#, kde-format
+msgid "Level Sets"
+msgstr "Stopensetten"
+
+#: gamewidget.cpp:84
+#, kde-format
+msgid ""
+"Failed to load level set \"%1\". Check if it is installed on your computer."
+msgstr ""
+"Stopensett \"%1\" lett sik nich laden. Kiek na, wat de op Dien Reekner "
+"installeert is."
+
+#: gamewidget.cpp:140
+#, kde-format
+msgid "Level %1 finished. "
+msgstr "Speelstoop %1 beendt. "
+
+#: gamewidget.cpp:144
+#, kde-format
+msgid "Congratulations! You have a new highscore!"
+msgstr "Graleren! Du büst in de Bestenlist!"
+
+#. i18n: ectx: label, entry (AnimationSpeed), group (Game)
+#: katomic.kcfg:9
+#, kde-format
+msgid "The speed of the animations."
+msgstr "Gauheit vun de Animatschonen."
+
+#. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
+#: katomic.kcfg:20
+#, kde-format
+msgid "Width of saved background"
+msgstr "Breed vun sekert Achtergrund"
+
+#. i18n: ectx: label, entry (SavedBackgroundHeight), group (General)
+#: katomic.kcfg:24
+#, kde-format
+msgid "Height of saved background"
+msgstr "Hööchd vun sekert Achtergrund"
+
+#. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
+#: katomic.kcfg:28
+#, kde-format
+msgid "Last played levelset"
+msgstr "Tolest speelt Stopensett"
+
+#. i18n: ectx: Menu (settings)
+#: katomicui.rc:16
+#, kde-format
+msgid "&Settings"
+msgstr "&Instellen"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: katomicui.rc:25
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Hööft-Warktüüchbalken"
+
+#: levelset.cpp:264
+#, kde-format
+msgid "Noname"
+msgstr "Nich begäng"
+
+#: levelsetdelegate.cpp:81
+#, kde-format
+msgid "by %1"
+msgstr "vun %1"
+
+#: levelsetdelegate.cpp:87
+#, kde-format
+msgid ", contains 1 level"
+msgid_plural ", contains %1 levels"
+msgstr[0] ", bargt een Speelstoop"
+msgstr[1] ", bargt %1 Speelstopen"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: levelsetwidget.ui:20
+#, kde-format
+msgid "Choose a level set to play:"
+msgstr "Söök en Stopensett ut, den Du spelen wullt:"
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
+#: levelsetwidget.ui:45
+#, kde-format
+msgid "Get new levels"
+msgstr "Nieg Speelstopen halen"
+
+#: main.cpp:44
+#, kde-format
+msgid "KAtomic"
+msgstr "KAtomic"
+
+#: main.cpp:46
+#, fuzzy, kde-format
+#| msgid "KDE Atomic Entertainment Game"
+msgid "Atomic Entertainment Game"
+msgstr "KDE-Speel för atomschen Pläseer"
+
+#: main.cpp:48
+#, kde-format
+msgid ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+msgstr ""
+"© 1998, Andreas Wuest\n"
+"© 2007-2009 Dmitry Suzdalev"
+
+#: main.cpp:49
+#, kde-format
+msgid "Andreas Wuest"
+msgstr "Andreas Wuest"
+
+#: main.cpp:49
+#, kde-format
+msgid "Original author"
+msgstr "Orginaalschriever"
+
+#: main.cpp:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: main.cpp:50
+#, kde-format
+msgid "Porting to KDE4. Current maintainer"
+msgstr "Porteren na KDE4. Pleger opstunns"
+
+#: main.cpp:51
+#, kde-format
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: main.cpp:52
+#, kde-format
+msgid "Cristian Tibirna"
+msgstr "Cristian Tibirna"
+
+#: main.cpp:53
+#, kde-format
+msgid "Carsten Pfeiffer"
+msgstr "Carsten Pfeiffer"
+
+#: main.cpp:54
+#, kde-format
+msgid "Dave Corrie"
+msgstr "Dave Corrie"
+
+#: main.cpp:55
+#, kde-format
+msgid "Kai Jung"
+msgstr "Kai Jung"
+
+#: main.cpp:55
+#, kde-format
+msgid "6 new levels"
+msgstr "6 nieg Speelstopen"
+
+#: main.cpp:56
+#, kde-format
+msgid "Danny Allen"
+msgstr "Danny Allen"
+
+#: main.cpp:56
+#, kde-format
+msgid "Game graphics and application icon"
+msgstr "Speelgrafiken un Programmlüttbild"
+
+#: main.cpp:57
+#, kde-format
+msgid "Johann Ollivier Lapeyre"
+msgstr "Johann Ollivier Lapeyre"
+
+#: main.cpp:57
+#, kde-format
+msgid "New great SVG artwork for KDE4"
+msgstr "Nieg basig SVG-Billerwark för KDE4"
+
+#: main.cpp:58
+#, kde-format
+msgid "Brian Croom"
+msgstr "Brian Croom"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to use KGameRenderer"
+msgstr "Porteren för den Bruuk vun \"KGameRenderer\""
+
+#: main.cpp:64
+#, kde-format
+msgid "Enable access to all levels"
+msgstr "All Stopen tolaten"
+
+#: main.cpp:75
+#, kde-format
+msgid ""
+"KAtomic failed to find its default level set and will quit. Please check "
+"your installation."
+msgstr ""
+"KAtomic kunn den Standard-Stopensett nich finnen un maakt si nu ut. Bitte "
+"prööv Dien Installatschoon."
+
+#: toplevel.cpp:41
+#, kde-format
+msgid "Level:"
+msgstr "Stoop:"
+
+#: toplevel.cpp:42
+#, kde-format
+msgid "Current score:"
+msgstr "Aktuell Pünkt:"
+
+#: toplevel.cpp:43
+#, kde-format
+msgid "Highscore:"
+msgstr "Bestenlist:"
+
+#: toplevel.cpp:90
+#, kde-format
+msgid "Previous Level"
+msgstr "Verleden Stoop"
+
+#: toplevel.cpp:97
+#, kde-format
+msgid "Next Level"
+msgstr "Nakamen Stoop"
+
+#: toplevel.cpp:103
+#, kde-format
+msgid "Choose level set..."
+msgstr "Söök en Stopensett ut..."
+
+#: toplevel.cpp:107
+#, kde-format
+msgid "Animation Speed"
+msgstr "Animatschoongauheit:"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Slow"
+msgstr "Langsam"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Normal"
+msgstr "Normaal"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Fast"
+msgstr "Gau"
+
+#: toplevel.cpp:117
+#, kde-format
+msgid "Undo All"
+msgstr "All torüchnehmen"
+
+#: toplevel.cpp:122
+#, kde-format
+msgid "Redo All"
+msgstr "All wedderhalen"
+
+#: toplevel.cpp:136
+#, kde-format
+msgid "Atom Up"
+msgstr "Atom na baven"
+
+#: toplevel.cpp:142
+#, kde-format
+msgid "Atom Down"
+msgstr "Atom na nerrn"
+
+#: toplevel.cpp:148
+#, kde-format
+msgid "Atom Left"
+msgstr "Atom na links"
+
+#: toplevel.cpp:154
+#, kde-format
+msgid "Atom Right"
+msgstr "Atom na rechts"
+
+#: toplevel.cpp:160
+#, kde-format
+msgid "Next Atom"
+msgstr "Nakamen Atom"
+
+#: toplevel.cpp:166
+#, kde-format
+msgid "Previous Atom"
+msgstr "Verleden Atom"
+
+#: toplevel.cpp:187
+#, kde-format
+msgid "Level: %1 (%2)"
+msgstr "Stoop: %1 (%2)"
+
+#: toplevel.cpp:188
+#, kde-format
+msgid "Current score: %1"
+msgstr "Aktuell Pünkt: %1"
+
+#: toplevel.cpp:194
+#, kde-format
+msgid "Highscore: %1"
+msgstr "Bestenlist: %1"
+
+#~ msgid ""
+#~ "Level %1 can not be found. Please check your installation. Now switching "
+#~ "to Level 1"
+#~ msgstr ""
+#~ "Speelstoop %1 lett sik nich finnen. Bitte prööv Dien Installatschoon. "
+#~ "Speelstoop 1 warrt start"
+
+#~ msgid ""
+#~ "Level 1 data can not be found. Please check your installation. KAtomic "
+#~ "will quit now."
+#~ msgstr ""
+#~ "De Daten för Speelstoop 1 laat siknich finnen. KAtomic warrt beendt."
+
+#~ msgid "You must solve level %1 before advancing to the next one!"
+#~ msgstr ""
+#~ "Du muttst toeerst Stoop %1 lösen, ehr Du mit de nakamen Stoop wiedermaken "
+#~ "kannst!"
+
+#~ msgid "Warning"
+#~ msgstr "Wohrschoen"
+
+#~ msgid "Water"
+#~ msgstr "Water"
+
+#~ msgid "Formic Acid"
+#~ msgstr "Miegeemsüür"
+
+#~ msgid "Acetic Acid"
+#~ msgstr "Etigsüür"
+
+#~ msgid "trans-Butene"
+#~ msgstr "trans-Buteen"
+
+#~ msgid "cis-Butene"
+#~ msgstr "zis-Buteen"
+
+#~ msgid "Dimethyl ether"
+#~ msgstr "Dimetyleter"
+
+#~ msgid "Butanol"
+#~ msgstr "Butanool"
+
+#~ msgid "2-Methyl-2-Propanol"
+#~ msgstr "2-Metyl-2-Propanool"
+
+#~ msgid "Glycerin"
+#~ msgstr "Glyzerin"
+
+#~ msgid "Poly-Tetra-Fluoro-Ethene"
+#~ msgstr "Polytetrafluoreteen"
+
+#~ msgid "Oxalic Acid"
+#~ msgstr "Oxalsüür"
+
+#~ msgid "Methane"
+#~ msgstr "Metaan"
+
+#~ msgid "Formaldehyde"
+#~ msgstr "Formaldehyd"
+
+#~ msgid "Crystal 1"
+#~ msgstr "Kristall 1"
+
+#~ msgid "Acetic acid ethyl ester"
+#~ msgstr "Etigsüürester"
+
+#~ msgid "Ammonia"
+#~ msgstr "Ammoniak"
+
+#~ msgid "3-Methyl-Pentane"
+#~ msgstr "3-Metylpentaan"
+
+#~ msgid "Propanal"
+#~ msgstr "Propanal"
+
+#~ msgid "Propyne"
+#~ msgstr "Propin"
+
+#~ msgid "Furanal"
+#~ msgstr "Furanal"
+
+#~ msgid "Pyran"
+#~ msgstr "Pyran"
+
+#~ msgid "Cyclo-Pentane"
+#~ msgstr "Zyklopentaan"
+
+#~ msgid "Methanol"
+#~ msgstr "Metanool"
+
+#~ msgid "Nitro-Glycerin"
+#~ msgstr "Nitroglyzerin"
+
+#~ msgid "Ethane"
+#~ msgstr "Etaan"
+
+#~ msgid "Crystal 2"
+#~ msgstr "Kristall 2"
+
+#~ msgid "Ethylene-Glycol"
+#~ msgstr "Etyleen-Glykool"
+
+#~ msgid "L-Alanine"
+#~ msgstr "L-Alanin"
+
+#~ msgid "Cyanoguanidine"
+#~ msgstr "Zyanoguanidin"
+
+#~ msgid "Prussic Acid (Cyanic Acid)"
+#~ msgstr "Blaagsüür"
+
+#~ msgid "Anthracene"
+#~ msgstr "Antrazeen"
+
+#~ msgid "Thiazole"
+#~ msgstr "Tiazool"
+
+#~ msgid "Saccharin"
+#~ msgstr "Sackarin"
+
+#~ msgid "Ethylene"
+#~ msgstr "Etyleen"
+
+#~ msgid "Styrene"
+#~ msgstr "Styrool"
+
+#~ msgid "Melamine"
+#~ msgstr "Melamin"
+
+#~ msgid "Cyclobutane"
+#~ msgstr "Zyklobutaan"
+
+#~ msgid "Nicotine"
+#~ msgstr "Nikotin"
+
+#~ msgid "Acetyle salicylic acid"
+#~ msgstr "Azetylsalizylsüür"
+
+#~ msgid "Meta-Di-Nitro-Benzene"
+#~ msgstr "Meta-Dinitrobenzool"
+
+#~ msgid "Malonic Acid"
+#~ msgstr "Maloonsüür"
+
+#~ msgid "2,2-Dimethylpropane"
+#~ msgstr "2,2-Dimetylpropaan"
+
+#~ msgid "Ethyl-Benzene"
+#~ msgstr "Etylbenzool"
+
+#~ msgid "Propene"
+#~ msgstr "Propeen"
+
+#~ msgid "L-Asparagine"
+#~ msgstr "L-Asparagin"
+
+#~ msgid "1,3,5,7-Cyclooctatetraene"
+#~ msgstr "1,3,5,7-Zyklooktatetraeen"
+
+#~ msgid "Vanillin"
+#~ msgstr "Vanillin"
+
+#~ msgid "Crystal 3"
+#~ msgstr "Kristall 3"
+
+#~ msgid "Uric Acid"
+#~ msgstr "Harnsüür"
+
+#~ msgid "Thymine"
+#~ msgstr "Tymin"
+
+#~ msgid "Aniline"
+#~ msgstr "Anilin"
+
+#~ msgid "Chloroform"
+#~ msgstr "Kloroform"
+
+#~ msgid "Carbonic acid"
+#~ msgstr "Kahlensüür"
+
+#~ msgid "Crystal 4"
+#~ msgstr "Kristall 4"
+
+#~ msgid "Ethanol"
+#~ msgstr "Etanool"
+
+#~ msgid "Acrylo-Nitril"
+#~ msgstr "Akrylnitril"
+
+#~ msgid "Furan"
+#~ msgstr "Furaan"
+
+#~ msgid "l-Lactic acid"
+#~ msgstr "L-Melksüür"
+
+#~ msgid "Maleic Acid"
+#~ msgstr "Maleinsüür"
+
+#~ msgid "meso-Tartaric acid"
+#~ msgstr "meso-Wiensüür"
+
+#~ msgid "Crystal 5"
+#~ msgstr "Kristall 5"
+
+#~ msgid "Formic acid ethyl ester"
+#~ msgstr "Metaansüüretylester"
+
+#~ msgid "1,4-Cyclohexadiene"
+#~ msgstr "1,4-Zyklohexadieen"
+
+#~ msgid "Squaric acid"
+#~ msgstr "Quadraatsüür"
+
+#~ msgid "Ascorbic acid"
+#~ msgstr "Askorbinsüür"
+
+#~ msgid "Isopropanol"
+#~ msgstr "Isopropanool"
+
+#~ msgid "Phosgene"
+#~ msgstr "Fosgeen"
+
+#~ msgid "Thiophene"
+#~ msgstr "Tiofeen"
+
+#~ msgid "Urea"
+#~ msgstr "Harnstoff"
+
+#~ msgid "Pyruvic Acid"
+#~ msgstr "Brenzdruvensüür"
+
+#~ msgid "Ethylene oxide"
+#~ msgstr "Etyleenoxid"
+
+#~ msgid "Phosphoric Acid"
+#~ msgstr "Fosforsüür"
+
+#~ msgid "Diacetyl"
+#~ msgstr "Diazetyl"
+
+#~ msgid "trans-Dichloroethene"
+#~ msgstr "trans-Dikloreteen"
+
+#~ msgid "Allylisothiocyanate"
+#~ msgstr "Allylisotiozyanaat"
+
+#~ msgid "Diketene"
+#~ msgstr "Diketeen"
+
+#~ msgid "Ethanal"
+#~ msgstr "Etanal"
+
+#~ msgid "Acroleine"
+#~ msgstr "Akrolein"
+
+#~ msgid "Uracil"
+#~ msgstr "Urazil"
+
+#~ msgid "Caffeine"
+#~ msgstr "Koffein"
+
+#~ msgid "Acetone"
+#~ msgstr "Azetoon"
+
+#~ msgid "Highest level player is allowed to play"
+#~ msgstr "Hööchst Speelstoop, de en Speler spelen dörv"

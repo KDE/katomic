@@ -1,0 +1,731 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Ukrainian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"
+> <!-- do not change this! -->
+]>
+
+<book id="katomic" lang="&language;"
+> <!-- do not change this! -->
+<bookinfo>
+<title
+>Підручник з &katomic;</title
+> <!-- This is the title of the docbook. Leave as is unless change is necessary.-->
+<!-- List of immediate authors begins here. -->
+<!--INPORTANT! - All other contributors: [to be determined] -->
+<authorgroup>
+<author
+><firstname
+>Dirk</firstname
+> <surname
+>Doerflinger</surname
+> </author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Рецензент</contrib>
+<affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+<legalnotice
+>&FDLNotice;</legalnotice>
+<date
+>13 жовтня 2021 року</date>
+<releaseinfo
+>KDE Gear 21.08</releaseinfo>
+
+<!--Short description of this document. Do not change unless necessary!-->
+<abstract>
+  <para
+>У цій документації описано гру &katomic; версії 21.08</para>
+</abstract>
+
+<!--List of relevan keywords-->
+<keywordset>
+  <keyword
+>KDE</keyword
+> <!-- do not change this! -->
+  <keyword
+>гра</keyword
+> <!-- do not change this! -->
+  <keyword
+>Katomic</keyword
+><!--Application name goes here-->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+  <keyword
+>аркада</keyword>
+  <keyword
+>логічна</keyword>
+  <keyword
+>атоми</keyword>
+  <keyword
+>сокобан</keyword>
+<!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+  <keyword
+>один гравець</keyword>
+<!--All other relevant keywords-->
+  <keyword
+>хімічні елементи</keyword>
+  <keyword
+>збирання молекули</keyword>
+</keywordset>
+</bookinfo>
+<!--Content begins here: -->
+<chapter id="introduction"
+><title
+>Вступ</title
+> <!-- do not change this! -->
+  <note
+><title
+>Тип гри:</title
+><para
+>Логічна, аркада</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+  <note
+><title
+>Можлива кількість гравців:</title
+><para
+>Один</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+
+<!--Short game description starts here. 3-4 sentences (paragraphs)-->
+  <para
+>&katomic; — це розважальна і навчальна гра, побудована на знанні геометрії молекул. У грі використовується спрощена двовимірна модель елементів, з яких складається молекула. На початку гри молекули розібрано на окремі атоми і розкидано ігровим полем. Гравцеві потрібно знову зібрати молекулу, таким чином завершити рівень гри і перейти на наступний рівень. </para>
+</chapter>
+
+<chapter id="howto"
+><title
+>Як грати</title
+> <!-- do not change this! -->
+
+<screenshot>
+  <mediaobject>
+    <imageobject
+><imagedata fileref="mainscreen.png" format="PNG"/></imageobject>
+    <textobject
+><phrase
+>Головне вікно &katomic;</phrase
+></textobject>
+  </mediaobject>
+</screenshot>
+
+<!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
+  <note
+><title
+>Мета:</title
+><para
+>Збирати молекули з складових атомі, пересуваючи атоми ігровим полем.</para
+></note
+><!--Describe the objective of the game.-->
+<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+  <para
+>Одразу після першого запуску &katomic; завантажує перший рівень гри і ви можете розпочинати гратися. Щоб подивитися на те, як має виглядати молекула, яку ви збираєте, погляньте у правий верхній кут екрана. Щоб розпочати гру, клацніть по атому. Після цього ви побачите зелені стрілочки, які вказуватимуть напрямки, у яких можна пересувати атом. Щоб пересунути атом, натисніть потрібну стрілочку. Після того, як атом розпочне рух, він не зупиниться, аж доки не зустріне на своєму шляху іншого атома або стіну, отже, перш ніж робити хід, вам потрібно все добре обдумати. Ви можете зібрати молекулу у будь-якому місці ігрової дошки, але, все ж, слід зважати на те, що доступ до деяких з атомів отримати легше, ніж до інших. Після того, як ви завершите збирання молекули, ви зможете перейти до наступного рівня. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>Правила гри, стратегія та поради</title
+> <!-- do not change this! -->
+  <!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+  <sect1 id="games_rules"
+><title
+>Правила гри</title
+>    
+    <itemizedlist>
+      <listitem
+><para
+>Елементи гри (атоми) можна пересувати лише у одному напрямку протягом одного ходу.</para
+></listitem>
+      <listitem
+><para
+>Після того, як ви зрушите атом він продовжуватимете рух аж доки не зустріне на своєму шляху стіни або іншого атома.</para
+></listitem>
+      <listitem
+><para
+>Єдиним способом переходу на наступний рівень гри є завершення поточного рівня. Після того, як гравець завершить певний рівень, гра автоматично перемкнеться на наступний, таким чином «відкриваючи» його для вас.</para
+></listitem>
+      <listitem
+><para
+>Гравець може перемикатися лише між рівнями, які він (вона) вже «відкрив» («відкрила»).</para
+></listitem>
+      <listitem
+><para
+>Поступ у грі автоматично зберігається на диск кожного разу, коли ви переходите на наступний рівень, і перезавантажується під час наступного запуску програми.</para
+></listitem>
+    </itemizedlist>
+  </sect1>
+  <sect1 id="tips"
+><title
+>Стратегія та поради</title>
+    <itemizedlist>
+      <listitem
+><para
+>Завжди спочатку подивіться на те, як виглядає молекула на еталонному зображенні, перш ніж робити будь-які ходи.</para
+></listitem>
+      <listitem
+><para
+>Далі, вивчіть ігрове поле і сплануйте свої ходи. Пам’ятайте, що можливі позиції, у яких після ходу атомом його неможливо буде повернути на початкове місце.</para
+></listitem>
+      <listitem
+><para
+>Продумуйте кожен свій хід: спробуйте уявити траєкторію атома після натискання стрілочки, яка вказує напрям руху.</para
+></listitem>
+      <listitem
+><para
+>Коли ви користуєтеся клавіатурою для пересування атомів, перед ходом переконайтеся, що обрано той атом, який ви бажаєте зрушити. Якщо позначено не той атом, скористайтеся клавішею &Tab; для перемикання позначення між атомами до того часу, доки не буде позначено потрібний атом.</para
+></listitem>
+    </itemizedlist>
+  </sect1>
+</chapter>
+
+<chapter id="interface"
+><title
+>Огляд інтерфейсу</title
+> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
+> and <varlistentry
+>. Split the chapter into sections using <sect1(2,3)
+> for better viewing.-->
+<sect1 id="menu">
+<title
+>Пункти меню</title>
+
+<variablelist>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Завантажити...</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Завантажує збережену раніше гру.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Перезапустити гру</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Перезапускає гру на поточному рівні.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Зберегти</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Зберігає поточну позицію у грі на диск.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Попередній рівень</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Переводить гру на попередній рівень.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Наступний рівень</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Переводить гру на наступний рівень.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Гра</guimenu
+> <guimenuitem
+>Вибір набору рівнів</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>За допомогою цього пункту можна відкрити список всіх наборів рівнів та отримати додаткові набори, вивантажені іншими користувачами на сервері у інтернеті.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Вийти</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Вибір цього пункту призводить до завершення поточної гри і закриття вікна &katomic;.</para
+></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Хід</guimenu
+> <guimenuitem
+>Вернути</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Скасовує останній зроблений вами хід.</action
+></para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Хід</guimenu
+> <guimenuitem
+>Повторити</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Якщо ви перед цим скасовували хід, ви можете його повторити за допомогою цього пункту.</action
+></para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Хід</guimenu
+> <guimenuitem
+>Скасувати всі дії</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Скасовує</action
+> всі зроблені вами ходи.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Хід</guimenu
+> <guimenuitem
+>Повторити всі дії</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Повторює</action
+> всі скасовані ходи.</para
+></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Параметри</guimenu
+> <guisubmenu
+>Швидкість анімації</guisubmenu
+></menuchoice
+></term>
+    <listitem
+><para
+>Встановлює швидкість анімації у значення <guimenuitem
+>Повільна</guimenuitem
+>, <guimenuitem
+>Звичайна</guimenuitem
+> або <guimenuitem
+>Швидка</guimenuitem
+>.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>Крім того, у &katomic; передбачено типові для &kde; пункти меню <guimenu
+>Параметри</guimenu
+> і <guimenu
+>Довідка</guimenu
+>. Щоб дізнатися більше, ознайомтеся з розділами щодо <ulink url="help:/fundamentals/menus.html#menus-settings"
+>меню «Параметри»</ulink
+> та <ulink url="help:/fundamentals/menus.html#menus-help"
+>меню «Довідка»</ulink
+> підручника з основ роботи у &kde;. </para>
+
+</sect1>
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Типові клавіатурні скорочення</title>
+
+<para
+>Типовими клавіатурними скороченнями є такі:</para>
+
+<table>
+<title
+>Клавіатурні скорочення</title>
+  <tgroup cols="2">
+    <tbody>
+      <row>
+        <entry
+>Завантажити</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Перезапуск гри</entry>
+        <entry
+><keycap
+>F5</keycap
+></entry>
+      </row>
+      <row>
+        <entry
+>Зберегти</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Попередній рівень</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Наступний рівень</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Вийти</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Вернути</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Повторити</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Пересунути вниз</entry>
+        <entry
+>Стрілка вниз</entry>
+      </row>
+      <row>
+        <entry
+>Пересунути ліворуч</entry>
+        <entry
+>Стрілка ліворуч</entry>
+      </row>
+      <row>
+        <entry
+>Пересунути праворуч</entry>
+        <entry
+>Стрілка праворуч</entry>
+      </row>
+      <row>
+        <entry
+>Пересунути вгору</entry>
+        <entry
+>Стрілка вгору</entry>
+      </row>
+      <row>
+        <entry
+>Наступний атом</entry>
+        <entry
+>&Tab;</entry>
+      </row>
+      <row>
+        <entry
+>Попередній атом</entry>
+        <entry
+><keycombo action="simul"
+>&Shift;&Tab;</keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Довідка</entry>
+        <entry
+><keycap
+>F1</keycap
+></entry>
+      </row>
+      <row>
+        <entry
+>Що це?</entry>
+        <entry
+><keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+></entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+</sect1>
+
+</chapter>
+
+<chapter id="faq"
+><title
+>Часті запитання</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+<qandaentry>
+ <question
+><para
+>Як мені дізнатися про те, як виглядає молекула?</para
+></question>
+ <answer
+><para
+>Ви можете побачити початковий вигляд молекули на еталонній панелі, розташованій у верхньому правому куті вікна гри.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Як мені пересунути атом у грі?</para
+></question>
+ <answer
+><para
+>Щоб пересунути ігровий елемент (атом) наведіть на нього вказівник миші і клацніть лівою кнопкою миші. Після цього ви побачите стрілочки доступних напрямків. Натисніть стрілочку потрібного напрямку, щоб пересунути атом у бажаному напрямку. Крім того, для пересування атомів ви можете скористатися вашою клавіатурою. Скористайтесь клавішею &Tab; для перемикання позначення між атомами. Після того, як буде обрано бажаний атом, ви зможете пересунути його за допомогою клавіш зі стрілочками.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Чи можу я скористатися клавіатурою, щоб керувати атомами?</para
+></question>
+ <answer
+><para
+>Так. За допомогою клавіші &Tab; ви можете перемикатися між атомами, а клавіші зі стрілками для їх пересування після вибору елемента.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Коли я зсуваю атом, він просувається до самого кінця і минає місце, у якому я хотів (хотіла), щоб він зупинився. Як мені зупинити цей атом у потрібному місці?</para
+></question>
+ <answer
+><para
+>Вам це не вдасться. Після того, як ви зрушили атом, він не зупиниться, доки не зустрінеться зі стіною або іншим атомом.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Не можу розв’язати рівень. Чи є у програмі система підказок або інструмент для розв’язання?</para
+></question>
+  <answer
+><para
+>Ні. На жаль, у цій версії &katomic; немає можливостей системи підказок. Отже, єдиним способом завершити рівень є самостійне розв’язання завдання.</para
+></answer>
+</qandaentry>
+<!--Please add more Q&As if needed-->
+</qandaset>
+</chapter>
+
+<chapter id="credits">
+<title
+>Подяки і ліцензія</title>
+
+<para
+>Авторські права на <application
+>Atomic Entertainment</application
+> належать &Stephan.Kulow; &Stephan.Kulow.mail; і &Cristian.Tibirna; &Cristian.Tibirna.mail;., ©1999 </para>
+<para
+>Авторські права на програму Atomic належать Andreas Wuest <email
+>Andreas Wuest@gmx.de</email
+>. </para>
+<para
+>Авторські права на документацію належать &Dirk.Doerflinger; &Dirk.Doerflinger.mail;, ©2000 </para>
+<para
+>Коректура — &Mike.McBride; &Mike.McBride.mail; </para>
+<para
+>Переклад українською: Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

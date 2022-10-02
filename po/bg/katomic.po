@@ -1,0 +1,356 @@
+# translation of katomic.po to Bulgarian
+# Bulgarian translation of KDE.
+# This file is licensed under the GPL.
+#
+#  A number of chemical compund names follow.
+#  Please note that generally, many chemical compounds have
+#  two types of names:
+#     1. Trivial names. Example: Squaric acid, квадратна киселина
+#  Please also note that in Bulgarian, some older names are
+#  obsolete, even if they sound more "Bulgarian" than the new ones.
+#  Eg., въглероден диоксид is to be prefered instead of
+#  въглероден двуокис. This is the IUPAC recommendation.
+#  which became widely applied in Bulgaria after the year of 1989.
+#  IUPAC -- International Union of Pure and Applied Chemistry
+#  (Международен съюз по чиста и приложна химия)
+#  In all cases it would be very nice to have
+#  both names included in the translation if possible.
+#
+#  For questions, comments and recommendations
+#  on the bulgarian chemical compound names
+#  please contact vladimirg at users.sourceforge.net
+#
+# $Id: katomic.po 1634614 2022-09-26 01:37:36Z scripty $
+#
+#     2. Standard names. Example: 3,4-дихидрокси-3-циклобутен-1,2-дион.
+# Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006.
+# Petar Toushkov <pt.launchpad@gmail.com>, 2009, 2010.
+# Yasen Pramatarov <yasen@lindeas.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: katomic\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"PO-Revision-Date: 2011-07-28 18:17+0300\n"
+"Last-Translator: Yasen Pramatarov <yasen@lindeas.com>\n"
+"Language-Team: Bulgarian <dict@fsa-bg.org>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Zlatko Popov,Petar Toushkov"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zlatkopopov@fsa-bg.org,pt.launchpad@gmail.com"
+
+#: chooselevelsetdialog.cpp:29
+#, kde-format
+msgid "Level Sets"
+msgstr "Колекции от нива"
+
+#: gamewidget.cpp:84
+#, kde-format
+msgid ""
+"Failed to load level set \"%1\". Check if it is installed on your computer."
+msgstr "Неуспех при зареждането на ниво \"%1\". Проверете дали е инсталирано."
+
+#: gamewidget.cpp:140
+#, kde-format
+msgid "Level %1 finished. "
+msgstr "Ниво %1 беше завършено."
+
+#: gamewidget.cpp:144
+#, kde-format
+msgid "Congratulations! You have a new highscore!"
+msgstr "Поздравления! Постигнахте нов най-добър резултат!"
+
+#. i18n: ectx: label, entry (AnimationSpeed), group (Game)
+#: katomic.kcfg:9
+#, kde-format
+msgid "The speed of the animations."
+msgstr "Скоростта на анимациите."
+
+#. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
+#: katomic.kcfg:20
+#, kde-format
+msgid "Width of saved background"
+msgstr "Ширина на запазения фон"
+
+#. i18n: ectx: label, entry (SavedBackgroundHeight), group (General)
+#: katomic.kcfg:24
+#, kde-format
+msgid "Height of saved background"
+msgstr "Височина на запазения фон"
+
+#. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
+#: katomic.kcfg:28
+#, kde-format
+msgid "Last played levelset"
+msgstr "Последно играна колекция с нива"
+
+#. i18n: ectx: Menu (settings)
+#: katomicui.rc:16
+#, kde-format
+msgid "&Settings"
+msgstr "&Настройки"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: katomicui.rc:25
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Главна лента с инструменти"
+
+#: levelset.cpp:264
+#, kde-format
+msgid "Noname"
+msgstr "Без име"
+
+#: levelsetdelegate.cpp:81
+#, kde-format
+msgid "by %1"
+msgstr "от %1"
+
+#: levelsetdelegate.cpp:87
+#, kde-format
+msgid ", contains 1 level"
+msgid_plural ", contains %1 levels"
+msgstr[0] ", съдържа 1 ниво"
+msgstr[1] ", съдържа %1 нива"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: levelsetwidget.ui:20
+#, kde-format
+msgid "Choose a level set to play:"
+msgstr "Избиране на колекция с нива за зареждане:"
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
+#: levelsetwidget.ui:45
+#, kde-format
+msgid "Get new levels"
+msgstr "Изтегляне на нови нива"
+
+#: main.cpp:44
+#, kde-format
+msgid "KAtomic"
+msgstr "KAtomic"
+
+#: main.cpp:46
+#, fuzzy, kde-format
+msgid "Atomic Entertainment Game"
+msgstr "Забавна игра с атоми за KDE"
+
+#: main.cpp:48
+#, kde-format
+msgid ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+msgstr ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+
+#: main.cpp:49
+#, kde-format
+msgid "Andreas Wuest"
+msgstr "Andreas Wuest"
+
+#: main.cpp:49
+#, kde-format
+msgid "Original author"
+msgstr "Първоначален разработчик"
+
+#: main.cpp:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: main.cpp:50
+#, kde-format
+msgid "Porting to KDE4. Current maintainer"
+msgstr "Порт за KDE4. Текуща поддръжка"
+
+#: main.cpp:51
+#, kde-format
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: main.cpp:52
+#, kde-format
+msgid "Cristian Tibirna"
+msgstr "Cristian Tibirna"
+
+#: main.cpp:53
+#, kde-format
+msgid "Carsten Pfeiffer"
+msgstr "Carsten Pfeiffer"
+
+#: main.cpp:54
+#, kde-format
+msgid "Dave Corrie"
+msgstr "Dave Corrie"
+
+#: main.cpp:55
+#, kde-format
+msgid "Kai Jung"
+msgstr "Kai Jung"
+
+#: main.cpp:55
+#, kde-format
+msgid "6 new levels"
+msgstr "6 нови нива"
+
+#: main.cpp:56
+#, kde-format
+msgid "Danny Allen"
+msgstr "Danny Allen"
+
+#: main.cpp:56
+#, kde-format
+msgid "Game graphics and application icon"
+msgstr "Графика за играта и икона на приложението"
+
+#: main.cpp:57
+#, kde-format
+msgid "Johann Ollivier Lapeyre"
+msgstr "Johann Ollivier Lapeyre"
+
+#: main.cpp:57
+#, kde-format
+msgid "New great SVG artwork for KDE4"
+msgstr "Ново страхотно художествено оформление в SVG формат за KDE4"
+
+#: main.cpp:58
+#, kde-format
+msgid "Brian Croom"
+msgstr "Brian Croom"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to use KGameRenderer"
+msgstr "Версия с използване на KGameRenderer"
+
+#: main.cpp:64
+#, kde-format
+msgid "Enable access to all levels"
+msgstr "Включване на достъпа до всички нива"
+
+#: main.cpp:75
+#, kde-format
+msgid ""
+"KAtomic failed to find its default level set and will quit. Please check "
+"your installation."
+msgstr ""
+"KAtomic не успява да открие колекцията от нива по подразбиране и ще прекрати "
+"работа. Моля, проверете инсталацията си."
+
+#: toplevel.cpp:41
+#, kde-format
+msgid "Level:"
+msgstr "Ниво:"
+
+#: toplevel.cpp:42
+#, kde-format
+msgid "Current score:"
+msgstr "Текущ резултат:"
+
+#: toplevel.cpp:43
+#, kde-format
+msgid "Highscore:"
+msgstr "Класиране:"
+
+#: toplevel.cpp:90
+#, kde-format
+msgid "Previous Level"
+msgstr "Предишно ниво"
+
+#: toplevel.cpp:97
+#, kde-format
+msgid "Next Level"
+msgstr "Следващо ниво"
+
+#: toplevel.cpp:103
+#, kde-format
+msgid "Choose level set..."
+msgstr "Изберете колекция с нива..."
+
+#: toplevel.cpp:107
+#, kde-format
+msgid "Animation Speed"
+msgstr "Скорост на анимацията"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Slow"
+msgstr "Бавно"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Normal"
+msgstr "Нормално"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Fast"
+msgstr "Бързо"
+
+#: toplevel.cpp:117
+#, kde-format
+msgid "Undo All"
+msgstr "Отмяна на всичко"
+
+#: toplevel.cpp:122
+#, kde-format
+msgid "Redo All"
+msgstr "Въстановяване на всичко"
+
+#: toplevel.cpp:136
+#, kde-format
+msgid "Atom Up"
+msgstr "Атом нагоре"
+
+#: toplevel.cpp:142
+#, kde-format
+msgid "Atom Down"
+msgstr "Атом надолу"
+
+#: toplevel.cpp:148
+#, kde-format
+msgid "Atom Left"
+msgstr "Атом наляво"
+
+#: toplevel.cpp:154
+#, kde-format
+msgid "Atom Right"
+msgstr "Атом надясно"
+
+#: toplevel.cpp:160
+#, kde-format
+msgid "Next Atom"
+msgstr "Следващ атом"
+
+#: toplevel.cpp:166
+#, kde-format
+msgid "Previous Atom"
+msgstr "Предишен атом"
+
+#: toplevel.cpp:187
+#, kde-format
+msgid "Level: %1 (%2)"
+msgstr "Ниво: %1 (%2)"
+
+#: toplevel.cpp:188
+#, kde-format
+msgid "Current score: %1"
+msgstr "Текущ резултат: %1"
+
+#: toplevel.cpp:194
+#, kde-format
+msgid "Highscore: %1"
+msgstr "Класиране: %1"

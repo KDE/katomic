@@ -1,0 +1,735 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"
+> <!-- do not change this! -->
+]>
+
+<book id="katomic" lang="&language;"
+> <!-- do not change this! -->
+<bookinfo>
+<title
+>Handbok Katom</title
+> <!-- This is the title of the docbook. Leave as is unless change is necessary.-->
+<!-- List of immediate authors begins here. -->
+<!--INPORTANT! - All other contributors: [to be determined] -->
+<authorgroup>
+<author
+><firstname
+>Dirk</firstname
+> <surname
+>Doerflinger</surname
+> </author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Granskare</contrib>
+<affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+<legalnotice
+>&FDLNotice;</legalnotice>
+<date
+>2021-10-13</date>
+<releaseinfo
+>KDE Gear 21.08</releaseinfo>
+
+<!--Short description of this document. Do not change unless necessary!-->
+<abstract>
+  <para
+>Denna dokumentation beskriver spelet Katom, version 21.08</para>
+</abstract>
+
+<!--List of relevan keywords-->
+<keywordset>
+  <keyword
+>KDE</keyword
+> <!-- do not change this! -->
+  <keyword
+>spel</keyword
+> <!-- do not change this! -->
+  <keyword
+>Katom</keyword
+><!--Application name goes here-->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+  <keyword
+>spelhall</keyword>
+  <keyword
+>logik</keyword>
+  <keyword
+>atomer</keyword>
+  <keyword
+>socoban</keyword>
+<!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+  <keyword
+>en spelare</keyword>
+<!--All other relevant keywords-->
+  <keyword
+>kemiska ämnen</keyword>
+  <keyword
+>återskapa molekylen</keyword>
+</keywordset>
+</bookinfo>
+<!--Content begins here: -->
+<chapter id="introduction"
+><title
+>Inledning</title
+> <!-- do not change this! -->
+  <note
+><title
+>Speltyp:</title
+><para
+>Logik, spelhall</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+  <note
+><title
+>Antal möjliga spelare:</title
+><para
+>En</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+
+<!--Short game description starts here. 3-4 sentences (paragraphs)-->
+  <para
+>Katom är ett både roligt och lärorikt spel byggt på molekylär geometri. Det använder ett förenklat tvådimensionellt utseende för de grundämnen som skapar en molekyl. En molekyl sönderdelas i separata atomer som sprids ut över spelfältet. Spelaren förväntas återskapa molekylen, och på så sätt göra färdigt nuvarande nivå och gå vidare till nästa. </para>
+</chapter>
+
+<chapter id="howto"
+><title
+>Hur man spelar</title
+> <!-- do not change this! -->
+
+<screenshot>
+  <mediaobject>
+    <imageobject
+><imagedata fileref="mainscreen.png" format="PNG"/></imageobject>
+    <textobject
+><phrase
+>Huvudskärmen i Katom</phrase
+></textobject>
+  </mediaobject>
+</screenshot>
+
+<!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
+  <note
+><title
+>Syfte:</title
+><para
+>Återskapa molekyler från ämnets atomer genom att flytta omkring dem.</para
+></note
+><!--Describe the objective of the game.-->
+<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+  <para
+>Katom laddar nivå ett när du startar spelet, och du kan omedelbart börja spela. För att se hur molekylen som du förväntas skapa ser ut, ta en titt i övre högra hörnet. För att spela, klicka på en atom. Du ser då gröna pilar som pekar i de riktningar atomen kan röra sig. Klicka på önskad pil för att flytta atomen. När en atom börjat röra sig stoppar den inte förrän den antingen träffar en annan atom eller en vägg, så försäkra dig om att du tänker innan du gör ditt nästa drag. Du kan sätta ihop molekylen var som helst på spelplanen, men vissa platser är lättare att komma åt än andra. När molekylen har satts ihop kan du gå vidare till nästa nivå. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>Spelets regler, strategi och tips</title
+> <!-- do not change this! -->
+  <!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+  <sect1 id="games_rules"
+><title
+>Spelregler</title
+>    
+    <itemizedlist>
+      <listitem
+><para
+>Delarna i spelet kan bara röra sig i en riktning åt gången.</para
+></listitem>
+      <listitem
+><para
+>När en atom väl börjar röra sig stoppar den inte förrän den antingen träffar en vägg eller en annan del.</para
+></listitem>
+      <listitem
+><para
+>Det enda sättet att gå vidare till nästa spelnivå är att göra färdigt den nuvarande nivån. När en spelare väl har gjort färdigt en viss nivå byter spelet automatiskt till nästa, och <quote
+>avtäcker</quote
+> den på så sätt.</para
+></listitem>
+      <listitem
+><para
+>En spelare kan bara byta mellan nivåer som har blivit avtäckta.</para
+></listitem>
+      <listitem
+><para
+>Spelets tillstånd sparas automatiskt varje gång en angränsande nivå nås, och det laddas om nästa gång programmet startas.</para
+></listitem>
+    </itemizedlist>
+  </sect1>
+  <sect1 id="tips"
+><title
+>Strategi och tips</title>
+    <itemizedlist>
+      <listitem
+><para
+>Granska alltid den fullständiga molekylen genom att använda referensskärmen innan du gör några drag.</para
+></listitem>
+      <listitem
+><para
+>Studera därefter spelfältet och planera dina drag. Kom ihåg att så fort en del har flyttats kanske det inte är möjligt att få den att återgå till startpositionen.</para
+></listitem>
+      <listitem
+><para
+>Tänk igenom varje drag och försök föreställa dig banan som delen kommer att följa så snart en riktningspil klickats.</para
+></listitem>
+      <listitem
+><para
+>Om tangentbordet används för att flytta delar, försäkra dig om att önskad del är markerad. Om fel atom är markerad, använd tabulatortangenten för att byta mellan delarna till du når den önskade.</para
+></listitem>
+    </itemizedlist>
+  </sect1>
+</chapter>
+
+<chapter id="interface"
+><title
+>Översikt av gränssnittet</title
+> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
+> and <varlistentry
+>. Split the chapter into sections using <sect1(2,3)
+> for better viewing.-->
+<sect1 id="menu">
+<title
+>Menyalternativ</title>
+
+<variablelist>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Ladda...</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Laddar ett tidigare sparat spel.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+><guimenu
+>Spel</guimenu
+> <guimenuitem
+>Starta om spel</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Det här startar om nuvarande nivå.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Spara</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Sparar spelets nuvarande tillstånd på disk.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Föregående nivå</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Gå till föregående spelnivå.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Nästa nivå</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Gå till nästa spelnivå.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Spel</guimenu
+> <guimenuitem
+>Välj nivåsamling...</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Detta visar alla tillgängliga nivåsamlingar och låter dig ladda ner ytterligare samlingar från Internet som andra användare laddat upp.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Avsluta</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>Att välja det här alternativet avslutar det pågående spelet, och avslutar Katom.</para
+></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Ångra</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Ångra det senaste draget som du gjorde.</action
+></para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Gör om</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Om du tidigare har ångrat ett drag, kan du göra om det här.</action
+></para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Ångra alla</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Ångra</action
+> alla drag som du gjorde.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Gör om alla</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>Gör om</action
+> alla ångrade drag.</para
+></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guisubmenu
+>Animeringshastighet</guisubmenu
+></menuchoice
+></term>
+    <listitem
+><para
+>Ställer in animeringshastigheten till <guimenuitem
+>Långsam</guimenuitem
+>, <guimenuitem
+>Normal</guimenuitem
+> eller <guimenuitem
+>Snabb</guimenuitem
+>.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>Dessutom har Katom de vanliga menyalternativen <guimenu
+>Inställningar</guimenu
+> och <guimenu
+>Hjälp</guimenu
+> i &kde;. För mer information, läs avsnitten  <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menyn Inställningar</ulink
+> och <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menyn Hjälp</ulink
+> i &kde;:s Grunder. </para>
+
+</sect1>
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Förvalda tangentbindningar</title>
+
+<para
+>Förvalda genvägar är:</para>
+
+<table>
+<title
+>Genvägar</title>
+  <tgroup cols="2">
+    <tbody>
+      <row>
+        <entry
+>Ladda</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Starta om spel</entry>
+        <entry
+><keycap
+>F5</keycap
+></entry>
+      </row>
+      <row>
+        <entry
+>Spara</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Föregående nivå</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Nästa nivå</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Avsluta</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Ångra</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Gör om</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Atom ner</entry>
+        <entry
+>Neråtpil</entry>
+      </row>
+      <row>
+        <entry
+>Atom vänster</entry>
+        <entry
+>Vänsterpil</entry>
+      </row>
+      <row>
+        <entry
+>Atom höger</entry>
+        <entry
+>Högerpil</entry>
+      </row>
+      <row>
+        <entry
+>Atom upp</entry>
+        <entry
+>Uppåtpil</entry>
+      </row>
+      <row>
+        <entry
+>Nästa atom</entry>
+        <entry
+>Tabulator</entry>
+      </row>
+      <row>
+        <entry
+>Föregående atom</entry>
+        <entry
+><keycombo action="simul"
+>&Shift;<keycap
+>Tabulator</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>Hjälp</entry>
+        <entry
+><keycap
+>F1</keycap
+></entry>
+      </row>
+      <row>
+        <entry
+>Vad är det här?</entry>
+        <entry
+><keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+></entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+</sect1>
+
+</chapter>
+
+<chapter id="faq"
+><title
+>Vanliga frågor</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+<qandaentry>
+ <question
+><para
+>Hur kan man veta hur molekylen ska se ut?</para
+></question>
+ <answer
+><para
+>Du kan titta på molekylen med referensskärmen som är placerad längst upp till höger på spelskärmen.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Hur flyttar man en del (atom) i spelet?</para
+></question>
+ <answer
+><para
+>Använd muspekaren för att klicka på en del (atom) i spelet för att flytta den. Då blir ikonen med tillgängliga riktningar synlig. Klicka på motsvarande riktningsikon för att få delen att röra sig i önskad riktning. Som ett alternativ kan du använda tangentbordet för att flytta delarna. Använd tabulatortangenten för att byta mellan objekten, och piltangenterna för att flytta dem när de väl har markerats.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Kan man använda tangentbordet för att styra delarna (atomerna)?</para
+></question>
+ <answer
+><para
+>Ja. Använd tabulatortangenten för att byta mellan delar, och piltangenterna för att flytta dem när de väl är markerade.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>När jag flyttar en del (atom) fortsätter den bara förbi platsen där jag vill ha den. Hur får man den att stoppa där?</para
+></question>
+ <answer
+><para
+>Det kan man inte. När en atom väl har börjat röra sig stoppar den inte förrän den når en vägg eller en annan del.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Jag kan inte klara av nivån. Finns det ett tipssystem, eller automatisk lösning?</para
+></question>
+  <answer
+><para
+>Nej. För närvarande har Katom tyvärr inget tipssystem. Det enda sättet att göra färdigt en nivå är alltså att själv lösa den.</para
+></answer>
+</qandaentry>
+<!--Please add more Q&As if needed-->
+</qandaset>
+</chapter>
+
+<chapter id="credits">
+<title
+>Tack till och licenser</title>
+
+<para
+><application
+>Atomunderhållning</application
+> Copyright 1999 &Stephan.Kulow; &Stephan.Kulow.mail; och &Cristian.Tibirna; &Cristian.Tibirna.mail;. </para>
+<para
+>Atomic Copyright Andreas Wuest <email
+>Andreas Wuest@gmx.de</email
+>. </para>
+<para
+>Dokumentation Copyright 2000 &Dirk.Doerflinger; &Dirk.Doerflinger.mail; </para>
+<para
+>Granskning av &Mike.McBride; &Mike.McBride.mail; </para>
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

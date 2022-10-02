@@ -1,0 +1,334 @@
+# Katomic Vietnamese Translation
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# Nguyễn Ngọc Tuấn <scorpionfirevn@operamail.com>, 2002.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Katomic.pot \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"PO-Revision-Date: 2002-09-01 08:35+0700\n"
+"Last-Translator: Nguyễn Ngọc Tuấn <scorpionfirevn@operamail.com>\n"
+"Language-Team: Vietnamese <KDE-i18n-VN@yahoogroups.com>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 0.9.6\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Người dịch\n"
+"Nguyễn Ngọc Tuấn"
+
+#, fuzzy, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "_: Email của người dịchscorpionfirevn@operamail.com"
+
+#: chooselevelsetdialog.cpp:29
+#, fuzzy, kde-format
+#| msgid "Level: %1"
+msgid "Level Sets"
+msgstr "Vòng: %1"
+
+#: gamewidget.cpp:84
+#, kde-format
+msgid ""
+"Failed to load level set \"%1\". Check if it is installed on your computer."
+msgstr ""
+
+#: gamewidget.cpp:140
+#, fuzzy, kde-format
+#| msgid "Level: %1"
+msgid "Level %1 finished. "
+msgstr "Vòng: %1"
+
+#: gamewidget.cpp:144
+#, kde-format
+msgid "Congratulations! You have a new highscore!"
+msgstr ""
+
+#. i18n: ectx: label, entry (AnimationSpeed), group (Game)
+#: katomic.kcfg:9
+#, kde-format
+msgid "The speed of the animations."
+msgstr ""
+
+#. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
+#: katomic.kcfg:20
+#, kde-format
+msgid "Width of saved background"
+msgstr ""
+
+#. i18n: ectx: label, entry (SavedBackgroundHeight), group (General)
+#: katomic.kcfg:24
+#, kde-format
+msgid "Height of saved background"
+msgstr ""
+
+#. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
+#: katomic.kcfg:28
+#, kde-format
+msgid "Last played levelset"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: katomicui.rc:16
+#, kde-format
+msgid "&Settings"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: katomicui.rc:25
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: levelset.cpp:264
+#, kde-format
+msgid "Noname"
+msgstr "Không tên"
+
+#: levelsetdelegate.cpp:81
+#, kde-format
+msgid "by %1"
+msgstr ""
+
+#: levelsetdelegate.cpp:87
+#, kde-format
+msgid ", contains 1 level"
+msgid_plural ", contains %1 levels"
+msgstr[0] ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: levelsetwidget.ui:20
+#, kde-format
+msgid "Choose a level set to play:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
+#: levelsetwidget.ui:45
+#, fuzzy, kde-format
+#| msgid "6 new levels"
+msgid "Get new levels"
+msgstr "6 vòng mới"
+
+#: main.cpp:44
+#, kde-format
+msgid "KAtomic"
+msgstr "Nguyên tử"
+
+#: main.cpp:46
+#, fuzzy, kde-format
+#| msgid "KDE Atomic Entertainment Game"
+msgid "Atomic Entertainment Game"
+msgstr "Trò chơi ghép nguyên tử (KDE)"
+
+#: main.cpp:48
+#, kde-format
+msgid ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+msgstr ""
+
+#: main.cpp:49
+#, kde-format
+msgid "Andreas Wuest"
+msgstr ""
+
+#: main.cpp:49
+#, kde-format
+msgid "Original author"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Porting to KDE4. Current maintainer"
+msgstr ""
+
+#: main.cpp:51
+#, kde-format
+msgid "Stephan Kulow"
+msgstr ""
+
+#: main.cpp:52
+#, kde-format
+msgid "Cristian Tibirna"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Carsten Pfeiffer"
+msgstr ""
+
+#: main.cpp:54
+#, kde-format
+msgid "Dave Corrie"
+msgstr ""
+
+#: main.cpp:55
+#, kde-format
+msgid "Kai Jung"
+msgstr ""
+
+#: main.cpp:55
+#, kde-format
+msgid "6 new levels"
+msgstr "6 vòng mới"
+
+#: main.cpp:56
+#, kde-format
+msgid "Danny Allen"
+msgstr ""
+
+#: main.cpp:56
+#, kde-format
+msgid "Game graphics and application icon"
+msgstr ""
+
+#: main.cpp:57
+#, kde-format
+msgid "Johann Ollivier Lapeyre"
+msgstr ""
+
+#: main.cpp:57
+#, kde-format
+msgid "New great SVG artwork for KDE4"
+msgstr ""
+
+#: main.cpp:58
+#, kde-format
+msgid "Brian Croom"
+msgstr ""
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to use KGameRenderer"
+msgstr ""
+
+#: main.cpp:64
+#, kde-format
+msgid "Enable access to all levels"
+msgstr ""
+
+#: main.cpp:75
+#, kde-format
+msgid ""
+"KAtomic failed to find its default level set and will quit. Please check "
+"your installation."
+msgstr ""
+
+#: toplevel.cpp:41
+#, fuzzy, kde-format
+msgid "Level:"
+msgstr "Vòng: %1"
+
+#: toplevel.cpp:42
+#, kde-format
+msgid "Current score:"
+msgstr ""
+
+#: toplevel.cpp:43
+#, kde-format
+msgid "Highscore:"
+msgstr ""
+
+#: toplevel.cpp:90
+#, fuzzy, kde-format
+msgid "Previous Level"
+msgstr "Nguyên tử trước"
+
+#: toplevel.cpp:97
+#, kde-format
+msgid "Next Level"
+msgstr ""
+
+#: toplevel.cpp:103
+#, kde-format
+msgid "Choose level set..."
+msgstr ""
+
+#: toplevel.cpp:107
+#, fuzzy, kde-format
+msgid "Animation Speed"
+msgstr "Tốc độ chuyển động:"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Slow"
+msgstr ""
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Normal"
+msgstr ""
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Fast"
+msgstr ""
+
+#: toplevel.cpp:117
+#, kde-format
+msgid "Undo All"
+msgstr ""
+
+#: toplevel.cpp:122
+#, kde-format
+msgid "Redo All"
+msgstr ""
+
+#: toplevel.cpp:136
+#, kde-format
+msgid "Atom Up"
+msgstr "Chuyển nguyên tử lên"
+
+#: toplevel.cpp:142
+#, kde-format
+msgid "Atom Down"
+msgstr "Chuyển nguyên tử xuống"
+
+#: toplevel.cpp:148
+#, kde-format
+msgid "Atom Left"
+msgstr "Chuyển nguyên tử qua trái"
+
+#: toplevel.cpp:154
+#, kde-format
+msgid "Atom Right"
+msgstr "Chuyển nguyên tử qua phải"
+
+#: toplevel.cpp:160
+#, kde-format
+msgid "Next Atom"
+msgstr "Nguyên tử kế tiếp"
+
+#: toplevel.cpp:166
+#, kde-format
+msgid "Previous Atom"
+msgstr "Nguyên tử trước"
+
+#: toplevel.cpp:187
+#, fuzzy, kde-format
+#| msgid "Level: %1"
+msgid "Level: %1 (%2)"
+msgstr "Vòng: %1"
+
+#: toplevel.cpp:188
+#, kde-format
+msgid "Current score: %1"
+msgstr ""
+
+#: toplevel.cpp:194
+#, kde-format
+msgid "Highscore: %1"
+msgstr ""

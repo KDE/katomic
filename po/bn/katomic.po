@@ -1,0 +1,610 @@
+# translation of katomic.po to Bengali
+# Bangla translation of KAtomic.
+# Copyright (C) 2004-2006 KDE Foundation.
+# This file is distributed under the same license as the KAtomic package.
+# Progga <progga@BengaLinux.Org>, 2004-2006.
+# Deepayan Sarkar <deepayan@bengalinux.org>, 2004, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: katomic\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"PO-Revision-Date: 2006-04-09 15:26-0500\n"
+"Last-Translator: Progga <progga@BengaLinux.Org>\n"
+"Language-Team: Bengali <kde-translation@bengalinux.org>\n"
+"Language: bn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "প্রজ্ঞা"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "progga@BengaLinux.Org"
+
+#: chooselevelsetdialog.cpp:29
+#, fuzzy, kde-format
+#| msgid "Level: %1"
+msgid "Level Sets"
+msgstr "স্তর: %1"
+
+#: gamewidget.cpp:84
+#, kde-format
+msgid ""
+"Failed to load level set \"%1\". Check if it is installed on your computer."
+msgstr ""
+
+#: gamewidget.cpp:140
+#, fuzzy, kde-format
+#| msgid "Level %1 Highscores"
+msgid "Level %1 finished. "
+msgstr "%1-তম স্তরের সেরা স্কোর"
+
+#: gamewidget.cpp:144
+#, kde-format
+msgid "Congratulations! You have a new highscore!"
+msgstr ""
+
+#. i18n: ectx: label, entry (AnimationSpeed), group (Game)
+#: katomic.kcfg:9
+#, kde-format
+msgid "The speed of the animations."
+msgstr ""
+
+#. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
+#: katomic.kcfg:20
+#, kde-format
+msgid "Width of saved background"
+msgstr ""
+
+#. i18n: ectx: label, entry (SavedBackgroundHeight), group (General)
+#: katomic.kcfg:24
+#, kde-format
+msgid "Height of saved background"
+msgstr ""
+
+#. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
+#: katomic.kcfg:28
+#, kde-format
+msgid "Last played levelset"
+msgstr ""
+
+#. i18n: ectx: Menu (settings)
+#: katomicui.rc:16
+#, kde-format
+msgid "&Settings"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: katomicui.rc:25
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: levelset.cpp:264
+#, kde-format
+msgid "Noname"
+msgstr "নামহীন"
+
+#: levelsetdelegate.cpp:81
+#, kde-format
+msgid "by %1"
+msgstr ""
+
+#: levelsetdelegate.cpp:87
+#, kde-format
+msgid ", contains 1 level"
+msgid_plural ", contains %1 levels"
+msgstr[0] ""
+msgstr[1] ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: levelsetwidget.ui:20
+#, kde-format
+msgid "Choose a level set to play:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
+#: levelsetwidget.ui:45
+#, fuzzy, kde-format
+#| msgid "6 new levels"
+msgid "Get new levels"
+msgstr "৬টি নতুন স্তর"
+
+#: main.cpp:44
+#, kde-format
+msgid "KAtomic"
+msgstr "কে-অ্যাটমিক"
+
+#: main.cpp:46
+#, fuzzy, kde-format
+#| msgid "KDE Atomic Entertainment Game"
+msgid "Atomic Entertainment Game"
+msgstr "কেডিই-র পারমাণবিক বিনোদন খেলা"
+
+#: main.cpp:48
+#, kde-format
+msgid ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+msgstr ""
+
+#: main.cpp:49
+#, kde-format
+msgid "Andreas Wuest"
+msgstr ""
+
+#: main.cpp:49
+#, kde-format
+msgid "Original author"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Porting to KDE4. Current maintainer"
+msgstr ""
+
+#: main.cpp:51
+#, kde-format
+msgid "Stephan Kulow"
+msgstr ""
+
+#: main.cpp:52
+#, kde-format
+msgid "Cristian Tibirna"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Carsten Pfeiffer"
+msgstr ""
+
+#: main.cpp:54
+#, kde-format
+msgid "Dave Corrie"
+msgstr ""
+
+#: main.cpp:55
+#, kde-format
+msgid "Kai Jung"
+msgstr ""
+
+#: main.cpp:55
+#, kde-format
+msgid "6 new levels"
+msgstr "৬টি নতুন স্তর"
+
+#: main.cpp:56
+#, kde-format
+msgid "Danny Allen"
+msgstr ""
+
+#: main.cpp:56
+#, kde-format
+msgid "Game graphics and application icon"
+msgstr "গ্রাফিক্স ও অ্যাপলিকেশনের আইকন"
+
+#: main.cpp:57
+#, kde-format
+msgid "Johann Ollivier Lapeyre"
+msgstr ""
+
+#: main.cpp:57
+#, kde-format
+msgid "New great SVG artwork for KDE4"
+msgstr ""
+
+#: main.cpp:58
+#, kde-format
+msgid "Brian Croom"
+msgstr ""
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to use KGameRenderer"
+msgstr ""
+
+#: main.cpp:64
+#, kde-format
+msgid "Enable access to all levels"
+msgstr ""
+
+#: main.cpp:75
+#, kde-format
+msgid ""
+"KAtomic failed to find its default level set and will quit. Please check "
+"your installation."
+msgstr ""
+
+#: toplevel.cpp:41
+#, fuzzy, kde-format
+msgid "Level:"
+msgstr "স্তর: %1"
+
+#: toplevel.cpp:42
+#, kde-format
+msgid "Current score:"
+msgstr ""
+
+#: toplevel.cpp:43
+#, kde-format
+msgid "Highscore:"
+msgstr "সেরা স্কোর:"
+
+#: toplevel.cpp:90
+#, fuzzy, kde-format
+#| msgid "Previous Atom"
+msgid "Previous Level"
+msgstr "পূর্ববর্তী পরমাণু"
+
+#: toplevel.cpp:97
+#, fuzzy, kde-format
+msgid "Next Level"
+msgstr "স্তর: %1"
+
+#: toplevel.cpp:103
+#, kde-format
+msgid "Choose level set..."
+msgstr ""
+
+#: toplevel.cpp:107
+#, fuzzy, kde-format
+msgid "Animation Speed"
+msgstr "অ্যানিমেশনের গতি:"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Slow"
+msgstr ""
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Normal"
+msgstr ""
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Fast"
+msgstr ""
+
+#: toplevel.cpp:117
+#, kde-format
+msgid "Undo All"
+msgstr ""
+
+#: toplevel.cpp:122
+#, kde-format
+msgid "Redo All"
+msgstr ""
+
+#: toplevel.cpp:136
+#, kde-format
+msgid "Atom Up"
+msgstr "পরমাণুকে উপরে নাও"
+
+#: toplevel.cpp:142
+#, kde-format
+msgid "Atom Down"
+msgstr "পরমাণুকে নিচে নাও"
+
+#: toplevel.cpp:148
+#, kde-format
+msgid "Atom Left"
+msgstr "পরমাণুকে বামে নাও"
+
+#: toplevel.cpp:154
+#, kde-format
+msgid "Atom Right"
+msgstr "পরমাণুকে ডানে নাও"
+
+#: toplevel.cpp:160
+#, kde-format
+msgid "Next Atom"
+msgstr "পরবর্তী পরমাণু"
+
+#: toplevel.cpp:166
+#, kde-format
+msgid "Previous Atom"
+msgstr "পূর্ববর্তী পরমাণু"
+
+#: toplevel.cpp:187
+#, fuzzy, kde-format
+#| msgid "Level: %1"
+msgid "Level: %1 (%2)"
+msgstr "স্তর: %1"
+
+#: toplevel.cpp:188
+#, kde-format
+msgid "Current score: %1"
+msgstr ""
+
+#: toplevel.cpp:194
+#, fuzzy, kde-format
+msgid "Highscore: %1"
+msgstr "সেরা স্কোর:"
+
+#~ msgid "Water"
+#~ msgstr "পানি"
+
+#~ msgid "Formic Acid"
+#~ msgstr "ফরমিক এসিড"
+
+#~ msgid "Acetic Acid"
+#~ msgstr "অ্যাসিটিক এসিড"
+
+#~ msgid "trans-Butene"
+#~ msgstr "ট্রান্স-বিউটেন"
+
+#~ msgid "cis-Butene"
+#~ msgstr "cis-বিউটেন"
+
+#~ msgid "Dimethyl ether"
+#~ msgstr "ডাইমিথাইল ইথার"
+
+#~ msgid "Butanol"
+#~ msgstr "বিউটানল"
+
+#~ msgid "2-Methyl-2-Propanol"
+#~ msgstr "২-মিথাইল-২-প্রোপানল"
+
+#~ msgid "Glycerin"
+#~ msgstr "গ্লিসারিন"
+
+#~ msgid "Poly-Tetra-Fluoro-Ethene"
+#~ msgstr "পলি-টেট্রা-ফ্লুরো-ইথিন"
+
+#~ msgid "Oxalic Acid"
+#~ msgstr "অক্সালিক এসিড"
+
+#~ msgid "Methane"
+#~ msgstr "মিথেন"
+
+#~ msgid "Formaldehyde"
+#~ msgstr "ফরমালডিহাইড"
+
+#~ msgid "Crystal 1"
+#~ msgstr "ক্রিস্টাল ১"
+
+#~ msgid "Acetic acid ethyl ester"
+#~ msgstr "অ্যাসিটিক এসিড ইথাইল ইস্টার"
+
+#~ msgid "Ammonia"
+#~ msgstr "অ্যামোনিয়া"
+
+#~ msgid "3-Methyl-Pentane"
+#~ msgstr "৩-মিথাইল-পেন্টেন"
+
+#~ msgid "Propanal"
+#~ msgstr "প্রোপানল"
+
+#~ msgid "Propyne"
+#~ msgstr "প্রোপেন"
+
+#~ msgid "Furanal"
+#~ msgstr "ফুরানল"
+
+#~ msgid "Pyran"
+#~ msgstr "পাইরান"
+
+#~ msgid "Cyclo-Pentane"
+#~ msgstr "সাইক্লো-পেন্টেন"
+
+#~ msgid "Methanol"
+#~ msgstr "মিথানল"
+
+#~ msgid "Nitro-Glycerin"
+#~ msgstr "নাইট্রো-গ্লিসারিন"
+
+#~ msgid "Ethane"
+#~ msgstr "ইথেন"
+
+#~ msgid "Crystal 2"
+#~ msgstr "ক্রিস্টাল ২"
+
+#~ msgid "Ethylene-Glycol"
+#~ msgstr "ইথিলিন-গ্লাইকল"
+
+#~ msgid "L-Alanine"
+#~ msgstr "এল-অ্যালানাইন"
+
+#~ msgid "Cyanoguanidine"
+#~ msgstr "সাইনোগুয়ানিডাইন"
+
+#~ msgid "Prussic Acid (Cyanic Acid)"
+#~ msgstr "প্রুসিক এসিড (সিয়ানিক এসিড)"
+
+#~ msgid "Anthracene"
+#~ msgstr "অ্যানথ্রাসিন"
+
+#~ msgid "Thiazole"
+#~ msgstr "থিয়াজল"
+
+#~ msgid "Saccharin"
+#~ msgstr "স্যাকারিন"
+
+#~ msgid "Ethylene"
+#~ msgstr "ইথাইল"
+
+#~ msgid "Styrene"
+#~ msgstr "স্টাইরেন"
+
+#~ msgid "Melamine"
+#~ msgstr "ম্যালামাইন"
+
+#~ msgid "Cyclobutane"
+#~ msgstr "সাইক্লোবিউটেন"
+
+#~ msgid "Nicotine"
+#~ msgstr "নিকোটিন"
+
+#~ msgid "Acetyle salicylic acid"
+#~ msgstr "অ্যাসিটাইল স্যালিসাইক্লিক এসিড"
+
+#~ msgid "Meta-Di-Nitro-Benzene"
+#~ msgstr "মেটা-ডাই-নাইট্রো-বেনজিন"
+
+#~ msgid "Malonic Acid"
+#~ msgstr "মালোনিক এসিড"
+
+#~ msgid "2,2-Dimethylpropane"
+#~ msgstr "২,২-ডাইমিথাইলপ্রোপেন"
+
+#~ msgid "Ethyl-Benzene"
+#~ msgstr "ইথাইল-বেনজিন"
+
+#~ msgid "Propene"
+#~ msgstr "প্রোপেন"
+
+#~ msgid "L-Asparagine"
+#~ msgstr "এল-অ্যাসপারাজাইন"
+
+#~ msgid "1,3,5,7-Cyclooctatetraene"
+#~ msgstr "১,৩,৫,৭-সাইক্লোঅক্টাটেটট্রেন"
+
+#~ msgid "Vanillin"
+#~ msgstr "ভ্যানিলিন"
+
+#~ msgid "Crystal 3"
+#~ msgstr "ক্রিস্টাল ৩"
+
+#~ msgid "Uric Acid"
+#~ msgstr "ইউরিক এসিড"
+
+#~ msgid "Thymine"
+#~ msgstr "থিয়ামাইন"
+
+#~ msgid "Aniline"
+#~ msgstr "অ্যানিলাইন"
+
+#~ msgid "Chloroform"
+#~ msgstr "ক্লোরোফর্ম"
+
+#~ msgid "Carbonic acid"
+#~ msgstr "কার্বোনিক এসিড"
+
+#~ msgid "Crystal 4"
+#~ msgstr "ক্রিস্টাল ৪"
+
+#~ msgid "Ethanol"
+#~ msgstr "ইথানল"
+
+#~ msgid "Acrylo-Nitril"
+#~ msgstr "অ্যাক্রাইলো-নাইট্রিল"
+
+#~ msgid "Furan"
+#~ msgstr "ফুরান"
+
+#~ msgid "l-Lactic acid"
+#~ msgstr "আই-ল্যাকটিক এসিড"
+
+#~ msgid "Maleic Acid"
+#~ msgstr "মেলাইক এসিড"
+
+#~ msgid "meso-Tartaric acid"
+#~ msgstr "মেসো-টার্টারিক এসিড"
+
+#~ msgid "Crystal 5"
+#~ msgstr "ক্রিস্টাল ৪"
+
+#~ msgid "Formic acid ethyl ester"
+#~ msgstr "ফর্মিক এসিড ইথাইল ইস্টার"
+
+#~ msgid "1,4-Cyclohexadiene"
+#~ msgstr "১,৪-সাইক্লোহেক্সাডাইন"
+
+#~ msgid "Squaric acid"
+#~ msgstr "স্কয়ারিক এসিড"
+
+#~ msgid "Ascorbic acid"
+#~ msgstr "অ্যাসকর্বিক এসিড"
+
+#, fuzzy
+#~| msgid "Iso-Propanol"
+#~ msgid "Isopropanol"
+#~ msgstr "আইসো-প্রোপানল"
+
+#~ msgid "Phosgene"
+#~ msgstr "ফসজিন"
+
+#~ msgid "Thiophene"
+#~ msgstr "থিয়োফেন"
+
+#~ msgid "Urea"
+#~ msgstr "ইউরিয়া"
+
+#~ msgid "Pyruvic Acid"
+#~ msgstr "পাইরুভিক এসিড"
+
+#~ msgid "Ethylene oxide"
+#~ msgstr "ইথাইল অক্সাইড"
+
+#~ msgid "Phosphoric Acid"
+#~ msgstr "ফসফরিক এসিড"
+
+#~ msgid "Diacetyl"
+#~ msgstr "ডাইঅ্যাসিটাইল"
+
+#~ msgid "trans-Dichloroethene"
+#~ msgstr "ট্রান্স-ডাইক্লোরোইথেন"
+
+#~ msgid "Allylisothiocyanate"
+#~ msgstr "অ্যালাইলআইসোথিওসায়ানেট"
+
+#~ msgid "Diketene"
+#~ msgstr "ডাইকিটেন"
+
+#~ msgid "Ethanal"
+#~ msgstr "ইথানল"
+
+#~ msgid "Acroleine"
+#~ msgstr "অ্যাক্রোলিন"
+
+#~ msgid "Uracil"
+#~ msgstr "ইউরাসিল"
+
+#~ msgid "Caffeine"
+#~ msgstr "ক্যাফেইন"
+
+#~ msgid "Acetone"
+#~ msgstr "অ্যাসিটোন"
+
+#, fuzzy
+#~ msgid "Propan-2-ol"
+#~ msgstr "প্রোপানল"
+
+#, fuzzy
+#~| msgid "Highscore:"
+#~ msgid "Highscores"
+#~ msgstr "সেরা স্কোর:"
+
+#, fuzzy
+#~| msgid "You solved level %1 with %2 moves!"
+#~ msgid ""
+#~ "Congratulations! You solved level %1 with %2 moves!\n"
+#~ " Advance to the next one?"
+#~ msgstr "আপনি %2-টি চালের সাহায্যে %1-তম স্তর অতিক্রম করেছেন!"
+
+#~ msgid "Congratulations"
+#~ msgstr "অভিনন্দন"
+
+#~ msgid "Score"
+#~ msgstr "স্কোর"
+
+#~ msgid "Your score so far:"
+#~ msgstr "এ পর্যন্ত আপনার স্কোর:"
+
+#~ msgid "Show &Highscores"
+#~ msgstr "সেরা স্কো&র দেখাও"

@@ -1,0 +1,343 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: katomic\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"PO-Revision-Date: 2021-01-23 10:27+0000\n"
+"Last-Translator: Pedro Morais <morais@kde.org>\n"
+"Language-Team: pt <kde-i18n-pt@kde.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-POFile-SpellExtra: KAtomic etil Acetisalicílico Uracil Acid\n"
+"X-POFile-SpellExtra: Cyclooctatetraene Nitril Phosgene Butanol acid ether\n"
+"X-POFile-SpellExtra: ethyl Dimethylpropane Tartárico Estireno Melamina Di\n"
+"X-POFile-SpellExtra: Acrylo Propinal Malónico Prússico Cyanoguanidine\n"
+"X-POFile-SpellExtra: Furan ester Pentano Anthracene Dicloroeteno Propene\n"
+"X-POFile-SpellExtra: Diqueteno Cyclohexadiene Tetra Propanol Furanal\n"
+"X-POFile-SpellExtra: Ciclobutano Diacetil Formaldeído Ethanal Málico\n"
+"X-POFile-SpellExtra: Metilo Alilisotiocianato Etil Alanine Pyran Dimethyl\n"
+"X-POFile-SpellExtra: Vanillin Thymine Acetic Thiazole Asparagine Buteno\n"
+"X-POFile-SpellExtra: Fluoro Acrolénio Maleic trans Iso Pirúvico cis meso\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-POFile-SpellExtra: Lapeyre Andreas Tibirna Pfeiffer Suzdalev Propino Kai\n"
+"X-POFile-SpellExtra: Johann Danny Kulow Dave ol Stephan Wuest Dmitry\n"
+"X-POFile-SpellExtra: Ollivier Carsten Corrie Cristian Isopropanol\n"
+"X-POFile-SpellExtra: KGameRenderer Brian Croom\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "José Nuno Pires,Pedro Morais"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zepires@gmail.com,morais@kde.org"
+
+#: chooselevelsetdialog.cpp:29
+#, kde-format
+msgid "Level Sets"
+msgstr "Conjuntos de Níveis"
+
+#: gamewidget.cpp:84
+#, kde-format
+msgid ""
+"Failed to load level set \"%1\". Check if it is installed on your computer."
+msgstr ""
+"Não foi possível carregar o pacote de níveis \"%1\". Verifique se está "
+"instalado no seu computador."
+
+#: gamewidget.cpp:140
+#, kde-format
+msgid "Level %1 finished. "
+msgstr "Nível %1 terminado."
+
+#: gamewidget.cpp:144
+#, kde-format
+msgid "Congratulations! You have a new highscore!"
+msgstr "Parabéns! Obteve um novo recorde!"
+
+#. i18n: ectx: label, entry (AnimationSpeed), group (Game)
+#: katomic.kcfg:9
+#, kde-format
+msgid "The speed of the animations."
+msgstr "A velocidade das animações."
+
+#. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
+#: katomic.kcfg:20
+#, kde-format
+msgid "Width of saved background"
+msgstr "Largura do fundo gravado"
+
+#. i18n: ectx: label, entry (SavedBackgroundHeight), group (General)
+#: katomic.kcfg:24
+#, kde-format
+msgid "Height of saved background"
+msgstr "Altura do fundo gravado"
+
+#. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
+#: katomic.kcfg:28
+#, kde-format
+msgid "Last played levelset"
+msgstr "Último pacote de níveis jogado"
+
+#. i18n: ectx: Menu (settings)
+#: katomicui.rc:16
+#, kde-format
+msgid "&Settings"
+msgstr "&Configuração"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: katomicui.rc:25
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Barra Principal"
+
+#: levelset.cpp:264
+#, kde-format
+msgid "Noname"
+msgstr "Sem Nome"
+
+#: levelsetdelegate.cpp:81
+#, kde-format
+msgid "by %1"
+msgstr "por %1"
+
+#: levelsetdelegate.cpp:87
+#, kde-format
+msgid ", contains 1 level"
+msgid_plural ", contains %1 levels"
+msgstr[0] ", contém 1 nível"
+msgstr[1] ", contém %1 níveis"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: levelsetwidget.ui:20
+#, kde-format
+msgid "Choose a level set to play:"
+msgstr "Escolha um conjunto de níveis a jogar:"
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
+#: levelsetwidget.ui:45
+#, kde-format
+msgid "Get new levels"
+msgstr "Obter níveis novos"
+
+#: main.cpp:44
+#, kde-format
+msgid "KAtomic"
+msgstr "KAtomic"
+
+#: main.cpp:46
+#, kde-format
+msgid "Atomic Entertainment Game"
+msgstr "Jogo de Entretenimento Atómico"
+
+#: main.cpp:48
+#, kde-format
+msgid ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+msgstr ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
+
+#: main.cpp:49
+#, kde-format
+msgid "Andreas Wuest"
+msgstr "Andreas Wuest"
+
+#: main.cpp:49
+#, kde-format
+msgid "Original author"
+msgstr "Autor original"
+
+#: main.cpp:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: main.cpp:50
+#, kde-format
+msgid "Porting to KDE4. Current maintainer"
+msgstr "Mudança para o KDE4. Manutenção actual"
+
+#: main.cpp:51
+#, kde-format
+msgid "Stephan Kulow"
+msgstr "Stephan Kulow"
+
+#: main.cpp:52
+#, kde-format
+msgid "Cristian Tibirna"
+msgstr "Cristian Tibirna"
+
+#: main.cpp:53
+#, kde-format
+msgid "Carsten Pfeiffer"
+msgstr "Carsten Pfeiffer"
+
+#: main.cpp:54
+#, kde-format
+msgid "Dave Corrie"
+msgstr "Dave Corrie"
+
+#: main.cpp:55
+#, kde-format
+msgid "Kai Jung"
+msgstr "Kai Jung"
+
+#: main.cpp:55
+#, kde-format
+msgid "6 new levels"
+msgstr "6 níveis novos"
+
+#: main.cpp:56
+#, kde-format
+msgid "Danny Allen"
+msgstr "Danny Allen"
+
+#: main.cpp:56
+#, kde-format
+msgid "Game graphics and application icon"
+msgstr "Gráficos do jogo e ícone da aplicação"
+
+#: main.cpp:57
+#, kde-format
+msgid "Johann Ollivier Lapeyre"
+msgstr "Johann Ollivier Lapeyre"
+
+#: main.cpp:57
+#, kde-format
+msgid "New great SVG artwork for KDE4"
+msgstr "Novos gráficos em SVG óptimos para o KDE4"
+
+#: main.cpp:58
+#, kde-format
+msgid "Brian Croom"
+msgstr "Brian Croom"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to use KGameRenderer"
+msgstr "Modificações para usar o KGameRenderer"
+
+#: main.cpp:64
+#, kde-format
+msgid "Enable access to all levels"
+msgstr "Activar o acesso a todos os níveis"
+
+#: main.cpp:75
+#, kde-format
+msgid ""
+"KAtomic failed to find its default level set and will quit. Please check "
+"your installation."
+msgstr ""
+"O KAtomic não conseguiu encontrar o seu conjunto de níveis predefinido e irá "
+"sair. Verifique por favor a sua instalação."
+
+#: toplevel.cpp:41
+#, kde-format
+msgid "Level:"
+msgstr "Nível:"
+
+#: toplevel.cpp:42
+#, kde-format
+msgid "Current score:"
+msgstr "Pontuação actual:"
+
+#: toplevel.cpp:43
+#, kde-format
+msgid "Highscore:"
+msgstr "Melhor pontuação:"
+
+#: toplevel.cpp:90
+#, kde-format
+msgid "Previous Level"
+msgstr "Nível Anterior"
+
+#: toplevel.cpp:97
+#, kde-format
+msgid "Next Level"
+msgstr "Nível Seguinte"
+
+#: toplevel.cpp:103
+#, kde-format
+msgid "Choose level set..."
+msgstr "Escolher o conjunto de níveis..."
+
+#: toplevel.cpp:107
+#, kde-format
+msgid "Animation Speed"
+msgstr "Velocidade da Animação"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Slow"
+msgstr "Lenta"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Normal"
+msgstr "Normal"
+
+#: toplevel.cpp:110
+#, kde-format
+msgid "Fast"
+msgstr "Rápida"
+
+#: toplevel.cpp:117
+#, kde-format
+msgid "Undo All"
+msgstr "Desfazer Tudo"
+
+#: toplevel.cpp:122
+#, kde-format
+msgid "Redo All"
+msgstr "Refazer Tudo"
+
+#: toplevel.cpp:136
+#, kde-format
+msgid "Atom Up"
+msgstr "Cima"
+
+#: toplevel.cpp:142
+#, kde-format
+msgid "Atom Down"
+msgstr "Baixo"
+
+#: toplevel.cpp:148
+#, kde-format
+msgid "Atom Left"
+msgstr "Esquerda"
+
+#: toplevel.cpp:154
+#, kde-format
+msgid "Atom Right"
+msgstr "Direita"
+
+#: toplevel.cpp:160
+#, kde-format
+msgid "Next Atom"
+msgstr "Átomo Seguinte"
+
+#: toplevel.cpp:166
+#, kde-format
+msgid "Previous Atom"
+msgstr "Átomo Anterior"
+
+#: toplevel.cpp:187
+#, kde-format
+msgid "Level: %1 (%2)"
+msgstr "Nível: %1 (%2)"
+
+#: toplevel.cpp:188
+#, kde-format
+msgid "Current score: %1"
+msgstr "Pontuação actual: %1"
+
+#: toplevel.cpp:194
+#, kde-format
+msgid "Highscore: %1"
+msgstr "Recorde: %1"
