@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-26 00:42+0000\n"
-"PO-Revision-Date: 2022-09-30 15:07+0200\n"
+"PO-Revision-Date: 2022-11-27 11:23+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -37,7 +37,7 @@ msgstr "დონეების ნაკრებები"
 #, kde-format
 msgid ""
 "Failed to load level set \"%1\". Check if it is installed on your computer."
-msgstr ""
+msgstr "შეცდომა დონის \"%1\" ჩატვირთვისას. დარწმუნდით, რომ ის დაყენებულია."
 
 #: gamewidget.cpp:140
 #, kde-format
@@ -151,7 +151,7 @@ msgstr "Dmitry Suzdalev"
 #: main.cpp:50
 #, kde-format
 msgid "Porting to KDE4. Current maintainer"
-msgstr ""
+msgstr "გადატანა KDE4 -ზე. პროექტის მიმდინარე ლიდერი"
 
 #: main.cpp:51
 #, kde-format
@@ -191,7 +191,7 @@ msgstr "Danny Allen"
 #: main.cpp:56
 #, kde-format
 msgid "Game graphics and application icon"
-msgstr ""
+msgstr "ტამაშის გრაფიკა და აპლიკაციის ხატულა"
 
 #: main.cpp:57
 #, kde-format
@@ -201,7 +201,7 @@ msgstr "Johann Ollivier Lapeyre"
 #: main.cpp:57
 #, kde-format
 msgid "New great SVG artwork for KDE4"
-msgstr ""
+msgstr "ახალი SVG სურათები თამაშის KDE4-ის ვერსიისთვის"
 
 #: main.cpp:58
 #, kde-format
@@ -224,6 +224,8 @@ msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "
 "your installation."
 msgstr ""
+"KAtomic-მა ნაგულისხმები დონის სეტი ვერ იპოვა და მუშაობას ასრულებს. შეამოწმეთ "
+"პროგრამის ფაილები."
 
 #: toplevel.cpp:41
 #, kde-format
