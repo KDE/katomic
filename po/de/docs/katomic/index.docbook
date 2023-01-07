@@ -1,324 +1,757 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY % English "INCLUDE" > <!-- change language only here -->
-  <!ENTITY % addindex "IGNORE"> <!-- do not change this! -->
+  <!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"
+> <!-- do not change this! -->
 ]>
-
-<book id="katomic" lang="&language;"> <!-- do not change this! -->
+ 
+<book id="katomic" lang="&language;"
+> <!-- do not change this! -->
 <bookinfo>
-<title>The &katomic; Handbook</title> <!-- This is the title of the docbook. Leave as is unless change is necessary.-->
+<title
+>Das Handbuch zu &katomic;</title
+> <!-- This is the title of the docbook. Leave as is unless change is necessary.-->
 <!-- List of immediate authors begins here. -->
 <!--INPORTANT! - All other contributors: [to be determined] -->
 <authorgroup>
-<author>
-<firstname>Dirk</firstname>
-<surname>Doerflinger</surname>
+<author
+><firstname
+>Dirk</firstname
+> <surname
+>Doerflinger</surname
+> </author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
 </author>
-<author>
-<firstname>Eugene</firstname><surname>Trounev</surname>
-<affiliation><address><email>eugene.trounev@gmail.com</email></address></affiliation>
-</author>
-<othercredit role="reviewer">
-<firstname>Mike</firstname><surname>McBride</surname>
-<contrib>Reviewer</contrib>
-<affiliation><address>&Mike.McBride.mail;</address></affiliation>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Korrektur</contrib>
+<affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
 </othercredit>
-<!-- TRANS:ROLES_OF_TRANSLATORS -->
+<othercredit role="translator"
+><firstname
+>Maren</firstname
+><surname
+>Pakura</surname
+><affiliation
+><address
+><email
+>maren@kde.org</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Matthias</firstname
+><surname
+>Kiefer</surname
+><affiliation
+><address
+><email
+>kiefer@kde.org</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit
+> 
 </authorgroup>
-<legalnotice>&FDLNotice;</legalnotice>
-<date>2021-10-13</date>
-<releaseinfo>KDE Gear 21.08</releaseinfo>
-
+<legalnotice
+>&FDLNotice;</legalnotice
+> 
+<date
+>2016-05-09</date>
+<releaseinfo
+>4.0 (Anwendungen 16.04)</releaseinfo>
+ 
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
-  <para>This documentation describes the game of &katomic; version 21.08</para>
+	<para
+>Dieses Handbuch beschreibt das Spiel &katomic; in der Version 4.0</para>
 </abstract>
-
+ 
 <!--List of relevan keywords-->
 <keywordset>
-  <keyword>KDE</keyword> <!-- do not change this! -->
-  <keyword>game</keyword> <!-- do not change this! -->
-  <keyword>Katomic</keyword><!--Application name goes here-->
+	<keyword
+>KDE</keyword
+> <!-- do not change this! -->
+	<keyword
+>kdegames</keyword
+> <!-- do not change this! -->
+	<keyword
+>Spiel</keyword
+> <!-- do not change this! -->
+	<keyword
+>Katomic</keyword
+><!--Application name goes here-->
 <!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
-  <keyword>arcade</keyword>
-  <keyword>logic</keyword>
-  <keyword>atoms</keyword>
-  <keyword>socoban</keyword>
+	<keyword
+>Arcade</keyword>
+	<keyword
+>Logik</keyword>
+	<keyword
+>Atome</keyword>
+	<keyword
+>Sokoban</keyword>
 <!--Number of possible players. It can be: One, Two,..., Multiplayer-->
-  <keyword>one player</keyword>
+	<keyword
+>ein Spieler</keyword>
 <!--All other relevant keywords-->
-  <keyword>chemical elements</keyword>
-  <keyword>reassemble the molecule</keyword>
+	<keyword
+>chemische Elemente</keyword>
+	<keyword
+>Moleküle zusammensetzen</keyword>
 </keywordset>
 </bookinfo>
 <!--Content begins here: -->
-<chapter id="introduction"><title>Introduction</title> <!-- do not change this! -->
-  <note><title>Gametype:</title><para>Logic, Arcade</para></note><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
-  <note><title>Number of possible players:</title><para>One</para></note><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
-
+<chapter id="introduction"
+><title
+>Einführung</title
+> <!-- do not change this! -->
+	<note
+><title
+>Spieltyp:</title
+><para
+>Logik, Arcade</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note
+><title
+>Anzahl der Spieler:</title
+><para
+>Einer</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+ 
 <!--Short game description starts here. 3-4 sentences (paragraphs)-->
-  <para>
-  &katomic; is a fun and educational game built around molecular geometry. It employs a simplistic two-dimensional look at the elements which comprise a molecule. A molecule is disassembled into its separate atoms and scattered around the playing field. The player must reassemble the molecule in order to complete the current level and move up to the next one.
-  </para>
+	<para
+>&katomic; ist sowohl ein unterhaltsames als auch lehrreiches Spiel über molekulare Strukturen. Es verwendet eine vereinfachte zweidimensionale Ansicht der zum Molekül gehörenden Elemente. Ein Molekül ist in seine verschiedenen Atome aufgeteilt und auf dem Spielfeld verstreut. Um die aktuelle Ebene abzuschließen und zur nächsten zu gelangen, muss der Spieler die Moleküle wieder zusammensetzen. </para>
 </chapter>
-
-<chapter id="howto"><title>How to Play</title> <!-- do not change this! -->
-
+ 
+<chapter id="howto"
+><title
+>Spielanleitung</title
+> <!-- do not change this! -->
 <screenshot>
-  <mediaobject>
-    <imageobject><imagedata fileref="mainscreen.png" format="PNG"/></imageobject>
-    <textobject><phrase>&katomic; main screen</phrase></textobject>
-  </mediaobject>
+<mediaobject>
+<imageobject>
+<imagedata fileref="mainscreen.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&katomic;Hauptfenster</phrase>
+</textobject>
+</mediaobject>
 </screenshot>
-
 <!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
-  <note><title>Objective:</title><para>Reassemble molecules from compound atoms by sliding them around.</para></note><!--Describe the objective of the game.-->
+	<note
+><title
+>Ziel des Spiels:</title
+><para
+>Bauen Sie die Moleküle wieder zusammen, indem Sie die Atome durch Umherschieben verbinden.</para
+></note
+><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
-  <para>
-  &katomic; will load level one once you start the game and you can begin playing right away. To see how the molecule you are supposed to make looks like, take a look at the upper right corner. To play, click on an atom. You will see green arrows pointing in the directions where atom can move. To move the atom, click on the desired arrow. When an atom starts moving, it will not stop until it hits another atom or a wall, so make sure you think before you do your next move. You can assemble your molecule wherever you like on the game board, but some places are easier to access than others. When the molecule is assembled, you can move to the next level.
-  </para>
+	<para
+>&katomic; wird die erste Ebene laden, wenn Sie das Spiel starten und Sie können umgehend beginnen. In der rechten oberen Ecke sehen Sie die richtige Zusammensetzung der Moleküle, die Sie bauen sollen. Um zu spielen, klicken Sie auf ein Atom. Sie werden dann grüne Pfeile sehen, die in die Richtungen deuten, in die das Atom bewegt werden kann. Um das Atom zu bewegen, klicken Sie auf den gewünschten Pfeil. Ein Atom hört erst auf, sich zu bewegen, wenn es auf ein anderes Atom oder eine Wand trifft; überlegen Sie sich ihre nächsten Züge also gut. Sie können Ihr Molekül an jedem Ort des Spielfeldes zusammenbauen, aber manche Orte sind einfacher zu erreichen als andere. Wenn ein Molekül zusammengebaut wurde, erreichen Sie die nächste Ebene. </para>
 </chapter>
-
-<chapter id="rules_and_tips"><title>Game Rules, Strategies and Tips</title> <!-- do not change this! -->
-  <!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
-  <sect1 id="games_rules"><title>Game Rules</title>    
-    <itemizedlist>
-      <listitem><para>Game pieces can only move in one direction at a time.</para></listitem>
-      <listitem><para>Once an atom begins moving it will not stop until it meets either a wall or another piece.</para></listitem>
-      <listitem><para>The only way to progress to the next game level is to complete a current one. Once a player completes a certain level the game automatically switches to the next one, thus <quote>uncovering it</quote>.</para></listitem>
-      <listitem><para>A player can only switch between the levels which have been uncovered.</para></listitem>
-      <listitem><para>The game progress is automatically saved every time an adjacent level is reached, and will be reloaded the next time application is started.</para></listitem>
-    </itemizedlist>
-  </sect1>
-  <sect1 id="tips"><title>Strategies and Tips</title>
-    <itemizedlist>
-      <listitem><para>Always review the complete molecule using the reference screen before making any moves.</para></listitem>
-      <listitem><para>Next, study the play field and plan your moves. Remember, once a piece is moved it may not be possible to return it into the starting position.</para></listitem>
-      <listitem><para>Think through your every move and try to visualize the trajectory piece will follow once a directional arrow is clicked.</para></listitem>
-      <listitem><para>When using the keyboard to move pieces make sure that the desired piece is selected. If a wrong atom is marked as selected, use the &Tab; key to switch between the pieces until you reach a desired one.</para></listitem>
-    </itemizedlist>
-  </sect1>
-</chapter>
-
-<chapter id="interface"><title>Interface Overview</title> <!-- do not change this! -->
-<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist> and <varlistentry>. Split the chapter into sections using <sect1(2,3)> for better viewing.-->
+ 
+<chapter id="rules_and_tips"
+><title
+>Spielregeln, Spielstrategien und Tipps</title
+> <!-- do not change this! -->
+	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+	<sect1 id="games_rules"
+><title
+>Spielregeln</title
+>		
+		<itemizedlist>
+			<listitem
+><para
+>Spielsteine können bei jedem Zug nur in eine Richtung bewegt werden.</para
+></listitem>
+			<listitem
+><para
+>Sobald ein Atom sich bewegt, stoppt es erst, wenn es an eine Wand oder ein anderes Atom stößt.</para
+></listitem>
+			<listitem
+><para
+>Um zur nächsten Ebene zu gelangen, müssen Sie zuerst die aktuelle abschließen. Sobald ein Spieler eine bestimmte Ebene abschließt, wird die nächste automatisch freigegeben und geöffnet.</para
+></listitem>
+			<listitem
+><para
+>Ein Spieler kann nur zwischen bereits freigegebenen Ebenen wechseln.</para
+></listitem>
+			<listitem
+><para
+>Der Spielverlauf wird bei Erreichen einer anschließenden Ebene automatisch gesichert und beim nächsten Spielstart wieder geladen.</para
+></listitem>
+		</itemizedlist>
+	</sect1>
+	<sect1 id="tips"
+><title
+>Spielstrategien und Tipps</title>
+		<itemizedlist>
+			<listitem
+><para
+>Überprüfen Sie vor jedem Spielzug das fertige Molekül über das Vorschaubild.</para
+></listitem>
+			<listitem
+><para
+>Prüfen Sie als nächstes das Spielfeld und planen Sie Ihre Züge. Bedenken Sie, dass es nicht immer möglich ist, ein einmal bewegtes Atom in die Startposition zurück zu bringen.</para
+></listitem>
+			<listitem
+><para
+>Überlegen Sie sich jeden Zug und versuchen Sie, sich den Verlauf vorzustellen, den das Atom nimmt, wenn Sie auf einen der Richtungspfeile klicken.</para
+></listitem>
+			<listitem
+><para
+>Wenn Sie die Tastatur zum Bewegen der Atome verwenden, stellen Sie vorher sicher, dass das richtige Atom ausgewählt ist. Sie können die &Tab;-Taste benutzen, um die Auswahl der Atome zu wechseln.</para
+></listitem>
+		</itemizedlist>
+	</sect1>
+</chapter
+> 
+ 
+<chapter id="interface"
+><title
+>Die Benutzeroberfläche</title
+> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
+> and <varlistentry
+>. Split the chapter into sections using <sect1(2,3)
+> for better viewing.-->
 <sect1 id="menu">
-<title>Menu Items</title>
+<title
+>Menüeinträge</title>
 
 <variablelist>
-  <varlistentry>
-    <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo> </shortcut>
-    <guimenu>Game</guimenu>
-    <guimenuitem>Load...</guimenuitem></menuchoice></term>
-    <listitem><para>Loads a previously saved game.</para></listitem>
-  </varlistentry>
-  <varlistentry>
-    <term><menuchoice><shortcut><keycap>F5</keycap></shortcut>
-    <guimenu>Game</guimenu>
-    <guimenuitem>Restart Game</guimenuitem></menuchoice></term>
-    <listitem><para>This will restart the current level.</para></listitem>
-  </varlistentry>
-  <varlistentry>
-    <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo> </shortcut>
-    <guimenu>Game</guimenu>
-    <guimenuitem>Save</guimenuitem></menuchoice></term>
-    <listitem><para>Saves the current state of the game to the disk.</para></listitem>
-  </varlistentry>
-  <varlistentry>
-    <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>P</keycap></keycombo> </shortcut>
-    <guimenu>Game</guimenu>
-    <guimenuitem>Previous Level</guimenuitem></menuchoice></term>
-    <listitem><para>Change to the previous game level.</para></listitem>
-  </varlistentry>
-  <varlistentry>
-    <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo> </shortcut>
-    <guimenu>Game</guimenu>
-    <guimenuitem>Next Level</guimenuitem></menuchoice></term>
-    <listitem><para>Change to the next game level.</para></listitem>
-  </varlistentry>
-  <varlistentry>
-    <term><menuchoice><guimenu>Game</guimenu>
-    <guimenuitem>Choose level set ...</guimenuitem></menuchoice></term>
-    <listitem><para>This will show all available level sets and allows you to
-    download additional sets uploaded by other users from the internet.</para></listitem>
-  </varlistentry>
-  <varlistentry>
-    <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo> </shortcut>
-    <guimenu>Game</guimenu>
-    <guimenuitem>Quit</guimenuitem></menuchoice></term>
-    <listitem><para>Selecting this item will end your current game, and exit &katomic;.</para></listitem>
-  </varlistentry>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Laden ...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Lädt ein vorher gespeichertes Spiel.</para
+></listitem>
+</varlistentry>
 
-  <varlistentry>
-    <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>Z</keycap></keycombo> </shortcut>
-    <guimenu>Move</guimenu>
-    <guimenuitem>Undo</guimenuitem></menuchoice></term>
-    <listitem><para><action>Undo the last move you made.</action></para></listitem>
-  </varlistentry>
-  <varlistentry>
-    <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;&Shift;<keycap>Z</keycap></keycombo> </shortcut>
-    <guimenu>Move</guimenu>
-    <guimenuitem>Redo</guimenuitem></menuchoice></term>
-    <listitem><para><action>If you have previously undone a move, you can redo it here.</action></para></listitem>
-  </varlistentry>
-  <varlistentry>
-    <term><menuchoice><guimenu>Move</guimenu>
-    <guimenuitem>Undo All</guimenuitem></menuchoice></term>
-    <listitem><para><action>Undo</action> all moves you made.</para></listitem>
-  </varlistentry>
-  <varlistentry>
-    <term><menuchoice><guimenu>Move</guimenu>
-    <guimenuitem>Redo All</guimenuitem></menuchoice></term>
-    <listitem><para><action>Redo</action> all undone moves.</para></listitem>
-  </varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Spiel neu starten</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Startet die aktuelle Ebene neu.</para
+></listitem>
+</varlistentry>
 
-  <varlistentry>
-    <term><menuchoice><guimenu>Settings</guimenu>
-    <guisubmenu>Animation Speed</guisubmenu></menuchoice></term>
-    <listitem><para>Set the animation speed to <guimenuitem>Slow</guimenuitem>, <guimenuitem>Normal</guimenuitem> or <guimenuitem>Fast</guimenuitem>.</para></listitem>
-  </varlistentry>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Speichern</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Speichert den aktuellen Spielstand auf die Festplatte.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Vorherige Ebene</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Wechselt zur vorherigen Ebene</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Nächste Ebene</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Wechselt zur nächsten Ebene</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Spielpaket auswählen ...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Zeigt alle verfügbaren Spielpakete und ermöglicht es, zusätzliche Pakete herunterzuladen, die von anderen Benutzern im Internet zur Verfügung gestellt werden.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Beenden</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Das Spiel wird beendet und &katomic; verlassen.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Zug</guimenu
+> <guimenuitem
+>Zurücknehmen</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Nimmt den zuletzt ausgeführten Zug wieder zurück.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Zug</guimenu
+> <guimenuitem
+>Wiederherstellen</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Wenn Sie vorher einen Zug zurückgenommen haben, können Sie den Zug hiermit wiederherstellen.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Zug</guimenu
+> <guimenuitem
+>Alles zurücknehmen</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Nimmt</action
+> alle ausgeführten Züge wieder zurück.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Zug</guimenu
+> <guimenuitem
+>Alles wiederherstellen</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Stellt</action
+> alle zurückgenommenen Züge wieder her.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guisubmenu
+>Animationsgeschwindigkeit</guisubmenu
+></menuchoice
+></term>
+<listitem
+><para
+>Stellen Sie hier die Animationsgeschwindigkeit auf <guimenuitem
+>Langsam</guimenuitem
+>, <guimenuitem
+>Normal</guimenuitem
+> oder <guimenuitem
+>Schnell</guimenuitem
+> ein.</para
+></listitem>
+</varlistentry>
+
 </variablelist>
 
-<para>
-Additionally &katomic; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
-menu items, for more information read the sections about the <ulink url="help:/fundamentals/menus.html#menus-settings"
->Settings Menu</ulink> and <ulink url="help:/fundamentals/menus.html#menus-help">Help Menu</ulink>
-of the &kde; Fundamentals.
-</para>
+<para
+>Zusätzlich hat &katomic; die bekannten &kde;-Einträge im Menü <guimenu
+>Einstellungen</guimenu
+> und <guimenu
+>Hilfe</guimenu
+>, weitere Informationen dazu finden Sie in den Abschnitten über die Menüs <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Einstellungen</ulink
+> und <ulink url="help:/fundamentals/menus.html#menus-help"
+>Hilfe</ulink
+> der &kde;-Grundlagen. </para>
 
 </sect1>
 
 <sect1 id="keybindings">
-<title id="keybindings-title">Default Keybindings</title>
+<title id="keybindings-title"
+>Standard-Tastenkürzel</title>
 
-<para>Default shortcuts are:</para>
+<para
+>Folgende Tastenkürzel sind als Standard eingestellt:</para>
 
 <table>
-<title>Shortcuts</title>
-  <tgroup cols="2">
-    <tbody>
-      <row>
-        <entry>Load</entry>
-        <entry><keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo></entry>
-      </row>
-      <row>
-        <entry>Restart Game</entry>
-        <entry><keycap>F5</keycap></entry>
-      </row>
-      <row>
-        <entry>Save</entry>
-        <entry><keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo></entry>
-      </row>
-      <row>
-        <entry>Previous Level</entry>
-        <entry><keycombo action="simul">&Ctrl;<keycap>P</keycap></keycombo></entry>
-      </row>
-      <row>
-        <entry>Next Level</entry>
-        <entry><keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo></entry>
-      </row>
-      <row>
-        <entry>Quit</entry>
-        <entry><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></entry>
-      </row>
-      <row>
-        <entry>Undo</entry>
-        <entry><keycombo action="simul">&Ctrl;<keycap>Z</keycap></keycombo></entry>
-      </row>
-      <row>
-        <entry>Redo</entry>
-        <entry><keycombo action="simul">&Ctrl;&Shift;<keycap>Z</keycap></keycombo></entry>
-      </row>
-      <row>
-        <entry>Atom Down</entry>
-        <entry>&Down; Arrow</entry>
-      </row>
-      <row>
-        <entry>Atom Left</entry>
-        <entry>&Left; Arrow</entry>
-      </row>
-      <row>
-        <entry>Atom Right</entry>
-        <entry>&Right; Arrow</entry>
-      </row>
-      <row>
-        <entry>Atom Up</entry>
-        <entry>&Up; Arrow</entry>
-      </row>
-      <row>
-        <entry>Next Atom</entry>
-        <entry>&Tab;</entry>
-      </row>
-      <row>
-        <entry>Previous Atom</entry>
-        <entry><keycombo action="simul">&Shift;&Tab;</keycombo></entry>
-      </row>
-      <row>
-        <entry>Help</entry>
-        <entry><keycap>F1</keycap></entry>
-      </row>
-      <row>
-        <entry>What's this?</entry>
-        <entry><keycombo action="simul">&Shift;<keycap>F1</keycap></keycombo></entry>
-      </row>
-    </tbody>
-  </tgroup>
+<title
+>Kurzbefehle</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>Laden</entry>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></entry>
+</row>
+<row>
+<entry
+>Spiel neu starten</entry>
+<entry>
+<keycap
+>F5</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Speichern</entry>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+</row>
+<row>
+<entry
+>Vorige Ebene</entry>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+</row>
+<row>
+<entry
+>Nächste Ebene</entry>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+</row>
+<row>
+<entry
+>Beenden</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Zurücknehmen</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Wiederherstellen</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo>
+</entry>
+</row>
+
+<row>
+<entry
+>Atom abwärts</entry>
+<entry>
+<keycap
+>Pfeil runter</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Atom nach links</entry>
+<entry>
+<keycap
+>Pfeil links</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Atom nach rechts</entry>
+<entry>
+<keycap
+>Pfeil rechts</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Atom aufwärts</entry>
+<entry>
+<keycap
+>Pfeil hoch</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Nächstes Atom</entry>
+<entry
+>&Tab;</entry>
+</row>
+<row>
+<entry
+>Vorheriges Atom</entry>
+<entry
+><keycombo action="simul"
+>&Shift;&Tab;</keycombo
+></entry>
+</row>
+<row>
+<entry
+>Hilfe</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>Was ist das?</entry>
+<entry>
+<keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+</tbody>
+</tgroup>
 </table>
 </sect1>
 
 </chapter>
-
-<chapter id="faq"><title>Frequently asked questions</title> <!-- do not change this! -->
-<!--This chapter is for frequently asked questions. Please use <qandaset> <qandaentry> only!-->
+ 
+<chapter id="faq"
+><title
+>Häufig gestellte Fragen</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
 <qandaset>
 <!--Following is a standard list of FAQ questions.-->
 <qandaentry>
- <question><para>How do I know what the molecule looks like?</para></question>
- <answer><para>You can view the molecule on the reference screen located in the top right corner of the game screen.</para></answer>
+ <question
+><para
+>Woher weiß ich, wie das Molekül aussehen muss?</para
+></question>
+ <answer
+><para
+>Sie sehen das fertige Molekül im Vorschaubild in der rechten oberen Ecke des Fensters.</para
+></answer>
 </qandaentry>
 <qandaentry>
- <question><para>How do I move a game piece (atom)?</para></question>
- <answer><para>To move a game piece (atom) use your mouse cursor to click on it. At this time the available directional icon will become visible. Click on the corresponding directional icon to make a game piece move into the desired direction. Alternatively, you can use your keyboard to move the pieces. Use the &Tab; key to switch between the items, and the cursor keys to move them once selected.</para></answer>
+ <question
+><para
+>Wie bewege ich ein Atom?</para
+></question>
+ <answer
+><para
+>Klicken Sie mit Ihrem Mauszeiger auf einen Spielstein (Atom) , um ihn zu bewegen. Die möglichen Richtungen werden durch Pfeile sichtbar. Klicken Sie auf einen Pfeil, um das Atom in die gewünschte Richtung zu bewegen. Alternativ können Sie die Tastatur verwenden. Verwenden Sie die &Tab;-Taste, um zwischen den Spielsteinen zu wechseln und die Pfeiltasten, um den ausgewählten Spielstein zu verschieben.</para
+></answer>
 </qandaentry>
 <qandaentry>
- <question><para>Can I use the keyboard to control the pieces (atoms)?</para></question>
- <answer><para>Yes. Use &Tab; key to switch between the items, and he cursor keys to move them once selected.</para></answer>
+ <question
+><para
+>Kann ich die Atome mit der Tastatur bewegen?</para
+></question>
+ <answer
+><para
+>Ja. Verwenden Sie die &Tab;-Taste, um zwischen den Atomen zu wechseln, und die Pfeiltasten, um das ausgewählte Atom zu bewegen.</para
+></answer>
 </qandaentry>
 <qandaentry>
- <question><para>When I move a piece (atom) it goes right past the place where I want it. How do I make it stop there?</para></question>
- <answer><para>You don't. Once an atom begins moving, it will not stop until it meets either a wall or another piece.</para></answer>
+ <question
+><para
+>Wenn ich ein Atom verschiebe, bewegt es sich an der gewünschten Stelle vorbei. Wie kann ich es dazu bringen, dort anzuhalten?</para
+></question>
+ <answer
+><para
+>Das ist nicht möglich. Ein Atom hört erst auf, sich in eine Richtung zu bewegen, wenn es auf eine Wand oder ein anderes Atom trifft.</para
+></answer>
 </qandaentry>
 <qandaentry>
- <question><para>I cannot beat the level. Is there a hint system, or a solver?</para></question>
-  <answer><para>No. Unfortunately at this time &katomic; does not feature a hint system. So the only way to finish a level is to solve it on your own.</para></answer>
+ <question
+><para
+>Ich kann die Ebene nicht bewältigen. Gibt es ein Hinweis-System oder eine automatische Lösung?</para
+></question>
+  <answer
+><para
+>Nein. Unglücklicherweise stellt &katomic; zurzeit kein Hinweis-System zur Verfügung. Der einzige Weg, eine Ebene zu beenden, besteht darin, sie zu bewältigen.</para
+></answer>
 </qandaentry>
 <!--Please add more Q&As if needed-->
 </qandaset>
 </chapter>
-
+ 
 <chapter id="credits">
-<title>Credits and License</title>
+<title
+>Danksagungen und Lizenz</title>
 
-<para>
-<application>Atomic Entertainment</application> Copyright 1999 &Stephan.Kulow;
-&Stephan.Kulow.mail; and &Cristian.Tibirna; &Cristian.Tibirna.mail;.
-</para>
-<para>
-Atomic Copyright Andreas Wuest <email>Andreas Wuest@gmx.de</email>.
-</para>
-<para>
-Documentation Copyright 2000 &Dirk.Doerflinger; &Dirk.Doerflinger.mail;
-</para>
-<para>
-Proofreading by &Mike.McBride; &Mike.McBride.mail;
-</para>
-<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-&underFDL;
-&underGPL;
-
-</chapter>
-
-&documentation.index;
+<para
+><application
+>Atomic Entertainment</application
+> Copyright 1999 &Stephan.Kulow; &Stephan.Kulow.mail; und Cristian Tibirna &Cristian.Tibirna.mail;. </para>
+<para
+>Copyright für Atomic: Andreas Wuest <email
+>AndreasWuest@gmx.de</email
+> </para>
+<para
+>Copyright 2000 für die Dokumentation: &Dirk.Doerflinger; <email
+>ddoerflinger@gmx.net</email
+> </para>
+<para
+>Korrektur gelesen von Michael McBride &Mike.McBride.mail; </para>
+<para
+>Deutsche Übersetzung von Matthias Kiefer <email
+>kiefer@kde.org</email
+> und Maren Pakura <email
+>maren@kde.org</email
+></para
+> &underFDL; &underGPL; </chapter>
+ 
+&documentation.index; 
 </book>
 <!--
 Local Variables:
