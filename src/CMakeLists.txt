@@ -48,10 +48,11 @@ ecm_add_app_icon(katomic ICONS ${ICONS_SRCS})
 
 target_link_libraries(katomic
     KF5KDEGames
-    KF5::NewStuffWidgets
-    KF5::I18n
-    KF5::DBusAddons
-    KF5::Crash
+    KF${KF_MAJOR_VERSION}::NewStuffWidgets
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::DBusAddons
+    KF${KF_MAJOR_VERSION}::Crash
+    KF${KF_MAJOR_VERSION}::XmlGui
 )
 
 install(TARGETS katomic  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

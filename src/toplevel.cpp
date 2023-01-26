@@ -164,7 +164,12 @@ void AtomTopLevel::createMenu()
 
     QAction * prevAtomAct = actionCollection()->addAction( QStringLiteral( "prev_atom" ));
     prevAtomAct->setText(i18n("Previous Atom"));
-    actionCollection()->setDefaultShortcut(prevAtomAct,Qt::SHIFT+Qt::Key_Tab);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    actionCollection()->setDefaultShortcut(prevAtomAct,Qt::SHIFT + Qt::Key_Tab);
+#else
+    const QKeyCombination shortCutPrevious(Qt::SHIFT, Qt::Key_Tab);
+    actionCollection()->setDefaultShortcut(prevAtomAct,shortCutPrevious);
+#endif
     addAction(prevAtomAct);
     connect(prevAtomAct, &QAction::triggered, m_gameWid->playfield(), &PlayField::previousAtom);
 }
