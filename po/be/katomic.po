@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"POT-Creation-Date: 2023-01-27 00:55+0000\n"
 "PO-Revision-Date: 2007-06-25 11:11+0300\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -316,17 +316,17 @@ msgstr "Наступны атам"
 msgid "Previous Atom"
 msgstr "Папярэдні атам"
 
-#: toplevel.cpp:187
+#: toplevel.cpp:192
 #, fuzzy, kde-format
 msgid "Level: %1 (%2)"
 msgstr "Узровень: %1"
 
-#: toplevel.cpp:188
+#: toplevel.cpp:193
 #, kde-format
 msgid "Current score: %1"
 msgstr ""
 
-#: toplevel.cpp:194
+#: toplevel.cpp:199
 #, fuzzy, kde-format
 msgid "Highscore: %1"
 msgstr "Лепшы вынік:"

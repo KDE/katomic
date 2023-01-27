@@ -20,7 +20,7 @@
 #  on the bulgarian chemical compound names
 #  please contact vladimirg at users.sourceforge.net
 #
-# $Id: katomic.po 1634614 2022-09-26 01:37:36Z scripty $
+# $Id: katomic.po 1643254 2023-01-27 01:48:38Z scripty $
 #
 #     2. Standard names. Example: 3,4-дихидрокси-3-циклобутен-1,2-дион.
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006.
@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"POT-Creation-Date: 2023-01-27 00:55+0000\n"
 "PO-Revision-Date: 2011-07-28 18:17+0300\n"
 "Last-Translator: Yasen Pramatarov <yasen@lindeas.com>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -340,17 +340,17 @@ msgstr "Следващ атом"
 msgid "Previous Atom"
 msgstr "Предишен атом"
 
-#: toplevel.cpp:187
+#: toplevel.cpp:192
 #, kde-format
 msgid "Level: %1 (%2)"
 msgstr "Ниво: %1 (%2)"
 
-#: toplevel.cpp:188
+#: toplevel.cpp:193
 #, kde-format
 msgid "Current score: %1"
 msgstr "Текущ резултат: %1"
 
-#: toplevel.cpp:194
+#: toplevel.cpp:199
 #, kde-format
 msgid "Highscore: %1"
 msgstr "Класиране: %1"

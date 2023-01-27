@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"POT-Creation-Date: 2023-01-27 00:55+0000\n"
 "PO-Revision-Date: 2017-05-16 07:01-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
@@ -324,17 +324,17 @@ msgstr "האטום הבא"
 msgid "Previous Atom"
 msgstr "האטום הקודם"
 
-#: toplevel.cpp:187
+#: toplevel.cpp:192
 #, fuzzy, kde-format
 msgid "Level: %1 (%2)"
 msgstr "שלב: %1"
 
-#: toplevel.cpp:188
+#: toplevel.cpp:193
 #, kde-format
 msgid "Current score: %1"
 msgstr ""
 
-#: toplevel.cpp:194
+#: toplevel.cpp:199
 #, fuzzy, kde-format
 msgid "Highscore: %1"
 msgstr "תוצאה הכי גבוהה:"

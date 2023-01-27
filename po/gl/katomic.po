@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"POT-Creation-Date: 2023-01-27 00:55+0000\n"
 "PO-Revision-Date: 2019-10-19 21:42+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -324,17 +324,17 @@ msgstr "Átomo seguinte"
 msgid "Previous Atom"
 msgstr "Átomo anterior"
 
-#: toplevel.cpp:187
+#: toplevel.cpp:192
 #, kde-format
 msgid "Level: %1 (%2)"
 msgstr "Nivel: %1 (%2)"
 
-#: toplevel.cpp:188
+#: toplevel.cpp:193
 #, kde-format
 msgid "Current score: %1"
 msgstr "Puntuación actual: %1"
 
-#: toplevel.cpp:194
+#: toplevel.cpp:199
 #, kde-format
 msgid "Highscore: %1"
 msgstr "Mellor puntuación: %1"

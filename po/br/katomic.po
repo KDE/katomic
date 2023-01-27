@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames/katomic.pot\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"POT-Creation-Date: 2023-01-27 00:55+0000\n"
 "PO-Revision-Date: 2004-09-20 15:44+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud@mandriva.com>\n"
 "Language-Team: br <LL@li.org>\n"
@@ -312,18 +312,18 @@ msgstr ""
 msgid "Previous Atom"
 msgstr ""
 
-#: toplevel.cpp:187
+#: toplevel.cpp:192
 #, fuzzy, kde-format
 #| msgid "Level: %1"
 msgid "Level: %1 (%2)"
 msgstr "Live : %1"
 
-#: toplevel.cpp:188
+#: toplevel.cpp:193
 #, kde-format
 msgid "Current score: %1"
 msgstr ""
 
-#: toplevel.cpp:194
+#: toplevel.cpp:199
 #, fuzzy, kde-format
 #| msgid "Highscore: "
 msgid "Highscore: %1"

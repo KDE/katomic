@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"POT-Creation-Date: 2023-01-27 00:55+0000\n"
 "PO-Revision-Date: 2023-01-12 10:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -313,17 +313,17 @@ msgstr "下个原子"
 msgid "Previous Atom"
 msgstr "上个原子"
 
-#: toplevel.cpp:187
+#: toplevel.cpp:192
 #, kde-format
 msgid "Level: %1 (%2)"
 msgstr "级别: %1(%2)"
 
-#: toplevel.cpp:188
+#: toplevel.cpp:193
 #, kde-format
 msgid "Current score: %1"
 msgstr "当前积分： %1"
 
-#: toplevel.cpp:194
+#: toplevel.cpp:199
 #, kde-format
 msgid "Highscore: %1"
 msgstr "高分： %1"

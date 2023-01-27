@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"POT-Creation-Date: 2023-01-27 00:55+0000\n"
 "PO-Revision-Date: 2002-11-07 11:31+0200\n"
 "Last-Translator: WEB-Translator <http://kde.af.org.za>\n"
 "Language-Team: AFRIKAANS <AF@lia.org.za>\n"
@@ -315,18 +315,18 @@ msgstr "Volgende Atoom"
 msgid "Previous Atom"
 msgstr "Vorige Atoom"
 
-#: toplevel.cpp:187
+#: toplevel.cpp:192
 #, fuzzy, kde-format
 #| msgid "Level: %1"
 msgid "Level: %1 (%2)"
 msgstr "Vlak: %1"
 
-#: toplevel.cpp:188
+#: toplevel.cpp:193
 #, kde-format
 msgid "Current score: %1"
 msgstr ""
 
-#: toplevel.cpp:194
+#: toplevel.cpp:199
 #, fuzzy, kde-format
 msgid "Highscore: %1"
 msgstr "Vlak %1 Hoog Telling"

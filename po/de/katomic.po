@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"POT-Creation-Date: 2023-01-27 00:55+0000\n"
 "PO-Revision-Date: 2021-03-01 12:36+0100\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -320,17 +320,17 @@ msgstr "Nächstes Atom"
 msgid "Previous Atom"
 msgstr "Vorheriges Atom"
 
-#: toplevel.cpp:187
+#: toplevel.cpp:192
 #, kde-format
 msgid "Level: %1 (%2)"
 msgstr "Ebene: %1 (%2)"
 
-#: toplevel.cpp:188
+#: toplevel.cpp:193
 #, kde-format
 msgid "Current score: %1"
 msgstr "Aktuelle Punktzahl: %1"
 
-#: toplevel.cpp:194
+#: toplevel.cpp:199
 #, kde-format
 msgid "Highscore: %1"
 msgstr "Höchstpunktzahl: %1"

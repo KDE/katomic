@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"POT-Creation-Date: 2023-01-27 00:55+0000\n"
 "PO-Revision-Date: 2021-01-18 19:17+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -316,18 +316,18 @@ msgstr "அடுத்த அணு"
 msgid "Previous Atom"
 msgstr "முந்தைய அணு"
 
-#: toplevel.cpp:187
+#: toplevel.cpp:192
 #, fuzzy, kde-format
 #| msgid "Level: %1"
 msgid "Level: %1 (%2)"
 msgstr "நிலை: %1"
 
-#: toplevel.cpp:188
+#: toplevel.cpp:193
 #, kde-format
 msgid "Current score: %1"
 msgstr ""
 
-#: toplevel.cpp:194
+#: toplevel.cpp:199
 #, fuzzy, kde-format
 msgid "Highscore: %1"
 msgstr "அதிக மதிப்பெண்:"

@@ -2,7 +2,7 @@
 # Translation of katomic.po to Slovenian
 # -*- mode:po; coding:iso-latin-2; -*- Slovenian translation of Katomic.
 # Copyright (C) 2001, 2003, 2004, 2006, 2007 Free Software Foundation, Inc.
-# $Id: katomic.po 1634614 2022-09-26 01:37:36Z scripty $
+# $Id: katomic.po 1643254 2023-01-27 01:48:38Z scripty $
 # $Source$
 #
 # Roman Maurer <roman.maurer@amis.net>, 2001.
@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:42+0000\n"
+"POT-Creation-Date: 2023-01-27 00:55+0000\n"
 "PO-Revision-Date: 2021-01-24 22:18+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -337,17 +337,17 @@ msgstr "Naslednji atom"
 msgid "Previous Atom"
 msgstr "Prejšnji atom"
 
-#: toplevel.cpp:187
+#: toplevel.cpp:192
 #, kde-format
 msgid "Level: %1 (%2)"
 msgstr "Stopnja: %1 (%2)"
 
-#: toplevel.cpp:188
+#: toplevel.cpp:193
 #, kde-format
 msgid "Current score: %1"
 msgstr "Trenutni rezultat: %1"
 
-#: toplevel.cpp:194
+#: toplevel.cpp:199
 #, kde-format
 msgid "Highscore: %1"
 msgstr "Najboljši rezultat: %1"
