@@ -158,7 +158,7 @@ msgstr "Dmitry Suzdalev"
 #: main.cpp:50
 #, kde-format
 msgid "Porting to KDE4. Current maintainer"
-msgstr "النقل إلى كدي4 ، و المشرف الحالي"
+msgstr "النقل إلى كِيدِي4 ، و المشرف الحالي"
 
 #: main.cpp:51
 #, kde-format
@@ -208,7 +208,7 @@ msgstr "Johann Ollivier Lapeyre"
 #: main.cpp:57
 #, kde-format
 msgid "New great SVG artwork for KDE4"
-msgstr "رسوم SVG الرائعة لكدي4"
+msgstr "رسوم SVG الرائعة لكِيدِي4"
 
 #: main.cpp:58
 #, kde-format
