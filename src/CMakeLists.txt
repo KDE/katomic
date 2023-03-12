@@ -46,8 +46,13 @@ ki18n_wrap_ui(katomic levelsetwidget.ui)
 file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/icons/*-apps-katomic.png")
 ecm_add_app_icon(katomic ICONS ${ICONS_SRCS})
 
+if (QT_MAJOR_VERSION STREQUAL "6")
+    target_link_libraries(katomic KDEGames6)
+else()
+    target_link_libraries(katomic KF5KDEGames)
+endif()
+
 target_link_libraries(katomic
-    KF5KDEGames
     KF${KF_MAJOR_VERSION}::NewStuffWidgets
     KF${KF_MAJOR_VERSION}::I18n
     KF${KF_MAJOR_VERSION}::DBusAddons

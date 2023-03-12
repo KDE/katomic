@@ -48,7 +48,11 @@ set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
 )
-find_package(KF5KDEGames 7.3.0 REQUIRED)
+if (QT_MAJOR_VERSION STREQUAL "6")
+    find_package(KDEGames6 7.5.0 REQUIRED)
+else()
+    find_package(KF5KDEGames 7.3.0 REQUIRED)
+endif()
 
 ecm_set_disabled_deprecation_versions(
     QT 6.4
