@@ -1,14 +1,14 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# translation of katomic/katomic.pot to esperanto
+# Copyright (C) 2002 Free Software Foundation, Inc.
+# Wolfram Diestel <wolfram@steloj.de>, 2002.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-27 00:55+0000\n"
-"PO-Revision-Date: 2002-03-10 20:59GMT\n"
-"Last-Translator: Wolfram Diestel <wolfram@steloj.de>\n"
+"PO-Revision-Date: 2023-03-20 22:43+01\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -28,10 +28,9 @@ msgid "Your emails"
 msgstr "wolfram@steloj.de"
 
 #: chooselevelsetdialog.cpp:29
-#, fuzzy, kde-format
-#| msgid "Level: %1"
+#, kde-format
 msgid "Level Sets"
-msgstr "Nivelo: %1"
+msgstr ""
 
 #: gamewidget.cpp:84
 #, kde-format
@@ -40,14 +39,14 @@ msgid ""
 msgstr ""
 
 #: gamewidget.cpp:140
-#, fuzzy, kde-format
+#, kde-format
 msgid "Level %1 finished. "
-msgstr "Nivelo %1 - Rekordoj"
+msgstr ""
 
 #: gamewidget.cpp:144
 #, kde-format
 msgid "Congratulations! You have a new highscore!"
-msgstr ""
+msgstr "Gratulojn! Vi havas novan poentaropinton!"
 
 #. i18n: ectx: label, entry (AnimationSpeed), group (Game)
 #: katomic.kcfg:9
@@ -110,10 +109,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, fuzzy, kde-format
-#| msgid "6 new levels"
+#, kde-format
 msgid "Get new levels"
-msgstr "6 novaj niveloj"
+msgstr ""
 
 #: main.cpp:44
 #, kde-format
@@ -121,10 +119,9 @@ msgid "KAtomic"
 msgstr "Atomludo"
 
 #: main.cpp:46
-#, fuzzy, kde-format
-#| msgid "KDE Atomic Entertainment Game"
+#, kde-format
 msgid "Atomic Entertainment Game"
-msgstr "KDE-Atoma amuzaĵo"
+msgstr ""
 
 #: main.cpp:48
 #, kde-format
@@ -226,14 +223,14 @@ msgid ""
 msgstr ""
 
 #: toplevel.cpp:41
-#, fuzzy, kde-format
+#, kde-format
 msgid "Level:"
-msgstr "Nivelo: %1"
+msgstr "Nivelo:"
 
 #: toplevel.cpp:42
 #, kde-format
 msgid "Current score:"
-msgstr ""
+msgstr "Aktualaj poentoj:"
 
 #: toplevel.cpp:43
 #, kde-format
@@ -241,25 +238,24 @@ msgid "Highscore:"
 msgstr ""
 
 #: toplevel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Previous Atom"
+#, kde-format
 msgid "Previous Level"
-msgstr "Antaŭa atomo"
+msgstr "Antaŭa Nivelo"
 
 #: toplevel.cpp:97
-#, fuzzy, kde-format
+#, kde-format
 msgid "Next Level"
-msgstr "Nivelo: %1"
+msgstr "Sekva Nivelo"
 
 #: toplevel.cpp:103
 #, kde-format
 msgid "Choose level set..."
-msgstr ""
+msgstr "Elekti nivelaron..."
 
 #: toplevel.cpp:107
-#, fuzzy, kde-format
+#, kde-format
 msgid "Animation Speed"
-msgstr "Movrapido:"
+msgstr "Rapideco de Animacio"
 
 #: toplevel.cpp:110
 #, kde-format
@@ -279,12 +275,12 @@ msgstr "Rapida"
 #: toplevel.cpp:117
 #, kde-format
 msgid "Undo All"
-msgstr ""
+msgstr "Malfari Ĉion"
 
 #: toplevel.cpp:122
 #, kde-format
 msgid "Redo All"
-msgstr ""
+msgstr "Refari Ĉion"
 
 #: toplevel.cpp:136
 #, kde-format
@@ -317,276 +313,16 @@ msgid "Previous Atom"
 msgstr "Antaŭa atomo"
 
 #: toplevel.cpp:192
-#, fuzzy, kde-format
-#| msgid "Level: %1"
+#, kde-format
 msgid "Level: %1 (%2)"
-msgstr "Nivelo: %1"
+msgstr "Nivelo: %1 (%2)"
 
 #: toplevel.cpp:193
 #, kde-format
 msgid "Current score: %1"
-msgstr ""
+msgstr "Aktualaj poentoj: %1"
 
 #: toplevel.cpp:199
-#, fuzzy, kde-format
+#, kde-format
 msgid "Highscore: %1"
-msgstr "Nivelo %1 - Rekordoj"
-
-#~ msgid "Water"
-#~ msgstr "Akvo"
-
-#~ msgid "Formic Acid"
-#~ msgstr "Formata acido"
-
-#~ msgid "Acetic Acid"
-#~ msgstr "acetata acido"
-
-#, fuzzy
-#~ msgid "trans-Butene"
-#~ msgstr "Transdikloreteno"
-
-#, fuzzy
-#~ msgid "cis-Butene"
-#~ msgstr "ciklobutano"
-
-#~ msgid "Dimethyl ether"
-#~ msgstr "Dimetiletero"
-
-#~ msgid "Butanol"
-#~ msgstr "Butanolo"
-
-#, fuzzy
-#~ msgid "2-Methyl-2-Propanol"
-#~ msgstr "Dimetilpropano"
-
-#, fuzzy
-#~ msgid "Glycerin"
-#~ msgstr "nitroglicerolo"
-
-#, fuzzy
-#~ msgid "Poly-Tetra-Fluoro-Ethene"
-#~ msgstr "politetrafluoretano"
-
-#, fuzzy
-#~ msgid "Oxalic Acid"
-#~ msgstr "Z-butendiata acido"
-
-#~ msgid "Methane"
-#~ msgstr "metano"
-
-#~ msgid "Formaldehyde"
-#~ msgstr "metanalo"
-
-#~ msgid "Crystal 1"
-#~ msgstr "cristalo 1"
-
-#~ msgid "Ammonia"
-#~ msgstr "Amonio"
-
-#~ msgid "3-Methyl-Pentane"
-#~ msgstr "3-Metilpentano"
-
-#, fuzzy
-#~ msgid "Propanal"
-#~ msgstr "furano"
-
-#~ msgid "Propyne"
-#~ msgstr "Propino"
-
-#, fuzzy
-#~ msgid "Furanal"
-#~ msgstr "Furano"
-
-#~ msgid "Pyran"
-#~ msgstr "Pirano"
-
-#~ msgid "Cyclo-Pentane"
-#~ msgstr "ciklopentano"
-
-#~ msgid "Methanol"
-#~ msgstr "Metanolo"
-
-#~ msgid "Nitro-Glycerin"
-#~ msgstr "nitroglicerolo"
-
-#~ msgid "Ethane"
-#~ msgstr "etano"
-
-#~ msgid "Crystal 2"
-#~ msgstr "kristalo 2"
-
-#~ msgid "Ethylene-Glycol"
-#~ msgstr "etandiolo"
-
-#~ msgid "L-Alanine"
-#~ msgstr "L-Alanino"
-
-#~ msgid "Prussic Acid (Cyanic Acid)"
-#~ msgstr "Cianacido"
-
-#~ msgid "Anthracene"
-#~ msgstr "antraceno"
-
-#~ msgid "Thiazole"
-#~ msgstr "Tiazolo"
-
-#~ msgid "Saccharin"
-#~ msgstr "Sakarino"
-
-#~ msgid "Ethylene"
-#~ msgstr "eteno"
-
-#~ msgid "Styrene"
-#~ msgstr "Stireno"
-
-#~ msgid "Melamine"
-#~ msgstr "Melamino"
-
-#~ msgid "Cyclobutane"
-#~ msgstr "Ciklobutano"
-
-#~ msgid "Nicotine"
-#~ msgstr "Nikotino"
-
-#~ msgid "Acetyle salicylic acid"
-#~ msgstr "Scetilsalikata acido"
-
-#~ msgid "Meta-Di-Nitro-Benzene"
-#~ msgstr "Meta-Di-Nitro-Benzeno"
-
-#~ msgid "Malonic Acid"
-#~ msgstr "propandiata acido"
-
-#~ msgid "2,2-Dimethylpropane"
-#~ msgstr "2,2-Dimetilpropano"
-
-#~ msgid "Ethyl-Benzene"
-#~ msgstr "Etilbenzeno"
-
-#, fuzzy
-#~ msgid "Propene"
-#~ msgstr "propino"
-
-#~ msgid "L-Asparagine"
-#~ msgstr "L-Asparagino"
-
-#, fuzzy
-#~ msgid "1,3,5,7-Cyclooctatetraene"
-#~ msgstr "1,4-Cikloheksadieno"
-
-#~ msgid "Vanillin"
-#~ msgstr "Vanilino"
-
-#~ msgid "Crystal 3"
-#~ msgstr "kristalo 3"
-
-#~ msgid "Uric Acid"
-#~ msgstr "Urata acido"
-
-#~ msgid "Thymine"
-#~ msgstr "timino"
-
-#~ msgid "Aniline"
-#~ msgstr "Anilino"
-
-#~ msgid "Chloroform"
-#~ msgstr "kloroformo"
-
-#~ msgid "Carbonic acid"
-#~ msgstr "Karbonacido"
-
-#~ msgid "Crystal 4"
-#~ msgstr "kristalo 4"
-
-#~ msgid "Ethanol"
-#~ msgstr "Etanolo"
-
-#~ msgid "Acrylo-Nitril"
-#~ msgstr "2-propennitrilo"
-
-#~ msgid "Furan"
-#~ msgstr "Furano"
-
-#~ msgid "l-Lactic acid"
-#~ msgstr "1-Laktata acido"
-
-#~ msgid "Maleic Acid"
-#~ msgstr "Z-butendiata acido"
-
-#, fuzzy
-#~ msgid "meso-Tartaric acid"
-#~ msgstr "Askorbata acido"
-
-#~ msgid "Crystal 5"
-#~ msgstr "kristalo 5"
-
-#~ msgid "1,4-Cyclohexadiene"
-#~ msgstr "1,4-Cikloheksadieno"
-
-#, fuzzy
-#~ msgid "Squaric acid"
-#~ msgstr "Karbonacido"
-
-#~ msgid "Ascorbic acid"
-#~ msgstr "Askorbata acido"
-
-#, fuzzy
-#~ msgid "Isopropanol"
-#~ msgstr "furano"
-
-#~ msgid "Phosgene"
-#~ msgstr "Fosgeno"
-
-#~ msgid "Thiophene"
-#~ msgstr "Tiofeno"
-
-#, fuzzy
-#~ msgid "Pyruvic Acid"
-#~ msgstr "Urata acido"
-
-#~ msgid "Ethylene oxide"
-#~ msgstr "Etenoksido"
-
-#~ msgid "Phosphoric Acid"
-#~ msgstr "Fosforata acido"
-
-#~ msgid "Diacetyl"
-#~ msgstr "Diacetilo"
-
-#~ msgid "trans-Dichloroethene"
-#~ msgstr "Transdikloreteno"
-
-#, fuzzy
-#~ msgid "Ethanal"
-#~ msgstr "etano"
-
-#, fuzzy
-#~ msgid "Acroleine"
-#~ msgstr "propino"
-
-#~ msgid "Acetone"
-#~ msgstr "acetono"
-
-#, fuzzy
-#~ msgid "Propan-2-ol"
-#~ msgstr "furano"
-
-#, fuzzy
-#~ msgid "Highscores"
-#~ msgstr "Nivelo %1 - Rekordoj"
-
-#, fuzzy
-#~| msgid "You solved level %1 with %2 moves!"
-#~ msgid ""
-#~ "Congratulations! You solved level %1 with %2 moves!\n"
-#~ " Advance to the next one?"
-#~ msgstr "Vi solvis nivelon %1 per %2 movoj!"
-
-#~ msgid "Congratulations"
-#~ msgstr "Gratulon"
-
-#~ msgid "Score"
-#~ msgstr "Poentoj"
-
-#~ msgid "Your score so far:"
-#~ msgstr "Via ĝisnuna rekordo:"
+msgstr ""
