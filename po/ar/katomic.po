@@ -381,7 +381,7 @@ msgstr "أعلى نتيجة: %1"
 #~ msgstr "Butanol"
 
 #~ msgid "2-Methyl-2-Propanol"
-#~ msgstr "٢-ميثيل-٢-بروبانول"
+#~ msgstr "2-ميثيل-2-بروبانول"
 
 #~ msgid "Glycerin"
 #~ msgstr "جلسرين"
@@ -401,7 +401,7 @@ msgstr "أعلى نتيجة: %1"
 #~ msgstr "فورمالديهايد"
 
 #~ msgid "Crystal 1"
-#~ msgstr "كريستال ١"
+#~ msgstr "كريستال 1"
 
 #~ msgid "Acetic acid ethyl ester"
 #~ msgstr "حمض الخليك إثيل إستر"
@@ -437,7 +437,7 @@ msgstr "أعلى نتيجة: %1"
 #~ msgstr "إثين"
 
 #~ msgid "Crystal 2"
-#~ msgstr "كريستال ٢"
+#~ msgstr "كريستال 2"
 
 #~ msgid "Ethylene-Glycol"
 #~ msgstr "Ethylene-Glycol"
@@ -503,7 +503,7 @@ msgstr "أعلى نتيجة: %1"
 #~ msgstr "ونيلين"
 
 #~ msgid "Crystal 3"
-#~ msgstr "كريستال ٣"
+#~ msgstr "كريستال 3"
 
 #~ msgid "Uric Acid"
 #~ msgstr "حامض بولي"
@@ -521,7 +521,7 @@ msgstr "أعلى نتيجة: %1"
 #~ msgstr "حمض الكربونيك"
 
 #~ msgid "Crystal 4"
-#~ msgstr "كريستال ٤"
+#~ msgstr "كريستال 4"
 
 #~ msgid "Ethanol"
 #~ msgstr "ايثانول"
@@ -542,7 +542,7 @@ msgstr "أعلى نتيجة: %1"
 #~ msgstr "حمض الطرطريك المتوسط"
 
 #~ msgid "Crystal 5"
-#~ msgstr "كريستال ٥"
+#~ msgstr "كريستال 5"
 
 #~ msgid "Formic acid ethyl ester"
 #~ msgstr "Formic acid ethyl ester"
