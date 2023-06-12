@@ -11,6 +11,7 @@
   <name xml:lang="de">KAtomic</name>
   <name xml:lang="el">KAtomic</name>
   <name xml:lang="en-GB">KAtomic</name>
+  <name xml:lang="eo">KAtomic</name>
   <name xml:lang="es">KAtomic</name>
   <name xml:lang="et">KAtomic</name>
   <name xml:lang="fi">KAtomic</name>
@@ -46,6 +47,7 @@
   <summary xml:lang="de">„Sokoban“-Spiel</summary>
   <summary xml:lang="el">Παιχνίδι λογικής όπως το Sokoban</summary>
   <summary xml:lang="en-GB">Sokoban-like Logic Game</summary>
+  <summary xml:lang="eo">Sokoban-simial Logikludo</summary>
   <summary xml:lang="es">Juego de lógica parecido al Sokoban</summary>
   <summary xml:lang="et">Sokobani moodi loogikamäng</summary>
   <summary xml:lang="fi">Sokoban-tyylinen logiikkapeli</summary>
