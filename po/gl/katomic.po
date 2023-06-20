@@ -217,7 +217,7 @@ msgstr "Brian Croom"
 #: main.cpp:58
 #, kde-format
 msgid "Port to use KGameRenderer"
-msgstr "Portaxe para empregar o KGameRenderer"
+msgstr "Portaxe para usar o KGameRenderer"
 
 #: main.cpp:64
 #, kde-format
