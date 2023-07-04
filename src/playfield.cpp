@@ -761,4 +761,4 @@ QString PlayField::moleculeName() const
     return m_levelData->molecule()->moleculeName();
 }
 
-
+#include "moc_playfield.cpp"

@@ -238,4 +238,4 @@ void AtomTopLevel::changeLevelSet(const QString& levelSet)
         m_gameWid->setLevelSet(levelSet);
 }
 
-
+#include "moc_toplevel.cpp"

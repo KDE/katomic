@@ -152,3 +152,5 @@ void ChooseLevelSetDialog::updateApplyButton()
         m_buttonBox->button(QDialogButtonBox::Apply)->setEnabled(item->data(KAtomic::LevelSetNameRole).toString() != m_gameCurrentLevelSetName);
     }
 }
+
+#include "moc_chooselevelsetdialog.cpp"

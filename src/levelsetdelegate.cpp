@@ -122,3 +122,5 @@ QSize LevelSetDelegate::sizeHint(const QStyleOptionViewItem& option, const QMode
 
     return QSize(option.rect.width(), qMax(m_lineHeight*3, 64));
 }
+
+#include "moc_levelsetdelegate.cpp"

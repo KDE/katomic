@@ -308,4 +308,4 @@ bool GameWidget::isPrevLevelAvailable() const
     return m_level > 1;
 }
 
-
+#include "moc_gamewidget.cpp"
