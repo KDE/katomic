@@ -11,6 +11,7 @@
   <name xml:lang="de">KAtomic</name>
   <name xml:lang="el">KAtomic</name>
   <name xml:lang="en-GB">KAtomic</name>
+  <name xml:lang="eo">KAtomic</name>
   <name xml:lang="es">KAtomic</name>
   <name xml:lang="et">KAtomic</name>
   <name xml:lang="fi">KAtomic</name>
@@ -46,6 +47,7 @@
   <summary xml:lang="de">„Sokoban“-Spiel</summary>
   <summary xml:lang="el">Παιχνίδι λογικής όπως το Sokoban</summary>
   <summary xml:lang="en-GB">Sokoban-like Logic Game</summary>
+  <summary xml:lang="eo">Sokoban-simial Logikludo</summary>
   <summary xml:lang="es">Juego de lógica parecido al Sokoban</summary>
   <summary xml:lang="et">Sokobani moodi loogikamäng</summary>
   <summary xml:lang="fi">Sokoban-tyylinen logiikkapeli</summary>
@@ -84,6 +86,7 @@
     <p xml:lang="de">KAtomic ist sowohl ein unterhaltsames als auch lehrreiches Spiel über molekulare Strukturen. Es verwendet eine vereinfachte zweidimensionale Ansicht der zum Molekül gehörenden Elemente.</p>
     <p xml:lang="el">Το KAtomic είναι ένα ευχάριστο εκπαιδευτικό παιχνίδι με βάση τη μοριακή γεωμετρία. Χρησιμοποιεί απλουστευτικές δισδιάστατες όψεις διαφόρων χημικών στοιχείων.</p>
     <p xml:lang="en-GB">KAtomic is a fun educational game built around molecular geometry. It employs simplistic two-dimensional looks at different chemical elements.</p>
+    <p xml:lang="eo">KAtomic estas amuza eduka ludo konstruita ĉirkaŭ molekula geometrio. Ĝi utiligas simplismajn dudimensiajn rigardojn al diversaj kemiaj elementoj.</p>
     <p xml:lang="es">KAtomic es un divertido juego educativo basado en la geometría molecular. Emplea vistas bidimensionales simplificadas de diferentes elementos químicos.</p>
     <p xml:lang="et">KAtomic on lõbus ja õpetlik molekulaargeomeetriat puudutav mäng. Siin näeb mitmesuguseid keemilisi elemente lihtsal kahemõõtmelisel kujul.</p>
     <p xml:lang="fi">KAtomic on hauska ja opettavainen peli, joka perustuu molekyylien avaruusrakenteeseen. Se näyttää kemiallisia aineita kaksiulotteisesti ja pelkistetysti.</p>
