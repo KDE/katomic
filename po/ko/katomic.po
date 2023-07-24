@@ -191,7 +191,7 @@ msgstr "Danny Allen"
 #: main.cpp:56
 #, kde-format
 msgid "Game graphics and application icon"
-msgstr "게임 그래픽과 프로그램 아이콘"
+msgstr "게임 그래픽과 앱 아이콘"
 
 #: main.cpp:57
 #, kde-format
