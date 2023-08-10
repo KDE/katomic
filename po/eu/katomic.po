@@ -1,22 +1,26 @@
-# translation of katomic.po to Basque
-# Copyright (C) 2005, 2009 Free Software Foundation, Inc.
+# Translation for katomic.po to Euskara/Basque (eu).
+# Copyright (C) 2005-2023 This file is copyright:
+# This file is distributed under the same license as the katomic package.
+# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
+# Translators:
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # Marcos  <marcos@euskalgnu.org>, 2005.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2009.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-27 00:55+0000\n"
-"PO-Revision-Date: 2009-06-16 10:07+0200\n"
-"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
-"Language-Team: Basque <itzulpena@euskalgnu.org>\n"
+"PO-Revision-Date: 2023-08-09 22:00+0200\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 23.04.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -30,21 +34,22 @@ msgid "Your emails"
 msgstr "etxaurre@teleline.es, igaztanaga@gmail.com"
 
 #: chooselevelsetdialog.cpp:29
-#, fuzzy, kde-format
-#| msgid "Level: %1"
+#, kde-format
 msgid "Level Sets"
-msgstr "Maila: %1"
+msgstr "Maila multzoak"
 
 #: gamewidget.cpp:84
 #, kde-format
 msgid ""
 "Failed to load level set \"%1\". Check if it is installed on your computer."
 msgstr ""
+"\"%1\" maila multzoa zamatzea huts egin du. Egiaztatu zure sisteman "
+"instalatuta dagoen."
 
 #: gamewidget.cpp:140
 #, kde-format
 msgid "Level %1 finished. "
-msgstr "%1. maila amaituta. "
+msgstr "%1. maila amaitu da."
 
 #: gamewidget.cpp:144
 #, kde-format
@@ -71,10 +76,9 @@ msgstr "Gordetako atzeko planoaren altuera"
 
 #. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
 #: katomic.kcfg:28
-#, fuzzy, kde-format
-#| msgid "Last Played Level"
+#, kde-format
 msgid "Last played levelset"
-msgstr "Jokatutako azken maila"
+msgstr "Jokatutako azken maila multzoa"
 
 #. i18n: ectx: Menu (settings)
 #: katomicui.rc:16
@@ -91,32 +95,31 @@ msgstr "Tresna-barra nagusia"
 #: levelset.cpp:264
 #, kde-format
 msgid "Noname"
-msgstr "Izenik ez"
+msgstr "Izenikgabe"
 
 #: levelsetdelegate.cpp:81
 #, kde-format
 msgid "by %1"
-msgstr ""
+msgstr "%1(e)k egina"
 
 #: levelsetdelegate.cpp:87
 #, kde-format
 msgid ", contains 1 level"
 msgid_plural ", contains %1 levels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] ", maila 1 du"
+msgstr[1] ", %1 maila ditu"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: levelsetwidget.ui:20
 #, kde-format
 msgid "Choose a level set to play:"
-msgstr ""
+msgstr "Hautatu jokatu beharreko maila multzoa:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, fuzzy, kde-format
-#| msgid "6 new levels"
+#, kde-format
 msgid "Get new levels"
-msgstr "6 maia berri"
+msgstr "Eskuratu maila berriak"
 
 #: main.cpp:44
 #, kde-format
@@ -124,18 +127,18 @@ msgid "KAtomic"
 msgstr "KAtomic"
 
 #: main.cpp:46
-#, fuzzy, kde-format
-#| msgid "KDE Atomic Entertainment Game"
+#, kde-format
 msgid "Atomic Entertainment Game"
-msgstr "Denbora-pasarako KDE-ren joko atomikoa"
+msgstr "Denbora-pasarako joko atomikoa"
 
 #: main.cpp:48
-#, fuzzy, kde-format
-#| msgid "(c) 1998, Andreas Wuest"
+#, kde-format
 msgid ""
 "(c) 1998, Andreas Wuest\n"
 "(c) 2007-2009 Dmitry Suzdalev"
-msgstr "(c) 1998, Andreas Wuest"
+msgstr ""
+"(c) 1998, Andreas Wuest\n"
+"(c) 2007-2009 Dmitry Suzdalev"
 
 #: main.cpp:49
 #, kde-format
@@ -145,7 +148,7 @@ msgstr "Andreas Wuest"
 #: main.cpp:49
 #, kde-format
 msgid "Original author"
-msgstr ""
+msgstr "Jatorrizko egilea"
 
 #: main.cpp:50
 #, kde-format
@@ -155,7 +158,7 @@ msgstr "Dmitry Suzdalev"
 #: main.cpp:50
 #, kde-format
 msgid "Porting to KDE4. Current maintainer"
-msgstr "KDE4rako moldaketak. Uneko mantentzailea"
+msgstr "KDE4rako eratorpena. Uneko mantentzailea"
 
 #: main.cpp:51
 #, kde-format
@@ -185,7 +188,7 @@ msgstr "Kai Jung"
 #: main.cpp:55
 #, kde-format
 msgid "6 new levels"
-msgstr "6 maia berri"
+msgstr "6 maila berri"
 
 #: main.cpp:56
 #, kde-format
@@ -195,7 +198,7 @@ msgstr "Danny Allen"
 #: main.cpp:56
 #, kde-format
 msgid "Game graphics and application icon"
-msgstr "Jokoaren grafikoaren eta aplikazioaren ikonoa"
+msgstr "Jokoaren grafikoak eta aplikazioaren ikonoa"
 
 #: main.cpp:57
 #, kde-format
@@ -205,22 +208,22 @@ msgstr "Johann Ollivier Lapeyre"
 #: main.cpp:57
 #, kde-format
 msgid "New great SVG artwork for KDE4"
-msgstr "SVG artelan berri zoragarria KDE4rentzako"
+msgstr "KDE4rako SVG artelan berri zoragarria"
 
 #: main.cpp:58
 #, kde-format
 msgid "Brian Croom"
-msgstr ""
+msgstr "Brian Croom"
 
 #: main.cpp:58
 #, kde-format
 msgid "Port to use KGameRenderer"
-msgstr ""
+msgstr "«KGameRenderer» erabiltzeko eratorpena"
 
 #: main.cpp:64
 #, kde-format
 msgid "Enable access to all levels"
-msgstr "Gaitu mail guztietara atzitzea"
+msgstr "Gaitu maila guztietara sartzea"
 
 #: main.cpp:75
 #, kde-format
@@ -228,6 +231,8 @@ msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "
 "your installation."
 msgstr ""
+"«KAtomic», maila multzo lehenetsia aurkitzea huts egin du eta irten egingo "
+"da. Mesedez, ikustatu zure instalazioa."
 
 #: toplevel.cpp:41
 #, kde-format
@@ -257,12 +262,12 @@ msgstr "Hurrengo maila"
 #: toplevel.cpp:103
 #, kde-format
 msgid "Choose level set..."
-msgstr ""
+msgstr "Aukeratu maila multzoa..."
 
 #: toplevel.cpp:107
 #, kde-format
 msgid "Animation Speed"
-msgstr "Animazioen abiadura"
+msgstr "Animazioaren abiadura"
 
 #: toplevel.cpp:110
 #, kde-format
@@ -272,7 +277,7 @@ msgstr "Motel"
 #: toplevel.cpp:110
 #, kde-format
 msgid "Normal"
-msgstr "Normala"
+msgstr "Arrunta"
 
 #: toplevel.cpp:110
 #, kde-format
@@ -282,17 +287,17 @@ msgstr "Azkar"
 #: toplevel.cpp:117
 #, kde-format
 msgid "Undo All"
-msgstr "Desegin denak"
+msgstr "Desegin dena"
 
 #: toplevel.cpp:122
 #, kde-format
 msgid "Redo All"
-msgstr "Berregin denak"
+msgstr "Berregin dena"
 
 #: toplevel.cpp:136
 #, kde-format
 msgid "Atom Up"
-msgstr "Atomoa gorantz"
+msgstr "Atomoa goran"
 
 #: toplevel.cpp:142
 #, kde-format
@@ -320,10 +325,9 @@ msgid "Previous Atom"
 msgstr "Aurreko atomoa"
 
 #: toplevel.cpp:192
-#, fuzzy, kde-format
-#| msgid "Level: %1"
+#, kde-format
 msgid "Level: %1 (%2)"
-msgstr "Maila: %1"
+msgstr "Maila: %1 (%2)"
 
 #: toplevel.cpp:193
 #, kde-format
