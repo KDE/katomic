@@ -13,9 +13,6 @@
 #include <KAboutData>
 #include <KCrash>
 #include <KMessageBox>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <Kdelibs4ConfigMigrator>
-#endif
 #include <KDBusService>
 
 #include <QTimer>
@@ -29,17 +26,8 @@
 
 int main(int argc, char **argv)
 {
-    // Fixes blurry icons with fractional scaling
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-#endif
     QApplication app(argc, argv);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    Kdelibs4ConfigMigrator migrate(QStringLiteral("katomic"));
-    migrate.setConfigFiles(QStringList() << QStringLiteral("katomicrc"));
-    migrate.setUiFiles(QStringList() << QStringLiteral("katomicui.rc"));
-    migrate.migrate();
-#endif
+
     KLocalizedString::setApplicationDomain("katomic");
     KAboutData aboutData( QStringLiteral("katomic"), i18n("KAtomic"),
             QStringLiteral(KATOMIC_VERSION_STRING),

@@ -16,18 +16,5 @@ Dependencies:
     'frameworks/kdoctools': '@latest-kf6'
     'frameworks/kdbusaddons': '@latest-kf6'
 
-- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5', 'Android/Qt5']
-  'require':
-    'frameworks/extra-cmake-modules': '@stable'
-    'games/libkdegames': '@same'
-    'frameworks/kcoreaddons': '@stable'
-    'frameworks/kconfig': '@stable'
-    'frameworks/kcrash': '@stable'
-    'frameworks/kwidgetsaddons': '@stable'
-    'frameworks/ki18n': '@stable'
-    'frameworks/kxmlgui': '@stable'
-    'frameworks/knewstuff': '@stable'
-    'frameworks/kdoctools': '@stable'
-    'frameworks/kdbusaddons': '@stable'
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']
