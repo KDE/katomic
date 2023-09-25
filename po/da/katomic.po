@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:55+0000\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2021-09-09 21:46+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -118,17 +118,17 @@ msgstr "Vælg et banesæt at spille:"
 msgid "Get new levels"
 msgstr "Hent nye baner"
 
-#: main.cpp:44
+#: main.cpp:32
 #, kde-format
 msgid "KAtomic"
 msgstr "KAtomic"
 
-#: main.cpp:46
+#: main.cpp:34
 #, kde-format
 msgid "Atomic Entertainment Game"
 msgstr "Atomart underholdningsspil"
 
-#: main.cpp:48
+#: main.cpp:36
 #, kde-format
 msgid ""
 "(c) 1998, Andreas Wuest\n"
@@ -137,92 +137,92 @@ msgstr ""
 "(c) 1998, Andreas Wuest\n"
 "(c) 2007-2009 Dmitry Suzdalev"
 
-#: main.cpp:49
+#: main.cpp:37
 #, kde-format
 msgid "Andreas Wuest"
 msgstr "Andreas Wuest"
 
-#: main.cpp:49
+#: main.cpp:37
 #, kde-format
 msgid "Original author"
 msgstr "Oprindelig udvikler"
 
-#: main.cpp:50
+#: main.cpp:38
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr "Dmitry Suzdalev"
 
-#: main.cpp:50
+#: main.cpp:38
 #, kde-format
 msgid "Porting to KDE4. Current maintainer"
 msgstr "Portering til KDE4. Nuværende vedligeholder"
 
-#: main.cpp:51
+#: main.cpp:39
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "Stephan Kulow"
 
-#: main.cpp:52
+#: main.cpp:40
 #, kde-format
 msgid "Cristian Tibirna"
 msgstr "Cristian Tibirna"
 
-#: main.cpp:53
+#: main.cpp:41
 #, kde-format
 msgid "Carsten Pfeiffer"
 msgstr "Carsten Pfeiffer"
 
-#: main.cpp:54
+#: main.cpp:42
 #, kde-format
 msgid "Dave Corrie"
 msgstr "Dave Corrie"
 
-#: main.cpp:55
+#: main.cpp:43
 #, kde-format
 msgid "Kai Jung"
 msgstr "Kai Jung"
 
-#: main.cpp:55
+#: main.cpp:43
 #, kde-format
 msgid "6 new levels"
 msgstr "6 nye baner"
 
-#: main.cpp:56
+#: main.cpp:44
 #, kde-format
 msgid "Danny Allen"
 msgstr "Danny Allen"
 
-#: main.cpp:56
+#: main.cpp:44
 #, kde-format
 msgid "Game graphics and application icon"
 msgstr "Spilgrafik og programikon"
 
-#: main.cpp:57
+#: main.cpp:45
 #, kde-format
 msgid "Johann Ollivier Lapeyre"
 msgstr "Johann Ollivier Lapeyre"
 
-#: main.cpp:57
+#: main.cpp:45
 #, kde-format
 msgid "New great SVG artwork for KDE4"
 msgstr "Ny flot SVG-grafik til KDE4"
 
-#: main.cpp:58
+#: main.cpp:46
 #, kde-format
 msgid "Brian Croom"
 msgstr "Brian Croom"
 
-#: main.cpp:58
+#: main.cpp:46
 #, kde-format
 msgid "Port to use KGameRenderer"
 msgstr "Portering til at bruge KGameRenderer"
 
-#: main.cpp:64
+#: main.cpp:52
 #, kde-format
 msgid "Enable access to all levels"
 msgstr "Aktivér adgang til alle baner"
 
-#: main.cpp:75
+#: main.cpp:63
 #, kde-format
 msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "
@@ -321,17 +321,17 @@ msgstr "Næste atom"
 msgid "Previous Atom"
 msgstr "Forrige atom"
 
-#: toplevel.cpp:192
+#: toplevel.cpp:187
 #, kde-format
 msgid "Level: %1 (%2)"
 msgstr "Bane: %1 (%2)"
 
-#: toplevel.cpp:193
+#: toplevel.cpp:188
 #, kde-format
 msgid "Current score: %1"
 msgstr "Nuværende score: %1"
 
-#: toplevel.cpp:199
+#: toplevel.cpp:194
 #, kde-format
 msgid "Highscore: %1"
 msgstr "Topscore: %1"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:55+0000\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2008-04-15 16:06+0330\n"
 "Last-Translator: Emil Sedgh <emilsedgh@gmail.com>\n"
 "Language-Team: American English <kde-i18n-doc@lists.kde.org>\n"
@@ -118,18 +118,18 @@ msgstr ""
 msgid "Get new levels"
 msgstr "۶ مرحله جدید"
 
-#: main.cpp:44
+#: main.cpp:32
 #, kde-format
 msgid "KAtomic"
 msgstr "اتمی"
 
-#: main.cpp:46
+#: main.cpp:34
 #, fuzzy, kde-format
 #| msgid "KDE Atomic Entertainment Game"
 msgid "Atomic Entertainment Game"
 msgstr "بازی سرگرمی اتمی KDE"
 
-#: main.cpp:48
+#: main.cpp:36
 #, fuzzy, kde-format
 #| msgid "(c) 1998, Andreas Wuest"
 msgid ""
@@ -137,92 +137,92 @@ msgid ""
 "(c) 2007-2009 Dmitry Suzdalev"
 msgstr "حق‌کپی ۱۹۹۸، آندرئاست وست"
 
-#: main.cpp:49
+#: main.cpp:37
 #, kde-format
 msgid "Andreas Wuest"
 msgstr "آندرئاست وست"
 
-#: main.cpp:49
+#: main.cpp:37
 #, kde-format
 msgid "Original author"
 msgstr ""
 
-#: main.cpp:50
+#: main.cpp:38
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr "دیمیتری سوزدالو"
 
-#: main.cpp:50
+#: main.cpp:38
 #, kde-format
 msgid "Porting to KDE4. Current maintainer"
 msgstr "بردن به KDE4. نگه‌دارنده جاری"
 
-#: main.cpp:51
+#: main.cpp:39
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "استفان کولو"
 
-#: main.cpp:52
+#: main.cpp:40
 #, kde-format
 msgid "Cristian Tibirna"
 msgstr "کریستین تیبرینا"
 
-#: main.cpp:53
+#: main.cpp:41
 #, kde-format
 msgid "Carsten Pfeiffer"
 msgstr "کارستن پفیفر"
 
-#: main.cpp:54
+#: main.cpp:42
 #, kde-format
 msgid "Dave Corrie"
 msgstr "دیو کُری"
 
-#: main.cpp:55
+#: main.cpp:43
 #, kde-format
 msgid "Kai Jung"
 msgstr "کای جونگ"
 
-#: main.cpp:55
+#: main.cpp:43
 #, kde-format
 msgid "6 new levels"
 msgstr "۶ مرحله جدید"
 
-#: main.cpp:56
+#: main.cpp:44
 #, kde-format
 msgid "Danny Allen"
 msgstr "دنی آلن"
 
-#: main.cpp:56
+#: main.cpp:44
 #, kde-format
 msgid "Game graphics and application icon"
 msgstr "نگاره‌سازی بازی و شمایل کاربرد"
 
-#: main.cpp:57
+#: main.cpp:45
 #, kde-format
 msgid "Johann Ollivier Lapeyre"
 msgstr "جان الیوییر لاپیر"
 
-#: main.cpp:57
+#: main.cpp:45
 #, kde-format
 msgid "New great SVG artwork for KDE4"
 msgstr "کار هنری SVG بزرگ جدید برای KDE4"
 
-#: main.cpp:58
+#: main.cpp:46
 #, kde-format
 msgid "Brian Croom"
 msgstr ""
 
-#: main.cpp:58
+#: main.cpp:46
 #, kde-format
 msgid "Port to use KGameRenderer"
 msgstr ""
 
-#: main.cpp:64
+#: main.cpp:52
 #, kde-format
 msgid "Enable access to all levels"
 msgstr "فعال‌سازی دستیابی به همه سطوح"
 
-#: main.cpp:75
+#: main.cpp:63
 #, kde-format
 msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "
@@ -319,18 +319,18 @@ msgstr "انتخاب اتم بعدی"
 msgid "Previous Atom"
 msgstr "انتخاب اتم قبلی"
 
-#: toplevel.cpp:192
+#: toplevel.cpp:187
 #, fuzzy, kde-format
 #| msgid "Level: %1"
 msgid "Level: %1 (%2)"
 msgstr " سطح: %1"
 
-#: toplevel.cpp:193
+#: toplevel.cpp:188
 #, kde-format
 msgid "Current score: %1"
 msgstr "امتیاز جاری: %1"
 
-#: toplevel.cpp:199
+#: toplevel.cpp:194
 #, kde-format
 msgid "Highscore: %1"
 msgstr " بالاترین امتیاز: %1"

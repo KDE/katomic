@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-05-11 03:19+0200\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2016-03-20 15:25+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -34,23 +34,23 @@ msgstr ""
 "rstraxy@sezampro.yu,roske@kde.org.yu,m.puzovic@etoncollege.org.uk,"
 "chaslav@sezampro.yu,slsimic@gmail.com"
 
-#: chooselevelsetdialog.cpp:42
+#: chooselevelsetdialog.cpp:29
 #, kde-format
 msgid "Level Sets"
 msgstr "Скупови нивоа"
 
-#: gamewidget.cpp:95
+#: gamewidget.cpp:84
 #, kde-format
 msgid ""
 "Failed to load level set \"%1\". Check if it is installed on your computer."
 msgstr "Не могу да учитам скуп нивоа „%1“. Провјерите да ли је инсталиран."
 
-#: gamewidget.cpp:151
+#: gamewidget.cpp:140
 #, kde-format
 msgid "Level %1 finished. "
 msgstr "Ниво %1 је завршен. "
 
-#: gamewidget.cpp:155
+#: gamewidget.cpp:144
 #, kde-format
 msgid "Congratulations! You have a new highscore!"
 msgstr "Честитамо! Остварили сте нови најрезултат!"
@@ -91,17 +91,17 @@ msgstr "&Подешавање"
 msgid "Main Toolbar"
 msgstr "Главна трака"
 
-#: levelset.cpp:282
+#: levelset.cpp:264
 #, kde-format
 msgid "Noname"
 msgstr "Безимени"
 
-#: levelsetdelegate.cpp:95
+#: levelsetdelegate.cpp:81
 #, kde-format
 msgid "by %1"
 msgstr "%1"
 
-#: levelsetdelegate.cpp:101
+#: levelsetdelegate.cpp:87
 #, kde-format
 msgid ", contains 1 level"
 msgid_plural ", contains %1 levels"
@@ -116,23 +116,24 @@ msgstr[3] ", садржи %1 ниво"
 msgid "Choose a level set to play:"
 msgstr "Изаберите скуп нивоа за играње:"
 
-#. i18n: ectx: property (text), widget (KNS3::Button, m_pbNewStuff)
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
 #, kde-format
 msgid "Get new levels"
 msgstr "Добави нове нивое"
 
-#: main.cpp:39
-#, kde-format
-msgid "KDE Atomic Entertainment Game"
-msgstr "Игра са атомима за КДЕ"
-
-#: main.cpp:56
+#: main.cpp:32
 #, kde-format
 msgid "KAtomic"
 msgstr "К‑атомика"
 
-#: main.cpp:58
+#: main.cpp:34
+#, fuzzy, kde-format
+#| msgid "KDE Atomic Entertainment Game"
+msgid "Atomic Entertainment Game"
+msgstr "Игра са атомима за КДЕ"
+
+#: main.cpp:36
 #, kde-format
 msgid ""
 "(c) 1998, Andreas Wuest\n"
@@ -141,92 +142,92 @@ msgstr ""
 "© 1998, Андреас Вист\n"
 "© 2007–2009, Дмитриј Суздаљев"
 
-#: main.cpp:59
+#: main.cpp:37
 #, kde-format
 msgid "Andreas Wuest"
 msgstr "Андреас Вист"
 
-#: main.cpp:59
+#: main.cpp:37
 #, kde-format
 msgid "Original author"
 msgstr "Првобитни аутор"
 
-#: main.cpp:60
+#: main.cpp:38
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr "Дмитриј Суздаљев"
 
-#: main.cpp:60
+#: main.cpp:38
 #, kde-format
 msgid "Porting to KDE4. Current maintainer"
 msgstr "Преношење на КДЕ‑4, тренутни одржавалац"
 
-#: main.cpp:61
+#: main.cpp:39
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "Штефан Кулов"
 
-#: main.cpp:62
+#: main.cpp:40
 #, kde-format
 msgid "Cristian Tibirna"
 msgstr "Кристијан Тибирна"
 
-#: main.cpp:63
+#: main.cpp:41
 #, kde-format
 msgid "Carsten Pfeiffer"
 msgstr "Карстен Пфајфер"
 
-#: main.cpp:64
+#: main.cpp:42
 #, kde-format
 msgid "Dave Corrie"
 msgstr "Дејв Кори"
 
-#: main.cpp:65
+#: main.cpp:43
 #, kde-format
 msgid "Kai Jung"
 msgstr "Каи Јунг"
 
-#: main.cpp:65
+#: main.cpp:43
 #, kde-format
 msgid "6 new levels"
 msgstr "6 нових нивоа"
 
-#: main.cpp:66
+#: main.cpp:44
 #, kde-format
 msgid "Danny Allen"
 msgstr "Дени Ален"
 
-#: main.cpp:66
+#: main.cpp:44
 #, kde-format
 msgid "Game graphics and application icon"
 msgstr "Графика игре и иконица програма"
 
-#: main.cpp:67
+#: main.cpp:45
 #, kde-format
 msgid "Johann Ollivier Lapeyre"
 msgstr "Јохан Оливје Лапер"
 
-#: main.cpp:67
+#: main.cpp:45
 #, kde-format
 msgid "New great SVG artwork for KDE4"
 msgstr "Сјајна нова СВГ графика за КДЕ‑4"
 
-#: main.cpp:68
+#: main.cpp:46
 #, kde-format
 msgid "Brian Croom"
 msgstr "Брајан Крум"
 
-#: main.cpp:68
+#: main.cpp:46
 #, kde-format
 msgid "Port to use KGameRenderer"
 msgstr "Пренос на KGameRenderer"
 
-#: main.cpp:74
+#: main.cpp:52
 #, kde-format
 msgid "Enable access to all levels"
 msgstr "Укључи приступ свим нивоима"
 
-#: main.cpp:85
+#: main.cpp:63
 #, kde-format
 msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "
@@ -236,115 +237,115 @@ msgstr ""
 "напуштен. Провјерите инсталацију."
 
 # @info:status
-#: toplevel.cpp:55
+#: toplevel.cpp:41
 #, kde-format
 msgid "Level:"
 msgstr "ниво:"
 
 # @info:status
-#: toplevel.cpp:56
+#: toplevel.cpp:42
 #, kde-format
 msgid "Current score:"
 msgstr "тренутни резултат:"
 
 # @info:status
-#: toplevel.cpp:57
+#: toplevel.cpp:43
 #, kde-format
 msgid "Highscore:"
 msgstr "најрезултат:"
 
-#: toplevel.cpp:104
+#: toplevel.cpp:90
 #, kde-format
 msgid "Previous Level"
 msgstr "Претходни ниво"
 
-#: toplevel.cpp:111
+#: toplevel.cpp:97
 #, kde-format
 msgid "Next Level"
 msgstr "Сљедећи ниво"
 
-#: toplevel.cpp:117
+#: toplevel.cpp:103
 #, kde-format
 msgid "Choose level set..."
 msgstr "Скуп нивоа..."
 
-#: toplevel.cpp:121
+#: toplevel.cpp:107
 #, kde-format
 msgid "Animation Speed"
 msgstr "Брзина анимације"
 
 # >> @item:inlistbox
-#: toplevel.cpp:124
+#: toplevel.cpp:110
 #, kde-format
 msgid "Slow"
 msgstr "спора"
 
 # >> @item:inlistbox
-#: toplevel.cpp:124
+#: toplevel.cpp:110
 #, kde-format
 msgid "Normal"
 msgstr "нормална"
 
 # >> @item:inlistbox
-#: toplevel.cpp:124
+#: toplevel.cpp:110
 #, kde-format
 msgid "Fast"
 msgstr "брза"
 
-#: toplevel.cpp:130
+#: toplevel.cpp:117
 #, kde-format
 msgid "Undo All"
 msgstr "Опозови све"
 
-#: toplevel.cpp:135
+#: toplevel.cpp:122
 #, kde-format
 msgid "Redo All"
 msgstr "Понови све"
 
-#: toplevel.cpp:149
+#: toplevel.cpp:136
 #, kde-format
 msgid "Atom Up"
 msgstr "Атом нагоре"
 
-#: toplevel.cpp:155
+#: toplevel.cpp:142
 #, kde-format
 msgid "Atom Down"
 msgstr "Атом надоље"
 
-#: toplevel.cpp:161
+#: toplevel.cpp:148
 #, kde-format
 msgid "Atom Left"
 msgstr "Атом улево"
 
-#: toplevel.cpp:167
+#: toplevel.cpp:154
 #, kde-format
 msgid "Atom Right"
 msgstr "Атом удесно"
 
-#: toplevel.cpp:173
+#: toplevel.cpp:160
 #, kde-format
 msgid "Next Atom"
 msgstr "Сљедећи атом"
 
-#: toplevel.cpp:179
+#: toplevel.cpp:166
 #, kde-format
 msgid "Previous Atom"
 msgstr "Претходни атом"
 
 # @info:status
-#: toplevel.cpp:200
+#: toplevel.cpp:187
 #, kde-format
 msgid "Level: %1 (%2)"
 msgstr "ниво: %1 (%2)"
 
 # @info:status
-#: toplevel.cpp:201
+#: toplevel.cpp:188
 #, kde-format
 msgid "Current score: %1"
 msgstr "тренутни резултат: %1"
 
 # @info:status
-#: toplevel.cpp:207
+#: toplevel.cpp:194
 #, kde-format
 msgid "Highscore: %1"
 msgstr "најрезултат: %1"

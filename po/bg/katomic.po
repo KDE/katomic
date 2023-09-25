@@ -20,7 +20,7 @@
 #  on the bulgarian chemical compound names
 #  please contact vladimirg at users.sourceforge.net
 #
-# $Id: katomic.po 1643254 2023-01-27 01:48:38Z scripty $
+# $Id: katomic.po 1660889 2023-09-25 02:02:18Z scripty $
 #
 #     2. Standard names. Example: 3,4-дихидрокси-3-циклобутен-1,2-дион.
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006.
@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:55+0000\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2011-07-28 18:17+0300\n"
 "Last-Translator: Yasen Pramatarov <yasen@lindeas.com>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -137,17 +137,17 @@ msgstr "Избиране на колекция с нива за зареждан
 msgid "Get new levels"
 msgstr "Изтегляне на нови нива"
 
-#: main.cpp:44
+#: main.cpp:32
 #, kde-format
 msgid "KAtomic"
 msgstr "KAtomic"
 
-#: main.cpp:46
+#: main.cpp:34
 #, fuzzy, kde-format
 msgid "Atomic Entertainment Game"
 msgstr "Забавна игра с атоми за KDE"
 
-#: main.cpp:48
+#: main.cpp:36
 #, kde-format
 msgid ""
 "(c) 1998, Andreas Wuest\n"
@@ -156,92 +156,92 @@ msgstr ""
 "(c) 1998, Andreas Wuest\n"
 "(c) 2007-2009 Dmitry Suzdalev"
 
-#: main.cpp:49
+#: main.cpp:37
 #, kde-format
 msgid "Andreas Wuest"
 msgstr "Andreas Wuest"
 
-#: main.cpp:49
+#: main.cpp:37
 #, kde-format
 msgid "Original author"
 msgstr "Първоначален разработчик"
 
-#: main.cpp:50
+#: main.cpp:38
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr "Dmitry Suzdalev"
 
-#: main.cpp:50
+#: main.cpp:38
 #, kde-format
 msgid "Porting to KDE4. Current maintainer"
 msgstr "Порт за KDE4. Текуща поддръжка"
 
-#: main.cpp:51
+#: main.cpp:39
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "Stephan Kulow"
 
-#: main.cpp:52
+#: main.cpp:40
 #, kde-format
 msgid "Cristian Tibirna"
 msgstr "Cristian Tibirna"
 
-#: main.cpp:53
+#: main.cpp:41
 #, kde-format
 msgid "Carsten Pfeiffer"
 msgstr "Carsten Pfeiffer"
 
-#: main.cpp:54
+#: main.cpp:42
 #, kde-format
 msgid "Dave Corrie"
 msgstr "Dave Corrie"
 
-#: main.cpp:55
+#: main.cpp:43
 #, kde-format
 msgid "Kai Jung"
 msgstr "Kai Jung"
 
-#: main.cpp:55
+#: main.cpp:43
 #, kde-format
 msgid "6 new levels"
 msgstr "6 нови нива"
 
-#: main.cpp:56
+#: main.cpp:44
 #, kde-format
 msgid "Danny Allen"
 msgstr "Danny Allen"
 
-#: main.cpp:56
+#: main.cpp:44
 #, kde-format
 msgid "Game graphics and application icon"
 msgstr "Графика за играта и икона на приложението"
 
-#: main.cpp:57
+#: main.cpp:45
 #, kde-format
 msgid "Johann Ollivier Lapeyre"
 msgstr "Johann Ollivier Lapeyre"
 
-#: main.cpp:57
+#: main.cpp:45
 #, kde-format
 msgid "New great SVG artwork for KDE4"
 msgstr "Ново страхотно художествено оформление в SVG формат за KDE4"
 
-#: main.cpp:58
+#: main.cpp:46
 #, kde-format
 msgid "Brian Croom"
 msgstr "Brian Croom"
 
-#: main.cpp:58
+#: main.cpp:46
 #, kde-format
 msgid "Port to use KGameRenderer"
 msgstr "Версия с използване на KGameRenderer"
 
-#: main.cpp:64
+#: main.cpp:52
 #, kde-format
 msgid "Enable access to all levels"
 msgstr "Включване на достъпа до всички нива"
 
-#: main.cpp:75
+#: main.cpp:63
 #, kde-format
 msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "
@@ -340,17 +340,17 @@ msgstr "Следващ атом"
 msgid "Previous Atom"
 msgstr "Предишен атом"
 
-#: toplevel.cpp:192
+#: toplevel.cpp:187
 #, kde-format
 msgid "Level: %1 (%2)"
 msgstr "Ниво: %1 (%2)"
 
-#: toplevel.cpp:193
+#: toplevel.cpp:188
 #, kde-format
 msgid "Current score: %1"
 msgstr "Текущ резултат: %1"
 
-#: toplevel.cpp:199
+#: toplevel.cpp:194
 #, kde-format
 msgid "Highscore: %1"
 msgstr "Класиране: %1"
