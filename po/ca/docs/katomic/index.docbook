@@ -155,7 +155,7 @@
 ><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
   <para
->&katomic; carregarà un nivell una vegada que inicieu la partida i podreu començar a jugar immediatament. Per veure quin aspecte té la molècula que se suposa que heu de muntar, doneu una ullada a la cantonada superior dreta. Per jugar, feu clic en un àtom. Veureu fletxes verdes que apunten en la direcció cap on es pot moure. Per moure'l, feu clic a la fletxa desitjada. Quan un àtom comença a moure, no s'aturarà fins que xoca amb un altre àtom o una paret, així que assegureu-vos abans de fer el vostre pròxim moviment. Podeu muntar-la on vulgueu en el tauler, però alguns llocs són més fàcils d'accedir que altres. Quan la molècula està muntada, podeu passar al següent nivell. </para>
+>&katomic; carregarà un nivell una vegada que inicieu la partida i podreu començar a jugar immediatament. Per a veure quin aspecte té la molècula que se suposa que heu de muntar, doneu una ullada a la cantonada superior dreta. Per a jugar, feu clic en un àtom. Veureu fletxes verdes que apunten en la direcció cap on es pot moure. Per a moure'l, feu clic a la fletxa desitjada. Quan un àtom comença a moure, no s'aturarà fins que xoca amb un altre àtom o una paret, així que assegureu-vos abans de fer el vostre pròxim moviment. Podeu muntar-la on vulgueu en el tauler, però alguns llocs són més fàcils d'accedir que altres. Quan la molècula està muntada, podeu passar al següent nivell. </para>
 </chapter>
 
 <chapter id="rules_and_tips"
@@ -178,7 +178,7 @@
 ></listitem>
       <listitem
 ><para
->L'única manera de progressar al següent nivell de joc és completar-ne un. Quan un jugador completa un cert nivell el joc canvia automàticament al següent, per tant <quote
+>L'única manera de progressar al següent nivell de joc és completar-ne un. Quan un jugador completa un cert nivell el joc canvia automàticament al següent, per tant, <quote
 >descobrint-lo</quote
 >.</para
 ></listitem>
@@ -210,7 +210,7 @@
 ></listitem>
       <listitem
 ><para
->Quan s'utilitza el teclat per moure les peces assegureu-vos que està seleccionada la peça desitjada. Si està seleccionat un àtom incorrecte, feu servir la tecla &Tab; per canviar entre les peces fins a arribar a la desitjada.</para
+>Quan s'utilitza el teclat per a moure les peces assegureu-vos que està seleccionada la peça desitjada. Si està seleccionat un àtom incorrecte, feu servir la tecla &Tab; per a canviar entre les peces fins a arribar a la desitjada.</para
 ></listitem>
     </itemizedlist>
   </sect1>
@@ -653,7 +653,7 @@
 ></question>
  <answer
 ><para
->Per moure una peça de la partida (àtom), utilitzeu el cursor del ratolí per fer-hi clic. En aquest moment la icona de direcció disponible es farà visible. Feu clic sobre la direcció corresponent per fer un moviment de la peça en la direcció desitjada. També podeu utilitzar el teclat per moure les peces. Utilitzeu la tecla &Tab; per canviar entre els elements i les tecles del cursor per moure'l una vegada seleccionat.</para
+>Per a moure una peça de la partida (àtom), utilitzeu el cursor del ratolí per a fer-hi clic. En aquest moment la icona de direcció disponible es farà visible. Feu clic sobre la direcció corresponent per a fer un moviment de la peça en la direcció desitjada. També podeu utilitzar el teclat per a moure les peces. Utilitzeu la tecla &Tab; per a canviar entre els elements i les tecles del cursor per a moure'l una vegada seleccionat.</para
 ></answer>
 </qandaentry>
 <qandaentry>
@@ -663,7 +663,7 @@
 ></question>
  <answer
 ><para
->Sí. Utilitzeu la tecla &Tab; per canviar entre els elements, i les tecles del cursor per moure'l una vegada seleccionat.</para
+>Sí. Utilitzeu la tecla &Tab; per a canviar entre els elements, i les tecles del cursor per a moure'l una vegada seleccionat.</para
 ></answer>
 </qandaentry>
 <qandaentry>
