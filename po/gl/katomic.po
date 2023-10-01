@@ -42,7 +42,7 @@ msgstr "Conxuntos de niveis"
 msgid ""
 "Failed to load level set \"%1\". Check if it is installed on your computer."
 msgstr ""
-"Non se puido cargar conxunto de niveis «%1». Comproba se está instalado "
+"Non foi posíbel cargar conxunto de niveis «%1». Comproba se está instalado "
 "neste computador."
 
 #: gamewidget.cpp:140
