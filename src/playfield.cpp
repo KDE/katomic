@@ -15,7 +15,7 @@
 #include "katomic_debug.h"
 
 #include <KGamePopupItem>
-#include <KgTheme>
+#include <KGameTheme>
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -25,9 +25,9 @@
 #include <QPainter>
 #include <QStandardPaths>
 
-struct Theme : public KgTheme
+struct Theme : public KGameTheme
 {
-    Theme() : KgTheme("pics/default_theme.desktop")
+    Theme() : KGameTheme("pics/default_theme.desktop")
     {
         setGraphicsPath(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("pics/default_theme.svgz")));
     }
