@@ -88,14 +88,14 @@ void AtomTopLevel::createMenu()
     m_prevLevelAct = actionCollection()->addAction( QStringLiteral(  "prev_level" ) );
     m_prevLevelAct->setIcon( QIcon::fromTheme( QStringLiteral(  "arrow-left" ) ) );
     m_prevLevelAct->setText( i18n( "Previous Level" ) );
-    actionCollection()->setDefaultShortcut(m_prevLevelAct, Qt::CTRL | Qt::Key_P );
+    KActionCollection::setDefaultShortcut(m_prevLevelAct, Qt::CTRL | Qt::Key_P );
     addAction( m_prevLevelAct );
     connect( m_prevLevelAct, &QAction::triggered, m_gameWid, &GameWidget::prevLevel );
 
     m_nextLevelAct = actionCollection()->addAction( QStringLiteral(  "next_level" ) );
     m_nextLevelAct->setIcon( QIcon::fromTheme( QStringLiteral(  "arrow-right" ) ) );
     m_nextLevelAct->setText( i18n( "Next Level" ) );
-    actionCollection()->setDefaultShortcut(m_nextLevelAct, Qt::CTRL | Qt::Key_N );
+    KActionCollection::setDefaultShortcut(m_nextLevelAct, Qt::CTRL | Qt::Key_N );
     addAction( m_nextLevelAct );
     connect( m_nextLevelAct, &QAction::triggered, m_gameWid, &GameWidget::nextLevel );
 
@@ -134,31 +134,31 @@ void AtomTopLevel::createMenu()
 
     QAction * atomUpAct = actionCollection()->addAction( QStringLiteral( "atom_up" ));
     atomUpAct->setText(i18n("Atom Up"));
-    actionCollection()->setDefaultShortcut(atomUpAct, Qt::Key_Up);
+    KActionCollection::setDefaultShortcut(atomUpAct, Qt::Key_Up);
     addAction(atomUpAct);
     connect(atomUpAct, &QAction::triggered, m_gameWid, &GameWidget::moveUp);
 
     QAction * atomDownAct = actionCollection()->addAction( QStringLiteral( "atom_down" ));
     atomDownAct->setText(i18n("Atom Down"));
-    actionCollection()->setDefaultShortcut(atomDownAct,Qt::Key_Down);
+    KActionCollection::setDefaultShortcut(atomDownAct,Qt::Key_Down);
     addAction(atomDownAct);
     connect(atomDownAct, &QAction::triggered, m_gameWid, &GameWidget::moveDown);
 
     QAction * atomLeftAct = actionCollection()->addAction( QStringLiteral( "atom_left" ));
     atomLeftAct->setText(i18n("Atom Left"));
-    actionCollection()->setDefaultShortcut(atomLeftAct,Qt::Key_Left);
+    KActionCollection::setDefaultShortcut(atomLeftAct,Qt::Key_Left);
     addAction(atomLeftAct);
     connect(atomLeftAct, &QAction::triggered, m_gameWid, &GameWidget::moveLeft);
 
     QAction * atomRightAct = actionCollection()->addAction( QStringLiteral( "atom_right" ));
     atomRightAct->setText(i18n("Atom Right"));
-    actionCollection()->setDefaultShortcut(atomRightAct,Qt::Key_Right);
+    KActionCollection::setDefaultShortcut(atomRightAct,Qt::Key_Right);
     addAction(atomRightAct);
     connect(atomRightAct, &QAction::triggered, m_gameWid, &GameWidget::moveRight);
 
     QAction * nextAtomAct = actionCollection()->addAction( QStringLiteral( "next_atom" ));
     nextAtomAct->setText(i18n("Next Atom"));
-    actionCollection()->setDefaultShortcut(nextAtomAct,Qt::Key_Tab);
+    KActionCollection::setDefaultShortcut(nextAtomAct,Qt::Key_Tab);
     addAction(nextAtomAct);
     connect(nextAtomAct, &QAction::triggered, m_gameWid->playfield(), &PlayField::nextAtom);
 
