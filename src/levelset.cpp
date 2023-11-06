@@ -102,7 +102,7 @@ bool LevelSet::loadFromFile(const QString& fileName)
     reset();
 
     m_levelsFile = KSharedConfig::openConfig(fileName, KConfig::SimpleConfig);
-    KConfigGroup gr = m_levelsFile->group("LevelSet");
+    KConfigGroup gr = m_levelsFile->group(QStringLiteral("LevelSet"));
 
     m_visibleName = gr.readEntry("Name");
     m_description = gr.readEntry("Description");

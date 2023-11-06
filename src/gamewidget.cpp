@@ -193,7 +193,7 @@ void GameWidget::saveGame()
     if(fileName.isEmpty())
         return;
     KConfig config(fileName, KConfig::SimpleConfig);
-    KConfigGroup gr = config.group("Savegame");
+    KConfigGroup gr = config.group(QStringLiteral("Savegame"));
     gr.writeEntry( "Level", m_level );
     gr.writeEntry( "LevelSet", m_levelSet.name() );
     m_playField->saveGame( gr );
@@ -205,7 +205,7 @@ void GameWidget::loadGame()
     if(fileName.isEmpty())
         return;
     KConfig config(fileName, KConfig::SimpleConfig);
-    KConfigGroup gr = config.group("Savegame");
+    KConfigGroup gr = config.group(QStringLiteral("Savegame"));
     QString levelSet = gr.readEntry("LevelSet");
     if (levelSet.isEmpty())
     {
