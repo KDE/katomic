@@ -12,6 +12,7 @@
 
 #include "molecule.h"
 
+#include <QApplication>
 #include <QPainter>
 #include <QTimeLine>
 
@@ -154,8 +155,11 @@ QPixmap AtomFieldItem::renderAtom( KGameRenderer* renderer, atom at, int size )
 
     QPixmap atomPix = renderer->spritePixmap(s_names.value(at.obj), QSize(size, size));
 
+    const qreal dpr = qApp->devicePixelRatio();
+
     QPainter p;
-    QPixmap bonds(size,size);
+    QPixmap bonds(size * dpr, size * dpr);
+    bonds.setDevicePixelRatio(dpr);
     bonds.fill(Qt::transparent);
     for (int c = 0; c < MAX_CONNS_PER_ATOM; c++)
     {
