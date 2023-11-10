@@ -88,6 +88,7 @@ void PlayField::setLevelData(const LevelData* level)
     m_previewItem->setMolecule(m_levelData->molecule());
 
     const auto atomElements = m_levelData->atomElements();
+    m_atoms.reserve(atomElements.size());
     for (const LevelData::Element& element : atomElements)
     {
         AtomFieldItem* atom = new AtomFieldItem(&m_renderer, m_levelData->molecule()->getAtom(element.atom), this);

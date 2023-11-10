@@ -22,6 +22,7 @@ LevelData::LevelData(const QList<Element>& elements, const Molecule* mol)
     : m_molecule(mol)
 {
     memset(m_field, 0, sizeof(m_field));
+    m_atoms.reserve(elements.size());
     for (const Element& el : elements)
     {
         if (el.atom == -1)
@@ -33,6 +34,7 @@ LevelData::LevelData(const QList<Element>& elements, const Molecule* mol)
             m_atoms.append(el);
         }
     }
+    m_atoms.squeeze();
 }
 
 LevelData::~LevelData()
@@ -161,6 +163,7 @@ const LevelData* LevelSet::readLevel(int levelNum) const
 
     QList<LevelData::Element> elements;
 
+    elements.reserve(FIELD_SIZE * FIELD_SIZE);
     for (int j = 0; j < FIELD_SIZE; j++)
     {
         const QString key = QString::asprintf("feld_%02d", j);
@@ -195,6 +198,7 @@ const LevelData* LevelSet::readLevel(int levelNum) const
             }
         }
     }
+    elements.squeeze();
 
     // Molecule object will be deleted by LevelData, it takes ownership
     LevelData* level = new LevelData(elements, readLevelMolecule(levelNum));
