@@ -49,7 +49,7 @@ int main(int argc, char **argv)
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
     KCrash::initialize();
-    parser.addOption(QCommandLineOption(QStringList() <<  QStringLiteral("hackmode"), i18n( "Enable access to all levels" )));
+    parser.addOption(QCommandLineOption({QStringLiteral("hackmode")}, i18n( "Enable access to all levels" )));
 
     aboutData.setupCommandLine(&parser);
     parser.process(app);

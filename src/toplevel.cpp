@@ -106,8 +106,11 @@ void AtomTopLevel::createMenu()
 
     m_animSpeedAct = new KSelectAction(i18n("Animation Speed"), this);
     actionCollection()->addAction( QStringLiteral( "anim_speed" ), m_animSpeedAct);
-    QStringList acts;
-    acts << i18n("Slow") << i18n("Normal") << i18n("Fast");
+    const QStringList acts{
+        i18n("Slow"),
+        i18n("Normal"),
+        i18n("Fast"),
+    };
     m_animSpeedAct->setItems(acts);
     connect(m_animSpeedAct, &KSelectAction::indexTriggered,
             this, &AtomTopLevel::slotAnimSpeedChanged);

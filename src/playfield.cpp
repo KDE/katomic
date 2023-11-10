@@ -701,8 +701,11 @@ void PlayField::saveGame( KConfigGroup& config ) const
     {
         mv = m_undoStack.at(i);
         // atomIdx, direction, numCells
-        QList<int> move;
-        move << mv.atomIdx << static_cast<int>(mv.dir) << mv.numCells;
+        const QList<int> move {
+            mv.atomIdx,
+            static_cast<int>(mv.dir),
+            mv.numCells,
+        };
         config.writeEntry( QStringLiteral("Move_%1").arg(i), move );
     }
     config.writeEntry("SelectedAtom", m_selIdx);

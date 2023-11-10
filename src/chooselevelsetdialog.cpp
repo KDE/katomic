@@ -71,7 +71,7 @@ void ChooseLevelSetDialog::loadData()
     QStringList fileList;
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("levels"), QStandardPaths::LocateDirectory);
     for (const QString& dir : dirs) {
-        const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.dat"));
+        const QStringList fileNames = QDir(dir).entryList({QStringLiteral("*.dat")});
         for (const QString& file : fileNames) {
             fileList.append(dir + QLatin1Char('/') + file);
         }
