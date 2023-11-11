@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2023-11-11 01:42+0000\n"
 "PO-Revision-Date: 2016-03-20 15:25+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -91,7 +91,7 @@ msgstr "&Подешавање"
 msgid "Main Toolbar"
 msgstr "Главна трака"
 
-#: levelset.cpp:264
+#: levelset.cpp:268
 #, kde-format
 msgid "Noname"
 msgstr "Безимени"
@@ -281,71 +281,71 @@ msgid "Slow"
 msgstr "спора"
 
 # >> @item:inlistbox
-#: toplevel.cpp:110
+#: toplevel.cpp:111
 #, kde-format
 msgid "Normal"
 msgstr "нормална"
 
 # >> @item:inlistbox
-#: toplevel.cpp:110
+#: toplevel.cpp:112
 #, kde-format
 msgid "Fast"
 msgstr "брза"
 
-#: toplevel.cpp:117
+#: toplevel.cpp:120
 #, kde-format
 msgid "Undo All"
 msgstr "Опозови све"
 
-#: toplevel.cpp:122
+#: toplevel.cpp:125
 #, kde-format
 msgid "Redo All"
 msgstr "Понови све"
 
-#: toplevel.cpp:136
+#: toplevel.cpp:139
 #, kde-format
 msgid "Atom Up"
 msgstr "Атом нагоре"
 
-#: toplevel.cpp:142
+#: toplevel.cpp:145
 #, kde-format
 msgid "Atom Down"
 msgstr "Атом надоље"
 
-#: toplevel.cpp:148
+#: toplevel.cpp:151
 #, kde-format
 msgid "Atom Left"
 msgstr "Атом улево"
 
-#: toplevel.cpp:154
+#: toplevel.cpp:157
 #, kde-format
 msgid "Atom Right"
 msgstr "Атом удесно"
 
-#: toplevel.cpp:160
+#: toplevel.cpp:163
 #, kde-format
 msgid "Next Atom"
 msgstr "Сљедећи атом"
 
-#: toplevel.cpp:166
+#: toplevel.cpp:169
 #, kde-format
 msgid "Previous Atom"
 msgstr "Претходни атом"
 
 # @info:status
-#: toplevel.cpp:187
+#: toplevel.cpp:190
 #, kde-format
 msgid "Level: %1 (%2)"
 msgstr "ниво: %1 (%2)"
 
 # @info:status
-#: toplevel.cpp:188
+#: toplevel.cpp:191
 #, kde-format
 msgid "Current score: %1"
 msgstr "тренутни резултат: %1"
 
 # @info:status
-#: toplevel.cpp:194
+#: toplevel.cpp:197
 #, kde-format
 msgid "Highscore: %1"
 msgstr "најрезултат: %1"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2023-11-11 01:42+0000\n"
 "PO-Revision-Date: 2010-02-02 22:00+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -90,7 +90,7 @@ msgstr "設定(&S)"
 msgid "Main Toolbar"
 msgstr "メインツールバー"
 
-#: levelset.cpp:264
+#: levelset.cpp:268
 #, kde-format
 msgid "Noname"
 msgstr "名前なし"
@@ -272,67 +272,67 @@ msgstr "アニメーションの速度"
 msgid "Slow"
 msgstr "遅く"
 
-#: toplevel.cpp:110
+#: toplevel.cpp:111
 #, kde-format
 msgid "Normal"
 msgstr "普通"
 
-#: toplevel.cpp:110
+#: toplevel.cpp:112
 #, kde-format
 msgid "Fast"
 msgstr "速く"
 
-#: toplevel.cpp:117
+#: toplevel.cpp:120
 #, kde-format
 msgid "Undo All"
 msgstr "すべて元に戻す"
 
-#: toplevel.cpp:122
+#: toplevel.cpp:125
 #, kde-format
 msgid "Redo All"
 msgstr "すべてやり直す"
 
-#: toplevel.cpp:136
+#: toplevel.cpp:139
 #, kde-format
 msgid "Atom Up"
 msgstr "原子を上に移動"
 
-#: toplevel.cpp:142
+#: toplevel.cpp:145
 #, kde-format
 msgid "Atom Down"
 msgstr "原子を下に移動"
 
-#: toplevel.cpp:148
+#: toplevel.cpp:151
 #, kde-format
 msgid "Atom Left"
 msgstr "原子を左に移動"
 
-#: toplevel.cpp:154
+#: toplevel.cpp:157
 #, kde-format
 msgid "Atom Right"
 msgstr "原子を右に移動"
 
-#: toplevel.cpp:160
+#: toplevel.cpp:163
 #, kde-format
 msgid "Next Atom"
 msgstr "次の原子"
 
-#: toplevel.cpp:166
+#: toplevel.cpp:169
 #, kde-format
 msgid "Previous Atom"
 msgstr "前の原子"
 
-#: toplevel.cpp:187
+#: toplevel.cpp:190
 #, kde-format
 msgid "Level: %1 (%2)"
 msgstr "レベル: %1 (%2)"
 
-#: toplevel.cpp:188
+#: toplevel.cpp:191
 #, kde-format
 msgid "Current score: %1"
 msgstr "現在のスコア: %1"
 
-#: toplevel.cpp:194
+#: toplevel.cpp:197
 #, kde-format
 msgid "Highscore: %1"
 msgstr "ハイスコア: %1"

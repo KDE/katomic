@@ -20,7 +20,7 @@
 #  on the bulgarian chemical compound names
 #  please contact vladimirg at users.sourceforge.net
 #
-# $Id: katomic.po 1660889 2023-09-25 02:02:18Z scripty $
+# $Id: katomic.po 1664578 2023-11-11 02:07:49Z scripty $
 #
 #     2. Standard names. Example: 3,4-дихидрокси-3-циклобутен-1,2-дион.
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006.
@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2023-11-11 01:42+0000\n"
 "PO-Revision-Date: 2011-07-28 18:17+0300\n"
 "Last-Translator: Yasen Pramatarov <yasen@lindeas.com>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -108,7 +108,7 @@ msgstr "&Настройки"
 msgid "Main Toolbar"
 msgstr "Главна лента с инструменти"
 
-#: levelset.cpp:264
+#: levelset.cpp:268
 #, kde-format
 msgid "Noname"
 msgstr "Без име"
@@ -290,67 +290,67 @@ msgstr "Скорост на анимацията"
 msgid "Slow"
 msgstr "Бавно"
 
-#: toplevel.cpp:110
+#: toplevel.cpp:111
 #, kde-format
 msgid "Normal"
 msgstr "Нормално"
 
-#: toplevel.cpp:110
+#: toplevel.cpp:112
 #, kde-format
 msgid "Fast"
 msgstr "Бързо"
 
-#: toplevel.cpp:117
+#: toplevel.cpp:120
 #, kde-format
 msgid "Undo All"
 msgstr "Отмяна на всичко"
 
-#: toplevel.cpp:122
+#: toplevel.cpp:125
 #, kde-format
 msgid "Redo All"
 msgstr "Въстановяване на всичко"
 
-#: toplevel.cpp:136
+#: toplevel.cpp:139
 #, kde-format
 msgid "Atom Up"
 msgstr "Атом нагоре"
 
-#: toplevel.cpp:142
+#: toplevel.cpp:145
 #, kde-format
 msgid "Atom Down"
 msgstr "Атом надолу"
 
-#: toplevel.cpp:148
+#: toplevel.cpp:151
 #, kde-format
 msgid "Atom Left"
 msgstr "Атом наляво"
 
-#: toplevel.cpp:154
+#: toplevel.cpp:157
 #, kde-format
 msgid "Atom Right"
 msgstr "Атом надясно"
 
-#: toplevel.cpp:160
+#: toplevel.cpp:163
 #, kde-format
 msgid "Next Atom"
 msgstr "Следващ атом"
 
-#: toplevel.cpp:166
+#: toplevel.cpp:169
 #, kde-format
 msgid "Previous Atom"
 msgstr "Предишен атом"
 
-#: toplevel.cpp:187
+#: toplevel.cpp:190
 #, kde-format
 msgid "Level: %1 (%2)"
 msgstr "Ниво: %1 (%2)"
 
-#: toplevel.cpp:188
+#: toplevel.cpp:191
 #, kde-format
 msgid "Current score: %1"
 msgstr "Текущ резултат: %1"
 
-#: toplevel.cpp:194
+#: toplevel.cpp:197
 #, kde-format
 msgid "Highscore: %1"
 msgstr "Класиране: %1"

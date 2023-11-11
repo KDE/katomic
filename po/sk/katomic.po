@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2023-11-11 01:42+0000\n"
 "PO-Revision-Date: 2021-11-15 17:40+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -89,7 +89,7 @@ msgstr "Na&stavenie"
 msgid "Main Toolbar"
 msgstr "Hlavný panel nástrojov"
 
-#: levelset.cpp:264
+#: levelset.cpp:268
 #, kde-format
 msgid "Noname"
 msgstr "Nepomenované"
@@ -272,67 +272,67 @@ msgstr "Rýchlosť animácie"
 msgid "Slow"
 msgstr "Pomalá"
 
-#: toplevel.cpp:110
+#: toplevel.cpp:111
 #, kde-format
 msgid "Normal"
 msgstr "Normálna"
 
-#: toplevel.cpp:110
+#: toplevel.cpp:112
 #, kde-format
 msgid "Fast"
 msgstr "Rýchla"
 
-#: toplevel.cpp:117
+#: toplevel.cpp:120
 #, kde-format
 msgid "Undo All"
 msgstr "Všetko späť"
 
-#: toplevel.cpp:122
+#: toplevel.cpp:125
 #, kde-format
 msgid "Redo All"
 msgstr "Všetko znovu"
 
-#: toplevel.cpp:136
+#: toplevel.cpp:139
 #, kde-format
 msgid "Atom Up"
 msgstr "Atóm hore"
 
-#: toplevel.cpp:142
+#: toplevel.cpp:145
 #, kde-format
 msgid "Atom Down"
 msgstr "Atóm dole"
 
-#: toplevel.cpp:148
+#: toplevel.cpp:151
 #, kde-format
 msgid "Atom Left"
 msgstr "Atóm doľava"
 
-#: toplevel.cpp:154
+#: toplevel.cpp:157
 #, kde-format
 msgid "Atom Right"
 msgstr "Atóm doprava"
 
-#: toplevel.cpp:160
+#: toplevel.cpp:163
 #, kde-format
 msgid "Next Atom"
 msgstr "Nasledujúci atóm"
 
-#: toplevel.cpp:166
+#: toplevel.cpp:169
 #, kde-format
 msgid "Previous Atom"
 msgstr "Predchádzajúci atóm"
 
-#: toplevel.cpp:187
+#: toplevel.cpp:190
 #, kde-format
 msgid "Level: %1 (%2)"
 msgstr "Úroveň: %1 (%2)"
 
-#: toplevel.cpp:188
+#: toplevel.cpp:191
 #, kde-format
 msgid "Current score: %1"
 msgstr "Aktuálne skóre: %1"
 
-#: toplevel.cpp:194
+#: toplevel.cpp:197
 #, kde-format
 msgid "Highscore: %1"
 msgstr "Najvyššie skóre: %1"

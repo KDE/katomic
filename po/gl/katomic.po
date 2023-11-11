@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2023-11-11 01:42+0000\n"
 "PO-Revision-Date: 2023-04-23 06:45+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -91,7 +91,7 @@ msgstr "&Configuración"
 msgid "Main Toolbar"
 msgstr "Barra de ferramentas principal"
 
-#: levelset.cpp:264
+#: levelset.cpp:268
 #, kde-format
 msgid "Noname"
 msgstr "Sen nome"
@@ -273,67 +273,67 @@ msgstr "Velocidade da animación"
 msgid "Slow"
 msgstr "Lenta"
 
-#: toplevel.cpp:110
+#: toplevel.cpp:111
 #, kde-format
 msgid "Normal"
 msgstr "Normal"
 
-#: toplevel.cpp:110
+#: toplevel.cpp:112
 #, kde-format
 msgid "Fast"
 msgstr "Rápida"
 
-#: toplevel.cpp:117
+#: toplevel.cpp:120
 #, kde-format
 msgid "Undo All"
 msgstr "Desfacer todo"
 
-#: toplevel.cpp:122
+#: toplevel.cpp:125
 #, kde-format
 msgid "Redo All"
 msgstr "Refacer todo"
 
-#: toplevel.cpp:136
+#: toplevel.cpp:139
 #, kde-format
 msgid "Atom Up"
 msgstr "Subir o átomo"
 
-#: toplevel.cpp:142
+#: toplevel.cpp:145
 #, kde-format
 msgid "Atom Down"
 msgstr "Baixar o átomo"
 
-#: toplevel.cpp:148
+#: toplevel.cpp:151
 #, kde-format
 msgid "Atom Left"
 msgstr "Mover o átomo cara á esquerda"
 
-#: toplevel.cpp:154
+#: toplevel.cpp:157
 #, kde-format
 msgid "Atom Right"
 msgstr "Mover o átomo cara á dereita"
 
-#: toplevel.cpp:160
+#: toplevel.cpp:163
 #, kde-format
 msgid "Next Atom"
 msgstr "Átomo seguinte"
 
-#: toplevel.cpp:166
+#: toplevel.cpp:169
 #, kde-format
 msgid "Previous Atom"
 msgstr "Átomo anterior"
 
-#: toplevel.cpp:187
+#: toplevel.cpp:190
 #, kde-format
 msgid "Level: %1 (%2)"
 msgstr "Nivel: %1 (%2)"
 
-#: toplevel.cpp:188
+#: toplevel.cpp:191
 #, kde-format
 msgid "Current score: %1"
 msgstr "Puntuación actual: %1"
 
-#: toplevel.cpp:194
+#: toplevel.cpp:197
 #, kde-format
 msgid "Highscore: %1"
 msgstr "Mellor puntuación: %1"
