@@ -20,25 +20,26 @@
 #  on the bulgarian chemical compound names
 #  please contact vladimirg at users.sourceforge.net
 #
-# $Id: katomic.po 1664578 2023-11-11 02:07:49Z scripty $
+# $Id: katomic.po 1667397 2023-12-16 02:03:53Z scripty $
 #
 #     2. Standard names. Example: 3,4-дихидрокси-3-циклобутен-1,2-дион.
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006.
 # Petar Toushkov <pt.launchpad@gmail.com>, 2009, 2010.
 # Yasen Pramatarov <yasen@lindeas.com>, 2011.
+# SPDX-FileCopyrightText: 2023 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-11 01:42+0000\n"
-"PO-Revision-Date: 2011-07-28 18:17+0300\n"
-"Last-Translator: Yasen Pramatarov <yasen@lindeas.com>\n"
-"Language-Team: Bulgarian <dict@fsa-bg.org>\n"
+"PO-Revision-Date: 2023-12-16 00:28+0100\n"
+"Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
+"Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -143,9 +144,9 @@ msgid "KAtomic"
 msgstr "KAtomic"
 
 #: main.cpp:34
-#, fuzzy, kde-format
+#, kde-format
 msgid "Atomic Entertainment Game"
-msgstr "Забавна игра с атоми за KDE"
+msgstr "Забавна игра с атоми"
 
 #: main.cpp:36
 #, kde-format
