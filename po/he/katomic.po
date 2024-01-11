@@ -13,21 +13,22 @@
 # Diego Iastrubni <elcuco@kdemail.net>, 2004, 2005.
 # Diego Iastrubni <elcuco@kde.org>, 2005.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-11 01:42+0000\n"
-"PO-Revision-Date: 2017-05-16 07:01-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
+"PO-Revision-Date: 2024-01-11 00:47+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -40,61 +41,61 @@ msgid "Your emails"
 msgstr "kde-l10n-he@kde.org"
 
 #: chooselevelsetdialog.cpp:29
-#, fuzzy, kde-format
+#, kde-format
 msgid "Level Sets"
-msgstr "שלב: %1"
+msgstr "סדרות שלבים"
 
 #: gamewidget.cpp:84
 #, kde-format
 msgid ""
 "Failed to load level set \"%1\". Check if it is installed on your computer."
-msgstr ""
+msgstr "טעינת סדרת השלבים „%1” נכשלה. נא לבדוק אם היא מותקנת במחשב שלך."
 
 #: gamewidget.cpp:140
-#, fuzzy, kde-format
+#, kde-format
 msgid "Level %1 finished. "
-msgstr "תוצאות השיא לשלב %1"
+msgstr "שלב %1 הסתיים. "
 
 #: gamewidget.cpp:144
 #, kde-format
 msgid "Congratulations! You have a new highscore!"
-msgstr ""
+msgstr "ברכות! הגעת לתוצאת שיא חדשה!"
 
 #. i18n: ectx: label, entry (AnimationSpeed), group (Game)
 #: katomic.kcfg:9
 #, kde-format
 msgid "The speed of the animations."
-msgstr ""
+msgstr "מהירות ההנפשות."
 
 #. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
 #: katomic.kcfg:20
 #, kde-format
 msgid "Width of saved background"
-msgstr ""
+msgstr "רוחב הרקע שנשמר"
 
 #. i18n: ectx: label, entry (SavedBackgroundHeight), group (General)
 #: katomic.kcfg:24
 #, kde-format
 msgid "Height of saved background"
-msgstr ""
+msgstr "גובה הרקע שנשמר"
 
 #. i18n: ectx: label, entry (LastPlayedLevelSet), group (General)
 #: katomic.kcfg:28
 #, kde-format
 msgid "Last played levelset"
-msgstr ""
+msgstr "סדרת שלבים אחרונה ששיחקת בה"
 
 #. i18n: ectx: Menu (settings)
 #: katomicui.rc:16
 #, kde-format
 msgid "&Settings"
-msgstr ""
+msgstr "ה&גדרות"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: katomicui.rc:25
 #, kde-format
 msgid "Main Toolbar"
-msgstr ""
+msgstr "סרגל כלים"
 
 #: levelset.cpp:268
 #, kde-format
@@ -104,28 +105,28 @@ msgstr "ללא שם"
 #: levelsetdelegate.cpp:81
 #, kde-format
 msgid "by %1"
-msgstr ""
+msgstr "מאת %1"
 
 #: levelsetdelegate.cpp:87
 #, kde-format
 msgid ", contains 1 level"
 msgid_plural ", contains %1 levels"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] ", מכיל שלב"
+msgstr[1] ", מכיל שני שלבים"
+msgstr[2] ", מכיל %1 שלבים"
+msgstr[3] ", מכיל %1 שלבים"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: levelsetwidget.ui:20
 #, kde-format
 msgid "Choose a level set to play:"
-msgstr ""
+msgstr "נא לבחור סדרת שלבים למשחק:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, fuzzy, kde-format
+#, kde-format
 msgid "Get new levels"
-msgstr "שישה שלבים חדשים"
+msgstr "הורדת שלבים חדשים"
 
 #: main.cpp:32
 #, kde-format
@@ -133,10 +134,9 @@ msgid "KAtomic"
 msgstr "KAtomic"
 
 #: main.cpp:34
-#, fuzzy, kde-format
-#| msgid "KDE Atomic Entertainment Game"
+#, kde-format
 msgid "Atomic Entertainment Game"
-msgstr "משחק בידור אטומי ל־KDE"
+msgstr "משחק אטומים בשביל הכיף"
 
 #: main.cpp:36
 #, kde-format
@@ -144,51 +144,53 @@ msgid ""
 "(c) 1998, Andreas Wuest\n"
 "(c) 2007-2009 Dmitry Suzdalev"
 msgstr ""
+"(c) 1998, אנדראס ווסט\n"
+"(c) 2007-2009 דמיטרי סוזדלב"
 
 #: main.cpp:37
 #, kde-format
 msgid "Andreas Wuest"
-msgstr ""
+msgstr "אנדראס ווסט"
 
 #: main.cpp:37
 #, kde-format
 msgid "Original author"
-msgstr ""
+msgstr "יוצר מקורי"
 
 #: main.cpp:38
 #, kde-format
 msgid "Dmitry Suzdalev"
-msgstr ""
+msgstr "דמיטרי סוזדלב"
 
 #: main.cpp:38
 #, kde-format
 msgid "Porting to KDE4. Current maintainer"
-msgstr ""
+msgstr "הסבה ל־KDE4. מתחזק נוכחי"
 
 #: main.cpp:39
 #, kde-format
 msgid "Stephan Kulow"
-msgstr ""
+msgstr "סטיבן קולוב"
 
 #: main.cpp:40
 #, kde-format
 msgid "Cristian Tibirna"
-msgstr ""
+msgstr "כריסטיאן טיבירנה"
 
 #: main.cpp:41
 #, kde-format
 msgid "Carsten Pfeiffer"
-msgstr ""
+msgstr "קרסטן פייפר"
 
 #: main.cpp:42
 #, kde-format
 msgid "Dave Corrie"
-msgstr ""
+msgstr "דייב קורי"
 
 #: main.cpp:43
 #, kde-format
 msgid "Kai Jung"
-msgstr ""
+msgstr "קאי יונג"
 
 #: main.cpp:43
 #, kde-format
@@ -198,7 +200,7 @@ msgstr "שישה שלבים חדשים"
 #: main.cpp:44
 #, kde-format
 msgid "Danny Allen"
-msgstr ""
+msgstr "דני אלן"
 
 #: main.cpp:44
 #, kde-format
@@ -208,27 +210,27 @@ msgstr "גרפיקת המשחק וסמל היישום"
 #: main.cpp:45
 #, kde-format
 msgid "Johann Ollivier Lapeyre"
-msgstr ""
+msgstr "יוהאן אוליבייר לאפייר"
 
 #: main.cpp:45
 #, kde-format
 msgid "New great SVG artwork for KDE4"
-msgstr ""
+msgstr "יצירות אומנות חדשות ונהדרות ל־KDE4"
 
 #: main.cpp:46
 #, kde-format
 msgid "Brian Croom"
-msgstr ""
+msgstr "בראיין קרום"
 
 #: main.cpp:46
 #, kde-format
 msgid "Port to use KGameRenderer"
-msgstr ""
+msgstr "הסבה לשימוש ב־KGameRenderer"
 
 #: main.cpp:52
 #, kde-format
 msgid "Enable access to all levels"
-msgstr ""
+msgstr "הפעלת גישה לכל השלבים"
 
 #: main.cpp:63
 #, kde-format
@@ -236,66 +238,68 @@ msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "
 "your installation."
 msgstr ""
+"KAtomic לא הצליח למצוא את סדרת השלבים שלו כברירת מחדל ועל כן ייסדר. נא לבדוק "
+"שההתקנה שלך תקינה."
 
 #: toplevel.cpp:41
-#, fuzzy, kde-format
+#, kde-format
 msgid "Level:"
-msgstr "שלב: %1"
+msgstr "שלב:"
 
 #: toplevel.cpp:42
 #, kde-format
 msgid "Current score:"
-msgstr ""
+msgstr "ציון נוכחי:"
 
 #: toplevel.cpp:43
 #, kde-format
 msgid "Highscore:"
-msgstr "תוצאה הכי גבוהה:"
+msgstr "תוצאת שיא:"
 
 #: toplevel.cpp:90
-#, fuzzy, kde-format
+#, kde-format
 msgid "Previous Level"
-msgstr "האטום הקודם"
+msgstr "השלב הקודם"
 
 #: toplevel.cpp:97
-#, fuzzy, kde-format
+#, kde-format
 msgid "Next Level"
-msgstr "שלב: %1"
+msgstr "השלב הבא"
 
 #: toplevel.cpp:103
 #, kde-format
 msgid "Choose level set..."
-msgstr ""
+msgstr "נא לבחור סדרת שלבים…"
 
 #: toplevel.cpp:107
-#, fuzzy, kde-format
+#, kde-format
 msgid "Animation Speed"
-msgstr "מהירות אנימציה:"
+msgstr "מהירות הנפשה"
 
 #: toplevel.cpp:110
 #, kde-format
 msgid "Slow"
-msgstr ""
+msgstr "איטי"
 
 #: toplevel.cpp:111
 #, kde-format
 msgid "Normal"
-msgstr ""
+msgstr "רגיל"
 
 #: toplevel.cpp:112
 #, kde-format
 msgid "Fast"
-msgstr ""
+msgstr "מהר"
 
 #: toplevel.cpp:120
 #, kde-format
 msgid "Undo All"
-msgstr ""
+msgstr "הסגה של הכול"
 
 #: toplevel.cpp:125
 #, kde-format
 msgid "Redo All"
-msgstr ""
+msgstr "ביצוע הכול מחדש"
 
 #: toplevel.cpp:139
 #, kde-format
@@ -328,16 +332,16 @@ msgid "Previous Atom"
 msgstr "האטום הקודם"
 
 #: toplevel.cpp:190
-#, fuzzy, kde-format
+#, kde-format
 msgid "Level: %1 (%2)"
-msgstr "שלב: %1"
+msgstr "שלב: %1 (%2)"
 
 #: toplevel.cpp:191
 #, kde-format
 msgid "Current score: %1"
-msgstr ""
+msgstr "ניקוד נוכחי: %1"
 
 #: toplevel.cpp:197
-#, fuzzy, kde-format
+#, kde-format
 msgid "Highscore: %1"
-msgstr "תוצאה הכי גבוהה:"
+msgstr "תוצאת שיא: %1"
