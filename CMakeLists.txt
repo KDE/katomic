@@ -55,6 +55,7 @@ ecm_set_disabled_deprecation_versions(
 
 add_subdirectory(levels)
 add_subdirectory(icons)
+add_subdirectory(themes)
 add_subdirectory(src)
 
 ki18n_install(po)

@@ -27,9 +27,9 @@
 
 struct Theme : public KGameTheme
 {
-    Theme() : KGameTheme("pics/default_theme.desktop")
+    Theme() : KGameTheme("themes/default.desktop")
     {
-        setGraphicsPath(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("pics/default_theme.svgz")));
+        setGraphicsPath(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("themes/default.svgz")));
     }
 };
 
