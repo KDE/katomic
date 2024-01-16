@@ -28,7 +28,8 @@ int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-    KLocalizedString::setApplicationDomain("katomic");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("katomic"));
+
     KAboutData aboutData( QStringLiteral("katomic"), i18n("KAtomic"),
             QStringLiteral(KATOMIC_VERSION_STRING),
             i18n("Atomic Entertainment Game"),
