@@ -141,6 +141,4 @@ GenericName[x-test]=xxSokoban-like Logic Gamexx
 GenericName[zh_CN]=类似推箱子的逻辑游戏
 GenericName[zh_TW]=倉庫番(sokoban)式的智力遊戲
 StartupNotify=true
-X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Game;StrategyGame;
-X-DBUS-ServiceName=org.kde.katomic
