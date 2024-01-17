@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:42+0000\n"
+"POT-Creation-Date: 2024-01-17 00:36+0000\n"
 "PO-Revision-Date: 2024-01-12 21:36+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -116,17 +116,17 @@ msgstr "Válaszon szintet a játékhoz:"
 msgid "Get new levels"
 msgstr "Új szintek beszerzése"
 
-#: main.cpp:32
+#: main.cpp:33
 #, kde-format
 msgid "KAtomic"
 msgstr "KAtomic"
 
-#: main.cpp:34
+#: main.cpp:35
 #, kde-format
 msgid "Atomic Entertainment Game"
 msgstr "Atomos szórakoztató játék"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgid ""
 "(c) 1998, Andreas Wuest\n"
@@ -135,92 +135,92 @@ msgstr ""
 "(c) Andreas Wuerst, 1998\n"
 "(c) Dmitry Suzdalev, 2007-2009"
 
-#: main.cpp:37
+#: main.cpp:38
 #, kde-format
 msgid "Andreas Wuest"
 msgstr "Andreas Wuest"
 
-#: main.cpp:37
+#: main.cpp:38
 #, kde-format
 msgid "Original author"
 msgstr "Eredeti szerző"
 
-#: main.cpp:38
+#: main.cpp:39
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr "Dmitry Suzdalev"
 
-#: main.cpp:38
+#: main.cpp:39
 #, kde-format
 msgid "Porting to KDE4. Current maintainer"
 msgstr "Portolás a KDE4-re. A jelenlegi karbantartó"
 
-#: main.cpp:39
+#: main.cpp:40
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "Stephan Kulow"
 
-#: main.cpp:40
+#: main.cpp:41
 #, kde-format
 msgid "Cristian Tibirna"
 msgstr "Cristian Tibirna"
 
-#: main.cpp:41
+#: main.cpp:42
 #, kde-format
 msgid "Carsten Pfeiffer"
 msgstr "Carsten Pfeiffer"
 
-#: main.cpp:42
+#: main.cpp:43
 #, kde-format
 msgid "Dave Corrie"
 msgstr "Dave Corrie"
 
-#: main.cpp:43
+#: main.cpp:44
 #, kde-format
 msgid "Kai Jung"
 msgstr "Kai Jung"
 
-#: main.cpp:43
+#: main.cpp:44
 #, kde-format
 msgid "6 new levels"
 msgstr "6 új szint"
 
-#: main.cpp:44
+#: main.cpp:45
 #, kde-format
 msgid "Danny Allen"
 msgstr "Danny Allen"
 
-#: main.cpp:44
+#: main.cpp:45
 #, kde-format
 msgid "Game graphics and application icon"
 msgstr "Grafika, alkalmazásikon"
 
-#: main.cpp:45
+#: main.cpp:46
 #, kde-format
 msgid "Johann Ollivier Lapeyre"
 msgstr "Johann Ollivier Lapeyre"
 
-#: main.cpp:45
+#: main.cpp:46
 #, kde-format
 msgid "New great SVG artwork for KDE4"
 msgstr "Új, nagyszerű SVG grafika a KDE4-hez"
 
-#: main.cpp:46
+#: main.cpp:47
 #, kde-format
 msgid "Brian Croom"
 msgstr "Brian Croom"
 
-#: main.cpp:46
+#: main.cpp:47
 #, kde-format
 msgid "Port to use KGameRenderer"
 msgstr "Átírva a KGameRenderer használatára"
 
-#: main.cpp:52
+#: main.cpp:53
 #, kde-format
 msgid "Enable access to all levels"
 msgstr "Hozzáférés az összes szinthez"
 
-#: main.cpp:63
+#: main.cpp:64
 #, kde-format
 msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "

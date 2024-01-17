@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:42+0000\n"
+"POT-Creation-Date: 2024-01-17 00:36+0000\n"
 "PO-Revision-Date: 2013-03-13 13:21+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -113,110 +113,110 @@ msgstr ""
 msgid "Get new levels"
 msgstr ""
 
-#: main.cpp:32
+#: main.cpp:33
 #, kde-format
 msgid "KAtomic"
 msgstr "के-एटॉमिक"
 
-#: main.cpp:34
+#: main.cpp:35
 #, fuzzy, kde-format
 #| msgid "KDE Atomic Entertainment Game"
 msgid "Atomic Entertainment Game"
 msgstr "केडीई आण्विक मनोरंजक खेळ"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgid ""
 "(c) 1998, Andreas Wuest\n"
 "(c) 2007-2009 Dmitry Suzdalev"
 msgstr ""
 
-#: main.cpp:37
+#: main.cpp:38
 #, kde-format
 msgid "Andreas Wuest"
 msgstr "आंद्रेयास वुएस्त"
 
-#: main.cpp:37
+#: main.cpp:38
 #, kde-format
 msgid "Original author"
 msgstr "मूळ लेखक"
 
-#: main.cpp:38
+#: main.cpp:39
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr "दमित्रि सुज्दालेव"
 
-#: main.cpp:38
+#: main.cpp:39
 #, kde-format
 msgid "Porting to KDE4. Current maintainer"
 msgstr ""
 
-#: main.cpp:39
+#: main.cpp:40
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "स्टीफन कुलौ"
 
-#: main.cpp:40
+#: main.cpp:41
 #, kde-format
 msgid "Cristian Tibirna"
 msgstr "क्रिस्तिआन टिबिर्ना"
 
-#: main.cpp:41
+#: main.cpp:42
 #, kde-format
 msgid "Carsten Pfeiffer"
 msgstr "कार्स्टन फाइफ्फर"
 
-#: main.cpp:42
+#: main.cpp:43
 #, kde-format
 msgid "Dave Corrie"
 msgstr "डेव कोरी"
 
-#: main.cpp:43
+#: main.cpp:44
 #, kde-format
 msgid "Kai Jung"
 msgstr "काई जुंग"
 
-#: main.cpp:43
+#: main.cpp:44
 #, kde-format
 msgid "6 new levels"
 msgstr ""
 
-#: main.cpp:44
+#: main.cpp:45
 #, kde-format
 msgid "Danny Allen"
 msgstr "डैनी एलन"
 
-#: main.cpp:44
+#: main.cpp:45
 #, kde-format
 msgid "Game graphics and application icon"
 msgstr ""
 
-#: main.cpp:45
+#: main.cpp:46
 #, kde-format
 msgid "Johann Ollivier Lapeyre"
 msgstr "जान ओलिविए लापेरे"
 
-#: main.cpp:45
+#: main.cpp:46
 #, kde-format
 msgid "New great SVG artwork for KDE4"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:47
 #, kde-format
 msgid "Brian Croom"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:47
 #, kde-format
 msgid "Port to use KGameRenderer"
 msgstr ""
 
-#: main.cpp:52
+#: main.cpp:53
 #, kde-format
 msgid "Enable access to all levels"
 msgstr ""
 
-#: main.cpp:63
+#: main.cpp:64
 #, kde-format
 msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "

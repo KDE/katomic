@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:42+0000\n"
+"POT-Creation-Date: 2024-01-17 00:36+0000\n"
 "PO-Revision-Date: 2010-10-29 20:14+0200\n"
 "Last-Translator: Oliver Mucafir <oliver.untwist@gmail.com>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -119,18 +119,18 @@ msgstr "Odaberite set razina za igru:"
 msgid "Get new levels"
 msgstr "6 novih razina"
 
-#: main.cpp:32
+#: main.cpp:33
 #, kde-format
 msgid "KAtomic"
 msgstr "KAtomic"
 
-#: main.cpp:34
+#: main.cpp:35
 #, fuzzy, kde-format
 #| msgid "KDE Atomic Entertainment Game"
 msgid "Atomic Entertainment Game"
 msgstr "Zabavna igra s atomima za KDE"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgid ""
 "(c) 1998, Andreas Wuest\n"
@@ -139,92 +139,92 @@ msgstr ""
 "(c) 1998, Andreas Wuest\n"
 "(c) 2007-2009 Dmitry Suzdalev"
 
-#: main.cpp:37
+#: main.cpp:38
 #, kde-format
 msgid "Andreas Wuest"
 msgstr "Andreas Wuest"
 
-#: main.cpp:37
+#: main.cpp:38
 #, kde-format
 msgid "Original author"
 msgstr "Prvotni autor"
 
-#: main.cpp:38
+#: main.cpp:39
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr "Dmitry Suzdalev"
 
-#: main.cpp:38
+#: main.cpp:39
 #, kde-format
 msgid "Porting to KDE4. Current maintainer"
 msgstr "Portanje na KDE4. Trenutni održavatelj"
 
-#: main.cpp:39
+#: main.cpp:40
 #, kde-format
 msgid "Stephan Kulow"
 msgstr "Stephan Kulow"
 
-#: main.cpp:40
+#: main.cpp:41
 #, kde-format
 msgid "Cristian Tibirna"
 msgstr "Cristian Tibirna"
 
-#: main.cpp:41
+#: main.cpp:42
 #, kde-format
 msgid "Carsten Pfeiffer"
 msgstr "Carsten Pfeiffer"
 
-#: main.cpp:42
+#: main.cpp:43
 #, kde-format
 msgid "Dave Corrie"
 msgstr "Dave Corrie"
 
-#: main.cpp:43
+#: main.cpp:44
 #, kde-format
 msgid "Kai Jung"
 msgstr "Kai Jung"
 
-#: main.cpp:43
+#: main.cpp:44
 #, kde-format
 msgid "6 new levels"
 msgstr "6 novih razina"
 
-#: main.cpp:44
+#: main.cpp:45
 #, kde-format
 msgid "Danny Allen"
 msgstr "Danny Allen"
 
-#: main.cpp:44
+#: main.cpp:45
 #, kde-format
 msgid "Game graphics and application icon"
 msgstr "Grafika igre i ikona aplikacije"
 
-#: main.cpp:45
+#: main.cpp:46
 #, kde-format
 msgid "Johann Ollivier Lapeyre"
 msgstr "Johann Ollivier Lapeyre"
 
-#: main.cpp:45
+#: main.cpp:46
 #, kde-format
 msgid "New great SVG artwork for KDE4"
 msgstr "Nove sjajne SVG ilustracije za KDE4"
 
-#: main.cpp:46
+#: main.cpp:47
 #, kde-format
 msgid "Brian Croom"
 msgstr "Brian Croom"
 
-#: main.cpp:46
+#: main.cpp:47
 #, kde-format
 msgid "Port to use KGameRenderer"
 msgstr "Port za korištenje KGameRenderera"
 
-#: main.cpp:52
+#: main.cpp:53
 #, kde-format
 msgid "Enable access to all levels"
 msgstr "Omogućen pristup svim razinama"
 
-#: main.cpp:63
+#: main.cpp:64
 #, kde-format
 msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "
