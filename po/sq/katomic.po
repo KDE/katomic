@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-01-18 00:36+0000\n"
 "PO-Revision-Date: 2009-07-30 13:21+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -214,12 +214,12 @@ msgstr ""
 msgid "Port to use KGameRenderer"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:56
 #, kde-format
 msgid "Enable access to all levels"
 msgstr "Lejo hyrjen në të gjitha nivelet"
 
-#: main.cpp:64
+#: main.cpp:65
 #, kde-format
 msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "

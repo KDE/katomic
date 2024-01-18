@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-01-18 00:36+0000\n"
 "PO-Revision-Date: 2021-01-23 19:12+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -218,12 +218,12 @@ msgstr "Brian Croom"
 msgid "Port to use KGameRenderer"
 msgstr "Adattamento a KGameRenderer"
 
-#: main.cpp:53
+#: main.cpp:56
 #, kde-format
 msgid "Enable access to all levels"
 msgstr "Abilita l'accesso a tutti i livelli"
 
-#: main.cpp:64
+#: main.cpp:65
 #, kde-format
 msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "

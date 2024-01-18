@@ -2,7 +2,7 @@
 # Translation of katomic.po to Slovenian
 # -*- mode:po; coding:iso-latin-2; -*- Slovenian translation of Katomic.
 # Copyright (C) 2001, 2003, 2004, 2006, 2007 Free Software Foundation, Inc.
-# $Id: katomic.po 1670167 2024-01-17 01:06:47Z scripty $
+# $Id: katomic.po 1670252 2024-01-18 01:05:37Z scripty $
 # $Source$
 #
 # Roman Maurer <roman.maurer@amis.net>, 2001.
@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-01-18 00:36+0000\n"
 "PO-Revision-Date: 2021-01-24 22:18+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -233,12 +233,12 @@ msgstr "Brian Croom"
 msgid "Port to use KGameRenderer"
 msgstr "Predelava za uporabo KGameRenderer"
 
-#: main.cpp:53
+#: main.cpp:56
 #, kde-format
 msgid "Enable access to all levels"
 msgstr "Omogoči dostop do vseh stopenj"
 
-#: main.cpp:64
+#: main.cpp:65
 #, kde-format
 msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "

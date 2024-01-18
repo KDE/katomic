@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-01-18 00:36+0000\n"
 "PO-Revision-Date: 2010-10-29 20:14+0200\n"
 "Last-Translator: Oliver Mucafir <oliver.untwist@gmail.com>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -219,12 +219,12 @@ msgstr "Brian Croom"
 msgid "Port to use KGameRenderer"
 msgstr "Port za korištenje KGameRenderera"
 
-#: main.cpp:53
+#: main.cpp:56
 #, kde-format
 msgid "Enable access to all levels"
 msgstr "Omogućen pristup svim razinama"
 
-#: main.cpp:64
+#: main.cpp:65
 #, kde-format
 msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "

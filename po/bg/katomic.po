@@ -20,7 +20,7 @@
 #  on the bulgarian chemical compound names
 #  please contact vladimirg at users.sourceforge.net
 #
-# $Id: katomic.po 1670167 2024-01-17 01:06:47Z scripty $
+# $Id: katomic.po 1670252 2024-01-18 01:05:37Z scripty $
 #
 #     2. Standard names. Example: 3,4-дихидрокси-3-циклобутен-1,2-дион.
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006.
@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-01-18 00:36+0000\n"
 "PO-Revision-Date: 2023-12-16 00:28+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -237,12 +237,12 @@ msgstr "Brian Croom"
 msgid "Port to use KGameRenderer"
 msgstr "Версия с използване на KGameRenderer"
 
-#: main.cpp:53
+#: main.cpp:56
 #, kde-format
 msgid "Enable access to all levels"
 msgstr "Включване на достъпа до всички нива"
 
-#: main.cpp:64
+#: main.cpp:65
 #, kde-format
 msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "

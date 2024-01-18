@@ -1,5 +1,5 @@
 # translation of katomic.po to Polish
-# Version: $Revision: 1670167 $
+# Version: $Revision: 1670252 $
 # Michal Rudolf <mrudolf@kdewebdev.org>, 2003, 2005, 2007, 2009.
 # Maciej Wikło <maciej.wiklo@wp.pl>, 2010.
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2010.
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-01-18 00:36+0000\n"
 "PO-Revision-Date: 2021-02-14 08:45+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <<lukasz.wojnilowicz@gmail.com>>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -224,12 +224,12 @@ msgstr "Brian Croom"
 msgid "Port to use KGameRenderer"
 msgstr "Port, który używa KGameRenderer"
 
-#: main.cpp:53
+#: main.cpp:56
 #, kde-format
 msgid "Enable access to all levels"
 msgstr "Włącz dostęp do wszystkich poziomów"
 
-#: main.cpp:64
+#: main.cpp:65
 #, kde-format
 msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "
