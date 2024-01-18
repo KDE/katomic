@@ -47,18 +47,19 @@ int main(int argc, char **argv)
     aboutData.addCredit(i18n("Brian Croom"), i18n("Port to use KGameRenderer"), QStringLiteral("brian.s.croom@gmail.com"));
     aboutData.setHomepage(QStringLiteral("https://apps.kde.org/katomic"));
 
-    QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
-    KCrash::initialize();
-    parser.addOption(QCommandLineOption({QStringLiteral("hackmode")}, i18n( "Enable access to all levels" )));
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("katomic")));
 
+    KCrash::initialize();
+
+    QCommandLineParser parser;
+    parser.addOption(QCommandLineOption({QStringLiteral("hackmode")}, i18n( "Enable access to all levels" )));
     aboutData.setupCommandLine(&parser);
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("katomic")));
-
     KDBusService service;
+
     if (!LevelSet::isDefaultLevelsAvailable())
     {
         KMessageBox::error(nullptr, i18n("KAtomic failed to find its default level set and will quit. Please check your installation."));
