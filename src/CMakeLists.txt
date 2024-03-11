@@ -64,11 +64,6 @@ install(FILES org.kde.katomic.appdata.xml DESTINATION  ${KDE_INSTALL_METAINFODIR
 install(FILES default_theme.svgz  DESTINATION  ${KDE_INSTALL_DATADIR}/katomic/pics/)
 install(FILES katomic.knsrc  DESTINATION  ${KDE_INSTALL_KNSRCDIR})
 
-if(NOT WIN32)
-    install(PROGRAMS katomic-levelset-upd.pl DESTINATION  ${KDE_INSTALL_KCONFUPDATEDIR})
-    install(FILES katomic-levelset.upd DESTINATION  ${KDE_INSTALL_KCONFUPDATEDIR})
-endif()
-
 ecm_qt_install_logging_categories(
     EXPORT KATOMIC
     FILE katomic.categories
