@@ -1,9 +1,0 @@
-Id=katomic_levelset_config_update
-
-File=katomicrc
-
-Script=katomic-levelset-upd.pl,perl
-
-Group=Game,default_levels
-Key=LastPlayedLevel
-Key=MaxAccessibleLevel
