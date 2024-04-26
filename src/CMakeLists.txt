@@ -34,8 +34,9 @@ target_sources(katomic PRIVATE
 ecm_qt_declare_logging_category(katomic
     HEADER katomic_debug.h
     IDENTIFIER KATOMIC_LOG
-    CATEGORY_NAME org.kde.kdegames.katomic
-    DESCRIPTION "katomic (kdegames)"
+    CATEGORY_NAME katomic
+    OLD_CATEGORY_NAMES org.kde.kdegames.katomic
+    DESCRIPTION "KAtomic game"
     EXPORT KATOMIC
 )
 
