@@ -78,7 +78,7 @@ void LevelSetDelegate::paint(QPainter* p, const QStyleOptionViewItem& opt, const
 
         p->setFont(QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont));
 
-        QString text = i18n("by %1", authorName);
+        QString text = i18nc("@info author attribution", "By %1", authorName);
         QString authorEmail = index.data(KAtomic::LevelSetAuthorEmailRole).toString();
         if (!authorEmail.isEmpty())
             text.append(QStringLiteral(" <%1>").arg(authorEmail));
