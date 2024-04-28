@@ -109,7 +109,7 @@
   <varlistentry>
     <term><menuchoice><shortcut><keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo> </shortcut>
     <guimenu>Game</guimenu>
-    <guimenuitem>Load...</guimenuitem></menuchoice></term>
+    <guimenuitem>Load…</guimenuitem></menuchoice></term>
     <listitem><para>Loads a previously saved game.</para></listitem>
   </varlistentry>
   <varlistentry>
@@ -138,7 +138,7 @@
   </varlistentry>
   <varlistentry>
     <term><menuchoice><guimenu>Game</guimenu>
-    <guimenuitem>Choose level set ...</guimenuitem></menuchoice></term>
+    <guimenuitem>Choose Level Set…</guimenuitem></menuchoice></term>
     <listitem><para>This will show all available level sets and allows you to
     download additional sets uploaded by other users from the internet.</para></listitem>
   </varlistentry>
