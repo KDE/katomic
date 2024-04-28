@@ -42,7 +42,7 @@
      <item>
       <widget class="KNSWidgets::Button" name="m_pbNewStuff">
        <property name="text">
-        <string>Get new levels</string>
+        <string>Get New Levels…</string>
        </property>
       </widget>
      </item>
