@@ -26,7 +26,7 @@ ChooseLevelSetDialog::ChooseLevelSetDialog(QWidget* parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
 
-    setWindowTitle(i18n("Level Sets"));
+    setWindowTitle(i18nc("@title:window", "Level Sets"));
     m_buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;

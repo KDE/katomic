@@ -38,9 +38,9 @@ AtomTopLevel::AtomTopLevel()
     loadSettings();
     setCentralWidget(m_gameWid);
 
-    mLevel = new QLabel(i18n("Level:"));
-    mCurrentScore = new QLabel(i18n("Current score:"));
-    mHighScore = new QLabel(i18n("Highscore:"));
+    mLevel = new QLabel(i18nc("@label", "Level:"));
+    mCurrentScore = new QLabel(i18nc("@label", "Current score:"));
+    mHighScore = new QLabel(i18nc("@label", "Highscore:"));
     mMoleculeName = new QLabel;
     statusBar()->addWidget(mLevel);
     statusBar()->addPermanentWidget(mCurrentScore);
@@ -87,29 +87,29 @@ void AtomTopLevel::createMenu()
 
     m_prevLevelAct = actionCollection()->addAction( QStringLiteral(  "prev_level" ) );
     m_prevLevelAct->setIcon( QIcon::fromTheme( QStringLiteral(  "arrow-left" ) ) );
-    m_prevLevelAct->setText( i18n( "Previous Level" ) );
+    m_prevLevelAct->setText( i18nc( "@action", "Previous Level" ) );
     KActionCollection::setDefaultShortcut(m_prevLevelAct, Qt::CTRL | Qt::Key_P );
     addAction( m_prevLevelAct );
     connect( m_prevLevelAct, &QAction::triggered, m_gameWid, &GameWidget::prevLevel );
 
     m_nextLevelAct = actionCollection()->addAction( QStringLiteral(  "next_level" ) );
     m_nextLevelAct->setIcon( QIcon::fromTheme( QStringLiteral(  "arrow-right" ) ) );
-    m_nextLevelAct->setText( i18n( "Next Level" ) );
+    m_nextLevelAct->setText( i18nc( "@action", "Next Level" ) );
     KActionCollection::setDefaultShortcut(m_nextLevelAct, Qt::CTRL | Qt::Key_N );
     addAction( m_nextLevelAct );
     connect( m_nextLevelAct, &QAction::triggered, m_gameWid, &GameWidget::nextLevel );
 
     QAction* chooseLevelSet = actionCollection()->addAction( QStringLiteral(  "choose_level_set" ) );
-    chooseLevelSet->setText( i18n( "Choose level set..." ) );
+    chooseLevelSet->setText( i18nc( "@action", "Choose Level Set…" ) );
     addAction( chooseLevelSet );
     connect(chooseLevelSet, &QAction::triggered, this, &AtomTopLevel::chooseLevelSet);
 
-    m_animSpeedAct = new KSelectAction(i18n("Animation Speed"), this);
+    m_animSpeedAct = new KSelectAction(i18nc("@title:menu", "Animation Speed"), this);
     actionCollection()->addAction( QStringLiteral( "anim_speed" ), m_animSpeedAct);
     const QStringList acts{
-        i18n("Slow"),
-        i18n("Normal"),
-        i18n("Fast"),
+        i18nc("@item animation speed", "Slow"),
+        i18nc("@item animation speed", "Normal"),
+        i18nc("@item animation speed", "Fast"),
     };
     m_animSpeedAct->setItems(acts);
     connect(m_animSpeedAct, &KSelectAction::indexTriggered,
@@ -117,12 +117,12 @@ void AtomTopLevel::createMenu()
 
     QAction *undoAll = actionCollection()->addAction( QStringLiteral(  "move_undo_all" ) );
     undoAll->setIcon( QIcon::fromTheme( QStringLiteral( "media-skip-backward" )) );
-    undoAll->setText( i18n("Undo All") );
+    undoAll->setText( i18nc("@action", "Undo All") );
     connect( undoAll, &QAction::triggered, m_gameWid->playfield(), &PlayField::undoAll );
 
     QAction *redoAll = actionCollection()->addAction( QStringLiteral(  "move_redo_all" ) );
     redoAll->setIcon( QIcon::fromTheme( QStringLiteral( "media-skip-forward" )) );
-    redoAll->setText( i18n("Redo All") );
+    redoAll->setText( i18nc("@action", "Redo All") );
     connect( redoAll, &QAction::triggered, m_gameWid->playfield(), &PlayField::redoAll );
 
     m_undoAct->setEnabled(false);
@@ -136,37 +136,37 @@ void AtomTopLevel::createMenu()
     connect (m_gameWid->playfield(), &PlayField::enableRedo, redoAll, &QAction::setEnabled);
 
     QAction * atomUpAct = actionCollection()->addAction( QStringLiteral( "atom_up" ));
-    atomUpAct->setText(i18n("Atom Up"));
+    atomUpAct->setText(i18nc("@action", "Atom Up"));
     KActionCollection::setDefaultShortcut(atomUpAct, Qt::Key_Up);
     addAction(atomUpAct);
     connect(atomUpAct, &QAction::triggered, m_gameWid, &GameWidget::moveUp);
 
     QAction * atomDownAct = actionCollection()->addAction( QStringLiteral( "atom_down" ));
-    atomDownAct->setText(i18n("Atom Down"));
+    atomDownAct->setText(i18nc("@action", "Atom Down"));
     KActionCollection::setDefaultShortcut(atomDownAct,Qt::Key_Down);
     addAction(atomDownAct);
     connect(atomDownAct, &QAction::triggered, m_gameWid, &GameWidget::moveDown);
 
     QAction * atomLeftAct = actionCollection()->addAction( QStringLiteral( "atom_left" ));
-    atomLeftAct->setText(i18n("Atom Left"));
+    atomLeftAct->setText(i18nc("@action", "Atom Left"));
     KActionCollection::setDefaultShortcut(atomLeftAct,Qt::Key_Left);
     addAction(atomLeftAct);
     connect(atomLeftAct, &QAction::triggered, m_gameWid, &GameWidget::moveLeft);
 
     QAction * atomRightAct = actionCollection()->addAction( QStringLiteral( "atom_right" ));
-    atomRightAct->setText(i18n("Atom Right"));
+    atomRightAct->setText(i18nc("@action", "Atom Right"));
     KActionCollection::setDefaultShortcut(atomRightAct,Qt::Key_Right);
     addAction(atomRightAct);
     connect(atomRightAct, &QAction::triggered, m_gameWid, &GameWidget::moveRight);
 
     QAction * nextAtomAct = actionCollection()->addAction( QStringLiteral( "next_atom" ));
-    nextAtomAct->setText(i18n("Next Atom"));
+    nextAtomAct->setText(i18nc("@action", "Next Atom"));
     KActionCollection::setDefaultShortcut(nextAtomAct,Qt::Key_Tab);
     addAction(nextAtomAct);
     connect(nextAtomAct, &QAction::triggered, m_gameWid->playfield(), &PlayField::nextAtom);
 
     QAction * prevAtomAct = actionCollection()->addAction( QStringLiteral( "prev_atom" ));
-    prevAtomAct->setText(i18n("Previous Atom"));
+    prevAtomAct->setText(i18nc("@action", "Previous Atom"));
     KActionCollection::setDefaultShortcut(prevAtomAct, Qt::SHIFT | Qt::Key_Tab);
     addAction(prevAtomAct);
     connect(prevAtomAct, &QAction::triggered, m_gameWid->playfield(), &PlayField::previousAtom);
