@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames/katomic.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:36+0000\n"
+"POT-Creation-Date: 2024-04-29 00:37+0000\n"
 "PO-Revision-Date: 2004-12-03 14:52-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -28,7 +28,9 @@ msgid "Your emails"
 msgstr "seoc@iolfree.ie,kscanne@gmail.com"
 
 #: chooselevelsetdialog.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Level Sets"
+msgctxt "@title:window"
 msgid "Level Sets"
 msgstr "Pacáistí Leibhéil"
 
@@ -92,8 +94,10 @@ msgid "Noname"
 msgstr "Gan ainm"
 
 #: levelsetdelegate.cpp:81
-#, kde-format
-msgid "by %1"
+#, fuzzy, kde-format
+#| msgid "by %1"
+msgctxt "@info author attribution"
+msgid "By %1"
 msgstr "le %1"
 
 #: levelsetdelegate.cpp:87
@@ -114,8 +118,9 @@ msgstr "Roghnaigh pacáiste leibhéil:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, kde-format
-msgid "Get new levels"
+#, fuzzy, kde-format
+#| msgid "Get new levels"
+msgid "Get New Levels…"
 msgstr "Faigh leibhéil nua"
 
 #: main.cpp:33
@@ -233,92 +238,128 @@ msgstr ""
 "scoirfidh sé anois.  Déan seiceáil ar do chóras."
 
 #: toplevel.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Level:"
+msgctxt "@label"
 msgid "Level:"
 msgstr "Leibhéal:"
 
 #: toplevel.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Current score:"
+msgctxt "@label"
 msgid "Current score:"
 msgstr "Scór reatha:"
 
 #: toplevel.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Highscore:"
+msgctxt "@label"
 msgid "Highscore:"
 msgstr "Scór Is Airde:"
 
 #: toplevel.cpp:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous Level"
+msgctxt "@action"
 msgid "Previous Level"
 msgstr "An Leibhéal Roimhe Seo"
 
 #: toplevel.cpp:97
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Next Level"
+msgctxt "@action"
 msgid "Next Level"
 msgstr "An Chéad Leibhéal Eile"
 
 #: toplevel.cpp:103
-#, kde-format
-msgid "Choose level set..."
+#, fuzzy, kde-format
+#| msgid "Choose level set..."
+msgctxt "@action"
+msgid "Choose Level Set…"
 msgstr "Roghnaigh pacáiste leibhéil..."
 
 #: toplevel.cpp:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Animation Speed"
+msgctxt "@title:menu"
 msgid "Animation Speed"
 msgstr "Luas na Beochana"
 
 #: toplevel.cpp:110
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Slow"
+msgctxt "@item animation speed"
 msgid "Slow"
 msgstr "Mall"
 
 #: toplevel.cpp:111
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Normal"
+msgctxt "@item animation speed"
 msgid "Normal"
 msgstr "Gnáthluas"
 
 #: toplevel.cpp:112
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fast"
+msgctxt "@item animation speed"
 msgid "Fast"
 msgstr "Tapa"
 
 #: toplevel.cpp:120
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Undo All"
+msgctxt "@action"
 msgid "Undo All"
 msgstr "Cealaigh Uile"
 
 #: toplevel.cpp:125
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Redo All"
+msgctxt "@action"
 msgid "Redo All"
 msgstr "Athdhéan Uile"
 
 #: toplevel.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Up"
+msgctxt "@action"
 msgid "Atom Up"
 msgstr "Adamh Thuas"
 
 #: toplevel.cpp:145
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Down"
+msgctxt "@action"
 msgid "Atom Down"
 msgstr "Adamh Thíos"
 
 #: toplevel.cpp:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Left"
+msgctxt "@action"
 msgid "Atom Left"
 msgstr "Adamh Ar Chlé"
 
 #: toplevel.cpp:157
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Right"
+msgctxt "@action"
 msgid "Atom Right"
 msgstr "Adamh Ar Dheis"
 
 #: toplevel.cpp:163
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Next Atom"
+msgctxt "@action"
 msgid "Next Atom"
 msgstr "An chéad adamh eile"
 
 #: toplevel.cpp:169
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous Atom"
+msgctxt "@action"
 msgid "Previous Atom"
 msgstr "An t-adamh roimhe seo"
 

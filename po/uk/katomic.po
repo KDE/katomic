@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:36+0000\n"
+"POT-Creation-Date: 2024-04-29 00:37+0000\n"
 "PO-Revision-Date: 2021-01-23 09:05+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -33,7 +33,9 @@ msgid "Your emails"
 msgstr "oneugene@ukr.net,ivanpetrouchtchak@yahoo.com"
 
 #: chooselevelsetdialog.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Level Sets"
+msgctxt "@title:window"
 msgid "Level Sets"
 msgstr "Набори рівнів"
 
@@ -97,8 +99,10 @@ msgid "Noname"
 msgstr "Без імені"
 
 #: levelsetdelegate.cpp:81
-#, kde-format
-msgid "by %1"
+#, fuzzy, kde-format
+#| msgid "by %1"
+msgctxt "@info author attribution"
+msgid "By %1"
 msgstr "Автор — %1"
 
 #: levelsetdelegate.cpp:87
@@ -118,8 +122,9 @@ msgstr "Оберіть набір рівнів для гри:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, kde-format
-msgid "Get new levels"
+#, fuzzy, kde-format
+#| msgid "Get new levels"
+msgid "Get New Levels…"
 msgstr "Отримати нові рівні"
 
 #: main.cpp:33
@@ -237,92 +242,128 @@ msgstr ""
 "програми."
 
 #: toplevel.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Level:"
+msgctxt "@label"
 msgid "Level:"
 msgstr "Рівень:"
 
 #: toplevel.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Current score:"
+msgctxt "@label"
 msgid "Current score:"
 msgstr "Поточний рахунок:"
 
 #: toplevel.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Highscore:"
+msgctxt "@label"
 msgid "Highscore:"
 msgstr "Найкращий результат:"
 
 #: toplevel.cpp:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous Level"
+msgctxt "@action"
 msgid "Previous Level"
 msgstr "Попередній рівень"
 
 #: toplevel.cpp:97
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Next Level"
+msgctxt "@action"
 msgid "Next Level"
 msgstr "Наступний рівень"
 
 #: toplevel.cpp:103
-#, kde-format
-msgid "Choose level set..."
+#, fuzzy, kde-format
+#| msgid "Choose level set..."
+msgctxt "@action"
+msgid "Choose Level Set…"
 msgstr "Вибір набору рівнів..."
 
 #: toplevel.cpp:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Animation Speed"
+msgctxt "@title:menu"
 msgid "Animation Speed"
 msgstr "Швидкість анімації"
 
 #: toplevel.cpp:110
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Slow"
+msgctxt "@item animation speed"
 msgid "Slow"
 msgstr "Повільна"
 
 #: toplevel.cpp:111
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Normal"
+msgctxt "@item animation speed"
 msgid "Normal"
 msgstr "Звичайна"
 
 #: toplevel.cpp:112
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fast"
+msgctxt "@item animation speed"
 msgid "Fast"
 msgstr "Швидка"
 
 #: toplevel.cpp:120
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Undo All"
+msgctxt "@action"
 msgid "Undo All"
 msgstr "Скасувати всі дії"
 
 #: toplevel.cpp:125
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Redo All"
+msgctxt "@action"
 msgid "Redo All"
 msgstr "Повторити всі дії"
 
 #: toplevel.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Up"
+msgctxt "@action"
 msgid "Atom Up"
 msgstr "Пересунути вгору"
 
 #: toplevel.cpp:145
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Down"
+msgctxt "@action"
 msgid "Atom Down"
 msgstr "Пересунути вниз"
 
 #: toplevel.cpp:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Left"
+msgctxt "@action"
 msgid "Atom Left"
 msgstr "Пересунути ліворуч"
 
 #: toplevel.cpp:157
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Right"
+msgctxt "@action"
 msgid "Atom Right"
 msgstr "Пересунути праворуч"
 
 #: toplevel.cpp:163
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Next Atom"
+msgctxt "@action"
 msgid "Next Atom"
 msgstr "Наступний атом"
 
 #: toplevel.cpp:169
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous Atom"
+msgctxt "@action"
 msgid "Previous Atom"
 msgstr "Попередній атом"
 

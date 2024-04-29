@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:36+0000\n"
+"POT-Creation-Date: 2024-04-29 00:37+0000\n"
 "PO-Revision-Date: 2010-08-27 08:53+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -29,7 +29,9 @@ msgid "Your emails"
 msgstr "m.j.wiese@web.de, s_dibbern@web.de"
 
 #: chooselevelsetdialog.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Level Sets"
+msgctxt "@title:window"
 msgid "Level Sets"
 msgstr "Stopensetten"
 
@@ -93,8 +95,10 @@ msgid "Noname"
 msgstr "Nich begäng"
 
 #: levelsetdelegate.cpp:81
-#, kde-format
-msgid "by %1"
+#, fuzzy, kde-format
+#| msgid "by %1"
+msgctxt "@info author attribution"
+msgid "By %1"
 msgstr "vun %1"
 
 #: levelsetdelegate.cpp:87
@@ -112,8 +116,9 @@ msgstr "Söök en Stopensett ut, den Du spelen wullt:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, kde-format
-msgid "Get new levels"
+#, fuzzy, kde-format
+#| msgid "Get new levels"
+msgid "Get New Levels…"
 msgstr "Nieg Speelstopen halen"
 
 #: main.cpp:33
@@ -231,92 +236,128 @@ msgstr ""
 "prööv Dien Installatschoon."
 
 #: toplevel.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Level:"
+msgctxt "@label"
 msgid "Level:"
 msgstr "Stoop:"
 
 #: toplevel.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Current score:"
+msgctxt "@label"
 msgid "Current score:"
 msgstr "Aktuell Pünkt:"
 
 #: toplevel.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Highscore:"
+msgctxt "@label"
 msgid "Highscore:"
 msgstr "Bestenlist:"
 
 #: toplevel.cpp:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous Level"
+msgctxt "@action"
 msgid "Previous Level"
 msgstr "Verleden Stoop"
 
 #: toplevel.cpp:97
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Next Level"
+msgctxt "@action"
 msgid "Next Level"
 msgstr "Nakamen Stoop"
 
 #: toplevel.cpp:103
-#, kde-format
-msgid "Choose level set..."
+#, fuzzy, kde-format
+#| msgid "Choose level set..."
+msgctxt "@action"
+msgid "Choose Level Set…"
 msgstr "Söök en Stopensett ut..."
 
 #: toplevel.cpp:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Animation Speed"
+msgctxt "@title:menu"
 msgid "Animation Speed"
 msgstr "Animatschoongauheit:"
 
 #: toplevel.cpp:110
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Slow"
+msgctxt "@item animation speed"
 msgid "Slow"
 msgstr "Langsam"
 
 #: toplevel.cpp:111
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Normal"
+msgctxt "@item animation speed"
 msgid "Normal"
 msgstr "Normaal"
 
 #: toplevel.cpp:112
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fast"
+msgctxt "@item animation speed"
 msgid "Fast"
 msgstr "Gau"
 
 #: toplevel.cpp:120
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Undo All"
+msgctxt "@action"
 msgid "Undo All"
 msgstr "All torüchnehmen"
 
 #: toplevel.cpp:125
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Redo All"
+msgctxt "@action"
 msgid "Redo All"
 msgstr "All wedderhalen"
 
 #: toplevel.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Up"
+msgctxt "@action"
 msgid "Atom Up"
 msgstr "Atom na baven"
 
 #: toplevel.cpp:145
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Down"
+msgctxt "@action"
 msgid "Atom Down"
 msgstr "Atom na nerrn"
 
 #: toplevel.cpp:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Left"
+msgctxt "@action"
 msgid "Atom Left"
 msgstr "Atom na links"
 
 #: toplevel.cpp:157
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Right"
+msgctxt "@action"
 msgid "Atom Right"
 msgstr "Atom na rechts"
 
 #: toplevel.cpp:163
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Next Atom"
+msgctxt "@action"
 msgid "Next Atom"
 msgstr "Nakamen Atom"
 
 #: toplevel.cpp:169
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous Atom"
+msgctxt "@action"
 msgid "Previous Atom"
 msgstr "Verleden Atom"
 

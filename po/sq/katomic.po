@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:36+0000\n"
+"POT-Creation-Date: 2024-04-29 00:37+0000\n"
 "PO-Revision-Date: 2009-07-30 13:21+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -30,9 +30,11 @@ msgid "Your emails"
 msgstr "kde-shqip@yahoogroups.com,vilsongjeci@gmail.com"
 
 #: chooselevelsetdialog.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Level:"
+msgctxt "@title:window"
 msgid "Level Sets"
-msgstr ""
+msgstr "Niveli:"
 
 #: gamewidget.cpp:84
 #, kde-format
@@ -93,7 +95,8 @@ msgstr "Pa emër"
 
 #: levelsetdelegate.cpp:81
 #, kde-format
-msgid "by %1"
+msgctxt "@info author attribution"
+msgid "By %1"
 msgstr ""
 
 #: levelsetdelegate.cpp:87
@@ -113,7 +116,7 @@ msgstr ""
 #: levelsetwidget.ui:45
 #, fuzzy, kde-format
 #| msgid "6 new levels"
-msgid "Get new levels"
+msgid "Get New Levels…"
 msgstr "6 nivele të reja"
 
 #: main.cpp:33
@@ -227,92 +230,127 @@ msgid ""
 msgstr ""
 
 #: toplevel.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Level:"
+msgctxt "@label"
 msgid "Level:"
 msgstr "Niveli:"
 
 #: toplevel.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Current score:"
+msgctxt "@label"
 msgid "Current score:"
 msgstr "Pikët e momentit:"
 
 #: toplevel.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Highscore:"
+msgctxt "@label"
 msgid "Highscore:"
 msgstr "Pikët më të larta:"
 
 #: toplevel.cpp:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous Level"
+msgctxt "@action"
 msgid "Previous Level"
 msgstr "Niveli i Mëparshëm"
 
 #: toplevel.cpp:97
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Next Level"
+msgctxt "@action"
 msgid "Next Level"
 msgstr "Niveli në Vijim"
 
 #: toplevel.cpp:103
 #, kde-format
-msgid "Choose level set..."
+msgctxt "@action"
+msgid "Choose Level Set…"
 msgstr ""
 
 #: toplevel.cpp:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Animation Speed"
+msgctxt "@title:menu"
 msgid "Animation Speed"
 msgstr "Shpejtësia e Animimit"
 
 #: toplevel.cpp:110
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Slow"
+msgctxt "@item animation speed"
 msgid "Slow"
 msgstr "E Ngadaltë"
 
 #: toplevel.cpp:111
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Normal"
+msgctxt "@item animation speed"
 msgid "Normal"
 msgstr "Normale"
 
 #: toplevel.cpp:112
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fast"
+msgctxt "@item animation speed"
 msgid "Fast"
 msgstr "E Shpejtë"
 
 #: toplevel.cpp:120
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Undo All"
+msgctxt "@action"
 msgid "Undo All"
 msgstr "Zhbëji të Gjitha"
 
 #: toplevel.cpp:125
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Redo All"
+msgctxt "@action"
 msgid "Redo All"
 msgstr "Ribëji të Gjitha"
 
 #: toplevel.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Up"
+msgctxt "@action"
 msgid "Atom Up"
 msgstr "Atom Lart"
 
 #: toplevel.cpp:145
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Down"
+msgctxt "@action"
 msgid "Atom Down"
 msgstr "Atom Poshtë"
 
 #: toplevel.cpp:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Left"
+msgctxt "@action"
 msgid "Atom Left"
 msgstr "Atom Majtas"
 
 #: toplevel.cpp:157
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atom Right"
+msgctxt "@action"
 msgid "Atom Right"
 msgstr "Atom Djathtas"
 
 #: toplevel.cpp:163
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Next Atom"
+msgctxt "@action"
 msgid "Next Atom"
 msgstr "Atom Tjetër"
 
 #: toplevel.cpp:169
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous Atom"
+msgctxt "@action"
 msgid "Previous Atom"
 msgstr "Atom i Mëparshëm"
 

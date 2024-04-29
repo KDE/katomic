@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:36+0000\n"
+"POT-Creation-Date: 2024-04-29 00:37+0000\n"
 "PO-Revision-Date: 2010-07-20 20:22+0800\n"
 "Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>\n"
 "Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
@@ -30,9 +30,10 @@ msgid "Your emails"
 msgstr "md_najmi@yahoo.com"
 
 #: chooselevelsetdialog.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+msgctxt "@title:window"
 msgid "Level Sets"
-msgstr ""
+msgstr "Tahap:"
 
 #: gamewidget.cpp:84
 #, kde-format
@@ -92,8 +93,10 @@ msgid "Noname"
 msgstr ""
 
 #: levelsetdelegate.cpp:81
-#, kde-format
-msgid "by %1"
+#, fuzzy, kde-format
+#| msgid "by %1"
+msgctxt "@info author attribution"
+msgid "By %1"
 msgstr "oleh %1"
 
 #: levelsetdelegate.cpp:87
@@ -112,7 +115,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
 #, kde-format
-msgid "Get new levels"
+msgid "Get New Levels…"
 msgstr ""
 
 #: main.cpp:33
@@ -226,91 +229,109 @@ msgstr ""
 
 #: toplevel.cpp:41
 #, fuzzy, kde-format
+msgctxt "@label"
 msgid "Level:"
 msgstr "Tahap:"
 
 #: toplevel.cpp:42
 #, kde-format
+msgctxt "@label"
 msgid "Current score:"
 msgstr ""
 
 #: toplevel.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+msgctxt "@label"
 msgid "Highscore:"
-msgstr ""
+msgstr "Markah Terbaik Paras %1"
 
 #: toplevel.cpp:90
 #, kde-format
+msgctxt "@action"
 msgid "Previous Level"
 msgstr ""
 
 #: toplevel.cpp:97
-#, kde-format
+#, fuzzy, kde-format
+msgctxt "@action"
 msgid "Next Level"
-msgstr ""
+msgstr "Tahap:"
 
 #: toplevel.cpp:103
 #, kde-format
-msgid "Choose level set..."
+msgctxt "@action"
+msgid "Choose Level Set…"
 msgstr ""
 
 #: toplevel.cpp:107
 #, fuzzy, kde-format
+msgctxt "@title:menu"
 msgid "Animation Speed"
 msgstr "Kelajuan Animasi"
 
 #: toplevel.cpp:110
 #, fuzzy, kde-format
+msgctxt "@item animation speed"
 msgid "Slow"
 msgstr "Perlahan"
 
 #: toplevel.cpp:111
 #, fuzzy, kde-format
+msgctxt "@item animation speed"
 msgid "Normal"
 msgstr "Normal"
 
 #: toplevel.cpp:112
 #, fuzzy, kde-format
+msgctxt "@item animation speed"
 msgid "Fast"
 msgstr "Pantas"
 
 #: toplevel.cpp:120
 #, kde-format
+msgctxt "@action"
 msgid "Undo All"
 msgstr ""
 
 #: toplevel.cpp:125
 #, kde-format
+msgctxt "@action"
 msgid "Redo All"
 msgstr ""
 
 #: toplevel.cpp:139
 #, kde-format
+msgctxt "@action"
 msgid "Atom Up"
 msgstr ""
 
 #: toplevel.cpp:145
 #, kde-format
+msgctxt "@action"
 msgid "Atom Down"
 msgstr ""
 
 #: toplevel.cpp:151
 #, kde-format
+msgctxt "@action"
 msgid "Atom Left"
 msgstr ""
 
 #: toplevel.cpp:157
 #, kde-format
+msgctxt "@action"
 msgid "Atom Right"
 msgstr ""
 
 #: toplevel.cpp:163
 #, kde-format
+msgctxt "@action"
 msgid "Next Atom"
 msgstr ""
 
 #: toplevel.cpp:169
 #, kde-format
+msgctxt "@action"
 msgid "Previous Atom"
 msgstr ""
 
