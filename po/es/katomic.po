@@ -4,7 +4,7 @@
 # Santiago Fernandez Sancho <santi@kde-es.org>, 2004, 2005.
 # santi <santi@kde-es.org>, 2005.
 # Santiago Fernández Sancho <santi@kde-es.org>, 2007.
-# SPDX-FileCopyrightText: 2009, 2021, 2023 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2009, 2021, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 # Huever, 2009.
 # Kira J. Fernandez <kirajfdez@gmail.com>, 2010.
 # Sofía Priego <spriego@darksylvania.net>, %Y.
@@ -13,14 +13,14 @@ msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-18 00:36+0000\n"
-"PO-Revision-Date: 2023-10-02 21:35+0100\n"
+"PO-Revision-Date: 2024-04-29 18:28+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -47,18 +47,18 @@ msgstr "Conjuntos de niveles"
 msgid ""
 "Failed to load level set \"%1\". Check if it is installed on your computer."
 msgstr ""
-"Ha fallado la carga del conjunto de niveles «%1». Compruebe si está "
-"instalado en su equipo."
+"Ha fallado la carga del conjunto de niveles «%1». Comprueba si está "
+"instalado en tu equipo."
 
 #: gamewidget.cpp:140
 #, kde-format
 msgid "Level %1 finished. "
-msgstr "Nivel %1 finalizado. "
+msgstr "Nivel %1 terminado. "
 
 #: gamewidget.cpp:144
 #, kde-format
 msgid "Congratulations! You have a new highscore!"
-msgstr "¡Enhorabuena! ¡Tiene un nuevo récord de puntuación!"
+msgstr "¡Enhorabuena! ¡Tienes un nuevo récord de puntuación!"
 
 #. i18n: ectx: label, entry (AnimationSpeed), group (Game)
 #: katomic.kcfg:9
@@ -82,7 +82,7 @@ msgstr "Altura del fondo guardado"
 #: katomic.kcfg:28
 #, kde-format
 msgid "Last played levelset"
-msgstr "Último conjunto de niveles jugado"
+msgstr "Último conjunto de niveles usado"
 
 #. i18n: ectx: Menu (settings)
 #: katomicui.rc:16
@@ -117,7 +117,7 @@ msgstr[1] ", contiene %1 niveles"
 #: levelsetwidget.ui:20
 #, kde-format
 msgid "Choose a level set to play:"
-msgstr "Escoja un conjunto de niveles para jugar:"
+msgstr "Elige un conjunto de niveles para jugar:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
@@ -236,7 +236,7 @@ msgid ""
 "your installation."
 msgstr ""
 "KAtomic no ha podido encontrar el nivel predeterminado y finalizará. "
-"Compruebe la instalación."
+"Comprueba la instalación."
 
 #: toplevel.cpp:41
 #, kde-format
