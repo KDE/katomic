@@ -7,13 +7,13 @@
 # Ömer Fadıl USTA <omer_fad@hotmail.com>, 2002-2003.
 # obsoleteman <tulliana@gmail.com>, 2008-2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdegames-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-29 00:37+0000\n"
-"PO-Revision-Date: 2023-02-07 00:48+0300\n"
+"PO-Revision-Date: 2024-04-29 15:15+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -34,18 +34,17 @@ msgid "Your emails"
 msgstr "muhammet.k@gmail.com"
 
 #: chooselevelsetdialog.cpp:29
-#, fuzzy, kde-format
-#| msgid "Level Sets"
+#, kde-format
 msgctxt "@title:window"
 msgid "Level Sets"
-msgstr "Düzey Paketleri"
+msgstr "Düzey Kümeleri"
 
 #: gamewidget.cpp:84
 #, kde-format
 msgid ""
 "Failed to load level set \"%1\". Check if it is installed on your computer."
 msgstr ""
-"\"%1\" düzey kümesi yüklenemedi. Bilgisayarınızda kurulu olup olmadığını "
+"“%1” düzey kümesi yüklenemedi. Bilgisayarınızda kurulu olup olmadığını "
 "denetleyin."
 
 #: gamewidget.cpp:140
@@ -100,11 +99,10 @@ msgid "Noname"
 msgstr "Adsız"
 
 #: levelsetdelegate.cpp:81
-#, fuzzy, kde-format
-#| msgid "by %1"
+#, kde-format
 msgctxt "@info author attribution"
 msgid "By %1"
-msgstr "%1 tarafından oluşturuldu"
+msgstr "%1 tarafından"
 
 #: levelsetdelegate.cpp:87
 #, kde-format
@@ -117,14 +115,13 @@ msgstr[1] ", %1 düzey içerir"
 #: levelsetwidget.ui:20
 #, kde-format
 msgid "Choose a level set to play:"
-msgstr "Oynamak için bir düzey paketi seçin:"
+msgstr "Oynamak için bir düzey kümesi seçin:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, fuzzy, kde-format
-#| msgid "Get new levels"
+#, kde-format
 msgid "Get New Levels…"
-msgstr "Yeni düzeyler al"
+msgstr "Yeni düzeyler Al…"
 
 #: main.cpp:33
 #, kde-format
@@ -143,7 +140,7 @@ msgid ""
 "(c) 2007-2009 Dmitry Suzdalev"
 msgstr ""
 "(c) 1998, Andreas Wuest\n"
-"(c) 2007-2009 Dmitry Suzdalev"
+"(c) 2007–2009 Dmitry Suzdalev"
 
 #: main.cpp:38
 #, kde-format
@@ -236,131 +233,113 @@ msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "
 "your installation."
 msgstr ""
-"K Atomik öntanımlı düzey paketini bulmayı başaramadı ve şimdi kapatılacak. "
+"K Atomik öntanımlı düzey kümesini bulmayı başaramadı ve şimdi kapatılacak. "
 "Lütfen kurulumunuzu denetleyin."
 
 #: toplevel.cpp:41
-#, fuzzy, kde-format
-#| msgid "Level:"
+#, kde-format
 msgctxt "@label"
 msgid "Level:"
 msgstr "Düzey:"
 
 #: toplevel.cpp:42
-#, fuzzy, kde-format
-#| msgid "Current score:"
+#, kde-format
 msgctxt "@label"
 msgid "Current score:"
 msgstr "Şu anki puan:"
 
 #: toplevel.cpp:43
-#, fuzzy, kde-format
-#| msgid "Highscore:"
+#, kde-format
 msgctxt "@label"
 msgid "Highscore:"
 msgstr "Yüksek puan:"
 
 #: toplevel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Previous Level"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Level"
 msgstr "Önceki Düzey"
 
 #: toplevel.cpp:97
-#, fuzzy, kde-format
-#| msgid "Next Level"
+#, kde-format
 msgctxt "@action"
 msgid "Next Level"
 msgstr "Sonraki Düzey"
 
 #: toplevel.cpp:103
-#, fuzzy, kde-format
-#| msgid "Choose level set..."
+#, kde-format
 msgctxt "@action"
 msgid "Choose Level Set…"
-msgstr "Düzey paketi seç..."
+msgstr "Düzey Kümesi Seç…"
 
 #: toplevel.cpp:107
-#, fuzzy, kde-format
-#| msgid "Animation Speed"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Animation Speed"
 msgstr "Canlandırma Hızı"
 
 #: toplevel.cpp:110
-#, fuzzy, kde-format
-#| msgid "Slow"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Slow"
 msgstr "Yavaş"
 
 #: toplevel.cpp:111
-#, fuzzy, kde-format
-#| msgid "Normal"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Normal"
 msgstr "Normal"
 
 #: toplevel.cpp:112
-#, fuzzy, kde-format
-#| msgid "Fast"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Fast"
 msgstr "Hızlı"
 
 #: toplevel.cpp:120
-#, fuzzy, kde-format
-#| msgid "Undo All"
+#, kde-format
 msgctxt "@action"
 msgid "Undo All"
 msgstr "Tümünü Geri Al"
 
 #: toplevel.cpp:125
-#, fuzzy, kde-format
-#| msgid "Redo All"
+#, kde-format
 msgctxt "@action"
 msgid "Redo All"
 msgstr "Tümünü Yinele"
 
 #: toplevel.cpp:139
-#, fuzzy, kde-format
-#| msgid "Atom Up"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Up"
 msgstr "Atom Yukarı"
 
 #: toplevel.cpp:145
-#, fuzzy, kde-format
-#| msgid "Atom Down"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Down"
 msgstr "Atom Aşağı"
 
 #: toplevel.cpp:151
-#, fuzzy, kde-format
-#| msgid "Atom Left"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Left"
 msgstr "Atom Sola"
 
 #: toplevel.cpp:157
-#, fuzzy, kde-format
-#| msgid "Atom Right"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Right"
 msgstr "Atom Sağa"
 
 #: toplevel.cpp:163
-#, fuzzy, kde-format
-#| msgid "Next Atom"
+#, kde-format
 msgctxt "@action"
 msgid "Next Atom"
 msgstr "Sonraki Atom"
 
 #: toplevel.cpp:169
-#, fuzzy, kde-format
-#| msgid "Previous Atom"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Atom"
 msgstr "Önceki Atom"

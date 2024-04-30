@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the katomic package.
 #
-# giovanni <g.sora@tiscali.it>, 2023.
+# giovanni <g.sora@tiscali.it>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-29 00:37+0000\n"
-"PO-Revision-Date: 2023-12-28 19:39+0100\n"
+"PO-Revision-Date: 2024-04-29 14:56+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -28,11 +28,10 @@ msgid "Your emails"
 msgstr "g.sora@tiscali.it"
 
 #: chooselevelsetdialog.cpp:29
-#, fuzzy, kde-format
-#| msgid "Level Sets"
+#, kde-format
 msgctxt "@title:window"
 msgid "Level Sets"
-msgstr "Insimules d enivello"
+msgstr "Insimules de nivello"
 
 #: gamewidget.cpp:84
 #, kde-format
@@ -92,11 +91,10 @@ msgid "Noname"
 msgstr ""
 
 #: levelsetdelegate.cpp:81
-#, fuzzy, kde-format
-#| msgid "by %1"
+#, kde-format
 msgctxt "@info author attribution"
 msgid "By %1"
-msgstr "per %1"
+msgstr "Per %1"
 
 #: levelsetdelegate.cpp:87
 #, kde-format
@@ -113,10 +111,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, fuzzy, kde-format
-#| msgid "6 new levels"
+#, kde-format
 msgid "Get New Levels…"
-msgstr "6 noe nivellos"
+msgstr "Obtene nove nivellos nivellos"
 
 #: main.cpp:33
 #, kde-format
@@ -185,7 +182,7 @@ msgstr "Kai Jung"
 #: main.cpp:44
 #, kde-format
 msgid "6 new levels"
-msgstr "6 noe nivellos"
+msgstr "6 nove nivellos"
 
 #: main.cpp:45
 #, kde-format
@@ -230,8 +227,7 @@ msgid ""
 msgstr ""
 
 #: toplevel.cpp:41
-#, fuzzy, kde-format
-#| msgid "Level:"
+#, kde-format
 msgctxt "@label"
 msgid "Level:"
 msgstr "Nivello:"
@@ -249,64 +245,55 @@ msgid "Highscore:"
 msgstr ""
 
 #: toplevel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Previous Level"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Level"
 msgstr "Previe Nivello"
 
 #: toplevel.cpp:97
-#, fuzzy, kde-format
-#| msgid "Next Level"
+#, kde-format
 msgctxt "@action"
 msgid "Next Level"
 msgstr "Proxime nivello"
 
 #: toplevel.cpp:103
-#, fuzzy, kde-format
-#| msgid "Choose level set..."
+#, kde-format
 msgctxt "@action"
 msgid "Choose Level Set…"
 msgstr "Selige insimul de nivello..."
 
 #: toplevel.cpp:107
-#, fuzzy, kde-format
-#| msgid "Animation Speed"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Animation Speed"
 msgstr "Velocitate de animation"
 
 #: toplevel.cpp:110
-#, fuzzy, kde-format
-#| msgid "Slow"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Slow"
 msgstr "Lente"
 
 #: toplevel.cpp:111
-#, fuzzy, kde-format
-#| msgid "Normal"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Normal"
 msgstr "Normal"
 
 #: toplevel.cpp:112
-#, fuzzy, kde-format
-#| msgid "Fast"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Fast"
 msgstr "Rapide"
 
 #: toplevel.cpp:120
-#, fuzzy, kde-format
-#| msgid "Redo All"
+#, kde-format
 msgctxt "@action"
 msgid "Undo All"
-msgstr "Reface toto"
+msgstr "Annulla omne "
 
 #: toplevel.cpp:125
-#, fuzzy, kde-format
-#| msgid "Redo All"
+#, kde-format
 msgctxt "@action"
 msgid "Redo All"
 msgstr "Reface toto"
@@ -339,14 +326,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Next Atom"
-msgstr ""
+msgstr "Proxime Atom"
 
 #: toplevel.cpp:169
-#, fuzzy, kde-format
-#| msgid "Previous Level"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Atom"
-msgstr "Previe Nivello"
+msgstr "Previe Atom"
 
 #: toplevel.cpp:190
 #, kde-format

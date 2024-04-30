@@ -1,29 +1,29 @@
 # translation of katomic.po to galician
+# SPDX-FileCopyrightText: 2024 Adrián Chaves (Gallaecio)
 # Leandro Regueiro <unho@gulo.org>, 2004.
 # mvillarino <mvillarino@users.sourceforge.net>, 2007.
 # Xosé <xosecalvo@gmail.com>, 2009, 2012.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2009, 2017.
 # Marce Villarino <mvillarino@gmail.com>, 2009.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2019, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-29 00:37+0000\n"
-"PO-Revision-Date: 2023-04-23 06:45+0200\n"
+"PO-Revision-Date: 2024-04-29 08:31+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <proxecto@trasno.gal>\n"
+"Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Leandro Regueiro, mvillarino, Xosé Calvo, Adrián Chaves Fernández"
+msgstr "Leandro Regueiro, mvillarino, Xosé Calvo, Adrián Chaves (Gallaecio)"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -33,8 +33,7 @@ msgstr ""
 "xosecalvo@gmail.com, adrian@chaves.io"
 
 #: chooselevelsetdialog.cpp:29
-#, fuzzy, kde-format
-#| msgid "Level Sets"
+#, kde-format
 msgctxt "@title:window"
 msgid "Level Sets"
 msgstr "Conxuntos de niveis"
@@ -99,11 +98,10 @@ msgid "Noname"
 msgstr "Sen nome"
 
 #: levelsetdelegate.cpp:81
-#, fuzzy, kde-format
-#| msgid "by %1"
+#, kde-format
 msgctxt "@info author attribution"
 msgid "By %1"
-msgstr "por %1"
+msgstr "De %1"
 
 #: levelsetdelegate.cpp:87
 #, kde-format
@@ -120,10 +118,9 @@ msgstr "Escolle un conxunto de niveis para xogar:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, fuzzy, kde-format
-#| msgid "Get new levels"
+#, kde-format
 msgid "Get New Levels…"
-msgstr "Obter niveis novos"
+msgstr "Obter niveis novos…"
 
 #: main.cpp:33
 #, kde-format
@@ -239,127 +236,109 @@ msgstr ""
 "Comproba a instalación."
 
 #: toplevel.cpp:41
-#, fuzzy, kde-format
-#| msgid "Level:"
+#, kde-format
 msgctxt "@label"
 msgid "Level:"
 msgstr "Nivel:"
 
 #: toplevel.cpp:42
-#, fuzzy, kde-format
-#| msgid "Current score:"
+#, kde-format
 msgctxt "@label"
 msgid "Current score:"
 msgstr "Puntuación actual:"
 
 #: toplevel.cpp:43
-#, fuzzy, kde-format
-#| msgid "Highscore:"
+#, kde-format
 msgctxt "@label"
 msgid "Highscore:"
 msgstr "Mellor puntuación:"
 
 #: toplevel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Previous Level"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Level"
 msgstr "Nivel anterior"
 
 #: toplevel.cpp:97
-#, fuzzy, kde-format
-#| msgid "Next Level"
+#, kde-format
 msgctxt "@action"
 msgid "Next Level"
 msgstr "Seguinte nivel"
 
 #: toplevel.cpp:103
-#, fuzzy, kde-format
-#| msgid "Choose level set..."
+#, kde-format
 msgctxt "@action"
 msgid "Choose Level Set…"
 msgstr "Escoller un conxunto de niveis…"
 
 #: toplevel.cpp:107
-#, fuzzy, kde-format
-#| msgid "Animation Speed"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Animation Speed"
 msgstr "Velocidade da animación"
 
 #: toplevel.cpp:110
-#, fuzzy, kde-format
-#| msgid "Slow"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Slow"
 msgstr "Lenta"
 
 #: toplevel.cpp:111
-#, fuzzy, kde-format
-#| msgid "Normal"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Normal"
 msgstr "Normal"
 
 #: toplevel.cpp:112
-#, fuzzy, kde-format
-#| msgid "Fast"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Fast"
 msgstr "Rápida"
 
 #: toplevel.cpp:120
-#, fuzzy, kde-format
-#| msgid "Undo All"
+#, kde-format
 msgctxt "@action"
 msgid "Undo All"
 msgstr "Desfacer todo"
 
 #: toplevel.cpp:125
-#, fuzzy, kde-format
-#| msgid "Redo All"
+#, kde-format
 msgctxt "@action"
 msgid "Redo All"
 msgstr "Refacer todo"
 
 #: toplevel.cpp:139
-#, fuzzy, kde-format
-#| msgid "Atom Up"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Up"
 msgstr "Subir o átomo"
 
 #: toplevel.cpp:145
-#, fuzzy, kde-format
-#| msgid "Atom Down"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Down"
 msgstr "Baixar o átomo"
 
 #: toplevel.cpp:151
-#, fuzzy, kde-format
-#| msgid "Atom Left"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Left"
 msgstr "Mover o átomo cara á esquerda"
 
 #: toplevel.cpp:157
-#, fuzzy, kde-format
-#| msgid "Atom Right"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Right"
 msgstr "Mover o átomo cara á dereita"
 
 #: toplevel.cpp:163
-#, fuzzy, kde-format
-#| msgid "Next Atom"
+#, kde-format
 msgctxt "@action"
 msgid "Next Atom"
 msgstr "Átomo seguinte"
 
 #: toplevel.cpp:169
-#, fuzzy, kde-format
-#| msgid "Previous Atom"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Atom"
 msgstr "Átomo anterior"

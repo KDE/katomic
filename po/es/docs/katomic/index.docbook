@@ -115,6 +115,20 @@
 ><contrib
 >Traductora</contrib
 ></othercredit
+><othercredit role="translator"
+><firstname
+>Eloy</firstname
+><surname
+>Cuadra</surname
+><affiliation
+><address
+><email
+>ecuadra@eloihr.net</email
+></address
+></affiliation
+><contrib
+>Revisión de la traducción</contrib
+></othercredit
 > 
 </authorgroup>
 <legalnotice
@@ -143,7 +157,7 @@
 ><!--Application name goes here-->
 <!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
   <keyword
->arcade</keyword>
+>recreativo</keyword>
   <keyword
 >lógica</keyword>
   <keyword
@@ -169,7 +183,7 @@
 ><title
 >Tipo de juego:</title
 ><para
->Lógica, Arcade</para
+>Lógica, Recreativo</para
 ></note
 ><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
   <note
@@ -182,7 +196,7 @@
 
 <!--Short game description starts here. 3-4 sentences (paragraphs)-->
   <para
->&katomic; es un divertido juego educativo creado en torno a la geometría molecular. Emplea un aspecto simple en dos dimensiones de los elementos que componen una molécula. Una molécula es descompuesta en sus átomos separados y dispersada por el campo de juego. El jugador debe rearmar la molécula para completar el nivel actual y pasar al siguiente. </para>
+>&katomic; es un divertido juego educativo creado en torno a la geometría molecular. Emplea un aspecto simple en dos dimensiones de los elementos que componen una molécula. Una molécula se descompone en sus átomos y se dispersa por el campo de juego. El jugador debe rearmar la molécula para completar el nivel actual y pasar al siguiente. </para>
 </chapter>
 
 <chapter id="howto"
@@ -211,7 +225,7 @@
 ><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
   <para
->&katomic; cargará el nivel uno una vez que inicie el juego, y podrá empezar a jugar enseguida. Para ver qué aspecto tiene la molécula que se supone que debe hacer, eche un vistazo a la esquina superior derecha. Para jugar, haga click en un átomo. Verá flechas verdes apuntando en las direcciones en las que el átomo se puede mover. Para mover el átomo, haga click en la flecha deseada. Cuando el átomo empieza a moverse, no se detendrá hasta que choque contra otro átomo o contra una pared, así que asegúrese de pensar antes de hacer su siguiente movimiento. Puede armar su molécula en cualquier parte del tablero de juego, pero algunos lugares son más fáciles de acceder que otros. Cuando la molécula esté armada, puede pasar al siguiente nivel. </para>
+>&katomic; cargará el nivel uno cuando inicies el juego y podrás empezar a jugar enseguida. Para ver el aspecto que tiene la molécula que vas a componer, echa un vistazo a la esquina superior derecha. Para jugar, haz clic en un átomo. Verás flechas verdes que apuntan a las direcciones en las que el átomo se puede mover. Para mover el átomo, haz clic en la flecha que quieras. Cuando el átomo empieza a moverse, no se detendrá hasta que choque contra otro átomo o contra una pared, así que asegúrate de pensar antes de hacer el siguiente movimiento. Puedes componer la molécula en cualquier parte del tablero de juego, pero algunos lugares son más fáciles de acceder que otros. Cuando hayas completado la molécula, pasarás al siguiente nivel. </para>
 </chapter>
 
 <chapter id="rules_and_tips"
@@ -234,7 +248,7 @@
 ></listitem>
       <listitem
 ><para
->La única forma de avanzar al siguiente nivel del juego es completar el actual. Una vez que el jugador complete un determinado nivel el juego cambiará automáticamente al siguiente, «descubriéndolo» así.</para
+>La única forma de avanzar al siguiente nivel del juego es completar el actual. Una vez que el jugador complete un determinado nivel el juego, cambiará automáticamente al siguiente, «descubriéndolo».</para
 ></listitem>
       <listitem
 ><para
@@ -242,7 +256,7 @@
 ></listitem>
       <listitem
 ><para
->El progreso del juego se guarda automáticamente cada vez que se alcance un nivel nuevo y se cargará la siguiente vez que se inicie la aplicación.</para
+>El avance del juego se guarda automáticamente cada vez que se alcanza un nivel nuevo y se cargará la siguiente vez que se inicie la aplicación.</para
 ></listitem>
     </itemizedlist>
   </sect1>
@@ -252,19 +266,19 @@
     <itemizedlist>
       <listitem
 ><para
->Revise siempre la molécula completa utilizando la pantalla de referencia antes de hacer cualquier movimiento.</para
+>Revisa siempre la molécula completa usando la pantalla de referencia antes de hacer cualquier movimiento.</para
 ></listitem>
       <listitem
 ><para
->A continuación, estudie el campo de juego y planee sus movimientos. Recuerde que una vez que haya movido una pieza no es posible devolverla a su posición original.</para
+>A continuación, estudia el campo de juego y planea tus movimientos. Recuerda que, una vez que hayas movido una pieza, no se puede devolver a su posición original.</para
 ></listitem>
       <listitem
 ><para
->Piense cada movimiento e intente visualizar la trayectoria que seguirá la pieza una vez que se pulsa una flecha de dirección.</para
+>Piensa cada movimiento e intenta visualizar la trayectoria que seguirá la pieza una vez que se pulse una flecha de dirección.</para
 ></listitem>
       <listitem
 ><para
->Cuando se utilice el teclado para mover piezas asegúrese que está seleccionada la pieza deseada. Si está seleccionado un átomo incorrecto, utilice la tecla &Tab; para moverse por las piezas hasta que alcance la deseada.</para
+>Cuando uses el teclado para mover piezas, asegúrate de que está seleccionada la pieza que quieres. Si está seleccionado un átomo incorrecto, usa la tecla &Tab; para moverte por las piezas hasta que alcances la correcta.</para
 ></listitem>
     </itemizedlist>
   </sect1>
@@ -272,7 +286,7 @@
 
 <chapter id="interface"
 ><title
->Visión general de la interfaz</title
+>Vista general de la interfaz</title
 > <!-- do not change this! -->
 <!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
 > and <varlistentry
@@ -280,7 +294,7 @@
 > for better viewing.-->
 <sect1 id="menu">
 <title
->Opciones de menú</title>
+>Opciones del menú</title>
 
 <variablelist>
   <varlistentry>
@@ -392,7 +406,7 @@
 ></term>
     <listitem
 ><para
->Esto mostrará todos los conjuntos de niveles disponibles y le permitirá descargar conjuntos adicionales cargados por otros usuarios en Internet.</para
+>Esto mostrará todos los conjuntos de niveles disponibles y te permitirá descargar conjuntos adicionales cargados por otros usuarios en Internet.</para
 ></listitem>
   </varlistentry>
   <varlistentry>
@@ -412,7 +426,7 @@
 ></term>
     <listitem
 ><para
->Seleccionando esta opción terminará la partida y saldrá de &katomic;.</para
+>Seleccionando esta opción terminarás la partida y saldrás de &katomic;.</para
 ></listitem>
   </varlistentry>
 
@@ -434,7 +448,7 @@
     <listitem
 ><para
 ><action
->Deshace el último movimiento hecho.</action
+>Deshace el último movimiento que hayas hecho.</action
 ></para
 ></listitem>
   </varlistentry>
@@ -456,7 +470,7 @@
     <listitem
 ><para
 ><action
->Si ha deshecho anteriormente un movimiento, puede rehacerlo aquí.</action
+>Si has deshecho anteriormente un movimiento, puedes rehacerlo aquí.</action
 ></para
 ></listitem>
   </varlistentry>
@@ -473,7 +487,7 @@
 ><para
 ><action
 >Deshace</action
-> el último movimiento hecho.</para
+> el último movimiento que hayas hecho.</para
 ></listitem>
   </varlistentry>
   <varlistentry>
@@ -516,11 +530,11 @@
 </variablelist>
 
 <para
->Además &katomic; tiene las opciones de menú <guimenu
+>Además, &katomic; tiene las opciones de menú <guimenu
 >Preferencias</guimenu
 > y <guimenu
 >Ayuda</guimenu
-> comunes de &kde;. Para obtener más información, consulte las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
+> comunes de &kde;. Para obtener más información, consulta las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
 >Menú «Preferencias»</ulink
 > y <ulink url="help:/fundamentals/menus.html#menus-help"
 >Menú «Ayuda» </ulink
@@ -533,7 +547,7 @@
 >Asociaciones de teclas predeterminadas</title>
 
 <para
->Los accesos predeterminados son:</para>
+>Los atajos de teclado predeterminados son:</para>
 
 <table>
 <title
@@ -650,7 +664,7 @@
       </row>
       <row>
         <entry
->Átomo previo</entry>
+>Átomo anterior</entry>
         <entry
 ><keycombo action="simul"
 >&Shift;&Tab;</keycombo
@@ -697,7 +711,7 @@
 ></question>
  <answer
 ><para
->Puede ver la molécula en la pantalla de referencia situada en la esquina superior derecha de la pantalla de juego.</para
+>Puedes ver la molécula en la pantalla de referencia situada en la esquina superior derecha de la pantalla de juego.</para
 ></answer>
 </qandaentry>
 <qandaentry>
@@ -707,17 +721,17 @@
 ></question>
  <answer
 ><para
->Para mover una pieza de juego (átomo) utilice el puntero del ratón para pulsarlo. De esta forma se volverá visible un icono direccional. Pulse en el correspondiente icono direccional para mover una pieza en la dirección deseada. Además también puede utilizar su tablero para mover las piezas. Utilice la tecla &Tab; para moverse entre los elementos, y las teclas de cursor para moverse una vez seleccionada.</para
+>Para mover una pieza de juego (átomo), usa el puntero del ratón para pulsarla. De esta forma se hará visible un icono direccional. Pulsa en el correspondiente icono direccional para mover una pieza en la dirección que quieras. Además, también puedes usar el teclado para mover las piezas. Usa la tecla &Tab; para moverte entre los elementos y las teclas de cursor para moverlos una vez seleccionados.</para
 ></answer>
 </qandaentry>
 <qandaentry>
  <question
 ><para
->¿Puedo utilizar el teclado para controlar las piezas (átomos)?</para
+>¿Puedo usar el teclado para controlar las piezas (átomos)?</para
 ></question>
  <answer
 ><para
->Sí. Utilice la tecla &Tab; para moverse entre los elementos, y las teclas de cursor para moverlo una vez seleccionado.</para
+>Sí. Usa la tecla &Tab; para moverte entre los elementos y las teclas de cursor para moverlos una vez seleccionados.</para
 ></answer>
 </qandaentry>
 <qandaentry>
@@ -727,7 +741,7 @@
 ></question>
  <answer
 ><para
->No puede. Una vez que un átomo comienza a moverse, no se detendrá hasta que encuentre una pared u otro átomo.</para
+>No se puede. Una vez que un átomo comienza a moverse, no se detendrá hasta que encuentre una pared u otro átomo.</para
 ></answer>
 </qandaentry>
 <qandaentry>
@@ -737,7 +751,7 @@
 ></question>
   <answer
 ><para
->No. Desafortunadamente, en este momento &katomic; no tiene la funcionalidad de sistema de pistas. Por tanto, la única forma de finalizar el nivel es resolverlo por sí mismo.</para
+>No. Desafortunadamente, en este momento &katomic; no tiene la funcionalidad de sistema de pistas. Por lo tanto, la única forma de finalizar el nivel es resolverlo tú mismo.</para
 ></answer>
 </qandaentry>
 <!--Please add more Q&As if needed-->
@@ -753,13 +767,13 @@
 >Entretenimiento atómico</application
 > Copyright 1999 &Stephan.Kulow; &Stephan.Kulow.mail; y &Cristian.Tibirna; &Cristian.Tibirna.mail;. </para>
 <para
->Derechos de autor de Atómico. Andreas Wuest <email
+>Copyright atómico. Andreas Wuest <email
 >Andreas Wuest@gmx.de</email
 >. </para>
 <para
 >Copyright de la documentación 2000 &Dirk.Doerflinger; &Dirk.Doerflinger.mail; </para>
 <para
->Revisión por &Mike.McBride; &Mike.McBride.mail; </para>
+>Revisada por &Mike.McBride; &Mike.McBride.mail; </para>
 <para
 >Traducido por Rocío Gallego <email
 >traducciones@rociogallego.com</email
@@ -770,6 +784,10 @@
 > y Kira J. Fernández <email
 >kirajfdez@gmail.com</email
 ></para
+><para
+>Revisado por Eloy Cuadra <email
+>ecuadra@eloihr.net</email
+>.</para
 > &underFDL; &underGPL; </chapter>
 
 &documentation.index;

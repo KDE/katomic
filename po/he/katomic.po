@@ -13,13 +13,13 @@
 # Diego Iastrubni <elcuco@kdemail.net>, 2004, 2005.
 # Diego Iastrubni <elcuco@kde.org>, 2005.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
-# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-29 00:37+0000\n"
-"PO-Revision-Date: 2024-01-11 00:47+0200\n"
+"PO-Revision-Date: 2024-04-29 22:25+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -41,8 +41,7 @@ msgid "Your emails"
 msgstr "kde-l10n-he@kde.org"
 
 #: chooselevelsetdialog.cpp:29
-#, fuzzy, kde-format
-#| msgid "Level Sets"
+#, kde-format
 msgctxt "@title:window"
 msgid "Level Sets"
 msgstr "סדרות שלבים"
@@ -105,8 +104,7 @@ msgid "Noname"
 msgstr "ללא שם"
 
 #: levelsetdelegate.cpp:81
-#, fuzzy, kde-format
-#| msgid "by %1"
+#, kde-format
 msgctxt "@info author attribution"
 msgid "By %1"
 msgstr "מאת %1"
@@ -128,10 +126,9 @@ msgstr "נא לבחור סדרת שלבים למשחק:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, fuzzy, kde-format
-#| msgid "Get new levels"
+#, kde-format
 msgid "Get New Levels…"
-msgstr "הורדת שלבים חדשים"
+msgstr "הורדת שלבים חדשים…"
 
 #: main.cpp:33
 #, kde-format
@@ -247,127 +244,109 @@ msgstr ""
 "שההתקנה שלך תקינה."
 
 #: toplevel.cpp:41
-#, fuzzy, kde-format
-#| msgid "Level:"
+#, kde-format
 msgctxt "@label"
 msgid "Level:"
 msgstr "שלב:"
 
 #: toplevel.cpp:42
-#, fuzzy, kde-format
-#| msgid "Current score:"
+#, kde-format
 msgctxt "@label"
 msgid "Current score:"
 msgstr "ציון נוכחי:"
 
 #: toplevel.cpp:43
-#, fuzzy, kde-format
-#| msgid "Highscore:"
+#, kde-format
 msgctxt "@label"
 msgid "Highscore:"
 msgstr "תוצאת שיא:"
 
 #: toplevel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Previous Level"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Level"
 msgstr "השלב הקודם"
 
 #: toplevel.cpp:97
-#, fuzzy, kde-format
-#| msgid "Next Level"
+#, kde-format
 msgctxt "@action"
 msgid "Next Level"
 msgstr "השלב הבא"
 
 #: toplevel.cpp:103
-#, fuzzy, kde-format
-#| msgid "Choose level set..."
+#, kde-format
 msgctxt "@action"
 msgid "Choose Level Set…"
-msgstr "נא לבחור סדרת שלבים…"
+msgstr "בחירת סדרת שלבים…"
 
 #: toplevel.cpp:107
-#, fuzzy, kde-format
-#| msgid "Animation Speed"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Animation Speed"
 msgstr "מהירות הנפשה"
 
 #: toplevel.cpp:110
-#, fuzzy, kde-format
-#| msgid "Slow"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Slow"
-msgstr "איטי"
+msgstr "איטית"
 
 #: toplevel.cpp:111
-#, fuzzy, kde-format
-#| msgid "Normal"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Normal"
-msgstr "רגיל"
+msgstr "רגילה"
 
 #: toplevel.cpp:112
-#, fuzzy, kde-format
-#| msgid "Fast"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Fast"
-msgstr "מהר"
+msgstr "מהירה"
 
 #: toplevel.cpp:120
-#, fuzzy, kde-format
-#| msgid "Undo All"
+#, kde-format
 msgctxt "@action"
 msgid "Undo All"
 msgstr "הסגה של הכול"
 
 #: toplevel.cpp:125
-#, fuzzy, kde-format
-#| msgid "Redo All"
+#, kde-format
 msgctxt "@action"
 msgid "Redo All"
 msgstr "ביצוע הכול מחדש"
 
 #: toplevel.cpp:139
-#, fuzzy, kde-format
-#| msgid "Atom Up"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Up"
 msgstr "אטום למעלה"
 
 #: toplevel.cpp:145
-#, fuzzy, kde-format
-#| msgid "Atom Down"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Down"
 msgstr "אטום למטה"
 
 #: toplevel.cpp:151
-#, fuzzy, kde-format
-#| msgid "Atom Left"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Left"
 msgstr "אטום שמאלה"
 
 #: toplevel.cpp:157
-#, fuzzy, kde-format
-#| msgid "Atom Right"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Right"
 msgstr "אטום ימינה"
 
 #: toplevel.cpp:163
-#, fuzzy, kde-format
-#| msgid "Next Atom"
+#, kde-format
 msgctxt "@action"
 msgid "Next Atom"
 msgstr "האטום הבא"
 
 #: toplevel.cpp:169
-#, fuzzy, kde-format
-#| msgid "Previous Atom"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Atom"
 msgstr "האטום הקודם"
