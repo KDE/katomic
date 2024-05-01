@@ -265,7 +265,7 @@
 > <guimenu
 >Partita</guimenu
 ><guimenuitem
->Carica</guimenuitem
+>Carica…</guimenuitem
 ></menuchoice
 ></term>
     <listitem
@@ -357,7 +357,7 @@
 ><guimenu
 >Partita</guimenu
 > <guimenuitem
->Scegli gruppo di livelli</guimenuitem
+>Scegli gruppo di livelli…</guimenuitem
 ></menuchoice
 ></term>
     <listitem
