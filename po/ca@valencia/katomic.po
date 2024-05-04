@@ -1,10 +1,10 @@
 # Translation of katomic.po to Catalan (Valencian)
-# Copyright (C) 2000-2023 This_file_is_part_of_KDE
+# Copyright (C) 2000-2024 This_file_is_part_of_KDE
 #
 #
 # Francesc J Devesa i Berenguer <frandeve@hotmail.com>, 2000, 2001.
 # Albert Astals Cid <aacid@kde.org>, 2003, 2005.
-# Josep M. Ferrer <txemaq@spymac.com>, 2004, 2005, 2010, 2021, 2023.
+# Josep M. Ferrer <txemaq@spymac.com>, 2004, 2005, 2010, 2021, 2023, 2024.
 # Miquel Oliete <ktalanet@yahoo.es>, 2007.
 # Manuel Tortosa <manutortosa@chakra-project.org>, 2009, 2010.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2016, 2020, 2021.
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-18 00:36+0000\n"
-"PO-Revision-Date: 2023-10-17 19:04+0200\n"
+"PO-Revision-Date: 2024-05-02 15:55+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -254,12 +254,12 @@ msgstr "Millor puntuació:"
 #: toplevel.cpp:90
 #, kde-format
 msgid "Previous Level"
-msgstr "Nivell Anterior"
+msgstr "Nivell anterior"
 
 #: toplevel.cpp:97
 #, kde-format
 msgid "Next Level"
-msgstr "Nivell Següent"
+msgstr "Nivell següent"
 
 #: toplevel.cpp:103
 #, kde-format
