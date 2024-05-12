@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kdegames-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-29 00:37+0000\n"
-"PO-Revision-Date: 2024-04-29 15:15+0300\n"
+"PO-Revision-Date: 2024-05-11 01:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -121,7 +121,7 @@ msgstr "Oynamak için bir düzey kümesi seçin:"
 #: levelsetwidget.ui:45
 #, kde-format
 msgid "Get New Levels…"
-msgstr "Yeni düzeyler Al…"
+msgstr "Yeni Düzeyler Al…"
 
 #: main.cpp:33
 #, kde-format
@@ -140,7 +140,7 @@ msgid ""
 "(c) 2007-2009 Dmitry Suzdalev"
 msgstr ""
 "(c) 1998, Andreas Wuest\n"
-"(c) 2007–2009 Dmitry Suzdalev"
+"(c) 2007–2009 Dmitriy Suzdalev"
 
 #: main.cpp:38
 #, kde-format
@@ -155,7 +155,7 @@ msgstr "Asıl yazar"
 #: main.cpp:39
 #, kde-format
 msgid "Dmitry Suzdalev"
-msgstr "Dmitry Suzdalev"
+msgstr "Dmitriy Suzdalev"
 
 #: main.cpp:39
 #, kde-format
