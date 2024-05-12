@@ -264,7 +264,7 @@ msgstr "Nivell següent"
 #: toplevel.cpp:103
 #, kde-format
 msgid "Choose level set..."
-msgstr "Seleccioneu el conjunt de nivells..."
+msgstr "Seleccioneu el conjunt de nivells…"
 
 #: toplevel.cpp:107
 #, kde-format
