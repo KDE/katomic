@@ -1,5 +1,5 @@
 # translation of katomic.po to Polish
-# Version: $Revision: 1678866 $
+# Version: $Revision: 1680053 $
 # Michal Rudolf <mrudolf@kdewebdev.org>, 2003, 2005, 2007, 2009.
 # Maciej Wikło <maciej.wiklo@wp.pl>, 2010.
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2010.
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-29 00:37+0000\n"
+"POT-Creation-Date: 2024-05-15 00:37+0000\n"
 "PO-Revision-Date: 2021-02-14 08:45+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <<lukasz.wojnilowicz@gmail.com>>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -127,7 +127,7 @@ msgstr "Wybierz zestaw poziomów do gry:"
 #: levelsetwidget.ui:45
 #, fuzzy, kde-format
 #| msgid "Get new levels"
-msgid "Get New Levels…"
+msgid "Download New Levels…"
 msgstr "Pobierz nowe poziomy"
 
 #: main.cpp:33

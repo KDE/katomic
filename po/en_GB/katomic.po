@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-29 00:37+0000\n"
+"POT-Creation-Date: 2024-05-15 00:37+0000\n"
 "PO-Revision-Date: 2021-02-14 15:38+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -118,7 +118,7 @@ msgstr "Choose a level set to play:"
 #: levelsetwidget.ui:45
 #, fuzzy, kde-format
 #| msgid "Get new levels"
-msgid "Get New Levels…"
+msgid "Download New Levels…"
 msgstr "Get new levels"
 
 #: main.cpp:33

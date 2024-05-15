@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-29 00:37+0000\n"
+"POT-Creation-Date: 2024-05-15 00:37+0000\n"
 "PO-Revision-Date: 2023-08-09 22:00+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -123,7 +123,7 @@ msgstr "Hautatu jokatu beharreko maila multzoa:"
 #: levelsetwidget.ui:45
 #, fuzzy, kde-format
 #| msgid "Get new levels"
-msgid "Get New Levels…"
+msgid "Download New Levels…"
 msgstr "Eskuratu maila berriak"
 
 #: main.cpp:33

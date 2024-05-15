@@ -2,7 +2,7 @@
 # Translation of katomic.po to Slovenian
 # -*- mode:po; coding:iso-latin-2; -*- Slovenian translation of Katomic.
 # Copyright (C) 2001, 2003, 2004, 2006, 2007 Free Software Foundation, Inc.
-# $Id: katomic.po 1678928 2024-04-30 01:10:25Z scripty $
+# $Id: katomic.po 1680053 2024-05-15 01:11:10Z scripty $
 # $Source$
 #
 # Roman Maurer <roman.maurer@amis.net>, 2001.
@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-29 00:37+0000\n"
+"POT-Creation-Date: 2024-05-15 00:37+0000\n"
 "PO-Revision-Date: 2024-04-29 10:35+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -132,8 +132,9 @@ msgstr "Izberite nov nabor stopenj za igranje:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, kde-format
-msgid "Get New Levels…"
+#, fuzzy, kde-format
+#| msgid "Get New Levels…"
+msgid "Download New Levels…"
 msgstr "Pridobi nove ravni…"
 
 #: main.cpp:33

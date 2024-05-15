@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-29 00:37+0000\n"
+"POT-Creation-Date: 2024-05-15 00:37+0000\n"
 "PO-Revision-Date: 2007-02-25 22:42+0100\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -121,7 +121,7 @@ msgstr ""
 #: levelsetwidget.ui:45
 #, fuzzy, kde-format
 #| msgid "6 new levels"
-msgid "Get New Levels…"
+msgid "Download New Levels…"
 msgstr "6 нови нивоа"
 
 #: main.cpp:33
