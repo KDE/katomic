@@ -20,7 +20,7 @@
 #  on the bulgarian chemical compound names
 #  please contact vladimirg at users.sourceforge.net
 #
-# $Id: katomic.po 1680053 2024-05-15 01:11:10Z scripty $
+# $Id: katomic.po 1680149 2024-05-16 01:10:54Z scripty $
 #
 #     2. Standard names. Example: 3,4-дихидрокси-3-циклобутен-1,2-дион.
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006.
@@ -32,7 +32,7 @@ msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2024-05-13 22:47+0200\n"
+"PO-Revision-Date: 2024-05-15 21:55+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -136,10 +136,9 @@ msgstr "Избиране на колекция с нива за зареждан
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, fuzzy, kde-format
-#| msgid "Get New Levels…"
+#, kde-format
 msgid "Download New Levels…"
-msgstr "Изтегляне на нови нива"
+msgstr "Изтегляне на нови нива…"
 
 #: main.cpp:33
 #, kde-format
