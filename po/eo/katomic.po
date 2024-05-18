@@ -1,15 +1,15 @@
 # translation of katomic/katomic.pot to esperanto
 # Copyright (C) 2002 Free Software Foundation, Inc.
 # Wolfram Diestel <wolfram@steloj.de>, 2002.
-# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-18 00:36+0000\n"
-"PO-Revision-Date: 2023-11-02 20:55+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"PO-Revision-Date: 2024-05-15 09:56+0100\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Wolfram Diestel,Oliver Kellogg"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "wolfram@steloj.de,okellogg@users.sourceforge.net"
+msgstr "wolfram@steloj.de,olivermkellogg@gmail.com"
 
 #: chooselevelsetdialog.cpp:29
 #, kde-format
@@ -55,7 +55,7 @@ msgstr "Gratulojn! Vi havas novan poentaropinton!"
 #: katomic.kcfg:9
 #, kde-format
 msgid "The speed of the animations."
-msgstr "La rapideco de la kuraĝigoj."
+msgstr "La rapideco de la animacioj."
 
 #. i18n: ectx: label, entry (SavedBackgroundWidth), group (General)
 #: katomic.kcfg:20
@@ -292,32 +292,32 @@ msgstr "Refari Ĉion"
 #: toplevel.cpp:139
 #, kde-format
 msgid "Atom Up"
-msgstr "Atomo supren"
+msgstr "Atomo Supren"
 
 #: toplevel.cpp:145
 #, kde-format
 msgid "Atom Down"
-msgstr "Atomo malsupren"
+msgstr "Atomo Malsupren"
 
 #: toplevel.cpp:151
 #, kde-format
 msgid "Atom Left"
-msgstr "Atomo dekstren"
+msgstr "Atomo Dekstren"
 
 #: toplevel.cpp:157
 #, kde-format
 msgid "Atom Right"
-msgstr "Atomo maldekstren"
+msgstr "Atomo Maldekstren"
 
 #: toplevel.cpp:163
 #, kde-format
 msgid "Next Atom"
-msgstr "Sekva atomo"
+msgstr "Sekva Atomo"
 
 #: toplevel.cpp:169
 #, kde-format
 msgid "Previous Atom"
-msgstr "Antaŭa atomo"
+msgstr "Antaŭa Atomo"
 
 #: toplevel.cpp:190
 #, kde-format
