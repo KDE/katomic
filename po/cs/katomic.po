@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2013, 2017.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
-# Vit Pelcak <vit@pelcak.org>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2021-03-22 15:52+0100\n"
+"PO-Revision-Date: 2024-05-30 10:40+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.12.3\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -33,7 +33,7 @@ msgstr "lukas@kde.org,flidr@kky.zcu.cz,jfriedl@suse.cz,david@kolibac.cz"
 #, kde-format
 msgctxt "@title:window"
 msgid "Level Sets"
-msgstr ""
+msgstr "Sady úrovní"
 
 #: gamewidget.cpp:84
 #, kde-format
@@ -98,7 +98,7 @@ msgstr "Beze jména"
 #, kde-format
 msgctxt "@info author attribution"
 msgid "By %1"
-msgstr ""
+msgstr "Od %1"
 
 #: levelsetdelegate.cpp:87
 #, kde-format
@@ -118,7 +118,7 @@ msgstr "Vyberte sadu úrovní hry:"
 #: levelsetwidget.ui:45
 #, kde-format
 msgid "Download New Levels…"
-msgstr ""
+msgstr "Stáhnout nové úrovně…"
 
 #: main.cpp:33
 #, kde-format
@@ -237,109 +237,109 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Level:"
-msgstr ""
+msgstr "Úroveň:"
 
 #: toplevel.cpp:42
 #, kde-format
 msgctxt "@label"
 msgid "Current score:"
-msgstr ""
+msgstr "Aktuální skóre:"
 
 #: toplevel.cpp:43
 #, kde-format
 msgctxt "@label"
 msgid "Highscore:"
-msgstr ""
+msgstr "Nejvyšší skóre:"
 
 #: toplevel.cpp:90
 #, kde-format
 msgctxt "@action"
 msgid "Previous Level"
-msgstr ""
+msgstr "Předchozí úroveň"
 
 #: toplevel.cpp:97
 #, kde-format
 msgctxt "@action"
 msgid "Next Level"
-msgstr ""
+msgstr "Následující úroveň"
 
 #: toplevel.cpp:103
 #, kde-format
 msgctxt "@action"
 msgid "Choose Level Set…"
-msgstr ""
+msgstr "Vyberte sadu úrovní…"
 
 #: toplevel.cpp:107
 #, kde-format
 msgctxt "@title:menu"
 msgid "Animation Speed"
-msgstr ""
+msgstr "Rychlost animace"
 
 #: toplevel.cpp:110
 #, kde-format
 msgctxt "@item animation speed"
 msgid "Slow"
-msgstr ""
+msgstr "Pomalá"
 
 #: toplevel.cpp:111
 #, kde-format
 msgctxt "@item animation speed"
 msgid "Normal"
-msgstr ""
+msgstr "Normální"
 
 #: toplevel.cpp:112
 #, kde-format
 msgctxt "@item animation speed"
 msgid "Fast"
-msgstr ""
+msgstr "Rychlá"
 
 #: toplevel.cpp:120
 #, kde-format
 msgctxt "@action"
 msgid "Undo All"
-msgstr ""
+msgstr "Vrátit vše"
 
 #: toplevel.cpp:125
 #, kde-format
 msgctxt "@action"
 msgid "Redo All"
-msgstr ""
+msgstr "Vše znovu"
 
 #: toplevel.cpp:139
 #, kde-format
 msgctxt "@action"
 msgid "Atom Up"
-msgstr ""
+msgstr "Atom nahoru"
 
 #: toplevel.cpp:145
 #, kde-format
 msgctxt "@action"
 msgid "Atom Down"
-msgstr ""
+msgstr "Atom dolů"
 
 #: toplevel.cpp:151
 #, kde-format
 msgctxt "@action"
 msgid "Atom Left"
-msgstr ""
+msgstr "Atom vlevo"
 
 #: toplevel.cpp:157
 #, kde-format
 msgctxt "@action"
 msgid "Atom Right"
-msgstr ""
+msgstr "Atom vpravo"
 
 #: toplevel.cpp:163
 #, kde-format
 msgctxt "@action"
 msgid "Next Atom"
-msgstr ""
+msgstr "Následující atom"
 
 #: toplevel.cpp:169
 #, kde-format
 msgctxt "@action"
 msgid "Previous Atom"
-msgstr ""
+msgstr "Předchozí atom"
 
 #: toplevel.cpp:190
 #, kde-format
