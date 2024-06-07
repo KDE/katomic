@@ -5,13 +5,13 @@
 # Ahmad M. Zawawi <azawawi@emirates.net.ae>, 2004.
 # Ahmad M. Zawawi <zawawi@arabeyes.org>, 2004.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-18 00:36+0000\n"
-"PO-Revision-Date: 2022-02-03 22:24+0400\n"
+"PO-Revision-Date: 2024-06-06 09:46+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -20,6 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -40,7 +41,7 @@ msgstr "مجموعات المستويات"
 #, kde-format
 msgid ""
 "Failed to load level set \"%1\". Check if it is installed on your computer."
-msgstr ""
+msgstr "فشل تحميل مجموعة المستوى \"%1\". تحقق مما إذا كان مثبتًا على حاسوبك."
 
 #: gamewidget.cpp:140
 #, kde-format
@@ -102,18 +103,18 @@ msgstr "بواسطة %1"
 #, kde-format
 msgid ", contains 1 level"
 msgid_plural ", contains %1 levels"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "، لا يحوي أي مستوى"
+msgstr[1] "، يحوي مستوى واحد"
+msgstr[2] "، يحوي مستويين"
+msgstr[3] "، يحوي %1 مستويات"
+msgstr[4] "، يحوي %1 مستوى"
+msgstr[5] "، يحوي %1 مستوى"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: levelsetwidget.ui:20
 #, kde-format
 msgid "Choose a level set to play:"
-msgstr ""
+msgstr "اختر مجموعة المستوى للعب:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
@@ -122,37 +123,38 @@ msgid "Get new levels"
 msgstr "احصل على مستويات جديدة"
 
 #: main.cpp:33
-#, fuzzy, kde-format
+#, kde-format
 msgid "KAtomic"
-msgstr "لعبة التركيب الجزيئي الكيميائي KAtomic"
+msgstr "ذراتك"
 
 #: main.cpp:35
-#, fuzzy, kde-format
-#| msgid "KDE Atomic Entertainment Game"
+#, kde-format
 msgid "Atomic Entertainment Game"
-msgstr "لعبة الذرات الترفيهية KDE"
+msgstr "لعبة الترفيه الذرية"
 
 #: main.cpp:37
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "(c) 1998, Andreas Wuest\n"
 "(c) 2007-2009 Dmitry Suzdalev"
-msgstr "c"
+msgstr ""
+"(ج) 1998، أندرياس ويست\n"
+"(ج) 2007-2009 ديمتري سوزداليف"
 
 #: main.cpp:38
 #, kde-format
 msgid "Andreas Wuest"
-msgstr "Andreas Wuest"
+msgstr "أندرياس ويست"
 
 #: main.cpp:38
 #, kde-format
 msgid "Original author"
-msgstr ""
+msgstr "المؤلف الأصلي"
 
 #: main.cpp:39
 #, kde-format
 msgid "Dmitry Suzdalev"
-msgstr "Dmitry Suzdalev"
+msgstr "ديمتري سوزداليف"
 
 #: main.cpp:39
 #, kde-format
@@ -167,17 +169,17 @@ msgstr "Stephan Kulow"
 #: main.cpp:41
 #, kde-format
 msgid "Cristian Tibirna"
-msgstr "Cristian Tibirna"
+msgstr "كريستيان تيبيرنا"
 
 #: main.cpp:42
 #, kde-format
 msgid "Carsten Pfeiffer"
-msgstr "Carsten Pfeiffer"
+msgstr "كارستن فايفر"
 
 #: main.cpp:43
 #, kde-format
 msgid "Dave Corrie"
-msgstr "Dave Corrie"
+msgstr "ديف كوري"
 
 #: main.cpp:44
 #, kde-format
@@ -230,6 +232,8 @@ msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "
 "your installation."
 msgstr ""
+"فشلت \"ذراتك\" في العثور على المستوى الافتراضي المحدد له وسيتم الإنهاء. يرجى "
+"التحقق من التثبيت الخاص بك."
 
 #: toplevel.cpp:41
 #, kde-format
