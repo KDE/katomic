@@ -1,7 +1,6 @@
 [Desktop Entry]
 Name=KAtomic
 Name[af]=Katomic
-Name[ar]=ذراتك
 Name[be]=KAtomic
 Name[bg]=KAtomic
 Name[bn]=কে-অ্যাটমিক
@@ -78,7 +77,6 @@ Type=Application
 Exec=katomic -qwindowtitle %c
 X-DocPath=katomic/index.html
 GenericName=Sokoban-like Logic Game
-GenericName[ar]=لعبة منطق شبيهة بسوكوبان
 GenericName[be]=Лагічная гульня тыпу Sokoban
 GenericName[bg]=Логическа игра тип Sokoban
 GenericName[bn]=সোকোবান-এর মত যুক্তির খেলা

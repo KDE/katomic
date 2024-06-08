@@ -1,6 +1,5 @@
 [LevelSet]
 Name=Original levels
-Name[ar]=المستويات الأصلية
 Name[bg]=Оригинални нива
 Name[bs]=Originalni nivoi
 Name[ca]=Nivells originals
@@ -49,7 +48,6 @@ Name[x-test]=xxOriginal levelsxx
 Name[zh_CN]=原始关卡
 Name[zh_TW]=原始關卡
 Description=This is the original collection of KAtomic levels.
-Description[ar]=هذه هي المجموعة الأصلية من مستويات "ذراتك".
 Description[bg]=Това е оригиналната колекция от нива на KAtomic.
 Description[bs]=Ovo je izvorna kolekcija Katomskih razina.
 Description[ca]=Aquesta és la col·lecció original de nivells del KAtomic.
@@ -100,7 +98,6 @@ LevelCount=83
 
 [Level1]
 Name=Water
-Name[ar]=ماء
 Name[bg]=Вода
 Name[bs]=Voda
 Name[ca]=Aigua
@@ -177,7 +174,6 @@ mole_0=123
 
 [Level10]
 Name=Formic Acid
-Name[ar]=حمض الفورميك
 Name[bg]=Мравчена киселина
 Name[bs]=Mravlja kiselina
 Name[ca]=Àcid fòrmic
@@ -253,7 +249,6 @@ mole_1=1345
 
 [Level11]
 Name=Acetic Acid
-Name[ar]=حمض الأسيتيك
 Name[bg]=Оцетна киселина
 Name[bs]=Sirćetna kiselina
 Name[ca]=Àcid acètic
@@ -332,7 +327,6 @@ mole_2=.4...
 
 [Level12]
 Name=trans-Butene
-Name[ar]=بوتين مفروق
 Name[bg]=Транс-бутен
 Name[bs]=trans-butilen
 Name[ca]=Trans-butè
@@ -409,7 +403,6 @@ mole_4=2.5...
 
 [Level13]
 Name=cis-Butene
-Name[ar]=بوتين مقرون
 Name[bg]=цис-бутен
 Name[bs]=cis-buten
 Name[ca]=Cis-butè
@@ -485,7 +478,6 @@ mole_3=2.52.5
 
 [Level14]
 Name=Dimethyl ether
-Name[ar]=ثنائي ميثيل الإيثر
 Name[bg]=Диметил етер
 Name[bs]=Dimetil eter
 Name[ca]=Dimetil èter
@@ -559,7 +551,6 @@ mole_2=.4.4.
 
 [Level15]
 Name=Butanol
-Name[ar]=بوتانول
 Name[bg]=Бутанол
 Name[bs]=Butanol
 Name[ca]=Butanol
@@ -637,7 +628,6 @@ mole_3=....4.
 
 [Level16]
 Name=2-Methyl-2-Propanol
-Name[ar]=ثلاثي البيوتانول
 Name[bg]=2-метил-2-пропанол
 Name[bs]=2-metil-2-propen
 Name[ca]=2-Metil-2-Propanol
@@ -716,7 +706,6 @@ mole_4=..5..
 
 [Level17]
 Name=Glycerin
-Name[ar]=جلسرين
 Name[bg]=Глицерин
 Name[bs]=Glicerin
 Name[ca]=Glicerina
@@ -795,7 +784,6 @@ mole_4=.4..
 
 [Level18]
 Name=Poly-Tetra-Fluoro-Ethene
-Name[ar]=بولي تيترا فلورو إيثين
 Name[bg]=Поли-тетра-флуоро-етен
 Name[bs]=Poli-tetra-fluor-etan
 Name[ca]=PoliTetraFluoroEtè
@@ -866,7 +854,6 @@ mole_2=2222
 
 [Level19]
 Name=Oxalic Acid
-Name[ar]=حمض الأكساليك
 Name[bg]=Оксалова киселина
 Name[bs]=Oksalina kiselina
 Name[ca]=Àcid oxàlic
@@ -941,7 +928,6 @@ mole_2=.44
 
 [Level2]
 Name=Methane
-Name[ar]=ميثان
 Name[bg]=Метан
 Name[bs]=Metan
 Name[ca]=Metà
@@ -1018,7 +1004,6 @@ mole_2=.4.
 
 [Level20]
 Name=Formaldehyde
-Name[ar]=ميثانال
 Name[bg]=Формалдехид
 Name[bs]=Formaldehid
 Name[ca]=Formaldehid
@@ -1093,7 +1078,6 @@ mole_2=3
 
 [Level21]
 Name=Crystal 1
-Name[ar]=بلور 1
 Name[bg]=Кристал 1
 Name[bs]=Kristal 1
 Name[ca]=Cristall 1
@@ -1173,7 +1157,6 @@ mole_3=3669
 
 [Level22]
 Name=Acetic acid ethyl ester
-Name[ar]=استر إيثيل حمض الأسيتيك
 Name[bg]=Етилов естер на оцетна киселина
 Name[bs]=Acetatno kiselinski etil estar
 Name[ca]=Àcid acètic etil ester
@@ -1248,7 +1231,6 @@ mole_2=.4..44.
 
 [Level23]
 Name=Ammonia
-Name[ar]=أمونيا
 Name[bg]=Амоняк
 Name[bs]=Amonijak
 Name[ca]=Amoníac
@@ -1323,7 +1305,6 @@ mole_2=..4
 
 [Level24]
 Name=3-Methyl-Pentane
-Name[ar]=3-ميثيل بنتان
 Name[bg]=3-метил-пентан
 Name[bs]=3-metil-pentan
 Name[ca]=3-Metil pentà
@@ -1400,7 +1381,6 @@ mole_3=.44444.
 
 [Level25]
 Name=Propanal
-Name[ar]=بروبانال
 Name[bg]=Пропанал
 Name[bs]=Propanal
 Name[ca]=Propanal
@@ -1476,7 +1456,6 @@ mole_2=.446.
 
 [Level26]
 Name=Propyne
-Name[ar]=بروباين
 Name[bg]=Propyne
 Name[bs]=Propin
 Name[ca]=Propí
@@ -1552,7 +1531,6 @@ mole_2=...6.
 
 [Level27]
 Name=Furanal
-Name[ar]=فورانال
 Name[bg]=Фуранал
 Name[bs]=Furanal
 Name[ca]=Furanal
@@ -1634,7 +1612,6 @@ mole_4=....a
 
 [Level28]
 Name=Pyran
-Name[ar]=بيران
 Name[bg]=Пиран
 Name[bs]=Piren
 Name[ca]=Piran
@@ -1715,7 +1692,6 @@ mole_4=.55..
 
 [Level29]
 Name=Cyclo-Pentane
-Name[ar]=سيكلو بنتان
 Name[bg]=Цикло-Пентан
 Name[bs]=Ciklo-pentan
 Name[ca]=Ciclopentà
@@ -1795,7 +1771,6 @@ mole_4=.559.
 
 [Level3]
 Name=Methanol
-Name[ar]=ميثانول
 Name[bg]=Метанол
 Name[bs]=Metanol
 Name[ca]=Metanol
@@ -1872,7 +1847,6 @@ mole_2=.4..
 
 [Level30]
 Name=Nitro-Glycerin
-Name[ar]=نيترو الجلسرين
 Name[bg]=Нитро-глицерин
 Name[bs]=Nitro-glicerin
 Name[ca]=Nitroglicerina
@@ -1962,7 +1936,6 @@ mole_6=.4...g.
 
 [Level31]
 Name=Ethane
-Name[ar]=إيثان
 Name[bg]=Етан
 Name[bs]=Etan
 Name[ca]=Età
@@ -2043,7 +2016,6 @@ mole_3=268
 
 [Level32]
 Name=Crystal 2
-Name[ar]=بلور 2
 Name[bg]=Кристал 2
 Name[bs]=Kristal 2
 Name[ca]=Cristall 2
@@ -2124,7 +2096,6 @@ mole_4=..6..
 
 [Level33]
 Name=Ethylene-Glycol
-Name[ar]=إيثيلين غليكول
 Name[bg]=Етиленов гликол
 Name[bs]=Etilen-glikol
 Name[ca]=Etilenglicol
@@ -2200,7 +2171,6 @@ mole_3=1.1.6.
 
 [Level34]
 Name=L-Alanine
-Name[ar]=ألانين
 Name[bg]=L-аланин
 Name[bs]=L-alanin
 Name[ca]=L-alanina
@@ -2282,7 +2252,6 @@ mole_3=.3.a..
 
 [Level35]
 Name=Cyanoguanidine
-Name[ar]=سيانوجوانيدين
 Name[bg]=Цианогуанидин
 Name[bs]=Cijanogvanidin
 Name[ca]=Cianoguanidina
@@ -2361,7 +2330,6 @@ mole_3=..6..
 
 [Level36]
 Name=Prussic Acid (Cyanic Acid)
-Name[ar]=حمض البروسيك (حمض السيانيك)
 Name[bg]=Пруска киселина (цианова киселина)
 Name[bs]=Pruska kiselina (cijanska kiselina)
 Name[ca]=Àcid prússic (Àcid ciànic)
@@ -2432,7 +2400,6 @@ mole_2=3
 
 [Level37]
 Name=Anthracene
-Name[ar]=أنثراسين
 Name[bg]=Антрацен
 Name[bs]=Antracen
 Name[ca]=Antracè
@@ -2521,7 +2488,6 @@ mole_6=..3..h
 
 [Level38]
 Name=Thiazole
-Name[ar]=ثيازول
 Name[bg]=Тиазол
 Name[bs]=Tijasol
 Name[ca]=Tiazol
@@ -2600,7 +2566,6 @@ mole_4=...8
 
 [Level39]
 Name=Saccharin
-Name[ar]=سكارين
 Name[bg]=Захарин
 Name[bs]=Saharin
 Name[ca]=Sacarina
@@ -2689,7 +2654,6 @@ mole_4=..g.b.f
 
 [Level4]
 Name=Ethylene
-Name[ar]=إيثيلين
 Name[bg]=Етилен
 Name[bs]=Etilen
 Name[ca]=Etilè
@@ -2765,7 +2729,6 @@ mole_2=2..6
 
 [Level40]
 Name=Styrene
-Name[ar]=ستايرين
 Name[bg]=Стирен
 Name[bs]=Stiren
 Name[ca]=Estirè
@@ -2852,7 +2815,6 @@ mole_5=..2..e
 
 [Level41]
 Name=Melamine
-Name[ar]=ميلامين
 Name[bg]=Меламин
 Name[bs]=Melanin
 Name[ca]=Melamina
@@ -2936,7 +2898,6 @@ mole_4=..6.b..
 
 [Level42]
 Name=Cyclobutane
-Name[ar]=حلقي البوتان
 Name[bg]=Циклобутан
 Name[bs]=Ciklo-butan
 Name[ca]=Ciclobutà
@@ -3011,7 +2972,6 @@ mole_3=.44.
 
 [Level43]
 Name=Nicotine
-Name[ar]=نيكوتين
 Name[bg]=Никотин
 Name[bs]=Nikotin
 Name[ca]=Nicotina
@@ -3105,7 +3065,6 @@ mole_5=..bah..
 
 [Level44]
 Name=Acetyle salicylic acid
-Name[ar]=حمض أسيتيل الساليسيليك
 Name[bg]=Ацетил салицилова киселина
 Name[bs]=Acetil-salicilna kiselina
 Name[ca]=Àcid acetilsalicílic
@@ -3196,7 +3155,6 @@ mole_7=3..g..
 
 [Level45]
 Name=Meta-Di-Nitro-Benzene
-Name[ar]=ميتا دي نيترو بنزين
 Name[bg]=Мета-ди-нитро-бензен
 Name[bs]=Meta-di-nitro-benzen
 Name[ca]=Metadinitrobenzè
@@ -3278,7 +3236,6 @@ mole_3=13.a.e4
 
 [Level46]
 Name=Propyne
-Name[ar]=بروباين
 Name[bg]=Propyne
 Name[bs]=Propin
 Name[ca]=Propí
@@ -3356,7 +3313,6 @@ mole_4=.6.
 
 [Level47]
 Name=Malonic Acid
-Name[ar]=حمض المالونيك
 Name[bg]=Малонова киселина
 Name[bs]=Malonična kiselina
 Name[ca]=Àcid malònic
@@ -3434,7 +3390,6 @@ mole_2=..b7.9a
 
 [Level48]
 Name=2,2-Dimethylpropane
-Name[ar]=2,2-ثنائي ميثيل بروبان
 Name[bg]=2,2-диметилпропан
 Name[bs]=2,2-dimetilpropan
 Name[ca]=2,2-dimetilpropà
@@ -3516,7 +3471,6 @@ mole_4=.39c.
 
 [Level49]
 Name=Ethyl-Benzene
-Name[ar]=إيثيل بنزين
 Name[bg]=Етил-бензен
 Name[bs]=Etil-benzen
 Name[ca]=Etilbenzè
@@ -3601,7 +3555,6 @@ mole_5=2.9.d
 
 [Level5]
 Name=Propene
-Name[ar]=بروبيلين
 Name[bg]=Пропен
 Name[bs]=Propin
 Name[ca]=Propè
@@ -3679,7 +3632,6 @@ mole_2=.4..8
 
 [Level50]
 Name=L-Asparagine
-Name[ar]=إل-أسباراجين
 Name[bg]=L-аспарагина
 Name[bs]=L-asparagin
 Name[ca]=L-asparagina
@@ -3764,7 +3716,6 @@ mole_5=3.f..
 
 [Level51]
 Name=1,3,5,7-Cyclooctatetraene
-Name[ar]=1,3,5,7-حلقي الأوكتاتترايين
 Name[bg]=1,3,5,7-циклооктатетраен
 Name[bs]=1,3,5,7-ciklooktatetren
 Name[ca]=1,3,5,7-Ciclooctatetraè
@@ -3842,7 +3793,6 @@ mole_5=.2..8.
 
 [Level52]
 Name=Vanillin
-Name[ar]=فانيلين
 Name[bg]=Ванилин
 Name[bs]=Vanilin
 Name[ca]=Vanil·lina
@@ -3933,7 +3883,6 @@ mole_6=......g.
 
 [Level53]
 Name=Crystal 3
-Name[ar]=بلور 3
 Name[bg]=Кристал 3
 Name[bs]=Kristal 3
 Name[ca]=Cristall 3
@@ -4012,7 +3961,6 @@ mole_3=1336...
 
 [Level54]
 Name=Uric Acid
-Name[ar]=حمض البول
 Name[bg]=Пикочна киселина
 Name[bs]=Mokraćna kiselina
 Name[ca]=Àcid úric
@@ -4100,7 +4048,6 @@ mole_5=...c.
 
 [Level55]
 Name=Thymine
-Name[ar]=ثايمين
 Name[bg]=Тимин
 Name[bs]=Timin
 Name[ca]=Timina
@@ -4185,7 +4132,6 @@ mole_5=....ac
 
 [Level56]
 Name=Aniline
-Name[ar]=أنيلين
 Name[bg]=Анилин
 Name[bs]=Anilin
 Name[ca]=Anilina
@@ -4271,7 +4217,6 @@ mole_5=.4....
 
 [Level57]
 Name=Chloroform
-Name[ar]=كلوروفورم
 Name[bg]=Хлороформ
 Name[bs]=Hloroform
 Name[ca]=Cloroform
@@ -4345,7 +4290,6 @@ mole_2=2.5
 
 [Level58]
 Name=Carbonic acid
-Name[ar]=حمض الكربونيك
 Name[bg]=Карбонова киселина
 Name[bs]=Karbonatna (ugljična) kiselina
 Name[ca]=Àcid carbònic
@@ -4421,7 +4365,6 @@ mole_4=4.
 
 [Level59]
 Name=Crystal 4
-Name[ar]=بلور 4
 Name[bg]=Кристал 4
 Name[bs]=Kristal 4
 Name[ca]=Cristall 4
@@ -4509,7 +4452,6 @@ mole_5=..8c..
 
 [Level6]
 Name=Ethanol
-Name[ar]=إيثانول
 Name[bg]=Етанол
 Name[bs]=Etanol
 Name[ca]=Etanol
@@ -4586,7 +4528,6 @@ mole_2=.44..
 
 [Level60]
 Name=Acrylo-Nitril
-Name[ar]=أكريلو نيتريل
 Name[bg]=Акрило-нитрил
 Name[bs]=Akrilo-nitril
 Name[ca]=Acrilonitril
@@ -4661,7 +4602,6 @@ mole_3=2.6
 
 [Level61]
 Name=Furan
-Name[ar]=فوران
 Name[bg]=Фуран
 Name[bs]=Furan
 Name[ca]=Furà
@@ -4740,7 +4680,6 @@ mole_3=2...9
 
 [Level62]
 Name=l-Lactic acid
-Name[ar]=ل-حمض اللاكتيك
 Name[bg]=L-млечна киселина
 Name[bs]=l-mliječna kiselina
 Name[ca]=l-àcid làctic
@@ -4818,7 +4757,6 @@ mole_4=2.5...
 
 [Level63]
 Name=Maleic Acid
-Name[ar]=حمض المالييك
 Name[bg]=Малеинова киселина
 Name[bs]=Maleična kiselina
 Name[ca]=Àcid maleic
@@ -4899,7 +4837,6 @@ mole_7=..9.
 
 [Level64]
 Name=meso-Tartaric acid
-Name[ar]=حمض الميزو الطرطريك
 Name[bg]=Мезо-тартарска киселина
 Name[bs]=mezo-tartarska kiselina
 Name[ca]=Àcid meso-tartàric
@@ -4980,7 +4917,6 @@ mole_4=...8....
 
 [Level65]
 Name=Crystal 5
-Name[ar]=بلور 5
 Name[bg]=Кристал 5
 Name[bs]=Kristal 5
 Name[ca]=Cristall 5
@@ -5068,7 +5004,6 @@ mole_4=.7.e.
 
 [Level66]
 Name=Formic acid ethyl ester
-Name[ar]=استر إيثيل حمض الفورميك
 Name[bg]=Етилов естер с мравчена киселина
 Name[bs]=Mravlji kiselinski etil estar
 Name[ca]=Àcid fòrmic etil ester
@@ -5146,7 +5081,6 @@ mole_5=.3
 
 [Level67]
 Name=1,4-Cyclohexadiene
-Name[ar]=1,4-حلقي الهكساديين
 Name[bg]=1,4-циклохексадиен
 Name[bs]=1,4-cikloheksadin
 Name[ca]=1,4-ciclohexadiè
@@ -5222,7 +5156,6 @@ mole_4=.4..1.
 
 [Level68]
 Name=Squaric acid
-Name[ar]=حمض السكواريك
 Name[bg]=Сквараинова киселина
 Name[bs]=Kvadratinska kiselina
 Name[ca]=Àcid esquàric
@@ -5301,7 +5234,6 @@ mole_4=......
 
 [Level69]
 Name=Ascorbic acid
-Name[ar]=حمض الأسكوربيك
 Name[bg]=Аскорбинова киселина
 Name[bs]=Askorbinska kiselina
 Name[ca]=Àcid ascòrbic
@@ -5389,7 +5321,6 @@ mole_5=..1f..e5
 
 [Level7]
 Name=Isopropanol
-Name[ar]=الأيزوبروبانول
 Name[bg]=Изопропанол
 Name[bs]=Izopropanol
 Name[ca]=Isopropanol
@@ -5465,7 +5396,6 @@ mole_3=..4..
 
 [Level70]
 Name=Phosgene
-Name[ar]=فوسجين
 Name[bg]=Phosgene
 Name[bs]=Fosgen
 Name[ca]=Fosgen
@@ -5537,7 +5467,6 @@ mole_2=3.4
 
 [Level71]
 Name=Thiophene
-Name[ar]=ثيوفين
 Name[bg]=Тиофен
 Name[bs]=Tiofen
 Name[ca]=Tiofè
@@ -5615,7 +5544,6 @@ mole_3=2.9.6
 
 [Level72]
 Name=Urea
-Name[ar]=يوريا
 Name[bg]=Урея
 Name[bs]=Urea
 Name[ca]=Urea
@@ -5693,7 +5621,6 @@ le_4=.4..
 
 [Level73]
 Name=Pyruvic Acid
-Name[ar]=حمض البيروفيك
 Name[bg]=Пирувинова киселина
 Name[bs]=Piruvična kiselina
 Name[ca]=Àcid pirúvic
@@ -5771,7 +5698,6 @@ mole_4=.4..
 
 [Level74]
 Name=Ethylene oxide
-Name[ar]=أكسيد الإيثيلين
 Name[bg]=Етилен оксид
 Name[bs]=Etilen oksid
 Name[ca]=Òxid d'etilè
@@ -5847,7 +5773,6 @@ mole_2=6.4.5
 
 [Level75]
 Name=Phosphoric Acid
-Name[ar]=حمض الفوسفوريك
 Name[bg]=Фосфорна киселина
 Name[bs]=Fosforna kiselina
 Name[ca]=Àcid fosfòric
@@ -5923,7 +5848,6 @@ mole_3=..5..
 
 [Level76]
 Name=Diacetyl
-Name[ar]=ثنائي الأسيتيل
 Name[bg]=Диацетил
 Name[bs]=Diacetil
 Name[ca]=Diacetil
@@ -6001,7 +5925,6 @@ mole_5=4.2.
 
 [Level77]
 Name=trans-Dichloroethene
-Name[ar]=كلورو إيثيلين مفروق
 Name[bg]=Транс-дихлороетен
 Name[bs]=Trans-dihloroetan
 Name[ca]=Trans-dicloroetè
@@ -6074,7 +5997,6 @@ mole_2=6..2
 
 [Level78]
 Name=Allylisothiocyanate
-Name[ar]=اليليسوثيوسيانات
 Name[bg]=Алилизоцианат
 Name[bs]=Alizotiocijanat
 Name[ca]=Alilisotiocianat
@@ -6149,7 +6071,6 @@ mole_2=3..2..
 
 [Level79]
 Name=Diketene
-Name[ar]=ديكيتين
 Name[bg]=Дикетен
 Name[bs]=Diketen
 Name[ca]=Dioquetina
@@ -6228,7 +6149,6 @@ mole_4=84.
 
 [Level8]
 Name=Ethanal
-Name[ar]=إيثانال
 Name[bg]=Етанал
 Name[bs]=Etanal
 Name[ca]=Etanal
@@ -6303,7 +6223,6 @@ mole_2=.4..
 
 [Level80]
 Name=Acroleine
-Name[ar]=الأكرولين
 Name[bg]=Акролеин
 Name[bs]=Akrolein
 Name[ca]=Acroleïna
@@ -6379,7 +6298,6 @@ mole_4=.3.2
 
 [Level81]
 Name=Malonic Acid
-Name[ar]=حمض المالونيك
 Name[bg]=Малонова киселина
 Name[bs]=Malonična kiselina
 Name[ca]=Àcid malònic
@@ -6457,7 +6375,6 @@ mole_4=..4..
 
 [Level82]
 Name=Uracil
-Name[ar]=يوراسيل
 Name[bg]=Урацил
 Name[bs]=Uracil
 Name[ca]=Uracil
@@ -6539,7 +6456,6 @@ mole_5=..1..
 
 [Level83]
 Name=Caffeine
-Name[ar]=كافيين
 Name[bg]=Кофеин
 Name[bs]=Kofein
 Name[ca]=Cafeïna
@@ -6636,7 +6552,6 @@ mole_6=..klm...
 
 [Level9]
 Name=Acetone
-Name[ar]=أسيتون
 Name[bg]=Ацетон
 Name[bs]=Aceton
 Name[ca]=Acetona
