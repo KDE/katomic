@@ -5,13 +5,13 @@
 # Ahmad M. Zawawi <azawawi@emirates.net.ae>, 2004.
 # Ahmad M. Zawawi <zawawi@arabeyes.org>, 2004.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
-# SPDX-FileCopyrightText: 2022, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2024-06-06 09:46+0400\n"
+"PO-Revision-Date: 2022-02-03 22:24+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -20,7 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -33,13 +32,18 @@ msgid "Your emails"
 msgstr "zayed.alsaidi@gmail.com"
 
 #: chooselevelsetdialog.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Level Sets"
 msgctxt "@title:window"
 msgid "Level Sets"
 msgstr "مجموعات المستويات"
 
 #: gamewidget.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to load level set \"%1\". Check if it is installed on your "
+#| "computer."
 msgid ""
 "Failed to load level set \"%1\". Check if it is installed on your computer."
 msgstr "فشل تحميل مجموعة المستوى \"%1\". تحقق مما إذا كان مثبتًا على حاسوبك."
@@ -96,13 +100,17 @@ msgid "Noname"
 msgstr "بدون اسم"
 
 #: levelsetdelegate.cpp:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info author attribution"
+#| msgid "By %1"
 msgctxt "@info author attribution"
 msgid "By %1"
 msgstr "بواسطة %1"
 
 #: levelsetdelegate.cpp:87
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ", contains 1 level"
+#| msgid_plural ", contains %1 levels"
 msgid ", contains 1 level"
 msgid_plural ", contains %1 levels"
 msgstr[0] "، لا يحوي أي مستوى"
@@ -114,28 +122,35 @@ msgstr[5] "، يحوي %1 مستوى"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: levelsetwidget.ui:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Choose a level set to play:"
 msgid "Choose a level set to play:"
 msgstr "اختر مجموعة المستوى للعب:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Download New Levels…"
 msgid "Download New Levels…"
 msgstr "نزّل على مستويات جديدة…"
 
 #: main.cpp:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "KAtomic"
 msgid "KAtomic"
 msgstr "ذراتك"
 
 #: main.cpp:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Atomic Entertainment Game"
 msgid "Atomic Entertainment Game"
 msgstr "لعبة الترفيه الذرية"
 
 #: main.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "(c) 1998, Andreas Wuest\n"
+#| "(c) 2007-2009 Dmitry Suzdalev"
 msgid ""
 "(c) 1998, Andreas Wuest\n"
 "(c) 2007-2009 Dmitry Suzdalev"
@@ -146,17 +161,18 @@ msgstr ""
 #: main.cpp:38
 #, kde-format
 msgid "Andreas Wuest"
-msgstr "أندرياس ويست"
+msgstr "Andreas Wuest"
 
 #: main.cpp:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Original author"
 msgid "Original author"
 msgstr "المؤلف الأصلي"
 
 #: main.cpp:39
 #, kde-format
 msgid "Dmitry Suzdalev"
-msgstr "ديمتري سوزداليف"
+msgstr "Dmitry Suzdalev"
 
 #: main.cpp:39
 #, kde-format
@@ -171,17 +187,17 @@ msgstr "Stephan Kulow"
 #: main.cpp:41
 #, kde-format
 msgid "Cristian Tibirna"
-msgstr "كريستيان تيبيرنا"
+msgstr "Cristian Tibirna"
 
 #: main.cpp:42
 #, kde-format
 msgid "Carsten Pfeiffer"
-msgstr "كارستن فايفر"
+msgstr "Carsten Pfeiffer"
 
 #: main.cpp:43
 #, kde-format
 msgid "Dave Corrie"
-msgstr "ديف كوري"
+msgstr "Dave Corrie"
 
 #: main.cpp:44
 #, kde-format
@@ -229,7 +245,10 @@ msgid "Enable access to all levels"
 msgstr "مكّن الوصول إلى كل المستويات"
 
 #: main.cpp:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "KAtomic failed to find its default level set and will quit. Please check "
+#| "your installation."
 msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "
 "your installation."
@@ -238,109 +257,145 @@ msgstr ""
 "التحقق من التثبيت الخاص بك."
 
 #: toplevel.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "Level:"
 msgctxt "@label"
 msgid "Level:"
 msgstr "المستوى:"
 
 #: toplevel.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "Current score:"
 msgctxt "@label"
 msgid "Current score:"
 msgstr "النتيجة الحالية:"
 
 #: toplevel.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "Highscore:"
 msgctxt "@label"
 msgid "Highscore:"
 msgstr "أعلى نتيجة:"
 
 #: toplevel.cpp:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Previous Level"
 msgctxt "@action"
 msgid "Previous Level"
 msgstr "المستوى السابق"
 
 #: toplevel.cpp:97
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Next Level"
 msgctxt "@action"
 msgid "Next Level"
 msgstr "المستوى التالي"
 
 #: toplevel.cpp:103
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Choose Level Set…"
 msgctxt "@action"
 msgid "Choose Level Set…"
 msgstr "اختر مجموعات المستويات…"
 
 #: toplevel.cpp:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "Animation Speed"
 msgctxt "@title:menu"
 msgid "Animation Speed"
 msgstr "سرعة الحركات"
 
 #: toplevel.cpp:110
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@item animation speed"
+#| msgid "Slow"
 msgctxt "@item animation speed"
 msgid "Slow"
 msgstr "بطيء"
 
 #: toplevel.cpp:111
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@item animation speed"
+#| msgid "Normal"
 msgctxt "@item animation speed"
 msgid "Normal"
 msgstr "عادي"
 
 #: toplevel.cpp:112
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@item animation speed"
+#| msgid "Fast"
 msgctxt "@item animation speed"
 msgid "Fast"
 msgstr "سريع"
 
 #: toplevel.cpp:120
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Undo All"
 msgctxt "@action"
 msgid "Undo All"
 msgstr "تراجع الكل"
 
 #: toplevel.cpp:125
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Redo All"
 msgctxt "@action"
 msgid "Redo All"
 msgstr "تكرار الكل"
 
 #: toplevel.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Atom Up"
 msgctxt "@action"
 msgid "Atom Up"
 msgstr "حرك الذرة الى أعلى"
 
 #: toplevel.cpp:145
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Atom Down"
 msgctxt "@action"
 msgid "Atom Down"
 msgstr "حرك الذرة الي أسفل"
 
 #: toplevel.cpp:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Atom Left"
 msgctxt "@action"
 msgid "Atom Left"
 msgstr "حرك الذرة الي اليسار"
 
 #: toplevel.cpp:157
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Atom Right"
 msgctxt "@action"
 msgid "Atom Right"
 msgstr "حرك الذرة الى اليمين"
 
 #: toplevel.cpp:163
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Next Atom"
 msgctxt "@action"
 msgid "Next Atom"
 msgstr "الذرة التالية"
 
 #: toplevel.cpp:169
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Previous Atom"
 msgctxt "@action"
 msgid "Previous Atom"
 msgstr "الذرة السابقة"
