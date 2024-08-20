@@ -2,14 +2,14 @@
 # Copyright (C) 2007 This_file_is_part_of_KDE
 # This file is distributed under the same license as the kdegames package.
 # Myong-sung, Kim <xfuncrushx@gmail.com>, 2007.
-# Shinjo Park <kde@peremen.name>, 2011, 2020, 2021.
+# SPDX-FileCopyrightText: 2011, 2020, 2021, 2024 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdegames\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2021-05-16 20:22+0200\n"
+"PO-Revision-Date: 2024-08-19 22:38+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 20.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -30,8 +30,7 @@ msgid "Your emails"
 msgstr "xfuncrushx@gmail.com"
 
 #: chooselevelsetdialog.cpp:29
-#, fuzzy, kde-format
-#| msgid "Level Sets"
+#, kde-format
 msgctxt "@title:window"
 msgid "Level Sets"
 msgstr "레벨 모음"
@@ -94,8 +93,7 @@ msgid "Noname"
 msgstr "이름없음"
 
 #: levelsetdelegate.cpp:81
-#, fuzzy, kde-format
-#| msgid "by %1"
+#, kde-format
 msgctxt "@info author attribution"
 msgid "By %1"
 msgstr "%1 만듦"
@@ -114,10 +112,9 @@ msgstr "단계 모음을 선택하십시오:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, fuzzy, kde-format
-#| msgid "Get new levels"
+#, kde-format
 msgid "Download New Levels…"
-msgstr "새 단계 가져오기"
+msgstr "새 단계 다운로드…"
 
 #: main.cpp:33
 #, kde-format
@@ -233,127 +230,109 @@ msgstr ""
 "하십시오."
 
 #: toplevel.cpp:41
-#, fuzzy, kde-format
-#| msgid "Level:"
+#, kde-format
 msgctxt "@label"
 msgid "Level:"
 msgstr "단계:"
 
 #: toplevel.cpp:42
-#, fuzzy, kde-format
-#| msgid "Current score:"
+#, kde-format
 msgctxt "@label"
 msgid "Current score:"
 msgstr "현재 점수:"
 
 #: toplevel.cpp:43
-#, fuzzy, kde-format
-#| msgid "Highscore:"
+#, kde-format
 msgctxt "@label"
 msgid "Highscore:"
 msgstr "최고 점수:"
 
 #: toplevel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Previous Level"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Level"
 msgstr "이전 단계"
 
 #: toplevel.cpp:97
-#, fuzzy, kde-format
-#| msgid "Next Level"
+#, kde-format
 msgctxt "@action"
 msgid "Next Level"
 msgstr "다음 단계"
 
 #: toplevel.cpp:103
-#, fuzzy, kde-format
-#| msgid "Choose level set..."
+#, kde-format
 msgctxt "@action"
 msgid "Choose Level Set…"
-msgstr "단계 모음 선택..."
+msgstr "단계 모음 선택…"
 
 #: toplevel.cpp:107
-#, fuzzy, kde-format
-#| msgid "Animation Speed"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Animation Speed"
 msgstr "애니메이션 속도"
 
 #: toplevel.cpp:110
-#, fuzzy, kde-format
-#| msgid "Slow"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Slow"
 msgstr "느리게"
 
 #: toplevel.cpp:111
-#, fuzzy, kde-format
-#| msgid "Normal"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Normal"
 msgstr "보통"
 
 #: toplevel.cpp:112
-#, fuzzy, kde-format
-#| msgid "Fast"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Fast"
 msgstr "빠르게"
 
 #: toplevel.cpp:120
-#, fuzzy, kde-format
-#| msgid "Undo All"
+#, kde-format
 msgctxt "@action"
 msgid "Undo All"
 msgstr "모두 실행 취소"
 
 #: toplevel.cpp:125
-#, fuzzy, kde-format
-#| msgid "Redo All"
+#, kde-format
 msgctxt "@action"
 msgid "Redo All"
 msgstr "모두 다시 실행"
 
 #: toplevel.cpp:139
-#, fuzzy, kde-format
-#| msgid "Atom Up"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Up"
 msgstr "원자 위로 이동"
 
 #: toplevel.cpp:145
-#, fuzzy, kde-format
-#| msgid "Atom Down"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Down"
 msgstr "원자 아래로 이동"
 
 #: toplevel.cpp:151
-#, fuzzy, kde-format
-#| msgid "Atom Left"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Left"
 msgstr "원자 왼쪽으로 이동"
 
 #: toplevel.cpp:157
-#, fuzzy, kde-format
-#| msgid "Atom Right"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Right"
 msgstr "원자 오른쪽으로 이동"
 
 #: toplevel.cpp:163
-#, fuzzy, kde-format
-#| msgid "Next Atom"
+#, kde-format
 msgctxt "@action"
 msgid "Next Atom"
 msgstr "다음 원자"
 
 #: toplevel.cpp:169
-#, fuzzy, kde-format
-#| msgid "Previous Atom"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Atom"
 msgstr "이전 원자"
