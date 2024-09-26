@@ -1,19 +1,18 @@
 # Translation of katomic to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2007, 2008, 2009, 2010, 2011, 2016, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2021-02-06 14:03+0100\n"
+"PO-Revision-Date: 2024-09-25 19:28+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.03.70\n"
+"X-Generator: Lokalize 24.11.70\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -30,7 +29,7 @@ msgid "Your emails"
 msgstr "gaute@verdsveven.com,karl@huftis.org"
 
 #: chooselevelsetdialog.cpp:29
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Level Sets"
 msgstr "Brettsamlingar"
@@ -94,10 +93,10 @@ msgid "Noname"
 msgstr "Namnlaus"
 
 #: levelsetdelegate.cpp:81
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info author attribution"
 msgid "By %1"
-msgstr "av %1"
+msgstr "Av %1"
 
 #: levelsetdelegate.cpp:87
 #, kde-format
@@ -114,9 +113,9 @@ msgstr "Vel kva brettsamling du vil spela:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, fuzzy, kde-format
+#, kde-format
 msgid "Download New Levels…"
-msgstr "Hent nye brett"
+msgstr "Last ned nye brett …"
 
 #: main.cpp:33
 #, kde-format
@@ -233,109 +232,109 @@ msgstr ""
 "spelet er rett installert."
 
 #: toplevel.cpp:41
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label"
 msgid "Level:"
 msgstr "Brett:"
 
 #: toplevel.cpp:42
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label"
 msgid "Current score:"
 msgstr "Poeng:"
 
 #: toplevel.cpp:43
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label"
 msgid "Highscore:"
 msgstr "Rekord:"
 
 #: toplevel.cpp:90
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Previous Level"
 msgstr "Førre brett"
 
 #: toplevel.cpp:97
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Next Level"
 msgstr "Neste brett"
 
 #: toplevel.cpp:103
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Choose Level Set…"
 msgstr "Vel brettsamling …"
 
 #: toplevel.cpp:107
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:menu"
 msgid "Animation Speed"
 msgstr "Animasjonsfart"
 
 #: toplevel.cpp:110
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Slow"
 msgstr "Sakte"
 
 #: toplevel.cpp:111
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Normal"
 msgstr "Vanleg"
 
 #: toplevel.cpp:112
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Fast"
 msgstr "Rask"
 
 #: toplevel.cpp:120
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Undo All"
 msgstr "Angra alt"
 
 #: toplevel.cpp:125
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Redo All"
 msgstr "Gjer om alt"
 
 #: toplevel.cpp:139
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Atom Up"
 msgstr "Atom opp"
 
 #: toplevel.cpp:145
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Atom Down"
 msgstr "Atom ned"
 
 #: toplevel.cpp:151
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Atom Left"
 msgstr "Atom til venstre"
 
 #: toplevel.cpp:157
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Atom Right"
 msgstr "Atom til høgre"
 
 #: toplevel.cpp:163
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Next Atom"
 msgstr "Neste atom"
 
 #: toplevel.cpp:169
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Previous Atom"
 msgstr "Førre atom"
