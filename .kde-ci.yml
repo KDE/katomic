@@ -14,6 +14,7 @@ Dependencies:
     'frameworks/knewstuff': '@latest-kf6'
     'frameworks/kdoctools': '@latest-kf6'
     'frameworks/kdbusaddons': '@latest-kf6'
+    'frameworks/kiconthemes': '@latest-kf6'
     'games/libkdegames': '@same'
 
 Options:

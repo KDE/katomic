@@ -54,6 +54,7 @@ target_link_libraries(katomic
     KF6::DBusAddons
     KF6::Crash
     KF6::XmlGui
+    KF6::IconThemes
 )
 
 install(TARGETS katomic  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
