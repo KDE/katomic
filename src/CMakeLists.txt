@@ -47,6 +47,17 @@ ki18n_wrap_ui(katomic levelsetwidget.ui)
 file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/icons/*-apps-katomic.png")
 ecm_add_app_icon(katomic ICONS ${ICONS_SRCS})
 
+if(APPLE)
+    set_target_properties(katomic PROPERTIES
+        MACOSX_BUNDLE_DISPLAY_NAME "Katomic"
+        MACOSX_BUNDLE_BUNDLE_NAME "Katomic"
+        MACOSX_BUNDLE_LONG_VERSION_STRING "Katomic ${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}"
+        MACOSX_BUNDLE_BUNDLE_VERSION "${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "org.kde.katomic"
+        MACOSX_BUNDLE_COPYRIGHT "2024 The Katomic Developers")
+endif()
+
 target_link_libraries(katomic
     KDEGames6
     KF6::NewStuffWidgets
