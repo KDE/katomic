@@ -1,5 +1,6 @@
 # translation of katomic.po to
 # KDE Finnish translation sprint participants:
+# SPDX-FileCopyrightText: 2011, 2021, 2024 Tommi Nieminen <translator@legisign.org>
 # Kim Enkovaara <kim.enkovaara@iki.fi>, 2002.
 # Teemu Rytilahti <teemu.rytilahti@d5k.net>, 2003.
 # Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2003.
@@ -7,13 +8,12 @@
 # Mikko Piippo <piippo@cc.helsinki.fi>, 2008.
 # Joonas Sarajärvi <muepsj@gmail.com>, 2010.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2012, 2013, 2014.
-# Tommi Nieminen <translator@legisign.org>, 2011, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2021-08-02 19:31+0300\n"
+"PO-Revision-Date: 2024-10-27 10:01+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -21,25 +21,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-POT-Import-Date: 2012-12-01 22:23:59+0000\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
-"Kim Enkovaara,Teemu Rytilahti,Ilpo Kantonen,Mikko Piippo,Joonas Sarajärvi"
+"Kim Enkovaara, Teemu Rytilahti, Ilpo Kantonen, Mikko Piippo, Joonas "
+"Sarajärvi, Tommi Nieminen"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
-"kim.enkovaara@iki.fi,teemu.rytilahti@kde-fi.org,ilpo@iki.fi,mikko."
-"piippo@helsinki.fi,muepsj@gmail.com"
+"kim.enkovaara@iki.fi, teemu.rytilahti@kde-fi.org, ilpo@iki.fi, mikko."
+"piippo@helsinki.fi, muepsj@gmail.com, translator@legisign.org"
 
 #: chooselevelsetdialog.cpp:29
-#, fuzzy, kde-format
-#| msgid "Level Sets"
+#, kde-format
 msgctxt "@title:window"
 msgid "Level Sets"
 msgstr "Tasopaketit"
@@ -104,11 +103,10 @@ msgid "Noname"
 msgstr "Ei nimeä"
 
 #: levelsetdelegate.cpp:81
-#, fuzzy, kde-format
-#| msgid "by %1"
+#, kde-format
 msgctxt "@info author attribution"
 msgid "By %1"
-msgstr "Tekijä: %1"
+msgstr "Tekijältä %1"
 
 #: levelsetdelegate.cpp:87
 #, kde-format
@@ -125,10 +123,9 @@ msgstr "Valitse pelattava tasopaketti:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, fuzzy, kde-format
-#| msgid "Get new levels"
+#, kde-format
 msgid "Download New Levels…"
-msgstr "Hae uusia tasoja"
+msgstr "Lataa uusia tasoja…"
 
 # pmap: =/gen=KAtomicin/
 # pmap: =/elat=KAtomicista/
@@ -244,127 +241,109 @@ msgid ""
 msgstr "KAtomicin oletustasoja ei löydy. Tarkista asennuksen eheys."
 
 #: toplevel.cpp:41
-#, fuzzy, kde-format
-#| msgid "Level:"
+#, kde-format
 msgctxt "@label"
 msgid "Level:"
 msgstr "Taso:"
 
 #: toplevel.cpp:42
-#, fuzzy, kde-format
-#| msgid "Current score:"
+#, kde-format
 msgctxt "@label"
 msgid "Current score:"
 msgstr "Nykyinen tulos:"
 
 #: toplevel.cpp:43
-#, fuzzy, kde-format
-#| msgid "Highscore:"
+#, kde-format
 msgctxt "@label"
 msgid "Highscore:"
 msgstr "Ennätykset:"
 
 #: toplevel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Previous Level"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Level"
 msgstr "Edellinen taso"
 
 #: toplevel.cpp:97
-#, fuzzy, kde-format
-#| msgid "Next Level"
+#, kde-format
 msgctxt "@action"
 msgid "Next Level"
 msgstr "Seuraava taso"
 
 #: toplevel.cpp:103
-#, fuzzy, kde-format
-#| msgid "Choose level set..."
+#, kde-format
 msgctxt "@action"
 msgid "Choose Level Set…"
 msgstr "Valitse tasopaketti…"
 
 #: toplevel.cpp:107
-#, fuzzy, kde-format
-#| msgid "Animation Speed"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Animation Speed"
-msgstr "Animaationopeus"
+msgstr "Animointinopeus"
 
 #: toplevel.cpp:110
-#, fuzzy, kde-format
-#| msgid "Slow"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Slow"
 msgstr "Hidas"
 
 #: toplevel.cpp:111
-#, fuzzy, kde-format
-#| msgid "Normal"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Normal"
 msgstr "Tavallinen"
 
 #: toplevel.cpp:112
-#, fuzzy, kde-format
-#| msgid "Fast"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Fast"
 msgstr "Nopea"
 
 #: toplevel.cpp:120
-#, fuzzy, kde-format
-#| msgid "Undo All"
+#, kde-format
 msgctxt "@action"
 msgid "Undo All"
 msgstr "Kumoa kaikki"
 
 #: toplevel.cpp:125
-#, fuzzy, kde-format
-#| msgid "Redo All"
+#, kde-format
 msgctxt "@action"
 msgid "Redo All"
-msgstr "Toista kaikki"
+msgstr "Tee kaikki uudelleen"
 
 #: toplevel.cpp:139
-#, fuzzy, kde-format
-#| msgid "Atom Up"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Up"
-msgstr "Atomi ylös"
+msgstr "Atomi ylöspäin"
 
 #: toplevel.cpp:145
-#, fuzzy, kde-format
-#| msgid "Atom Down"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Down"
-msgstr "Atomi alas"
+msgstr "Atomi alaspäin"
 
 #: toplevel.cpp:151
-#, fuzzy, kde-format
-#| msgid "Atom Left"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Left"
 msgstr "Atomi vasemmalle"
 
 #: toplevel.cpp:157
-#, fuzzy, kde-format
-#| msgid "Atom Right"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Right"
 msgstr "Atomi oikealle"
 
 #: toplevel.cpp:163
-#, fuzzy, kde-format
-#| msgid "Next Atom"
+#, kde-format
 msgctxt "@action"
 msgid "Next Atom"
 msgstr "Seuraava atomi"
 
 #: toplevel.cpp:169
-#, fuzzy, kde-format
-#| msgid "Previous Atom"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Atom"
 msgstr "Edellinen atomi"
