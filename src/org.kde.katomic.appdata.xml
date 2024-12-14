@@ -38,6 +38,7 @@
   <name xml:lang="pt">KAtomic</name>
   <name xml:lang="pt-BR">KAtomic</name>
   <name xml:lang="ru">KAtomic</name>
+  <name xml:lang="sa">KAtomic</name>
   <name xml:lang="sk">KAtomic</name>
   <name xml:lang="sl">KAtomic</name>
   <name xml:lang="sr">К‑атомика</name>
@@ -80,6 +81,7 @@
   <summary xml:lang="pt">Jogo de Lógica Semelhante ao Sokoban</summary>
   <summary xml:lang="pt-BR">Jogo Lógico parecido com Sokoban</summary>
   <summary xml:lang="ru">Логическая игра, произошедшая от игры Sokoban</summary>
+  <summary xml:lang="sa">सोकोबन्-सदृशः तर्क-खेलः</summary>
   <summary xml:lang="sk">Logická hra ako Sokoban</summary>
   <summary xml:lang="sl">Logična igra podobna Sokobanu</summary>
   <summary xml:lang="sr">Логичка игра налик на Сокобан</summary>
@@ -125,6 +127,7 @@
     <p xml:lang="pt">O KAtomic é um jogo educativo divertido, construído em torno da geometria molecular. Ele aplica vistas simplistas bidimensionais para os diferentes elementos químicos.</p>
     <p xml:lang="pt-BR">KAtomic é um jogo educativo divertido, construído em torno da geometria molecular. Ele aplica visuais simplistas bidimensionais para os diferentes elementos químicos.</p>
     <p xml:lang="ru">KAtomic — развивающая игра, каждый уровень которой основан на схематическом представлении молекулы химического соединения.</p>
+    <p xml:lang="sa">KAtomic आणविकज्यामितिः परितः निर्मितः एकः मजेदारः शैक्षिकः क्रीडा अस्ति । अस्मिन् भिन्न-भिन्न-रासायनिक-तत्त्वानां सरल-द्वि-आयामी-दृष्टिः प्रयुज्यते ।</p>
     <p xml:lang="sk">KAtomic je zábavná výuková hra založená na molekulárnej geometrii. Používa jednoduchý dvojrozmerný pohľad na rôzne chemické prvky.</p>
     <p xml:lang="sl">KAtomic je zabavna in poučna igra, temelječa na geometriji molekul. Predstavlja preprosti dvodimenzionalni pogled na različne kemijske molekule.</p>
     <p xml:lang="sr">К‑атомика је забавна образовна игра која се бави молекуларном геометријом. Служи се поједностављеним дводимензионалним приказима разноврсних хемијских једињења.</p>
