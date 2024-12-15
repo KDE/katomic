@@ -3,35 +3,37 @@
 # This file is distributed under the same license as the katomic package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-22 00:38+0000\n"
-"PO-Revision-Date: 2024-12-13 19:09+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-14 01:48+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: chooselevelsetdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Level Sets"
-msgstr ""
+msgstr "स्तर सेट्"
 
 #: gamewidget.cpp:84
 #, kde-format
@@ -94,14 +96,14 @@ msgstr "नोनाम"
 #, kde-format
 msgctxt "@info author attribution"
 msgid "By %1"
-msgstr ""
+msgstr "%1 द्वारा"
 
 #: levelsetdelegate.cpp:87
 #, kde-format
 msgid ", contains 1 level"
 msgid_plural ", contains %1 levels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] ", इत्यत्र १ स्तरः अस्ति"
+msgstr[1] ", %1 स्तराः सन्ति"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: levelsetwidget.ui:20
@@ -113,7 +115,7 @@ msgstr "क्रीडितुं स्तरसेट् चिनुत:"
 #: levelsetwidget.ui:45
 #, kde-format
 msgid "Download New Levels…"
-msgstr "नवीनस्तरं डाउनलोड् कुर्वन्तु..."
+msgstr "नवीनस्तरं डाउनलोड् कुर्वन्तु…"
 
 #: main.cpp:50
 #, kde-format
@@ -232,109 +234,109 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Level:"
-msgstr ""
+msgstr "स्तर:"
 
 #: toplevel.cpp:42
 #, kde-format
 msgctxt "@label"
 msgid "Current score:"
-msgstr ""
+msgstr "वर्तमान स्कोर : १."
 
 #: toplevel.cpp:43
 #, kde-format
 msgctxt "@label"
 msgid "Highscore:"
-msgstr ""
+msgstr "उच्चाङ्कः : १."
 
 #: toplevel.cpp:90
 #, kde-format
 msgctxt "@action"
 msgid "Previous Level"
-msgstr ""
+msgstr "पूर्वस्तरः"
 
 #: toplevel.cpp:97
 #, kde-format
 msgctxt "@action"
 msgid "Next Level"
-msgstr ""
+msgstr "अग्रिमः स्तरः"
 
 #: toplevel.cpp:103
 #, kde-format
 msgctxt "@action"
 msgid "Choose Level Set…"
-msgstr ""
+msgstr "Level Set इति चयनं कुर्वन्तु…"
 
 #: toplevel.cpp:107
 #, kde-format
 msgctxt "@title:menu"
 msgid "Animation Speed"
-msgstr ""
+msgstr "एनिमेशन गति"
 
 #: toplevel.cpp:110
 #, kde-format
 msgctxt "@item animation speed"
 msgid "Slow"
-msgstr ""
+msgstr "मन्द"
 
 #: toplevel.cpp:111
 #, kde-format
 msgctxt "@item animation speed"
 msgid "Normal"
-msgstr ""
+msgstr "सामान्य"
 
 #: toplevel.cpp:112
 #, kde-format
 msgctxt "@item animation speed"
 msgid "Fast"
-msgstr ""
+msgstr "उपवासः"
 
 #: toplevel.cpp:120
 #, kde-format
 msgctxt "@action"
 msgid "Undo All"
-msgstr ""
+msgstr "सर्वं पूर्ववत कुर्वन्तु"
 
 #: toplevel.cpp:125
 #, kde-format
 msgctxt "@action"
 msgid "Redo All"
-msgstr ""
+msgstr "Redo All"
 
 #: toplevel.cpp:139
 #, kde-format
 msgctxt "@action"
 msgid "Atom Up"
-msgstr ""
+msgstr "अतोम् उप"
 
 #: toplevel.cpp:145
 #, kde-format
 msgctxt "@action"
 msgid "Atom Down"
-msgstr ""
+msgstr "परमाणुः अधः"
 
 #: toplevel.cpp:151
 #, kde-format
 msgctxt "@action"
 msgid "Atom Left"
-msgstr ""
+msgstr "परमाणु वाम"
 
 #: toplevel.cpp:157
 #, kde-format
 msgctxt "@action"
 msgid "Atom Right"
-msgstr ""
+msgstr "परमाणु दक्षिण"
 
 #: toplevel.cpp:163
 #, kde-format
 msgctxt "@action"
 msgid "Next Atom"
-msgstr ""
+msgstr "अग्रिमः अणुः"
 
 #: toplevel.cpp:169
 #, kde-format
 msgctxt "@action"
 msgid "Previous Atom"
-msgstr ""
+msgstr "पूर्वपरमाणु"
 
 #: toplevel.cpp:190
 #, kde-format
