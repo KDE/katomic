@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-22 00:38+0000\n"
-"PO-Revision-Date: 2024-12-14 01:48+0530\n"
+"PO-Revision-Date: 2024-12-20 21:51+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -240,13 +240,13 @@ msgstr "स्तर:"
 #, kde-format
 msgctxt "@label"
 msgid "Current score:"
-msgstr "वर्तमान स्कोर : १."
+msgstr "वर्तमान स्कोर :"
 
 #: toplevel.cpp:43
 #, kde-format
 msgctxt "@label"
 msgid "Highscore:"
-msgstr "उच्चाङ्कः : १."
+msgstr "उच्चाङ्कः :"
 
 #: toplevel.cpp:90
 #, kde-format
