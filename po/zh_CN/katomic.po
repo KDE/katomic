@@ -94,7 +94,7 @@ msgstr "无名"
 #, kde-format
 msgctxt "@info author attribution"
 msgid "By %1"
-msgstr ""
+msgstr "作者：%1"
 
 #: levelsetdelegate.cpp:87
 #, kde-format
@@ -112,7 +112,7 @@ msgstr "选择要玩的关卡集："
 #: levelsetwidget.ui:45
 #, kde-format
 msgid "Download New Levels…"
-msgstr ""
+msgstr "下载新的关卡..."
 
 #: main.cpp:50
 #, kde-format
@@ -259,7 +259,7 @@ msgstr "下一级别"
 #, kde-format
 msgctxt "@action"
 msgid "Choose Level Set…"
-msgstr ""
+msgstr "选择关卡集..."
 
 #: toplevel.cpp:107
 #, kde-format
