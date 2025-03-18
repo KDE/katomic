@@ -1,13 +1,11 @@
-# translation of katomic.po to Spanish
-# Lucas Garcia <tanke@escomposlinux.org>, 2003.
-# Miguel Revilla Rodríguez <yo@miguelrevilla.com>, 2003.
-# Santiago Fernandez Sancho <santi@kde-es.org>, 2004, 2005.
-# santi <santi@kde-es.org>, 2005.
-# Santiago Fernández Sancho <santi@kde-es.org>, 2007.
+# Spanish translations for katomic.po package.
+#
+# SPDX-FileCopyrightText: 2003 Lucas Garcia <tanke@escomposlinux.org>
+# SPDX-FileCopyrightText: 2003 Miguel Revilla Rodríguez <yo@miguelrevilla.com>
+# SPDX-FileCopyrightText: 2004, 2005, 2007 Santiago Fernández Sancho <santi@kde-es.org>
 # SPDX-FileCopyrightText: 2009, 2021, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
-# Huever, 2009.
-# Kira J. Fernandez <kirajfdez@gmail.com>, 2010.
-# Sofía Priego <spriego@darksylvania.net>, %Y.
+# SPDX-FileCopyrightText: 2010 Kira J. Fernandez <kirajfdez@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Sofía Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
@@ -125,7 +123,7 @@ msgstr "Elige un conjunto de niveles para jugar:"
 #: levelsetwidget.ui:45
 #, kde-format
 msgid "Download New Levels…"
-msgstr "Descargar nuevos niveles..."
+msgstr "Descargar nuevos niveles…"
 
 #: main.cpp:50
 #, kde-format
@@ -274,7 +272,7 @@ msgstr "Siguiente nivel"
 #, kde-format
 msgctxt "@action"
 msgid "Choose Level Set…"
-msgstr "Escoger conjunto de niveles..."
+msgstr "Escoger conjunto de niveles…"
 
 #: toplevel.cpp:107
 #, kde-format
