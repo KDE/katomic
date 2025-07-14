@@ -226,7 +226,7 @@ msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "
 "your installation."
 msgstr ""
-"KAtomic-მა ნაგულისხმები დონის სეტი ვერ იპოვა და მუშაობას ასრულებს. შეამოწმეთ "
+"KAtomic-მა ნაგულისხმევი დონის სეტი ვერ იპოვა და მუშაობას ასრულებს. შეამოწმეთ "
 "პროგრამის ფაილები."
 
 #: toplevel.cpp:41
