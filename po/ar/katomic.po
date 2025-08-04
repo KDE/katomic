@@ -5,13 +5,13 @@
 # Ahmad M. Zawawi <azawawi@emirates.net.ae>, 2004.
 # Ahmad M. Zawawi <zawawi@arabeyes.org>, 2004.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
-# SPDX-FileCopyrightText: 2022, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-22 00:38+0000\n"
-"PO-Revision-Date: 2024-06-08 13:41+0400\n"
+"PO-Revision-Date: 2025-08-03 12:01+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -93,7 +93,7 @@ msgstr "شريط الأدوات الرئيسي"
 #: levelset.cpp:268
 #, kde-format
 msgid "Noname"
-msgstr "بدون اسم"
+msgstr "بلا اسم"
 
 #: levelsetdelegate.cpp:81
 #, kde-format
@@ -156,7 +156,7 @@ msgstr "المؤلّف الأصليّ"
 #: main.cpp:56
 #, kde-format
 msgid "Dmitry Suzdalev"
-msgstr "Dmitry Suzdalev"
+msgstr "ديمتري سوزداليف"
 
 #: main.cpp:56
 #, kde-format
@@ -166,17 +166,17 @@ msgstr "النقل إلى كِيدِي4 ، و المشرف الحالي"
 #: main.cpp:57
 #, kde-format
 msgid "Stephan Kulow"
-msgstr "Stephan Kulow"
+msgstr "ستيفن كولو"
 
 #: main.cpp:58
 #, kde-format
 msgid "Cristian Tibirna"
-msgstr "Cristian Tibirna"
+msgstr "كريستيان تيبيرنا"
 
 #: main.cpp:59
 #, kde-format
 msgid "Carsten Pfeiffer"
-msgstr "Carsten Pfeiffer"
+msgstr "كارستن فايفر"
 
 #: main.cpp:60
 #, kde-format
@@ -196,7 +196,7 @@ msgstr "6 مرحلة جديدة"
 #: main.cpp:62
 #, kde-format
 msgid "Danny Allen"
-msgstr "Danny Allen"
+msgstr "داني آلن"
 
 #: main.cpp:62
 #, kde-format
@@ -206,7 +206,7 @@ msgstr "رسوم اللعبة ، و أيقونة التطبيق"
 #: main.cpp:63
 #, kde-format
 msgid "Johann Ollivier Lapeyre"
-msgstr "Johann Ollivier Lapeyre"
+msgstr "يوهان أوليفييه لابير"
 
 #: main.cpp:63
 #, kde-format
@@ -216,7 +216,7 @@ msgstr "رسوم SVG الرائعة لكِيدِي4"
 #: main.cpp:64
 #, kde-format
 msgid "Brian Croom"
-msgstr "Brian Croom"
+msgstr "بريان كروم"
 
 #: main.cpp:64
 #, kde-format
