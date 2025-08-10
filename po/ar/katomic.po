@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: katomic\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-22 00:38+0000\n"
-"PO-Revision-Date: 2025-08-04 18:39+0400\n"
+"PO-Revision-Date: 2025-08-09 14:11+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -234,8 +234,8 @@ msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "
 "your installation."
 msgstr ""
-"فشلت \"ذراتك\" في العثور على المستوى المبدئي المحدد له وسيتم الإنهاء. يرجى "
-"التحقق من التثبيت الخاص بك."
+"فشلت \"ذراتك\" في العثور على المستوى المبدئي المحدد له وسيخرج. يرجى التحقق "
+"من تثبيتك."
 
 #: toplevel.cpp:41
 #, kde-format
@@ -301,7 +301,7 @@ msgstr "سريع"
 #, kde-format
 msgctxt "@action"
 msgid "Undo All"
-msgstr "تراجع الكل"
+msgstr "تراجع عن الكل"
 
 #: toplevel.cpp:125
 #, kde-format
@@ -313,25 +313,25 @@ msgstr "تكرار الكل"
 #, kde-format
 msgctxt "@action"
 msgid "Atom Up"
-msgstr "حرك الذرة الى أعلى"
+msgstr "حرك الذرة إلى أعلى"
 
 #: toplevel.cpp:145
 #, kde-format
 msgctxt "@action"
 msgid "Atom Down"
-msgstr "حرك الذرة الي أسفل"
+msgstr "حرك الذرة إلى أسفل"
 
 #: toplevel.cpp:151
 #, kde-format
 msgctxt "@action"
 msgid "Atom Left"
-msgstr "حرك الذرة الي اليسار"
+msgstr "حرك الذرة إلى اليسار"
 
 #: toplevel.cpp:157
 #, kde-format
 msgctxt "@action"
 msgid "Atom Right"
-msgstr "حرك الذرة الى اليمين"
+msgstr "حرك الذرة إلى اليمين"
 
 #: toplevel.cpp:163
 #, kde-format
