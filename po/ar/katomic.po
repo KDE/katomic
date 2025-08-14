@@ -52,7 +52,7 @@ msgstr "انتهى المستوى %1 ."
 #: gamewidget.cpp:144
 #, kde-format
 msgid "Congratulations! You have a new highscore!"
-msgstr "تهانينا ، لقد حصلت على مستوى عالي جديد!"
+msgstr "تهانينا، لقد حصلت على مستوى عالي جديد!"
 
 #. i18n: ectx: label, entry (AnimationSpeed), group (Game)
 #: katomic.kcfg:9
@@ -161,7 +161,7 @@ msgstr "ديمتري سوزداليف"
 #: main.cpp:56
 #, kde-format
 msgid "Porting to KDE4. Current maintainer"
-msgstr "النقل إلى كِيدِي4 ، و المشرف الحالي"
+msgstr "النقل إلى كِيدِي4، و المشرف الحالي"
 
 #: main.cpp:57
 #, kde-format
@@ -201,7 +201,7 @@ msgstr "داني آلن"
 #: main.cpp:62
 #, kde-format
 msgid "Game graphics and application icon"
-msgstr "رسوم اللعبة ، و أيقونة التطبيق"
+msgstr "رسوم اللعبة، و أيقونة التطبيق"
 
 #: main.cpp:63
 #, kde-format
