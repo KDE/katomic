@@ -117,7 +117,7 @@ msgstr[1] ", conté %1 nivells"
 #: levelsetwidget.ui:20
 #, kde-format
 msgid "Choose a level set to play:"
-msgstr "Seleccioneu el conjunt de nivells:"
+msgstr "Trieu el conjunt de nivells:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
@@ -272,7 +272,7 @@ msgstr "Nivell següent"
 #, kde-format
 msgctxt "@action"
 msgid "Choose Level Set…"
-msgstr "Seleccioneu el conjunt de nivells…"
+msgstr "Tria el conjunt de nivells…"
 
 #: toplevel.cpp:107
 #, kde-format
