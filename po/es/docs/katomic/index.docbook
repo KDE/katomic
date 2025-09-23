@@ -309,7 +309,7 @@
 > <guimenu
 >Juego</guimenu
 > <guimenuitem
->Cargar...</guimenuitem
+>Cargar…</guimenuitem
 ></menuchoice
 ></term>
     <listitem
@@ -401,7 +401,7 @@
 ><guimenu
 >Partida</guimenu
 > <guimenuitem
->Seleccionar conjunto de niveles...</guimenuitem
+>Seleccionar conjunto de niveles…</guimenuitem
 ></menuchoice
 ></term>
     <listitem
@@ -781,9 +781,11 @@
 >rosuna@wol.es</email
 >, Pablo de Vicente <email
 >pablo.devicente@gmail.com</email
+>, Pablo Barneo <email
+>pablob@nikhef.nl</email
 > y Kira J. Fernández <email
 >kirajfdez@gmail.com</email
-></para
+>.</para
 ><para
 >Revisado por Eloy Cuadra <email
 >ecuadra@eloihr.net</email
