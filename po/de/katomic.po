@@ -1,11 +1,11 @@
 # SPDX-FileCopyrightText: 2024 Alois.spitzbart <spitz234@hotmail.com>
-# Thomas Diehl <thd@kde.org>, 2003.
-# Stefan Winter <swinter@kde.org>, 2005, 2007.
-# Stefan Winter <mail@stefan-winter.de>, 2005.
-# Thomas Reitelbach <tr@erdfunkstelle.de>, 2005, 2008.
-# Johannes Obermayr <johannesobermayr@gmx.de>, 2009, 2010.
-# Burkhard Lück <lueck@hube-lueck.de>, 2009, 2021.
-# Frederik Schwarzer <schwarzer@kde.org>, 2012.
+# SPDX-FileCopyrightText: 2003 Thomas Diehl <thd@kde.org>
+# SPDX-FileCopyrightText: 2005, 2007 Stefan Winter <swinter@kde.org>
+# SPDX-FileCopyrightText: 2005 Stefan Winter <mail@stefan-winter.de>
+# SPDX-FileCopyrightText: 2005, 2008 Thomas Reitelbach <tr@erdfunkstelle.de>
+# SPDX-FileCopyrightText: 2009, 2010 Johannes Obermayr <johannesobermayr@gmx.de>
+# SPDX-FileCopyrightText: 2009, 2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2012 Frederik Schwarzer <schwarzer@kde.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
