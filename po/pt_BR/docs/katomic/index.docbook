@@ -5,7 +5,7 @@
   <!ENTITY % addindex "IGNORE"
 > <!-- do not change this! -->
 ]>
- 
+
 <book id="katomic" lang="&language;"
 > <!-- do not change this! -->
 <bookinfo>
@@ -62,49 +62,45 @@
 > 
 </authorgroup>
 <legalnotice
->&FDLNotice;</legalnotice
-> 
+>&FDLNotice;</legalnotice>
 <date
->09/05/2016</date>
+>13/10/2021</date>
 <releaseinfo
->4.0 (Applications 16.04)</releaseinfo>
- 
+>KDE Gear 21.08</releaseinfo>
+
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
-	<para
->Esta documentação descreve o jogo &katomic; versão 4.0</para>
+  <para
+>Esta documentação descreve o jogo &katomic; versão 21.08</para>
 </abstract>
- 
+
 <!--List of relevan keywords-->
 <keywordset>
-	<keyword
+  <keyword
 >KDE</keyword
 > <!-- do not change this! -->
-	<keyword
->kdegames</keyword
-> <!-- do not change this! -->
-	<keyword
+  <keyword
 >jogo</keyword
 > <!-- do not change this! -->
-	<keyword
+  <keyword
 >Katomic</keyword
 ><!--Application name goes here-->
 <!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
-	<keyword
+  <keyword
 >arcade</keyword>
-	<keyword
+  <keyword
 >lógica</keyword>
-	<keyword
+  <keyword
 >átomos</keyword>
-	<keyword
+  <keyword
 >socoban</keyword>
 <!--Number of possible players. It can be: One, Two,..., Multiplayer-->
-	<keyword
+  <keyword
 >um jogador</keyword>
 <!--All other relevant keywords-->
-	<keyword
+  <keyword
 >elementos químicos</keyword>
-	<keyword
+  <keyword
 >reconstruir a molécula</keyword>
 </keywordset>
 </bookinfo>
@@ -113,43 +109,44 @@
 ><title
 >Introdução</title
 > <!-- do not change this! -->
-	<note
+  <note
 ><title
 >Tipo do jogo:</title
 ><para
 >Lógica, arcade</para
 ></note
 ><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
-	<note
+  <note
 ><title
 >Número de possíveis jogadores:</title
 ><para
 >Um</para
 ></note
 ><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
- 
+
 <!--Short game description starts here. 3-4 sentences (paragraphs)-->
-	<para
+  <para
 >O &katomic; é um jogo divertido e educacional sobre geometria molecular. Ele oferece basicamente uma visão bi-dimensional dos diferentes elementos que compõem uma molécula. Uma molécula é desmontada em átomos separados e espalhados sobre o tabuleiro. O jogador deve remontar a molécula para completar o nível atual e passar para o próximo. </para>
 </chapter>
- 
+
 <chapter id="howto"
 ><title
 >Como jogar</title
 > <!-- do not change this! -->
+
 <screenshot>
-<mediaobject>
-<imageobject>
-<imagedata fileref="mainscreen.png" format="PNG"/>
-</imageobject>
-<textobject>
-<phrase
->Tela principal do &katomic;</phrase>
-</textobject>
-</mediaobject>
+  <mediaobject>
+    <imageobject
+><imagedata fileref="mainscreen.png" format="PNG"/></imageobject>
+    <textobject
+><phrase
+>Tela principal do &katomic;</phrase
+></textobject>
+  </mediaobject>
 </screenshot>
+
 <!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
-	<note
+  <note
 ><title
 >Objetivo:</title
 ><para
@@ -157,67 +154,68 @@
 ></note
 ><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
-	<para
+  <para
 >O &katomic; carregará o nível um, uma vez que você inicie o jogo e você já começa jogando. Para ver como a molécula deve ser composta, dê uma olhada no canto superior direito. Para jogar, clique em um átomo. Você poderá ver setas verdes apontando as direções por onde o átomo pode se mover. Para mover o átomo, clique na seta desejada. Quando um átomo começa a se mover, ele não pára até que ele alcance um outro átomo ou uma parede, portanto, pense bem antes de realizar a sua próxima jogada. Você pode construir sua molécula da forma que quiser no tabuleiro, mas alguns lugares são mais fáceis de se acessar que outros. Quando a molécula é montada, você pode seguir para o próximo nível. </para>
 </chapter>
- 
+
 <chapter id="rules_and_tips"
 ><title
 >Regras do jogo, estratégias e dicas</title
 > <!-- do not change this! -->
-	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
-	<sect1 id="games_rules"
+  <!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+  <sect1 id="games_rules"
 ><title
 >Regras do jogo</title
->		
-		<itemizedlist>
-			<listitem
+>    
+    <itemizedlist>
+      <listitem
 ><para
 >Peças do jogo podem apenas mover-se em uma direção por vez.</para
 ></listitem>
-			<listitem
+      <listitem
 ><para
 >Uma vez que um átomo começa a se mover, ele não para até que ele encontre uma parede ou uma outra peça.</para
 ></listitem>
-			<listitem
+      <listitem
 ><para
->A única forma de passar para o próximo nível é completar o nível atual. Uma vez que o jogador completa um certo nível, o jogo automaticamente muda para o próximo nível.</para
+>A única forma de passar para o próximo nível é completar o nível atual. Uma vez que o jogador completa um certo nível, o jogo automaticamente muda para o próximo, <quote
+>revelando-o</quote
+>.</para
 ></listitem>
-			<listitem
+      <listitem
 ><para
->Um jogador só pode escolher níveis que já foram completados.</para
+>Um jogador só pode escolher níveis que já foram concluídos.</para
 ></listitem>
-			<listitem
+      <listitem
 ><para
 >O progresso do jogo é automaticamente salvo toda vez que um nível adjacente é alcançado, e será recarregado na próxima vez que o aplicativo for iniciado.</para
 ></listitem>
-		</itemizedlist>
-	</sect1>
-	<sect1 id="tips"
+    </itemizedlist>
+  </sect1>
+  <sect1 id="tips"
 ><title
 >Estratégias e dicas</title>
-		<itemizedlist>
-			<listitem
+    <itemizedlist>
+      <listitem
 ><para
 >Sempre revise a molécula completa usando a tela de referência antes de realizar qualquer outra jogada.</para
 ></listitem>
-			<listitem
+      <listitem
 ><para
 >Próxima, estude o tabuleiro e planeje suas jogadas. Lembre-se, uma vez que uma peça é movida, pode não ser possível voltá-la para a posição inicial.</para
 ></listitem>
-			<listitem
+      <listitem
 ><para
 >Pense sobre todas as suas jogadas e tente visualizar a trajetória que a peça fará quando a seta direcional for clicada.</para
 ></listitem>
-			<listitem
+      <listitem
 ><para
 >Quando usar o teclado para mover peças, certifique-se de que a peça selecionada é aquela que se deseja mover. Se um átomo errado for marcado como selecionado, use a tecla &Tab; para trocar de peça até que a peça selecionada seja a desejada.</para
 ></listitem>
-		</itemizedlist>
-	</sect1>
-</chapter
-> 
- 
+    </itemizedlist>
+  </sect1>
+</chapter>
+
 <chapter id="interface"
 ><title
 >Resumo da interface</title
@@ -231,8 +229,8 @@
 >Itens dos menus</title>
 
 <variablelist>
-<varlistentry>
-<term
+  <varlistentry>
+    <term
 ><menuchoice
 ><shortcut
 ><keycombo action="simul"
@@ -243,18 +241,17 @@
 > <guimenu
 >Jogo</guimenu
 > <guimenuitem
->Carregar...</guimenuitem
+>Carregar…</guimenuitem
 ></menuchoice
 ></term>
-<listitem
+    <listitem
 ><para
 >Carrega um jogo previamente salvo.</para
 ></listitem>
-</varlistentry>
-
-<varlistentry>
-<term>
-<menuchoice
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
 ><shortcut
 ><keycap
 >F5</keycap
@@ -265,14 +262,13 @@
 >Reiniciar jogo</guimenuitem
 ></menuchoice
 ></term>
-<listitem
+    <listitem
 ><para
 >Isto irá reiniciar o nível atual.</para
 ></listitem>
-</varlistentry>
-
-<varlistentry>
-<term
+  </varlistentry>
+  <varlistentry>
+    <term
 ><menuchoice
 ><shortcut
 ><keycombo action="simul"
@@ -286,14 +282,13 @@
 >Salvar</guimenuitem
 ></menuchoice
 ></term>
-<listitem
+    <listitem
 ><para
 >Salva o estado atual do jogo no disco.</para
 ></listitem>
-</varlistentry>
-
-<varlistentry>
-<term
+  </varlistentry>
+  <varlistentry>
+    <term
 ><menuchoice
 ><shortcut
 ><keycombo action="simul"
@@ -307,14 +302,13 @@
 >Nível anterior</guimenuitem
 ></menuchoice
 ></term>
-<listitem
+    <listitem
 ><para
->Altera para o nível anterior do jogo</para
+>Altera para o nível anterior do jogo.</para
 ></listitem>
-</varlistentry>
-
-<varlistentry>
-<term
+  </varlistentry>
+  <varlistentry>
+    <term
 ><menuchoice
 ><shortcut
 ><keycombo action="simul"
@@ -328,29 +322,27 @@
 >Próximo nível</guimenuitem
 ></menuchoice
 ></term>
-<listitem
+    <listitem
 ><para
->Altera para o próximo nível do jogo</para
+>Altera para o próximo nível do jogo.</para
 ></listitem>
-</varlistentry>
-
-<varlistentry>
-<term
+  </varlistentry>
+  <varlistentry>
+    <term
 ><menuchoice
 ><guimenu
 >Jogo</guimenu
 > <guimenuitem
->Alterar nível...</guimenuitem
+>Alterar nível…</guimenuitem
 ></menuchoice
 ></term>
-<listitem
+    <listitem
 ><para
 >Isto irá mostrar todos os conjuntos de níveis disponíveis, permitindo-lhe baixar conjuntos adicionais que tenham sido enviados por outros usuários da Internet.</para
 ></listitem>
-</varlistentry>
-
-<varlistentry>
-<term
+  </varlistentry>
+  <varlistentry>
+    <term
 ><menuchoice
 ><shortcut
 ><keycombo action="simul"
@@ -364,40 +356,39 @@
 >Sair</guimenuitem
 ></menuchoice
 ></term>
-<listitem
+    <listitem
 ><para
 >Selecionando este item, o jogo atual será finalizado e fechará o &katomic;.</para
 ></listitem>
-</varlistentry>
+  </varlistentry>
 
-<varlistentry>
-<term
+  <varlistentry>
+    <term
 ><menuchoice
 ><shortcut
-> <keycombo action="simul"
+><keycombo action="simul"
 >&Ctrl;<keycap
 >Z</keycap
-> </keycombo
+></keycombo
 > </shortcut
 > <guimenu
 >Mover</guimenu
 > <guimenuitem
 >Desfazer</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
+></menuchoice
+></term>
+    <listitem
+><para
 ><action
 >Desfazer a última jogada realizada.</action
-></para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term
+></para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
 ><menuchoice
 ><shortcut
-> <keycombo action="simul"
+><keycombo action="simul"
 >&Ctrl;&Shift;<keycap
 >Z</keycap
 ></keycombo
@@ -406,52 +397,50 @@
 >Mover</guimenu
 > <guimenuitem
 >Refazer</guimenuitem
-> </menuchoice
+></menuchoice
 ></term>
-<listitem>
-<para
+    <listitem
+><para
 ><action
 >Se você desfez uma jogada anteriormente, você pode refazê-la aqui.</action
-></para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term
+></para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
 ><menuchoice
 ><guimenu
 >Mover</guimenu
 > <guimenuitem
 >Desfazer tudo</guimenuitem
-> </menuchoice
+></menuchoice
 ></term>
-<listitem>
-<para
+    <listitem
+><para
 ><action
 >Desfaz</action
-> todas as jogadas realizadas.</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term
+> todas as jogadas realizadas.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
 ><menuchoice
 ><guimenu
 >Mover</guimenu
 > <guimenuitem
 >Refazer tudo</guimenuitem
-> </menuchoice
+></menuchoice
 ></term>
-<listitem>
-<para
+    <listitem
+><para
 ><action
 >Refaz</action
-> todas as jogadas desfeitas.</para>
-</listitem>
-</varlistentry>
+> todas as jogadas desfeitas.</para
+></listitem>
+  </varlistentry>
 
-<varlistentry>
-<term
+  <varlistentry>
+    <term
 ><menuchoice
 ><guimenu
 >Configurações</guimenu
@@ -459,7 +448,7 @@
 >Velocidade da animação</guisubmenu
 ></menuchoice
 ></term>
-<listitem
+    <listitem
 ><para
 >Configurar a velocidade da animação para <guimenuitem
 >Lenta</guimenuitem
@@ -469,8 +458,7 @@
 >Rápida</guimenuitem
 >.</para
 ></listitem>
-</varlistentry>
-
+  </varlistentry>
 </variablelist>
 
 <para
@@ -496,158 +484,149 @@
 <table>
 <title
 >Atalhos</title>
-<tgroup cols="2">
-<tbody>
-<row>
-<entry
+  <tgroup cols="2">
+    <tbody>
+      <row>
+        <entry
 >Carregar</entry>
-<entry
+        <entry
 ><keycombo action="simul"
 >&Ctrl;<keycap
 >O</keycap
 ></keycombo
 ></entry>
-</row>
-<row>
-<entry
+      </row>
+      <row>
+        <entry
 >Reiniciar o jogo</entry>
-<entry>
-<keycap
->F5</keycap>
-</entry>
-</row>
-<row>
-<entry
+        <entry
+><keycap
+>F5</keycap
+></entry>
+      </row>
+      <row>
+        <entry
 >Salvar</entry>
-<entry
+        <entry
 ><keycombo action="simul"
 >&Ctrl;<keycap
 >S</keycap
 ></keycombo
 ></entry>
-</row>
-<row>
-<entry
+      </row>
+      <row>
+        <entry
 >Nível anterior</entry>
-<entry
+        <entry
 ><keycombo action="simul"
 >&Ctrl;<keycap
 >P</keycap
 ></keycombo
 ></entry>
-</row>
-<row>
-<entry
+      </row>
+      <row>
+        <entry
 >Próximo nível</entry>
-<entry
+        <entry
 ><keycombo action="simul"
 >&Ctrl;<keycap
 >N</keycap
 ></keycombo
 ></entry>
-</row>
-<row>
-<entry
+      </row>
+      <row>
+        <entry
 >Sair</entry>
-<entry>
-<keycombo action="simul"
+        <entry
+><keycombo action="simul"
 >&Ctrl;<keycap
 >Q</keycap
-></keycombo>
-</entry>
-</row>
-<row>
-<entry
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
 >Desfazer</entry>
-<entry>
-<keycombo action="simul"
+        <entry
+><keycombo action="simul"
 >&Ctrl;<keycap
 >Z</keycap
-></keycombo>
-</entry>
-</row>
-<row>
-<entry
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
 >Refazer</entry>
-<entry>
-<keycombo action="simul"
+        <entry
+><keycombo action="simul"
 >&Ctrl;&Shift;<keycap
 >Z</keycap
-></keycombo>
-</entry>
-</row>
-
-<row>
-<entry
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
 >Átomo para baixo</entry>
-<entry>
-<keycap
->Seta para baixo</keycap>
-</entry>
-</row>
-<row>
-<entry
+        <entry
+>Seta para &Down;</entry>
+      </row>
+      <row>
+        <entry
 >Átomo para esquerda</entry>
-<entry>
-<keycap
->Seta a esquerda</keycap>
-</entry>
-</row>
-<row>
-<entry
+        <entry
+>Seta para &Left;</entry>
+      </row>
+      <row>
+        <entry
 >Átomo para direita</entry>
-<entry>
-<keycap
->Seta a direita</keycap>
-</entry>
-</row>
-<row>
-<entry
+        <entry
+>Seta para &Right;</entry>
+      </row>
+      <row>
+        <entry
 >Átomo acima</entry>
-<entry>
-<keycap
->Seta para cima</keycap>
-</entry>
-</row>
-<row>
-<entry
+        <entry
+>Seta para &Up;</entry>
+      </row>
+      <row>
+        <entry
 >Próximo átomo</entry>
-<entry
+        <entry
 >&Tab;</entry>
-</row>
-<row>
-<entry
+      </row>
+      <row>
+        <entry
 >Átomo anterior</entry>
-<entry
+        <entry
 ><keycombo action="simul"
 >&Shift;&Tab;</keycombo
 ></entry>
-</row>
-<row>
-<entry
+      </row>
+      <row>
+        <entry
 >Ajuda</entry>
-<entry
+        <entry
 ><keycap
 >F1</keycap
 ></entry>
-</row>
-<row>
-<entry
+      </row>
+      <row>
+        <entry
 >O que é isto?</entry>
-<entry>
-<keycombo action="simul"
+        <entry
+><keycombo action="simul"
 >&Shift;<keycap
 >F1</keycap
-></keycombo>
-</entry>
-</row>
-</tbody>
-</tgroup>
+></keycombo
+></entry>
+      </row>
+    </tbody>
+  </tgroup>
 </table>
 </sect1>
 
 </chapter>
- 
+
 <chapter id="faq"
 ><title
 >Perguntas frequentes</title
@@ -710,7 +689,7 @@
 <!--Please add more Q&As if needed-->
 </qandaset>
 </chapter>
- 
+
 <chapter id="credits">
 <title
 >Créditos e Licença</title>
@@ -718,24 +697,22 @@
 <para
 >Direitos autorais do <application
 >Atomic Entertainment</application
-> 1999 &Stephan.Kulow; &Stephan.Kulow.mail; e Cristian Tibirna &Cristian.Tibirna.mail;. </para>
+> 1999 &Stephan.Kulow; &Stephan.Kulow.mail; e &Cristian.Tibirna; &Cristian.Tibirna.mail;. </para>
 <para
 >Direitos autorais do Atomic Andreas Wuest <email
 >Andreas Wuest@gmx.de</email
 >. </para>
 <para
->Direitos autorais da documentação 2000 &Dirk.Doerflinger; <email
->ddoerflinger@gmx.net</email
-> </para>
+>Direitos autorais da documentação 2000 &Dirk.Doerflinger; &Dirk.Doerflinger.mail; </para>
 <para
->Revisão por Michael McBride &Mike.McBride.mail; </para>
+>Revisão por &Mike.McBride; &Mike.McBride.mail; </para>
 <para
 >Tradução de Luiz Fernando Ranghetti <email
 >elchevive@opensuse.org</email
 ></para
 > &underFDL; &underGPL; </chapter>
- 
-&documentation.index; 
+
+&documentation.index;
 </book>
 <!--
 Local Variables:
