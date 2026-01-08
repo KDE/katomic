@@ -13,8 +13,9 @@
 
 #include <KSharedConfig>
 
-#include <QString>
+#include <QHash>
 #include <QList>
+#include <QString>
 
 class Molecule;
 
