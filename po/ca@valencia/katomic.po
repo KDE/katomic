@@ -46,7 +46,7 @@ msgstr "Conjunts de nivells"
 msgid ""
 "Failed to load level set \"%1\". Check if it is installed on your computer."
 msgstr ""
-"No s'ha pogut carregar el conjunt de nivells «%1». Comproveu si està "
+"Ha fallat mentre es carregava el conjunt de nivells «%1». Comproveu si està "
 "instal·lat en el vostre ordinador."
 
 #: gamewidget.cpp:140
@@ -235,8 +235,8 @@ msgid ""
 "KAtomic failed to find its default level set and will quit. Please check "
 "your installation."
 msgstr ""
-"KAtomic ha fallat en trobar el seu conjunt de nivells predeterminat i ara es "
-"pararà. Comproveu la instal·lació."
+"KAtomic ha fallat mentre es trobava el seu conjunt de nivells predeterminat "
+"i ara es pararà. Comproveu la instal·lació."
 
 #: toplevel.cpp:41
 #, kde-format
