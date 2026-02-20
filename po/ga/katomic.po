@@ -28,11 +28,10 @@ msgid "Your emails"
 msgstr "seoc@iolfree.ie,kscanne@gmail.com"
 
 #: chooselevelsetdialog.cpp:29
-#, fuzzy, kde-format
-#| msgid "Level Sets"
+#, kde-format
 msgctxt "@title:window"
 msgid "Level Sets"
-msgstr "Pacáistí Leibhéil"
+msgstr ""
 
 #: gamewidget.cpp:84
 #, kde-format
@@ -94,11 +93,10 @@ msgid "Noname"
 msgstr "Gan ainm"
 
 #: levelsetdelegate.cpp:81
-#, fuzzy, kde-format
-#| msgid "by %1"
+#, kde-format
 msgctxt "@info author attribution"
 msgid "By %1"
-msgstr "le %1"
+msgstr ""
 
 #: levelsetdelegate.cpp:87
 #, kde-format
@@ -118,10 +116,9 @@ msgstr "Roghnaigh pacáiste leibhéil:"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, m_pbNewStuff)
 #: levelsetwidget.ui:45
-#, fuzzy, kde-format
-#| msgid "Get new levels"
+#, kde-format
 msgid "Download New Levels…"
-msgstr "Faigh leibhéil nua"
+msgstr ""
 
 #: main.cpp:50
 #, kde-format
@@ -129,10 +126,9 @@ msgid "KAtomic"
 msgstr "KAtomic"
 
 #: main.cpp:52
-#, fuzzy, kde-format
-#| msgid "KDE Atomic Entertainment Game"
+#, kde-format
 msgid "Atomic Entertainment Game"
-msgstr "Cluiche Siamsa Adamhach KDE"
+msgstr ""
 
 #: main.cpp:54
 #, kde-format
@@ -238,130 +234,112 @@ msgstr ""
 "scoirfidh sé anois.  Déan seiceáil ar do chóras."
 
 #: toplevel.cpp:41
-#, fuzzy, kde-format
-#| msgid "Level:"
+#, kde-format
 msgctxt "@label"
 msgid "Level:"
-msgstr "Leibhéal:"
+msgstr ""
 
 #: toplevel.cpp:42
-#, fuzzy, kde-format
-#| msgid "Current score:"
+#, kde-format
 msgctxt "@label"
 msgid "Current score:"
-msgstr "Scór reatha:"
+msgstr ""
 
 #: toplevel.cpp:43
-#, fuzzy, kde-format
-#| msgid "Highscore:"
+#, kde-format
 msgctxt "@label"
 msgid "Highscore:"
-msgstr "Scór Is Airde:"
+msgstr ""
 
 #: toplevel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Previous Level"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Level"
-msgstr "An Leibhéal Roimhe Seo"
+msgstr ""
 
 #: toplevel.cpp:97
-#, fuzzy, kde-format
-#| msgid "Next Level"
+#, kde-format
 msgctxt "@action"
 msgid "Next Level"
-msgstr "An Chéad Leibhéal Eile"
+msgstr ""
 
 #: toplevel.cpp:103
-#, fuzzy, kde-format
-#| msgid "Choose level set..."
+#, kde-format
 msgctxt "@action"
 msgid "Choose Level Set…"
-msgstr "Roghnaigh pacáiste leibhéil..."
+msgstr ""
 
 #: toplevel.cpp:107
-#, fuzzy, kde-format
-#| msgid "Animation Speed"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Animation Speed"
-msgstr "Luas na Beochana"
+msgstr ""
 
 #: toplevel.cpp:110
-#, fuzzy, kde-format
-#| msgid "Slow"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Slow"
-msgstr "Mall"
+msgstr ""
 
 #: toplevel.cpp:111
-#, fuzzy, kde-format
-#| msgid "Normal"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Normal"
-msgstr "Gnáthluas"
+msgstr ""
 
 #: toplevel.cpp:112
-#, fuzzy, kde-format
-#| msgid "Fast"
+#, kde-format
 msgctxt "@item animation speed"
 msgid "Fast"
-msgstr "Tapa"
+msgstr ""
 
 #: toplevel.cpp:120
-#, fuzzy, kde-format
-#| msgid "Undo All"
+#, kde-format
 msgctxt "@action"
 msgid "Undo All"
-msgstr "Cealaigh Uile"
+msgstr ""
 
 #: toplevel.cpp:125
-#, fuzzy, kde-format
-#| msgid "Redo All"
+#, kde-format
 msgctxt "@action"
 msgid "Redo All"
-msgstr "Athdhéan Uile"
+msgstr ""
 
 #: toplevel.cpp:139
-#, fuzzy, kde-format
-#| msgid "Atom Up"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Up"
-msgstr "Adamh Thuas"
+msgstr ""
 
 #: toplevel.cpp:145
-#, fuzzy, kde-format
-#| msgid "Atom Down"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Down"
-msgstr "Adamh Thíos"
+msgstr ""
 
 #: toplevel.cpp:151
-#, fuzzy, kde-format
-#| msgid "Atom Left"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Left"
-msgstr "Adamh Ar Chlé"
+msgstr ""
 
 #: toplevel.cpp:157
-#, fuzzy, kde-format
-#| msgid "Atom Right"
+#, kde-format
 msgctxt "@action"
 msgid "Atom Right"
-msgstr "Adamh Ar Dheis"
+msgstr ""
 
 #: toplevel.cpp:163
-#, fuzzy, kde-format
-#| msgid "Next Atom"
+#, kde-format
 msgctxt "@action"
 msgid "Next Atom"
-msgstr "An chéad adamh eile"
+msgstr ""
 
 #: toplevel.cpp:169
-#, fuzzy, kde-format
-#| msgid "Previous Atom"
+#, kde-format
 msgctxt "@action"
 msgid "Previous Atom"
-msgstr "An t-adamh roimhe seo"
+msgstr ""
 
 #: toplevel.cpp:190
 #, kde-format
@@ -377,283 +355,3 @@ msgstr "Scór reatha: %1"
 #, kde-format
 msgid "Highscore: %1"
 msgstr "Scór Is Airde: %1"
-
-#~ msgid ""
-#~ "Level %1 can not be found. Please check your installation. Now switching "
-#~ "to Level 1"
-#~ msgstr ""
-#~ "Leibhéal %1 gan aimsiú. Déan seiceáil ar do chóras. Úsáidfear Leibhéal 1 "
-#~ "anois"
-
-#~ msgid ""
-#~ "Level 1 data can not be found. Please check your installation. KAtomic "
-#~ "will quit now."
-#~ msgstr ""
-#~ "Ní féidir sonraí leibhéil 1 a aimsiú. Déan seiceáil ar do chóras. "
-#~ "Scoirfidh KAtomic anois."
-
-#~ msgid "You must solve level %1 before advancing to the next one!"
-#~ msgstr ""
-#~ "Caithfidh tú leibhéal %1 a réiteach sular féidir leat dul go dtí an chéad "
-#~ "leibhéal eile!"
-
-#~ msgid "Warning"
-#~ msgstr "Rabhadh"
-
-#~ msgid "Water"
-#~ msgstr "Uisce"
-
-#~ msgid "Formic Acid"
-#~ msgstr "Aigéad Formach"
-
-#~ msgid "Acetic Acid"
-#~ msgstr "Aigéad Aicéiteach"
-
-#~ msgid "trans-Butene"
-#~ msgstr "tras-Bhúitéin"
-
-#~ msgid "cis-Butene"
-#~ msgstr "cios-Bhúitéin"
-
-#~ msgid "Dimethyl ether"
-#~ msgstr "Éitear démheitil"
-
-#~ msgid "Butanol"
-#~ msgstr "Bútánól"
-
-#~ msgid "2-Methyl-2-Propanol"
-#~ msgstr "2-Meitil-2-Própánól"
-
-#~ msgid "Glycerin"
-#~ msgstr "Glicrín"
-
-#~ msgid "Poly-Tetra-Fluoro-Ethene"
-#~ msgstr "Polai-Teitrea-Fluara-Eitéin"
-
-#~ msgid "Oxalic Acid"
-#~ msgstr "Aigéad Ocsalach"
-
-#~ msgid "Methane"
-#~ msgstr "Meatán"
-
-#~ msgid "Formaldehyde"
-#~ msgstr "Formaildéad"
-
-#~ msgid "Crystal 1"
-#~ msgstr "Criostal 1"
-
-#~ msgid "Acetic acid ethyl ester"
-#~ msgstr "Aigéad aicéiteach eitil eistear"
-
-#~ msgid "Ammonia"
-#~ msgstr "Amóinia"
-
-#~ msgid "3-Methyl-Pentane"
-#~ msgstr "3-Meitil-Peantán"
-
-#~ msgid "Propanal"
-#~ msgstr "Própánal"
-
-#~ msgid "Propyne"
-#~ msgstr "Próipéín"
-
-#~ msgid "Furanal"
-#~ msgstr "Fúránál"
-
-#~ msgid "Pyran"
-#~ msgstr "Pyran"
-
-#~ msgid "Cyclo-Pentane"
-#~ msgstr "Cioglai-Peantán"
-
-#~ msgid "Methanol"
-#~ msgstr "Meatánól"
-
-#~ msgid "Nitro-Glycerin"
-#~ msgstr "Nítriglicrín"
-
-#~ msgid "Ethane"
-#~ msgstr "Eatán"
-
-#~ msgid "Crystal 2"
-#~ msgstr "Criostal 2"
-
-#~ msgid "Ethylene-Glycol"
-#~ msgstr "Eitiléin-Gliocól"
-
-#~ msgid "L-Alanine"
-#~ msgstr "L-Alainín"
-
-#~ msgid "Cyanoguanidine"
-#~ msgstr "Cianaghuainidín"
-
-#~ msgid "Prussic Acid (Cyanic Acid)"
-#~ msgstr "Aigéad Prúiseach"
-
-#~ msgid "Anthracene"
-#~ msgstr "Antraicéin"
-
-#~ msgid "Thiazole"
-#~ msgstr "Tiasól"
-
-#~ msgid "Saccharin"
-#~ msgstr "Siúicrín"
-
-#~ msgid "Ethylene"
-#~ msgstr "Eitiléin"
-
-#~ msgid "Styrene"
-#~ msgstr "Stiréin"
-
-#~ msgid "Melamine"
-#~ msgstr "Meilimín"
-
-#~ msgid "Cyclobutane"
-#~ msgstr "Cioglabútán"
-
-#~ msgid "Nicotine"
-#~ msgstr "Nicitín"
-
-#~ msgid "Acetyle salicylic acid"
-#~ msgstr "Aigéad salaicileach aicéitileach"
-
-#~ msgid "Meta-Di-Nitro-Benzene"
-#~ msgstr "Meiti-Dé-Nitri-Beinséin"
-
-#~ msgid "Malonic Acid"
-#~ msgstr "Aigéad Malónach"
-
-#~ msgid "2,2-Dimethylpropane"
-#~ msgstr "2,2-Démheitiolprópán"
-
-#~ msgid "Ethyl-Benzene"
-#~ msgstr "Eitil-Beinséin"
-
-#~ msgid "Propene"
-#~ msgstr "Próipéin"
-
-#~ msgid "L-Asparagine"
-#~ msgstr "L-Asparaigin"
-
-#~ msgid "1,3,5,7-Cyclooctatetraene"
-#~ msgstr "1,3,5,7-Cioglochtaiteitréin"
-
-#~ msgid "Vanillin"
-#~ msgstr "Fanailin"
-
-#~ msgid "Crystal 3"
-#~ msgstr "Criostal 3"
-
-#~ msgid "Uric Acid"
-#~ msgstr "Aigéad Úrach"
-
-#~ msgid "Thymine"
-#~ msgstr "Tímín"
-
-#~ msgid "Aniline"
-#~ msgstr "Anailín"
-
-#~ msgid "Chloroform"
-#~ msgstr "Clóraform"
-
-#~ msgid "Carbonic acid"
-#~ msgstr "Aigéad Carbónach"
-
-#~ msgid "Crystal 4"
-#~ msgstr "Criostal 4"
-
-#~ msgid "Ethanol"
-#~ msgstr "Eatánól"
-
-#~ msgid "Acrylo-Nitril"
-#~ msgstr "Aicrilinítríl"
-
-#~ msgid "Furan"
-#~ msgstr "Fúrán"
-
-#~ msgid "l-Lactic acid"
-#~ msgstr "Aigéad l-Lachtach"
-
-#~ msgid "Maleic Acid"
-#~ msgstr "Aigéad Mailéach"
-
-#~ msgid "meso-Tartaric acid"
-#~ msgstr "aigéad méisi-Tartarach"
-
-#~ msgid "Crystal 5"
-#~ msgstr "Criostal 5"
-
-#~ msgid "Formic acid ethyl ester"
-#~ msgstr "Aigéad formach eitil eistear"
-
-#~ msgid "1,4-Cyclohexadiene"
-#~ msgstr "1,4-Cicliheicsidé-éin"
-
-#~ msgid "Squaric acid"
-#~ msgstr "Aigéad cearnach"
-
-#~ msgid "Ascorbic acid"
-#~ msgstr "Aigéad ascorbach"
-
-#~ msgid "Phosgene"
-#~ msgstr "Foisgéin"
-
-#~ msgid "Thiophene"
-#~ msgstr "Tiaiféin"
-
-#~ msgid "Urea"
-#~ msgstr "Úiré"
-
-#~ msgid "Pyruvic Acid"
-#~ msgstr "Aigéad Piorúvach"
-
-#~ msgid "Ethylene oxide"
-#~ msgstr "Eitiléin Ocsaíd"
-
-#~ msgid "Phosphoric Acid"
-#~ msgstr "Aigéad Fosfarach"
-
-#~ msgid "Diacetyl"
-#~ msgstr "Dé-aicéitil"
-
-#~ msgid "trans-Dichloroethene"
-#~ msgstr "tras-Déchlóireitéin"
-
-#~ msgid "Allylisothiocyanate"
-#~ msgstr "Aillilisitiaicianáit"
-
-#~ msgid "Diketene"
-#~ msgstr "Dé-cheitéin"
-
-#~ msgid "Ethanal"
-#~ msgstr "Eatánal"
-
-#~ msgid "Acroleine"
-#~ msgstr "Acroiléin"
-
-#~ msgid "Uracil"
-#~ msgstr "Úraicil"
-
-#~ msgid "Caffeine"
-#~ msgstr "Caiféin"
-
-#~ msgid "Acetone"
-#~ msgstr "Aicéatón"
-
-#~ msgid "Highest level player is allowed to play"
-#~ msgstr "Leibhéal is airde a gceadaítear d'imreoir imirt air"
-
-#~ msgid "Propan-2-ol"
-#~ msgstr "Própán-2-al"
-
-#~ msgid "Congratulations"
-#~ msgstr "Comhghairdeas"
-
-#~ msgid "Score"
-#~ msgstr "Scór"
-
-#~ msgid "Your score so far:"
-#~ msgstr "Do scór go dtí seo:"
-
-#~ msgid "Show &Highscores"
-#~ msgstr "Taispeáin na scóir is &fearr"
