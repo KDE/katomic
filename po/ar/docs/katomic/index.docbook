@@ -1,0 +1,733 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Arabic "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"
+> <!-- do not change this! -->
+]>
+
+<book id="katomic" lang="&language;"
+> <!-- do not change this! -->
+<bookinfo>
+<title
+>دليل ذرتك</title
+> <!-- This is the title of the docbook. Leave as is unless change is necessary.-->
+<!-- List of immediate authors begins here. -->
+<!--INPORTANT! - All other contributors: [to be determined] -->
+<authorgroup>
+<author
+><firstname
+>Dirk</firstname
+> <surname
+>Doerflinger</surname
+> </author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>مُراجِع</contrib>
+<affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+<legalnotice
+>&FDLNotice;</legalnotice>
+<date
+>2021-10-13</date>
+<releaseinfo
+>ترس كيدي 21.08</releaseinfo>
+
+<!--Short description of this document. Do not change unless necessary!-->
+<abstract>
+  <para
+>يصف هذا التوثيق لعبة ذرتك الإصدارة 21.08</para>
+</abstract>
+
+<!--List of relevan keywords-->
+<keywordset>
+  <keyword
+>كيدي</keyword
+> <!-- do not change this! -->
+  <keyword
+>لعبة</keyword
+> <!-- do not change this! -->
+  <keyword
+>ذراتك</keyword
+><!--Application name goes here-->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+  <keyword
+>أركيد</keyword>
+  <keyword
+>منطق</keyword>
+  <keyword
+>ذرات</keyword>
+  <keyword
+>سوكوبان</keyword>
+<!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+  <keyword
+>لاعب واحد</keyword>
+<!--All other relevant keywords-->
+  <keyword
+>عناصر كيميائية</keyword>
+  <keyword
+>إعادة تجميع الجزيء</keyword>
+</keywordset>
+</bookinfo>
+<!--Content begins here: -->
+<chapter id="introduction"
+><title
+>مقدمة</title
+> <!-- do not change this! -->
+  <note
+><title
+>نوع اللعبة:</title
+><para
+>منطق، أركيد</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+  <note
+><title
+>عدد اللاعبين الممكنين:</title
+><para
+>واحد</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+
+<!--Short game description starts here. 3-4 sentences (paragraphs)-->
+  <para
+>لعبة ذرتك هي لعبة ممتعة وتعليمية مبنية حول الهندسة الجزيئية. تستخدم اللعبة نظرة ثنائية الأبعاد مبسطة للعناصر التي يتكون منها الجزيء. فُكك الجزيء إلى ذرات منفصلة وبُعثرت حول ساحة اللعب. يجب على اللاعب إعادة تجميع الجزيء لإكمال المستوى الحالي والانتقال إلى المستوى التالي. </para>
+</chapter>
+
+<chapter id="howto"
+><title
+>كيف تلعب</title
+> <!-- do not change this! -->
+
+<screenshot>
+  <mediaobject>
+    <imageobject
+><imagedata fileref="mainscreen.png" format="PNG"/></imageobject>
+    <textobject
+><phrase
+>شاشة ذرتك الرئيسية</phrase
+></textobject>
+  </mediaobject>
+</screenshot>
+
+<!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
+  <note
+><title
+>الهدف:</title
+><para
+>إعادة تجميع الجزيئات من ذرات مركبة عبر تحريكها.</para
+></note
+><!--Describe the objective of the game.-->
+<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+  <para
+>ستُحمل لعبة ذرتك المستوى الأول بمجرد بدء اللعبة ويمكنك البدء في اللعب على الفور. لترى كيف يبدو الجزيء الذي من المفترض أن تصنعه، انظر إلى الركن الأيمن العلوي. للعب، انقر فوق ذرة. سترى سهامًا خضراء تشير إلى الاتجاهات التي يمكن للذرة أن تتحرك إليها. لتحريك الذرة، انقر فوق السهم المطلوب. عندما تبدأ الذرة في التحرك، فلن تتوقف حتى تصطدم بذرة أخرى أو بجدار، لذا تأكد من التفكير قبل القيام بنقلتك التالية. يمكنك تجميع الجزيء في أي مكان تريده في لوحة اللعبة، لكن الوصول لبعض الأماكن أسهل من غيرها. عند تجميع الجزيء، يمكنك الانتقال إلى المستوى التالي. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>قواعد اللعبة واستراتيجياتها وتلميحاتها</title
+> <!-- do not change this! -->
+  <!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+  <sect1 id="games_rules"
+><title
+>قواعد اللعبة</title
+>    
+    <itemizedlist>
+      <listitem
+><para
+>لا يمكن لقطع اللعبة التحرك إلا في اتجاه واحد في كل مرة.</para
+></listitem>
+      <listitem
+><para
+>بمجرد أن تبدأ الذرة في التحرك، لن تتوقف حتى تقابل إما جدارًا أو قطعة أخرى.</para
+></listitem>
+      <listitem
+><para
+>الطريقة الوحيدة للتقدم إلى مستوى اللعبة التالي هي إكمال المستوى الحالي. بمجرد أن يكمل اللاعب مستوى معينًا، تنتقل اللعبة آليًا إلى المستوى التالي، وبذلك يتم <quote
+>كشفه</quote
+>.</para
+></listitem>
+      <listitem
+><para
+>لا يمكن للاعب التبديل إلا بين المستويات التي كُشفت.</para
+></listitem>
+      <listitem
+><para
+>يُحفظ تقدم اللعبة آليًا في كل مرة يُوصل فيها إلى مستوى مجاور، وسيُعاد تحميله في المرة التالية التي يُشغل فيها التطبيق.</para
+></listitem>
+    </itemizedlist>
+  </sect1>
+  <sect1 id="tips"
+><title
+>الاستراتيجيات والتلميحات</title>
+    <itemizedlist>
+      <listitem
+><para
+>راجع دائمًا الجزيء الكامل باستخدام شاشة المرجع قبل القيام بأي نقلات.</para
+></listitem>
+      <listitem
+><para
+>بعد ذلك، ادرس ساحة اللعب وخطط لنقلاتك. تذكر، بمجرد تحريك قطعة ما، قد لا يكون من الممكن إعادتها إلى موضع البداية.</para
+></listitem>
+      <listitem
+><para
+>فكر في كل نقلة وحاول تخيل المسار الذي ستتبعه القطعة بمجرد النقر فوق سهم الاتجاه.</para
+></listitem>
+      <listitem
+><para
+>عند استخدام لوحة المفاتيح لتحريك القطع، تأكد من اختيار القطعة المطلوبة. إذا وُسمت ذرة خاطئة على أنها مختارة، فاستخدم مفتاح جدولة (Tab) للتبديل بين القطع حتى تصل إلى القطعة المطلوبة.</para
+></listitem>
+    </itemizedlist>
+  </sect1>
+</chapter>
+
+<chapter id="interface"
+><title
+>نظرة عامة على الواجهة</title
+> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
+> and <varlistentry
+>. Split the chapter into sections using <sect1(2,3)
+> for better viewing.-->
+<sect1 id="menu">
+<title
+>عناصر القائمة</title>
+
+<variablelist>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>حمّل…</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>يُحمل لعبة حُفظت مسبقًا.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>أعد بدء اللعبة</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>سيعيد هذا بدء المستوى الحالي.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>احفظ</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>يحفظ الحالة الحالية للعبة على القرص.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>المستوى السابق</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>التغيير إلى مستوى اللعبة السابق.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>المستوى التالي</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>التغيير إلى مستوى اللعبة التالي.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>لعبة</guimenu
+> <guimenuitem
+>اختر مجموعة المستويات…</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>سيعرض هذا جميع مجموعات المستويات المتاحة ويسمح لك بتنزيل مجموعات إضافية رفعها مستخدمون آخرون من الإنترنت.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>أنهِ</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+>سيؤدي اختيار هذا العنصر إلى إنهاء لعبتك الحالية والخروج من ذرتك.</para
+></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>نقلة</guimenu
+> <guimenuitem
+>تراجع</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>يتراجع عن آخر نقلة قمت بها.</action
+></para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>نقلة</guimenu
+> <guimenuitem
+>كرّر</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>إذا تراجعت عن نقلة مسبقًا، فيمكنك تكرارها هنا.</action
+></para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>نقلة</guimenu
+> <guimenuitem
+>تراجع عن الكل</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>تراجع</action
+> عن جميع النقلات التي قمت بها.</para
+></listitem>
+  </varlistentry>
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>نقلة</guimenu
+> <guimenuitem
+>كرّر الكل</guimenuitem
+></menuchoice
+></term>
+    <listitem
+><para
+><action
+>كرّر</action
+> جميع النقلات المتراجع عنها.</para
+></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term
+><menuchoice
+><guimenu
+>الإعدادات</guimenu
+> <guisubmenu
+>سرعة التحريك</guisubmenu
+></menuchoice
+></term>
+    <listitem
+><para
+>اضبط سرعة التحريك على <guimenuitem
+>بطيء</guimenuitem
+> أو <guimenuitem
+>عادي</guimenuitem
+> أو <guimenuitem
+>سريع</guimenuitem
+>.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>بالإضافة إلى ذلك، تحتوي ذرتك على عناصر قائمة <guimenu
+>الإعدادات</guimenu
+> و<guimenu
+>مساعدة</guimenu
+> الشائعة في كيدي، لمزيد من المعلومات اقرأ الأقسام حول <ulink url="help:/fundamentals/menus.html#menus-settings"
+>قائمة الإعدادات</ulink
+> و <ulink url="help:/fundamentals/menus.html#menus-help"
+>قائمة المساعدة</ulink
+> في أساسيات كيدي. </para>
+
+</sect1>
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>ارتباطات المفاتيح المبدئية</title>
+
+<para
+>الاختصارات المبدئية هي:</para>
+
+<table>
+<title
+>الاختصارات</title>
+  <tgroup cols="2">
+    <tbody>
+      <row>
+        <entry
+>حمّل</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>أعد بدء اللعبة.</entry>
+        <entry
+><keycap
+>F5</keycap
+></entry>
+      </row>
+      <row>
+        <entry
+>احفظ</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>المستوى السابق</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>المستوى التالي</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>أنهِ</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>تراجع</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Ctrl+Z</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>كرّر</entry>
+        <entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>حرك الذرة إلى أسفل</entry>
+        <entry
+>&Down; سهم لأسفل</entry>
+      </row>
+      <row>
+        <entry
+>حرك الذرة إلى اليسار</entry>
+        <entry
+>&Left; سهم لليسار</entry>
+      </row>
+      <row>
+        <entry
+>حرك الذرة إلى اليمين</entry>
+        <entry
+>&Right; سهم لليمين</entry>
+      </row>
+      <row>
+        <entry
+>حرك الذرة إلى أعلى</entry>
+        <entry
+>&Up; سهم لأعلى</entry>
+      </row>
+      <row>
+        <entry
+>الذرة التالية</entry>
+        <entry
+>&Tab;</entry>
+      </row>
+      <row>
+        <entry
+>الذرة السابقة</entry>
+        <entry
+><keycombo action="simul"
+>&Shift;&Tab;</keycombo
+></entry>
+      </row>
+      <row>
+        <entry
+>مساعدة</entry>
+        <entry
+><keycap
+>F1</keycap
+></entry>
+      </row>
+      <row>
+        <entry
+>ما هذا؟</entry>
+        <entry
+><keycombo action="simul"
+>&Shift;<keycap
+>Shift+F1</keycap
+></keycombo
+></entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+</sect1>
+
+</chapter>
+
+<chapter id="faq"
+><title
+>الأسئلة الشائعة</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+<qandaentry>
+ <question
+><para
+>كيف أعرف كيف يبدو الجزيء؟</para
+></question>
+ <answer
+><para
+>يمكنك عرض الجزيء في شاشة المرجع الموجودة في الركن الأيمن العلوي من شاشة اللعبة.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>كيف أحرك قطعة اللعبة (ذرة)؟</para
+></question>
+ <answer
+><para
+>لتحريك قطعة اللعبة (الذرة)، استخدم مؤشر الفأرة للنقر عليها. في هذا الوقت، ستظهر أيقونة الاتجاه المتاحة. انقر فوق أيقونة الاتجاه المقابلة لجعل قطعة اللعبة تتحرك في الاتجاه المطلوب. بدلاً من ذلك، يمكنك استخدام لوحة المفاتيح لتحريك القطع. استخدم مفتاح جدولة (Tab) للتبديل بين العناصر، ومفاتيح الأسهم لتحريكها بمجرد تحديدها.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>هل يمكنني استخدام لوحة المفاتيح للتحكم في القطع (الذرات)؟</para
+></question>
+ <answer
+><para
+>نعم. استخدم مفتاح جدولة (Tab) للتبديل بين العناصر، ومفاتيح الأسهم لتحريكها بمجرد تحديدها.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>عندما أحرك قطعة (ذرة) فإنها تتجاوز المكان الذي أريده. كيف أجعلها تتوقف هناك؟</para
+></question>
+ <answer
+><para
+>لا يمكنك ذلك. بمجرد أن تبدأ الذرة في التحرك، لن تتوقف حتى تقابل إما جدارًا أو قطعة أخرى.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>لا أستطيع اجتياز المستوى. هل هناك نظام تلميحات أو حلّال؟</para
+></question>
+  <answer
+><para
+>لا. لسوء الحظ، لا تتميز ذرتك في هذا الوقت بنظام تلميحات. لذا فإن الطريقة الوحيدة لإنهاء المستوى هي حله بنفسك.</para
+></answer>
+</qandaentry>
+<!--Please add more Q&As if needed-->
+</qandaset>
+</chapter>
+
+<chapter id="credits">
+<title
+>الحقوق والترخيص</title>
+
+<para
+>حقوق النشر <application
+>Atomic Entertainment</application
+> لعام 1999 محفوظة لـ &Stephan.Kulow; &Stephan.Kulow.mail; و &Cristian.Tibirna; &Cristian.Tibirna.mail;. </para>
+<para
+>حقوق نشر Atomic محفوظة لـ Andreas Wuest <email
+>Andreas Wuest@gmx.de</email
+>. </para>
+<para
+>حقوق نشر التوثيق لعام 2000 محفوظة لـ &Dirk.Doerflinger; &Dirk.Doerflinger.mail; </para>
+<para
+>التدقيق اللغوي بواسطة &Mike.McBride; &Mike.McBride.mail; </para>
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
