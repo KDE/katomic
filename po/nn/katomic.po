@@ -1,5 +1,6 @@
 # Translation of katomic to Norwegian Nynorsk
 #
+# Karl Ove Hufthammer <karl@huftis.org>, 2007, 2008, 2009, 2010, 2011, 2016, 2021, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: katomic\n"
