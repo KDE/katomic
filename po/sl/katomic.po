@@ -2,7 +2,7 @@
 # Translation of katomic.po to Slovenian
 # -*- mode:po; coding:iso-latin-2; -*- Slovenian translation of Katomic.
 # Copyright (C) 2001, 2003, 2004, 2006, 2007 Free Software Foundation, Inc.
-# $Id: katomic.po 1723087 2025-11-17 12:44:32Z scripty $
+# $Id$
 # $Source$
 #
 # Roman Maurer <roman.maurer@amis.net>, 2001.
